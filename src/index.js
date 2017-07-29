@@ -1,12 +1,13 @@
 import React from 'react'
 import createLogger from 'redux-logger'
 import { render } from 'react-dom'
-import { Router } from 'react-router'
+import { Route, Link, AppContainer, hashHistory, browserHistory } from 'react-router'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
 
 import reducer from './reducers/root-reducer'
-import App from './components/App';
+import routes from './routes';
+import App from './components/containers/App/App';
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
 
@@ -29,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 render(
   //Provider allows us to receive data from store of our app (by connect function)
   <Provider store={store}>
-    <App />
+      <Router history={browserHistory} routes={routes} />
   </Provider>,
   document.getElementById('app-root')
 );
