@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "es2017",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-class-properties",
+    "transform-object-rest-spread",
+    "transform-decorators"
+  ],
+  "sourceRoot": "./src"
+}
