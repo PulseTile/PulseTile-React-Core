@@ -1,0 +1,16 @@
+# Directories
+node_modules/
+dist/
+tests/
+coverage
+.nyc_output/
+
+# Extensions
+*.gz
+*.log
+*.log*
+*.rar
+*.tar
+
+#IDE generated
+.idea/
