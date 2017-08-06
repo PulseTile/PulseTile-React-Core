@@ -1,19 +1,21 @@
 import React from 'react';
-import classNames from 'classnames';
 
-import '../../../../node_modules/bootstrap/dist/css/bootstrap.css';
+import TopHeader from '../TopHeader/TopHeader';
+import HeaderToolbar from '../HeaderToolbar/HeaderToolbar';
+import Breadcumbs from '../Breadcumbs/Breadcumbs';
+import Main from '../Main/Main';
+import Footer from '../Footer/Footer';
 
-import NavBar from '../../containers/NavBar/NavBar';
-import * as styles from './App.scss';
+import '../../../styles/main.scss';
 
 const App = props => <div>
   <header>
-    <NavBar/>
+    <TopHeader />
+    <HeaderToolbar />
+    <Breadcumbs />
   </header>
-  <section className={classNames('container', styles.container)}>
-      { /*render children from router here*/ }
-      {props.children}
-  </section>
+  <Main />
+  <Footer />
 </div>;
 
 export default App;

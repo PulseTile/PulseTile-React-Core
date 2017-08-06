@@ -1,0 +1,232 @@
+html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: $font-family-main;
+  min-width: $min-width; 
+}
+
+
+*,
+*:before,
+*:after { box-sizing: border-box; }
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+textarea { resize: vertical; }
+
+a,
+a:hover,
+a:focus {
+  color: $text-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.is-not-touch-device a:hover,
+.is-not-touch-device a:focus {
+  color: $auxiliary-color;
+  text-decoration: none;
+}
+
+.list-reset { @include list-reset; }
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline:0px !important;
+}
+
+.wrap-overflow { overflow: hidden; }
+
+.without-shadow { box-shadow: none !important; }
+
+.wrap-icon {
+  font-size: 0;
+
+  i, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  i { margin-right: 3px; }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.text-truncate {
+  @include text-truncate;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.main {
+  margin-left: 0;
+  position: relative;
+  z-index: 1;
+}
+@include respond-from(sm) {
+  .showSidebar .sidebar + .main {
+    margin-left: 185px;
+  }
+}
+
+#page-wrapper {
+  min-height: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  background-color: transparent;
+  padding: 10px 0;
+  @include respond-from(xs) {
+    padding: $indent-wrapper-big;
+  }
+}
+
+body {
+  .footer, .wrapper {
+    opacity: 1;
+    transition: opacity 1s ease, visibility 1s ease;
+    visibility: visible;
+  }
+
+  .main-spinner { 
+    opacity: 0;
+    transition: opacity 1s ease, visibility 1s ease, background 1s ease;
+    visibility: hidden;
+  }
+
+  &.loading {
+    .footer, .wrapper {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .main-spinner {
+      background: #fff; bottom: 0;
+      display: block;
+      left: 0;
+      opacity: 1;
+      position: fixed; right: 0;
+      top: 0;
+      visibility: visible;
+      z-index: 9999;
+    }
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+
+.lds-css {
+  display: block !important;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -100px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.lds-dual-ring {
+  position: relative;
+}
+
+.lds-dual-ring div {
+  -webkit-animation: lds-dual-ring 1s linear infinite;
+  animation: lds-dual-ring 1s linear infinite;
+  border: 10px solid #000;
+  border-color: #f0641f transparent #f0641f transparent;
+  border-radius: 50%;
+  height: 120px;
+  left: 40px;
+  position: absolute;
+  top: 40px;
+  width: 120px;
+}
+
+.lds-dual-ring div:nth-child(2) {
+  -webkit-animation: lds-dual-ring_reverse 1s linear infinite;
+  animation: lds-dual-ring_reverse 1s linear infinite;
+  border-color: transparent #cacaca transparent #cacaca;
+  height: 96px;
+  left: 52px;
+  top: 52px;
+  width: 96px;
+}
+
+.lds-double-ring {
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  width: 200px !important;
+}

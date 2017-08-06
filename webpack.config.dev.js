@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -9,7 +10,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(sourcePath, 'index.html'),
   filename: path.resolve(buildPath, 'index.html'),
   inject: 'body',
-})
+});
 
 module.exports = {
   devtool: 'eval',
@@ -29,7 +30,7 @@ module.exports = {
   ],
 
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(buildPath),
     filename: '[name].js',
     publicPath: '/',
   },
@@ -45,6 +46,8 @@ module.exports = {
 
     new webpack.NoEmitOnErrorsPlugin(),
     // do not emit compiled assets that include errors
+
+    new ExtractTextPlugin('styles.css'),
   ],
 
   module: {
@@ -53,6 +56,18 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loaders: ['react-hot-loader/webpack', 'babel-loader'],
+      },
+      {
+        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          //resolve-url-loader may be chained before sass-loader if necessary
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
     ],
   },

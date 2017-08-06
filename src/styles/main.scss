@@ -1,0 +1,16 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '~font-awesome/fonts';
+$font-family-main: Arial, Helvetica, sans-serif;
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+@import 'config';
+@import 'abstracts/variables';
+@import 'abstracts/colors';
+@import 'abstracts/mixins';
+@import 'abstracts/settings';
+@import 'base';
+@import 'grid';
+
+
