@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PatientsLists = props => <section>
+const PatientsLists = props => <section className="page-wrapper">
 
 </section>;
 

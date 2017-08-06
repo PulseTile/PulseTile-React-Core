@@ -15,10 +15,16 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import 'grid';
 
 //components
+//pages
+
+//containers
 @import '../components/containers/App/App';
 @import '../components/containers/Main/Main';
 @import '../components/containers/Breadcumbs/Breadcrumbs';
 @import '../components/containers/TopHeader/TopHeader';
 @import '../components/containers/HeaderToolbar/HeaderToolbar';
 @import '../components/containers/Footer/Footer';
+@import '../components/containers/PatientsChart/PatientsChart';
 
+//presentational
+@import '../components/presentational/PTPanel/PTPanel';
