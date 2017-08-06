@@ -95,6 +95,7 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",

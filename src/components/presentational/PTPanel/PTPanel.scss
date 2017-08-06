@@ -7,27 +7,33 @@
   &.panel-default {
     border-color: $base-color;
   }
+
   &.panel-secondary {
     border-color: $panel-border-color;
   }
+
   &.panel-subaccordion {
     background: #ffffff;
   }
+
   &.panel-small {
     background: #ffffff;
     border-color: $panel-border-color;
   }
 }
+
 .panel-expand-item + .panel-expand-item {
   border-top-color: $panel-border-color;
 }
 @include respond-from(md) {
   .full-panel {
     .panel-expand-wrapper {
+
       &:after {
         background: $panel-border-color;
       }
     }
+
     .panel-expand-row + .panel-expand-row{
       border-top-color: $panel-border-color;
     }
