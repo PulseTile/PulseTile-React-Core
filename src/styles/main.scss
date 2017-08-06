@@ -5,6 +5,7 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import '~font-awesome/scss/font-awesome';
 
+//common styles
 @import 'config';
 @import 'abstracts/variables';
 @import 'abstracts/colors';
@@ -13,6 +14,11 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import 'base';
 @import 'grid';
 
+//components
 @import '../components/containers/App/App';
-//@import '../components/pages/*/**';
+@import '../components/containers/Main/Main';
+@import '../components/containers/Breadcumbs/Breadcrumbs';
+@import '../components/containers/TopHeader/TopHeader';
+@import '../components/containers/HeaderToolbar/HeaderToolbar';
+@import '../components/containers/Footer/Footer';
 
