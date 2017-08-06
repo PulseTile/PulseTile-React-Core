@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TopHeader = props => <div>
+const TopHeader = props => <div className="navbar">
 
 </div>;
 

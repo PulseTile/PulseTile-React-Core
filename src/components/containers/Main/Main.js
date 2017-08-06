@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
-import { PatientsLists, SystemDashboard } from '../../../pages'
+import { PatientsLists, SystemDashboard } from '../../pages'
 
 const Main = props => <main>
   <Switch>
