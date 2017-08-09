@@ -27,6 +27,11 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import '../components/containers/PatientsChart/PatientsChart';
 @import '../components/containers/MainLogo/MainLogo';
 @import '../components/containers/PTButtonIcon/PTButtonIcon';
+@import '../components/containers/NavSearch/NavSearch';
 
 //presentational
 @import '../components/presentational/PTPanel/PTPanel';
+
+//global
+
+@import './global/control';
