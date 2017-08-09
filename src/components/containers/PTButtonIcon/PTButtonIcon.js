@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const PTButtonIcon = props => <a className={`btn-header ${ props.classButtonName }`}>
-  <i className={`fa ${ props.icon }`}/>
-</a>;
+class PTButtonIcon extends Component {
+  render() {
+    let span = null;
+    if (this.props.classButtonName == 'btn-notification') {
+      span = <span className="count">2</span>;
+    }
+    return (
+      <a className={`btn-header ${ this.props.classButtonName }`}>
+        <i className={`fa ${ this.props.icon }`}/>
+        {span}
+      </a>
+    );
+  }
+}
 
 export default PTButtonIcon;
