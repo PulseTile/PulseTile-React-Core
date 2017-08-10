@@ -1,5 +1,5 @@
+import 'rxjs'
 import React from 'react'
-import Rx from 'rxjs';
 import { createLogger } from 'redux-logger'
 import { render } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -7,8 +7,8 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
 
-import rootReducer from './reducers/root-reducer'
-import rootEpic from './epics/root-epic'
+import rootReducer from './reducers/root.reducer'
+import rootEpic from './epics/root.epic'
 import App from './components/containers/App/App'
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //TEST
-setInterval(() => store.dispatch({ type: 'PING' }), 1000);
+store.dispatch({ type: 'FETCH_ALL_USERS_START' });
 
 render(
   //Provider allows us to receive data from store of our app (by connect function)
