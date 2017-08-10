@@ -1,16 +1,16 @@
 import React from 'react';
-import PTButtonIcon from '../PTButtonIcon/PTButtonIcon';
+import PTButton from '../PTButton/PTButton';
 
 const UserAccountPanel = props => <ul className="user-panel" role="tablist">
   <li className="user-panel-item visible-xs">
-    <PTButtonIcon className="btn-header"
+    <PTButton className="btn-header"
       children={(
         <i className="fa fa-search"/>
       )}
     />
   </li>
   <li className="user-panel-item">
-    <PTButtonIcon className="btn-header btn-notification"
+    <PTButton className="btn-header btn-notification"
       children={(
         <div>
           <i className="fa fa-bell-o"/>
@@ -20,7 +20,7 @@ const UserAccountPanel = props => <ul className="user-panel" role="tablist">
     />
   </li>
   <li className="user-panel-item">
-    <PTButtonIcon className="btn-header btn-user"
+    <PTButton className="btn-header btn-user"
       children={(
         <i className="fa fa-user"/>
       )}
