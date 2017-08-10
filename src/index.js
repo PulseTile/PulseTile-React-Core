@@ -1,14 +1,19 @@
 import React from 'react'
+import Rx from 'rxjs';
 import { createLogger } from 'redux-logger'
 import { render } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
+import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
 
-import reducer from './reducers/root-reducer'
-import App from './components/containers/App/App';
+import rootReducer from './reducers/root-reducer'
+import rootEpic from './epics/root-epic'
+import App from './components/containers/App/App'
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
 
 /**
  * Create store with initial state structure
@@ -20,11 +25,14 @@ const initialState = {};
 //create store and enhance with middleware
 let store;
 if (process.env.NODE_ENV === 'production') {
-  store = createStore(reducer, initialState)
+  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware))
 } else {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  store = createStore(reducer, initialState, composeEnhancers(applyMiddleware(createLogger())));
+  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, createLogger())));
 }
+
+//TEST
+setInterval(() => store.dispatch({ type: 'PING' }), 1000);
 
 render(
   //Provider allows us to receive data from store of our app (by connect function)
