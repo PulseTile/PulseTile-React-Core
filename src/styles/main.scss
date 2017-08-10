@@ -25,6 +25,14 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import '../components/containers/HeaderToolbar/HeaderToolbar';
 @import '../components/containers/Footer/Footer';
 @import '../components/containers/PatientsChart/PatientsChart';
+@import '../components/containers/MainLogo/MainLogo';
+@import '../components/containers/PTButton/PTButton';
+@import '../components/containers/NavSearch/NavSearch';
+@import '../components/containers/UserAccountPanel/UserAccountPanel';
 
 //presentational
 @import '../components/presentational/PTPanel/PTPanel';
+
+//global
+
+@import './global/control';
