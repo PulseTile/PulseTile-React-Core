@@ -3,15 +3,28 @@ import PTButtonIcon from '../PTButtonIcon/PTButtonIcon';
 
 const UserAccountPanel = props => <ul className="user-panel" role="tablist">
   <li className="user-panel-item visible-xs">
-    <a className="btn-header" href="#">
-      <i className="fa fa-search"/>
-    </a>
+    <PTButtonIcon className="btn-header"
+      children={(
+        <i className="fa fa-search"/>
+      )}
+    />
   </li>
   <li className="user-panel-item">
-    <PTButtonIcon classButtonName="btn-notification" icon="fa-bell-o"/>
+    <PTButtonIcon className="btn-header btn-notification"
+      children={(
+        <div>
+          <i className="fa fa-bell-o"/>
+          <span className="count">2</span>
+        </div>
+      )}
+    />
   </li>
   <li className="user-panel-item">
-    <PTButtonIcon classButtonName="btn-user" icon="fa-user"/>
+    <PTButtonIcon className="btn-header btn-user"
+      children={(
+        <i className="fa fa-user"/>
+      )}
+    />
   </li>
 </ul>;
 
