@@ -12,6 +12,8 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body',
 });
 
+const DEV_SERVER_URL = 'http://46.101.95.245';
+
 module.exports = {
   devtool: 'eval',
 
@@ -82,5 +84,11 @@ module.exports = {
     hot: true,
     // enable HMR on the server
 
+    proxy: {
+      '/': {
+        target: DEV_SERVER_URL,
+      },
+    },
   },
+
 };
