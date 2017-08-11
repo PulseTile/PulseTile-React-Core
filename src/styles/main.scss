@@ -33,6 +33,7 @@ $font-family-main: Arial, Helvetica, sans-serif;
 //presentational
 @import '../components/presentational/PTPanel/PTPanel';
 
-//global
+//Common styles for components
 
-@import './global/control';
+@import 'components/_control';
+@import 'components/_btn';
