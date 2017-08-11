@@ -1,0 +1,138 @@
+.dropdown-menu {
+  display: block;
+  background-clip: padding-box;
+  background-color: #fff;
+  border-radius: 4px;
+  border: 1px solid #d7d7d7;
+  box-shadow: 2px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  float: left;
+  font-size: 14px;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  min-width: 160px;
+  padding: 0;
+  position: absolute;
+  text-align: left;
+  top: 100%;
+  z-index: 1000;
+  @include list-reset;
+  &.dm-show { display: block; }
+  &.dropdown-menu-right {
+    box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.2);
+    left: auto;
+    right: 0;
+  }
+  &.dropdown-menu-top-right {
+    bottom: 100%;
+    left: auto;
+    right: 0;
+    top: auto;
+  }
+  &.dropdown-menu-top-left {
+    bottom: 100%;
+    top: auto;
+  }
+  &.dropdown-menu-small {
+    padding: 10px;
+    font-size: 10px;
+  }
+}
+.dropdown.open .btn-inverse {
+  &,
+  &:focus,
+  &:active {
+    background: #fff !important;
+    &:hover,
+    &.active {
+      background: #fff !important;
+    }
+  }
+}
+
+.dropdown-menu-panel {
+  border-right: 4px;
+  box-shadow: 0px 3px 7px 0px rgba(0,0,0,0.2);
+  padding: 20px 14px 14px;
+  .dropdown-menu-list {
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+  .heading {
+    border-bottom: 1px solid #d7d7d7;
+    color: #a3a3a3;
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 8px;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+  }
+}
+.dropdown-menu-summary {
+  padding: 15px 10px 19px 20px;
+  width: 300px;
+  @include respond-from(xs) {
+    width: 400px;
+  }
+  @include respond-from(sm) {
+    width: 470px;
+  }
+}
+.dropdown-menu-statements {
+  max-width: 360px;
+  width: 100%;
+}
+.dropdown-menu-wrap-list {
+  margin-bottom: -12px;
+}
+.dropdown-menu-list {
+  margin-bottom: 12px;
+}
+.dropdown-menu-item {
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  padding: 5px 14px;
+  &.active { background: #f3f3f3; }
+}
+.is-not-touch-device .dropdown-menu-item:hover { background: #f3f3f3; }
+.dropdown-menu-item-text,
+.dropdown-menu-item-icon {
+  display: inline-block;
+  line-height: 18px;
+  vertical-align: middle;
+}
+.dropdown-menu-item-text {
+  color: #3c3c3c;
+  font-size: 14px;
+}
+.dropdown-menu-item-icon {
+  color: $base-color;
+  font-size: 16px;
+  margin-right: 12px;
+  width: 20px;
+}
+
+.dropdown-menu-small-size { width: 215px; }
+.dropdown-menu-small {
+  padding: 10px;
+  font-size: 10px;
+  line-height: 12px;
+  .dropdown-menu-list {
+    margin-right: -10px;
+    margin-left: -10px;
+  }
+  .dropdown-menu-item {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .dropdown-menu-item-text,
+  .dropdown-menu-item-icon {
+    line-height: 14px;
+  }
+  .dropdown-menu-item-text {
+    font-size: 14px;
+  }
+}
+
+.uib-datepicker-popup.dropdown-menu { padding: 10px 0; }
