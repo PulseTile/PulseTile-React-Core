@@ -6,15 +6,3 @@
     order: 4;
   }
 }
-
-.user-panel-item {
-  float: left;
-  &.open .btn-header,
-  &.active .btn-header {
-    background: map-get($header-btn, 'bg-active');
-    color: map-get($header-btn, 'color-active');
-    .count {
-      display: none;
-    }
-  }
-}
