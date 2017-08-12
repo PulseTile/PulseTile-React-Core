@@ -6,7 +6,7 @@ import { Row, Col } from 'react-bootstrap';
 
 import PTPanel from '../../presentational/PTPanel/PTPanel';
 import PatientsChart from '../../containers/PatientsChart/PatientsChart';
-import { selectPatients } from './selectors';
+import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 
 const fetchPatientsOnMount = ({
@@ -17,7 +17,7 @@ const fetchPatientsOnMount = ({
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest }, dispatch) });
 
-@connect(selectPatients, mapDispatchToProps)
+@connect(patientsSelector, mapDispatchToProps)
 @lifecycle(fetchPatientsOnMount)
 export default class SystemDashboard extends PureComponent {
   render() {

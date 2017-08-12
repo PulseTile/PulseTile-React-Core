@@ -12,10 +12,12 @@ export const fetchPatientsRequest = createAction(FETCH_PATIENTS_REQUEST);
 export const fetchPatientsSuccess = createAction(FETCH_PATIENTS_SUCCESS);
 export const fetchPatientsFailure = createAction(FETCH_PATIENTS_FAILURE);
 
-export const fetchPatientsEpic = action$ =>
+export const fetchPatientsEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENTS_REQUEST)
     .mergeMap(() =>
-      ajax.getJSON(usersUrls.PATIENTS_URL)
+      ajax.getJSON(usersUrls.PATIENTS_URL, {
+        headers: { Cookie: store.getState().credentials.cookie },
+      })
         .map(fetchPatientsSuccess)
         .catch(error => Observable.of(fetchPatientsFailure(error)))
     );
