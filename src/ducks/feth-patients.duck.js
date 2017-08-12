@@ -12,17 +12,15 @@ export const fetchPatientsRequest = createAction(FETCH_PATIENTS_REQUEST);
 export const fetchPatientsSuccess = createAction(FETCH_PATIENTS_SUCCESS);
 export const fetchPatientsFailure = createAction(FETCH_PATIENTS_FAILURE);
 
-export const fetchPatientsEpic = (action$, store) =>
+export const fetchPatientsEpic = action$ =>
   action$.ofType(FETCH_PATIENTS_REQUEST)
     .mergeMap(() =>
-      ajax.getJSON(usersUrls.PATIENTS_URL, {
-        headers: { Cookie: store.getState().credentials.cookie },
-      })
+      ajax.getJSON(usersUrls.PATIENTS_URL)
         .map(fetchPatientsSuccess)
         .catch(error => Observable.of(fetchPatientsFailure(error)))
     );
 
-export default function reducer(patients = [], action) {
+export default function reducer(patients = {}, action) {
   switch (action.type) {
     case FETCH_PATIENTS_SUCCESS:
       return action.payload;
