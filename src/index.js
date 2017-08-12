@@ -6,7 +6,6 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
-import { ajax } from 'rxjs/observable/dom/ajax';
 
 import rootReducer from './reducers/root.reducer'
 import rootEpic from './epics/root.epic'
@@ -22,8 +21,10 @@ const epicMiddleware = createEpicMiddleware(rootEpic);
  */
 //store initial state
 const initialState = {
+  credentials: {},
+  initialiseData: {},
   userAccount: {},
-  patients: {},
+  patients: [],
 };
 
 //create store and enhance with middleware
@@ -35,8 +36,11 @@ if (process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, createLogger())));
 }
 
-//TEST
+//TODO: move it to init section
+//initialisation
+store.dispatch({ type: 'FETCH_INITIALISE_REQUEST' });
 store.dispatch({ type: 'FETCH_USER_ACCOUNT_REQUEST' });
+store.dispatch({ type: 'FETCH_PATIENTS_REQUEST' });
 
 render(
   //Provider allows us to receive data from store of our app (by connect function)

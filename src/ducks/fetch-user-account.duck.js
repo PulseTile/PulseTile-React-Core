@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../constants/server-urls.constants'
+import { usersUrls } from '../config/server-urls.constants'
 
 export const FETCH_USER_ACCOUNT_REQUEST = 'FETCH_USER_ACCOUNT_REQUEST';
 export const FETCH_USER_ACCOUNT_SUCCESS = 'FETCH_USER_ACCOUNT_SUCCESS';
@@ -12,22 +12,20 @@ export const fetchUserAccountRequest = createAction(FETCH_USER_ACCOUNT_REQUEST);
 export const fetchUserAccountSuccess = createAction(FETCH_USER_ACCOUNT_SUCCESS);
 export const fetchUserAccountFailure = createAction(FETCH_USER_ACCOUNT_FAILURE);
 
-export const fetchUserAccountEpic = action$ =>
+export const fetchUserAccountEpic = (action$, store) =>
   action$.ofType(FETCH_USER_ACCOUNT_REQUEST)
     .mergeMap(() =>
       ajax.getJSON(usersUrls.USER_ACCOUNT_URL, {
-        crossDomain: true,
-        withCredentials: true,
-        headers: {
-          Cookie: 'JSESSIONID=3e0ba540-563b-4760-b671-6b40c1951507',
-        },
+        headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchUserAccountSuccess(response))
+        .map(fetchUserAccountSuccess)
         .catch(error => Observable.of(fetchUserAccountFailure(error)))
     );
 
 export default function reducer(userAccount = {}, action) {
   switch (action.type) {
+    case FETCH_USER_ACCOUNT_SUCCESS:
+      return action.payload;
     default:
       return userAccount;
   }

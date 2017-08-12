@@ -15,7 +15,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 const DEV_SERVER_URL = 'http://46.101.95.245';
 
 module.exports = {
-  devtool: 'eval',
+  devtool: 'source-map',
 
   entry: [
     'react-hot-loader/patch',

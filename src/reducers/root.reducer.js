@@ -1,13 +1,14 @@
 import { combineReducers } from 'redux';
 
-import fetchAllUsersReducer from './fetch-all-users.reducer'
+import fetchInitialiseReducer from '../ducks/fetch-initialise.duck'
+import setCredentialsREducer from '../ducks/set-credentials.duck'
+import fetchPatientsReducer from '../ducks/feth-patients.duck'
 import fetchUserAccountReducer from '../ducks/fetch-user-account.duck'
 
-const dummyReducer = (state = {}) => state;
-
 const rootReducer = combineReducers({
-  dummyReducer,
-  allUsers: fetchAllUsersReducer,
+  initialiseData: fetchInitialiseReducer,
+  credentials: setCredentialsREducer,
+  patients: fetchPatientsReducer,
   userAccount: fetchUserAccountReducer,
 });
 
