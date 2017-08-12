@@ -9,11 +9,13 @@ import { Provider } from 'react-redux'
 
 import rootReducer from './reducers/root.reducer'
 import rootEpic from './epics/root.epic'
+import { initialiseStart } from './ducks/initialise-app.duck'
 import App from './components/containers/App/App'
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
+
 
 /**
  * Create store with initial state structure
@@ -36,11 +38,8 @@ if (process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, createLogger())));
 }
 
-//TODO: move it to init section
 //initialisation
-store.dispatch({ type: 'FETCH_INITIALISE_REQUEST' });
-store.dispatch({ type: 'FETCH_USER_ACCOUNT_REQUEST' });
-store.dispatch({ type: 'FETCH_PATIENTS_REQUEST' });
+store.dispatch(initialiseStart());
 
 render(
   //Provider allows us to receive data from store of our app (by connect function)
