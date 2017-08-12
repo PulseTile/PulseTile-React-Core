@@ -4,10 +4,10 @@
     "react"
   ],
   "plugins": [
+    "transform-decorators-legacy",
     "transform-runtime",
     "transform-class-properties",
-    "transform-object-rest-spread",
-    "transform-decorators"
+    "transform-object-rest-spread"
   ],
   "sourceRoot": "./src"
 }
