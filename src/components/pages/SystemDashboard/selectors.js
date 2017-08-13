@@ -8,13 +8,12 @@ const patientsByDepartmentsSelector = ({ patients }) => patientsDepartments.map(
 
 const patientsByAgesSelector = ({ patients }) => patientsAges
   .map(({ from, to }) => _.filter(
-    ({ dateOfBirth }) => from <= getAgeYears(dateOfBirth) && getAgeYears(dateOfBirth) <= to, patients)
-  );
+    ({ dateOfBirth }) => from <= getAgeYears(dateOfBirth) && getAgeYears(dateOfBirth) <= to, patients))
 
 const patientsSelector = createSelector(
   patientsByDepartmentsSelector,
   patientsByAgesSelector,
-  (patientsByDepartment, patientsByAges) => ({ patientsByDepartment, patientsByAges })
+  (patientsByDepartment, patientsByAge) => ({ patientsByDepartment, patientsByAge })
 );
 
 export default patientsSelector;
