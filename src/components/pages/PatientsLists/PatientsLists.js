@@ -1,6 +1,17 @@
 import React, { PureComponent } from 'react';
 import { Row, Col, Panel } from 'react-bootstrap';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { lifecycle } from 'recompose';
 
+import patientsSelector from './selectors';
+import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
+import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
+
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest }, dispatch) });
+
+@connect(patientsSelector, mapDispatchToProps)
+@lifecycle(fetchPatientsOnMount)
 class PatientsLists extends PureComponent {
   render() {
     return (<section className="page-wrapper">

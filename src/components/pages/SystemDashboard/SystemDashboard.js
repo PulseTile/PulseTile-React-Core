@@ -10,12 +10,7 @@ import PatientsChart from '../../containers/PatientsChart/PatientsChart';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { patientsDepartments, patientsAges } from '../../../config/patients.constants';
-
-const fetchPatientsOnMount = ({
-  componentDidMount() {
-    this.props.actions.fetchPatientsRequest()
-  },
-});
+import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest }, dispatch) });
 
