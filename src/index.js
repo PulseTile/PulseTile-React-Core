@@ -16,7 +16,6 @@ console.log(`App started in ${process.env.NODE_ENV} mode`);
 
 const epicMiddleware = createEpicMiddleware(rootEpic);
 
-
 /**
  * Create store with initial state structure
  * and enhance by middleware

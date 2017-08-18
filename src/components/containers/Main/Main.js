@@ -5,7 +5,7 @@ import { PatientsLists, SystemDashboard } from '../../pages'
 
 const Main = props => <main>
   <Switch>
-    <Route exact path="/" component={SystemDashboard} />
+    <Route exact path="/" component={PatientsLists} />
     <Route exact path="/charts" component={SystemDashboard} />
     <Route exact path="/patients" component={PatientsLists} />
     <Route path="/patients/:id" component={PatientsLists} />
