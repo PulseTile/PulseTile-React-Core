@@ -20,7 +20,7 @@ export default class SortableTable extends PureComponent {
       return (
         <div>
           <table
-            className="table table-striped table-bordered table-hover table-sorted "
+            className="table table-striped table-bordered table-hover table-sorted"
           >
             <colgroup>
               {/*//TODO inject theme here*/}

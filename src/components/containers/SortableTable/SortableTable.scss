@@ -1,9 +1,248 @@
-table {
+.table {
+  background: map-get($colored-table, 'row-odd-background');
+  border-radius: 0;
+  border: none;
+  color: map-get($colored-table, 'text');
+  font-size: 11px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  width: 100%;
   thead {
-    cursor: pointer;
+    background-color: map-get($colored-table, 'header-background');
+    font-weight: 700;
+    i { margin-left: 5px; }
+  }
+  thead tr th,
+  tbody tr td {
+    padding: 10px 4px 10px 5px;
+    vertical-align: middle;
+    word-wrap: break-word;
+    @include respond-from(sm) {
+      padding: 10px 4px 10px 10px;
+    }
+  }
+  thead tr th.selected {
+    background: map-get($colored-table, 'selected-background');
+  }
+  tbody tr td.selected {
+    background: #b4b4b4;
+    color: #ffffff;
+  }
+  &.clickable tbody tr { cursor: pointer; }
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    li {
+      width: 100%;
+      i {
+        display: inline-block;
+        width: 18px;
+      }
+    }
+  }
+  .view { min-width: 93px; }
+}
+.is-not-touch-device .table .view .btn-dropdown-toggle:hover {
+  background-color: #7dbe31;
+  border-color: #7dbe31;
+  & > li > a:hover {
+    background-color: #d0e8af;
+  }
+}
+@include respond-from(xs) {
+  .table { font-size: 14px; }
+}
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th,
+.table > tbody > tr.info {
+  background-color: map-get($colored-table, 'row-background-hover') !important;
+}
+.wrap-table-scrollX {
+  max-width: initial;
+  overflow-x: scroll;
+  width: 100%;
+  .table { width: 1px; }
+}
 
-    i {
-      margin-left:  5px;
+.table-fixedcol {
+  table-layout: fixed;
+}
+.table-striped {
+  background-color: map-get($colored-table, 'background');
+  tbody {
+    tr {
+      &:nth-of-type(odd) {
+        background-color: map-get($colored-table, 'row-odd-background');
+      }
+    }
+  }
+}
+
+.table-bordered {
+  border-collapse: separate;
+  border: 1px solid #B4B5B4;
+  thead tr th,
+  tbody tr td {
+    border: none;
+    @include respond-from(xs) {
+      border-left: 1px solid #B4B5B4;
+      &:first-child { border: none; }
+    }
+  }
+}
+.table-schedule {
+  thead tr th,
+  tbody tr td {
+    border-left: 1px solid #B4B5B4;
+    &:first-child { border: none; }
+  }
+}
+@include respond-to(xs) {
+  .table-bordered {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+@include respond-to(xs) {
+  .rwd-table {
+    display: block;
+    min-width: 300px;
+    th { display: none; }
+    & > tbody { display: block; }
+    & > tbody > tr {
+      display: block;
+      padding: 6px 0;
+      position: relative;
+      & > td {
+        display: block;
+        line-height: 20px;
+        overflow: hidden;
+        padding: 0 10px;
+        position: static;
+        &.cell-truncate {
+          @include text-truncate;
+        }
+        & > span {
+          display: block;
+          overflow: hidden;
+        }
+        &:before {
+          content: attr(data-th)": ";
+          display: block;
+          float: left;
+          font-weight: bold;
+          padding-right: 10px;
+          width: 100px;
+          @include respond-from(xs) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    th, td {
+      text-align: left;
+      @include respond-from(xs) {
+        display: table-cell;
+        padding: .25em .5em;
+      }
+    }
+  }
+  .rwd-table td.hidden-xs-cell,
+  .hidden-xs-cell { display: none; }
+}
+
+.sort-asc:after {
+  content: '\25BC';
+  padding-left: 5px;
+}
+
+.sort-desc:after {
+  content: '\25B2';
+  padding-left: 5px;
+}
+@include respond-from(xs) {
+  .table-sorted {
+    thead tr th {
+      cursor: pointer;
+      &.sorted {
+        background: map-get($colored-table, 'selected-background');
+        position: relative;
+        &.asc,
+        &.desc { padding-right: 22px; }
+        &.asc:after,
+        &.desc:after {
+          border-style: solid;
+          content: '';
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &.asc:after {
+          border-color: #303030 transparent transparent;
+          border-width: 5px 5px 0;
+        }
+        &.desc:after {
+          border-color: transparent transparent #303030;
+          border-width: 0 5px 5px;
+        }
+      }
+    }
+    tbody tr td.sorted {
+      background: map-get($colored-table, 'sorted-background');
+    }
+    &.table-striped {
+      tbody {
+        tr:nth-of-type(odd) td.sorted {
+          background-color: map-get($colored-table, 'sorted-background-odd');
+        }
+      }
+    }
+    &.table-striped.table-hover {
+      tbody {
+        tr.hovered td.sorted,
+        tr:hover td.sorted {
+          background-color: map-get($colored-table, 'row-background-hover');
+        }
+      }
+    }
+  }
+}
+
+.table-icon { color: #9493a1; }
+
+.table-transferOfCare {
+  border-left: 0px !important;
+  border-right: 0px !important;
+  @include respond-from(xs) {
+    border-top: 0px !important;
+  }
+  @include respond-to(xs) {
+    tr {
+      position: relative;
+    }
+    td {
+      padding-right: 48px !important;
+    }
+    .table-transferOfCare__control {
+      .btn {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+      &:before { display: none !important; }
     }
   }
 }

@@ -44,11 +44,11 @@ class PatientsLists extends PureComponent {
         name: PropTypes.string,
         nhsNumber: PropTypes.string,
       })).isRequired,
-      patientsPerPageAmount: PropTypes.number,
+    patientsPerPageAmount: PropTypes.number,
   };
 
   static defaultProps = {
-      patientsPerPageAmount: 10,
+    patientsPerPageAmount: 10,
   }
 
   render() {

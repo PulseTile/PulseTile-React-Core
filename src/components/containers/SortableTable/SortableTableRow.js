@@ -4,10 +4,10 @@ import _ from 'lodash/fp';
 
 const SortableTableRow = props => <tr>
   {_.map(rowDataEntry => <td key={_.uniqueId('__SortableTableRow__')}>{rowDataEntry}</td>, props.rowData)}
-</tr>
+</tr>;
 
 SortableTableRow.propTypes = {
-  rowData: PropTypes.array.isRequired,
+  rowData: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SortableTableRow
