@@ -5,7 +5,7 @@ const allPatientsSelector = ({ patients }) => patients;
 
 const patientsSelector = createSelector(
   allPatientsSelector,
-  allPatients => ({ allPatients })
+  allPatients => ({ allPatients: _.values(allPatients) })
 );
 
 export default patientsSelector;

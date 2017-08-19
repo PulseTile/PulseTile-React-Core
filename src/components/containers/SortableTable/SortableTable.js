@@ -10,9 +10,7 @@ import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 export default class SortableTable extends PureComponent {
     static propTypes = {
       headers: SortableTableHeaderRow.propTypes.headers,
-      data: PropTypes.objectOf(
-        PropTypes.object
-      ).isRequired,
+      data: PropTypes.arrayOf(PropTypes.object).isRequired,
     };
 
     render() {
@@ -32,7 +30,10 @@ export default class SortableTable extends PureComponent {
               <SortableTableHeaderRow headers={headers} />
             </thead>
             <tbody>
-              {_.map(rowData => <SortableTableRow key={_.uniqueId('__SortableTableRow__')} rowData={rowData} />, values)}
+              {_.map(rowData => <SortableTableRow
+                key={_.uniqueId('__SortableTableRow__')}
+                rowData={rowData}
+              />, values)}
             </tbody>
           </table>
         </div>)

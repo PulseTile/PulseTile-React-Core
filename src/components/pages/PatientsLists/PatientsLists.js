@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash/fp';
 import { Row, Col, Panel } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -33,7 +34,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @lifecycle(fetchPatientsOnMount)
 class PatientsLists extends PureComponent {
   static propTypes = {
-    allPatients: PropTypes.objectOf(
+    allPatients: PropTypes.arrayOf(
       PropTypes.shape({
         address: PropTypes.string,
         dateOfBirth: PropTypes.number,
@@ -43,17 +44,25 @@ class PatientsLists extends PureComponent {
         name: PropTypes.string,
         nhsNumber: PropTypes.string,
       })).isRequired,
+      patientsPerPageAmount: PropTypes.number,
   };
 
+  static defaultProps = {
+      patientsPerPageAmount: 10,
+  }
+
   render() {
-    const { allPatients } = this.props;
+    const { allPatients, patientsPerPageAmount } = this.props;
 
     return (<section className="page-wrapper">
       <Row>
         <Col xs={12}>
           <Panel>
             <article className="wrap-patients-table">
-              <SortableTable headers={allTableHeaders} data={allPatients} />
+              <SortableTable
+                headers={allTableHeaders}
+                data={_.take(patientsPerPageAmount, allPatients)}
+              />
             </article>
           </Panel>
         </Col>
