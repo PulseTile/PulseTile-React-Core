@@ -49,10 +49,25 @@ class PatientsLists extends PureComponent {
 
   static defaultProps = {
     patientsPerPageAmount: 10,
-  }
+  };
+
+  state = {
+    columnNameSortBy: '',
+    sortingOrder: null,
+  };
+
+  handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
   render() {
     const { allPatients, patientsPerPageAmount } = this.props;
+    const { columnNameSortBy, sortingOrder } = this.state;
+    const data = _.flow(
+      _.sortBy([columnNameSortBy]),
+      sortingOrder === 'desc'
+        ? _.reverse
+        : val => val,
+      _.take(patientsPerPageAmount)
+    )(allPatients);
 
     return (<section className="page-wrapper">
       <Row>
@@ -61,7 +76,8 @@ class PatientsLists extends PureComponent {
             <article className="wrap-patients-table">
               <SortableTable
                 headers={allTableHeaders}
-                data={_.take(patientsPerPageAmount, allPatients)}
+                data={data}
+                onHeaderCellClick={this.handleHeaderCellClick}
               />
             </article>
           </Panel>
