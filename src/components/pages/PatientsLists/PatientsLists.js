@@ -47,6 +47,7 @@ class PatientsLists extends PureComponent {
         name: PropTypes.string,
         nhsNumber: PropTypes.string,
       })).isRequired,
+    allPatientsWithCounts: PropTypes.arrayOf(PropTypes.object).isRequired,
     patientsPerPageAmount: PropTypes.number,
     actions: PropTypes.objectOf(PropTypes.func).isRequired,
   };
@@ -68,7 +69,9 @@ class PatientsLists extends PureComponent {
   componentWillUpdate(nextProps, nextState) {
     const isNewPatients = !_.isEqual(nextProps.allPatients, this.props.allPatients);
     const isNewOffset = !_.isEqual(nextState.offset, this.state.offset);
-    if (isNewPatients || isNewOffset) this.fetchPatientCounts(nextState.offset)(nextProps.allPatients);
+    //if (isNewPatients || isNewOffset) this.fetchPatientCounts(nextState.offset)(nextProps.allPatients);
+    //TODO receive patients more careful
+    if (isNewPatients) this.fetchPatientCounts(0, _.size(nextProps.allPatients))(nextProps.allPatients);
   }
 
   fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), _.forEach(this.props.actions.fetchPatientCountsRequest));
@@ -80,7 +83,7 @@ class PatientsLists extends PureComponent {
   havePagination = () => _.size(this.props.allPatients) > this.props.patientsPerPageAmount;
 
   render() {
-    const { allPatients, patientsPerPageAmount } = this.props;
+    const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
     const { columnNameSortBy, sortingOrder, offset } = this.state;
     const data = _.flow(
       _.sortBy([columnNameSortBy]),
@@ -88,7 +91,7 @@ class PatientsLists extends PureComponent {
         ? _.reverse
         : val => val,
       _.slice(offset, offset + patientsPerPageAmount)
-    )(allPatients);
+    )(allPatientsWithCounts);
 
     return (<section className="page-wrapper">
       <Row>

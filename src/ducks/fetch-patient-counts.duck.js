@@ -15,6 +15,7 @@ export const fetchPatientCountsFailure = createAction(FETCH_PATIENT_COUNTS_FAILU
 
 const getPatientId = action => _.getOr(action.payload, 'payload.id', action);
 const getPatientCountsUrl = action => `${usersUrls.PATIENTS_URL}/${getPatientId(action)}/counts`;
+const isPatientCountsAlreadyExists = (store, id) => _.flow(_.get(['patientsCounts', id]), _.isEmpty)(store.getState());
 
 export const fetchPatientCountsEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_COUNTS_REQUEST)
