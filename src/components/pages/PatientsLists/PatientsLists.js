@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
-import { Row, Col, Panel } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
@@ -48,6 +48,7 @@ class PatientsLists extends PureComponent {
         nhsNumber: PropTypes.string,
       })).isRequired,
     patientsPerPageAmount: PropTypes.number,
+    actions: PropTypes.objectOf(PropTypes.func).isRequired,
   };
 
   static defaultProps = {
@@ -59,6 +60,18 @@ class PatientsLists extends PureComponent {
     sortingOrder: null,
     offset: 0,
   };
+
+  componentDidMount() {
+    this.fetchPatientCounts()(this.props.allPatients);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    const isNewPatients = !_.isEqual(nextProps.allPatients, this.props.allPatients);
+    const isNewOffset = !_.isEqual(nextState.offset, this.state.offset);
+    if (isNewPatients || isNewOffset) this.fetchPatientCounts(nextState.offset)(nextProps.allPatients);
+  }
+
+  fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), _.forEach(this.props.actions.fetchPatientCountsRequest));
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
