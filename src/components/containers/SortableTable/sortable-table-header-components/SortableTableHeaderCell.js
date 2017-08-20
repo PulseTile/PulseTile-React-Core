@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash/fp';
 import classNames from 'classnames';
 
 const SortableTableHeaderCell = ({ name, title, icon, onClick, sortingOrder }) => (
@@ -20,6 +19,6 @@ SortableTableHeaderCell.propTypes = {
   onClick: PropTypes.func.isRequired,
   sortingOrder: PropTypes.oneOf([null, 'asc', 'desc']).isRequired,
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
-}
+};
 
 export default SortableTableHeaderCell;

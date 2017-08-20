@@ -7,11 +7,13 @@ import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
 
 import SortableTable from '../../containers/SortableTable/SortableTable';
+import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
+//TODO move it to *.config.js
 const allTableHeaders = [
   { name: 'name', title: 'Name' },
   { name: 'address', title: 'Address' },
@@ -54,33 +56,48 @@ class PatientsLists extends PureComponent {
   state = {
     columnNameSortBy: '',
     sortingOrder: null,
+    offset: 0,
   };
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
+  handleSetOffset = offset => this.setState({ offset });
+
   render() {
     const { allPatients, patientsPerPageAmount } = this.props;
-    const { columnNameSortBy, sortingOrder } = this.state;
+    const { columnNameSortBy, sortingOrder, offset } = this.state;
     const data = _.flow(
       _.sortBy([columnNameSortBy]),
       sortingOrder === 'desc'
         ? _.reverse
         : val => val,
-      _.take(patientsPerPageAmount)
+      _.slice(offset, offset + patientsPerPageAmount)
     )(allPatients);
 
     return (<section className="page-wrapper">
       <Row>
         <Col xs={12}>
-          <Panel>
-            <article className="wrap-patients-table">
-              <SortableTable
-                headers={allTableHeaders}
-                data={data}
-                onHeaderCellClick={this.handleHeaderCellClick}
+          {/*//TODO use <PTPanel/>*/}
+          <div className="panel panel-primary">
+            <div className="panel-heading">
+              <h3 className="panel-title">Patinets info</h3>
+            </div>
+            <div className="panel-body">
+              <div className="wrap-patients-table">
+                <SortableTable
+                  headers={allTableHeaders}
+                  data={data}
+                  onHeaderCellClick={this.handleHeaderCellClick}
+                />
+              </div>
+              <PaginationBlock
+                entriesPerPage={patientsPerPageAmount}
+                totalEntriesAmount={_.size(allPatients)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
               />
-            </article>
-          </Panel>
+            </div>
+          </div>
         </Col>
       </Row>
     </section>)

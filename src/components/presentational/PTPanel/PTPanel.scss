@@ -8,6 +8,10 @@
     border-color: $base-color;
   }
 
+  &.panel-primary {
+    border-color: transparent;
+  }
+
   &.panel-secondary {
     border-color: $panel-border-color;
   }
