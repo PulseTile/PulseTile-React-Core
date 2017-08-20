@@ -12,7 +12,7 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
   const setPage = page => () => {
     if (page < 1) return setPage(1);
     if (page > pagesAmount) return setPage(pagesAmount);
-    setOffset((page - 1) * entriesPerPage)
+    return setOffset((page - 1) * entriesPerPage)
   };
 
   return (<ul className="pagination-block">

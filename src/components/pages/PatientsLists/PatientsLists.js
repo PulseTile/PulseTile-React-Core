@@ -63,6 +63,8 @@ class PatientsLists extends PureComponent {
 
   handleSetOffset = offset => this.setState({ offset });
 
+  havePagination = () => _.size(this.props.allPatients) > this.props.patientsPerPageAmount;
+
   render() {
     const { allPatients, patientsPerPageAmount } = this.props;
     const { columnNameSortBy, sortingOrder, offset } = this.state;
@@ -90,12 +92,13 @@ class PatientsLists extends PureComponent {
                   onHeaderCellClick={this.handleHeaderCellClick}
                 />
               </div>
-              <PaginationBlock
-                entriesPerPage={patientsPerPageAmount}
-                totalEntriesAmount={_.size(allPatients)}
-                offset={offset}
-                setOffset={this.handleSetOffset}
-              />
+              {this.havePagination() &&
+                <PaginationBlock
+                  entriesPerPage={patientsPerPageAmount}
+                  totalEntriesAmount={_.size(allPatients)}
+                  offset={offset}
+                  setOffset={this.handleSetOffset}
+                />}
             </div>
           </div>
         </Col>
