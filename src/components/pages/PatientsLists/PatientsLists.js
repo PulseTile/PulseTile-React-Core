@@ -10,6 +10,7 @@ import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
+import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
 import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
@@ -30,7 +31,7 @@ const allTableHeaders = [
   { name: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
 ];
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
 
 @connect(patientsSelector, mapDispatchToProps)
 @lifecycle(fetchPatientsOnMount)
@@ -82,7 +83,7 @@ class PatientsLists extends PureComponent {
           {/*//TODO use <PTPanel/>*/}
           <div className="panel panel-primary">
             <div className="panel-heading">
-              <h3 className="panel-title">Patinets info</h3>
+              <h3 className="panel-title">Patients info</h3>
             </div>
             <div className="panel-body">
               <div className="wrap-patients-table">
@@ -93,12 +94,15 @@ class PatientsLists extends PureComponent {
                 />
               </div>
               {this.havePagination() &&
+              <div className="control-group with-indent center">
                 <PaginationBlock
                   entriesPerPage={patientsPerPageAmount}
                   totalEntriesAmount={_.size(allPatients)}
                   offset={offset}
                   setOffset={this.handleSetOffset}
-                />}
+                />
+              </div>
+              }
             </div>
           </div>
         </Col>
