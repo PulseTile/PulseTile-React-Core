@@ -4,12 +4,13 @@
   "description": "'PulseTile framework - developed with ReactJS'",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server --progress --config webpack.config.dev.js",
-    "build": "cross-env NODE_ENV=production webpack --display-chunks --progress --config webpack.config.prod.js",
-    "build:dev": "cross-env NODE_ENV=development webpack --display-chunks --progress --config webpack.config.dev.js",
+    "start": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --config webpack.config.dev.js",
+    "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
+    "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.dev.js",
     "test": "exit 0",
-    "lint": "eslint",
-    "stylelint": "stylelint '**/*.scss'"
+    "deploy": "npm run build && bash deploy.sh",
+    "lint": "./node_modules/.bin/eslint",
+    "stylelint": "./node_modules/.bin/stylelint '**/*.scss'"
   },
   "repository": {
     "type": "git",
@@ -34,6 +35,7 @@
     "babel-cli": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.1",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators": "^6.24.1",
@@ -47,6 +49,7 @@
     "babel-preset-react-optimize": "^1.0.1",
     "babel-register": "^6.24.1",
     "babel-runtime": "^6.25.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "chai": "^4.1.0",
     "commitizen": "^2.9.6",
     "compression-webpack-plugin": "^1.0.0",
@@ -95,8 +98,8 @@
     "webpack-hot-middleware": "^2.18.2"
   },
   "dependencies": {
-    "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
+    "chart.js": "^2.6.0",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.4",
@@ -104,6 +107,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
+    "react-chartjs-2": "^2.5.6",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.5",

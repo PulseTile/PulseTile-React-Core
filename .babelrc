@@ -4,10 +4,11 @@
     "react"
   ],
   "plugins": [
+    "transform-decorators-legacy",
     "transform-runtime",
     "transform-class-properties",
     "transform-object-rest-spread",
-    "transform-decorators"
+    ["lodash", { "id": ["lodash", "recompose"] }]
   ],
   "sourceRoot": "./src"
 }
