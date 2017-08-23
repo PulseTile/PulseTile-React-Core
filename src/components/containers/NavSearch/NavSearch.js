@@ -1,9 +1,14 @@
 import React from 'react';
+import PTButton from '../PTButton/PTButton';
 
 const NavSearch = props => <div className="wrap-search wrap-header-search">
   <div className="header-search">
     <div className="control-group left control-search-select dropdown">
-      <button className="btn btn-dropdown-toggle btn-search-toggle"><i className="btn-icon fa fa-bars"/></button>
+      <PTButton className="btn btn-dropdown-toggle btn-search-toggle"
+        children={(
+          <i className="btn-icon fa fa-bars"/>
+        )}
+      />
       <div className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size">
         <div className="heading">Search Options</div>
         <div className="dropdown-menu-wrap-list">
@@ -14,7 +19,11 @@ const NavSearch = props => <div className="wrap-search wrap-header-search">
         </div>
       </div>
     </div>
-    <button className="btn btn-search"><i className="btn-icon fa fa-search"/></button>
+    <PTButton className="btn btn-search"
+      children={(
+        <i className="btn-icon fa fa-search"/>
+      )}
+    />
     <div className="wrap-search-holder">
       <div className="search-holder">
         <form>
