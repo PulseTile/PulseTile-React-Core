@@ -14,6 +14,9 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import 'base';
 @import 'grid';
 
+//blocks
+@import 'blocks/patients-list';
+
 //components
 //pages
 
@@ -30,9 +33,11 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import '../components/containers/NavSearch/NavSearch';
 @import '../components/containers/UserAccountPanel/UserAccountPanel';
 @import '../components/containers/UserPanelItem/UserPanelItem';
+@import '../components/containers/SortableTable/SortableTable';
 
 //presentational
 @import '../components/presentational/PTPanel/PTPanel';
+@import '../components/presentational/PaginationBlock/PaginationBlock';
 
 //global
 
