@@ -1,8 +1,9 @@
 import React from 'react';
+import Dropdown from 'simple-react-dropdown'
+
 import PTButton from '../PTButton/PTButton';
 import UserPanelItem from '../UserPanelItem/UserPanelItem';
-import Dropdown from 'simple-react-dropdown'
-import NotificationContent from '../NotificationContent/NotificationContent'
+import NotificationContent from '../../representation/temprorary/NotificationContent'
 
 class UserAccountPanel extends React.Component {
   render () {
