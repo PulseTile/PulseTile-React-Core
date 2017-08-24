@@ -74,7 +74,7 @@ class PatientsLists extends PureComponent {
     if (isNewPatients) this.fetchPatientCounts(0, _.size(nextProps.allPatients))(nextProps.allPatients);
   }
 
-  fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), _.forEach(this.props.actions.fetchPatientCountsRequest));
+  fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), this.props.actions.fetchPatientCountsRequest);
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 

@@ -35,7 +35,7 @@ if (process.env.NODE_ENV === 'production') {
   store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware))
 } else {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, createLogger())));
+  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware)));
 }
 
 //initialisation

@@ -13,27 +13,28 @@ export const fetchPatientCountsRequest = createAction(FETCH_PATIENT_COUNTS_REQUE
 export const fetchPatientCountsSuccess = createAction(FETCH_PATIENT_COUNTS_SUCCESS);
 export const fetchPatientCountsFailure = createAction(FETCH_PATIENT_COUNTS_FAILURE);
 
-const getPatientId = action => _.getOr(action.payload, 'payload.id', action);
-const getPatientCountsUrl = action => `${usersUrls.PATIENTS_URL}/${getPatientId(action)}/counts`;
-const isPatientCountsAlreadyExists = (store, id) => _.flow(_.get(['patientsCounts', id]), _.isEmpty)(store.getState());
+const mergeObjects = _.reduce(_.merge, {});
+const createPatientCountsUrl = id => `${usersUrls.PATIENTS_URL}/${id}/counts`;
+const fetchPatientCounts$ = (id, store) => ajax.getJSON(createPatientCountsUrl(id), {
+  headers: { Cookie: store.getState().credentials.cookie },
+})
+  .map(response => ({ [id]: response }));
 
 export const fetchPatientCountsEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_COUNTS_REQUEST)
-    .mergeMap(action =>
-      ajax.getJSON(getPatientCountsUrl(action), {
-        headers: { Cookie: store.getState().credentials.cookie },
-      })
-        .map(payload => fetchPatientCountsSuccess({
-          id: getPatientId(action),
-          counts: payload,
-        }))
-        .catch(error => Observable.of(fetchPatientCountsFailure(error)))
+    .mergeMap(action => Observable.merge(..._.cond([
+      [_.has('id'), () => fetchPatientCounts$(action.payload.id, store)],
+      [_.isArray, _.map(({ id }) => fetchPatientCounts$(id, store))],
+    ])(action.payload))
+      .reduce((acc, x) => acc.concat(x), [])
+      .map(fetchPatientCountsSuccess)
+      .catch(error => Observable.of(fetchPatientCountsFailure(error)))
     );
 
 export default function reducer(patientsCounts = {}, action) {
   switch (action.type) {
     case FETCH_PATIENT_COUNTS_SUCCESS:
-      return _.set(action.payload.id, action.payload.counts, patientsCounts);
+      return _.flow(mergeObjects, _.merge(patientsCounts))(action.payload);
     default:
       return patientsCounts;
   }
