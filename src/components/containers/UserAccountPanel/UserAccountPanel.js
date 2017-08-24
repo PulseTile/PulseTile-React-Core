@@ -1,31 +1,49 @@
 import React from 'react';
-import PTButton from '../PTButton/PTButton';
+import Dropdown from 'simple-react-dropdown'
 
-const UserAccountPanel = props => <ul className="user-panel" role="tablist">
-  <li className="user-panel-item visible-xs">
-    <PTButton className="btn-header"
-      children={(
-        <i className="fa fa-search"/>
-      )}
-    />
-  </li>
-  <li className="user-panel-item">
-    <PTButton className="btn-header btn-notification"
-      children={(
-        <div>
-          <i className="fa fa-bell-o"/>
-          <span className="count">2</span>
-        </div>
-      )}
-    />
-  </li>
-  <li className="user-panel-item">
-    <PTButton className="btn-header btn-user"
-      children={(
-        <i className="fa fa-user"/>
-      )}
-    />
-  </li>
-</ul>;
+import PTButton from '../PTButton/PTButton';
+import UserPanelItem from '../UserPanelItem/UserPanelItem';
+import NotificationContent from '../../representation/temprorary/NotificationContent'
+
+class UserAccountPanel extends React.Component {
+  render () {
+    return(
+      <ul className="user-panel" role="tablist">
+        <UserPanelItem className="user-panel-item visible-xs"
+           children={(
+             <PTButton className="btn-header"
+               children={(
+                 <i className="fa fa-search"/>
+               )}
+             />
+           )}
+        />
+        <UserPanelItem className="user-panel-item dropdown"
+           children={(
+             <Dropdown content={<NotificationContent />}>
+               <PTButton className="btn-header btn-notification"
+                 children={(
+                   <div>
+                     <i className="fa fa-bell-o"/>
+                     <span className="count">2</span>
+                   </div>
+                 )}
+               />
+             </Dropdown>
+           )}
+        />
+        <UserPanelItem className="user-panel-item"
+           children={(
+             <PTButton className="btn-header btn-user"
+               children={(
+                 <i className="fa fa-user"/>
+               )}
+             />
+           )}
+        />
+      </ul>
+    )
+  }
+}
 
 export default UserAccountPanel;
