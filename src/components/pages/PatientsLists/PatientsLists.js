@@ -8,7 +8,7 @@ import { lifecycle } from 'recompose';
 
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
-import PatientsListHeader from './PatientsListHeader';
+import PatientsListHeader from './header/PatientsListHeader';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
