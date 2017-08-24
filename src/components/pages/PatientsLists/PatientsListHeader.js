@@ -16,6 +16,7 @@ export default class PatientsListHeader extends PureComponent {
 
     render() {
       const { isFilterInputVisible } = this.state;
+      const { onFilterChange } = this.props;
 
       return (
         <div className="panel-heading">
@@ -30,7 +31,7 @@ export default class PatientsListHeader extends PureComponent {
               <div className="addon">
                 <i className="fa fa-filter" />
               </div>
-              <input className="form-control" placeholder="Filter..." />
+              <input className="form-control" placeholder="Filter..." onChange={onFilterChange} />
             </div>
           </div>}
         </div>

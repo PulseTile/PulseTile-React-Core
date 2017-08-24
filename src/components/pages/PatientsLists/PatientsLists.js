@@ -45,7 +45,7 @@ class PatientsLists extends PureComponent {
     columnNameSortBy: '',
     sortingOrder: null,
     offset: 0,
-    filterNamesBy: '',
+    nameShouldInclude: '',
   };
 
   componentDidMount() {
@@ -67,15 +67,19 @@ class PatientsLists extends PureComponent {
 
   havePagination = () => _.size(this.props.allPatients) > this.props.patientsPerPageAmount;
 
+  handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
+
   render() {
     const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
-    const { columnNameSortBy, sortingOrder, offset } = this.state;
+    const { columnNameSortBy, sortingOrder, offset, nameShouldInclude } = this.state;
+    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
     const data = _.flow(
       _.sortBy([columnNameSortBy]),
       _.cond([
         [_.isEqual('desc'), () => _.reverse],
         [_.T, () => v => v],
       ])(sortingOrder),
+      _.filter(filterByNamePredicate),
       _.slice(offset, offset + patientsPerPageAmount)
     )(allPatientsWithCounts);
 
@@ -85,7 +89,7 @@ class PatientsLists extends PureComponent {
           {/*//TODO use <PTPanel/>*/}
           <div className="panel panel-primary">
             <PatientsListHeader
-                onFilterChange={console.log}
+              onFilterChange={this.handleFilterChange}
             />
             <div className="panel-body">
               <div className="wrap-patients-table">
