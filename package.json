@@ -119,6 +119,7 @@
     "redux-logger": "^3.0.6",
     "redux-observable": "^0.14.1",
     "reselect": "^3.0.1",
-    "rxjs": "^5.4.2"
+    "rxjs": "^5.4.2",
+    "simple-react-dropdown": "^3.3.0"
   }
 }
