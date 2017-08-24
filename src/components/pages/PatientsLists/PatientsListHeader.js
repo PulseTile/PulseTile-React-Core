@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash/fp';
 
 import PTButton from '../../ui-elements/PTButton/PTButton';
 
@@ -12,7 +13,9 @@ export default class PatientsListHeader extends PureComponent {
       isFilterInputVisible: false,
     };
 
-    toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible }));
+    toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible }),
+      () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
+    );
 
     render() {
       const { isFilterInputVisible } = this.state;

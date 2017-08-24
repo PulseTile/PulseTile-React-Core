@@ -77,7 +77,7 @@ class PatientsLists extends PureComponent {
       _.sortBy([columnNameSortBy]),
       _.cond([
         [_.isEqual('desc'), () => _.reverse],
-        [_.T, () => v => v],
+        [_.stubTrue, () => v => v],
       ])(sortingOrder),
       _.filter(filterByNamePredicate),
       _.slice(offset, offset + patientsPerPageAmount)
