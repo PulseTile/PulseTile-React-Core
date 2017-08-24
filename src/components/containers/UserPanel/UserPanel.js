@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from 'simple-react-dropdown'
 
-import PTButton from '../PTButton/PTButton';
+import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../representation/temprorary/NotificationContent'
 

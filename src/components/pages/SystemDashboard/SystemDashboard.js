@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
 import { Row, Col } from 'react-bootstrap';
 
-import PTPanel from '../../presentational/PTPanel/PTPanel';
+import PTPanel from '../../ui-elements/PTPanel/PTPanel';
 import PatientsChart from '../../containers/PatientsChart/PatientsChart';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';

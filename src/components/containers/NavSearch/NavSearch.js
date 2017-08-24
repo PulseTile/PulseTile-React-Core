@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown from 'simple-react-dropdown'
 
 import SearchContent from '../SearchContent/SearchContent'
-import PTButton from '../PTButton/PTButton';
+import PTButton from '../../ui-elements/PTButton/PTButton';
 
 const NavSearch = () =>
   <div className="wrap-search wrap-header-search">

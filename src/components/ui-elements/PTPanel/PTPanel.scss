@@ -1,7 +1,8 @@
 @import '../../../styles/abstracts/colors';
 
-@import './PTPanelHeading';
-@import './PTPanelBody';
+@import 'PTPanelHeading';
+@import 'PTPanelBody';
+@import 'filter';
 
 .panel {
   &.panel-default {
