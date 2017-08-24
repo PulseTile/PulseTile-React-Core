@@ -1,10 +1,15 @@
 import _ from 'lodash/fp';
 
-export const getArrByTemplate = (arrTemplate, entriesList, emptyValueStub = '-') =>
-  _.map(entry => arrTemplate
-    .map(({ name, transformer = val => val }) => {
-      const value = _.get(name, entry);
-      return transformer(_.isEmpty(value)
-        ? emptyValueStub
-        : value)
-    }), entriesList)
+const EMPTY_VALUE_STUB = '-';
+
+const transformObjToArrByTemplate = arrTemplate => obj =>
+  _.map(({ key, transformer = _.identity }) =>
+    _.cond([
+      [_.isNumber, transformer],
+      [_.isEmpty, () => EMPTY_VALUE_STUB],
+      [_.T, transformer],
+    ])(obj[key])
+  )(arrTemplate)
+
+export const getArrByTemplate = (arrTemplate, entriesList) =>
+  _.map(transformObjToArrByTemplate(arrTemplate))(entriesList);

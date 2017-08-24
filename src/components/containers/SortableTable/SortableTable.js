@@ -34,10 +34,11 @@ export default class SortableTable extends PureComponent {
               />
             </thead>
             <tbody>
-              {_.map(rowData => <SortableTableRow
-                key={_.uniqueId('__SortableTableRow__')}
-                rowData={rowData}
-              />, values)}
+              {_.map(rowData =>
+                <SortableTableRow
+                  key={_.uniqueId('__SortableTableRow__')}
+                  rowData={rowData}
+                />)(values)}
             </tbody>
           </table>
         </div>)

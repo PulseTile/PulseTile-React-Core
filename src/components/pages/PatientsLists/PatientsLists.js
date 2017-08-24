@@ -16,19 +16,19 @@ import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 //TODO move it to *.config.js
 const allTableHeaders = [
-  { name: 'name', title: 'Name' },
-  { name: 'address', title: 'Address' },
-  { name: 'dateOfBirth', title: 'Born', transformer: getDDMMMYYYY },
-  { name: 'gender', title: 'Gender' },
-  { name: 'id', title: 'NHS No.' },
-  { name: 'ordersDate', title: 'Orders', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
-  { name: 'ordersCount', title: 'Orders ', icon: <span>#</span> },
-  { name: 'resultsDate', title: 'Results', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
-  { name: 'resultsCount', title: 'Results ', icon: <span>#</span> },
-  { name: 'vitalsDate', title: 'Count', icon: <i className="fa fa-calendar" /> },
-  { name: 'vitalsCount', title: 'Count ', icon: <span>#</span> },
-  { name: 'diagnosesDate', title: 'Diagnoses', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
-  { name: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
+  { key: 'name', title: 'Name' },
+  { key: 'address', title: 'Address' },
+  { key: 'dateOfBirth', title: 'Born', transformer: getDDMMMYYYY },
+  { key: 'gender', title: 'Gender' },
+  { key: 'id', title: 'NHS No.' },
+  { key: 'ordersDate', title: 'Orders', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
+  { key: 'ordersCount', title: 'Orders ', icon: <span>#</span> },
+  { key: 'resultsDate', title: 'Results', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
+  { key: 'resultsCount', title: 'Results ', icon: <span>#</span> },
+  { key: 'vitalsDate', title: 'Count', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
+  { key: 'vitalsCount', title: 'Count ', icon: <span>#</span> },
+  { key: 'diagnosesDate', title: 'Diagnoses', icon: <i className="fa fa-calendar" />, transformer: getDDMMMYYYY },
+  { key: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
 ];
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
@@ -66,12 +66,11 @@ class PatientsLists extends PureComponent {
     this.fetchPatientCounts()(this.props.allPatients);
   }
 
-  componentWillUpdate(nextProps, nextState) {
-    const isNewPatients = !_.isEqual(nextProps.allPatients, this.props.allPatients);
-    const isNewOffset = !_.isEqual(nextState.offset, this.state.offset);
-    //if (isNewPatients || isNewOffset) this.fetchPatientCounts(nextState.offset)(nextProps.allPatients);
-    //TODO receive patients more careful
-    if (isNewPatients) this.fetchPatientCounts(0, _.size(nextProps.allPatients))(nextProps.allPatients);
+  componentWillUpdate({ allPatients }, nextState) {
+    const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
+    _.cond([
+      [isNewPatients, this.fetchPatientCounts(0, _.size(allPatients))],
+    ])(allPatients)
   }
 
   fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), this.props.actions.fetchPatientCountsRequest);
@@ -87,9 +86,10 @@ class PatientsLists extends PureComponent {
     const { columnNameSortBy, sortingOrder, offset } = this.state;
     const data = _.flow(
       _.sortBy([columnNameSortBy]),
-      sortingOrder === 'desc'
-        ? _.reverse
-        : val => val,
+      _.cond([
+        [_.isEqual('desc'), () => _.reverse],
+        [_.T, () => v => v],
+      ])(sortingOrder),
       _.slice(offset, offset + patientsPerPageAmount)
     )(allPatientsWithCounts);
 

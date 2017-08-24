@@ -7,7 +7,7 @@ import SortableTableHeaderCell from './SortableTableHeaderCell';
 export default class SortableTableHeaderRow extends PureComponent {
     static propTypes = {
       headers: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
+        key: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
         transformer: PropTypes.func,
@@ -44,11 +44,12 @@ export default class SortableTableHeaderRow extends PureComponent {
         : null);
 
       return (<tr>
-        {this.props.headers.map(({ name, title, icon }) => <SortableTableHeaderCell
+        {this.props.headers.map(({ key, title, icon }) => <SortableTableHeaderCell
           key={_.uniqueId('__SortableTableHeaderCell__')}
           onClick={this.handleCellClick}
-          sortingOrder={getSortingOrder(name)}
-          {...{ name, title, icon }}
+          sortingOrder={getSortingOrder(key)}
+          name={key}
+          {...{ title, icon }}
         />)}
       </tr>)
     }
