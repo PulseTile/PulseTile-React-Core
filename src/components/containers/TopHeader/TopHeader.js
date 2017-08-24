@@ -1,11 +1,11 @@
 import React from 'react';
 import MainLogo from '../MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
-import UserAccountPanel from '../UserAccountPanel/UserAccountPanel';
+import UserPanel from '../UserPanel/UserPanel';
 
 const TopHeader = props => <div className="navbar">
   <MainLogo />
-  <UserAccountPanel />
+  <UserPanel />
   <NavSearch />
 </div>;
 
