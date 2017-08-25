@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
 
-import PatientInfoPanel from './PatientInfoPanel';
+import PatientsInfoPanel from './PatientsInfoPanel';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
 export default class PatientsListHeader extends PureComponent {
@@ -22,6 +22,8 @@ export default class PatientsListHeader extends PureComponent {
 
     togglePatientInfoPanelVisible = () => this.setState(prevState => ({ isPatientInfoPanelVisible: !prevState.isPatientInfoPanelVisible }));
 
+    handlePatientsInfoSelected = (selected) => console.log(selected);
+
     render() {
       const { isFilterInputVisible, isPatientInfoPanelVisible } = this.state;
       const { onFilterChange } = this.props;
@@ -33,7 +35,7 @@ export default class PatientsListHeader extends PureComponent {
               <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientInfoPanelVisible}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
-              {isPatientInfoPanelVisible && <PatientInfoPanel />}
+              {isPatientInfoPanelVisible && <PatientsInfoPanel onSelected={this.handlePatientsInfoSelected} />}
             </div>
             <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
               <i className="btn-icon fa fa-filter" />

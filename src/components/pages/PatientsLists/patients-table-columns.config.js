@@ -14,8 +14,8 @@ export const patientsColumnsConfig = [
   { key: 'ordersCount', title: 'Orders ', icon: <span>#</span> },
   { key: 'resultsDate', title: 'Results', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
   { key: 'resultsCount', title: 'Results ', icon: <span>#</span> },
-  { key: 'vitalsDate', title: 'Count', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
-  { key: 'vitalsCount', title: 'Count ', icon: <span>#</span> },
+  { key: 'vitalsDate', title: 'Vitals', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
+  { key: 'vitalsCount', title: 'Vitals ', icon: <span>#</span> },
   { key: 'diagnosesDate', title: 'Diagnoses', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
   { key: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
 ];

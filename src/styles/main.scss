@@ -16,6 +16,7 @@ $font-family-main: Arial, Helvetica, sans-serif;
 
 //components
 @import 'components/form';
+@import 'components/form-custom-inputs';
 
 //pages
 @import '../components/pages/PatientsLists/PatientsLists';
