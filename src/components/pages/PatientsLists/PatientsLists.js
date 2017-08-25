@@ -49,39 +49,46 @@ class PatientsLists extends PureComponent {
   };
 
   componentDidMount() {
-    this.fetchPatientCounts()(this.props.allPatients);
+    const { allPatients, actions } = this.props;
+    actions.fetchPatientCountsRequest(allPatients);
   }
 
-  componentWillUpdate({ allPatients }, nextState) {
+  componentWillUpdate({ allPatients, actions }, nextState) {
     const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
     _.cond([
-      [isNewPatients, this.fetchPatientCounts(0, _.size(allPatients))],
+      [isNewPatients, actions.fetchPatientCountsRequest],
     ])(allPatients)
   }
 
-  fetchPatientCounts = (offset = 0, limit = this.props.patientsPerPageAmount) => _.flow(_.slice(offset, offset + limit), this.props.actions.fetchPatientCountsRequest);
+  filterAndSortPatients = (patients) => {
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
+    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
+    const reverseIfDescOrder = _.cond([
+      [_.isEqual('desc'), () => _.reverse],
+      [_.stubTrue, () => v => v],
+    ])(sortingOrder);
+
+    return _.flow(
+      _.sortBy([columnNameSortBy]),
+      reverseIfDescOrder,
+      _.filter(filterByNamePredicate)
+    )(patients);
+  };
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
   handleSetOffset = offset => this.setState({ offset });
 
-  havePagination = () => _.size(this.props.allPatients) > this.props.patientsPerPageAmount;
+  shouldHavePagination = patients => _.size(patients) > this.props.patientsPerPageAmount;
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
   render() {
     const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
-    const { columnNameSortBy, sortingOrder, offset, nameShouldInclude } = this.state;
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const data = _.flow(
-      _.sortBy([columnNameSortBy]),
-      _.cond([
-        [_.isEqual('desc'), () => _.reverse],
-        [_.stubTrue, () => v => v],
-      ])(sortingOrder),
-      _.filter(filterByNamePredicate),
-      _.slice(offset, offset + patientsPerPageAmount)
-    )(allPatientsWithCounts);
+    const { offset } = this.state;
+
+    const filteredPatients = this.filterAndSortPatients(allPatientsWithCounts);
+    const patientsOnFirstPage = _.slice(offset, offset + patientsPerPageAmount)(filteredPatients);
 
     return (<section className="page-wrapper">
       <Row>
@@ -95,11 +102,11 @@ class PatientsLists extends PureComponent {
               <div className="wrap-patients-table">
                 <SortableTable
                   headers={patientsColumnsConfig}
-                  data={data}
+                  data={patientsOnFirstPage}
                   onHeaderCellClick={this.handleHeaderCellClick}
                 />
               </div>
-              {this.havePagination() &&
+              {this.shouldHavePagination(filteredPatients) &&
               <div className="control-group with-indent center">
                 <PaginationBlock
                   entriesPerPage={patientsPerPageAmount}
