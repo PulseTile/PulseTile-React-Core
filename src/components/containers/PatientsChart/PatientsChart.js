@@ -4,6 +4,11 @@ import _ from 'lodash/fp';
 
 import { Bar } from 'react-chartjs-2';
 
+const handleBarClick = ({ onBarClick }) => (chartElements) => {
+  const label = _.get('[0]_model.label', chartElements);
+  if (label && _.isFunction(onBarClick)) onBarClick(label);
+};
+
 const PatientsChart = props => <div className="chart-block">
   <div className="chart-title-group">
     <h2 className="chart-title">{props.title}</h2>
@@ -12,11 +17,12 @@ const PatientsChart = props => <div className="chart-block">
   <div className="wrap-chart chart-dashboard">
     <Bar
       data={{
-        labels: props.labels,
+        labels: _.map('name', props.labels),
         datasets: [{ data: props.patients.map(_.size) }],
       }}
       width={600}
       height={350}
+      onElementsClick={handleBarClick(props)}
       options={{
         capBezierPoints: false,
         responsive: true,
@@ -61,9 +67,10 @@ PatientsChart.propTypes = {
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string.isRequired,
   patients: PropTypes.arrayOf(PropTypes.array).isRequired,
-  labels: PropTypes.arrayOf(PropTypes.string).isRequired,
+  labels: PropTypes.arrayOf(PropTypes.object).isRequired,
   borderColor: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
+  onBarClick: PropTypes.func.isRequired,
 };
 
 export default PatientsChart;

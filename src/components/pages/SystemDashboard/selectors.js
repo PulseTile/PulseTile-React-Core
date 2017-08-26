@@ -4,7 +4,7 @@ import { createSelector } from 'reselect';
 import { patientsDepartments, patientsAges } from '../../../config/patients.constants';
 import { getAgeYears } from '../../../utils/time-helpers.utils';
 
-const patientsByDepartmentsSelector = ({ patients }) => patientsDepartments.map(department => _.filter(patient => patient.department === department, patients));
+const patientsByDepartmentsSelector = ({ patients }) => patientsDepartments.map(department => _.filter(patient => patient.department === department.name, patients));
 
 const patientsByAgesSelector = ({ patients }) => patientsAges
   .map(({ from, to }) => _.filter(

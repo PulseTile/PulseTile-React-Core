@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom'
 export const unmountOnBlur = ({
   componentDidMount() {
     const { toggleVisibility } = this.props;
-    const componentDOMNode = findDOMNode(this)
+    const componentDOMNode = findDOMNode(this);
 
     this._toggleVisibility = (e, ...restArgs) => {
       const isClickInsideComponent = componentDOMNode.contains(e.target);
