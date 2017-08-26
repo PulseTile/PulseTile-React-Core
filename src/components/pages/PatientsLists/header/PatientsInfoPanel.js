@@ -1,21 +1,24 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
+import { lifecycle } from 'recompose';
 import { Row, Col } from 'react-bootstrap';
 
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import PTCustomCheckbox from './PTCustomCheckbox';
+import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 
+@lifecycle(unmountOnBlur)
 export default class PatientsInfoPanel extends PureComponent {
     static propTypes = {
       onColumnsSelected: PropTypes.func.isRequired,
-      columnsSelected: PropTypes.objectOf(PropTypes.bool).isRequired,
+      selectedColumns: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
       isFilterInputVisible: false,
       isPatientInfoPanelVisible: false,
-      selected: this.props.columnsSelected,
+      selected: this.props.selectedColumns,
     };
 
     componentDidUpdate(prevProps, prevState) {
@@ -36,7 +39,8 @@ export default class PatientsInfoPanel extends PureComponent {
       const { selected } = this.state;
 
       return (
-        <div className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients">
+        <div
+          className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients">
           <div className="form-group-wrapper">
             <div className="heading">PATIENT INFO</div>
             <div className="form-group">

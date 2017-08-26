@@ -12,7 +12,7 @@ import PatientsListHeader from './header/PatientsListHeader';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
-import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
+import { fetchPatientsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientsColumnsConfig, defaultColumnsSelected } from './patients-table-columns.config'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
@@ -45,7 +45,7 @@ class PatientsLists extends PureComponent {
     sortingOrder: null,
     offset: 0,
     nameShouldInclude: '',
-    columnsSelected: defaultColumnsSelected,
+    selectedColumns: defaultColumnsSelected,
   };
 
   componentDidMount() {
@@ -83,13 +83,13 @@ class PatientsLists extends PureComponent {
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
-  handleColumnsSelected = selectedColumns => this.setState(_.set('columnsToShow', selectedColumns));
+  handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
 
   render() {
     const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
-    const { offset, columnsSelected } = this.state;
+    const { offset, selectedColumns } = this.state;
 
-    const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => columnsSelected[columnConfig.key]);
+    const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredPatients = this.filterAndSortPatients(allPatientsWithCounts);
     const patientsOnFirstPage = _.slice(offset, offset + patientsPerPageAmount)(filteredPatients);
 
@@ -101,7 +101,7 @@ class PatientsLists extends PureComponent {
             <PatientsListHeader
               onFilterChange={this.handleFilterChange}
               onColumnsSelected={this.handleColumnsSelected}
-              columnsSelected={columnsSelected}
+              selectedColumns={selectedColumns}
             />
             <div className="panel-body">
               <div className="wrap-patients-table">
