@@ -1,70 +1,39 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
-import classNames from 'classnames';
 import { Row, Col } from 'react-bootstrap';
+
 import PTButton from '../../../ui-elements/PTButton/PTButton';
-
-const PTCustomCheckbox = ({ title, name, isChecked, disabled = false, onChange }) => {
-  const toggleCheckbox = () => !disabled && onChange(name);
-
-  return <Col xs={6} sm={4}>
-    <div className="wrap-fcustominp">
-      <div className={classNames('fcustominp-state', { disabled })} onClick={toggleCheckbox} >
-        <div className="fcustominp">
-          <input type="checkbox" name={name} checked={isChecked} onChange={toggleCheckbox} />
-          <label htmlFor="patients-table-info-name" />
-        </div>
-        <label htmlFor={name} className="fcustominp-label">{title}</label>
-      </div>
-    </div>
-  </Col>
-}
-
-PTCustomCheckbox.propTypes = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-};
+import PTCustomCheckbox from './PTCustomCheckbox';
 
 export default class PatientsInfoPanel extends PureComponent {
     static propTypes = {
-      onSelected: PropTypes.func.isRequired,
+      onColumnsSelected: PropTypes.func.isRequired,
+      columnsSelected: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
       isFilterInputVisible: false,
       isPatientInfoPanelVisible: false,
-      isChecked: {
-        name: true,
-        gender: true,
-        dateOfBirth: true,
-        address: false,
-        id: false,
-        ordersDate: false,
-        resultsDate: false,
-        vitalsDate: false,
-        diagnosesDate: false,
-        ordersCount: false,
-        resultsCount: false,
-        vitalsCount: false,
-        diagnosesCount: false,
-      },
+      selected: this.props.columnsSelected,
     };
 
     componentDidUpdate(prevProps, prevState) {
-      if (!_.isEqual(prevState.isChecked, this.state.isChecked)) this.props.onSelected(this.state.isChecked)
+      if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onColumnsSelected(this.state.selected)
     }
 
     toggleCheckbox = key => this.setState((prevState) => {
-      const newValue = !_.get(['isChecked', key])(prevState);
-      return _.set(['isChecked', key], newValue)(prevState);
+      const newValue = !_.get(['selected', key])(prevState);
+      return _.set(['selected', key], newValue)(prevState);
     });
 
+    toggleMultipleCheckboxes = keys => () => {
+      const nextCheckedValues = keys.map(_.flow(_.pick(keys), _.every(_.eq(true)))(this.state.selected) ? _.stubFalse : _.stubTrue);
+      this.setState(prevState => _.merge(prevState, { selected: _.zipObject(keys, nextCheckedValues) }));
+    };
+
     render() {
-      const { isChecked } = this.state;
+      const { selected } = this.state;
 
       return (
         <div className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients">
@@ -72,13 +41,13 @@ export default class PatientsInfoPanel extends PureComponent {
             <div className="heading">PATIENT INFO</div>
             <div className="form-group">
               <Row>
-                <PTCustomCheckbox title="Name" name="name" isChecked={isChecked.name} disabled />
-                <PTCustomCheckbox title="Address" name="address" isChecked={isChecked.address} onChange={this.toggleCheckbox} />
-                <PTCustomCheckbox title="Born" name="dateOfBirth" isChecked={isChecked.dateOfBirth} disabled />
-                <PTCustomCheckbox title="Gender" name="gender" isChecked={isChecked.gender} disabled />
-                <PTCustomCheckbox title="NHS No." name="id" isChecked={isChecked.id} onChange={this.toggleCheckbox} />
+                <PTCustomCheckbox title="Name" name="name" isChecked={selected.name} disabled />
+                <PTCustomCheckbox title="Address" name="address" isChecked={selected.address} onChange={this.toggleCheckbox} />
+                <PTCustomCheckbox title="Born" name="dateOfBirth" isChecked={selected.dateOfBirth} disabled />
+                <PTCustomCheckbox title="Gender" name="gender" isChecked={selected.gender} disabled />
+                <PTCustomCheckbox title="NHS No." name="id" isChecked={selected.id} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={() => ['address', 'id'].map(this.toggleCheckbox)}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['address', 'id'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>
@@ -86,12 +55,12 @@ export default class PatientsInfoPanel extends PureComponent {
               <div className="heading">DATE / TIME</div>
               <div className="form-group">
                 <Row>
-                  <PTCustomCheckbox title="Orders" name="ordersDate" isChecked={isChecked.ordersDate} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Results" name="resultsDate" isChecked={isChecked.resultsDate} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Vitals" name="vitalsDate" isChecked={isChecked.vitalsDate} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Diagnoses" name="diagnosesDate" isChecked={isChecked.diagnosesDate} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Orders" name="ordersDate" isChecked={selected.ordersDate} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Results" name="resultsDate" isChecked={selected.resultsDate} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Vitals" name="vitalsDate" isChecked={selected.vitalsDate} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Diagnoses" name="diagnosesDate" isChecked={selected.diagnosesDate} onChange={this.toggleCheckbox} />
                   <Col xs={6} sm={4}>
-                    <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={() => ['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate'].map(this.toggleCheckbox)}>
+                    <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate'])}>
                       <span className="btn-text">Select All</span>
                     </PTButton>
                   </Col>
@@ -100,12 +69,12 @@ export default class PatientsInfoPanel extends PureComponent {
               <div className="heading">COUNT</div>
               <div className="form-group">
                 <Row>
-                  <PTCustomCheckbox title="Orders" name="ordersCount" isChecked={isChecked.ordersCount} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Results" name="resultsCount" isChecked={isChecked.resultsCount} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Vitals" name="vitalsCount" isChecked={isChecked.vitalsCount} onChange={this.toggleCheckbox} />
-                  <PTCustomCheckbox title="Diagnoses" name="diagnosesCount" isChecked={isChecked.diagnosesCount} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Orders" name="ordersCount" isChecked={selected.ordersCount} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Results" name="resultsCount" isChecked={selected.resultsCount} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Vitals" name="vitalsCount" isChecked={selected.vitalsCount} onChange={this.toggleCheckbox} />
+                  <PTCustomCheckbox title="Diagnoses" name="diagnosesCount" isChecked={selected.diagnosesCount} onChange={this.toggleCheckbox} />
                   <Col xs={6} sm={4}>
-                    <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={() => ['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount'].map(this.toggleCheckbox)}>
+                    <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount'])}>
                       <span className="btn-text">Select All</span>
                     </PTButton>
                   </Col>

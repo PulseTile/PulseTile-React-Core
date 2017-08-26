@@ -9,12 +9,11 @@ import { lifecycle } from 'recompose';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PatientsListHeader from './header/PatientsListHeader';
-import PTButton from '../../ui-elements/PTButton/PTButton';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
 import { fetchPatientsOnMount } from '../../../utils/hoc-arguments/fetch-patients.utils';
-import { patientsColumnsConfig } from './patients-table-columns.config'
+import { patientsColumnsConfig, defaultColumnsSelected } from './patients-table-columns.config'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
 
@@ -46,6 +45,7 @@ class PatientsLists extends PureComponent {
     sortingOrder: null,
     offset: 0,
     nameShouldInclude: '',
+    columnsSelected: defaultColumnsSelected,
   };
 
   componentDidMount() {
@@ -53,9 +53,9 @@ class PatientsLists extends PureComponent {
     actions.fetchPatientCountsRequest(allPatients);
   }
 
-  componentWillUpdate({ allPatients, actions }, nextState) {
+  componentWillUpdate({ allPatients, actions }) {
     const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
-    _.cond([
+    return _.cond([
       [isNewPatients, actions.fetchPatientCountsRequest],
     ])(allPatients)
   }
@@ -83,10 +83,13 @@ class PatientsLists extends PureComponent {
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
+  handleColumnsSelected = selectedColumns => this.setState(_.set('columnsToShow', selectedColumns));
+
   render() {
     const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
-    const { offset } = this.state;
+    const { offset, columnsSelected } = this.state;
 
+    const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => columnsSelected[columnConfig.key]);
     const filteredPatients = this.filterAndSortPatients(allPatientsWithCounts);
     const patientsOnFirstPage = _.slice(offset, offset + patientsPerPageAmount)(filteredPatients);
 
@@ -97,11 +100,13 @@ class PatientsLists extends PureComponent {
           <div className="panel panel-primary">
             <PatientsListHeader
               onFilterChange={this.handleFilterChange}
+              onColumnsSelected={this.handleColumnsSelected}
+              columnsSelected={columnsSelected}
             />
             <div className="panel-body">
               <div className="wrap-patients-table">
                 <SortableTable
-                  headers={patientsColumnsConfig}
+                  headers={columnsToShowConfig}
                   data={patientsOnFirstPage}
                   onHeaderCellClick={this.handleHeaderCellClick}
                 />

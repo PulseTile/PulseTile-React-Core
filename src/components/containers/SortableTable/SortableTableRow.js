@@ -7,7 +7,10 @@ const SortableTableRow = props => <tr>
 </tr>;
 
 SortableTableRow.propTypes = {
-  rowData: PropTypes.arrayOf(PropTypes.string).isRequired,
+  rowData: PropTypes.arrayOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])).isRequired,
 };
 
 export default SortableTableRow

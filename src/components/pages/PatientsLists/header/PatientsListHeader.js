@@ -9,6 +9,8 @@ import PTButton from '../../../ui-elements/PTButton/PTButton';
 export default class PatientsListHeader extends PureComponent {
     static propTypes = {
       onFilterChange: PropTypes.func.isRequired,
+      onColumnsSelected: PropTypes.func.isRequired,
+      columnsSelected: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
@@ -22,11 +24,9 @@ export default class PatientsListHeader extends PureComponent {
 
     togglePatientInfoPanelVisible = () => this.setState(prevState => ({ isPatientInfoPanelVisible: !prevState.isPatientInfoPanelVisible }));
 
-    handlePatientsInfoSelected = (selected) => console.log(selected);
-
     render() {
       const { isFilterInputVisible, isPatientInfoPanelVisible } = this.state;
-      const { onFilterChange } = this.props;
+      const { onFilterChange, onColumnsSelected, columnsSelected } = this.props;
 
       return (
         <div className="panel-heading">
@@ -35,7 +35,7 @@ export default class PatientsListHeader extends PureComponent {
               <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientInfoPanelVisible}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
-              {isPatientInfoPanelVisible && <PatientsInfoPanel onSelected={this.handlePatientsInfoSelected} />}
+              {isPatientInfoPanelVisible && <PatientsInfoPanel onColumnsSelected={onColumnsSelected} columnsSelected={columnsSelected} />}
             </div>
             <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
               <i className="btn-icon fa fa-filter" />

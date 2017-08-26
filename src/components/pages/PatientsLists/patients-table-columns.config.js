@@ -19,3 +19,19 @@ export const patientsColumnsConfig = [
   { key: 'diagnosesDate', title: 'Diagnoses', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
   { key: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
 ];
+
+export const defaultColumnsSelected = {
+  name: true,
+  gender: true,
+  dateOfBirth: true,
+  address: true,
+  id: true,
+  ordersDate: true,
+  resultsDate: true,
+  vitalsDate: false,
+  diagnosesDate: false,
+  ordersCount: true,
+  resultsCount: true,
+  vitalsCount: false,
+  diagnosesCount: false,
+};
