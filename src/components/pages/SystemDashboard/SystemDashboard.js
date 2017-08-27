@@ -10,7 +10,7 @@ import PTPanel from '../../ui-elements/PTPanel/PTPanel';
 import PatientsChart from '../../containers/PatientsChart/PatientsChart';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
-import { patientsDepartments, patientsAges } from '../../../config/patients.constants';
+import { patientsDepartments, patientsAgeRanges } from '../../../config/patients.constants';
 import { fetchPatientsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { clientUrls } from '../../../config/client-urls.constants'
 
@@ -54,7 +54,7 @@ export default class SystemDashboard extends PureComponent {
                 title="Patients By Age"
                 subTitle="This is a brief description of patients by age."
                 patients={patientsByAge}
-                labels={patientsAges}
+                labels={patientsAgeRanges}
                 borderColor="rgba(126, 41, 205,1)"
                 backgroundColor="rgba(126, 41, 205,0.3)"
                 onBarClick={this.handleBarClick('ageRange')}
