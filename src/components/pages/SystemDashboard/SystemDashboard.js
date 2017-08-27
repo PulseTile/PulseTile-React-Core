@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import qs from 'qs';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
@@ -28,7 +29,7 @@ export default class SystemDashboard extends PureComponent {
 
   redirectTo = url => this.props.history.push(url);
 
-  handleBarClick = prefix => label => this.redirectTo(`${clientUrls.PATIENTS}?${prefix}=${label}`);
+  handleBarClick = prefix => label => this.redirectTo(`${clientUrls.PATIENTS}?${qs.stringify({ [prefix]: label })}`);
 
   render() {
     const { patientsByAge, patientsByDepartment } = this.props;
