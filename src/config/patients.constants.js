@@ -16,8 +16,8 @@ export const patientsDepartments = [
 ];
 
 export const patientsAgeRanges = [
-  { name: '19-30', from: 19, to: 30, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range:', predicate: patientsAgeRangesPredicate(19, 30) },
-  { name: '31-60', from: 31, to: 60, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range:', predicate: patientsAgeRangesPredicate(31, 60) },
-  { name: '61-80', from: 61, to: 80, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range:', predicate: patientsAgeRangesPredicate(61, 80) },
-  { name: '>80', from: 81, to: 999, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range:', predicate: patientsAgeRangesPredicate(81, 999) },
+  { name: '19-30', from: 19, to: 30, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(19, 30) },
+  { name: '31-60', from: 31, to: 60, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(31, 60) },
+  { name: '61-80', from: 61, to: 80, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(61, 80) },
+  { name: '>80', from: 81, to: 999, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(81, 999) },
 ];

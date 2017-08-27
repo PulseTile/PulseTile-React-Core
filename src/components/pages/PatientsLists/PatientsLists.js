@@ -33,6 +33,7 @@ class PatientsLists extends PureComponent {
         nhsNumber: PropTypes.string,
       })).isRequired,
     allPatientsWithCounts: PropTypes.arrayOf(PropTypes.object).isRequired,
+    panelTitle: PropTypes.string.isRequired,
     patientsPerPageAmount: PropTypes.number,
     actions: PropTypes.objectOf(PropTypes.func).isRequired,
   };
@@ -87,7 +88,7 @@ class PatientsLists extends PureComponent {
   handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
 
   render() {
-    const { allPatients, allPatientsWithCounts, patientsPerPageAmount } = this.props;
+    const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle } = this.props;
     const { offset, selectedColumns } = this.state;
 
     const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
@@ -103,6 +104,7 @@ class PatientsLists extends PureComponent {
               onFilterChange={this.handleFilterChange}
               onColumnsSelected={this.handleColumnsSelected}
               selectedColumns={selectedColumns}
+              panelTitle={panelTitle}
             />
             <div className="panel-body">
               <div className="wrap-patients-table">

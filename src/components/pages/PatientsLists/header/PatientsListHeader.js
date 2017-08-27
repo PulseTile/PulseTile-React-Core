@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
-import { findDOMNode } from 'react-dom'
 
 import PatientsInfoPanel from './PatientsInfoPanel';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
@@ -12,6 +11,7 @@ export default class PatientsListHeader extends PureComponent {
       onFilterChange: PropTypes.func.isRequired,
       onColumnsSelected: PropTypes.func.isRequired,
       selectedColumns: PropTypes.objectOf(PropTypes.bool).isRequired,
+      panelTitle: PropTypes.string.isRequired,
     };
 
     state = {
@@ -23,20 +23,14 @@ export default class PatientsListHeader extends PureComponent {
       () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
     );
 
-    togglePatientInfoPanelVisibility = (e, visibility) => {
-      /*if (findDOMNode(this).contains(e.target)) {
-          console.log('inside')
-          e.nativeEvent.stopPropagation();
-      }*/
-      this.setState(prevState => _.cond([
-        [_.isUndefined, () => ({ isPatientInfoPanelVisible: !prevState.isPatientInfoPanelVisible })],
-        [v => v, isPatientInfoPanelVisible => ({ isPatientInfoPanelVisible })],
-      ])(visibility))
-    }
+    togglePatientInfoPanelVisibility = (e, visibility) => this.setState(prevState => _.cond([
+      [_.isUndefined, () => ({ isPatientInfoPanelVisible: !prevState.isPatientInfoPanelVisible })],
+      [v => v, isPatientInfoPanelVisible => ({ isPatientInfoPanelVisible })],
+    ])(visibility));
 
     render() {
       const { isFilterInputVisible, isPatientInfoPanelVisible } = this.state;
-      const { onFilterChange, onColumnsSelected, selectedColumns } = this.props;
+      const { onFilterChange, onColumnsSelected, selectedColumns, panelTitle } = this.props;
 
       return (
         <div className="panel-heading">
@@ -51,7 +45,7 @@ export default class PatientsListHeader extends PureComponent {
               <i className="btn-icon fa fa-filter" />
             </PTButton>
           </div>
-          <h3 className="panel-title">Patient info</h3>
+          <h3 className="panel-title">{panelTitle}</h3>
           {isFilterInputVisible && <div className="panel-filter">
             <div className="inner-addon addon-left">
               <div className="addon">
