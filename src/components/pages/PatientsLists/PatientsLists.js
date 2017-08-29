@@ -93,7 +93,10 @@ class PatientsLists extends PureComponent {
 
     const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredPatients = this.filterAndSortPatients(allPatientsWithCounts);
-    const patientsOnFirstPage = _.slice(offset, offset + patientsPerPageAmount)(filteredPatients);
+    //TODO refactor it more gracefully
+    const patientsOnFirstPage = _.size(filteredPatients) > patientsPerPageAmount
+      ? _.slice(offset, offset + patientsPerPageAmount)(filteredPatients)
+      : filteredPatients;
 
     return (<section className="page-wrapper">
       <Row>
