@@ -1,11 +1,3 @@
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-$fa-font-path: '~font-awesome/fonts';
-$font-family-main: Arial, Helvetica, sans-serif;
-
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
-@import '~font-awesome/scss/font-awesome';
-
-//common styles
 @import 'config';
 
 @import 'abstracts/variables';
@@ -67,35 +59,3 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import 'ui-kit';
 
 @import 'themes/index';
-
-//components
-@import 'components/form';
-@import 'components/form-custom-inputs';
-
-//pages
-@import '../components/pages/PatientsLists/PatientsLists';
-
-//containers
-//@import '../components/containers/App/App';
-//@import '../components/containers/Main/Main';
-//@import '../components/containers/Breadcumbs/Breadcrumbs';
-//@import '../components/containers/TopHeader/TopHeader';
-//@import '../components/containers/HeaderToolbar/HeaderToolbar';
-//@import '../components/containers/Footer/Footer';
-//@import '../components/containers/PatientsChart/PatientsChart';
-//@import '../components/containers/MainLogo/MainLogo';
-//@import '../components/ui-elements/PTButton/PTButton';
-//@import '../components/containers/NavSearch/NavSearch';
-//@import '../components/containers/UserPanel/UserPanel';
-//@import '../components/containers/UserPanel/UserPanelItem';
-//@import '../components/containers/SortableTable/SortableTable';
-
-//presentational
-//@import '../components/ui-elements/PTPanel/PTPanel';
-//@import '../components/presentational/PaginationBlock/PaginationBlock';
-
-//global
-
-//@import './global/control';
-//@import './global/dropdown';
-//@import './global/notification';

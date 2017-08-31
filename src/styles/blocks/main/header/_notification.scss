@@ -1,0 +1,24 @@
+.notifications-drop {
+  color: #3c3c3c;
+  padding: 9px 15px;
+  width: 270px;
+}
+.notifications-header {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.notifications-body {
+  font-size: 12px;
+  line-height: 16px;
+}
+.notifications-list { 
+  margin-bottom: -6px; 
+  @include list-reset;
+}
+.notifications-list-item {
+  border-top: 1px solid #d7d7d7;
+  padding: 10px 0 9px;
+}
+.notification-info { margin-bottom: 6px; }
+.notification-time { color: #9c9c9c; }

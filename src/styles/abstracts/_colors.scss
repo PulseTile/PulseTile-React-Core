@@ -1,90 +1,87 @@
 /**
   * CONFIG
   */
-$user-palette: false !default;
-$blue-palette: false !default;
-$red-palette: false !default;
-$yellow-palette: false !default;
-$base-color-palette: false !default;
+  $user-palette: false !default;
+  $blue-palette: false !default;
+  $red-palette: false !default;
+  $yellow-palette: false !default;
+  $base-color-palette: false !default;
 
-@if ($user-palette) {
-  $base-color-palette: $user-palette;
-} @else if ($blue-palette) {
-  $base-color-palette: $blue-palette;
-} @else if ($red-palette) {
-  $base-color-palette: $red-palette;
-} @else if ($yellow-palette) {
-  $base-color-palette: $yellow-palette;
-} @else {
-  $base-color-palette: $green-palette;
-} 
+  @if ($user-palette) {
+    $base-color-palette: $user-palette;
+  } @else if ($blue-palette) {
+    $base-color-palette: $blue-palette;
+  } @else if ($red-palette) {
+    $base-color-palette: $red-palette;
+  } @else if ($yellow-palette) {
+    $base-color-palette: $yellow-palette;
+  } @else {
+    $base-color-palette: $green-palette;
+  } 
 
 
 /**
   * COLORS for use across the site
   */
-$base-color: map-get($base-color-palette, 'base-color');
-$auxiliary-color: map-get($base-color-palette, 'light-color');
+  $base-color: map-get($base-color-palette, 'base-color');
+  $auxiliary-color: map-get($base-color-palette, 'light-color');
   
-$table-color: map-get($base-color-palette, 'lighter-color');
-$colored-table: (
-  background: #f3f3f3,
-  header-background: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
-  row-odd-background: #fdfdfd,
-  row-background-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
-  selected-background: $table-color,
-  sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
-  sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
-);
+  $table-color: map-get($base-color-palette, 'lighter-color');
+  $colored-table: (
+    background: #F3F3F3,
+    header-background: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+    row-odd-background: #FDFDFD,
+    row-background-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    selected-background: $table-color,
+    sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+  );
   
-$text-color: #303030;
-$text-on-base-color: #ffffff;
+  $text-color: #303030;
+  $text-on-base-color: #ffffff;
 
-$colored-buttons: (
-  default: #ffffff,
-  primary: #337ab7,
-  success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
-  info: #31b0d5,
-  warning: #f0ad4e,
-  danger: #da534f
-);
+  $colored-buttons: (
+    default: #ffffff,
+    primary: #337AB7,
+    success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    info: #31b0d5,
+    warning: #F0AD4E,
+    danger: #DA534F
+  );
 
 /**
   * COLORS for header
   */
-$header-bg: #ffffff;
+  $header-bg: #ffffff;
 
-$header-btn: (
-  bg: #f7f7f7,
-  color: $base-color,
-  bg-hover: #f7f7f7,
-  color-hover: $auxiliary-color,
-  bg-active: #ffffff,
-  color-active: $auxiliary-color
-);
-$header-toolbar: (
-  bg: $base-color,
-  color: $text-on-base-color,
-);
+  $header-btn: (
+    bg: #F7F7F7,
+    color: $base-color,
+    bg-hover: #F7F7F7,
+    color-hover: $auxiliary-color,
+    bg-active: #ffffff,
+    color-active: $auxiliary-color
+  );
+  $header-toolbar: (
+    bg: $base-color,
+    color: $text-on-base-color,
+  );
 
 /**
   * COLORS for search
   */
-$search-btn: (
-  bg: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
-  color: #ffffff,
-  bg-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
-  color-hover: #ffffff
-);
-$search-btn-toggle: (
-  bg: transparent,
-  color: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
-  bg-hover: transparent,
-  color-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
-  border: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
-  border-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%)
-);
-
-$panel-border-color: #D8D8D8;
-$panel-background-color: #E8E8E8;
+  $search-btn: (
+    bg: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    color: #ffffff,
+    bg-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
+    color-hover: #ffffff
+  );
+  $search-btn-toggle: (
+    bg: transparent,
+    color: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    bg-hover: transparent,
+    color-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
+    border: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    border-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%)
+  );
 

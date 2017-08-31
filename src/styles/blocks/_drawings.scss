@@ -1,0 +1,143 @@
+.drawing-wrapper {
+  padding: 12px 9px 15px;
+}
+.drawing-canvas-holder {
+  border: 1px solid #848484;
+  overflow: hidden;
+}
+.drawing-canvas {
+  height: 406px;
+  width: 100% !important;
+}
+.drawing-control-header {
+  background: #f1f1f1;
+}
+.drawing-control-body {
+  padding: 6px 10px 5px;
+  border-bottom: 1px solid #e4e4e4;
+}
+.btn.btn-drawing {
+  background: transparent;
+  border: 0;
+  box-shadow: 0 0 rgb(0, 0, 0) !important;
+  color: #828282;
+  font-size: 18px;
+  height: 40px;
+  width: 44px;
+  &.active {
+    background: $base-color;
+    color: $text-on-base-color;
+  }
+  &.btn-drawing-delete {
+    background: map-get($colored-buttons, 'danger') !important;
+    color: $text-on-base-color !important;
+  }
+}
+.is-not-touch-device .btn.btn-drawing:hover {
+  background: $base-color;
+  color: $text-on-base-color;
+}
+.drawing-form-group,
+.drawing-form {
+  @include clearfix;
+}
+.drawing-form-group {
+  & + .drawing-form-group { margin-top: 4px; }
+}
+
+.drawing-label {
+  color: #828282;
+  float: left;
+  font-size: 14px;
+  height: 32px;
+  line-height: 32px;
+  margin-right: 10px;
+}
+.drawing-holder {
+  overflow: hidden;
+}
+
+.btn-drawing-browse {
+  font-size: 14px;
+  height: 32px;
+  line-height: 18px;
+  padding-left: 16px;
+  padding-right: 14px;
+}
+
+.btn-drawing-add {
+  float: right;
+  font-size: 14px;
+  height: 30px;
+  line-height: 16px;
+}
+
+.btn-drawing-upload,
+.btn-drawing-upload-file {
+  float: right;
+  font-size: 14px;
+  height: 30px;
+  line-height: 16px;
+}
+.btn-drawing-upload-file { 
+  height: 32px; 
+  line-height: 18px;
+}
+
+.drawing-fcustomfile {
+  .fcustomfile-control {
+    margin-right: 0;
+  }
+  .fcustomfile-text {
+    border-color: #bababa;
+    border-style: solid;
+    border-width: 1px 0;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 5px;
+    width: 100%;
+  }
+}
+
+.drawing-colors {
+  padding: 3px 0;
+  @include clearfix;
+}
+
+.drawing-colors-group {
+  float: left;
+  overflow: hidden;
+  margin-right: 12px;
+}
+
+.drawing-color {
+  background: #ffffff;
+  border: 1px solid #e4e4e4;
+  cursor: pointer;
+  display: block;
+  float: left;
+  height: 24px;
+  margin-bottom: 2px;
+  margin-right: 2px;
+  width: 24px;
+  &.active {
+    border-color: $base-color;
+  }
+}
+.drawing-form-middle { width: 146px; }
+.drawing-form-small { width: 80px; }
+
+.drawing-form-left {
+  float: left;
+  margin-right: 17px;
+}
+.drawing-form-left:last-child { margin-right: 0; }
+.drawing-form-size {
+  float: right;
+}
+
+.input-with-btn {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 0;
+}

@@ -1,0 +1,10 @@
+a,
+a:hover,
+a:focus {
+  color: $text-color;
+}
+
+.is-not-touch-device a:hover,
+.is-not-touch-device a:focus, {
+  color: $auxiliary-color;
+}

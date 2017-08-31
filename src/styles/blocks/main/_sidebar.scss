@@ -1,0 +1,116 @@
+/*Styles for sidebar*/
+.sidebar {
+  // display: none;
+  background: #F7F7F7;
+  border-right: 1px solid #B7B7B7;
+  // height: 100%;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  width: 185px;
+  z-index: 1000;
+  transform: translate(-100%, 0);
+  bottom: 0;
+  @include respond-from(sm) {
+    top: 138px;
+    bottom: 56px;
+  }
+}
+.sidebar-underlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+  @include respond-from(sm) {
+    display: none !important;
+  }
+}
+.showSidebar .sidebar {
+  transform: translate(0, 0);
+}
+.showSidebar .sidebar-underlay {
+  display: block;
+}
+
+/*Styles for button of toggle show sidebar*/
+.btn-toggle-sidebar,
+.btn-toggle-sidebar:focus {
+  background: transparent;
+  border: 1px solid $text-on-base-color;
+  color: $text-on-base-color;
+  cursor: pointer;
+  float: left;
+  height: 34px;
+  margin: 0 10px 0 0;
+  outline: none;
+  padding: 6px 8px;
+  .btn-icon,
+  .btn-text { line-height: 20px; }
+  .btn-icon {
+    font-size: 18px;
+    margin-right: 0;
+  }
+  .btn-text {
+    display: none;
+    font-size: 16px;
+  }
+}
+.showSidebar .btn-toggle-sidebar,
+.showSidebar .btn-toggle-sidebar:focus,
+.showSidebar .btn-toggle-sidebar:hover {
+  background: $text-on-base-color;
+  color: $base-color;
+}
+@include respond-from(xs) {
+  .btn-toggle-sidebar,
+  .btn-toggle-sidebar:focus,
+  .btn-toggle-sidebar:hover, {
+    margin-right: 18px;
+    padding: 6px 14px 6px 11px;
+    .btn-icon { margin-right: 9px; }
+    .btn-text { display: inline; }
+  }
+}
+@include respond-from(sm) {
+  .btn-toggle-sidebar,
+  .btn-toggle-sidebar:focus,
+  .btn-toggle-sidebar:hover, {
+    left: 0;
+    margin-right: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .is-not-touch-device .btn-toggle-sidebar:hover {
+    background: $text-on-base-color;
+    color: $base-color;
+  }
+}
+
+/*Styles for sidebar navigation*/
+.sidebar-nav { padding-top: 1px; }
+.sidebar-nav-list {
+  @include list-reset;
+}
+.sidebar-nav-item { border-bottom: 1px solid #E7E7E7; }
+.sidebar-nav-link, 
+.sidebar-nav-link:hover {
+  color: $base-color;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19px;
+  padding: 10px 15px;
+}
+.sidebar-nav-link.active {
+  background-color: $base-color;
+  color: $text-on-base-color;
+}
+.is-not-touch-device .sidebar-nav-link:hover {
+  background-color: $base-color;
+  color: $text-on-base-color;
+}
