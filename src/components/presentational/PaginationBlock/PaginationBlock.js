@@ -15,6 +15,19 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return setOffset((page - 1) * entriesPerPage)
   };
 
+  function pagination(currentPage, totalPage, range) {
+    range = range || 3;
+    const arr = [];
+    for (var i = 1; i <= totalPage; i++) {
+      if (i <= range || (i > currentPage - range / 2 && i < currentPage + range / 2) || i > totalPage - range) {
+        if (arr[arr.length - 1] && i != arr[arr.length - 1] + 1)arr.push('...');
+        arr.push(i)
+      }
+    }
+
+    return arr
+  }
+
   return (<ul className="pagination-block">
     <li className={classNames('pagination-item arrow', { disabled: isFirstPage })}>
       <button className="pagination-link" onClick={isFirstPage ? _.noop : setPage(1)}>«</button>
@@ -22,11 +35,14 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
       <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
     </li>
-    {_.times(pageIndex =>
-      <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex + 1 })} key={_.uniqueId('__PaginationBlock__li__')}>
-        <button className="pagination-link" onClick={setPage(pageIndex + 1)}>{pageIndex + 1}</button>
-      </li>
-      , pagesAmount)}
+    { pagination(currentPage, pagesAmount).map(function (pageIndex) {
+      return (
+        <li className={classNames('pagination-item', {active: currentPage === pageIndex, disabled: pageIndex === '...', 'short-show': currentPage === pageIndex})} key={_.uniqueId('__PaginationBlock__li__')}>
+          <button className={classNames('pagination-link', { disabled: pageIndex === '...'})} onClick={setPage(pageIndex)}>{pageIndex}</button>
+        </li>
+      )
+    })
+    }
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
       <button className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</button>
     </li>
