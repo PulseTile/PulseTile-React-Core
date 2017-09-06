@@ -15,7 +15,24 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return setOffset((page - 1) * entriesPerPage)
   };
 
-  const pagination = (currentPage, collectionLength, rowsPerPage) => {
+  const calculatePageNumber = (i, actualPage, paginationRange, totalPages) => {
+    const halfWay = Math.ceil(paginationRange / 2);
+    if (i === paginationRange) {
+      return totalPages;
+    } else if (i === 1) {
+      return i;
+    } else if (paginationRange < totalPages) {
+      if (totalPages - halfWay < actualPage) {
+        return (totalPages - paginationRange) + i;
+      } else if (halfWay < actualPage) {
+        return (actualPage - halfWay) + i;
+      }
+      return i;
+    }
+    return i;
+  };
+
+  const pagination = (actualPage, collectionLength, rowsPerPage) => {
     const pages = [];
     const maxSizePage = 6;
     const totalPages = Math.ceil(collectionLength / 10);
@@ -30,9 +47,9 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     const halfWay = Math.ceil(paginationRange / 2);
     let position;
 
-    if (currentPage <= halfWay) {
+    if (actualPage <= halfWay) {
       position = 'start';
-    } else if (totalPages - halfWay < currentPage) {
+    } else if (totalPages - halfWay < actualPage) {
       position = 'end';
     } else {
       position = 'middle';
@@ -41,8 +58,8 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     const ellipsesNeeded = paginationRange < totalPages;
     let i = 1;
     while (i <= totalPages && i <= paginationRange) {
-      const pageNumber = calculatePageNumber(i, currentPage, paginationRange, totalPages);
-      
+      const pageNumber = calculatePageNumber(i, actualPage, paginationRange, totalPages);
+
       const openingEllipsesNeeded = (i === 2 && (position === 'middle' || position === 'end'));
       const closingEllipsesNeeded = (i === paginationRange - 1 && (position === 'middle' || position === 'start'));
       if (ellipsesNeeded && (openingEllipsesNeeded || closingEllipsesNeeded)) {
@@ -50,28 +67,9 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
       } else {
         pages.push(pageNumber);
       }
-      i++;
+      i += 1;
     }
     return pages;
-  };
-
-  const calculatePageNumber = (i, currentPage, paginationRange, totalPages) => {
-    const halfWay = Math.ceil(paginationRange / 2);
-    if (i === paginationRange) {
-      return totalPages;
-    } else if (i === 1) {
-      return i;
-    } else if (paginationRange < totalPages) {
-      if (totalPages - halfWay < currentPage) {
-        return totalPages - paginationRange + i;
-      } else if (halfWay < currentPage) {
-        return currentPage - halfWay + i;
-      } else {
-        return i;
-      }
-    } else {
-      return i;
-    }
   };
 
   return (<ul className="pagination-block">
@@ -82,9 +80,9 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
       <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
     </li>
     { pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
-        <li className={classNames('pagination-item short-show', {active: currentPage === pageIndex, disabled: pageIndex === '...'})} key={_.uniqueId('__PaginationBlock__li__')}>
-          <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
-        </li>
+      <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
+        <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
+      </li>
     )}
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
       <button className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</button>
