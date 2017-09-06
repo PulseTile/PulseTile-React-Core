@@ -42,7 +42,7 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     let i = 1;
     while (i <= totalPages && i <= paginationRange) {
       const pageNumber = calculatePageNumber(i, currentPage, paginationRange, totalPages);
-
+      
       const openingEllipsesNeeded = (i === 2 && (position === 'middle' || position === 'end'));
       const closingEllipsesNeeded = (i === paginationRange - 1 && (position === 'middle' || position === 'start'));
       if (ellipsesNeeded && (openingEllipsesNeeded || closingEllipsesNeeded)) {
@@ -81,14 +81,11 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
       <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
     </li>
-    { pagination(currentPage, totalEntriesAmount, pagesAmount).map(function (pageIndex) {
-      return (
+    { pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
         <li className={classNames('pagination-item short-show', {active: currentPage === pageIndex, disabled: pageIndex === '...'})} key={_.uniqueId('__PaginationBlock__li__')}>
           <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
         </li>
-      )
-    })
-    }
+    )}
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
       <button className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</button>
     </li>
