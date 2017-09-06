@@ -15,9 +15,18 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return setOffset((page - 1) * entriesPerPage)
   };
 
-  const pagination = (currentPage, collectionLength, rowsPerPage, paginationRange) => {
+  const pagination = (currentPage, collectionLength, rowsPerPage) => {
     const pages = [];
-    const totalPages = Math.ceil(collectionLength / rowsPerPage);
+    const maxSizePage = 6;
+    const totalPages = Math.ceil(collectionLength / 10);
+    let paginationRange;
+
+    if (rowsPerPage > maxSizePage) {
+      paginationRange = maxSizePage;
+    } else {
+      paginationRange = rowsPerPage;
+    }
+
     const halfWay = Math.ceil(paginationRange / 2);
     let position;
 
@@ -72,7 +81,7 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
       <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
     </li>
-    { pagination(currentPage, totalEntriesAmount, pagesAmount, 6).map(function (pageIndex) {
+    { pagination(currentPage, totalEntriesAmount, pagesAmount).map(function (pageIndex) {
       return (
         <li className={classNames('pagination-item short-show', {active: currentPage === pageIndex, disabled: pageIndex === '...'})} key={_.uniqueId('__PaginationBlock__li__')}>
           <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
