@@ -1,3 +1,4 @@
+import { routerReducer } from 'react-router-redux'
 import { combineReducers } from 'redux';
 
 import fetchInitialiseReducer from '../ducks/fetch-initialise.duck'
@@ -7,6 +8,7 @@ import fetchPatientCountsReducer from '../ducks/fetch-patient-counts.duck'
 import fetchUserAccountReducer from '../ducks/fetch-user-account.duck'
 
 const rootReducer = combineReducers({
+  router: routerReducer,
   initialiseData: fetchInitialiseReducer,
   credentials: setCredentialsREducer,
   patients: fetchPatientsReducer,
