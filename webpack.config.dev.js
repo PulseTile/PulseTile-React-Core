@@ -60,8 +60,8 @@ module.exports = {
         loaders: ['react-hot-loader/webpack', 'babel-loader'],
       },
       {
-        test: /\.woff2?$|\.ttf$|\.eot$|\.svg$/,
-        loader: 'url-loader',
+        test: /\.(png|woff|woff2|eot|ttf|svg|jpg|gif)$/,
+        loader: 'url-loader?limit=100000',
       },
       {
         test: /\.scss$/,

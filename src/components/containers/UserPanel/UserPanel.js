@@ -4,6 +4,7 @@ import Dropdown from 'simple-react-dropdown'
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../representation/temprorary/NotificationContent'
+import UserAccountPanel from './UserAccountPanel'
 
 const UserPanel = props =>
   <ul className="user-panel" role="tablist">
@@ -22,10 +23,12 @@ const UserPanel = props =>
         </PTButton>
       </Dropdown>
     </UserPanelItem>
-    <UserPanelItem className="user-panel-item">
-      <PTButton className="btn-header btn-user">
-        <i className="fa fa-user" />
-      </PTButton>
+    <UserPanelItem className="user-panel-item dropdown">
+      <Dropdown content={<UserAccountPanel />}>
+        <PTButton className="btn-header btn-user">
+          <i className="fa fa-user" />
+        </PTButton>
+      </Dropdown>
     </UserPanelItem>
   </ul>
 
