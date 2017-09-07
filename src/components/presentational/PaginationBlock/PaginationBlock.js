@@ -15,6 +15,63 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return setOffset((page - 1) * entriesPerPage)
   };
 
+  const calculatePageNumber = (i, actualPage, paginationRange, totalPages) => {
+    const halfWay = Math.ceil(paginationRange / 2);
+    if (i === paginationRange) {
+      return totalPages;
+    } else if (i === 1) {
+      return i;
+    } else if (paginationRange < totalPages) {
+      if (totalPages - halfWay < actualPage) {
+        return (totalPages - paginationRange) + i;
+      } else if (halfWay < actualPage) {
+        return (actualPage - halfWay) + i;
+      }
+      return i;
+    }
+    return i;
+  };
+
+  const pagination = (actualPage, collectionLength, rowsPerPage) => {
+    const pages = [];
+    const maxSizePage = 6;
+    const totalPages = Math.ceil(collectionLength / 10);
+    let paginationRange;
+
+    if (rowsPerPage > maxSizePage) {
+      paginationRange = maxSizePage;
+    } else {
+      paginationRange = rowsPerPage;
+    }
+
+    const halfWay = Math.ceil(paginationRange / 2);
+    let position;
+
+    if (actualPage <= halfWay) {
+      position = 'start';
+    } else if (totalPages - halfWay < actualPage) {
+      position = 'end';
+    } else {
+      position = 'middle';
+    }
+
+    const ellipsesNeeded = paginationRange < totalPages;
+    let i = 1;
+    while (i <= totalPages && i <= paginationRange) {
+      const pageNumber = calculatePageNumber(i, actualPage, paginationRange, totalPages);
+
+      const openingEllipsesNeeded = (i === 2 && (position === 'middle' || position === 'end'));
+      const closingEllipsesNeeded = (i === paginationRange - 1 && (position === 'middle' || position === 'start'));
+      if (ellipsesNeeded && (openingEllipsesNeeded || closingEllipsesNeeded)) {
+        pages.push('...');
+      } else {
+        pages.push(pageNumber);
+      }
+      i += 1;
+    }
+    return pages;
+  };
+
   return (<ul className="pagination-block">
     <li className={classNames('pagination-item arrow', { disabled: isFirstPage })}>
       <button className="pagination-link" onClick={isFirstPage ? _.noop : setPage(1)}>«</button>
@@ -22,11 +79,11 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
       <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
     </li>
-    {_.times(pageIndex =>
-      <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex + 1 })} key={_.uniqueId('__PaginationBlock__li__')}>
-        <button className="pagination-link" onClick={setPage(pageIndex + 1)}>{pageIndex + 1}</button>
+    { pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
+      <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
+        <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
       </li>
-      , pagesAmount)}
+    )}
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
       <button className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</button>
     </li>
