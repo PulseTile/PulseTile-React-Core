@@ -9,10 +9,10 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
 
+import App from './components/containers/App/App'
 import rootReducer from './reducers/root.reducer'
 import rootEpic from './epics/root.epic'
 import { initialiseStart } from './ducks/initialise-app.duck'
-import App from './components/containers/App/App'
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
 
