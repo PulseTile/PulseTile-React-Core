@@ -6,6 +6,7 @@ import { lifecycle } from 'recompose';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import userAccountSelector from './selectors';
 import { unmountOnBlur } from '../../../utils/HOCs/unmount-on-blur.utils';
+import userImage from '../../../assets/images/user.jpg'
 
 @connect(userAccountSelector)
 @lifecycle(unmountOnBlur)
@@ -19,7 +20,7 @@ export default class UserAccountPanel extends PureComponent {
       <div className="dropdown-user dropdown-menu-right dropdown-menu">
         <div className="user-profile-image">
           <div className="img">
-            <img src={require('../../../assets/images/user.jpg')} alt="" />
+            <img src={userImage} alt="" />
           </div>
         </div>
         <div className="user-profile-info">
