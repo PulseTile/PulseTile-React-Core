@@ -5,7 +5,40 @@ export const clientUrls = {
 };
 
 export const mainPagesTitles = {
-  ROOT: 'System Dashboard',
-  CHARTS: 'System Dashboard',
-  PATIENTS: 'Patients Lists',
+  '/': {
+    breadcrumbs: [{
+      title: 'System Dashboard',
+      state: '/',
+    }],
+  },
+  '/charts': {
+    breadcrumbs: [{
+      title: 'System Dashboard',
+      state: '/charts',
+    }],
+  },
+  '/patients': {
+    breadcrumbs: [{
+      title: 'Home',
+      state: '/',
+    }, {
+      title: 'Patient Listings',
+      state: '/patients',
+    }],
+  },
+  '/profile': {
+    breadcrumbs: [{
+      title: 'Patient Information',
+      state: '/profile',
+    }],
+  },
+  '/search-report': {
+    breadcrumbs: [{
+      title: 'Home',
+      state: '/',
+    }, {
+      title: 'Search Report',
+      state: '/search-report',
+    }],
+  },
 };
