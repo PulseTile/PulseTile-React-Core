@@ -2,6 +2,11 @@ export const clientUrls = {
   ROOT: '/',
   CHARTS: '/charts',
   PATIENTS: '/patients',
+  PATIENTS_SUMMARY: 'patients-summary',
+  ORDERS: 'orders',
+  RESULTS: 'results',
+  VITALS: 'vitals',
+  DIAGNOSES: 'diagnoses',
 };
 
 export const mainPagesTitles = {

@@ -9,6 +9,8 @@ import { lifecycle } from 'recompose';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PatientsListHeader from './header/PatientsListHeader';
+import ViewPatienDropdown from './actions-column/ViewPatienDropdown';
+import PatientAccessDisclaimerModal from './PatientAccessDisclaimerModal';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
@@ -47,6 +49,8 @@ class PatientsLists extends PureComponent {
     offset: 0,
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
+    patientPath: '',
+    isDisclaimerModalVisible: false,
   };
 
   componentDidMount() {
@@ -60,6 +64,16 @@ class PatientsLists extends PureComponent {
       [isNewPatients, actions.fetchPatientCountsRequest],
     ])(allPatients)
   }
+
+  /* utils */
+  getPatientsOnFirstPage = (patients) => {
+    const { offset } = this.state;
+    const { patientsPerPageAmount } = this.props;
+
+    return (_.size(patients) > patientsPerPageAmount
+      ? _.slice(offset, offset + patientsPerPageAmount)(patients)
+      : patients)
+  };
 
   filterAndSortPatients = (patients) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
@@ -76,6 +90,9 @@ class PatientsLists extends PureComponent {
     )(patients);
   };
 
+  addActionsColumn = _.map(patient => _.set('viewPatientNavigation', <ViewPatienDropdown patient={patient} onPatientViewClick={this.handlePatientViewClick} />, patient));
+
+  /* handlers */
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
   handleSetOffset = offset => this.setState({ offset });
@@ -86,16 +103,18 @@ class PatientsLists extends PureComponent {
 
   handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
 
+  handlePatientViewClick = path => this.setState({ patientPath: path, isDisclaimerModalVisible: true });
+
+  toggleDisclaimerModalVisible = () => this.setState(prevState => ({ isDisclaimerModalVisible: !prevState.isDisclaimerModalVisible }));
+
   render() {
-    const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle } = this.props;
-    const { offset, selectedColumns } = this.state;
+    const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history } = this.props;
+    const { offset, selectedColumns, patientPath, isDisclaimerModalVisible } = this.state;
 
     const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+
     const filteredPatients = this.filterAndSortPatients(allPatientsWithCounts);
-    //TODO refactor it more gracefully
-    const patientsOnFirstPage = _.size(filteredPatients) > patientsPerPageAmount
-      ? _.slice(offset, offset + patientsPerPageAmount)(filteredPatients)
-      : filteredPatients;
+    const patientsOnFirstPage = _.flow(this.getPatientsOnFirstPage, this.addActionsColumn)(filteredPatients);
 
     return (<section className="page-wrapper">
       <Row>
@@ -130,6 +149,7 @@ class PatientsLists extends PureComponent {
           </div>
         </Col>
       </Row>
+      {isDisclaimerModalVisible && <PatientAccessDisclaimerModal onClose={this.toggleDisclaimerModalVisible} onAgreeRedirectTo={patientPath} history={history} />}
     </section>)
   }
 }
