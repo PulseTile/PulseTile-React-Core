@@ -44,18 +44,6 @@ export default class PatientsList extends PureComponent {
       isDisclaimerModalVisible: false,
     };
 
-    componentDidMount() {
-      const { allPatients, actions } = this.props;
-      actions.fetchPatientCountsRequest(allPatients);
-    }
-
-    componentWillUpdate({ allPatients, actions }) {
-      const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
-      return _.cond([
-        [isNewPatients, actions.fetchPatientCountsRequest],
-      ])(allPatients)
-    }
-
     /* utils */
     getPatientsOnFirstPage = (patients) => {
       const { offset } = this.state;

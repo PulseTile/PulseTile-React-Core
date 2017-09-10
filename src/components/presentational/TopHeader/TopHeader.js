@@ -1,7 +1,7 @@
 import React from 'react';
 import MainLogo from '../MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
-import UserPanel from '../UserPanel/UserPanel';
+import UserPanel from '../../containers/UserPanel/UserPanel';
 
 const TopHeader = props => <div className="navbar">
   <MainLogo />
