@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import qs from 'qs';
 
 import PTButton from '../../ui-elements/PTButton/PTButton';
-import { clientUrls } from "../../../config/client-urls.constants";
+import { clientUrls } from '../../../config/client-urls.constants';
 
 export default class BasicPatientSearch extends PureComponent {
     state = {
@@ -21,15 +21,19 @@ export default class BasicPatientSearch extends PureComponent {
     handleClearSearchString = () => this.setState({ searchString: '' });
 
     handleSearchClick = () => {
-      const queryParams = {
-        orderType: 'ASC',
-        pageNumber: 1,
-        searchString: this.state.searchString,
-        queryType: 'Patient: ',
-      };
-      const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
+      const { searchString } = this.state;
+      if (searchString) {
+        const queryParams = {
+          orderType: 'ASC',
+          pageNumber: 1,
+          searchString,
+          queryType: 'Patient: ',
+        };
+        const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
 
-      this.context.router.history.push(patientsFullDetailsUrl);
+        //TODO prevent "Warning: Hash history cannot PUSH the same path; a new entry will not be added to the history stack"
+        this.context.router.history.push(patientsFullDetailsUrl);
+      }
     };
 
     render() {
