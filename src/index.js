@@ -35,6 +35,7 @@ const initialState = {
   userAccount: {},
   patients: {},
   patientsCounts: {},
+  basicSearchPatient: {},
 };
 
 //create store and enhance with middleware

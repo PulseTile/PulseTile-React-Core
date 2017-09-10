@@ -15,16 +15,12 @@ export const fetchBasicPatientSearchFailure = createAction(FETCH_BASIC_PATIENT_S
 
 export const fetchBasicPatientSearchEpic = (action$, store) =>
   action$.ofType(FETCH_BASIC_PATIENT_SEARCH_REQUEST)
-    .mergeMap(() =>
-      ajax.post({
-        url: usersUrls.BASIC_PATIENT_SEARCH,
-        headers: {
-          Cookie: store.getState().credentials.cookie,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(action$.payload),
+    .mergeMap(({ payload }) =>
+      ajax.post(usersUrls.BASIC_PATIENT_SEARCH, payload, {
+        Cookie: store.getState().credentials.cookie,
+        'Content-Type': 'application/json',
       })
-        .map(fetchBasicPatientSearchSuccess)
+        .map(({ response }) => fetchBasicPatientSearchSuccess(response))
         .catch(error => Observable.of(fetchBasicPatientSearchFailure(error)))
     );
 
