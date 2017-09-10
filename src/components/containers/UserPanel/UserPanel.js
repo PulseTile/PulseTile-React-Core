@@ -3,7 +3,7 @@ import Dropdown from 'simple-react-dropdown'
 
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
-import NotificationContent from '../../representation/temprorary/NotificationContent'
+import NotificationContent from '../../presentational/temprorary/NotificationContent'
 import UserAccountPanel from './UserAccountPanel'
 
 const UserPanel = props =>
