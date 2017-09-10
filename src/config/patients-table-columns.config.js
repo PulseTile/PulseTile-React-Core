@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../utils/time-helpers.utils';
 
 const CalendarIcon = () => <i className="fa fa-calendar" />;
 
