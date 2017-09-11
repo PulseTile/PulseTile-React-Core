@@ -32,7 +32,7 @@ export default class UserAccountPanel extends PureComponent {
           </div>
         </div>
         <div className="user-profile-info">
-          <div className="name">{user.given_name} {user.family_name}</div>
+          <div className="name" onClick={() => this.context.router.history.push(clientUrls.USER_PROFILE)}>{user.given_name} {user.family_name}</div>
           <div className="specification">
             <div className="item"><em>{user.role}</em></div>
             <div className="item">{user.email}</div>
