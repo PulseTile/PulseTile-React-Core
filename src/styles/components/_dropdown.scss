@@ -1,5 +1,5 @@
 .dropdown-menu {
-  display: none;
+  display: block;
   background-clip: padding-box;
   background-color: #fff;
   border-radius: 4px;
@@ -93,7 +93,7 @@
   font-size: 0;
   line-height: 0;
   padding: 5px 14px;
-  &.active { background: #f3f3f3; } 
+  &.active { background: #f3f3f3; }
 }
 .is-not-touch-device .dropdown-menu-item:hover { background: #f3f3f3; }
 .dropdown-menu-item-text,
@@ -114,6 +114,7 @@
 }
 
 .dropdown-menu-small-size { width: 215px; }
+
 .dropdown-menu-small {
   padding: 10px;
   font-size: 10px;
@@ -133,6 +134,11 @@
   .dropdown-menu-item-text {
     font-size: 14px;
   }
+}
+
+.dropdown-user {
+  padding: 10px 12px 9px 11px;
+  width: 266px;
 }
 
 .uib-datepicker-popup.dropdown-menu { padding: 10px 0; }

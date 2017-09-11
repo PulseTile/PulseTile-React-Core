@@ -8,14 +8,19 @@ import Footer from '../../presentational/Footer/Footer';
 
 import '../../../styles/main.scss';
 
-const App = props => <div>
-  <header className="header">
-    <TopHeader />
-    <HeaderToolbar />
-    <Breadcrumbs />
-  </header>
-  <Main />
-  <Footer />
-</div>;
+const App = (props) => {
+
+  const isTouchDevice = ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
+
+  return (<div className={isTouchDevice}>
+    <header className="header">
+      <TopHeader />
+      <HeaderToolbar />
+      <Breadcrumbs />
+    </header>
+    <Main />
+    <Footer />
+  </div>)
+};
 
 export default App;
