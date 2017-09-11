@@ -13,7 +13,7 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
     actions.fetchPatientCountsRequest(allPatients);
   },
 
-  componentWillUpdate({ allPatients, actions }) {
+  componentWillReceiveProps({ allPatients, actions }) {
     const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
     return _.cond([
       [isNewPatients, actions.fetchPatientCountsRequest],
@@ -21,10 +21,20 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchPatientSimpleSearchOnMount = ({
+export const fetchPatientSimpleSearch = ({
   componentDidMount() {
     const { location, actions } = this.props;
     const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
     actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
+  },
+
+  componentWillReceiveProps(nextProps) {
+    const { location, actions } = nextProps;
+    const isNewSearch = location.search !== this.props.location.search;
+
+    if (isNewSearch) {
+      const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
+      actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
+    }
   },
 });
