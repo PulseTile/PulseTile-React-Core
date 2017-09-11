@@ -15,7 +15,7 @@ export default class SortableTable extends PureComponent {
     };
 
     render() {
-      const { headers, data, onHeaderCellClick } = this.props;
+      const { headers, data, onHeaderCellClick, sorted } = this.props;
       const values = getArrByTemplate(headers, data);
 
       return (
@@ -38,6 +38,7 @@ export default class SortableTable extends PureComponent {
                 <SortableTableRow
                   key={_.uniqueId('__SortableTableRow__')}
                   rowData={rowData}
+                  sorted={sorted}
                 />)(values)}
             </tbody>
           </table>
