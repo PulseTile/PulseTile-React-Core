@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
-import { Row, Col, Panel } from 'react-bootstrap';
 
 import SortableTableHeaderRow from './sortable-table-header-components/SortableTableHeaderRow';
 import SortableTableRow from './SortableTableRow';
+import SortableTableEmptyDataRow from './SortableTableEmptyDataRow';
 import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 
 export default class SortableTable extends PureComponent {
@@ -13,6 +13,11 @@ export default class SortableTable extends PureComponent {
       data: PropTypes.arrayOf(PropTypes.object).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
     };
+
+    getSortableTableRows = _.cond([
+      [_.negate(_.isEmpty), _.map(rowData => <SortableTableRow key={_.uniqueId('__SortableTableRow__')} rowData={rowData} />)],
+      [_.T, () => <SortableTableEmptyDataRow />],
+    ]);
 
     render() {
       const { headers, data, onHeaderCellClick } = this.props;
@@ -34,11 +39,7 @@ export default class SortableTable extends PureComponent {
               />
             </thead>
             <tbody>
-              {_.map(rowData =>
-                <SortableTableRow
-                  key={_.uniqueId('__SortableTableRow__')}
-                  rowData={rowData}
-                />)(values)}
+              {this.getSortableTableRows(values)}
             </tbody>
           </table>
         </div>)
