@@ -135,7 +135,12 @@ export default class PatientsList extends PureComponent {
             </div>
             }
           </div>
-          {isDisclaimerModalVisible && <PatientAccessDisclaimerModal onClose={this.toggleDisclaimerModalVisible} onAgreeRedirectTo={patientPath} history={history} />}
+          {isDisclaimerModalVisible && <PatientAccessDisclaimerModal
+            onClose={this.toggleDisclaimerModalVisible}
+            onAgreeRedirectTo={patientPath}
+            history={history}
+            isVisible={isDisclaimerModalVisible}
+          />}
         </div>)
     }
 }

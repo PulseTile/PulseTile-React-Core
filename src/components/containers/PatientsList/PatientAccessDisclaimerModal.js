@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 
-const PatientAccessDisclaimerModal = ({ onAgreeRedirectTo, onClose, ...restProps }) => {
+const PatientAccessDisclaimerModal = ({ onAgreeRedirectTo, onClose, isVisible, ...restProps }) => {
   const handleAgree = () => restProps.history.push(onAgreeRedirectTo);
 
   return (
-    <Modal.Dialog>
+    <Modal show={isVisible} onHide={onClose}>
       <div className="panel panel-secondary without-margin">
         <div className="panel-heading">
           <h3 className="panel-title">Patient Access Disclaimer</h3>
@@ -28,15 +28,16 @@ const PatientAccessDisclaimerModal = ({ onAgreeRedirectTo, onClose, ...restProps
           </div>
         </div>
       </div>
-    </Modal.Dialog>
+    </Modal>
   )
 };
 
 PatientAccessDisclaimerModal.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
   onAgreeRedirectTo: PropTypes.string.isRequired,
   history: PropTypes.shape({
-    push: PropTypes.funct,
+    push: PropTypes.func,
   }).isRequired,
 };
 
