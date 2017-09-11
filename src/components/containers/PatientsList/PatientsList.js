@@ -42,6 +42,7 @@ export default class PatientsList extends PureComponent {
       selectedColumns: defaultColumnsSelected,
       patientPath: '',
       isDisclaimerModalVisible: false,
+      sorted: false,
     };
 
     /* utils */
@@ -72,7 +73,7 @@ export default class PatientsList extends PureComponent {
     addActionsColumn = _.map(patient => _.set('viewPatientNavigation', <ViewPatienDropdown patient={patient} onPatientViewClick={this.handlePatientViewClick} />, patient));
 
     /* handlers */
-    handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
+    handleHeaderCellClick = (e, {name, sortingOrder}) => this.setState({columnNameSortBy: name, sortingOrder, sorted: true });
 
     handleSetOffset = offset => this.setState({ offset });
 
@@ -88,7 +89,7 @@ export default class PatientsList extends PureComponent {
 
     render() {
       const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history } = this.props;
-      const { offset, selectedColumns, patientPath, isDisclaimerModalVisible } = this.state;
+      const { offset, selectedColumns, patientPath, isDisclaimerModalVisible, sorted } = this.state;
 
       const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
@@ -110,6 +111,7 @@ export default class PatientsList extends PureComponent {
                 headers={columnsToShowConfig}
                 data={patientsOnFirstPage}
                 onHeaderCellClick={this.handleHeaderCellClick}
+                sorted={sorted}
               />
             </div>
             {this.shouldHavePagination(filteredPatients) &&
