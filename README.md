@@ -1,5 +1,5 @@
 # PulseTile-React
-PulseTile framework - developed with ReactJS 
+PulseTile framework - developed with ReactJS
 
 ---
 
@@ -16,9 +16,13 @@ To develop and run the application locally you must have the following installed
 ```
 ### Installing
 
-The first step to setup the application locally should be the following: 
-
+    #clone
+    $ git clone https://github.com/PulseTile/PulseTile-React.git
+    $ cd PulseTile-React
+    # install dependencies
     $ npm install
+    # start
+    $ npm start
 
 ## Building & Deployment
 
@@ -34,4 +38,3 @@ Here's a list of available scripts:
   * starts a dev server via `webpack-dev-server`, serving the client folder with watching source file change.
 * `$ npm run lint`
   * lint codebase using [Eslint](http://eslint.org/)
-  
