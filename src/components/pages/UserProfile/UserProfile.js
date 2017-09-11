@@ -97,12 +97,12 @@ class UserProfile extends PureComponent {
                               <Col md={11}>
                                 <div className="form-group">
                                   <label className="control-label">First Name</label>
-                                  <div className="form-control-static" />
+                                  <div className="form-control-static">Bob</div>
                                 </div>
 
                                 <div className="form-group">
                                   <label className="control-label">Last Name</label>
-                                  <div className="form-control-static" />
+                                  <div className="form-control-static">Smith</div>
                                 </div>
 
                                 <div className="form-group">
@@ -188,7 +188,7 @@ class UserProfile extends PureComponent {
 
                                 <div className="form-group">
                                   <label className="control-label">Email</label>
-                                  <div className="form-control-static" />
+                                  <div className="form-control-static">bob.smith@gmail.com</div>
                                 </div>
                               </div>
                             </div>
