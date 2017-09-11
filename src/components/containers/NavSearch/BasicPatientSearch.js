@@ -36,6 +36,8 @@ export default class BasicPatientSearch extends PureComponent {
       }
     };
 
+    handleKeyPress = ({ key }) => key === 'Enter' && this.handleSearchClick();
+
     render() {
       const { searchString } = this.state;
 
@@ -47,7 +49,7 @@ export default class BasicPatientSearch extends PureComponent {
           <div className="wrap-search-holder">
             <div className="search-holder">
               <form>
-                <input className="form-control" placeholder="Search" type="text" value={searchString} onChange={this.handleSearchStringChange} />
+                <input className="form-control" placeholder="Search" type="text" value={searchString} onChange={this.handleSearchStringChange} onKeyPress={this.handleKeyPress}/>
               </form>
               {/*TODO: should be button*/}
               { searchString && <i className="clearAll fa fa-times-circle" onClick={this.handleClearSearchString} />}
