@@ -8,6 +8,7 @@ import PatientsListHeader from './header/PatientsListHeader';
 import ViewPatienDropdown from './actions-column/ViewPatienDropdown';
 import PatientAccessDisclaimerModal from './PatientAccessDisclaimerModal';
 import { patientsColumnsConfig, defaultColumnsSelected } from '../../../config/patients-table-columns.config'
+import { clientUrls } from '../../../config/client-urls.constants';
 
 export default class PatientsList extends PureComponent {
     static propTypes = {
@@ -82,7 +83,17 @@ export default class PatientsList extends PureComponent {
 
     handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
 
-    handlePatientViewClick = path => this.setState({ patientPath: path, isDisclaimerModalVisible: true });
+    handlePatientViewClick = (userId, candidatePluginName) => {
+      //TODO move to util function, some conjunction & disjunction magic an 12 am
+      const validPluginName = (_.includes(clientUrls.ORDERS, candidatePluginName) && clientUrls.ORDERS)
+        || (_.includes(clientUrls.RESULTS, candidatePluginName) && clientUrls.RESULTS)
+        || (_.includes(clientUrls.VITALS, candidatePluginName) && clientUrls.VITALS)
+        || (_.includes(clientUrls.DIAGNOSES, candidatePluginName) && clientUrls.DIAGNOSES)
+        || clientUrls.PATIENTS_SUMMARY;
+
+      const path = `${clientUrls.PATIENTS}/${userId}/${validPluginName}`;
+      this.setState({ patientPath: path, isDisclaimerModalVisible: true });
+    };
 
     toggleDisclaimerModalVisible = () => this.setState(prevState => ({ isDisclaimerModalVisible: !prevState.isDisclaimerModalVisible }));
 
@@ -110,6 +121,7 @@ export default class PatientsList extends PureComponent {
                 headers={columnsToShowConfig}
                 data={patientsOnFirstPage}
                 onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handlePatientViewClick}
               />
             </div>
             {this.shouldHavePagination(filteredPatients) &&

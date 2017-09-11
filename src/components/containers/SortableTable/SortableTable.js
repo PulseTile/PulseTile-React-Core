@@ -12,16 +12,26 @@ export default class SortableTable extends PureComponent {
       headers: PropTypes.arrayOf(PropTypes.object).isRequired,
       data: PropTypes.arrayOf(PropTypes.object).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
+      onCellClick: PropTypes.func.isRequired,
     };
 
-    getSortableTableRows = _.cond([
-      [_.negate(_.isEmpty), _.map(rowData => <SortableTableRow key={_.uniqueId('__SortableTableRow__')} rowData={rowData} />)],
-      [_.T, () => <SortableTableEmptyDataRow />],
-    ]);
+    getSortableTableRows = (rowsData) => {
+      const { onCellClick } = this.props;
+
+      return _.cond([
+        [_.negate(_.isEmpty), _.map(rowData =>
+          <SortableTableRow
+            key={_.uniqueId('__SortableTableRow__')}
+            rowData={rowData}
+            onCellClick={onCellClick}
+          />)],
+        [_.T, () => <SortableTableEmptyDataRow />],
+      ])(rowsData);
+    }
 
     render() {
       const { headers, data, onHeaderCellClick } = this.props;
-      const values = getArrByTemplate(headers, data);
+      const rowsData = getArrByTemplate(headers, data);
 
       return (
         <div>
@@ -39,7 +49,7 @@ export default class SortableTable extends PureComponent {
               />
             </thead>
             <tbody>
-              {this.getSortableTableRows(values)}
+              {this.getSortableTableRows(rowsData)}
             </tbody>
           </table>
         </div>)

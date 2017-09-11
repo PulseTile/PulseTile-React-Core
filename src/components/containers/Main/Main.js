@@ -9,7 +9,7 @@ const Main = props => <main>
     <Route exact path={clientUrls.ROOT} component={SystemDashboard} />
     <Route exact path={clientUrls.CHARTS} component={SystemDashboard} />
     <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
-    <Route path={clientUrls.PATIENTS} component={PatientsLists} />
+    <Route exact path={clientUrls.PATIENTS} component={PatientsLists} />
     <Route path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} />
   </Switch>
 </main>;
