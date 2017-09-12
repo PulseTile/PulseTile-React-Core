@@ -16,8 +16,8 @@ export default class SortableTableHeaderRow extends PureComponent {
     };
 
     state = {
-      sortingOrder: null,
-      sortByColumnWitName: null,
+      sortingOrder: 'asc',
+      sortByColumnWitName: 'name',
     };
 
     getNextSorting = (sortingOrder) => {

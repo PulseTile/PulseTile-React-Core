@@ -4,7 +4,7 @@ import classNames from 'classnames';
 
 const SortableTableHeaderCell = ({ name, title, icon, onClick, sortingOrder }) => (
   <th
-    className={classNames('sorted', sortingOrder)}
+    className={classNames({'sorted': sortingOrder}, sortingOrder)}
     name={name}
     onClick={e => onClick(e, name)}
   >
