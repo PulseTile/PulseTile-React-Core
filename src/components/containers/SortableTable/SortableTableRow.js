@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
+import classNames from 'classnames';
 
 const SortableTableRow = (props) => {
   const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(props.rowData);
 
   return <tr>
-    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} onClick={() => props.onCellClick(userId, name)}>{value}</td>, props.rowData)}
+    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} onClick={() => props.onCellClick(userId, name)} className={classNames({'sorted': name === props.columnNameSortBy})}>{value}</td>, props.rowData)}
   </tr>
 }
 
