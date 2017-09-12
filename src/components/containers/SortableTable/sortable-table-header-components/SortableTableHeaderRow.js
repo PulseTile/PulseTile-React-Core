@@ -31,10 +31,12 @@ export default class SortableTableHeaderRow extends PureComponent {
     };
 
     handleCellClick = (e, name) => {
-      const { onHeaderCellClick } = this.props;
-      const sortingOrder = this.getNextSorting(this.state.sortingOrder);
-      this.setState({ sortByColumnWitName: name, sortingOrder });
-      if (_.isFunction(onHeaderCellClick)) onHeaderCellClick(e, { name, sortingOrder })
+      if(name !== 'viewPatientNavigation') {
+        const {onHeaderCellClick} = this.props;
+        const sortingOrder = this.getNextSorting(this.state.sortingOrder);
+        this.setState({sortByColumnWitName: name, sortingOrder});
+        if (_.isFunction(onHeaderCellClick)) onHeaderCellClick(e, {name, sortingOrder})
+      }
     };
 
     render() {
