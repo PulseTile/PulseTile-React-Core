@@ -55,6 +55,6 @@
   padding-right: 2px;
   @include respond-from(xs) {
     font-size: 19px;
-    padding-right: 0;
+    padding: 0;
   }
 }
