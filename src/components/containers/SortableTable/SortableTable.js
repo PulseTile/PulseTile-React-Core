@@ -16,7 +16,7 @@ export default class SortableTable extends PureComponent {
     };
 
     getSortableTableRows = (rowsData) => {
-      const { onCellClick } = this.props;
+      const { onCellClick, columnNameSortBy } = this.props;
 
       return _.cond([
         [_.negate(_.isEmpty), _.map(rowData =>
@@ -24,6 +24,7 @@ export default class SortableTable extends PureComponent {
             key={_.uniqueId('__SortableTableRow__')}
             rowData={rowData}
             onCellClick={onCellClick}
+            columnNameSortBy={columnNameSortBy}
           />)],
         [_.T, () => <SortableTableEmptyDataRow />],
       ])(rowsData);
