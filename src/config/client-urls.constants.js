@@ -56,5 +56,8 @@ export const mainPagesTitles = {
       title: 'Patient Summary',
       state: '/patients-summary'
     }]
+  },
+  '/patients-full-details': {
+    breadcrumbs: []
   }
 };

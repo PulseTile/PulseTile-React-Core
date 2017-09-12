@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
@@ -24,21 +24,29 @@ class Breadcrumbs extends PureComponent {
       const breadcrumbs = [];
       breadcrumbs.push(mainPagesTitles[state].breadcrumbs);
 
-      return breadcrumbs;
+      return breadcrumbs[0];
     };
+
+    const breadcrumbs = routerBreadcrumbs(routerHash);
+    const lastItemBreadcrumbs = breadcrumbs.length - 1;
+
+    const breadcrumbItems = breadcrumbs.map((breadcrumb, index) =>
+      <span key={_.uniqueId('__BreadcrumbsBlock__')}>
+        { index !== lastItemBreadcrumbs ? <Link to={breadcrumb.state} className="breadcrumb-link">{breadcrumb.title}</Link> : null }
+        { index !== lastItemBreadcrumbs && breadcrumbs.lenght === 1 ? <span className="breadcrumb-link">{breadcrumb.title}</span> : null }
+        { index !== lastItemBreadcrumbs ? <span className="breadcrumb-separate"></span> : null }
+        { index === lastItemBreadcrumbs ? <span className="breadcrumb-link active">{breadcrumb.title}</span> : null }
+      </span>
+    );
+
     return (
-      <div className="wrap-breadcrumbs">
+      breadcrumbs.length !== 0 ? <div className="wrap-breadcrumbs">
         <div className="container-fluid">
-          { routerBreadcrumbs(routerHash).map(breadcrumb =>
-            <div className="breadcrumbs" key={_.uniqueId('__BreadcrumbsBlock__')}>
-              { breadcrumb.length > 1 ? <Link to={breadcrumb[0].state} className="breadcrumb-link">{breadcrumb[0].title}</Link> : null }
-              { breadcrumb.length === 1 ? <span className="breadcrumb-link">{breadcrumb[0].title}</span> : null }
-              { breadcrumb.length > 1 ? <span className="breadcrumb-separate"></span> : null }
-              { breadcrumb.length > 1 ? <span className="breadcrumb-link active">{breadcrumb[1].title}</span> : null }
-            </div>
-          )}
+          <div className="breadcrumbs" key={_.uniqueId('__BreadcrumbsBlock__')}>
+            {breadcrumbItems}
+          </div>
         </div>
-      </div>
+      </div> : null
     )
   }
 }
