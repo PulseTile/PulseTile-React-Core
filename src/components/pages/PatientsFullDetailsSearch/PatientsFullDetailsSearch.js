@@ -6,15 +6,15 @@ import { compose, lifecycle } from 'recompose';
 
 import PatientsList from '../../containers/PatientsList/PatientsList';
 import patientsSelector from './selectors';
-import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
+import { fetchBasicPatientSearchRequest } from '../../../ducks/fetch-basic-patient-search.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
-import { fetchPatientsOnMount, fetchPatientsCountsOnMountAndUpdate } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientSimpleSearch, fetchPatientsCountsOnMountAndUpdate } from '../../../utils/HOCs/fetch-patients.utils';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchBasicPatientSearchRequest, fetchPatientCountsRequest }, dispatch) });
 
 @connect(patientsSelector, mapDispatchToProps)
-@compose(lifecycle(fetchPatientsOnMount), lifecycle(fetchPatientsCountsOnMountAndUpdate))
-class PatientsLists extends PureComponent {
+@compose(lifecycle(fetchPatientSimpleSearch), lifecycle(fetchPatientsCountsOnMountAndUpdate))
+class PatientsFullDetailsSearch extends PureComponent {
   render() {
     return (<section className="page-wrapper">
       <Row>
@@ -26,4 +26,4 @@ class PatientsLists extends PureComponent {
   }
 }
 
-export default PatientsLists;
+export default PatientsFullDetailsSearch;

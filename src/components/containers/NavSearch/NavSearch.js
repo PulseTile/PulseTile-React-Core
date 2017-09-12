@@ -1,7 +1,8 @@
 import React from 'react';
 import Dropdown from 'simple-react-dropdown'
 
-import SearchContent from '../SearchContent/SearchContent'
+import SearchContent from '../../presentational/SearchContent/SearchContent'
+import BasicPatientSearch from './BasicPatientSearch';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 
 const NavSearch = () =>
@@ -14,17 +15,7 @@ const NavSearch = () =>
           </PTButton>
         </Dropdown>
       </div>
-      <PTButton className="btn btn-search">
-        <i className="btn-icon fa fa-search" />
-      </PTButton>
-      <div className="wrap-search-holder">
-        <div className="search-holder">
-          <form>
-            <input className="form-control" placeholder="Search" type="text" />
-          </form>
-          <i className="clearAll fa fa-times-circle" />
-        </div>
-      </div>
+      <BasicPatientSearch />
     </div>
   </div>
 

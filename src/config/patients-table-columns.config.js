@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../utils/time-helpers.utils';
 
 const CalendarIcon = () => <i className="fa fa-calendar" />;
 
@@ -18,6 +18,7 @@ export const patientsColumnsConfig = [
   { key: 'vitalsCount', title: 'Vitals ', icon: <span>#</span> },
   { key: 'diagnosesDate', title: 'Diagnoses', icon: <CalendarIcon />, transformer: getDDMMMYYYY },
   { key: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span> },
+  { key: 'viewPatientNavigation', title: '', icon: <span /> },
 ];
 
 export const defaultColumnsSelected = {
@@ -34,4 +35,5 @@ export const defaultColumnsSelected = {
   resultsCount: true,
   vitalsCount: false,
   diagnosesCount: false,
+  viewPatientNavigation: true,
 };

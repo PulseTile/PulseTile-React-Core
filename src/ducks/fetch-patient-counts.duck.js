@@ -25,6 +25,7 @@ export const fetchPatientCountsEpic = (action$, store) =>
     .mergeMap(action => Observable.merge(..._.cond([
       [_.has('id'), () => fetchPatientCounts$(action.payload.id, store)],
       [_.isArray, _.map(({ id }) => fetchPatientCounts$(id, store))],
+      [_.T, _.stubArray],
     ])(action.payload))
       .reduce((acc, x) => acc.concat(x), [])
       .map(fetchPatientCountsSuccess)

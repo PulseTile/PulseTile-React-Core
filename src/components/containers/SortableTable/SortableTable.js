@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
-import { Row, Col, Panel } from 'react-bootstrap';
 
 import SortableTableHeaderRow from './sortable-table-header-components/SortableTableHeaderRow';
 import SortableTableRow from './SortableTableRow';
+import SortableTableEmptyDataRow from './SortableTableEmptyDataRow';
 import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 
 export default class SortableTable extends PureComponent {
@@ -12,11 +12,27 @@ export default class SortableTable extends PureComponent {
       headers: PropTypes.arrayOf(PropTypes.object).isRequired,
       data: PropTypes.arrayOf(PropTypes.object).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
+      onCellClick: PropTypes.func.isRequired,
     };
 
+    getSortableTableRows = (rowsData) => {
+      const { onCellClick, columnNameSortBy } = this.props;
+
+      return _.cond([
+        [_.negate(_.isEmpty), _.map(rowData =>
+          <SortableTableRow
+            key={_.uniqueId('__SortableTableRow__')}
+            rowData={rowData}
+            onCellClick={onCellClick}
+            columnNameSortBy={columnNameSortBy}
+          />)],
+        [_.T, () => <SortableTableEmptyDataRow />],
+      ])(rowsData);
+    }
+
     render() {
-      const { headers, data, onHeaderCellClick } = this.props;
-      const values = getArrByTemplate(headers, data);
+      const { headers, data, onHeaderCellClick, sortingOrder } = this.props;
+      const rowsData = getArrByTemplate(headers, data);
 
       return (
         <div>
@@ -31,14 +47,11 @@ export default class SortableTable extends PureComponent {
               <SortableTableHeaderRow
                 headers={headers}
                 onHeaderCellClick={onHeaderCellClick}
+                sortingOrder={sortingOrder}
               />
             </thead>
             <tbody>
-              {_.map(rowData =>
-                <SortableTableRow
-                  key={_.uniqueId('__SortableTableRow__')}
-                  rowData={rowData}
-                />)(values)}
+              {this.getSortableTableRows(rowsData)}
             </tbody>
           </table>
         </div>)

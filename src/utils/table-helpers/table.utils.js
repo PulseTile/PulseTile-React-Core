@@ -2,14 +2,19 @@ import _ from 'lodash/fp';
 
 const EMPTY_VALUE_STUB = '-';
 
+const emptyTransformer = val => val;
+
 const transformObjToArrByTemplate = arrTemplate => obj =>
-  _.map(({ key, transformer = val => val }) =>
-    _.cond([
+  _.map(({ key, transformer = emptyTransformer }) => {
+    const value = _.cond([
       [_.isNumber, transformer],
       [_.isEmpty, _.constant(EMPTY_VALUE_STUB)],
       [_.T, transformer],
     ])(obj[key])
-  )(arrTemplate)
+
+    return ({ name: key, value });
+  }
+  )(arrTemplate);
 
 export const getArrByTemplate = (arrTemplate, entriesList) =>
   _.map(transformObjToArrByTemplate(arrTemplate))(entriesList);
