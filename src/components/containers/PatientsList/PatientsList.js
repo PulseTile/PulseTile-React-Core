@@ -36,8 +36,8 @@ export default class PatientsList extends PureComponent {
     };
 
     state = {
-      columnNameSortBy: '',
-      sortingOrder: null,
+      columnNameSortBy: 'name',
+      sortingOrder: 'asc',
       offset: 0,
       nameShouldInclude: '',
       selectedColumns: defaultColumnsSelected,
@@ -99,7 +99,7 @@ export default class PatientsList extends PureComponent {
 
     render() {
       const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history } = this.props;
-      const { offset, selectedColumns, patientPath, isDisclaimerModalVisible, columnNameSortBy } = this.state;
+      const { offset, selectedColumns, patientPath, isDisclaimerModalVisible, columnNameSortBy, sortingOrder } = this.state;
 
       const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
@@ -123,6 +123,7 @@ export default class PatientsList extends PureComponent {
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handlePatientViewClick}
                 columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
               />
             </div>
             {this.shouldHavePagination(filteredPatients) &&
