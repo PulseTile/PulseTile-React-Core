@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import classNames from 'classnames';
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 
@@ -11,27 +12,32 @@ const CHANGE_HISTORY = 'changeHistory';
 class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
-    expandedPanel: '',
+    expandedPanel: 'all',
+    isAllPanelsVisible: false,
   };
 
   handleShow = (name) => {
     this.setState({ openedPanel: name })
-  }
+  };
 
   handleExpand = (name) => {
-    console.log(name)
-  }
+    if (this.state.expandedPanel === 'all') {
+      this.setState(prevState => ({ expandedPanel: name, openedPanel: name, isAllPanelsVisible: !prevState.isAllPanelsVisible}));
+    } else {
+      this.setState(prevState => ({ expandedPanel: 'all', isAllPanelsVisible: !prevState.isAllPanelsVisible}));
+    }
+  };
 
   render() {
-    const { openedPanel } = this.state;
+    const { openedPanel, expandedPanel, isAllPanelsVisible } = this.state;
 
     return (<section className="page-wrapper">
-      <div className="section">
+      <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
         <Row>
           <Col xs={12}>
             <div className="section-main ng-scope">
               <div className="panel-group accordion">
-                <PersonalInformationPanel
+                {expandedPanel === 'applicationPreferences' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
                   title="Application preferences"
                   isOpen={openedPanel === APPLICATION_PREFERENCES}
@@ -80,8 +86,8 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
-                </PersonalInformationPanel>
-                <PersonalInformationPanel
+                </PersonalInformationPanel> : null }
+                {expandedPanel === 'personalInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={PERSONAL_INFORMATION}
                   title="Personal Information"
                   isOpen={openedPanel === PERSONAL_INFORMATION}
@@ -136,8 +142,8 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
-                </PersonalInformationPanel>
-                <PersonalInformationPanel
+                </PersonalInformationPanel> : null }
+                {expandedPanel === 'contactInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={CONTACT_INFORMATION}
                   title="Contact Information"
                   isOpen={openedPanel === CONTACT_INFORMATION}
@@ -197,8 +203,8 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
-                </PersonalInformationPanel>
-                <PersonalInformationPanel
+                </PersonalInformationPanel> : null }
+                {expandedPanel === 'changeHistory' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={CHANGE_HISTORY}
                   title="Change History"
                   isOpen={openedPanel === CHANGE_HISTORY}
@@ -233,7 +239,7 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
-                </PersonalInformationPanel>
+                </PersonalInformationPanel> : null }
               </div>
             </div>
           </Col>
