@@ -35,7 +35,7 @@ export default class SystemDashboard extends PureComponent {
   render() {
     const { patientsByAge, patientsByDepartment } = this.props;
 
-    const isChartsDataReceived = patientsByDepartment.map(_.size).reduce((a, b) => a + b);
+    const isChartsDataReceived = patientsByDepartment.map(_.size).reduce((a, b) => a + b) > 0;
 
     return (
       <section className="page-wrapper">

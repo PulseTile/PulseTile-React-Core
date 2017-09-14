@@ -15,7 +15,7 @@ const PatientsChart = props => <div className="chart-block">
     <p className="chart-subtitle">{props.subTitle}</p>
   </div>
   <div className="wrap-chart chart-dashboard">
-    {props.isChartsDataReceived > 0 ? <Bar
+    {props.isChartsDataReceived ? <Bar
       data={{
         labels: _.map('name', props.labels),
         datasets: [{ data: props.patients.map(_.size) }],
@@ -71,7 +71,7 @@ PatientsChart.propTypes = {
   borderColor: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   onBarClick: PropTypes.func.isRequired,
-  isChartsDataReceived: PropTypes.number.isRequired,
+  isChartsDataReceived: PropTypes.bool.isRequired,
 };
 
 export default PatientsChart;
