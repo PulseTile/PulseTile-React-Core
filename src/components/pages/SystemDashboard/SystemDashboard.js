@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
 import { Row, Col } from 'react-bootstrap';
+import _ from 'lodash/fp';
 
 import PTPanel from '../../ui-elements/PTPanel/PTPanel';
 import PatientsChart from '../../containers/PatientsChart/PatientsChart';
@@ -34,6 +35,8 @@ export default class SystemDashboard extends PureComponent {
   render() {
     const { patientsByAge, patientsByDepartment } = this.props;
 
+    const isChartsDataReceived = patientsByDepartment.map(_.size).reduce((a, b) => a + b) > 0;
+
     return (
       <section className="page-wrapper">
         <Row>
@@ -47,6 +50,7 @@ export default class SystemDashboard extends PureComponent {
                 borderColor="rgba(36, 161, 116,1)"
                 backgroundColor="rgba(36, 161, 116,0.3)"
                 onBarClick={this.handleBarClick('department')}
+                isChartsDataReceived={isChartsDataReceived}
               />
             </PTPanel>
             <PTPanel header={<h3 className="panel-title"><i className="fa fa-bar-chart" /> Patients By Age</h3>}>
@@ -58,6 +62,7 @@ export default class SystemDashboard extends PureComponent {
                 borderColor="rgba(126, 41, 205,1)"
                 backgroundColor="rgba(126, 41, 205,0.3)"
                 onBarClick={this.handleBarClick('ageRange')}
+                isChartsDataReceived={isChartsDataReceived}
               />
             </PTPanel>
           </Col>
