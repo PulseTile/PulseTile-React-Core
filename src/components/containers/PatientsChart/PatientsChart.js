@@ -15,7 +15,7 @@ const PatientsChart = props => <div className="chart-block">
     <p className="chart-subtitle">{props.subTitle}</p>
   </div>
   <div className="wrap-chart chart-dashboard">
-    <Bar
+    {props.isChartsDataReceived > 0 ? <Bar
       data={{
         labels: _.map('name', props.labels),
         datasets: [{ data: props.patients.map(_.size) }],
@@ -59,7 +59,7 @@ const PatientsChart = props => <div className="chart-block">
           }],
         },
       }}
-    />
+    /> : null }
   </div>
 </div>;
 
