@@ -13,7 +13,7 @@ class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
     expandedPanel: 'all',
-    fullPanel: false
+    isAllPanelsVisible: false,
   };
 
   handleShow = (name) => {
@@ -22,17 +22,17 @@ class UserProfile extends PureComponent {
 
   handleExpand = (name) => {
     if (this.state.expandedPanel === 'all') {
-      this.setState({expandedPanel: name, openedPanel: name, fullPanel: !this.state.fullPanel});
+      this.setState(prevState => ({ expandedPanel: name, openedPanel: name, isAllPanelsVisible: !prevState.isAllPanelsVisible}));
     } else {
-      this.setState({expandedPanel: 'all', fullPanel: !this.state.fullPanel});
+      this.setState(prevState => ({ expandedPanel: 'all', isAllPanelsVisible: !prevState.isAllPanelsVisible}));
     }
   };
 
   render() {
-    const { openedPanel, expandedPanel, fullPanel } = this.state;
+    const { openedPanel, expandedPanel, isAllPanelsVisible } = this.state;
 
     return (<section className="page-wrapper">
-      <div className={classNames('section', { 'full-panel full-panel-main': fullPanel })}>
+      <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
         <Row>
           <Col xs={12}>
             <div className="section-main ng-scope">
