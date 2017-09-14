@@ -71,6 +71,7 @@ PatientsChart.propTypes = {
   borderColor: PropTypes.string.isRequired,
   backgroundColor: PropTypes.string.isRequired,
   onBarClick: PropTypes.func.isRequired,
+  isChartsDataReceived: PropTypes.number.isRequired,
 };
 
 export default PatientsChart;
