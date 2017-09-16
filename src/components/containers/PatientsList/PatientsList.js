@@ -84,7 +84,7 @@ export default class PatientsList extends PureComponent {
     handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
 
     handlePatientViewClick = (userId, candidatePluginName) => {
-      //TODO move to util function, some conjunction & disjunction magic an 12 am
+      //TODO move to util function, some conjunction & disjunction magic at 12 am
       const validPluginName = (_.includes(clientUrls.ORDERS, candidatePluginName) && clientUrls.ORDERS)
         || (_.includes(clientUrls.RESULTS, candidatePluginName) && clientUrls.RESULTS)
         || (_.includes(clientUrls.VITALS, candidatePluginName) && clientUrls.VITALS)
