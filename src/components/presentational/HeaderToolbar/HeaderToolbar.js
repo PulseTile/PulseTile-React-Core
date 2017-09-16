@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
@@ -15,20 +16,16 @@ class HeaderToolbar extends PureComponent {
     router: PropTypes.shape().isRequired,
   };
 
+  getPageTitle = hash => _.getOr('/', [hash, 'headerTitle'])(mainPagesTitles);
+
   render() {
     const { router } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
 
-    const routerHeaderToolbar = (state) => {
-      const headerToolbar = mainPagesTitles[state].headerTitle;
-
-      return headerToolbar;
-    };
-
     return (
       <div className="wrap-header-title">
         <div className="container-fluid">
-          <div className="header-title">{routerHeaderToolbar(routerHash)}</div>
+          <div className="header-title">{this.getPageTitle(routerHash)}</div>
         </div>
       </div>
     )
