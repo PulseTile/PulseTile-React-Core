@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
 
 import routersSelector from './selectors';
-import { mainPagesTitles } from '../../../config/client-urls.constants'
+import { mainPagesTitles } from '../../../../config/client-urls.constants'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
 @connect(routersSelector, mapDispatchToProps)
-class HeaderToolbar extends PureComponent {
+export default class HeaderTitle extends PureComponent {
   static propTypes = {
     router: PropTypes.shape().isRequired,
   };
@@ -31,5 +31,3 @@ class HeaderToolbar extends PureComponent {
     )
   }
 }
-
-export default HeaderToolbar;

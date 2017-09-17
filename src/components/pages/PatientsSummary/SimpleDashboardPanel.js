@@ -14,7 +14,7 @@ const SimpleDashboardPanel = ({ title, items, navigateTo }) => {
       <div className="board-body">
         <ul className="board-list">
           {items.map(item =>
-            <li className="board-list-item" id={_.uniqueId('__SimpleDashboardPanel__item__')}>
+            <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
               <span className="board-list-link" >{item}</span>
             </li>)}
         </ul>
