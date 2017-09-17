@@ -1,7 +1,7 @@
 import React from 'react';
 
 import TopHeader from '../../presentational/TopHeader/TopHeader';
-import HeaderToolbar from '../../presentational/HeaderToolbar/HeaderToolbar';
+import HeaderToolbar from '../HeaderToolbar/HeaderToolbar';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
 import Main from '../Main/Main';
 import Footer from '../../presentational/Footer/Footer';
