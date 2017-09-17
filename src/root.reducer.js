@@ -7,6 +7,7 @@ import fetchPatientsReducer from './ducks/feth-patients.duck'
 import fetchPatientCountsReducer from './ducks/fetch-patient-counts.duck'
 import fetchUserAccountReducer from './ducks/fetch-user-account.duck'
 import fetchBasicPatientSearchReducer from './ducks/fetch-basic-patient-search.duck'
+import fetchPatientSummaryReducer from './ducks/fetch-patient-summary.duck'
 
 const rootReducer = combineReducers({
   router: routerReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   patientsCounts: fetchPatientCountsReducer,
   userAccount: fetchUserAccountReducer,
   basicSearchPatient: fetchBasicPatientSearchReducer,
+  patientsSummaries: fetchPatientSummaryReducer,
 });
 
 export default rootReducer;

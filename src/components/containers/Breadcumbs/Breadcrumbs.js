@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash/fp';
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
-import _ from 'lodash/fp';
 
 import routersSelector from './selectors';
 import { mainPagesTitles } from '../../../config/client-urls.constants'
@@ -17,7 +17,7 @@ class Breadcrumbs extends PureComponent {
     router: PropTypes.shape().isRequired,
   };
 
-  getRouterBreadcrumbs = hash => _.getOr(mainPagesTitles.breadcrumbs['/'], [hash, 'breadcrumbs'])(mainPagesTitles);
+  getRouterBreadcrumbs = hash => _.getOr(mainPagesTitles['/'].breadcrumbs, [hash, 'breadcrumbs'])(mainPagesTitles);
 
   render() {
     const { router } = this.props;

@@ -7,6 +7,7 @@ import { fetchPatientsEpic } from './ducks/feth-patients.duck';
 import { fetchPatientCountsEpic } from './ducks/fetch-patient-counts.duck';
 import { fetchUserAccountEpic } from './ducks/fetch-user-account.duck';
 import { fetchBasicPatientSearchEpic } from './ducks/fetch-basic-patient-search.duck';
+import { fetchPatientSummaryEpic } from './ducks/fetch-patient-summary.duck';
 
 const rootEpic = combineEpics(
   initialiseEpic,
@@ -15,7 +16,8 @@ const rootEpic = combineEpics(
   fetchPatientsEpic,
   fetchPatientCountsEpic,
   fetchUserAccountEpic,
-  fetchBasicPatientSearchEpic
+  fetchBasicPatientSearchEpic,
+  fetchPatientSummaryEpic,
 );
 
 export default rootEpic;

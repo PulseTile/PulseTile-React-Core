@@ -38,3 +38,11 @@ export const fetchPatientSimpleSearch = ({
     }
   },
 });
+
+export const fetchPatientSummaryOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientSummaryRequest({ userId })
+  },
+});
