@@ -8,6 +8,7 @@ import fetchPatientCountsReducer from './ducks/fetch-patient-counts.duck'
 import fetchUserAccountReducer from './ducks/fetch-user-account.duck'
 import fetchBasicPatientSearchReducer from './ducks/fetch-basic-patient-search.duck'
 import fetchPatientSummaryReducer from './ducks/fetch-patient-summary.duck'
+import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
 
 const rootReducer = combineReducers({
   router: routerReducer,
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   userAccount: fetchUserAccountReducer,
   basicSearchPatient: fetchBasicPatientSearchReducer,
   patientsSummaries: fetchPatientSummaryReducer,
+  isSidebarVisible: setSidebarVisibilityReducer,
 });
 
 export default rootReducer;

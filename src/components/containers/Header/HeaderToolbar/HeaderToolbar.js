@@ -3,15 +3,17 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux'
 
-import routersSelector from './selectors';
+import Sidebar from '../../../presentational/Sidebar/Sidebar';
+import toolbarSelector from './selectors';
+import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
-@connect(routersSelector, mapDispatchToProps)
+@connect(toolbarSelector, mapDispatchToProps)
 class HeaderToolbar extends PureComponent {
   static propTypes = {
+    isSidebarVisible: PropTypes.bool.isRequired,
     name: PropTypes.string.isRequired,
     gpName: PropTypes.string.isRequired,
     gpAddress: PropTypes.string.isRequired,
@@ -21,42 +23,47 @@ class HeaderToolbar extends PureComponent {
     userId: PropTypes.string.isRequired,
   };
 
+  toggleSidebarVisibility = () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
+
   render() {
-    const { name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
+    const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
 
     return (
-      <div className="wrap-header-toolbar">
-        <div className="container-fluid">
-          <div className="header-toolbar">
-            <button className="btn-toggle-sidebar wrap-icon" data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false">
-              <i className="btn-icon fa fa-bars" />
-              <span className="btn-text">Menu</span>
-            </button>
-            <div className="wrap-patient-info">
-              <div className="patient-info-caption">
-                <div className="patient-info-caption-btn btn-dropdown-toggle" />
-                <div className="patient-info-caption-text text-truncate">{name}</div>
-              </div>
-              <div className="patient-info">
-                <div className="patient-info-group-2">
-                  <div className="column-1">
-                    <div className="patient-info-item"><span className="key">D.O.B.</span> {dateOfBirth}</div>
-                    <div className="patient-info-item"><span className="key">Phone:</span> {telephone}</div>
-                  </div>
-                  <div className="column-2">
-                    <div className="patient-info-item"><span className="key">Gender:</span> {gender}</div>
-                    <div className="patient-info-item"><span className="key">NHS No.</span> <span>{userId}</span></div>
-                  </div>
+      <div>
+        <div className="wrap-header-toolbar">
+          <div className="container-fluid">
+            <div className="header-toolbar">
+              <button className="btn-toggle-sidebar wrap-icon" data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
+                <i className="btn-icon fa fa-bars" />
+                <span className="btn-text">Menu</span>
+              </button>
+              <div className="wrap-patient-info">
+                <div className="patient-info-caption">
+                  <div className="patient-info-caption-btn btn-dropdown-toggle" />
+                  <div className="patient-info-caption-text text-truncate">{name}</div>
                 </div>
-                <div className="patient-info-group-1">
-                  <div className="patient-info-item significant hidden-xs">Aaron Christian</div>
-                  <div className="patient-info-item"><span className="key">Doctor:</span> {gpName}</div>
+                <div className="patient-info">
+                  <div className="patient-info-group-2">
+                    <div className="column-1">
+                      <div className="patient-info-item"><span className="key">D.O.B.</span> {dateOfBirth}</div>
+                      <div className="patient-info-item"><span className="key">Phone:</span> {telephone}</div>
+                    </div>
+                    <div className="column-2">
+                      <div className="patient-info-item"><span className="key">Gender:</span> {gender}</div>
+                      <div className="patient-info-item"><span className="key">NHS No.</span> <span>{userId}</span></div>
+                    </div>
+                  </div>
+                  <div className="patient-info-group-1">
+                    <div className="patient-info-item significant hidden-xs">{name}</div>
+                    <div className="patient-info-item"><span className="key">Doctor:</span> {gpName}</div>
+                  </div>
+                  <div className="patient-info-item"><span className="key">Address:</span> {gpAddress}</div>
                 </div>
-                <div className="patient-info-item"><span className="key">Address:</span> {gpAddress}</div>
               </div>
             </div>
           </div>
         </div>
+        {isSidebarVisible && <Sidebar />}
       </div>
     )
   }

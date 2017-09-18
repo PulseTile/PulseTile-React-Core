@@ -3,13 +3,16 @@ import { createSelector } from 'reselect';
 
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
-const patientToolbarSelector = createSelector(
+const toolbarSelector = createSelector(
+  ({ isSidebarVisible }) => isSidebarVisible,
   ({ patientsSummaries }) => patientsSummaries,
   (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsSummaries, userId) => {
+
+  (isSidebarVisible, patientsSummaries, userId) => {
     const patientSummary = _.getOr({}, userId, patientsSummaries);
     const { name = '', gpName = '', gpAddress = '', dateOfBirth = '', gender = '', telephone = '' } = patientSummary;
     return ({
+      isSidebarVisible,
       name,
       gpName,
       gpAddress,
@@ -19,4 +22,4 @@ const patientToolbarSelector = createSelector(
       dateOfBirth: getDDMMMYYYY(dateOfBirth) });
   });
 
-export default patientToolbarSelector;
+export default toolbarSelector;

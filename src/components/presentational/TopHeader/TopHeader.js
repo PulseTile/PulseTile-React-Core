@@ -1,17 +1,17 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {push} from 'react-router-redux'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { push } from 'react-router-redux'
 
 import MainLogo from '../MainLogo/MainLogo';
 import NavSearch from '../../containers/NavSearch/NavSearch';
 import UserPanel from '../../containers/UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import routersSelector from './selectors';
-import {clientUrls} from '../../../config/client-urls.constants'
+import { clientUrls } from '../../../config/client-urls.constants'
 
-const mapDispatchToProps = dispatch => ({actions: bindActionCreators({push}, dispatch)});
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
 @connect(routersSelector, mapDispatchToProps)
 class TopHeader extends PureComponent {
@@ -34,7 +34,7 @@ class TopHeader extends PureComponent {
     return (
       <div className="navbar">
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>
-          <i className="fa fa-arrow-left"/>
+          <i className="fa fa-arrow-left" />
         </PTButton> : null }
         <MainLogo />
         <UserPanel />

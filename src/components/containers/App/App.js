@@ -1,9 +1,8 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux';
 
 import TopHeader from '../../presentational/TopHeader/TopHeader';
 import Header from '../Header/Header';
-import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
 import Main from '../Main/Main';
 import Footer from '../../presentational/Footer/Footer';
 
@@ -16,7 +15,6 @@ const App = (props) => {
     <header className="header">
       <TopHeader />
       <Header />
-      <Breadcrumbs />
     </header>
     <Main />
     <Footer />
