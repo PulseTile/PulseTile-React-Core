@@ -37,6 +37,7 @@ const initialState = {
   patientsCounts: {},
   basicSearchPatient: {},
   patientsSummaries: {},
+  isSidebarVisible: false,
 };
 
 //create store and enhance with middleware

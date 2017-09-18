@@ -36,7 +36,7 @@ class Breadcrumbs extends PureComponent {
     );
 
     return (
-      !_.isEmpty(breadcrumbs.length) &&  <div className="wrap-breadcrumbs">
+      !_.isEmpty(breadcrumbs) && <div className="wrap-breadcrumbs">
         <div className="container-fluid">
           <div className="breadcrumbs" key={_.uniqueId('__BreadcrumbsBlock__')}>
             {breadcrumbItems}
