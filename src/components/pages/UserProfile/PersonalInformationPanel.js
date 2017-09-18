@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Row, Col } from 'react-bootstrap';
 
+import PTButton from '../../ui-elements/PTButton/PTButton'
+
 export default class PersonalInformationPanel extends PureComponent {
     static propTypes = {
       name: PropTypes.string.isRequired,
@@ -11,10 +13,11 @@ export default class PersonalInformationPanel extends PureComponent {
       children: PropTypes.element.isRequired,
       onShow: PropTypes.func.isRequired,
       onExpand: PropTypes.func.isRequired,
+      onEdit: PropTypes.func.isRequired
     };
 
     render() {
-      const { name, title, children, isOpen, onShow, onExpand } = this.props;
+      const { name, title, children, isOpen, onShow, onExpand, onEdit } = this.props;
 
       return (
         <Row className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -41,10 +44,9 @@ export default class PersonalInformationPanel extends PureComponent {
             <div className="panel-control ng-scope">
               <div className="wrap-control-group">
                 <div className="control-group right">
-                  <button className="btn btn-success btn-inverse btn-edit"><i
-                    className="fa fa-edit"
-                  /> Edit
-                  </button>
+                  <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
+                    <i className="fa fa-edit" /> Edit
+                  </PTButton>
                 </div>
               </div>
             </div>
