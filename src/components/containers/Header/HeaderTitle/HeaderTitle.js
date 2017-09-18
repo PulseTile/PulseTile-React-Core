@@ -16,11 +16,11 @@ export default class HeaderTitle extends PureComponent {
     router: PropTypes.shape().isRequired,
   };
 
-  getPageTitle = hash => _.getOr('/', [hash, 'headerTitle'])(mainPagesTitles);
+  getPageTitle = hash => _.getOr(mainPagesTitles['/'].headerTitle, [hash, 'headerTitle'])(mainPagesTitles);
 
   render() {
     const { router } = this.props;
-    const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
+    const routerHash = (router.location.hash.split('?')[0]).split('#/')[1];
 
     return (
       <div className="wrap-header-title">
