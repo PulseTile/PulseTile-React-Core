@@ -7,7 +7,7 @@ const SortableTableRow = (props) => {
   const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(props.rowData);
 
   return <tr>
-    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} onClick={() => props.onCellClick(userId, name)} className={classNames({'sorted': name === props.columnNameSortBy})}>{value}</td>, props.rowData)}
+    {props.rowData.map(( rowItem, index ) => <td data-th={props.headers[index].title} key={_.uniqueId('__SortableTableRow__')} onClick={() => props.onCellClick(userId, rowItem.name)} className={classNames({'sorted': rowItem.name === props.columnNameSortBy})}>{rowItem.value}</td>)}
   </tr>
 }
 
