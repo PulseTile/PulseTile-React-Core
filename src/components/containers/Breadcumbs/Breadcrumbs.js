@@ -21,7 +21,7 @@ class Breadcrumbs extends PureComponent {
 
   render() {
     const { router } = this.props;
-    const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
+    const routerHash = _.last((router.location.hash.split('?')[0]).split('/'));
 
     const breadcrumbs = this.getRouterBreadcrumbs(routerHash);
     const lastItemBreadcrumbsIndex = breadcrumbs.length - 1;
