@@ -17,7 +17,7 @@ SortableTableHeaderCell.propTypes = {
   name: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  sortingOrder: PropTypes.oneOf([null, 'asc', 'desc']).isRequired,
+  sortingOrder: PropTypes.oneOf([null, 'asc', 'desc']),
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
 };
 

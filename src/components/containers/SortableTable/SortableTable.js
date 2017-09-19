@@ -13,6 +13,7 @@ export default class SortableTable extends PureComponent {
       data: PropTypes.arrayOf(PropTypes.object).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
       onCellClick: PropTypes.func.isRequired,
+      sortingOrder: PropTypes.oneOf(['asc', 'desc']).isRequired,
     };
 
     getSortableTableRows = (rowsData) => {
