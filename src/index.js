@@ -56,11 +56,9 @@ render(
   //Provider allows us to receive data from store of our app (by connect function)
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div>
-        <Router>
-          <App />
-        </Router>
-      </div>
+      <Router>
+        <App />
+      </Router>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('app-root'),
