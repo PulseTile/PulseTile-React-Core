@@ -79,6 +79,14 @@ label:focus,
   @include text-truncate;
 }
 
+#app-root {
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+}
+
 .wrapper {
   min-height: 100%;
   overflow: hidden;
