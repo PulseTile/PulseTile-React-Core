@@ -17,8 +17,13 @@ export default class SortableTable extends PureComponent {
     columnNameSortBy: PropTypes.string.isRequired,
   };
 
+  state = {
+    hoveredRowName: '',
+  };
+
   getSortableTableRows = (rowsData) => {
     const {onCellClick, columnNameSortBy, headers} = this.props;
+    const { hoveredRowName } = this.state;
 
     return _.cond([
       [_.negate(_.isEmpty), _.map(rowData =>
@@ -28,9 +33,20 @@ export default class SortableTable extends PureComponent {
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           headers={headers}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+          hoveredRowName = {hoveredRowName}
         />)],
       [_.T, () => <SortableTableEmptyDataRow />],
     ])(rowsData);
+  };
+
+  handleMouseEnter = (name) => {
+    this.setState({hoveredRowName: name});
+  };
+
+  handleMouseLeave = () => {
+    this.setState({hoveredRowName: ''});
   };
 
   resizeFixedTables = () => {
