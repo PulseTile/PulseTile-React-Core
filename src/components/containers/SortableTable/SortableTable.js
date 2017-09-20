@@ -77,8 +77,7 @@ export default class SortableTable extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {/*//HARDCODE*/}
-            <col style={{width: 150}}/>
+            {headersName.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeadersName__')}></col>)}
           </colgroup>
           <thead>
           <SortableTableHeaderRow
@@ -96,17 +95,7 @@ export default class SortableTable extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {/*//HARDCODE*/}
-            <col style={{width: 150}}/>
-            <col style={{width: 300}}/>
-            <col style={{width: 105}}/>
-            <col style={{width: 90}}/>
-            <col style={{width: 115}}/>
-            <col style={{width: 110}}/>
-            <col style={{width: 110}}/>
-            <col style={{width: 110}}/>
-            <col style={{width: 110}}/>
-            <col style={{width: 110}}/>
+            {headers.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeaders__')}></col>)}
           </colgroup>
           <thead>
           <SortableTableHeaderRow
@@ -124,8 +113,7 @@ export default class SortableTable extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {/*//HARDCODE*/}
-            <col style={{width: 110}}/>
+            {headersView.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeadersView__')}></col>)}
           </colgroup>
           <thead>
           <SortableTableHeaderRow
