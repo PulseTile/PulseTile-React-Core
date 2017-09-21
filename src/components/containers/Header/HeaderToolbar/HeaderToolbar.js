@@ -1,16 +1,18 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { lifecycle } from 'recompose';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import toolbarSelector from './selectors';
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
+import { dispatchCloseSidebarOnUnmount } from '../../../../utils/HOCs/dispatch-on-unmount.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
 @connect(toolbarSelector, mapDispatchToProps)
+@lifecycle(dispatchCloseSidebarOnUnmount)
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,

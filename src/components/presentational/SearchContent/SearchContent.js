@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SearchContent = () => {
-  return(
+  return (
     <div className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size">
       <div className="heading">Search Options</div>
       <div className="dropdown-menu-wrap-list">

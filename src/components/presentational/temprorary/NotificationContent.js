@@ -1,7 +1,7 @@
 import React from 'react';
 
 const NotificationContent = () => {
-  return(
+  return (
     <div className="notifications-drop dropdown-menu dropdown-menu-right" id="tab-notifications">
       <div className="notifications-header">Notifications (2)</div>
       <div className="notifications-body">

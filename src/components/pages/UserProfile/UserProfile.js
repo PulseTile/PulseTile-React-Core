@@ -22,9 +22,9 @@ class UserProfile extends PureComponent {
 
   handleExpand = (name) => {
     if (this.state.expandedPanel === 'all') {
-      this.setState(prevState => ({ expandedPanel: name, openedPanel: name, isAllPanelsVisible: !prevState.isAllPanelsVisible}));
+      this.setState(prevState => ({ expandedPanel: name, openedPanel: name, isAllPanelsVisible: !prevState.isAllPanelsVisible }));
     } else {
-      this.setState(prevState => ({ expandedPanel: 'all', isAllPanelsVisible: !prevState.isAllPanelsVisible}));
+      this.setState(prevState => ({ expandedPanel: 'all', isAllPanelsVisible: !prevState.isAllPanelsVisible }));
     }
   };
 
