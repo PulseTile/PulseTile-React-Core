@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import { compose, lifecycle } from 'recompose';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
@@ -35,7 +36,7 @@ class HeaderToolbar extends PureComponent {
         <div className="wrap-header-toolbar">
           <div className="container-fluid">
             <div className="header-toolbar">
-              <button className="btn-toggle-sidebar wrap-icon" data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
+              <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
                 <i className="btn-icon fa fa-bars" />
                 <span className="btn-text">Menu</span>
               </button>

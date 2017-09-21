@@ -97,7 +97,7 @@
   @include list-reset;
 }
 .sidebar-nav-item { border-bottom: 1px solid #E7E7E7; }
-.sidebar-nav-link, 
+.sidebar-nav-link,
 .sidebar-nav-link:hover {
   color: $base-color;
   display: block;
@@ -113,4 +113,9 @@
 .is-not-touch-device .sidebar-nav-link:hover {
   background-color: $base-color;
   color: $text-on-base-color;
+}
+
+.btn-toggle-sidebar-open {
+  background: $text-on-base-color !important;
+  color: $base-color !important;
 }
