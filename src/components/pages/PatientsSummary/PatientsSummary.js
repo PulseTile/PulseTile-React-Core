@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
+import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
+import { patientsSummaryConfig, defaultCategorySelected } from '../../../config/patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 
@@ -22,19 +24,24 @@ export default class PatientsSummary extends PureComponent {
       medications: PropTypes.arrayOf(PropTypes.string).isRequired,
     };
 
+    state = {
+      selectedCategory: defaultCategorySelected,
+    };
+
+    handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
+
     render() {
       const { allergies, contacts, problems, medications } = this.props;
+      const { selectedCategory } = this.state;
 
       return (<section className="page-wrapper">
         <Row>
           <Col xs={12}>
             <div className="panel panel-primary">
-              <div className="panel-heading">
-                <div className="control-group left dropdown">
-                  <button className="btn btn-success btn-inverse btn-dropdown-toggle open"><i className="btn-icon fa fa-cog" /></button>
-                </div>
-                <h3 className="panel-title">Patient Summary</h3>
-              </div>
+              <PatientsSummaryListHeader
+                onCategorySelected={this.handleCategorySelected}
+                selectedCategory={selectedCategory}
+              />
               <div className="panel-body">
                 <div className="dashboard">
                   <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} />
