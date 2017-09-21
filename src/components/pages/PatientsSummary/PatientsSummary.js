@@ -44,10 +44,10 @@ export default class PatientsSummary extends PureComponent {
               />
               <div className="panel-body">
                 <div className="dashboard">
-                  <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} />
-                  <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} />
-                  <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} />
-                  <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} />
+                  {selectedCategory.problems ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} /> : null}
+                  {selectedCategory.contacts ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
+                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} /> : null}
+                  {selectedCategory.medications ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
                 </div>
               </div>
             </div>
