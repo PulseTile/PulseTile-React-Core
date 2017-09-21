@@ -2,17 +2,17 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { lifecycle } from 'recompose';
+import { compose, lifecycle } from 'recompose';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import toolbarSelector from './selectors';
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
-import { dispatchCloseSidebarOnUnmount } from '../../../../utils/HOCs/dispatch-on-unmount.utils';
+import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
 @connect(toolbarSelector, mapDispatchToProps)
-@lifecycle(dispatchCloseSidebarOnUnmount)
+@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,
