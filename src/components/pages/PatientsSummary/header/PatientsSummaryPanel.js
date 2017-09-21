@@ -20,7 +20,7 @@ export default class PatientsSummaryPanel extends PureComponent {
     };
 
     componentDidUpdate(prevProps, prevState) {
-      if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onCategorySelected(this.state.selectedCategory)
+      if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onCategorySelected(this.state.selected)
     }
 
     toggleCheckbox = key => this.setState((prevState) => {
