@@ -1,11 +1,11 @@
-import React, {PureComponent} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
 import SortableTableHeaderRow from './sortable-table-header-components/SortableTableHeaderRow';
 import SortableTableRow from './SortableTableRow';
 import SortableTableEmptyDataRow from './SortableTableEmptyDataRow';
-import {getArrByTemplate} from '../../../utils/table-helpers/table.utils';
+import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 
 export default class SortableTable extends PureComponent {
   static propTypes = {
@@ -22,7 +22,7 @@ export default class SortableTable extends PureComponent {
   };
 
   getSortableTableRows = (rowsData) => {
-    const {onCellClick, columnNameSortBy, headers} = this.props;
+    const { onCellClick, columnNameSortBy, headers } = this.props;
     const { hoveredRowName } = this.state;
 
     return _.cond([
@@ -35,24 +35,24 @@ export default class SortableTable extends PureComponent {
           headers={headers}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
-          hoveredRowName = {hoveredRowName}
+          hoveredRowName={hoveredRowName}
         />)],
       [_.T, () => <SortableTableEmptyDataRow />],
     ])(rowsData);
   };
 
   handleMouseEnter = (name) => {
-    this.setState({hoveredRowName: name});
+    this.setState({ hoveredRowName: name });
   };
 
   handleMouseLeave = () => {
-    this.setState({hoveredRowName: ''});
+    this.setState({ hoveredRowName: '' });
   };
 
   resizeFixedTables = () => {
-    const tableNames = _.head(document.getElementsByClassName('table-patients-name'));
-    const tableControls = _.head(document.getElementsByClassName('table-patients-controls'));
-    const tableFull = _.head(document.getElementsByClassName('table-patients-full'));
+    const tableNames = this.tableNames;
+    const tableControls = this.tableControls;
+    const tableFull = this.tableFull;
 
     if (tableNames && tableControls && tableFull) {
       const tableNamesRows = _.last(tableNames.children).children;
@@ -73,7 +73,7 @@ export default class SortableTable extends PureComponent {
   };
 
   render() {
-    const {headers, data, onHeaderCellClick, sortingOrder} = this.props;
+    const { headers, data, onHeaderCellClick, sortingOrder } = this.props;
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
@@ -81,65 +81,66 @@ export default class SortableTable extends PureComponent {
     const rowsDataView = rowsData.map(el => el.filter(el => el.name === 'viewPatientNavigation'));
 
     setTimeout(() => this.resizeFixedTables());
-
     window.addEventListener('resize', () => {
       this.resizeFixedTables()
     });
-
     return (
       <div>
         {data.length ? <table
           className="table table-striped  table-bordered table-sorted table-hover table-fixedcol table-patients-name"
+          ref={(el) => { this.tableNames = el; }}
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headersName.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeadersName__')}></col>)}
+            {headersName.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersName__')}></col>)}
           </colgroup>
           <thead>
-          <SortableTableHeaderRow
-            headers={headersName}
-            onHeaderCellClick={onHeaderCellClick}
-            sortingOrder={sortingOrder}
-          />
+            <SortableTableHeaderRow
+              headers={headersName}
+              onHeaderCellClick={onHeaderCellClick}
+              sortingOrder={sortingOrder}
+            />
           </thead>
           <tbody>
-          {this.getSortableTableRows(rowsDataName)}
+            {this.getSortableTableRows(rowsDataName)}
           </tbody>
         </table> : null }
         <table
           className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table"
+          ref={(el) => { this.tableFull = el; }}
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headers.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeaders__')}></col>)}
+            {headers.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')}></col>)}
           </colgroup>
           <thead>
-          <SortableTableHeaderRow
-            headers={headers}
-            onHeaderCellClick={onHeaderCellClick}
-            sortingOrder={sortingOrder}
-          />
+            <SortableTableHeaderRow
+              headers={headers}
+              onHeaderCellClick={onHeaderCellClick}
+              sortingOrder={sortingOrder}
+            />
           </thead>
           <tbody>
-          {this.getSortableTableRows(rowsData)}
+            {this.getSortableTableRows(rowsData)}
           </tbody>
         </table>
         {data.length ? <table
           className="table table-striped table-bordered table-sorted table-fixedcol table-patients-controls"
+          ref={(el) => { this.tableControls = el; }}
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headersView.map(item => <col style={{width: item.width}} key={_.uniqueId('__colHeadersView__')}></col>)}
+            {headersView.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersView__')}></col>)}
           </colgroup>
           <thead>
-          <SortableTableHeaderRow
-            headers={headersView}
-            onHeaderCellClick={onHeaderCellClick}
-            sortingOrder={sortingOrder}
-          />
+            <SortableTableHeaderRow
+              headers={headersView}
+              onHeaderCellClick={onHeaderCellClick}
+              sortingOrder={sortingOrder}
+            />
           </thead>
           <tbody>
-          {this.getSortableTableRows(rowsDataView)}
+            {this.getSortableTableRows(rowsDataView)}
           </tbody>
         </table> : null }
       </div>)
