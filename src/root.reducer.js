@@ -1,5 +1,6 @@
 import { routerReducer } from 'react-router-redux'
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 import fetchInitialiseReducer from './ducks/fetch-initialise.duck'
 import setCredentialsREducer from './ducks/set-credentials.duck'
@@ -12,6 +13,7 @@ import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
 
 const rootReducer = combineReducers({
   router: routerReducer,
+  form: formReducer,
   initialiseData: fetchInitialiseReducer,
   credentials: setCredentialsREducer,
   patients: fetchPatientsReducer,

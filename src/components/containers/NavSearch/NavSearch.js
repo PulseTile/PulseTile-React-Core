@@ -11,10 +11,14 @@ const ADVANCED_SEARCH = 'advancedSearch';
 
 export default class NavSearch extends PureComponent {
   state = {
-    selected: ADVANCED_SEARCH,
+    selected: BASIC_SEARCH,
   };
 
-  handleSelect = selected => this.setState({ selected });
+  handleSelect = (selected) => {
+    this.setState({ selected });
+    //TODO remove this spike to close dropdown
+    document.body.click();
+  }
 
   render() {
     const { selected } = this.state;
