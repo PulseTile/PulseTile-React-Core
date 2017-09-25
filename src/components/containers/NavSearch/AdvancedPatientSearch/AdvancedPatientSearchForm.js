@@ -8,6 +8,7 @@ import ValidatedInput from './fields/ValidatedInputFormGroup';
 import SelectAge from './fields/SelectFormGroup';
 import CustomInputCheckbox from './fields/CustomInputCheckbox';
 import DateInput from './fields/DateInput';
+import RangeInput from './fields/RangeInput';
 import { nhsNumberValidation, isRequired, isDate, IS_VALID } from '../../../../utils/validation-helpers/validation.utils';
 import { defaultFormValues } from './default-values.config';
 
@@ -95,6 +96,13 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                     />
                   </div>
                 </div>
+                <Field
+                  label="Age Range (Years)"
+                  name="ageRange"
+                  type="text"
+                  component={RangeInput}
+                  validate={[isDate]}
+                />
                 <div className="row">
                   <div className="col-xs-12 col-sm-6">
                     <div className="form-group" >
