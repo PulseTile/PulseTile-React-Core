@@ -17,14 +17,14 @@ export const mainPagesTitles = {
       title: 'System Dashboard',
       state: '/',
     }],
-    headerTitle: 'System Dashboard'
+    headerTitle: 'System Dashboard',
   },
   'charts': {
     breadcrumbs: [{
       title: 'System Dashboard',
       state: '/charts',
     }],
-    headerTitle: 'System Dashboard'
+    headerTitle: 'System Dashboard',
   },
   'patients': {
     breadcrumbs: [{
@@ -34,14 +34,14 @@ export const mainPagesTitles = {
       title: 'Patient Listings',
       state: '/patients',
     }],
-    headerTitle: 'Patients Lists'
+    headerTitle: 'Patients Lists',
   },
   'profile': {
     breadcrumbs: [{
       title: 'Patient Information',
       state: '/profile',
     }],
-    headerTitle: 'Personal Information'
+    headerTitle: 'Personal Information',
   },
   'search-report': {
     breadcrumbs: [{
@@ -50,19 +50,19 @@ export const mainPagesTitles = {
     }, {
       title: 'Search Report',
       state: '/search-report',
-    }]
+    }],
   },
   'patients-summary': {
     breadcrumbs: [{
       title: 'Patient Listings',
-      state: '/patients'
+      state: '/patients',
     }, {
       title: 'Patient Summary',
-      state: '/patients-summary'
-    }]
+      state: '/patients-summary',
+    }],
   },
   'patients-full-details': {
     breadcrumbs: [],
-    headerTitle: 'Search results'
-  }
+    headerTitle: 'Search results',
+  },
 };

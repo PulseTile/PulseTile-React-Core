@@ -40,7 +40,8 @@ export default class PatientsInfoPanel extends PureComponent {
 
       return (
         <div
-          className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients">
+          className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients"
+        >
           <div className="form-group-wrapper">
             <div className="heading">PATIENT INFO</div>
             <div className="form-group">
