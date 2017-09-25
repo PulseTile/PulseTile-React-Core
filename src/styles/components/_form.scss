@@ -101,6 +101,7 @@ select.textarea-big,
     text-align: center;
     top: 0;
     width: 30px;
+    z-index: 1;
   }
   &.addon-left {
     .addon { left: 0; }

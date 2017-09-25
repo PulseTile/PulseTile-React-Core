@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash/fp';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default class DateInput extends PureComponent {
     static propTypes = {
@@ -24,10 +26,11 @@ export default class DateInput extends PureComponent {
             <div className="addon">
               <i className="fa fa-calendar" />
             </div>
-            <input
+            <DatePicker
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
-              placeholder="03/08/1970"
-              {...input}
+              selected={input.value}
+              onChange={input.onChange}
+              placeholderText="03/08/1970"
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
           </div>

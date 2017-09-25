@@ -9,18 +9,12 @@ export default class RangeInput extends PureComponent {
     input: PropTypes.object.isRequired,
   };
 
-  state = {
-    value: [0, 100],
-  };
-
-  onSliderChange = (value) => {
-    this.setState({
-      value,
-    });
-  };
+  constructor(props) {
+    super();
+    props.input.value = [0, 100]
+  }
 
   render() {
-    const { value } = this.state;
     const { label, input } = this.props;
     const marks = {
       0: '0',
@@ -41,9 +35,9 @@ export default class RangeInput extends PureComponent {
         <div className="wrap-rzslider-search">
           <Range
             defaultValue={[0, 100]}
-            value={value}
             marks={marks}
-            onChange={this.onSliderChange}
+            value={input.value}
+            onChange={input.onChange}
           />
         </div>
       </div>
