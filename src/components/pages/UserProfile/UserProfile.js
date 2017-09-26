@@ -1,25 +1,24 @@
 import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
+import { connect } from 'react-redux'
 
 import PersonalInformationPanel from './PersonalInformationPanel';
+import AppSettingsForm from './forms/AppSettingsForm';
+import formStateSelector from './selectors';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
 
+@connect(formStateSelector)
 class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
     expandedPanel: 'all',
     isAllPanelsVisible: false,
     editedPanel: '',
-    applicationTitle: 'Test',
-    logoFile: '',
-    logoPreviewUrl: '',
-    applicationTheme: '',
-    browserWindowTitle: 'Test',
   };
 
   handleShow = (name) => {
@@ -38,36 +37,8 @@ class UserProfile extends PureComponent {
     this.setState({ editedPanel: name })
   };
 
-  handleApplicationTitleChange = (evt) => {
-    this.setState({ applicationTitle: evt.target.value });
-  };
-
-  handleApplicationThemeChange = (evt) => {
-    this.setState({ applicationTheme: evt.target.value });
-  };
-
-  handleBrowserWindowChange = (evt) => {
-    this.setState({ browserWindowTitle: evt.target.value });
-  };
-
-  handleLogoChange = (evt) => {
-    evt.preventDefault();
-
-    const reader = new FileReader();
-    const file = evt.target.files[0];
-
-    reader.onloadend = () => {
-      this.setState({
-        logoPreviewUrl: file,
-        logoPreviewUrl: reader.result,
-      });
-    };
-
-    reader.readAsDataURL(file)
-  };
-
   render() {
-    const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel, applicationTitle, logoPreviewUrl, applicationTheme, browserWindowTitle } = this.state;
+    const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
@@ -134,68 +105,7 @@ class UserProfile extends PureComponent {
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
                 >
-                  <div className="panel-body-inner">
-                    <form name="appSettingsForm" className="form">
-                      <div className="form-group-wrapper">
-                        <Row>
-                          <Col xs={12} md={6}>
-                            <Row>
-                              <Col md={11}>
-                                <div className={classNames('form-group', { 'has-error': applicationTitle === '', 'has-success': applicationTitle.length > 0 })}>
-                                  <label htmlFor="title" className="control-label">Application Title</label>
-                                  <div className="input-holder">
-                                    <input className="form-control input-sm" id="title" name="title" required onChange={this.handleApplicationTitleChange} value={applicationTitle} />
-                                  </div>
-                                  {applicationTitle === '' ? <span className="help-block animate-fade">You must enter a value.</span> : null }
-                                </div>
-                                <div className="form-group">
-                                  <label className="control-label">Application Logo File</label>
-                                  <div className="input-holder">
-                                    <div className="wrap-fcustomfile">
-                                      <div className="fcustomfile-control">
-                                        <input
-                                          accept="image/jpeg,image/png,image/gif"
-                                          type="file"
-                                          name="logoPath"
-                                          id="logoPath"
-                                          onChange={e=>this.handleLogoChange(e)}
-                                        />
-                                        <label htmlFor="logoPath" className="btn btn-success btn-inverse btn-normal-icon">
-                                          <i className="fa fa-plus"></i>
-                                          <span>Upload logo</span>
-                                        </label>
-                                      </div>
-                                      <div className="fcustomfile-text"></div>
-                                    </div>
-                                  </div>
-                                  <span className="help-block animate-fade">You must choise image file.</span>
-                                </div>
-                                {logoPreviewUrl.length !== 0 ? <div className="form-group">
-                                  <div className="form-control-static">
-                                    <img src={logoPreviewUrl} alt="Logo Example" />
-                                  </div>
-                                </div> : null }
-                                <div className={classNames('form-group', { 'has-error': applicationTheme === '', 'has-success': applicationTheme.length > 0 })}>
-                                  <label htmlFor="themes" className="control-label">Application Themes</label>
-                                  <div className="input-holder">
-                                    <select></select>
-                                  </div>
-                                  {applicationTheme === '' ? <span className="help-block animate-fade">You must enter a value.</span> : null }
-                                </div>
-                                <div className={classNames('form-group', { 'has-error': browserWindowTitle === '', 'has-success': browserWindowTitle.length > 0 })}>
-                                  <label htmlFor="browseTitle" className="control-label">Browser Window title</label>
-                                  <div className="input-holder">
-                                    <input className="form-control input-sm" id="browseTitle" name="browseTitle" required onChange={this.handleBrowserWindowChange} value={browserWindowTitle} />
-                                  </div>
-                                  {browserWindowTitle === '' ? <span className="help-block animate-fade">You must enter a value.</span> : null }
-                                </div>
-                              </Col>
-                            </Row>
-                          </Col>
-                        </Row>
-                      </div>
-                    </form>
-                  </div>
+                  <AppSettingsForm />
                 </PersonalInformationPanel> : null }
                 {expandedPanel === 'personalInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={PERSONAL_INFORMATION}
