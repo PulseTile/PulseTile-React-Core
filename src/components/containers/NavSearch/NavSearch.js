@@ -3,8 +3,8 @@ import Dropdown from 'simple-react-dropdown'
 
 import SearchOptions from './SearchOptions'
 import PTButton from '../../ui-elements/PTButton/PTButton';
-import BasicPatientSearch from './BasicPatientSearch/BasicPatientSearch';
-import AdvancedPatientSearch from './AdvancedPatientSearch/AdvancedPatientSearch';
+import BasicPatientSearch from '../BasicPatientSearch/BasicPatientSearch';
+import AdvancedPatientSearch from '../AdvancedPatientSearch/AdvancedPatientSearch';
 
 const BASIC_SEARCH = 'basicSearch';
 const ADVANCED_SEARCH = 'advancedSearch';

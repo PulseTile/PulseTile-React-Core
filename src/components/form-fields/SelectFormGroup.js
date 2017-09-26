@@ -6,10 +6,11 @@ export default class SelectFormGroup extends PureComponent {
     static propTypes = {
       label: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
+      input: PropTypes.object.isRequired,
     }
 
     render() {
-      const { label, name } = this.props;
+      const { label, name, input } = this.props;
 
       return (
         <div className="form-group">
@@ -17,6 +18,7 @@ export default class SelectFormGroup extends PureComponent {
           <select
             className="form-control input-sm"
             name={name}
+            {...input}
           >
             <option value="birthday">Date of Birth</option>
             <option value="range">Age Range</option>

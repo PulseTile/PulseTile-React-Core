@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import qs from 'qs';
 
-import PTButton from '../../../ui-elements/PTButton/PTButton';
-import { clientUrls } from '../../../../config/client-urls.constants';
+import PTButton from '../../ui-elements/PTButton/PTButton';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 export default class BasicPatientSearch extends PureComponent {
     state = {

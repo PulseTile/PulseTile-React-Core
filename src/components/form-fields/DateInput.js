@@ -29,8 +29,8 @@ export default class DateInput extends PureComponent {
             <DatePicker
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
               selected={input.value}
-              onChange={input.onChange}
               placeholderText="03/08/1970"
+              {...input}
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
           </div>
