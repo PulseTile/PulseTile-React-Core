@@ -13,10 +13,11 @@ export default class PersonalInformationPanel extends PureComponent {
       children: PropTypes.element.isRequired,
       onShow: PropTypes.func.isRequired,
       onExpand: PropTypes.func.isRequired,
+      onEdit: PropTypes.func.isRequired
     };
 
     render() {
-      const { name, title, children, isOpen, onShow, onExpand } = this.props;
+      const { name, title, children, isOpen, onShow, onExpand, onEdit } = this.props;
 
       return (
         <Row className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -37,7 +38,7 @@ export default class PersonalInformationPanel extends PureComponent {
             {name !== 'changeHistory' ? <div className="panel-control ng-scope">
               <div className="wrap-control-group">
                 <div className="control-group right">
-                  <PTButton className="btn btn-success btn-inverse btn-edit">
+                  <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
                     <i className="fa fa-edit" /> Edit
                   </PTButton>
                 </div>
