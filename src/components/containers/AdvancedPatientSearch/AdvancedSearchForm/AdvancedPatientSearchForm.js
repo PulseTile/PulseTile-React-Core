@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
-import Select from '../../../form-fields/SelectFormGroup';
+import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import CustomInputCheckbox from '../../../form-fields/CustomInputCheckbox';
 import DateInput from '../../../form-fields/DateInput';
 import RangeInput from '../../../form-fields/RangeInput';
@@ -71,7 +71,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                 <Field
                   label="Select Age Params"
                   name={valuesNames.SELECT_AGE}
-                  component={Select}
+                  component={SelectFormGroup}
                   options={optionsForAgeField}
                 />
               </div>

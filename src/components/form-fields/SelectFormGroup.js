@@ -12,7 +12,7 @@ export default class SelectFormGroup extends PureComponent {
   };
 
   render() {
-    const { label, name, input } = this.props;
+    const { label, name, options, input } = this.props;
 
     return (
       <div className="form-group">
@@ -22,8 +22,8 @@ export default class SelectFormGroup extends PureComponent {
           name={name}
           {...input}
         >
-          {this.props.options.map(({ value, title }) =>
-            <option key={_.uniqueId('__Option__')} value={value}>{title}</option>
+          {options.map(({ value, title }) =>
+            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
           )};
         </select>
       </div>
