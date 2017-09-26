@@ -8,12 +8,13 @@ import PatientsList from '../../containers/PatientsList/PatientsList';
 import patientsSelector from './selectors';
 import { fetchBasicPatientSearchRequest } from '../../../ducks/fetch-basic-patient-search.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
-import { fetchPatientSimpleSearch, fetchPatientsCountsOnMountAndUpdate } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientsCountsOnMountAndUpdate } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientOnSearch } from '../../../utils/HOCs/fetch-patient-on-search.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchBasicPatientSearchRequest, fetchPatientCountsRequest }, dispatch) });
 
 @connect(patientsSelector, mapDispatchToProps)
-@compose(lifecycle(fetchPatientSimpleSearch), lifecycle(fetchPatientsCountsOnMountAndUpdate))
+@compose(lifecycle(fetchPatientOnSearch), lifecycle(fetchPatientsCountsOnMountAndUpdate))
 class PatientsFullDetailsSearch extends PureComponent {
   render() {
     return (<section className="page-wrapper">

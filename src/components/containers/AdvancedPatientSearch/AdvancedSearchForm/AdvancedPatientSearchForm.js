@@ -21,7 +21,7 @@ import { valuesNames } from './values-names.config';
 export default class AdvancedPatientSearchForm extends PureComponent {
     static propTypes = {
       initialize: PropTypes.func,
-      values: PropTypes.object,
+      formValues: PropTypes.object,
     };
 
     componentDidMount() {
@@ -29,8 +29,8 @@ export default class AdvancedPatientSearchForm extends PureComponent {
     }
 
     render() {
-      const { values } = this.props;
-      const isBirthDateSelected = _.flow(_.get('selectAgeField'), _.eq('birthday'))(values);
+      const { formValues } = this.props;
+      const isBirthDateSelected = _.flow(_.get('selectAgeField'), _.eq('birthday'))(formValues);
 
       return (
         <form name="advancedSearchForm" className="form ng-pristine ng-invalid ng-invalid-required">

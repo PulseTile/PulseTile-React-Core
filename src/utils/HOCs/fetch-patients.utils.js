@@ -21,24 +21,6 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchPatientSimpleSearch = ({
-  componentDidMount() {
-    const { location, actions } = this.props;
-    const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
-    actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
-  },
-
-  componentWillReceiveProps(nextProps) {
-    const { location, actions } = nextProps;
-    const isNewSearch = location.search !== this.props.location.search;
-
-    if (isNewSearch) {
-      const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
-      actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
-    }
-  },
-});
-
 export const fetchPatientSummaryOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;

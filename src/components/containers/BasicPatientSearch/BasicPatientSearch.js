@@ -31,7 +31,6 @@ export default class BasicPatientSearch extends PureComponent {
         };
         const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
 
-        //TODO prevent "Warning: Hash history cannot PUSH the same path; a new entry will not be added to the history stack"
         this.context.router.history.replace(patientsFullDetailsUrl);
       }
     };

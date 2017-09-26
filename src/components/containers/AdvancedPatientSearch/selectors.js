@@ -1,9 +1,13 @@
-import _ from 'lodash/fp';
+import { getFormValues, isValid } from 'redux-form'
 import { createSelector } from 'reselect';
 
-const advancedPatientSearchFormSelector = _.getOr({}, 'form.advancedPatientSearchForm')
+const formValuesSelector = state => getFormValues('advancedPatientSearchForm')(state);
+const formIsValidSelector = state => isValid('advancedPatientSearchForm')(state);
 
-const formStateSelector = createSelector(advancedPatientSearchFormSelector,
-  formState => ({ formState }));
+const formStateSelector = createSelector(
+  formValuesSelector,
+  formIsValidSelector,
+  (formValues, formIsValid) => ({ formValues, formIsValid })
+)
 
 export default formStateSelector;

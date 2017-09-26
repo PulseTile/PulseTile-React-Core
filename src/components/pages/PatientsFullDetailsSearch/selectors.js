@@ -11,6 +11,7 @@ const patientsCountsSelector = ({ patientsCounts }) => patientsCounts;
 
 const panelTitleSelector = (state, { location: { search } }) => {
   const { queryType, searchString } = qs.parse(search.replace('?', ''));
+  if (queryType === 'advanced') return 'Search Result';
   return `${queryType} ${searchString}`
 };
 
