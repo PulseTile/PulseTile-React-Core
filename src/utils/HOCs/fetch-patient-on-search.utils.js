@@ -3,7 +3,9 @@ import qs from 'qs';
 
 const searchForPatient = (location, actions) => {
   const { orderType, pageNumber, searchString, queryType } = qs.parse(location.search.replace('?', ''));
-  if (queryType === 'advanced') return console.log('advanced');
+  //advanced search
+  if (queryType === 'advanced') return actions.fetchAdvancedPatientSearchRequest(searchString);
+  //basic search
   return actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
 }
 
