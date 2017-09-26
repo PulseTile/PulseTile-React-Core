@@ -64,7 +64,7 @@ module.exports = {
         loader: 'url-loader?limit=100000',
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|css)$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           //resolve-url-loader may be chained before sass-loader if necessary
