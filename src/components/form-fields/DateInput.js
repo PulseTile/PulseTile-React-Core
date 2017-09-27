@@ -9,6 +9,7 @@ export default class DateInput extends PureComponent {
     static propTypes = {
       label: PropTypes.string.isRequired,
       input: PropTypes.object.isRequired,
+      placeholder: PropTypes.string.isRequired,
       meta: PropTypes.shape({
         active: PropTypes.bool,
         error: PropTypes.bool,
@@ -16,7 +17,7 @@ export default class DateInput extends PureComponent {
     };
 
     render() {
-      const { label, input, meta: { active, error } } = this.props;
+      const { label, placeholder, input, meta: { active, error } } = this.props;
       const hasError = !_.isEmpty(error);
 
       return (
@@ -29,7 +30,7 @@ export default class DateInput extends PureComponent {
             <DatePicker
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
               selected={input.value}
-              placeholderText="03/08/1970"
+              placeholderText={placeholder}
               {...input}
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
