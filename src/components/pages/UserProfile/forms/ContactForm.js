@@ -5,8 +5,12 @@ import { Row, Col } from 'react-bootstrap';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import { optionsForCountryField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
+import { validateContactForm } from './validation';
 
-@reduxForm({ form: 'contactFormSelector' })
+@reduxForm({
+  form: 'contactFormSelector',
+  validate: validateContactForm,
+})
 export default class ContactForm extends PureComponent {
   render() {
     return (

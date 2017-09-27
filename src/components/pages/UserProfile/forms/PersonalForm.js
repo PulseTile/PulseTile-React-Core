@@ -6,8 +6,12 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { optionsForGenderField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
+import { validatePersonalForm } from './validation';
 
-@reduxForm({ form: 'personalFormSelector' })
+@reduxForm({
+  form: 'personalFormSelector',
+  validate: validatePersonalForm,
+})
 export default class PersonalForm extends PureComponent {
   render() {
     return (
