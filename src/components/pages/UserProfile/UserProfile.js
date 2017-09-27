@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
 import PersonalForm from './forms/PersonalForm';
+import ContactForm from './forms/ContactForm';
 import formStateSelector from './selectors';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
@@ -197,7 +198,7 @@ class UserProfile extends PureComponent {
                 >
                   <PersonalForm />
                 </PersonalInformationPanel> : null }
-                {expandedPanel === 'contactInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
+                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && !editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
                   name={CONTACT_INFORMATION}
                   title="Contact Information"
                   isOpen={openedPanel === CONTACT_INFORMATION}
@@ -260,6 +261,18 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
+                </PersonalInformationPanel> : null }
+                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
+                  name={CONTACT_INFORMATION}
+                  title="Contact Information"
+                  isOpen={openedPanel === CONTACT_INFORMATION}
+                  onShow={this.handleShow}
+                  onExpand={this.handleExpand}
+                  onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
+                >
+                  <ContactForm />
                 </PersonalInformationPanel> : null }
                 {expandedPanel === 'changeHistory' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={CHANGE_HISTORY}

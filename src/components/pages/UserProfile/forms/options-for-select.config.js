@@ -19,4 +19,24 @@ const optionsForGenderField = [{
   title: 'Male',
 }];
 
-export { optionsForThemesField, optionsForGenderField }
+const optionsForCountryField = [{
+  value: 'usa',
+  title: 'USA',
+}, {
+  value: 'country1',
+  title: 'Country 1',
+}, {
+  value: 'country2',
+  title: 'Country 2',
+}, {
+  value: 'country3',
+  title: 'Country 3',
+}, {
+  value: 'country4',
+  title: 'Country 4',
+}, {
+  value: 'country5',
+  title: 'Country 5',
+}];
+
+export { optionsForThemesField, optionsForGenderField, optionsForCountryField }
