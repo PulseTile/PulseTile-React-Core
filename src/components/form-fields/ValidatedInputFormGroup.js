@@ -10,7 +10,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
       input: PropTypes.object.isRequired,
       meta: PropTypes.shape({
         active: PropTypes.bool,
-        error: PropTypes.bool,
+        error: PropTypes.string,
       }).isRequired,
     };
 

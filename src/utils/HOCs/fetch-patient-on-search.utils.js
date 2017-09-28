@@ -7,7 +7,7 @@ const searchForPatient = (location, actions) => {
   if (queryType === 'advanced') return actions.fetchAdvancedPatientSearchRequest(searchString);
   //basic search
   return actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
-}
+};
 
 export const fetchPatientOnSearch = ({
   componentDidMount() {
@@ -19,8 +19,6 @@ export const fetchPatientOnSearch = ({
     const { location, actions } = nextProps;
     const isNewSearch = location.search !== this.props.location.search;
 
-    if (isNewSearch) {
-      searchForPatient(location, actions)
-    }
+    if (isNewSearch) searchForPatient(location, actions);
   },
 });

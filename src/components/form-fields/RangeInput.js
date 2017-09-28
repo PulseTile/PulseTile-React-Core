@@ -21,7 +21,7 @@ export default class RangeInput extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
     input: PropTypes.shape({
-      value: PropTypes.arrayOf(PropTypes.number),
+      value: PropTypes.string,
       onChange: PropTypes.func,
     }).isRequired,
   };

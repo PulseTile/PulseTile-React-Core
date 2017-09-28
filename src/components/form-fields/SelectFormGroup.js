@@ -6,9 +6,9 @@ import _ from 'lodash/fp';
 export default class SelectFormGroup extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     input: PropTypes.object.isRequired,
-    options: PropTypes.arrayOf(PropTypes.array).isRequired,
+    options: PropTypes.arrayOf(PropTypes.object).isRequired,
+    name: PropTypes.string,
   };
 
   render() {

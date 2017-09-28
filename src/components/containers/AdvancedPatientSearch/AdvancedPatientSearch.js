@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash/fp';
 import classNames from 'classnames';
 import qs from 'qs';
 import { connect } from 'react-redux'
@@ -7,10 +8,11 @@ import { connect } from 'react-redux'
 import AdvancedPatientSearchForm from './AdvancedSearchForm/AdvancedPatientSearchForm';
 import formStateSelector from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
+import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
 
 const getLabelByValues = (values) => {
   return JSON.stringify(values)
-}
+};
 
 @connect(formStateSelector)
 export default class AdvancedPatientSearch extends PureComponent {
@@ -32,9 +34,24 @@ export default class AdvancedPatientSearch extends PureComponent {
 
     toggleFormVisibility = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
+    formValuesToSearchString = (formValues) => {
+      const minValue = _.get([valuesNames.AGE_RANGE, 0])(formValues);
+      const maxValue = _.get([valuesNames.AGE_RANGE, 1])(formValues);
+      const nhsNumber = _.get(valuesNames.NHS_NUMBER)(formValues);
+      const surname = _.get(valuesNames.SURNAME)(formValues);
+      const forename = _.get(valuesNames.FORENAME)(formValues);
+      const selectAgeField = _.get(valuesNames.SELECT_AGE)(formValues);
+      const dateOfBirth = _.get(valuesNames.DATE_OF_BIRTH)(formValues);
+      const sexMale = _.get(valuesNames.MALE)(formValues);
+      const sexFemale = _.get(valuesNames.FEMALE)(formValues);
+
+      return ({ minValue, maxValue, nhsNumber, surname, forename, selectAgeField, dateOfBirth, sexMale, sexFemale });
+    };
+
     handleSearch = () => {
+      const { formValues } = this.props;
       const queryParams = {
-        searchString: { forename: 'sadfsdf' },
+        searchString: this.formValuesToSearchString(formValues),
         queryType: 'advanced',
       };
 
