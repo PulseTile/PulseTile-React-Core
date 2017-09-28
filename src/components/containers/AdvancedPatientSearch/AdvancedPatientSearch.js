@@ -7,8 +7,10 @@ import { connect } from 'react-redux'
 
 import AdvancedPatientSearchForm from './AdvancedSearchForm/AdvancedPatientSearchForm';
 import formStateSelector from './selectors';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
+
 
 @connect(formStateSelector)
 export default class AdvancedPatientSearch extends PureComponent {
@@ -45,12 +47,46 @@ export default class AdvancedPatientSearch extends PureComponent {
     };
 
     formValuesToTitle = (formValues) => {
-      const nhsNumberTitle = _.flow(_.getOr('', valuesNames.NHS_NUMBER), _.cond([
+      const ageRangeTitle = _.flow(_.getOr('', valuesNames.AGE_RANGE), _.cond([
         [_.isEmpty, _.constant('')],
-        [_.T, nhsNumber => valuesLabels[valuesNames.NHS_NUMBER] + nhsNumber],
+        [_.T, (ageRange => `${valuesLabels.AGE_RANGE}: ${ageRange[0]}-${ageRange[1]}`)],
       ]))(formValues);
 
-      return nhsNumberTitle
+      const genderTitle = _.flow(values => ({
+        isMale: _.getOr('', valuesNames.MALE, values),
+        isFemale: _.getOr('', valuesNames.FEMALE, values),
+      }),
+      _.cond([
+        [({ isMale, isFemale }) => isMale && isFemale, _.constant(`${valuesLabels.GENDER}: All`)],
+        [({ isMale }) => isMale, _.constant(`${valuesLabels.GENDER}: Male`)],
+        [({ isFemale }) => isFemale, _.constant(`${valuesLabels.GENDER}: Female`)],
+        [_.T, _.constant('')],
+      ]))(formValues);
+
+      const dateOfBirth = _.flow(_.getOr('', valuesNames.DATE_OF_BIRTH), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, (date => `${valuesLabels.DATE_OF_BIRTH}: ${getDDMMMYYYY(date)}`)],
+      ]))(formValues);
+
+      const nhsNumberTitle = _.flow(_.getOr('', valuesNames.NHS_NUMBER), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, (nhsNumber => `${valuesLabels.NHS_NUMBER}: ${nhsNumber}`)],
+      ]))(formValues);
+
+
+      const lastNameTitle = _.flow(_.getOr('', valuesNames.SURNAME), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, (surname => `${valuesLabels.SURNAME}: ${surname}`)],
+      ]))(formValues);
+
+      const firstNameTitle = _.flow(_.getOr('', valuesNames.FORENAME), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, (forename => `${valuesLabels.FORENAME}: ${forename}`)],
+      ]))(formValues);
+
+      const title = [nhsNumberTitle, lastNameTitle, firstNameTitle, dateOfBirth, ageRangeTitle, genderTitle].filter(_.negate(_.isEmpty$)).join(', ');
+
+      return title
     };
 
     handleSearch = () => {
@@ -80,7 +116,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                   </button>
                 </div>
                 <h3 className="panel-title">
-                  <span className="ng-binding">Patient Search - Advanced </span>
+                  <span className="ng-binding">Patient Search - Advanced: </span>
                   <span className="hidden-xs hidden-sm ng-binding">{this.formValuesToTitle(formValues)}</span>
                 </h3>
               </div>

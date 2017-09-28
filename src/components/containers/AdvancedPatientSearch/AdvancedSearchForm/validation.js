@@ -10,12 +10,12 @@ const hasName = values => (_.isEmpty(values[valuesNames.FORENAME]) && _.isEmpty(
 export const validateAdvancedSearchValues = (values) => {
   const errors = {};
 
-  if (!hasNhsNumber(values)) {
+  /*if (!hasNhsNumber(values)) {
     errors[valuesNames.NHS_NUMBER] = nhsNumberValidation(values[valuesNames.NHS_NUMBER])
   } else if (!hasName(values)) {
     errors[valuesNames.FORENAME] = isRequired(values[valuesNames.FORENAME]);
     errors[valuesNames.SURNAME] = isRequired(values[valuesNames.SURNAME]);
-  }
+  }*/
 
   return errors
 };

@@ -16,6 +16,5 @@ export const valuesLabels = {
   SELECT_AGE: 'Select Age Params',
   DATE_OF_BIRTH: 'Date of Birth',
   AGE_RANGE: 'Age Range',
-  MALE: 'Gender',
-  FEMALE: 'Gender',
+  GENDER: 'Gender',
 };

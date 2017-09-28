@@ -20,7 +20,7 @@ export default class CustomInputCheckbox extends PureComponent {
               checked={input.value}
               {...input}
             />
-            <label htmlFor={input.name} />
+            {/*<label htmlFor={input.name} />*/}
           </div>
           <label htmlFor={input.name} className="fcustominp-label ng-binding">{label}</label>
         </div>
