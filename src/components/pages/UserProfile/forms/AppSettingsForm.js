@@ -6,8 +6,12 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import FileInput from '../../../form-fields/FileInput';
 import { optionsForThemesField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
+import { validateAppSettingsForm } from './validation';
 
-@reduxForm({ form: 'appSettingsFormSelector' })
+@reduxForm({
+  form: 'appSettingsFormSelector',
+  validate: validateAppSettingsForm,
+})
 export default class AppSettingsForm extends PureComponent {
   render() {
     return (

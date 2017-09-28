@@ -10,10 +10,6 @@ import formStateSelector from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
 
-const getLabelByValues = (values) => {
-  return JSON.stringify(values)
-};
-
 @connect(formStateSelector)
 export default class AdvancedPatientSearch extends PureComponent {
     static propTypes = {
@@ -48,6 +44,15 @@ export default class AdvancedPatientSearch extends PureComponent {
       return ({ minValue, maxValue, nhsNumber, surname, forename, selectAgeField, dateOfBirth, sexMale, sexFemale });
     };
 
+    formValuesToTitle = (formValues) => {
+      const nhsNumberTitle = _.flow(_.getOr('', valuesNames.NHS_NUMBER), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, nhsNumber => valuesLabels[valuesNames.NHS_NUMBER] + nhsNumber],
+      ]))(formValues);
+
+      return nhsNumberTitle
+    };
+
     handleSearch = () => {
       const { formValues } = this.props;
       const queryParams = {
@@ -75,8 +80,8 @@ export default class AdvancedPatientSearch extends PureComponent {
                   </button>
                 </div>
                 <h3 className="panel-title">
-                  <span className="ng-binding">Patient Search - Advanced</span>
-                  <span className="hidden-xs hidden-sm ng-binding">{getLabelByValues(formValues)}</span>
+                  <span className="ng-binding">Patient Search - Advanced </span>
+                  <span className="hidden-xs hidden-sm ng-binding">{this.formValuesToTitle(formValues)}</span>
                 </h3>
               </div>
               {isOpen &&
