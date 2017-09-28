@@ -9,6 +9,7 @@ import { fetchUserAccountEpic } from './ducks/fetch-user-account.duck';
 import { fetchBasicPatientSearchEpic } from './ducks/fetch-basic-patient-search.duck';
 import { fetchAdvancedPatientSearchEpic } from './ducks/fetch-advanced-patient-search.duck';
 import { fetchPatientSummaryEpic } from './ducks/fetch-patient-summary.duck';
+import { fetchProfileAppPreferencesEpic } from './ducks/fetch-profile-application-preferences.duck';
 
 const rootEpic = combineEpics(
   initialiseEpic,
@@ -20,6 +21,7 @@ const rootEpic = combineEpics(
   fetchBasicPatientSearchEpic,
   fetchAdvancedPatientSearchEpic,
   fetchPatientSummaryEpic,
+  fetchProfileAppPreferencesEpic
 );
 
 export default rootEpic;

@@ -38,6 +38,7 @@ const initialState = {
   basicSearchPatient: {},
   patientsSummaries: {},
   isSidebarVisible: false,
+  profileAppPreferences: {},
 };
 
 //create store and enhance with middleware
