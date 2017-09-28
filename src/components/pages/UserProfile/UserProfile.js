@@ -2,25 +2,40 @@ import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import _ from 'lodash/fp';
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
 import PersonalForm from './forms/PersonalForm';
 import ContactForm from './forms/ContactForm';
 import formStateSelector from './selectors';
+import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
+import { valuesNames } from './forms/values-names.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
 
-@connect(formStateSelector)
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest }, dispatch) });
+
+@connect(formStateSelector, mapDispatchToProps)
 class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
     expandedPanel: 'all',
     isAllPanelsVisible: false,
     editedPanel: {},
+  };
+
+  formValuesToAppSettingsForm = (formState) => {
+    const title = _.get(valuesNames.APP_TITLE)(formState.values);
+    const logoPath = _.get(valuesNames.LOGO_PATH)(formState.values);
+    const selectTheme = _.get(valuesNames.SELECT_THEME)(formState.values);
+    const browserTitle = _.get(valuesNames.BROWSER_TITLE)(formState.values);
+
+    return ({ title, logoPath, selectTheme, browserTitle });
   };
 
   handleShow = (name) => {
@@ -51,6 +66,11 @@ class UserProfile extends PureComponent {
         [name]: false,
       },
     }))
+  };
+
+  handleSaveClick = () => {
+    const { formState } = this.props;
+    this.props.actions.fetchProfileAppPreferencesRequest(this.formValuesToAppSettingsForm(formState.values));
   };
 
   render() {
@@ -124,6 +144,7 @@ class UserProfile extends PureComponent {
                   onEdit={this.handleEdit}
                   editedPanel={editedPanel}
                   onCancel={this.handleCancel}
+                  onClick={this.handleSaveClick}
                 >
                   <AppSettingsForm />
                 </PersonalInformationPanel> : null }
@@ -195,6 +216,7 @@ class UserProfile extends PureComponent {
                   onEdit={this.handleEdit}
                   editedPanel={editedPanel}
                   onCancel={this.handleCancel}
+                  onClick={this.handleClick}
                 >
                   <PersonalForm />
                 </PersonalInformationPanel> : null }
@@ -271,6 +293,7 @@ class UserProfile extends PureComponent {
                   onEdit={this.handleEdit}
                   editedPanel={editedPanel}
                   onCancel={this.handleCancel}
+                  onClick={this.handleClick}
                 >
                   <ContactForm />
                 </PersonalInformationPanel> : null }
