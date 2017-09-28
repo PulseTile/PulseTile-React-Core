@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
+import PersonalForm from './forms/PersonalForm';
+import ContactForm from './forms/ContactForm';
 import formStateSelector from './selectors';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
@@ -18,7 +20,7 @@ class UserProfile extends PureComponent {
     openedPanel: APPLICATION_PREFERENCES,
     expandedPanel: 'all',
     isAllPanelsVisible: false,
-    editedPanel: '',
+    editedPanel: {},
   };
 
   handleShow = (name) => {
@@ -34,7 +36,21 @@ class UserProfile extends PureComponent {
   };
 
   handleEdit = (name) => {
-    this.setState({ editedPanel: name })
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: true,
+      },
+    }))
+  };
+
+  handleCancel = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: false,
+      },
+    }))
   };
 
   render() {
@@ -46,13 +62,15 @@ class UserProfile extends PureComponent {
           <Col xs={12}>
             <div className="section-main ng-scope">
               <div className="panel-group accordion">
-                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && editedPanel === '' ? <PersonalInformationPanel
+                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && !editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
                   title="Application preferences"
                   isOpen={openedPanel === APPLICATION_PREFERENCES}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
                 >
                   <div className="panel-body-inner">
                     <div className="form">
@@ -97,23 +115,27 @@ class UserProfile extends PureComponent {
                     </div>
                   </div>
                 </PersonalInformationPanel> : null }
-                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && editedPanel === 'applicationPreferences' ? <PersonalInformationPanel
+                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
                   title="Application preferences"
                   isOpen={openedPanel === APPLICATION_PREFERENCES}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
                 >
                   <AppSettingsForm />
                 </PersonalInformationPanel> : null }
-                {expandedPanel === 'personalInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
+                {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && !editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
                   name={PERSONAL_INFORMATION}
                   title="Personal Information"
                   isOpen={openedPanel === PERSONAL_INFORMATION}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
                 >
                   <div className="panel-body-inner">
                     <div className="form">
@@ -164,13 +186,27 @@ class UserProfile extends PureComponent {
                     </div>
                   </div>
                 </PersonalInformationPanel> : null }
-                {expandedPanel === 'contactInformation' || expandedPanel === 'all' ? <PersonalInformationPanel
+                {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
+                  name={PERSONAL_INFORMATION}
+                  title="Personal Information"
+                  isOpen={openedPanel === PERSONAL_INFORMATION}
+                  onShow={this.handleShow}
+                  onExpand={this.handleExpand}
+                  onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
+                >
+                  <PersonalForm />
+                </PersonalInformationPanel> : null }
+                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && !editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
                   name={CONTACT_INFORMATION}
                   title="Contact Information"
                   isOpen={openedPanel === CONTACT_INFORMATION}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
                 >
                   <div className="panel-body-inner">
                     <div className="form">
@@ -226,6 +262,18 @@ class UserProfile extends PureComponent {
                     </div>
                   </div>
                 </PersonalInformationPanel> : null }
+                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
+                  name={CONTACT_INFORMATION}
+                  title="Contact Information"
+                  isOpen={openedPanel === CONTACT_INFORMATION}
+                  onShow={this.handleShow}
+                  onExpand={this.handleExpand}
+                  onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
+                >
+                  <ContactForm />
+                </PersonalInformationPanel> : null }
                 {expandedPanel === 'changeHistory' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={CHANGE_HISTORY}
                   title="Change History"
@@ -233,6 +281,8 @@ class UserProfile extends PureComponent {
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
                   onEdit={this.handleEdit}
+                  editedPanel={editedPanel}
+                  onCancel={this.handleCancel}
                 >
                   <div className="panel-body-inner ng-scope">
                     <div className="form">

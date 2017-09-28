@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
-import classNames from 'classnames';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
@@ -84,6 +83,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                     name={valuesNames.DATE_OF_BIRTH}
                     type="text"
                     component={DateInput}
+                    placeholder="03/08/1970"
                   />
                 </div>
               </div>
