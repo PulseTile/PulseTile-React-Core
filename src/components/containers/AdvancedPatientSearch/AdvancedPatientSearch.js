@@ -10,7 +10,7 @@ import formStateSelector from './selectors';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
-
+import { nhsNumberValidation } from '../../../utils/validation-helpers/validation.utils';
 
 @connect(formStateSelector)
 export default class AdvancedPatientSearch extends PureComponent {
@@ -33,6 +33,8 @@ export default class AdvancedPatientSearch extends PureComponent {
     toggleFormVisibility = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
     formValuesToSearchString = (formValues) => {
+      const isNhsNumberValid = _.isEmpty(nhsNumberValidation(formValues[valuesNames.NHS_NUMBER]));
+
       const minValue = _.get([valuesNames.AGE_RANGE, 0])(formValues);
       const maxValue = _.get([valuesNames.AGE_RANGE, 1])(formValues);
       const nhsNumber = _.get(valuesNames.NHS_NUMBER)(formValues);
@@ -43,7 +45,8 @@ export default class AdvancedPatientSearch extends PureComponent {
       const sexMale = _.get(valuesNames.MALE)(formValues);
       const sexFemale = _.get(valuesNames.FEMALE)(formValues);
 
-      return ({ minValue, maxValue, nhsNumber, surname, forename, selectAgeField, dateOfBirth, sexMale, sexFemale });
+      if (isNhsNumberValid) return ({ nhsNumber });
+      return ({ minValue, maxValue, surname, forename, selectAgeField, dateOfBirth, sexMale, sexFemale });
     };
 
     formValuesToTitle = (formValues) => {
@@ -62,8 +65,7 @@ export default class AdvancedPatientSearch extends PureComponent {
       const genderTitle = _.flow(values => ({
         isMale: _.getOr('', valuesNames.MALE, values),
         isFemale: _.getOr('', valuesNames.FEMALE, values),
-      }),
-      _.cond([
+      }), _.cond([
         [({ isMale, isFemale }) => isMale && isFemale, _.constant(`${valuesLabels.GENDER}: All`)],
         [({ isMale }) => isMale, _.constant(`${valuesLabels.GENDER}: Male`)],
         [({ isFemale }) => isFemale, _.constant(`${valuesLabels.GENDER}: Female`)],
