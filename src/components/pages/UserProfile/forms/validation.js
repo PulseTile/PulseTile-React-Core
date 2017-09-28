@@ -1,7 +1,7 @@
 const validateAppSettingsForm = (values) => {
   const errors = {};
-  errors.applicationTitle = !values.applicationTitle ? 'You must enter a value.' : null;
-  errors.browserWindowTitle = !values.browserWindowTitle ? 'You must enter a value.' : null;
+  errors.title = !values.title ? 'You must enter a value.' : null;
+  errors.browserTitle = !values.browserTitle ? 'You must enter a value.' : null;
   return errors
 };
 

@@ -15,11 +15,12 @@ export default class PersonalInformationPanel extends PureComponent {
       onExpand: PropTypes.func.isRequired,
       onEdit: PropTypes.func.isRequired,
       onCancel: PropTypes.func.isRequired,
+      onSaveSettings: PropTypes.func.isRequired,
       editedPanel: PropTypes.object,
     };
 
     render() {
-      const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onClick } = this.props;
+      const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues } = this.props;
 
       return (
         <div className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -52,9 +53,12 @@ export default class PersonalInformationPanel extends PureComponent {
                   <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
                     <i className="fa fa-ban" /> Cancel
                   </PTButton>
-                  <PTButton className="btn btn-success" onClick={() => onClick()}>
+                  {name === 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
                     <i className="fa fa-check" /> Complete
-                  </PTButton>
+                  </PTButton> : null}
+                  {name !== 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onCancel(name)}>
+                    <i className="fa fa-check" /> Complete
+                  </PTButton> : null}
                 </div>
               </div>
             </div>}
