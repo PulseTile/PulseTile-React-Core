@@ -7,12 +7,18 @@ import DateInput from '../../../form-fields/DateInput';
 import { optionsForGenderField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
 import { validatePersonalForm } from './validation';
+import { valuesPersonalForm } from './values-names.config';
+import { defaultPersonalFormValues } from './default-values.config';
 
 @reduxForm({
   form: 'personalFormSelector',
   validate: validatePersonalForm,
 })
 export default class PersonalForm extends PureComponent {
+  componentDidMount() {
+    this.props.initialize(defaultPersonalFormValues);
+  }
+
   render() {
     return (
       <div className="panel-body-inner">
@@ -24,21 +30,21 @@ export default class PersonalForm extends PureComponent {
                   <Col md={11}>
                     <Field
                       label="First Name"
-                      name="firstname"
+                      name={valuesPersonalForm.FIRST_NAME}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
                       label="Last Name"
-                      name="lastname"
+                      name={valuesPersonalForm.LAST_NAME}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
                       label="NHS No"
-                      name="nhs"
+                      name={valuesPersonalForm.NHS_NUMBER}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
@@ -51,21 +57,21 @@ export default class PersonalForm extends PureComponent {
                   <Col md={11} mdOffset={1}>
                     <Field
                       label="Date of Birth"
-                      name="birthday"
+                      name={valuesPersonalForm.DATE_OF_BIRTH}
                       type="text"
                       placeholder=""
                       component={DateInput}
                     />
                     <Field
                       label="Gender"
-                      name="gender"
+                      name={valuesPersonalForm.SELECT_GENDER}
                       placeholder=""
                       component={Select}
                       options={optionsForGenderField}
                     />
                     <Field
                       label="Doctor"
-                      name="doctor"
+                      name={valuesPersonalForm.DOCTOR}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
