@@ -7,7 +7,7 @@ import FileInput from '../../../form-fields/FileInput';
 import { optionsForThemesField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
 import { validateAppSettingsForm } from './validation';
-import { valuesNames } from './values-names.config';
+import { valuesSettingsForm } from './values-names.config';
 
 @reduxForm({
   form: 'appSettingsFormSelector',
@@ -25,26 +25,26 @@ export default class AppSettingsForm extends PureComponent {
                   <Col md={11}>
                     <Field
                       label="Application Title"
-                      name={valuesNames.APP_TITLE}
+                      name={valuesSettingsForm.APP_TITLE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
                       label="Application Logo File"
-                      name={valuesNames.LOGO_PATH}
+                      name={valuesSettingsForm.LOGO_PATH}
                       component={FileInput}
-                      id="logoPath"
+                      id={valuesSettingsForm.LOGO_PATH}
                     />
                     <Field
                       label="Application Themes"
-                      name={valuesNames.SELECT_THEME}
+                      name={valuesSettingsForm.SELECT_THEME}
                       component={Select}
                       options={optionsForThemesField}
                     />
                     <Field
                       label="Browser Window title"
-                      name={valuesNames.BROWSER_TITLE}
+                      name={valuesSettingsForm.BROWSER_TITLE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}

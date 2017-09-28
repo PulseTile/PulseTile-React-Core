@@ -11,7 +11,6 @@ import PersonalForm from './forms/PersonalForm';
 import ContactForm from './forms/ContactForm';
 import formStateSelector from './selectors';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
-import { valuesNames } from './forms/values-names.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
@@ -27,15 +26,6 @@ class UserProfile extends PureComponent {
     expandedPanel: 'all',
     isAllPanelsVisible: false,
     editedPanel: {},
-  };
-
-  formValuesToAppSettingsForm = (formState) => {
-    const title = _.get(valuesNames.APP_TITLE)(formState.values);
-    const logoPath = _.get(valuesNames.LOGO_PATH)(formState.values);
-    const selectTheme = _.get(valuesNames.SELECT_THEME)(formState.values);
-    const browserTitle = _.get(valuesNames.BROWSER_TITLE)(formState.values);
-
-    return ({ title, logoPath, selectTheme, browserTitle });
   };
 
   handleShow = (name) => {
@@ -68,13 +58,22 @@ class UserProfile extends PureComponent {
     }))
   };
 
-  handleSaveClick = () => {
-    const { formState } = this.props;
-    this.props.actions.fetchProfileAppPreferencesRequest(this.formValuesToAppSettingsForm(formState.values));
+  handleSaveSettingsForm = (formValues, name) => {
+    const { actions, formState } = this.props;
+    if (_.isEmpty(formState.syncErrors.title) && _.isEmpty(formState.syncErrors.browserTitle)) {
+      actions.fetchProfileAppPreferencesRequest(formValues);
+      this.setState(prevState => ({
+        editedPanel: {
+          ...prevState.editedPanel,
+          [name]: false,
+        },
+      }))
+    }
   };
 
   render() {
     const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
+    const { formState } = this.props;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
@@ -144,7 +143,8 @@ class UserProfile extends PureComponent {
                   onEdit={this.handleEdit}
                   editedPanel={editedPanel}
                   onCancel={this.handleCancel}
-                  onClick={this.handleSaveClick}
+                  onSaveSettings={this.handleSaveSettingsForm}
+                  formValues={formState.values}
                 >
                   <AppSettingsForm />
                 </PersonalInformationPanel> : null }
