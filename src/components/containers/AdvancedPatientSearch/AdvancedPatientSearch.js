@@ -47,9 +47,16 @@ export default class AdvancedPatientSearch extends PureComponent {
     };
 
     formValuesToTitle = (formValues) => {
+      const isAgeRangeSelected = _.flow(_.get(valuesNames.SELECT_AGE), _.eq('range'))(formValues);
+
       const ageRangeTitle = _.flow(_.getOr('', valuesNames.AGE_RANGE), _.cond([
         [_.isEmpty, _.constant('')],
         [_.T, (ageRange => `${valuesLabels.AGE_RANGE}: ${ageRange[0]}-${ageRange[1]}`)],
+      ]))(formValues);
+
+      const dateOfBirth = _.flow(_.getOr('', valuesNames.DATE_OF_BIRTH), _.cond([
+        [_.isEmpty, _.constant('')],
+        [_.T, (date => `${valuesLabels.DATE_OF_BIRTH}: ${getDDMMMYYYY(date)}`)],
       ]))(formValues);
 
       const genderTitle = _.flow(values => ({
@@ -63,16 +70,10 @@ export default class AdvancedPatientSearch extends PureComponent {
         [_.T, _.constant('')],
       ]))(formValues);
 
-      const dateOfBirth = _.flow(_.getOr('', valuesNames.DATE_OF_BIRTH), _.cond([
-        [_.isEmpty, _.constant('')],
-        [_.T, (date => `${valuesLabels.DATE_OF_BIRTH}: ${getDDMMMYYYY(date)}`)],
-      ]))(formValues);
-
       const nhsNumberTitle = _.flow(_.getOr('', valuesNames.NHS_NUMBER), _.cond([
         [_.isEmpty, _.constant('')],
         [_.T, (nhsNumber => `${valuesLabels.NHS_NUMBER}: ${nhsNumber}`)],
       ]))(formValues);
-
 
       const lastNameTitle = _.flow(_.getOr('', valuesNames.SURNAME), _.cond([
         [_.isEmpty, _.constant('')],
@@ -84,9 +85,11 @@ export default class AdvancedPatientSearch extends PureComponent {
         [_.T, (forename => `${valuesLabels.FORENAME}: ${forename}`)],
       ]))(formValues);
 
-      const title = [nhsNumberTitle, lastNameTitle, firstNameTitle, dateOfBirth, ageRangeTitle, genderTitle].filter(_.negate(_.isEmpty$)).join(', ');
+      const title = [nhsNumberTitle, lastNameTitle, firstNameTitle, isAgeRangeSelected ? ageRangeTitle : dateOfBirth, genderTitle].filter(_.negate(_.isEmpty)).join(', ')
 
       return title
+        ? `: ${title}`
+        : '';
     };
 
     handleSearch = () => {
@@ -116,7 +119,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                   </button>
                 </div>
                 <h3 className="panel-title">
-                  <span className="ng-binding">Patient Search - Advanced: </span>
+                  <span className="ng-binding">Patient Search - Advanced</span>
                   <span className="hidden-xs hidden-sm ng-binding">{this.formValuesToTitle(formValues)}</span>
                 </h3>
               </div>

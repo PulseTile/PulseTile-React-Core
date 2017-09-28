@@ -1,7 +1,10 @@
 import { getFormValues, isValid } from 'redux-form'
 import { createSelector } from 'reselect';
 
-const formValuesSelector = state => getFormValues('advancedPatientSearchForm')(state);
+const formValuesSelector = (state) => {
+  const values = getFormValues('advancedPatientSearchForm')(state);
+  return values;
+}
 const formIsValidSelector = state => isValid('advancedPatientSearchForm')(state);
 
 const formStateSelector = createSelector(
