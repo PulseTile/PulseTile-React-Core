@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -50,6 +51,8 @@ module.exports = {
     // do not emit compiled assets that include errors
 
     new ExtractTextPlugin('styles.css'),
+
+    // new BundleAnalyzerPlugin()
   ],
 
   module: {

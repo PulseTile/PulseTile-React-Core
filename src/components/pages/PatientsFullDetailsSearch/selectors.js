@@ -2,10 +2,22 @@ import _ from 'lodash/fp';
 import qs from 'qs';
 import { createSelector } from 'reselect';
 
-const allPatientsSelector = ({ basicSearchPatient }) => _.cond([
+const getAdvancedSearchPatient = _.cond([
+  [_.flow(_.head, _.negate(_.isEmpty)), patient => patient],
+  [_.T, _.stubArray],
+]);
+
+const getBasicSearchPatient = _.cond([
   [_.flow(_.get('patientDetails'), _.isArray), _.flow(_.get('patientDetails'), _.map(patient => Object.assign({}, patient, { id: patient.sourceId })))],
   [_.T, _.stubArray],
-])(basicSearchPatient);
+]);
+
+const allPatientsSelector = ({ basicSearchPatient, advancedSearchPatient }, { location: { search } }) => {
+  const { queryType } = qs.parse(search.replace('?', ''));
+
+  if (queryType === 'advanced') return getAdvancedSearchPatient(advancedSearchPatient);
+  return getBasicSearchPatient(basicSearchPatient);
+};
 
 const patientsCountsSelector = ({ patientsCounts }) => patientsCounts;
 

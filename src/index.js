@@ -36,6 +36,7 @@ const initialState = {
   patients: {},
   patientsCounts: {},
   basicSearchPatient: {},
+  advancedSearchPatient: {},
   patientsSummaries: {},
   isSidebarVisible: false,
   profileAppPreferences: {},

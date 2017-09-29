@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import AdvancedPatientSearchForm from './AdvancedSearchForm/AdvancedPatientSearchForm';
 import formStateSelector from './selectors';
-import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY, getUTCDate } from '../../../utils/time-helpers.utils';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
 import { nhsNumberValidation } from '../../../utils/validation-helpers/validation.utils';
@@ -30,6 +30,8 @@ export default class AdvancedPatientSearch extends PureComponent {
       isOpen: true,
     };
 
+    hideForm = () => this.setState({ isOpen: false });
+
     toggleFormVisibility = () => this.setState(prevState => ({ isOpen: !prevState.isOpen }));
 
     formValuesToSearchString = (formValues) => {
@@ -41,12 +43,12 @@ export default class AdvancedPatientSearch extends PureComponent {
       const surname = _.get(valuesNames.SURNAME)(formValues);
       const forename = _.get(valuesNames.FORENAME)(formValues);
       const selectAgeField = _.get(valuesNames.SELECT_AGE)(formValues);
-      const dateOfBirth = _.get(valuesNames.DATE_OF_BIRTH)(formValues);
+      const dateOfBirth = _.flow(_.get(valuesNames.DATE_OF_BIRTH), getUTCDate)(formValues);
       const sexMale = _.get(valuesNames.MALE)(formValues);
       const sexFemale = _.get(valuesNames.FEMALE)(formValues);
 
       if (isNhsNumberValid) return ({ nhsNumber });
-      return ({ minValue, maxValue, surname, forename, selectAgeField, dateOfBirth, sexMale, sexFemale });
+      return ({ minValue, maxValue, surname, forename, dateOfBirth, sexMale, sexFemale });
     };
 
     formValuesToTitle = (formValues) => {
@@ -97,12 +99,13 @@ export default class AdvancedPatientSearch extends PureComponent {
     handleSearch = () => {
       const { formValues } = this.props;
       const queryParams = {
-        searchString: this.formValuesToSearchString(formValues),
+        searchString: JSON.stringify(this.formValuesToSearchString(formValues)),
         queryType: 'advanced',
       };
 
       const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
 
+      this.hideForm();
       this.context.router.history.replace(patientsFullDetailsUrl);
     };
 
@@ -125,8 +128,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                   <span className="hidden-xs hidden-sm ng-binding">{this.formValuesToTitle(formValues)}</span>
                 </h3>
               </div>
-              {isOpen &&
-              <div className="panel-body">
+              <div className="panel-body" style={{ display: isOpen ? 'block' : 'none' }}>
                 <div className="panel-body-inner">
                   <AdvancedPatientSearchForm formValues={formValues} />
                 </div>
@@ -141,7 +143,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                     </div>
                   </div>
                 </div>
-              </div>}
+              </div>
             </div>
           </div>
         </div>
