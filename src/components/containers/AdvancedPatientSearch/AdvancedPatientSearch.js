@@ -125,8 +125,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                   <span className="hidden-xs hidden-sm ng-binding">{this.formValuesToTitle(formValues)}</span>
                 </h3>
               </div>
-              {isOpen &&
-              <div className="panel-body">
+              <div className="panel-body" style={{ display: isOpen ? 'block' : 'none' }}>
                 <div className="panel-body-inner">
                   <AdvancedPatientSearchForm formValues={formValues} />
                 </div>
@@ -141,7 +140,7 @@ export default class AdvancedPatientSearch extends PureComponent {
                     </div>
                   </div>
                 </div>
-              </div>}
+              </div>
             </div>
           </div>
         </div>
