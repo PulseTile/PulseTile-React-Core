@@ -24,11 +24,21 @@ export default class PatientsSummary extends PureComponent {
       medications: PropTypes.arrayOf(PropTypes.string).isRequired,
     };
 
+    static contextTypes = {
+      router: PropTypes.shape({
+        history: PropTypes.object,
+      }),
+    };
+
     state = {
       selectedCategory: defaultCategorySelected,
     };
 
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
+
+    handleGoToState = (state) => {
+      this.context.router.history.replace(state);
+    };
 
     render() {
       const { allergies, contacts, problems, medications } = this.props;
@@ -46,7 +56,7 @@ export default class PatientsSummary extends PureComponent {
                 <div className="dashboard">
                   {selectedCategory.problems ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} /> : null}
                   {selectedCategory.contacts ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
-                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} /> : null}
+                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
                   {selectedCategory.medications ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
                 </div>
               </div>

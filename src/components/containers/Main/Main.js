@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
 import sidebarVisibilitySelector from './selectors';
-import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary } from '../../pages';
+import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary, Allergies } from '../../pages';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 @withRouter
@@ -29,6 +29,7 @@ export default class Main extends PureComponent {
             <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} />
             <Route exact path={clientUrls.CHARTS} component={SystemDashboard} />
             <Route exact path={clientUrls.ROOT} component={SystemDashboard} />
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} />
           </Switch>
         </main>
       )
