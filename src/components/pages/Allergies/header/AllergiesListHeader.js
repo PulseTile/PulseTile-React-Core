@@ -19,11 +19,15 @@ export default class AllergiesListHeader extends PureComponent {
 
   render() {
     const { isFilterInputVisible } = this.state;
-    const { onFilterChange, panelTitle } = this.props;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name } = this.props;
 
     return (
       <div className="panel-heading">
         <div className="control-group right">
+          { isBtnExpandVisible ? <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name)}>
+            <i className="btn-icon fa fa-expand" />
+            <i className="btn-icon fa fa-compress" />
+          </PTButton> : null }
           <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
             <i className="btn-icon fa fa-filter" />
           </PTButton>
