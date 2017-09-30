@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash/fp';
 
-import PTButton from '../../ui-elements/PTButton/PTButton';
-import AllergiesDetailHeader from './header/AllergiesDetailHeader';
+import PTButton from '../../../ui-elements/PTButton/PTButton';
+import AllergiesDetailHeader from '../header/AllergiesDetailHeader';
 
 export default class AlergiesDetailPanel extends PureComponent {
   static propTypes = {
@@ -21,11 +21,11 @@ export default class AlergiesDetailPanel extends PureComponent {
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues } = this.props;
+    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel } = this.props;
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
-        <AllergiesDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow}/>
+        <AllergiesDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} />
         <div className="panel-body">
           {children}
         </div>

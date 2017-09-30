@@ -9,16 +9,17 @@ const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel } = this.props
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel } = this.props
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          <AlergiesDetailPanel
+          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') ? <AlergiesDetailPanel
             onExpand={onExpand}
-            name={name}
+            name={ALLERGIE_PANEL}
             title="Allergy"
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
+            currentPanel={currentPanel}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -58,13 +59,14 @@ export default class AllergiesDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel>
-          <AlergiesDetailPanel
+          </AlergiesDetailPanel> : null}
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <AlergiesDetailPanel
             onExpand={onExpand}
-            name={name}
-            title="Edit Metadata"
+            name={META_PANEL}
+            title="Metadata"
             isOpen={openedPanel === META_PANEL}
             onShow={onShow}
+            currentPanel={currentPanel}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -89,7 +91,7 @@ export default class AllergiesDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel>
+          </AlergiesDetailPanel> : null}
         </div>
       </div>
     )

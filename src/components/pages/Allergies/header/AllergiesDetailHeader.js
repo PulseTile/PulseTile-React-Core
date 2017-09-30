@@ -4,17 +4,14 @@ import PropTypes from 'prop-types';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
 export default class AllergiesDetailHeader extends PureComponent {
-  static propTypes = {
-    panelTitle: PropTypes.string.isRequired,
-  };
 
   render() {
-    const { onExpand, name, title, onShow } = this.props;
+    const { onExpand, name, title, onShow, currentPanel } = this.props;
 
     return (
       <div className="panel-heading">
         <div className="control-group right">
-          <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name)}>
+          <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name, currentPanel)}>
             <i className="btn-icon fa fa-expand" />
             <i className="btn-icon fa fa-compress" />
           </PTButton>
