@@ -15,7 +15,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
     };
 
     render() {
-      const { label, placeholder, input, meta: { active, error } } = this.props;
+      const { label, placeholder, input, meta: { active, error }, id } = this.props;
       const hasError = !_.isEmpty(error);
 
       return (
@@ -25,6 +25,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
             <input
               className="form-control input-sm ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
               placeholder={placeholder}
+              id={id}
               {...input}
             />
           </div>
