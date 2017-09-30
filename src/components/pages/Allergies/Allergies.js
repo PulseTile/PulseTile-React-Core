@@ -97,6 +97,7 @@ export default class Allergies extends PureComponent {
     const { allAllergies } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
+    // This part of the code is needed for testing when the server is down
     let filteredAllergies;
     if (allAllergies === undefined) {
       filteredAllergies = this.filterAndSortAllergies([{ 'cause': 'fafaf', 'reaction': 'afaf', 'source': 'ethercis', 'sourceId': '57f4567a-a9c9-4f3b-890e-9099e24a4761' }, { 'cause': 'qqq', 'reaction': 'qqq', 'source': 'ethercis', 'sourceId': 'cc0e5df2-f0c5-4a42-a136-cf88fd3b3958' }]);
