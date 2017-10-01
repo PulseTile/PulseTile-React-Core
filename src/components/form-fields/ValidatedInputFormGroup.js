@@ -6,7 +6,7 @@ import _ from 'lodash/fp';
 export default class ValidatedInputFormGroup extends PureComponent {
     static propTypes = {
       label: PropTypes.string.isRequired,
-      placeholder: PropTypes.string.isRequired,
+      placeholder: PropTypes.string,
       input: PropTypes.object.isRequired,
       meta: PropTypes.shape({
         active: PropTypes.bool,
@@ -15,7 +15,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
     };
 
     render() {
-      const { label, placeholder, input, meta: { active, error } } = this.props;
+      const { label, placeholder, input, meta: { active, error }, id, disabled } = this.props;
       const hasError = !_.isEmpty(error);
 
       return (
@@ -24,7 +24,9 @@ export default class ValidatedInputFormGroup extends PureComponent {
           <div className="input-holder">
             <input
               className="form-control input-sm ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
+              disabled={disabled}
               placeholder={placeholder}
+              id={id}
               {...input}
             />
           </div>

@@ -40,6 +40,7 @@ const initialState = {
   patientsSummaries: {},
   isSidebarVisible: false,
   profileAppPreferences: {},
+  patientsAllergies: {},
 };
 
 //create store and enhance with middleware

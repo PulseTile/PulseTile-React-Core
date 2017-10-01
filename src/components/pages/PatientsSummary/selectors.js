@@ -9,7 +9,7 @@ const patientSummarySelector = createSelector(
     const contacts = _.flow(_.getOr([], [userId, 'contacts']), _.map('text'), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsSummaries);
     const problems = _.flow(_.getOr([], [userId, 'problems']), _.map('text'), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsSummaries);
     const medications = _.flow(_.getOr([], [userId, 'medications']), _.map('text'), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsSummaries);
-    return ({ allergies, contacts, problems, medications });
+    return ({ allergies, contacts, problems, medications, userId });
   });
 
 export default patientSummarySelector;

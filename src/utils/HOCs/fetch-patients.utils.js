@@ -28,3 +28,11 @@ export const fetchPatientSummaryOnMount = ({
     if (userId) actions.fetchPatientSummaryRequest({ userId })
   },
 });
+
+export const fetchPatientAllergiesOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientAllergiesRequest({ userId })
+  },
+});
