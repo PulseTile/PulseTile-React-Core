@@ -16,4 +16,11 @@ const defaultContactFormValues = {
   [valuesContactForm.EMAIL]: 'bob.smith@gmail.com',
 };
 
-export { defaultPersonalFormValues, defaultContactFormValues }
+const defaultAppSettingsFormValues = {
+  [valuesSettingsForm.APP_TITLE]: 'should be fetched from server',
+  [valuesSettingsForm.LOGO_PATH]: 'should be fetched from server',
+  [valuesSettingsForm.SELECT_THEME]: 'themeDefault',
+  [valuesSettingsForm.BROWSER_TITLE]: 'should be fetched from server',
+};
+
+export { defaultPersonalFormValues, defaultContactFormValues, defaultAppSettingsFormValues }

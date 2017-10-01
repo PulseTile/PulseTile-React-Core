@@ -10,6 +10,7 @@ import Select from '../../../form-fields/SelectFormGroup';
 import { validateAppSettingsForm } from './validation';
 import { valuesSettingsForm } from './values-names.config';
 import { setTheme } from '../../../../ducks/set-theme.duck';
+import { defaultAppSettingsFormValues } from './default-values.config';
 
 const setThemeHook = dispatch => (theme) => {
   dispatch(setTheme(theme));
@@ -23,7 +24,13 @@ const setThemeHook = dispatch => (theme) => {
 export default class AppSettingsForm extends PureComponent {
   static propTypes = {
     dispatch: PropTypes.func,
+    initialize: PropTypes.func,
   };
+
+  componentDidMount() {
+    //TODO should be fetched from server
+    this.props.initialize(defaultAppSettingsFormValues);
+  }
 
   render() {
     const { dispatch } = this.props;
