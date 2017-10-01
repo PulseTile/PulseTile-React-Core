@@ -1,3 +1,5 @@
+import _ from 'lodash/fp';
+import { WebAuth } from 'auth0-js';
 import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
 
@@ -19,7 +21,18 @@ export const initialiseEpic = (action$, store) => Observable.merge(
     .map(fetchInitialiseRequest),
   action$
     .ofType(FETCH_INITIALISE_SUCCESS)
-    .map(fetchUserAccountRequest),
+    .do(console.log)
+    .map((action) => {
+      /*if (_.get('payload.redirectTo', action) === 'auth0') {
+        const config = Object.assign({}, action.payload.config, { domain: '46.101.4.145' })
+        const auth0 = new WebAuth(config);
+        auth0.login({
+          connections: action.payload.connections,
+        });
+        return initialiseFailure(action);
+      }*/
+      return fetchUserAccountRequest(action)
+    }),
   action$
     .ofType(FETCH_USER_ACCOUNT_SUCCESS)
     .map(initialiseSuccess)

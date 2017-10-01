@@ -14,6 +14,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 const DEV_SERVER_URL = 'http://46.101.95.245';
+// const DEV_SERVER_URL = 'https://securedev.ripple.foundation';
 
 module.exports = {
   devtool: 'source-map',
@@ -90,6 +91,7 @@ module.exports = {
     proxy: {
       '/': {
         target: DEV_SERVER_URL,
+        // secure: false,
       },
     },
   },

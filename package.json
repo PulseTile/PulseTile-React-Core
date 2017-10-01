@@ -99,6 +99,7 @@
     "webpack-hot-middleware": "^2.19.1"
   },
   "dependencies": {
+    "auth0-js": "^8.10.1",
     "bootstrap-sass": "^3.3.7",
     "chart.js": "^2.7.0",
     "classnames": "^2.2.5",
