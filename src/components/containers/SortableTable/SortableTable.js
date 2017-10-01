@@ -13,6 +13,8 @@ export default class SortableTable extends PureComponent {
       data: PropTypes.arrayOf(PropTypes.object).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
       onCellClick: PropTypes.func.isRequired,
+      columnNameSortBy: PropTypes.string.isRequired,
+      sortingOrder: PropTypes.string.isRequired,
     };
 
     getSortableTableRows = (rowsData) => {
@@ -31,7 +33,7 @@ export default class SortableTable extends PureComponent {
     }
 
     render() {
-      const { headers, data, onHeaderCellClick, sortingOrder } = this.props;
+      const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy } = this.props;
       const rowsData = getArrByTemplate(headers, data);
 
       return (
@@ -48,6 +50,7 @@ export default class SortableTable extends PureComponent {
                 headers={headers}
                 onHeaderCellClick={onHeaderCellClick}
                 sortingOrder={sortingOrder}
+                columnNameSortBy={columnNameSortBy}
               />
             </thead>
             <tbody>

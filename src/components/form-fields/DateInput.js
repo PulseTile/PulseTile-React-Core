@@ -9,7 +9,7 @@ export default class DateInput extends PureComponent {
     static propTypes = {
       label: PropTypes.string.isRequired,
       input: PropTypes.object.isRequired,
-      placeholder: PropTypes.string.isRequired,
+      placeholder: PropTypes.string,
       meta: PropTypes.shape({
         active: PropTypes.bool,
         error: PropTypes.bool,
@@ -17,9 +17,11 @@ export default class DateInput extends PureComponent {
     };
 
     render() {
-      const { label, placeholder, input, meta: { active, error } } = this.props;
+      const { label, placeholder, input, meta: { active, error }, disabled, value } = this.props;
       const hasError = !_.isEmpty(error);
-
+      if (value !== undefined) {
+        input.value = value
+      }
       return (
         <div className={classNames('form-group form-group-sm', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
           <label htmlFor={input.name} className="control-label">{label}</label>
@@ -31,6 +33,7 @@ export default class DateInput extends PureComponent {
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
               selected={input.value}
               placeholderText={placeholder}
+              disabled={disabled}
               {...input}
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
