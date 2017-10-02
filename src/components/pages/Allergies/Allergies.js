@@ -76,16 +76,22 @@ export default class Allergies extends PureComponent {
   filterAndSortAllergies = (allergies) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
     const filterByCausePredicate = _.flow(_.get('cause'), _.toLower, _.includes(nameShouldInclude));
+    const filterByReactionPredicate = _.flow(_.get('reaction'), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    return _.flow(
-      _.sortBy([columnNameSortBy]),
-      reverseIfDescOrder,
-      _.filter(filterByCausePredicate)
-    )(allergies);
+    const filterByCause = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByCausePredicate))(allergies);
+    const filterByReaction = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByReactionPredicate))(allergies);
+    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(allergies);
+
+    const filteredAndSortedAllergies = [filterByCause, filterByReaction, filterBySource].filter((item) => {
+      return _.size(item) !== 0;
+    });
+
+    return _.head(filteredAndSortedAllergies)
   };
 
   handleCreate = (name) => {
@@ -100,7 +106,7 @@ export default class Allergies extends PureComponent {
     // This part of the code is needed for testing when the server is down
     let filteredAllergies;
     if (allAllergies === undefined) {
-      filteredAllergies = this.filterAndSortAllergies([{ 'cause': 'fafaf', 'reaction': 'afaf', 'source': 'ethercis', 'sourceId': '57f4567a-a9c9-4f3b-890e-9099e24a4761' }, { 'cause': 'qqq', 'reaction': 'qqq', 'source': 'ethercis', 'sourceId': 'cc0e5df2-f0c5-4a42-a136-cf88fd3b3958' }]);
+      filteredAllergies = this.filterAndSortAllergies([{ 'cause': 'test', 'reaction': 'reaction test', 'source': 'ethercis', 'sourceId': '57f4567a-a9c9-4f3b-890e-9099e24a4761' }, { 'cause': 'qqq', 'reaction': 'qqq', 'source': 'ethercis', 'sourceId': 'cc0e5df2-f0c5-4a42-a136-cf88fd3b3958' }]);
     } else {
       filteredAllergies = this.filterAndSortAllergies(allAllergies);
     }
