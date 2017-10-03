@@ -11,7 +11,9 @@ import { fetchAdvancedPatientSearchEpic } from './ducks/fetch-advanced-patient-s
 import { fetchPatientSummaryEpic } from './ducks/fetch-patient-summary.duck';
 import { fetchProfileAppPreferencesEpic } from './ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientAllergiesEpic } from './ducks/fetch-patient-allergies.duck';
+import { fetchPatientAllergiesCreateEpic } from './ducks/fetch-patient-allergies-create.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
+import { fetchPatientAllergiesDetailEpic } from './ducks/fetch-patient-allergies-detail.duck';
 
 const rootEpic = combineEpics(
   initialiseEpic,
@@ -26,6 +28,8 @@ const rootEpic = combineEpics(
   fetchProfileAppPreferencesEpic,
   fetchPatientAllergiesEpic,
   setThemeEpic,
+  fetchPatientAllergiesCreateEpic,
+  fetchPatientAllergiesDetailEpic,
 );
 
 export default rootEpic;

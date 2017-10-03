@@ -36,9 +36,8 @@ export default class AllergiesCreateForm extends PureComponent {
               </Col>
               <Col md={6}>
                 <Field
-                  name="causeCode"
-                  label="Cause Code"
-                  staticInformation="1239085"
+                  name={valuesNames.CAUSECODE}
+                  label={valuesLabels.CAUSECODE}
                   component={StaticFormField}
                 />
               </Col>
@@ -62,9 +61,8 @@ export default class AllergiesCreateForm extends PureComponent {
               </Col>
               <Col md={6}>
                 <Field
-                  name="terminologyCode"
-                  label="Terminology Code"
-                  staticInformation="12393890"
+                  name={valuesNames.TERMINOLOGYCODE}
+                  label={valuesLabels.TERMINOLOGYCODE}
                   component={StaticFormField}
                 />
               </Col>

@@ -5,9 +5,10 @@ import classNames from 'classnames';
 
 const SortableTableRow = (props) => {
   const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(props.rowData);
+  const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(props.rowData);
 
   return <tr>
-    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} onClick={() => props.onCellClick(userId, name)} className={classNames({ 'sorted': name === props.columnNameSortBy })}>{value}</td>, props.rowData)}
+    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} name={name} onClick={() => props.onCellClick(userId, name, sourceId)} className={classNames({ 'sorted': name === props.columnNameSortBy })}>{value}</td>, props.rowData)}
   </tr>
 }
 

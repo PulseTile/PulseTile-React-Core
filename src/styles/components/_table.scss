@@ -279,3 +279,7 @@ td[ng-click] { cursor: pointer; }
     }
   }
 }
+
+td[name='sourceId'], th[name='sourceId'] {
+  display: none;
+}

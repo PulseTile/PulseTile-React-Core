@@ -30,6 +30,8 @@ export default class Main extends PureComponent {
             <Route exact path={clientUrls.CHARTS} component={SystemDashboard} />
             <Route exact path={clientUrls.ROOT} component={SystemDashboard} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} />
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/create`} component={Allergies} />
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/:sourceId`} component={Allergies} />
           </Switch>
         </main>
       )

@@ -4,6 +4,10 @@ export const valuesNames = {
   TERMINOLOGY: 'causeTerminology',
   AUTHOR: 'author',
   DATE: 'currentDate',
+  CAUSECODE: 'causeCode',
+  SOURCEID: 'sourceId',
+  ISIMPORT: 'isImport',
+  TERMINOLOGYCODE: 'terminologyCode',
 };
 
 export const valuesLabels = {
@@ -12,4 +16,6 @@ export const valuesLabels = {
   TERMINOLOGY: 'Terminology',
   AUTHOR: 'Author',
   DATE: 'Date',
+  CAUSECODE: 'Cause Code',
+  TERMINOLOGYCODE: 'Terminology Code',
 };
