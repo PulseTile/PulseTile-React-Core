@@ -9,6 +9,7 @@ import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateAllergiesCreateForm } from './validation';
 import { valuesNames, valuesLabels } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
+import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'allergiesCreateFormSelector',
@@ -19,6 +20,8 @@ export default class AllergiesCreateForm extends PureComponent {
     this.props.initialize(defaultFormValues);
   }
   render() {
+    const date = new Date();
+    const dateCreated = getDDMMMYYYY(date.getTime());
     return (
       <div className="panel-body-inner">
         <form name="allergiesCreateForm" className="form">
@@ -79,7 +82,7 @@ export default class AllergiesCreateForm extends PureComponent {
               name={valuesNames.DATE}
               id={valuesNames.DATE}
               component={DateInput}
-              props={{ disabled: true, value: '30-Sep-2017' }}
+              props={{ disabled: true, value: dateCreated }}
             />
           </div>
         </form>
