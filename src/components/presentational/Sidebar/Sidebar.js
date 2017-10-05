@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 export default class Sidebar extends PureComponent {
   render() {
+    const {goToState} = this.props;
     return (
       <div className="sidebar showSidebar" role="navigation" style={{ top: '138px', bottom: '56px' }} >
         <div className="sidebar-nav">
@@ -14,7 +15,7 @@ export default class Sidebar extends PureComponent {
               </li><li className="sidebar-nav-item ng-scope">
                 <a className="sidebar-nav-link ng-binding" >Medications</a>
               </li><li className="sidebar-nav-item ng-scope" >
-                <a className="sidebar-nav-link ng-binding" >Allergies</a>
+                <a className="sidebar-nav-link ng-binding" onClick={() => goToState('allergies')}>Allergies</a>
               </li><li className="sidebar-nav-item ng-scope" >
                 <a className="sidebar-nav-link ng-binding">Contacts</a>
               </li>
