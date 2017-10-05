@@ -6,14 +6,14 @@ import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesCreateForm } from './validation';
+import { validateAllergiesForm } from './validation';
 import { valuesNames, valuesLabels } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'allergiesCreateFormSelector',
-  validate: validateAllergiesCreateForm,
+  validate: validateAllergiesForm,
 })
 export default class AllergiesCreateForm extends PureComponent {
   componentDidMount() {
