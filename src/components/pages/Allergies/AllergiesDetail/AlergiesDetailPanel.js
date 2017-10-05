@@ -43,12 +43,9 @@ export default class AlergiesDetailPanel extends PureComponent {
                 <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
                   <i className="fa fa-ban" /> Cancel
                 </PTButton>
-                {name === 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
+                <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
                   <i className="fa fa-check" /> Complete
-                </PTButton> : null}
-                {name !== 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onCancel(name)}>
-                  <i className="fa fa-check" /> Complete
-                </PTButton> : null}
+                </PTButton>
               </div>
             </div>
           </div> : null }

@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import AlergiesDetailPanel from './AlergiesDetailPanel'
+import AllergiePanelForm from './AllergiesDetailForm/AllergiePanelForm'
+import AllergieMetaForm from './AllergiesDetailForm/AllergieMetaForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 
@@ -11,12 +13,12 @@ const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel,onCancel } = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') ? <AlergiesDetailPanel
+          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && !editedPanel[ALLERGIE_PANEL] ? <AlergiesDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
             title="Allergy"
@@ -26,6 +28,8 @@ export default class AllergiesDetail extends PureComponent {
             onEdit={onEdit}
             editedPanel={editedPanel}
             onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={allergiePanelFormValues}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -66,7 +70,24 @@ export default class AllergiesDetail extends PureComponent {
               </div>
             </div>
           </AlergiesDetailPanel> : null}
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <AlergiesDetailPanel
+          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && editedPanel[ALLERGIE_PANEL] ? <AlergiesDetailPanel
+            onExpand={onExpand}
+            name={ALLERGIE_PANEL}
+            title="Allergy"
+            onShow={onShow}
+            isOpen={openedPanel === ALLERGIE_PANEL}
+            currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={allergiePanelFormValues}
+          >
+            <AllergiePanelForm
+              detail={detail}
+            />
+          </AlergiesDetailPanel> : null }
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <AlergiesDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
             title="Metadata"
@@ -76,6 +97,8 @@ export default class AllergiesDetail extends PureComponent {
             onEdit={onEdit}
             editedPanel={editedPanel}
             onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={metaPanelFormValues}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -101,6 +124,23 @@ export default class AllergiesDetail extends PureComponent {
               </div>
             </div>
           </AlergiesDetailPanel> : null}
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') && editedPanel[META_PANEL] ? <AlergiesDetailPanel
+            onExpand={onExpand}
+            name={META_PANEL}
+            title="Metadata"
+            isOpen={openedPanel === META_PANEL}
+            onShow={onShow}
+            currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={metaPanelFormValues}
+          >
+            <AllergieMetaForm
+              detail={detail}
+            />
+          </AlergiesDetailPanel> : null }
         </div>
       </div>
     )
