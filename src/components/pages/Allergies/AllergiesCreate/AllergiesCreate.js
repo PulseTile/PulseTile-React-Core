@@ -8,7 +8,7 @@ const ALLERGIES_CREATE = 'allergiesCreate';
 
 export default class AllergiesCreate extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onSaveSettings, formValues, onCancel } = this.props
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onSaveSettings, formValues, onCancel, isCreatePanelVisible}  = this.props;
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
@@ -19,6 +19,7 @@ export default class AllergiesCreate extends PureComponent {
             onShow={onShow}
             isOpen={openedPanel === ALLERGIES_CREATE}
             currentPanel={currentPanel}
+            isCreatePanelVisible={isCreatePanelVisible}
           >
             <AllergiesCreateForm />
             <div className="panel-control">

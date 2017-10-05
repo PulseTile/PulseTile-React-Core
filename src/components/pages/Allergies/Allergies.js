@@ -57,6 +57,7 @@ export default class Allergies extends PureComponent {
     isDetailPanelVisible: false,
     isSecondPanel: false,
     isCreatePanelVisible: false,
+    editedPanel: {},
   };
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
@@ -150,8 +151,26 @@ export default class Allergies extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false })
   };
 
+  handleEdit = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: true,
+      },
+    }))
+  };
+
+  handleAllergieDetailCancel = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: false,
+      },
+    }))
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible,editedPanel } = this.state;
     const { allAllergies, formState, allergieDetail } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
@@ -204,6 +223,9 @@ export default class Allergies extends PureComponent {
               expandedPanel={expandedPanel}
               currentPanel={ALLERGIES_DETAIL}
               detail={allergieDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleAllergieDetailCancel}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
@@ -217,6 +239,7 @@ export default class Allergies extends PureComponent {
               onSaveSettings={this.handleSaveSettingsForm}
               formValues={formState.values}
               onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
             />
           </Col> : null}
         </Row>

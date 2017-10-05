@@ -21,13 +21,37 @@ export default class AlergiesDetailPanel extends PureComponent {
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel } = this.props;
+    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible } = this.props;
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
         <AllergiesDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} />
         <div className="panel-body">
           {children}
+          {(!isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">
+            <div className="wrap-control-group">
+              <div className="control-group right">
+                <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
+                  <i className="fa fa-edit" /> Edit
+                </PTButton>
+              </div>
+            </div>
+          </div> : null }
+          {(!isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control ng-scope">
+            <div className="wrap-control-group">
+              <div className="control-group right">
+                <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
+                  <i className="fa fa-ban" /> Cancel
+                </PTButton>
+                {name === 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
+                  <i className="fa fa-check" /> Complete
+                </PTButton> : null}
+                {name !== 'applicationPreferences' ? <PTButton className="btn btn-success" onClick={() => onCancel(name)}>
+                  <i className="fa fa-check" /> Complete
+                </PTButton> : null}
+              </div>
+            </div>
+          </div> : null }
         </div>
       </div>
     )

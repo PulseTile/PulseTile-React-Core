@@ -11,7 +11,7 @@ const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail } = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel,onCancel } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="section-detail">
@@ -23,6 +23,9 @@ export default class AllergiesDetail extends PureComponent {
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
             currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -70,6 +73,9 @@ export default class AllergiesDetail extends PureComponent {
             isOpen={openedPanel === META_PANEL}
             onShow={onShow}
             currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
           >
             <div className="panel-body-inner">
               <div className="form">
