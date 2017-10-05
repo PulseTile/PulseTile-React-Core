@@ -18,7 +18,7 @@ import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCrea
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
 import AllergiesCreate from './AllergiesCreate/AllergiesCreate';
 import PTButton from '../../ui-elements/PTButton/PTButton';
-import { valuesNames, valuesLabels } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
+import { valuesNames } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 const ALLERGIES_MAIN = 'allergiesMain';
@@ -127,7 +127,15 @@ export default class Allergies extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
+    const { allergieDetail } = this.props;
     console.log(formValues, `sendData${name}`);
+    if (name === ALLERGIE_PANEL) {
+      allergieDetail.cause = formValues.cause;
+      allergieDetail.reaction = formValues.reaction;
+    }
+    if (name === META_PANEL) {
+      allergieDetail.causeTerminology = formValues.causeTerminology;
+    }
     this.setState(prevState => ({
       editedPanel: {
         ...prevState.editedPanel,
@@ -183,7 +191,7 @@ export default class Allergies extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel } = this.state;
-    const { allAllergies, allergiePanelFormState,allergiesCreateFormState,metaPanelFormState, allergieDetail } = this.props;
+    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
