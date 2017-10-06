@@ -18,10 +18,10 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @lifecycle(fetchPatientSummaryOnMount)
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
-      allergies: PropTypes.arrayOf(PropTypes.string).isRequired,
-      contacts: PropTypes.arrayOf(PropTypes.string).isRequired,
-      problems: PropTypes.arrayOf(PropTypes.string).isRequired,
-      medications: PropTypes.arrayOf(PropTypes.string).isRequired,
+      allergies: PropTypes.array.isRequired,
+      contacts: PropTypes.array.isRequired, 
+      problems: PropTypes.array.isRequired,
+      medications: PropTypes.array.isRequired,
     };
 
     static contextTypes = {

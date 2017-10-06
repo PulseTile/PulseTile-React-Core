@@ -14,8 +14,8 @@ const SimpleDashboardPanel = ({ title, items, navigateTo, goToState, state }) =>
       <div className="board-body">
         <ul className="board-list">
           {items.map(item =>
-            <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
-              <span className="board-list-link" >{item}</span>
+            <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
+              <span className="board-list-link" >{item.text}</span>
             </li>)}
         </ul>
       </div>

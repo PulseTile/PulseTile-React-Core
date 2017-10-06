@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { lifecycle } from 'recompose';
+import { lifecycle, compose } from 'recompose';
 
 import AllergiesListHeader from './header/AllergiesListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
@@ -13,7 +13,7 @@ import { allergiesColumnsConfig, defaultColumnsSelected } from '../../../config/
 import { fetchPatientAllergiesRequest } from '../../../ducks/fetch-patient-allergies.duck';
 import { fetchPatientAllergiesCreateRequest } from '../../../ducks/fetch-patient-allergies-create.duck';
 import { fetchPatientAllergiesDetailRequest } from '../../../ducks/fetch-patient-allergies-detail.duck';
-import { fetchPatientAllergiesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
 import AllergiesCreate from './AllergiesCreate/AllergiesCreate';
@@ -34,7 +34,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(allergiePanelFormStateSelector)
 @connect(allergiesCreateFormStateSelector)
 @connect(metaPanelFormStateSelector)
-@lifecycle(fetchPatientAllergiesOnMount)
+@compose(lifecycle(fetchPatientAllergiesOnMount), lifecycle(fetchPatientAllergiesDetailOnMount))
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
@@ -61,6 +61,14 @@ export default class Allergies extends PureComponent {
     isCreatePanelVisible: false,
     editedPanel: {},
   };
+
+  componentWillReceiveProps() {
+    const sourceId = this.context.router.route.match.params.sourceId;
+    const userId = this.context.router.route.match.params.userId;
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {} })
+    }
+  }
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
