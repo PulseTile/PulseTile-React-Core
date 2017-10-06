@@ -41,6 +41,7 @@ const initialState = {
   isSidebarVisible: false,
   profileAppPreferences: {},
   patientsAllergies: {},
+  patientsInfo: {},
 };
 
 //create store and enhance with middleware

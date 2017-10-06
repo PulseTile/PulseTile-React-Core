@@ -4,22 +4,27 @@ import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import _ from 'lodash/fp';
+import { lifecycle } from 'recompose';
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
 import PersonalForm from './forms/PersonalForm';
 import ContactForm from './forms/ContactForm';
-import formStateSelector from './selectors';
+import { formStateSelector, patientInfoSelector } from './selectors';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
+import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
+import { fetchPatientsInfoOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest }, dispatch) });
 
-@connect(formStateSelector, mapDispatchToProps)
+@connect(formStateSelector)
+@connect(patientInfoSelector, mapDispatchToProps)
+@lifecycle(fetchPatientsInfoOnMount)
 class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
@@ -73,7 +78,11 @@ class UserProfile extends PureComponent {
 
   render() {
     const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
-    const { formState } = this.props;
+    const { formState, patientsInfo } = this.props;
+
+    const themeStyle = {
+      background: patientsInfo.themeColor,
+    };
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
@@ -101,14 +110,14 @@ class UserProfile extends PureComponent {
                                 <div className="form-group">
                                   <label className="control-label">Application
                                                       Title</label>
-                                  <div className="form-control-static" />
+                                  <div className="form-control-static">{patientsInfo.title} </div>
                                 </div>
 
                                 <div className="form-group">
                                   <label className="control-label">Application
                                                       Logo File</label>
                                   <div className="form-control-static">
-
+                                    <img src={patientsInfo.logoB64} alt="Logo Example" />
                                   </div>
                                 </div>
 
@@ -116,15 +125,15 @@ class UserProfile extends PureComponent {
                                   <label className="control-label">Application
                                                       Theme</label>
                                   <div className="palette-color">
-                                    <span className="palette-color-icon" />
-                                    <span className="palette-color-name" />
+                                    <span className="palette-color-icon" style={themeStyle}></span>
+                                    <span className="palette-color-name"></span>
                                   </div>
                                 </div>
 
                                 <div className="form-group">
                                   <label className="control-label">Browser
                                                       Window Title</label>
-                                  <div className="form-control-static" />
+                                  <div className="form-control-static"> {patientsInfo.browserTitle} </div>
                                 </div>
                               </div>
                             </Row>
@@ -146,7 +155,9 @@ class UserProfile extends PureComponent {
                   onSaveSettings={this.handleSaveSettingsForm}
                   formValues={formState.values}
                 >
-                  <AppSettingsForm />
+                  <AppSettingsForm
+                    patientsInfo={patientsInfo}
+                  />
                 </PersonalInformationPanel> : null }
                 {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && !editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
                   name={PERSONAL_INFORMATION}

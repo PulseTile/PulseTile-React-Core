@@ -36,3 +36,10 @@ export const fetchPatientAllergiesOnMount = ({
     if (userId) actions.fetchPatientAllergiesRequest({ userId })
   },
 });
+
+export const fetchPatientsInfoOnMount = ({
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.fetchPatientsInfoRequest()
+  },
+});
