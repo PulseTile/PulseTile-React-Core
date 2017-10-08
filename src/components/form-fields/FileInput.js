@@ -49,7 +49,6 @@ export default class FileInput extends PureComponent {
               <div className="fcustomfile-text"/>
             </div>
           </div>
-          <span className="help-block animate-fade">You must enter a value.</span>
           {hasError && <span className="required-label">{error}</span>}
         </div>
         {!_.isEmpty(value) && <div className="form-group">
