@@ -1,7 +1,6 @@
 import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
-import { browserHistory } from 'react-router';
 
 import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS } from './fetch-initialise.duck'
 import { fetchUserAccountRequest, FETCH_USER_ACCOUNT_SUCCESS } from './fetch-user-account.duck'
@@ -18,10 +17,11 @@ export const initialiseFailure = createAction(INITIALISE_FAILURE);
 
 const redirectAccordingRole = (user) => {
   if (_.flow(_.get('role'), _.eq('PHR'))(user)) {
-    const userSummaryUrl = `${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
-    return browserHistory.push(userSummaryUrl);
+    const userSummaryUrl = `#${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
+    return location.hash = userSummaryUrl;
   }
-  return browserHistory.push(clientUrls.CHARTS);
+
+  return location.hash = `#${clientUrls.CHARTS}`;
 };
 
 //TODO should be refactored to actual sequence, not parallel listening

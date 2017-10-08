@@ -2,6 +2,7 @@ import { combineEpics } from 'redux-observable';
 
 import { initialiseEpic } from './ducks/initialise-app.duck'
 import { loginEpic } from './ducks/login-status.duck';
+import { logoutEpic } from './ducks/logout.duck';
 import { fetchInitialiseEpic } from './ducks/fetch-initialise.duck';
 import { setCredentialsEpic } from './ducks/set-credentials.duck';
 import { fetchPatientsEpic } from './ducks/feth-patients.duck';
@@ -18,6 +19,7 @@ import { setThemeEpic } from './ducks/set-theme.duck';
 const rootEpic = combineEpics(
   initialiseEpic,
   loginEpic,
+  logoutEpic,
   fetchInitialiseEpic,
   setCredentialsEpic,
   fetchPatientsEpic,

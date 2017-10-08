@@ -23,13 +23,13 @@ export default class Main extends PureComponent {
         <main className={classNames('main', { showSidebar: isSidebarVisible })}>
           <Breadcrumbs />
           <Switch>
-            <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
-            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} />
-            <Route exact path={clientUrls.PATIENTS} component={PatientsLists} />
-            <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} />
-            <Route exact path={clientUrls.CHARTS} component={SystemDashboard} />
-            <Route exact path={clientUrls.ROOT} component={SystemDashboard} />
-            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} />
+            <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} onEnter={console.log}/>
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} onEnter={console.log}/>
+            <Route exact path={clientUrls.PATIENTS} component={PatientsLists} onEnter={console.log}/>
+            <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} onEnter={console.log}/>
+            <Route exact path={clientUrls.CHARTS} component={SystemDashboard} onEnter={console.log}/>
+            <Route exact path={clientUrls.ROOT} component={SystemDashboard} onEnter={console.log}/>
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} onEnter={console.log}/>
           </Switch>
         </main>
       )

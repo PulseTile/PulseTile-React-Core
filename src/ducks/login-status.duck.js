@@ -10,7 +10,6 @@ export const redirectToLogin = createAction(REDIRECT_TO_LOGIN);
 export const loginPending = createAction(LOGIN_PENDING);
 export const loginFailure = createAction(LOGIN_FAILURE);
 
-//TODO should be refactored to actual sequence, not parallel listening
 export const loginEpic = (action$, store) =>
   action$.ofType(REDIRECT_TO_LOGIN)
     .map((action) => {
