@@ -45,6 +45,7 @@ const initialState = {
   patientAllergiesCreate: {},
   allergiesDetail: {},
   patientsInfo: {},
+  allergiesDetailEdit: {},
 };
 
 //create store and enhance with middleware

@@ -17,6 +17,7 @@ import fetchPatientAllergiesReducer from './ducks/fetch-patient-allergies.duck'
 import fetchPatientAllergiesCreareReducer from './ducks/fetch-patient-allergies-create.duck'
 import fetchPatientAllergiesDetailReducer from './ducks/fetch-patient-allergies-detail.duck'
 import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck'
+import fetchPatientAllergiesDetailEditReducer from './ducks/fetch-patient-allergies-detail-edit.duck'
 
 const rootReducer = combineReducers({
   router: routerReducer,
@@ -36,6 +37,7 @@ const rootReducer = combineReducers({
   patientAllergiesCreate: fetchPatientAllergiesCreareReducer,
   allergiesDetail: fetchPatientAllergiesDetailReducer,
   patientsInfo: fetchPatientsInfoReducer,
+  allergiesDetailEdit: fetchPatientAllergiesDetailEditReducer,
 });
 
 export default rootReducer;
