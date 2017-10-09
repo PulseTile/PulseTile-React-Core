@@ -42,6 +42,8 @@ const initialState = {
   isSidebarVisible: false,
   profileAppPreferences: {},
   patientsAllergies: {},
+  patientAllergiesCreate: {},
+  allergiesDetail: {},
   patientsInfo: {},
 };
 

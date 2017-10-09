@@ -6,19 +6,22 @@ import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesCreateForm } from './validation';
+import { validateAllergiesForm } from './validation';
 import { valuesNames, valuesLabels } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
+import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'allergiesCreateFormSelector',
-  validate: validateAllergiesCreateForm,
+  validate: validateAllergiesForm,
 })
 export default class AllergiesCreateForm extends PureComponent {
   componentDidMount() {
     this.props.initialize(defaultFormValues);
   }
   render() {
+    const date = new Date();
+    const dateCreated = getDDMMMYYYY(date.getTime());
     return (
       <div className="panel-body-inner">
         <form name="allergiesCreateForm" className="form">
@@ -36,9 +39,8 @@ export default class AllergiesCreateForm extends PureComponent {
               </Col>
               <Col md={6}>
                 <Field
-                  name="causeCode"
-                  label="Cause Code"
-                  staticInformation="1239085"
+                  name={valuesNames.CAUSECODE}
+                  label={valuesLabels.CAUSECODE}
                   component={StaticFormField}
                 />
               </Col>
@@ -62,9 +64,8 @@ export default class AllergiesCreateForm extends PureComponent {
               </Col>
               <Col md={6}>
                 <Field
-                  name="terminologyCode"
-                  label="Terminology Code"
-                  staticInformation="12393890"
+                  name={valuesNames.TERMINOLOGYCODE}
+                  label={valuesLabels.TERMINOLOGYCODE}
                   component={StaticFormField}
                 />
               </Col>
@@ -81,7 +82,7 @@ export default class AllergiesCreateForm extends PureComponent {
               name={valuesNames.DATE}
               id={valuesNames.DATE}
               component={DateInput}
-              props={{ disabled: true, value: '30-Sep-2017' }}
+              props={{ disabled: true, value: dateCreated }}
             />
           </div>
         </form>

@@ -14,6 +14,8 @@ import fetchPatientSummaryReducer from './ducks/fetch-patient-summary.duck'
 import fetchProfileAppPreferencesReducer from './ducks/fetch-profile-application-preferences.duck'
 import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
 import fetchPatientAllergiesReducer from './ducks/fetch-patient-allergies.duck'
+import fetchPatientAllergiesCreareReducer from './ducks/fetch-patient-allergies-create.duck'
+import fetchPatientAllergiesDetailReducer from './ducks/fetch-patient-allergies-detail.duck'
 import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck'
 
 const rootReducer = combineReducers({
@@ -31,6 +33,8 @@ const rootReducer = combineReducers({
   isSidebarVisible: setSidebarVisibilityReducer,
   profileAppPreferences: fetchProfileAppPreferencesReducer,
   patientsAllergies: fetchPatientAllergiesReducer,
+  patientAllergiesCreate: fetchPatientAllergiesCreareReducer,
+  allergiesDetail: fetchPatientAllergiesDetailReducer,
   patientsInfo: fetchPatientsInfoReducer,
 });
 

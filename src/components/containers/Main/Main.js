@@ -31,6 +31,8 @@ export default class Main extends PureComponent {
             <ProtectedRoute exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
             <ProtectedRoute exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} />
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/create`} component={Allergies} />
+            <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/:sourceId`} component={Allergies} />
           </Switch>
         </main>
       )

@@ -26,7 +26,17 @@ class HeaderToolbar extends PureComponent {
     userId: PropTypes.string.isRequired,
   };
 
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.object,
+    }),
+  };
+
   toggleSidebarVisibility = () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
+
+  handleGoToState = (state) => {
+    this.context.router.history.replace(state);
+  };
 
   render() {
     const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
@@ -66,7 +76,10 @@ class HeaderToolbar extends PureComponent {
             </div>
           </div>
         </div>
-        {isSidebarVisible && <Sidebar />}
+        {isSidebarVisible && <Sidebar
+          userId={userId}
+          goToState={this.handleGoToState}
+        />}
       </div>
     )
   }

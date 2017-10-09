@@ -1,4 +1,4 @@
-const validateAllergiesCreateForm = (values) => {
+const validateAllergiesForm = (values) => {
   const errors = {};
   errors.cause = !values.cause ? 'You must enter a value.' : null;
   errors.reaction = !values.reaction ? 'You must enter a value.' : null;
@@ -6,4 +6,4 @@ const validateAllergiesCreateForm = (values) => {
   return errors
 };
 
-export { validateAllergiesCreateForm }
+export { validateAllergiesForm }
