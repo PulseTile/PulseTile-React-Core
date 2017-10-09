@@ -9,6 +9,7 @@ import { lifecycle, compose } from 'recompose';
 
 import AllergiesListHeader from './header/AllergiesListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
+import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import { allergiesColumnsConfig, defaultColumnsSelected } from '../../../config/allergies-table-columns.config'
 import { fetchPatientAllergiesRequest } from '../../../ducks/fetch-patient-allergies.duck';
 import { fetchPatientAllergiesCreateRequest } from '../../../ducks/fetch-patient-allergies-create.duck';
@@ -39,12 +40,17 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
+    allergiesPerPageAmount: PropTypes.number,
   };
 
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.object,
     }),
+  };
+
+  static defaultProps = {
+    allergiesPerPageAmount: 10,
   };
 
   state = {
@@ -61,6 +67,7 @@ export default class Allergies extends PureComponent {
     isSecondPanel: false,
     isCreatePanelVisible: false,
     editedPanel: {},
+    offset: 0,
   };
 
   componentWillReceiveProps() {
@@ -221,15 +228,30 @@ export default class Allergies extends PureComponent {
     }))
   };
 
+  getAllergiesOnFirstPage = (allergies) => {
+    const { offset } = this.state;
+    const { allergiesPerPageAmount } = this.props;
+
+    return (_.size(allergies) > allergiesPerPageAmount
+      ? _.slice(offset, offset + allergiesPerPageAmount)(allergies)
+      : allergies)
+  };
+
+  shouldHavePagination = allergies => _.size(allergies) > this.props.allergiesPerPageAmount;
+
+  handleSetOffset = offset => this.setState({ offset });
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel } = this.state;
-    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
+    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail, allergiesPerPageAmount } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
     const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
+
+    const allergiesOnFirstPage = _.flow(this.getAllergiesOnFirstPage)(filteredAllergies);
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -247,7 +269,7 @@ export default class Allergies extends PureComponent {
               <div className="panel-body">
                 <SortableTable
                   headers={columnsToShowConfig}
-                  data={filteredAllergies}
+                  data={allergiesOnFirstPage}
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailAllergiesClick}
                   columnNameSortBy={columnNameSortBy}
@@ -255,6 +277,16 @@ export default class Allergies extends PureComponent {
                 />
                 <div className="panel-control">
                   <div className="wrap-control-group">
+                    {this.shouldHavePagination(filteredAllergies) &&
+                    <div className="control-group with-indent left">
+                      <PaginationBlock
+                        entriesPerPage={allergiesPerPageAmount}
+                        totalEntriesAmount={_.size(allAllergies)}
+                        offset={offset}
+                        setOffset={this.handleSetOffset}
+                      />
+                    </div>
+                    }
                     <div className="control-group with-indent right">
                       {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(ALLERGIES_CREATE)}>
                         <i className="btn-icon fa fa-plus" />
