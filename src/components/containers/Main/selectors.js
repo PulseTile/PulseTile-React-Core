@@ -1,8 +1,12 @@
 import { createSelector } from 'reselect';
 
-const sidebarVisibilitySelector = createSelector(
-  ({ isSidebarVisible }) => isSidebarVisible,
-  isSidebarVisible => ({ isSidebarVisible })
-);
+const sidebarVisibilitySelector = ({ isSidebarVisible }) => isSidebarVisible;
+const userAccountSelector = ({ userAccount }) => userAccount;
 
-export default sidebarVisibilitySelector;
+const sidebarAndUserSelector = createSelector(
+  sidebarVisibilitySelector,
+  userAccountSelector,
+  (isSidebarVisible, userAccount) => ({ isSidebarVisible, userAccount })
+)
+
+export default sidebarAndUserSelector;

@@ -1,23 +1,24 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames'
-import { withRouter, Switch, Route } from 'react-router-dom'
+import classNames from 'classnames';
+import { withRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
+import ProtectedRoute from './ProtectedRoute';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
-import sidebarVisibilitySelector from './selectors';
+import sidebarAndUserSelector from './selectors';
 import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary, Allergies } from '../../pages';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 @withRouter
-@connect(sidebarVisibilitySelector)
+@connect(sidebarAndUserSelector)
 export default class Main extends PureComponent {
     static propTypes = {
       isSidebarVisible: PropTypes.bool.isRequired,
     };
 
     render() {
-      const { isSidebarVisible } = this.props;
+      const { isSidebarVisible, userAccount } = this.props;
 
       return (
         <main className={classNames('main', { showSidebar: isSidebarVisible })}>
@@ -25,10 +26,10 @@ export default class Main extends PureComponent {
           <Switch>
             <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} />
-            <Route exact path={clientUrls.PATIENTS} component={PatientsLists} />
-            <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} />
-            <Route exact path={clientUrls.CHARTS} component={SystemDashboard} />
-            <Route exact path={clientUrls.ROOT} component={SystemDashboard} />
+            <ProtectedRoute exact path={clientUrls.PATIENTS} component={PatientsLists} userAccount={userAccount} />
+            <ProtectedRoute exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} userAccount={userAccount} />
+            <ProtectedRoute exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
+            <ProtectedRoute exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}`} component={Allergies} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/create`} component={Allergies} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/:sourceId`} component={Allergies} />

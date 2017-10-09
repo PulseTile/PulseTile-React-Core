@@ -1,5 +1,5 @@
 export const apiUrls = {
-  INITIALISE: 'api/initialise',
+  INITIALISE: '/api/initialise',
 };
 
 export const usersUrls = {

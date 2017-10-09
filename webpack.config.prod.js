@@ -12,8 +12,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'body',
 });
 
-const DEV_SERVER_URL = 'http://46.101.95.245';
-
 module.exports = {
   devtool: 'source-map',
 
@@ -24,7 +22,7 @@ module.exports = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
-    publicPath: '/',
+    publicPath: '/react-ui/',
   },
 
   plugins: [

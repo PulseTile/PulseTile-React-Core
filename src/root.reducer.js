@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
 import fetchInitialiseReducer from './ducks/fetch-initialise.duck'
+import loginStatusReducer from './ducks/login-status.duck'
 import setCredentialsREducer from './ducks/set-credentials.duck'
 import fetchPatientsReducer from './ducks/feth-patients.duck'
 import fetchPatientCountsReducer from './ducks/fetch-patient-counts.duck'
@@ -15,11 +16,13 @@ import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
 import fetchPatientAllergiesReducer from './ducks/fetch-patient-allergies.duck'
 import fetchPatientAllergiesCreareReducer from './ducks/fetch-patient-allergies-create.duck'
 import fetchPatientAllergiesDetailReducer from './ducks/fetch-patient-allergies-detail.duck'
+import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck'
 
 const rootReducer = combineReducers({
   router: routerReducer,
   form: formReducer,
   initialiseData: fetchInitialiseReducer,
+  loginStatus: loginStatusReducer,
   credentials: setCredentialsREducer,
   patients: fetchPatientsReducer,
   patientsCounts: fetchPatientCountsReducer,
@@ -32,6 +35,7 @@ const rootReducer = combineReducers({
   patientsAllergies: fetchPatientAllergiesReducer,
   patientAllergiesCreate: fetchPatientAllergiesCreareReducer,
   allergiesDetail: fetchPatientAllergiesDetailReducer,
+  patientsInfo: fetchPatientsInfoReducer,
 });
 
 export default rootReducer;

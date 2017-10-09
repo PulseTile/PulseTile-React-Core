@@ -32,6 +32,7 @@ const epicMiddleware = createEpicMiddleware(rootEpic);
 const initialState = {
   credentials: {},
   initialiseData: {},
+  loginStatus: {},
   userAccount: {},
   patients: {},
   patientsCounts: {},
@@ -43,6 +44,7 @@ const initialState = {
   patientsAllergies: {},
   patientAllergiesCreate: {},
   allergiesDetail: {},
+  patientsInfo: {},
 };
 
 //create store and enhance with middleware
