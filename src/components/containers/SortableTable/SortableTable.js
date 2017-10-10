@@ -5,7 +5,7 @@ import _ from 'lodash/fp';
 import SortableTableHeaderRow from './sortable-table-header-components/SortableTableHeaderRow';
 import SortableTableRow from './SortableTableRow';
 import SortableTableEmptyDataRow from './SortableTableEmptyDataRow';
-import { getArrByTemplate, formatNHSNumber } from '../../../utils/table-helpers/table.utils';
+import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 
 export default class SortableTable extends PureComponent {
     static propTypes = {
@@ -34,7 +34,6 @@ export default class SortableTable extends PureComponent {
 
     render() {
       const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy } = this.props;
-      data.map(item => item.id = formatNHSNumber(item.id));
       const rowsData = getArrByTemplate(headers, data);
 
       return (
