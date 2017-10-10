@@ -28,7 +28,7 @@ export default class SortableTable extends PureComponent {
             onCellClick={onCellClick}
             columnNameSortBy={columnNameSortBy}
           />)],
-        [_.T, () => <SortableTableEmptyDataRow />], 
+        [_.T, () => <SortableTableEmptyDataRow />],
       ])(rowsData);
     }
 
