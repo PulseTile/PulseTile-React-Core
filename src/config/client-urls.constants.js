@@ -75,7 +75,7 @@ export const mainPagesTitles = {
       state: '/patients-summary',
     }, {
       title: 'Allergies',
-      state: '/patients-summary',
+      state: '/allergies',
     }],
   },
 };

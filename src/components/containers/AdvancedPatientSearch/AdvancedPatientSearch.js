@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import AdvancedPatientSearchForm from './AdvancedSearchForm/AdvancedPatientSearchForm';
 import formStateSelector from './selectors';
-import { getDDMMMYYYY, getUTCDate } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { valuesNames, valuesLabels } from './AdvancedSearchForm/values-names.config';
 import { nhsNumberValidation } from '../../../utils/validation-helpers/validation.utils';
@@ -36,6 +36,7 @@ export default class AdvancedPatientSearch extends PureComponent {
 
     formValuesToSearchString = (formValues) => {
       const isNhsNumberValid = _.isEmpty(nhsNumberValidation(formValues[valuesNames.NHS_NUMBER]));
+      const isDateOfBirthValid = _.isEmpty(formValues[valuesNames.DATE_OF_BIRTH]);
 
       const minValue = _.get([valuesNames.AGE_RANGE, 0])(formValues);
       const maxValue = _.get([valuesNames.AGE_RANGE, 1])(formValues);
@@ -43,12 +44,13 @@ export default class AdvancedPatientSearch extends PureComponent {
       const surname = _.get(valuesNames.SURNAME)(formValues);
       const forename = _.get(valuesNames.FORENAME)(formValues);
       const selectAgeField = _.get(valuesNames.SELECT_AGE)(formValues);
-      const dateOfBirth = _.flow(_.get(valuesNames.DATE_OF_BIRTH), getUTCDate)(formValues);
+      const dateOfBirth = _.get(valuesNames.DATE_OF_BIRTH)(formValues);
       const sexMale = _.get(valuesNames.MALE)(formValues);
       const sexFemale = _.get(valuesNames.FEMALE)(formValues);
 
       if (isNhsNumberValid) return ({ nhsNumber });
-      return ({ minValue, maxValue, surname, forename, dateOfBirth, sexMale, sexFemale });
+      if (!isDateOfBirthValid) return ({ minValue, maxValue, surname, forename, dateOfBirth, sexMale, sexFemale });
+      return ({ minValue, maxValue, surname, forename, sexMale, sexFemale });
     };
 
     formValuesToTitle = (formValues) => {
@@ -98,6 +100,9 @@ export default class AdvancedPatientSearch extends PureComponent {
 
     handleSearch = () => {
       const { formValues } = this.props;
+      if (formValues.selectAgeField === 'range') {
+        formValues.dateOfBirth = '';
+      }
       const queryParams = {
         searchString: JSON.stringify(this.formValuesToSearchString(formValues)),
         queryType: 'advanced',

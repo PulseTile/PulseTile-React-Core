@@ -17,6 +17,7 @@ import { fetchPatientAllergiesCreateEpic } from './ducks/fetch-patient-allergies
 import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
 import { fetchPatientAllergiesDetailEpic } from './ducks/fetch-patient-allergies-detail.duck';
+import { fetchPatientAllergiesDetailEditEpic } from './ducks/fetch-patient-allergies-detail-edit.duck';
 
 const rootEpic = combineEpics(
   initialiseEpic,
@@ -36,6 +37,7 @@ const rootEpic = combineEpics(
   setThemeEpic,
   fetchPatientAllergiesCreateEpic,
   fetchPatientAllergiesDetailEpic,
+  fetchPatientAllergiesDetailEditEpic,
 );
 
 export default rootEpic;

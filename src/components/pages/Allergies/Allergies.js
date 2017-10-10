@@ -9,10 +9,12 @@ import { lifecycle, compose } from 'recompose';
 
 import AllergiesListHeader from './header/AllergiesListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
+import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import { allergiesColumnsConfig, defaultColumnsSelected } from '../../../config/allergies-table-columns.config'
 import { fetchPatientAllergiesRequest } from '../../../ducks/fetch-patient-allergies.duck';
 import { fetchPatientAllergiesCreateRequest } from '../../../ducks/fetch-patient-allergies-create.duck';
 import { fetchPatientAllergiesDetailRequest } from '../../../ducks/fetch-patient-allergies-detail.duck';
+import { fetchPatientAllergiesDetailEditRequest } from '../../../ducks/fetch-patient-allergies-detail-edit.duck';
 import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
@@ -27,7 +29,7 @@ const ALLERGIES_CREATE = 'allergiesCreate';
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientAllergiesRequest, fetchPatientAllergiesCreateRequest, fetchPatientAllergiesDetailRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientAllergiesRequest, fetchPatientAllergiesCreateRequest, fetchPatientAllergiesDetailRequest, fetchPatientAllergiesDetailEditRequest }, dispatch) });
 
 @connect(patientAllergiesSelector, mapDispatchToProps)
 @connect(patientAllergiesDetailSelector, mapDispatchToProps)
@@ -38,12 +40,17 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
+    allergiesPerPageAmount: PropTypes.number,
   };
 
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.object,
     }),
+  };
+
+  static defaultProps = {
+    allergiesPerPageAmount: 10,
   };
 
   state = {
@@ -60,13 +67,14 @@ export default class Allergies extends PureComponent {
     isSecondPanel: false,
     isCreatePanelVisible: false,
     editedPanel: {},
+    offset: 0,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {} })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
   }
 
@@ -128,22 +136,27 @@ export default class Allergies extends PureComponent {
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId } = this.props;
-    actions.fetchPatientAllergiesCreateRequest(this.formValuesToSearchString(formValues));
+    actions.fetchPatientAllergiesCreateRequest(this.formValuesToCreateString(formValues));
     setTimeout(() => actions.fetchPatientAllergiesRequest({ userId }), 1000);
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
     this.hideCreateForm();
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { allergieDetail } = this.props;
-    console.log(formValues, `sendData${name}`);
+    const { allergieDetail, actions } = this.props;
+    formValues.causeCode = allergieDetail.causeCode;
+    formValues.sourceId = '';
     if (name === ALLERGIE_PANEL) {
       allergieDetail.cause = formValues.cause;
       allergieDetail.reaction = formValues.reaction;
+      formValues.causeTerminology = allergieDetail.causeTerminology;
     }
     if (name === META_PANEL) {
       allergieDetail.causeTerminology = formValues.causeTerminology;
+      formValues.cause = allergieDetail.cause;
+      formValues.reaction = allergieDetail.reaction;
     }
+    actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToDetailEditString(formValues));
     this.setState(prevState => ({
       editedPanel: {
         ...prevState.editedPanel,
@@ -158,7 +171,7 @@ export default class Allergies extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
   };
 
-  formValuesToSearchString = (formValues) => {
+  formValuesToCreateString = (formValues) => {
     const { userId } = this.props;
     const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
     const cause = _.get(valuesNames.CAUSE)(formValues);
@@ -172,6 +185,24 @@ export default class Allergies extends PureComponent {
     const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
 
     if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, isImport, sourceId, userId });
+    return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
+  };
+
+  formValuesToDetailEditString = (formValues) => {
+    const { userId } = this.props;
+    const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
+    const cause = _.get(valuesNames.CAUSE)(formValues);
+    const reaction = _.get(valuesNames.REACTION)(formValues);
+    const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
+    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const currentDate = _.get(valuesNames.DATE)(formValues);
+    const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
+    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
+    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
+    const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
+    const source = 'ethercis';
+
+    if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, sourceId, source, userId });
     return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
   };
 
@@ -197,15 +228,30 @@ export default class Allergies extends PureComponent {
     }))
   };
 
+  getAllergiesOnFirstPage = (allergies) => {
+    const { offset } = this.state;
+    const { allergiesPerPageAmount } = this.props;
+
+    return (_.size(allergies) > allergiesPerPageAmount
+      ? _.slice(offset, offset + allergiesPerPageAmount)(allergies)
+      : allergies)
+  };
+
+  shouldHavePagination = allergies => _.size(allergies) > this.props.allergiesPerPageAmount;
+
+  handleSetOffset = offset => this.setState({ offset });
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel } = this.state;
-    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
+    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail, allergiesPerPageAmount } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
     const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
+
+    const allergiesOnFirstPage = _.flow(this.getAllergiesOnFirstPage)(filteredAllergies);
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -223,7 +269,7 @@ export default class Allergies extends PureComponent {
               <div className="panel-body">
                 <SortableTable
                   headers={columnsToShowConfig}
-                  data={filteredAllergies}
+                  data={allergiesOnFirstPage}
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailAllergiesClick}
                   columnNameSortBy={columnNameSortBy}
@@ -231,6 +277,16 @@ export default class Allergies extends PureComponent {
                 />
                 <div className="panel-control">
                   <div className="wrap-control-group">
+                    {this.shouldHavePagination(filteredAllergies) &&
+                    <div className="control-group with-indent left">
+                      <PaginationBlock
+                        entriesPerPage={allergiesPerPageAmount}
+                        totalEntriesAmount={_.size(allAllergies)}
+                        offset={offset}
+                        setOffset={this.handleSetOffset}
+                      />
+                    </div>
+                    }
                     <div className="control-group with-indent right">
                       {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(ALLERGIES_CREATE)}>
                         <i className="btn-icon fa fa-plus" />
