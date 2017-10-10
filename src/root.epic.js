@@ -16,6 +16,8 @@ import { fetchPatientAllergiesEpic } from './ducks/fetch-patient-allergies.duck'
 import { fetchPatientAllergiesCreateEpic } from './ducks/fetch-patient-allergies-create.duck';
 import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
+import { setLogoEpic } from './ducks/set-logo.duck';
+import { setTitleEpic } from './ducks/set-title.duck';
 import { fetchPatientAllergiesDetailEpic } from './ducks/fetch-patient-allergies-detail.duck';
 import { fetchPatientAllergiesDetailEditEpic } from './ducks/fetch-patient-allergies-detail-edit.duck';
 
@@ -35,6 +37,8 @@ const rootEpic = combineEpics(
   fetchPatientAllergiesEpic,
   fetchPatientsInfoEpic,
   setThemeEpic,
+  setLogoEpic,
+  setTitleEpic,
   fetchPatientAllergiesCreateEpic,
   fetchPatientAllergiesDetailEpic,
   fetchPatientAllergiesDetailEditEpic,
