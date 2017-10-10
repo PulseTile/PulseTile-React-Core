@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
+import {formatNHSNumber} from '../../../utils/table-helpers/table.utils';
 
 const SortableTableRow = (props) => {
   const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(props.rowData);
