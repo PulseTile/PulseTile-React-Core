@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import _ from 'lodash/fp';
-import { lifecycle } from 'recompose';
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
@@ -13,18 +12,18 @@ import ContactForm from './forms/ContactForm';
 import { formStateSelector, patientInfoSelector } from './selectors';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
-import { fetchPatientsInfoOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { setLogo } from '../../../ducks/set-logo.duck';
+import { setTitle } from '../../../ducks/set-title.duck';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle }, dispatch) });
 
 @connect(formStateSelector)
 @connect(patientInfoSelector, mapDispatchToProps)
-@lifecycle(fetchPatientsInfoOnMount)
 class UserProfile extends PureComponent {
   state = {
     openedPanel: APPLICATION_PREFERENCES,
@@ -64,8 +63,13 @@ class UserProfile extends PureComponent {
   };
 
   handleSaveSettingsForm = (formValues, name) => {
-    const { actions, formState } = this.props;
+    const { actions, formState, patientsInfo, dispatch } = this.props;
+    Object.keys(patientsInfo).forEach(function(key) {
+      patientsInfo[key] = formValues[key];
+    });
     if (_.isEmpty(formState.syncErrors.title) && _.isEmpty(formState.syncErrors.browserTitle)) {
+      dispatch(setLogo(patientsInfo.logoB64));
+      dispatch(setTitle(patientsInfo.browserTitle));
       actions.fetchProfileAppPreferencesRequest(formValues);
       this.setState(prevState => ({
         editedPanel: {
