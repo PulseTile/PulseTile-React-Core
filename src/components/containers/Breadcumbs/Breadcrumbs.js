@@ -11,6 +11,8 @@ import { mainPagesTitles } from '../../../config/client-urls.constants'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
+const whiteListEndpoint = ['allergies'];
+
 @connect(routersSelector, mapDispatchToProps)
 class Breadcrumbs extends PureComponent {
   static propTypes = {
@@ -19,11 +21,21 @@ class Breadcrumbs extends PureComponent {
 
   getRouterBreadcrumbs = hash => _.getOr(mainPagesTitles['/'].breadcrumbs, [hash, 'breadcrumbs'])(mainPagesTitles);
 
+  correctEndpoint = (routerHash) => {
+    const newHash = routerHash.split('/');
+    newHash.indexOf('allergies', 0);
+    return newHash;
+  };
+
   render() {
     const { router } = this.props;
     const routerHash = _.last((router.location.hash.split('?')[0]).split('/'));
 
+    const statePatientsSummary = `${window.location.hash.split('/allergies')[0].split('#')[1]}/patients-summary`;
     const breadcrumbs = this.getRouterBreadcrumbs(routerHash);
+    if (routerHash === 'allergies') {
+      breadcrumbs[1].state = statePatientsSummary;
+    }
     const lastItemBreadcrumbsIndex = breadcrumbs.length - 1;
 
     const breadcrumbItems = breadcrumbs.map((breadcrumb, index) =>
