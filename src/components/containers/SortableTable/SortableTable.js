@@ -73,7 +73,7 @@ export default class SortableTable extends PureComponent {
   };
 
   render() {
-    const { headers, data, onHeaderCellClick, sortingOrder } = this.props;
+    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy } = this.props;
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
@@ -99,6 +99,7 @@ export default class SortableTable extends PureComponent {
               headers={headersName}
               onHeaderCellClick={onHeaderCellClick}
               sortingOrder={sortingOrder}
+              columnNameSortBy={columnNameSortBy}
             />
           </thead>
           <tbody>
@@ -118,6 +119,7 @@ export default class SortableTable extends PureComponent {
               headers={headers}
               onHeaderCellClick={onHeaderCellClick}
               sortingOrder={sortingOrder}
+              columnNameSortBy={columnNameSortBy}
             />
           </thead>
           <tbody>
@@ -137,6 +139,7 @@ export default class SortableTable extends PureComponent {
               headers={headersView}
               onHeaderCellClick={onHeaderCellClick}
               sortingOrder={sortingOrder}
+              columnNameSortBy={columnNameSortBy}
             />
           </thead>
           <tbody>

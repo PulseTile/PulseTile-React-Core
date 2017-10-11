@@ -13,11 +13,11 @@ export default class SortableTableHeaderRow extends PureComponent {
         transformer: PropTypes.func,
       })).isRequired,
       onHeaderCellClick: PropTypes.func.isRequired,
+      columnNameSortBy: PropTypes.string.isRequired,
     };
 
     state = {
       sortingOrder: 'asc',
-      sortByColumnWitName: 'name',
     };
 
     getNextSorting = (sortingOrder) => {
@@ -34,14 +34,15 @@ export default class SortableTableHeaderRow extends PureComponent {
       if (name !== 'viewPatientNavigation') {
         const { onHeaderCellClick } = this.props;
         const sortingOrder = this.getNextSorting(this.state.sortingOrder);
-        this.setState({ sortByColumnWitName: name, sortingOrder });
+        this.setState({ sortingOrder });
         if (_.isFunction(onHeaderCellClick)) onHeaderCellClick(e, { name, sortingOrder })
       }
     };
 
     render() {
-      const { sortingOrder, sortByColumnWitName } = this.state;
-      const getSortingOrder = name => (name === sortByColumnWitName
+      const { sortingOrder } = this.state;
+      const { columnNameSortBy } = this.props;
+      const getSortingOrder = name => (name === columnNameSortBy
         ? sortingOrder
         : null);
 

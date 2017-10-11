@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import { lifecycle } from 'recompose';
 
 import PTButton from '../../ui-elements/PTButton/PTButton';
@@ -8,12 +9,16 @@ import userAccountSelector from './selectors';
 import userImage from '../../../assets/images/user.jpg'
 import { clientUrls } from '../../../config/client-urls.constants';
 import { unmountOnBlur } from '../../../utils/HOCs/unmount-on-blur.utils';
+import { logoutStart } from '../../../ducks/logout.duck';
 
-@connect(userAccountSelector)
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ logoutStart }, dispatch) });
+
+@connect(userAccountSelector, mapDispatchToProps)
 @lifecycle(unmountOnBlur)
 export default class UserAccountPanel extends PureComponent {
   static propTypes = {
     user: PropTypes.shape().isRequired,
+    actions: PropTypes.objectOf(PropTypes.func).isRequired,
   };
 
   static contextTypes = {
@@ -23,7 +28,7 @@ export default class UserAccountPanel extends PureComponent {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, actions } = this.props;
     return (
       <div className="dropdown-user dropdown-menu-right dropdown-menu">
         <div className="user-profile-image" onClick={() => this.context.router.history.push(clientUrls.USER_PROFILE)}>
@@ -40,7 +45,7 @@ export default class UserAccountPanel extends PureComponent {
             <div className="item"><em>About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0</em></div>
           </div>
           <PTButton className="btn btn-success btn-block btn-signout">
-            <div>
+            <div onClick={actions.logoutStart}>
               <span className="brn-text">Sign Out</span>
               <i className="btn-icon fa fa-sign-out" />
             </div>

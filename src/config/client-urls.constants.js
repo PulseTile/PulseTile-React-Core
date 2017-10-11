@@ -9,6 +9,7 @@ export const clientUrls = {
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
+  ALLERGIES: 'allergies',
 };
 
 export const mainPagesTitles = {
@@ -64,5 +65,17 @@ export const mainPagesTitles = {
   'patients-full-details': {
     breadcrumbs: [],
     headerTitle: 'Search results',
+  },
+  'allergies': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Allergies',
+      state: '/allergies',
+    }],
   },
 };

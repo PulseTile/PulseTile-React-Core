@@ -4,9 +4,9 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux'
 
-import MainLogo from '../MainLogo/MainLogo';
-import NavSearch from '../../containers/NavSearch/NavSearch';
-import UserPanel from '../../containers/UserPanel/UserPanel';
+import MainLogo from '../../presentational/MainLogo/MainLogo';
+import NavSearch from '../NavSearch/NavSearch';
+import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import routersSelector from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants'

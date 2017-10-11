@@ -84,3 +84,43 @@
   }
   .rz-tick.rz-selected { background: $base-color; }
 }
+
+.rc-slider-track {
+  background: $base-color;
+  height: 7px;
+}
+
+.rc-slider-dot-active {
+  border-color: $base-color;
+}
+
+.rc-slider-dot {
+  bottom: -5px;
+  width: 1px;
+  height: 12px;
+  border: 0px solid $base-color;
+  background-color: $base-color;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.rc-slider-handle {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  border: solid 2px $base-color;
+  background-color: $base-color;
+  outline: none !important;
+  margin-top: -3px;
+}
+
+.rc-slider-handle {
+  &:active {
+    background: #7cbe31;
+    border: none;
+    box-shadow: 0 0 0 #7cbe31;
+  }
+  &:hover {
+    border-color: $base-color;
+  }
+}

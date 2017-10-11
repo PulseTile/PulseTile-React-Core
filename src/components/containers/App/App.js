@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 
-import TopHeader from '../../presentational/TopHeader/TopHeader';
+import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../../presentational/Footer/Footer';

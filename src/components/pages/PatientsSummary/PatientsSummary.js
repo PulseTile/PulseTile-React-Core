@@ -18,10 +18,16 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @lifecycle(fetchPatientSummaryOnMount)
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
-      allergies: PropTypes.arrayOf(PropTypes.string).isRequired,
-      contacts: PropTypes.arrayOf(PropTypes.string).isRequired,
-      problems: PropTypes.arrayOf(PropTypes.string).isRequired,
-      medications: PropTypes.arrayOf(PropTypes.string).isRequired,
+      allergies: PropTypes.array.isRequired,
+      contacts: PropTypes.array.isRequired, 
+      problems: PropTypes.array.isRequired,
+      medications: PropTypes.array.isRequired,
+    };
+
+    static contextTypes = {
+      router: PropTypes.shape({
+        history: PropTypes.object,
+      }),
     };
 
     state = {
@@ -29,6 +35,10 @@ export default class PatientsSummary extends PureComponent {
     };
 
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
+
+    handleGoToState = (state) => {
+      this.context.router.history.replace(state);
+    };
 
     render() {
       const { allergies, contacts, problems, medications } = this.props;
@@ -46,7 +56,7 @@ export default class PatientsSummary extends PureComponent {
                 <div className="dashboard">
                   {selectedCategory.problems ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} /> : null}
                   {selectedCategory.contacts ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
-                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} /> : null}
+                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
                   {selectedCategory.medications ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
                 </div>
               </div>

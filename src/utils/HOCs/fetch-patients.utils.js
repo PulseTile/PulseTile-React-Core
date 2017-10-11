@@ -21,28 +21,34 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchPatientSimpleSearch = ({
-  componentDidMount() {
-    const { location, actions } = this.props;
-    const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
-    actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
-  },
-
-  componentWillReceiveProps(nextProps) {
-    const { location, actions } = nextProps;
-    const isNewSearch = location.search !== this.props.location.search;
-
-    if (isNewSearch) {
-      const { orderType, pageNumber, searchString } = qs.parse(location.search.replace('?', ''));
-      actions.fetchBasicPatientSearchRequest({ orderType, pageNumber, searchString })
-    }
-  },
-});
-
 export const fetchPatientSummaryOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
     if (userId) actions.fetchPatientSummaryRequest({ userId })
+  },
+});
+
+export const fetchPatientAllergiesOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientAllergiesRequest({ userId })
+  },
+});
+
+export const fetchPatientAllergiesDetailOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    const sourceId = _.get('params.sourceId', match);
+    if (userId && sourceId) actions.fetchPatientAllergiesDetailRequest({ userId, sourceId })
+  },
+});
+
+export const fetchPatientsInfoOnMount = ({
+  componentDidMount() {
+    const { actions } = this.props;
+    actions.fetchPatientsInfoRequest()
   },
 });
