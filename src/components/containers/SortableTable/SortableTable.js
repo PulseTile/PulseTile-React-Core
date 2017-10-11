@@ -77,7 +77,7 @@ export default class SortableTable extends PureComponent {
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
-    const rowsDataName = rowsData.map(el => el.filter(el => el.name === 'name'));
+    const rowsDataName = rowsData.map(el => el.filter(el => (el.name === 'name' || el.name === 'id')));
     const rowsDataView = rowsData.map(el => el.filter(el => el.name === 'viewPatientNavigation'));
 
     setTimeout(() => this.resizeFixedTables());

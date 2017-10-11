@@ -283,3 +283,9 @@ td[ng-click] { cursor: pointer; }
 td[name='sourceId'], th[name='sourceId'] {
   display: none;
 }
+
+.table-patients-name {
+  td[name='id'] {
+    display: none;
+  }
+}

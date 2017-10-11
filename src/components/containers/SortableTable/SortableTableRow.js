@@ -1,34 +1,40 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
 import { formatNHSNumber } from '../../../utils/table-helpers/table.utils';
 
-const SortableTableRow = (props) => {
-  const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(props.rowData);
-  const userName = _.flow(_.find({ name: 'name' }), _.get('value'))(props.rowData);
-  const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(props.rowData);
-  props.rowData.map((item)=> {
-    if (item.name === 'id') {
-      item.value = formatNHSNumber(item.value)
-    }
-  });
+export default class SortabSortableTableRowleTable extends PureComponent {
+  static propTypes = {
+    rowData: PropTypes.arrayOf(PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+      ]),
+    })),
+    onCellClick: PropTypes.func.isRequired,
+    onMouseEnter: PropTypes.func.isRequired,
+    onMouseLeave: PropTypes.func.isRequired,
+    columnNameSortBy: PropTypes.string.isRequired,
+    hoveredRowName: PropTypes.string,
+  };
 
-  return <tr onMouseEnter={() => props.onMouseEnter(userName)} onMouseLeave={() => props.onMouseLeave()} className={classNames({ hovered: props.hoveredRowName === userName })}>
-    {props.rowData.map((rowItem, index) => <td data-th={props.headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => props.onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === props.columnNameSortBy })}>{rowItem.value}</td>)}
-  </tr>
+  render() {
+    const { rowData, headers, onCellClick, columnNameSortBy, onMouseEnter, onMouseLeave, hoveredRowName } = this.props;
+    const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(rowData);
+    const userName = _.flow(_.find({ name: 'name' }), _.get('value'))(rowData);
+    const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(rowData);
+
+    const rowDataItem = rowData.map((rowItem, index) => {
+      if (rowItem.name === 'id') {
+        return <td data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{formatNHSNumber(rowItem.value)}</td>
+      }
+      return <td data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+    });
+
+    return (<tr onMouseEnter={() => onMouseEnter(userName)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowName === userName })}>
+      {rowDataItem}
+    </tr>)
+  }
 }
-
-SortableTableRow.propTypes = {
-  rowData: PropTypes.arrayOf(PropTypes.shape({
-    name: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-    ]),
-  })).isRequired,
-  onCellClick: PropTypes.func.isRequired,
-
-};
-
-export default SortableTableRow
