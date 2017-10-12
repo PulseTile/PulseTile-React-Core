@@ -22,7 +22,7 @@ module.exports = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
-    publicPath: '/react-ui/',
+    publicPath: '/',
   },
 
   plugins: [

@@ -8,7 +8,7 @@ export const logoutStart = createAction(LOGOUT_START);
 export const logoutFinish = createAction(LOGOUT_FINISH);
 
 //TODO this is cause /react-ui isn't root path and session cookie could be deleted only from /
-const clearCookie = () => 'JSESSIONID=;path=/react-ui;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+const clearCookie = () => 'JSESSIONID=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 
 export const logoutEpic = (action$, store) =>
   action$.ofType(LOGOUT_START)

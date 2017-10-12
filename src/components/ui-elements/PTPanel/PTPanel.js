@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col, Panel } from 'react-bootstrap';
 
 const PTPanel = props => <Col xs={12} md={6}>
-  <Panel header={props.header} bsStyle="secondary">
+  <Panel header={props.header} bsStyle="secondary" className="mainPagePanel">
     <div className="panel-body-inner">
       {props.children}
     </div>
