@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import LoadingBar from 'react-redux-loading-bar'
 
 import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
@@ -13,6 +14,7 @@ const App = (props) => {
   const isTouchDevice = ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
 
   return (<div className="page">
+    <LoadingBar className="loading-bar" />
     <MainSpinner />
     <div className={classNames('wrapper', isTouchDevice)}>
       <header className="header">

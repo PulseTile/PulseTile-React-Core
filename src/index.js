@@ -8,6 +8,7 @@ import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
+import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
 import App from './components/containers/App/App'
 import rootReducer from './root.reducer'
@@ -51,10 +52,10 @@ const initialState = {
 //create store and enhance with middleware
 let store;
 if (process.env.NODE_ENV === 'production') {
-  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware, routerMiddlewareInstance))
+  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE']})))
 } else {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, routerMiddlewareInstance)));
+  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, routerMiddlewareInstance,loadingBarMiddleware({promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE']}))));
 }
 
 //initialisation
