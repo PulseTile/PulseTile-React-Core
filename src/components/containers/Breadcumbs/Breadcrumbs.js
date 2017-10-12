@@ -17,13 +17,25 @@ class Breadcrumbs extends PureComponent {
     router: PropTypes.shape().isRequired,
   };
 
-  getRouterBreadcrumbs = hash => _.getOr(mainPagesTitles['/'].breadcrumbs, [hash, 'breadcrumbs'])(mainPagesTitles);
+  getRouterBreadcrumbs = hash => _.getOr(null, [hash, 'breadcrumbs'])(mainPagesTitles);
 
   render() {
     const { router } = this.props;
-    const routerHash = _.last((router.location.hash.split('?')[0]).split('/'));
+    let breadcrumbs = null;
+    const routingComponents = (router.location.hash.split('?')[0]).split('/');
+    const statePatientsSummary = `${window.location.hash.split('/allergies')[0].split('#')[1]}/patients-summary`;
+    do {
+      const routerHash = routingComponents.pop();
+      breadcrumbs = this.getRouterBreadcrumbs(routerHash);
+      if (routerHash === 'allergies') {
+        breadcrumbs[1].state = statePatientsSummary;
+      }
+      if (breadcrumbs) break
+    } while (routingComponents.length);
 
-    const breadcrumbs = this.getRouterBreadcrumbs(routerHash);
+    if (!breadcrumbs) {
+      breadcrumbs = this.getRouterBreadcrumbs('/');
+    }
     const lastItemBreadcrumbsIndex = breadcrumbs.length - 1;
 
     const breadcrumbItems = breadcrumbs.map((breadcrumb, index) =>
