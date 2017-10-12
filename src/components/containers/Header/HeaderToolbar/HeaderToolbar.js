@@ -32,14 +32,20 @@ class HeaderToolbar extends PureComponent {
     }),
   };
 
+  state = {
+    activeLink: 'patients-summary',
+  };
+
   toggleSidebarVisibility = () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
 
   handleGoToState = (state) => {
     this.context.router.history.replace(state);
+    this.setState({activeLink: state});
   };
 
   render() {
     const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
+    const { activeLink } = this.state;
 
     return (
       <div>
@@ -79,6 +85,7 @@ class HeaderToolbar extends PureComponent {
         {isSidebarVisible && <Sidebar
           userId={userId}
           goToState={this.handleGoToState}
+          activeLink={activeLink}
         />}
       </div>
     )
