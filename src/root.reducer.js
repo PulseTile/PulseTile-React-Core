@@ -1,6 +1,7 @@
 import { routerReducer } from 'react-router-redux'
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import { loadingBarReducer } from 'react-redux-loading-bar'
 
 import fetchInitialiseReducer from './ducks/fetch-initialise.duck'
 import loginStatusReducer from './ducks/login-status.duck'
@@ -38,6 +39,7 @@ const rootReducer = combineReducers({
   allergiesDetail: fetchPatientAllergiesDetailReducer,
   patientsInfo: fetchPatientsInfoReducer,
   allergiesDetailEdit: fetchPatientAllergiesDetailEditReducer,
+  loadingBar: loadingBarReducer,
 });
 
 export default rootReducer;

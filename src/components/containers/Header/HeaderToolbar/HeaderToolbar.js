@@ -4,11 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { compose, lifecycle } from 'recompose';
+import _ from 'lodash/fp';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import toolbarSelector from './selectors';
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
+import { mainPagesTitles } from '../../../../config/client-urls.constants'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
@@ -32,6 +34,8 @@ class HeaderToolbar extends PureComponent {
     }),
   };
 
+  getState = hash => _.getOr(null, [hash])(mainPagesTitles);
+
   toggleSidebarVisibility = () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
 
   handleGoToState = (state) => {
@@ -40,6 +44,15 @@ class HeaderToolbar extends PureComponent {
 
   render() {
     const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
+
+    let breadcrumbs = null;
+    const routingComponents = (this.context.router.route.location.pathname.split('?')[0]).split('/');
+    let routerHash;
+    do {
+      routerHash = routingComponents.pop();
+      breadcrumbs = this.getState(routerHash);
+      if (breadcrumbs) break
+    } while (routingComponents.length);
 
     return (
       <div>
@@ -79,6 +92,7 @@ class HeaderToolbar extends PureComponent {
         {isSidebarVisible && <Sidebar
           userId={userId}
           goToState={this.handleGoToState}
+          activeLink={routerHash}
         />}
       </div>
     )

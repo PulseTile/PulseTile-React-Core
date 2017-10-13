@@ -28,12 +28,12 @@ export default class SortabSortableTableRowleTable extends PureComponent {
 
     const rowDataItem = rowData.map((rowItem, index) => {
       if (rowItem.name === 'id') {
-        return <td data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{formatNHSNumber(rowItem.value)}</td>
+        return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{formatNHSNumber(rowItem.value)}</td>
       }
-      return <td data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
     });
 
-    return (<tr onMouseEnter={() => onMouseEnter(userName)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowName === userName })}>
+    return (<tr style={{marginRight: 1 + 'px'}} onMouseEnter={() => onMouseEnter(userName)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowName === userName })}>
       {rowDataItem}
     </tr>)
   }

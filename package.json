@@ -116,6 +116,7 @@
     "react-dom": "^15.6.2",
     "react-hot-loader": "^3.0.0-beta.7",
     "react-redux": "^5.0.6",
+    "react-redux-loading-bar": "^2.9.3",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.6",
     "recompose": "^0.24.0",

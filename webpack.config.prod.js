@@ -22,7 +22,7 @@ module.exports = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
-    publicPath: '/react-ui/',
+    publicPath: '/',
   },
 
   plugins: [
@@ -35,6 +35,12 @@ module.exports = {
     // do not emit compiled assets that include errors
 
     new ExtractTextPlugin('styles.css'),
+
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
   ],
 
   module: {

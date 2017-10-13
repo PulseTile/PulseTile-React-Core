@@ -32,7 +32,7 @@ const redirectAccordingRole = (user) => {
 export const initialiseEpic = (action$, store) => Observable.merge(
   action$
     .ofType(INITIALISE_START)
-    .map(fetchInitialiseRequest),
+    .map(fetchInitialiseRequest, _.head(window.document.getElementsByTagName('body')).className = 'loading'),
   action$
     .ofType(FETCH_INITIALISE_SUCCESS)
     .map((action) => {
