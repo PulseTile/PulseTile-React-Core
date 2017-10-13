@@ -36,6 +36,7 @@ export default class SortableTable extends PureComponent {
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
           hoveredRowName={hoveredRowName}
+          ref={(el) => { this.tableRow = el; }}
         />)],
       [_.T, () => <SortableTableEmptyDataRow />],
     ])(rowsData);
@@ -55,20 +56,14 @@ export default class SortableTable extends PureComponent {
     const tableFull = this.tableFull;
 
     if (tableNames && tableControls && tableFull) {
-      const tableNamesRows = _.last(tableNames.children).children;
-      const tableControlsRows = _.last(tableControls.children).children;
       const tableFullRows = _.last(tableFull.children).children;
-
       const tds = _.head(tableFullRows).children;
 
       tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
       tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
 
-      Array.prototype.forEach.call(tableFullRows, (row, i) => {
-        const height = row.offsetHeight;
-        tableNamesRows[i].style.height = `${height}px`;
-        tableControlsRows[i].style.height = `${height}px`;
-      });
+      const height = _.head(tableFullRows).offsetHeight;
+      this.tableRow.setState({ height: `${height}px` });
     }
   };
 
