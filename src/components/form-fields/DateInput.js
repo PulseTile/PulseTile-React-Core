@@ -34,6 +34,10 @@ export default class DateInput extends PureComponent {
               selected={input.value}
               placeholderText={placeholder}
               disabled={disabled}
+              peekNextMonth
+              showMonthDropdown
+              showYearDropdown
+              dropdownMode="select"
               {...input}
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
