@@ -14,7 +14,7 @@ const SortableTableRow = (props) => {
   });
 
   return <tr>
-    {_.map(({ name, value }) => <td key={_.uniqueId('__SortableTableRow__')} name={name} onClick={() => props.onCellClick(userId, name, sourceId)} className={classNames({ 'sorted': name === props.columnNameSortBy })}>{value}</td>, props.rowData)}
+    {_.map(({ name, value }) => <td data-table-hover key={_.uniqueId('__SortableTableRow__')} name={name} onClick={() => props.onCellClick(userId, name, sourceId)} className={classNames({ 'sorted': name === props.columnNameSortBy })}>{value}</td>, props.rowData)}
   </tr>
 }
 

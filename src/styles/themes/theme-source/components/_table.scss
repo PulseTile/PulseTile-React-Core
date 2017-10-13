@@ -42,6 +42,11 @@
       &:nth-of-type(odd) {
         background-color: map-get($colored-table, 'row-odd-background');
       }
+      &:hover {
+        td:not(:last-child) {
+          background-color: map-get($colored-table, 'row-background-hover');
+        }
+      }
     }
   }
 }
@@ -49,8 +54,8 @@
   background-color: map-get($colored-table, 'background');
   tbody {
     tr {
-      &[ng-click]:hover td,
-      &:hover td[ng-click] {
+      &[data-table-hover]:hover td[data-table-hover]:not(:last-child),
+      &:hover td[data-table-hover]:not(:last-child) {
         background-color: map-get($colored-table, 'row-background-hover');
       }
     }

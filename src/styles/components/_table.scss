@@ -86,7 +86,7 @@
       }
       &:hover {
         td:not(:last-child) {
-          background-color: #e7efdd;
+          background-color: map-get($colored-table, 'row-background-hover');
         }
       }
       td {
