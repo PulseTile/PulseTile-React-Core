@@ -21,11 +21,11 @@ export const initialiseFailure = createAction(INITIALISE_FAILURE);
 
 const redirectAccordingRole = (user) => {
   if (_.flow(_.get('role'), _.eq('PHR'))(user)) {
-    const userSummaryUrl = `#${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
-    return location.hash = userSummaryUrl;
+    const userSummaryUrl = `/#${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
+    return location.href = userSummaryUrl;
   }
 
-  return location.hash = `#${clientUrls.CHARTS}`;
+  return location.href = `/#${clientUrls.CHARTS}`;
 };
 
 //TODO should be refactored to actual sequence, not parallel listening
