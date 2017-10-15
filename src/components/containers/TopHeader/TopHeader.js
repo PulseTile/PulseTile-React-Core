@@ -8,12 +8,12 @@ import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
 import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
-import routersSelector from './selectors';
+import userAccountSelector from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
-@connect(routersSelector, mapDispatchToProps)
+@connect(userAccountSelector, mapDispatchToProps)
 class TopHeader extends PureComponent {
   static contextTypes = {
     router: PropTypes.shape({
@@ -27,7 +27,7 @@ class TopHeader extends PureComponent {
   };
 
   render() {
-    const { router } = this.props;
+    const { userAccount, router } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
 
@@ -38,7 +38,7 @@ class TopHeader extends PureComponent {
         </PTButton> : null }
         <MainLogo />
         <UserPanel />
-        <NavSearch />
+        <NavSearch userAccount={userAccount} />
       </div>
     )
   }

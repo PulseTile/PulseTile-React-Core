@@ -1,8 +1,9 @@
 import { createSelector } from 'reselect';
 
-const routerSelector = createSelector(
+const userAccountSelector = createSelector(
   ({ router }) => router,
-  router => ({ router })
+  ({ userAccount }) => userAccount,
+  (router, userAccount) => ({ router, userAccount })
 );
 
-export default routerSelector;
+export default userAccountSelector;
