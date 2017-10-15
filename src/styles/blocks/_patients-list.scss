@@ -65,7 +65,7 @@
     min-width: 100%;
     thead tr th,
     tbody tr td {
-      @include respond-from(xs) { min-height: 40px; }
+      @include respond-from(xs) { min-height: 40px; height: 40px }
       word-wrap: normal;
     }
   }
@@ -78,6 +78,12 @@
   top: 0;
   z-index: 2;
   @include respond-to(xs) { display: none; }
+}
+
+.table-patients-full {
+  td:last-child,th:last-child {
+    @include respond-to(xs) { display: none; }
+  }
 }
 .wrap-patients-table .table-patients-name { 
   border-right: 0;
