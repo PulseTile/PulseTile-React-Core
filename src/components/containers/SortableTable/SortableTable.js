@@ -15,73 +15,74 @@ export default class SortableTable extends PureComponent {
     onCellClick: PropTypes.func.isRequired,
     sortingOrder: PropTypes.oneOf(['asc', 'desc']).isRequired,
     columnNameSortBy: PropTypes.string.isRequired,
+    table: PropTypes.string.isRequired,
   };
 
   state = {
-    hoveredRowName: '',
+    hoveredRowIndex: '',
   };
 
   getSortableTableRows = (rowsData) => {
     const { onCellClick, columnNameSortBy, headers } = this.props;
-    const { hoveredRowName } = this.state;
+    const { hoveredRowIndex } = this.state;
 
-    return _.cond([
-      [_.negate(_.isEmpty), _.map(rowData =>
+    return (
+      !_.isEmpty(rowsData) ? rowsData.map((rowData, index) =>
         <SortableTableRow
           key={_.uniqueId('__SortableTableRow__')}
           rowData={rowData}
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           headers={headers}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          hoveredRowName={hoveredRowName}
+          onMouseEnter={this.hoverTableRow}
+          onMouseLeave={this.unHoverTableRow}
+          hoveredRowIndex={hoveredRowIndex}
           ref={(el) => { this.tableRow = el; }}
-        />)],
-      [_.T, () => <SortableTableEmptyDataRow />],
-    ])(rowsData);
+          index={index}
+        />) : <SortableTableEmptyDataRow />
+    )
   };
 
-  handleMouseEnter = (name) => {
-    this.setState({ hoveredRowName: name });
+  hoverTableRow = (index) => {
+    this.setState({ hoveredRowIndex: index });
   };
 
-  handleMouseLeave = () => {
-    this.setState({ hoveredRowName: '' });
+  unHoverTableRow = () => {
+    this.setState({ hoveredRowIndex: '' });
   };
 
-  resizeFixedTables = () => {
-    const tableNames = this.tableNames;
-    const tableControls = this.tableControls;
-    const tableFull = this.tableFull;
-
-    if (tableNames && tableControls && tableFull) {
-      const tableFullRows = _.last(tableFull.children).children;
-      const tds = _.head(tableFullRows).children;
-
-      tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
-      tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
-
-      const height = _.head(tableFullRows).offsetHeight;
-      this.tableRow.setState({ height: `${height}px` });
-    }
-  };
+  // resizeFixedTables = () => {
+  //   const tableNames = this.tableNames;
+  //   const tableControls = this.tableControls;
+  //   const tableFull = this.tableFull;
+  //
+  //   if (tableNames && tableControls && tableFull) {
+  //     const tableFullRows = _.last(tableFull.children).children;
+  //     const tds = _.head(tableFullRows).children;
+  //
+  //     tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
+  //     tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
+  //
+  //     const height = _.head(tableFullRows).offsetHeight;
+  //     this.tableRow.setState({ height: `${height}px` });
+  //   }
+  // };
 
   render() {
-    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy } = this.props;
+    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table } = this.props;
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
     const rowsDataName = rowsData.map(el => el.filter(el => (el.name === 'name' || el.name === 'id')));
     const rowsDataView = rowsData.map(el => el.filter(el => el.name === 'viewPatientNavigation'));
 
-    setTimeout(() => this.resizeFixedTables());
-    window.addEventListener('resize', () => {
-      this.resizeFixedTables()
-    });
+    // setTimeout(() => this.resizeFixedTables());
+    // window.addEventListener('resize', () => {
+    //   this.resizeFixedTables()
+    // });
     return (
       <div>
-        {data.length ? <table
+        {table === 'patientsList' ? <table
           className="table table-striped  table-bordered table-sorted table-hover table-fixedcol table-patients-name"
           ref={(el) => { this.tableNames = el; }}
         >
@@ -102,7 +103,7 @@ export default class SortableTable extends PureComponent {
           </tbody>
         </table> : null }
         <table
-          className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table"
+          className={`table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table ${table}`}
           ref={(el) => { this.tableFull = el; }}
         >
           <colgroup>
@@ -121,7 +122,7 @@ export default class SortableTable extends PureComponent {
             {this.getSortableTableRows(rowsData)}
           </tbody>
         </table>
-        {data.length ? <table
+        {table === 'patientsList' ? <table
           className="table table-striped table-bordered table-sorted table-fixedcol table-patients-controls"
           ref={(el) => { this.tableControls = el; }}
         >

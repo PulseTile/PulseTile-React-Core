@@ -1,8 +1,8 @@
 export const allergiesColumnsConfig = [
-  { key: 'cause', title: 'Cause' },
-  { key: 'reaction', title: 'Reaction' },
-  { key: 'source', title: 'Source' },
-  { key: 'sourceId', title: 'SourceID' },
+  { key: 'cause', title: 'Cause', width: '26%' },
+  { key: 'reaction', title: 'Reaction', width: '55%' },
+  { key: 'source', title: 'Source', width: '19%' },
+  { key: 'sourceId', title: 'SourceID', width: 0 },
 ];
 
 export const defaultColumnsSelected = {

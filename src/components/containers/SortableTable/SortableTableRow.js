@@ -17,20 +17,13 @@ export default class SortableTableRow extends PureComponent {
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     columnNameSortBy: PropTypes.string.isRequired,
-    hoveredRowName: PropTypes.string,
-  };
-
-  state = {
-    height: '',
+    hoveredRowIndex: PropTypes.number,
   };
 
   render() {
-    const { rowData, headers, onCellClick, columnNameSortBy, onMouseEnter, onMouseLeave, hoveredRowName } = this.props;
-    const { height } = this.state;
+    const { rowData, headers, onCellClick, columnNameSortBy, onMouseEnter, onMouseLeave, hoveredRowIndex, index } = this.props;
     const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(rowData);
-    const userName = _.flow(_.find({ name: 'name' }), _.get('value'))(rowData);
     const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(rowData);
-    const tableRowStyle = {height,};
 
     const rowDataItem = rowData.map((rowItem, index) => {
       if (rowItem.name === 'id') {
@@ -39,7 +32,7 @@ export default class SortableTableRow extends PureComponent {
       return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
     });
 
-    return (<tr style={tableRowStyle} onMouseEnter={() => onMouseEnter(userName)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowName === userName })}>
+    return (<tr onMouseEnter={() => onMouseEnter(index)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowIndex === index })}>
       {rowDataItem}
     </tr>)
   }

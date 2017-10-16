@@ -124,6 +124,7 @@ export default class PatientsList extends PureComponent {
                 onCellClick={this.handlePatientViewClick}
                 columnNameSortBy={columnNameSortBy}
                 sortingOrder={sortingOrder}
+                table="patientsList"
               />
             </div>
             {this.shouldHavePagination(filteredPatients) &&

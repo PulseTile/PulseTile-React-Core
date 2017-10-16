@@ -274,6 +274,7 @@ export default class Allergies extends PureComponent {
                   onCellClick={this.handleDetailAllergiesClick}
                   columnNameSortBy={columnNameSortBy}
                   sortingOrder={sortingOrder}
+                  table="allergies"
                 />
                 <div className="panel-control">
                   <div className="wrap-control-group">
