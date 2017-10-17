@@ -9,6 +9,7 @@ import ViewPatienDropdown from './actions-column/ViewPatienDropdown';
 import PatientAccessDisclaimerModal from './PatientAccessDisclaimerModal';
 import { patientsColumnsConfig, defaultColumnsSelected } from '../../../config/patients-table-columns.config'
 import { clientUrls } from '../../../config/client-urls.constants';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 export default class PatientsList extends PureComponent {
     static propTypes = {
@@ -58,16 +59,31 @@ export default class PatientsList extends PureComponent {
     filterAndSortPatients = (patients) => {
       const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
       const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
+      const filterByAddressPredicate = _.flow(_.get('address'), _.toLower, _.includes(nameShouldInclude));
+      const filterByBornPredicate = _.flow(_.get('dateOfBirth'), _.toLower, _.includes(nameShouldInclude));
+      const filterByGenderPredicate = _.flow(_.get('gender'), _.toLower, _.includes(nameShouldInclude));
+      const filterByNHSPredicate = _.flow(_.get('id'), _.toLower, _.includes(nameShouldInclude));
+
       const reverseIfDescOrder = _.cond([
         [_.isEqual('desc'), () => _.reverse],
         [_.stubTrue, () => v => v],
       ])(sortingOrder);
 
-      return _.flow(
-        _.sortBy([columnNameSortBy]),
-        reverseIfDescOrder,
-        _.filter(filterByNamePredicate)
-      )(patients);
+      patients.map((item) => {
+        item.dateOfBirth = getDDMMMYYYY(item.dateOfBirth);
+      });
+
+      const filterByName = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByNamePredicate))(patients);
+      const filterByAddress = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByAddressPredicate))(patients);
+      const filterByBorn = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByBornPredicate))(patients);
+      const filterByGender = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByGenderPredicate))(patients);
+      const filterByNHS = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByNHSPredicate))(patients);
+
+      const filteredAndSortedPatients = [filterByName, filterByAddress, filterByBorn, filterByGender, filterByNHS].filter((item) => {
+        return _.size(item) !== 0;
+      });
+
+      return _.head(filteredAndSortedPatients)
     };
 
     addActionsColumn = _.map(patient => _.set('viewPatientNavigation', <ViewPatienDropdown patient={patient} onPatientViewClick={this.handlePatientViewClick} />, patient));
