@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { getDDMMMYYYY } from '../utils/time-helpers.utils';
+import { formatNHSNumber } from '../utils/table-helpers/table.utils';
 
 const CalendarIcon = () => <i className="fa fa-calendar" />;
 
@@ -9,7 +10,7 @@ export const patientsColumnsConfig = [
   { key: 'address', title: 'Address', width: 300 },
   { key: 'dateOfBirth', title: 'Born', transformer: getDDMMMYYYY, width: 105 },
   { key: 'gender', title: 'Gender', width: 90 },
-  { key: 'id', title: 'NHS No.', width: 115 },
+  { key: 'id', title: 'NHS No.',transformer: formatNHSNumber, width: 115 },
   { key: 'ordersDate', title: 'Orders', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
   { key: 'ordersCount', title: 'Orders ', icon: <span>#</span>, width: 100 },
   { key: 'resultsDate', title: 'Results', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
