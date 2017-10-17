@@ -21,15 +21,15 @@ export default class SortableTableRow extends PureComponent {
   };
 
   render() {
-    const { rowData, headers, onCellClick, columnNameSortBy, onMouseEnter, onMouseLeave, hoveredRowIndex, index } = this.props;
+    const { rowData, headers, onCellClick, columnNameSortBy, onMouseEnter, onMouseLeave, hoveredRowIndex, index, table } = this.props;
     const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(rowData);
     const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(rowData);
 
     const rowDataItem = rowData.map((rowItem, index) => {
       if (rowItem.name === 'id') {
-        return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{formatNHSNumber(rowItem.value)}</td>
+        return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{formatNHSNumber(rowItem.value)}</td>
       }
-      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{rowItem.value}</td>
     });
 
     return (<tr onMouseEnter={() => onMouseEnter(index)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowIndex === index })}>

@@ -281,11 +281,11 @@ td[ng-click] { cursor: pointer; }
 }
 
 td[name='sourceId'], th[name='sourceId'] {
-  display: none;
+  display: none !important;
 }
 
-.table-patients-name {
-  td[name='id'] {
+.table-patients-name, .table-patients-controls {
+  td[name='id'], td[name='address'] {
     display: none;
   }
 }

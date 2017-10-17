@@ -23,7 +23,7 @@ export default class SortableTable extends PureComponent {
   };
 
   getSortableTableRows = (rowsData) => {
-    const { onCellClick, columnNameSortBy, headers } = this.props;
+    const { onCellClick, columnNameSortBy, headers, table } = this.props;
     const { hoveredRowIndex } = this.state;
 
     return (
@@ -37,8 +37,8 @@ export default class SortableTable extends PureComponent {
           onMouseEnter={this.hoverTableRow}
           onMouseLeave={this.unHoverTableRow}
           hoveredRowIndex={hoveredRowIndex}
-          ref={(el) => { this.tableRow = el; }}
           index={index}
+          table={table}
         />) : <SortableTableEmptyDataRow />
     )
   };
@@ -51,22 +51,19 @@ export default class SortableTable extends PureComponent {
     this.setState({ hoveredRowIndex: '' });
   };
 
-  // resizeFixedTables = () => {
-  //   const tableNames = this.tableNames;
-  //   const tableControls = this.tableControls;
-  //   const tableFull = this.tableFull;
-  //
-  //   if (tableNames && tableControls && tableFull) {
-  //     const tableFullRows = _.last(tableFull.children).children;
-  //     const tds = _.head(tableFullRows).children;
-  //
-  //     tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
-  //     tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
-  //
-  //     const height = _.head(tableFullRows).offsetHeight;
-  //     this.tableRow.setState({ height: `${height}px` });
-  //   }
-  // };
+  resizeFixedTables = () => {
+    const tableNames = this.tableNames;
+    const tableControls = this.tableControls;
+    const tableFull = this.tableFull;
+
+    if (tableNames && tableControls && tableFull) {
+      const tableFullRows = _.last(tableFull.children).children;
+      const tds = _.head(tableFullRows).children;
+
+      tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
+      tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
+    }
+  };
 
   render() {
     const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table } = this.props;
@@ -76,13 +73,14 @@ export default class SortableTable extends PureComponent {
     const rowsDataName = rowsData.map(el => el.filter(el => (el.name === 'name' || el.name === 'id')));
     const rowsDataView = rowsData.map(el => el.filter(el => el.name === 'viewPatientNavigation'));
 
-    // setTimeout(() => this.resizeFixedTables());
-    // window.addEventListener('resize', () => {
-    //   this.resizeFixedTables()
-    // });
+    setTimeout(() => this.resizeFixedTables());
+    window.addEventListener('resize', () => {
+      this.resizeFixedTables()
+    });
+
     return (
       <div>
-        {table === 'patientsList' ? <table
+        {(table === 'patientsList' && !_.isEmpty(data)) ? <table
           className="table table-striped  table-bordered table-sorted table-hover table-fixedcol table-patients-name"
           ref={(el) => { this.tableNames = el; }}
         >
@@ -90,7 +88,7 @@ export default class SortableTable extends PureComponent {
             {/*//TODO inject theme here*/}
             {headersName.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersName__')}></col>)}
           </colgroup>
-          <thead>
+          <thead ref="tableHead">
             <SortableTableHeaderRow
               headers={headersName}
               onHeaderCellClick={onHeaderCellClick}
@@ -122,7 +120,7 @@ export default class SortableTable extends PureComponent {
             {this.getSortableTableRows(rowsData)}
           </tbody>
         </table>
-        {table === 'patientsList' ? <table
+        {(table === 'patientsList' && !_.isEmpty(data)) ? <table
           className="table table-striped table-bordered table-sorted table-fixedcol table-patients-controls"
           ref={(el) => { this.tableControls = el; }}
         >
