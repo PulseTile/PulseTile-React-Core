@@ -1,5 +1,5 @@
 .dropdown-menu {
-  display: block;
+  display: none;
   background-clip: padding-box;
   background-color: #fff;
   border-radius: 4px;
@@ -142,3 +142,18 @@
 }
 
 .uib-datepicker-popup.dropdown-menu { padding: 10px 0; }
+
+.open {
+  .dropdown-menu {
+    display: block;
+  }
+  .btn-dropdown-toggle {
+    &:after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+}
+
+.dropdown-menu-search {
+  display: block;
+}

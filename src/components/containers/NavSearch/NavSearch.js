@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Dropdown from 'simple-react-dropdown'
+import classNames from 'classnames';
 
 import SearchOptions from './SearchOptions'
 import PTButton from '../../ui-elements/PTButton/PTButton';
@@ -9,34 +9,60 @@ import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 
 const BASIC_SEARCH = 'basicSearch';
 const ADVANCED_SEARCH = 'advancedSearch';
+const SEARCH_CONTENT = 'searchContent';
 
 export default class NavSearch extends PureComponent {
   state = {
     selected: BASIC_SEARCH,
+    openedPanel: '',
   };
 
   handleSelect = (selected) => {
     this.setState({ selected });
     //TODO remove this spike to close dropdown
     document.body.click();
+  };
+
+  componentWillMount() {
+    document.addEventListener('click', this.handleClick, false);
   }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClick, false);
+  }
+
+  handleClick = (e) => {
+    if (!this.node.contains(e.target)) {
+      this.setState({ openedPanel: '' });
+    }
+  };
+
+  handleMouseDown = (name) => {
+    this.setState((prevState) => {
+      if (prevState.openedPanel !== name) {
+        return ({ openedPanel: name })
+      }
+      return ({ openedPanel: '' })
+    })
+  };
 
 
   render() {
-    const { selected } = this.state;
+    const { selected, openedPanel } = this.state;
     const { userAccount } = this.props;
 
-    return <div className="wrap-search wrap-header-search">
+    return <div className="wrap-search wrap-header-search" ref={node => this.node = node}>
       <div className="header-search">
-        <div className="control-group left control-search-select dropdown">
+        <div className={classNames('control-group left control-search-select dropdown', { 'open': openedPanel === SEARCH_CONTENT })}>
           {isIDCRRole(userAccount) ?
-            <Dropdown content={<SearchOptions onSelect={this.handleSelect} {...{ BASIC_SEARCH, ADVANCED_SEARCH }} />}>
-              <PTButton className="btn btn-dropdown-toggle btn-search-toggle">
+            <div>
+              <SearchOptions onSelect={this.handleSelect} {...{ BASIC_SEARCH, ADVANCED_SEARCH }} />
+              <PTButton className="btn btn-dropdown-toggle btn-search-toggle" onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
                 <i className="btn-icon fa fa-bars" />
               </PTButton>
-            </Dropdown>
+            </div>
             :
-            <PTButton className="btn btn-dropdown-toggle btn-search-toggle">
+            <PTButton className="btn btn-dropdown-toggle btn-search-toggle" onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
               <i className="btn-icon fa fa-bars" />
             </PTButton>
           }
