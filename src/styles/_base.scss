@@ -35,8 +35,7 @@ a:focus {
   text-decoration: none;
 }
 
-.is-not-touch-device a:hover,
-.is-not-touch-device a:focus, {
+.is-not-touch-device a:hover {
   color: $auxiliary-color;
   text-decoration: none;
 }

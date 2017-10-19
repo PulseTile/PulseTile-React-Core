@@ -22,7 +22,7 @@ export default class Main extends PureComponent {
 
       return (
         <main className={classNames('main', { showSidebar: isSidebarVisible })}>
-          <Breadcrumbs />
+          <Breadcrumbs userAccount={userAccount}/>
           <Switch>
             <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} />

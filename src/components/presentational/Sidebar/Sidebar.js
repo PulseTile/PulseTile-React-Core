@@ -1,28 +1,29 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
 
 export default class Sidebar extends PureComponent {
   static propTypes = {
-    goToState: PropTypes.func.isRequired,
     activeLink: PropTypes.string,
+    userId: PropTypes.number
   };
 
   render() {
-    const { goToState, activeLink } = this.props;
+    const { activeLink, userId } = this.props;
     return (
       <div className="sidebar showSidebar" role="navigation" style={{ top: '138px', bottom: '56px' }} >
         <div className="sidebar-nav">
           <div>
             <ul className="sidebar-nav-list">
               <li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'patients-summary' })} onClick={() => goToState('patients-summary')}>Patient Summary</a>
+                <Link className={classNames('sidebar-nav-link', { active: activeLink === 'patients-summary' })} to={`/patients/${userId}/patients-summary`}>Patient Summary</Link>
               </li><li className="sidebar-nav-item">
                 <a className={classNames('sidebar-nav-link', { active: activeLink === 'problems' })}>Problems / Diagnosis</a>
               </li><li className="sidebar-nav-item">
                 <a className={classNames('sidebar-nav-link', { active: activeLink === 'medications' })}>Medications</a>
               </li><li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'allergies' })} onClick={() => goToState('allergies')}>Allergies</a>
+                <Link className={classNames('sidebar-nav-link', { active: activeLink === 'allergies' })} to={`/patients/${userId}/allergies`}>Allergies</Link>
               </li><li className="sidebar-nav-item">
                 <a className="sidebar-nav-link">Contacts</a>
               </li>
