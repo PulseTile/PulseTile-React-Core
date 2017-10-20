@@ -1,5 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
+import { pluginsEpicConfig } from './plugins.config'
 import { initialiseEpic } from './ducks/initialise-app.duck'
 import { loginEpic } from './ducks/login-status.duck';
 import { logoutEpic } from './ducks/logout.duck';
@@ -12,14 +13,10 @@ import { fetchBasicPatientSearchEpic } from './ducks/fetch-basic-patient-search.
 import { fetchAdvancedPatientSearchEpic } from './ducks/fetch-advanced-patient-search.duck';
 import { fetchPatientSummaryEpic } from './ducks/fetch-patient-summary.duck';
 import { fetchProfileAppPreferencesEpic } from './ducks/fetch-profile-application-preferences.duck';
-import { fetchPatientAllergiesEpic } from './ducks/fetch-patient-allergies.duck';
-import { fetchPatientAllergiesCreateEpic } from './ducks/fetch-patient-allergies-create.duck';
 import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
 import { setLogoEpic } from './ducks/set-logo.duck';
 import { setTitleEpic } from './ducks/set-title.duck';
-import { fetchPatientAllergiesDetailEpic } from './ducks/fetch-patient-allergies-detail.duck';
-import { fetchPatientAllergiesDetailEditEpic } from './ducks/fetch-patient-allergies-detail-edit.duck';
 
 const rootEpic = combineEpics(
   initialiseEpic,
@@ -34,14 +31,11 @@ const rootEpic = combineEpics(
   fetchAdvancedPatientSearchEpic,
   fetchPatientSummaryEpic,
   fetchProfileAppPreferencesEpic,
-  fetchPatientAllergiesEpic,
   fetchPatientsInfoEpic,
   setThemeEpic,
   setLogoEpic,
   setTitleEpic,
-  fetchPatientAllergiesCreateEpic,
-  fetchPatientAllergiesDetailEpic,
-  fetchPatientAllergiesDetailEditEpic,
+  ...pluginsEpicConfig,
 );
 
 export default rootEpic;

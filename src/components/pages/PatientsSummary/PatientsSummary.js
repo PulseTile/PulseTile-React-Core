@@ -11,6 +11,7 @@ import patientSummarySelector from './selectors';
 import { patientsSummaryConfig, defaultCategorySelected } from '../../../config/patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { dashboardVisible } from '../../../plugins.config';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
 
@@ -19,7 +20,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
       allergies: PropTypes.array.isRequired,
-      contacts: PropTypes.array.isRequired, 
+      contacts: PropTypes.array.isRequired,
       problems: PropTypes.array.isRequired,
       medications: PropTypes.array.isRequired,
     };
@@ -54,10 +55,10 @@ export default class PatientsSummary extends PureComponent {
               />
               <div className="panel-body">
                 <div className="dashboard">
-                  {selectedCategory.problems ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} /> : null}
-                  {selectedCategory.contacts ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
-                  {selectedCategory.allergies ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
-                  {selectedCategory.medications ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
+                  {(selectedCategory.problems && dashboardVisible.problems) ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} /> : null}
+                  {(selectedCategory.contacts && dashboardVisible.contacts) ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
+                  {(selectedCategory.allergies && dashboardVisible.allergies) ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
+                  {(selectedCategory.medications && dashboardVisible.medications) ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
                 </div>
               </div>
             </div>

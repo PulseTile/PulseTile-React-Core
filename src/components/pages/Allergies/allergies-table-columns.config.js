@@ -1,7 +1,7 @@
 export const allergiesColumnsConfig = [
-  { key: 'cause', title: 'Cause', width: '26%' },
+  { key: 'cause', title: 'Cause', width: '25%' },
   { key: 'reaction', title: 'Reaction', width: '55%' },
-  { key: 'source', title: 'Source', width: '19%' },
+  { key: 'source', title: 'Source', width: '20%' },
   { key: 'sourceId', title: 'SourceID', width: 0 },
 ];
 

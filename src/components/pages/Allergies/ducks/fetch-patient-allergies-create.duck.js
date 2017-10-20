@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../config/server-urls.constants'
+import { usersUrls } from '../../../../config/server-urls.constants'
 
 export const FETCH_PATIENT_ALLERGIES_CREATE_REQUEST = 'FETCH_PATIENT_ALLERGIES_CREATE_REQUEST';
 export const FETCH_PATIENT_ALLERGIES_CREATE_SUCCESS = 'FETCH_PATIENT_ALLERGIES_CREATE_SUCCESS';

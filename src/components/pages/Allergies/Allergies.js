@@ -10,11 +10,11 @@ import { lifecycle, compose } from 'recompose';
 import AllergiesListHeader from './header/AllergiesListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
-import { allergiesColumnsConfig, defaultColumnsSelected } from '../../../config/allergies-table-columns.config'
-import { fetchPatientAllergiesRequest } from '../../../ducks/fetch-patient-allergies.duck';
-import { fetchPatientAllergiesCreateRequest } from '../../../ducks/fetch-patient-allergies-create.duck';
-import { fetchPatientAllergiesDetailRequest } from '../../../ducks/fetch-patient-allergies-detail.duck';
-import { fetchPatientAllergiesDetailEditRequest } from '../../../ducks/fetch-patient-allergies-detail-edit.duck';
+import { allergiesColumnsConfig, defaultColumnsSelected } from './allergies-table-columns.config'
+import { fetchPatientAllergiesRequest } from './ducks/fetch-patient-allergies.duck';
+import { fetchPatientAllergiesCreateRequest } from './ducks/fetch-patient-allergies-create.duck';
+import { fetchPatientAllergiesDetailRequest } from './ducks/fetch-patient-allergies-detail.duck';
+import { fetchPatientAllergiesDetailEditRequest } from './ducks/fetch-patient-allergies-detail-edit.duck';
 import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
