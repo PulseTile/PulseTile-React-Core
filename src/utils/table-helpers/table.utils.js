@@ -19,4 +19,7 @@ const transformObjToArrByTemplate = arrTemplate => obj =>
 export const getArrByTemplate = (arrTemplate, entriesList) =>
   _.map(transformObjToArrByTemplate(arrTemplate))(entriesList);
 
-export const formatNHSNumber = number => `${number.slice(0, 3)} ${number.slice(3, 6)} ${number.slice(6)}`;
+export const formatNHSNumber = (number) => {
+  const numberToString = number.toString();
+  return `${numberToString.slice(0, 3)} ${numberToString.slice(3, 6)} ${numberToString.slice(6)}`;
+};

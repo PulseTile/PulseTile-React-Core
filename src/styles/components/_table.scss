@@ -281,11 +281,25 @@ td[ng-click] { cursor: pointer; }
 }
 
 td[name='sourceId'], th[name='sourceId'] {
-  display: none;
+  display: none !important;
 }
 
-.table-patients-name {
-  td[name='id'] {
+.table-patients-name, .table-patients-controls {
+  td[name='id'], td[name='address'] {
     display: none;
+  }
+}
+
+table > tbody > tr {
+  height: 100%;
+  @include respond-from(xs) {
+    height: 60px;
+  }
+}
+
+.allergies > tbody > tr {
+  height: 100%;
+  @include respond-from(xs) {
+    height: 40px;
   }
 }

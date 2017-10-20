@@ -20,7 +20,8 @@ export default class BasicPatientSearch extends PureComponent {
 
     handleClearSearchString = () => this.setState({ searchString: '' });
 
-    handleSearchClick = () => {
+    handleSearchClick = (e) => {
+      e.preventDefault();
       const { searchString } = this.state;
       if (searchString) {
         const queryParams = {
@@ -35,8 +36,6 @@ export default class BasicPatientSearch extends PureComponent {
       }
     };
 
-    handleKeyPress = ({ key }) => key === 'Enter' && this.handleSearchClick();
-
     render() {
       const { searchString } = this.state;
 
@@ -47,8 +46,8 @@ export default class BasicPatientSearch extends PureComponent {
           </PTButton>
           <div className="wrap-search-holder">
             <div className="search-holder">
-              <form>
-                <input className="form-control" placeholder="Search" type="text" value={searchString} onChange={this.handleSearchStringChange} onKeyPress={this.handleKeyPress} />
+              <form onSubmit={this.handleSearchClick}>
+                <input className="form-control" placeholder="Search" type="text" value={searchString} onChange={this.handleSearchStringChange} />
               </form>
               {/*TODO: should be button*/}
               { searchString && <i className="clearAll fa fa-times-circle" onClick={this.handleClearSearchString} />}

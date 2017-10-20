@@ -14,13 +14,14 @@ import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-
 import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
 import { setLogo } from '../../../ducks/set-logo.duck';
 import { setTitle } from '../../../ducks/set-title.duck';
+import { setTheme } from '../../../ducks/set-theme.duck';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme }, dispatch) });
 
 @connect(formStateSelector)
 @connect(patientInfoSelector, mapDispatchToProps)
@@ -54,6 +55,8 @@ class UserProfile extends PureComponent {
   };
 
   handleCancel = (name) => {
+    const {patientsInfo, dispatch} = this.props;
+    dispatch(setTheme(patientsInfo.themeColor));
     this.setState(prevState => ({
       editedPanel: {
         ...prevState.editedPanel,

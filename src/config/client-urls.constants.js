@@ -79,3 +79,65 @@ export const mainPagesTitles = {
     }],
   },
 };
+
+export const mainPagesTitlesForPatients = {
+  '/': {
+    breadcrumbs: [{
+      title: 'System Dashboard',
+      state: '/',
+    }],
+    headerTitle: 'System Dashboard',
+  },
+  'charts': {
+    breadcrumbs: [{
+      title: 'System Dashboard',
+      state: '/charts',
+    }],
+    headerTitle: 'System Dashboard',
+  },
+  'patients': {
+    breadcrumbs: [{
+      title: 'Home',
+      state: '/',
+    }, {
+      title: 'Patient Listings',
+      state: '/patients',
+    }],
+    headerTitle: 'Patients Lists',
+  },
+  'profile': {
+    breadcrumbs: [{
+      title: 'Patient Information',
+      state: '/profile',
+    }],
+    headerTitle: 'Personal Information',
+  },
+  'search-report': {
+    breadcrumbs: [{
+      title: 'Home',
+      state: '/',
+    }, {
+      title: 'Search Report',
+      state: '/search-report',
+    }],
+  },
+  'patients-summary': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }],
+  },
+  'patients-full-details': {
+    breadcrumbs: [],
+    headerTitle: 'Search results',
+  },
+  'allergies': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Allergies',
+      state: '/allergies',
+    }],
+  },
+};

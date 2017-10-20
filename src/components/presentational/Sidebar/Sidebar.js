@@ -1,31 +1,28 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import _ from 'lodash/fp';
+
+import { sidebarConfig } from '../../../plugins.config';
 
 export default class Sidebar extends PureComponent {
   static propTypes = {
-    goToState: PropTypes.func.isRequired,
     activeLink: PropTypes.string,
+    userId: PropTypes.number,
   };
 
   render() {
-    const { goToState, activeLink } = this.props;
+    const { activeLink, userId } = this.props;
     return (
       <div className="sidebar showSidebar" role="navigation" style={{ top: '138px', bottom: '56px' }} >
         <div className="sidebar-nav">
           <div>
             <ul className="sidebar-nav-list">
-              <li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'patients-summary' })} onClick={() => goToState('patients-summary')}>Patient Summary</a>
-              </li><li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'problems' })}>Problems / Diagnosis</a>
-              </li><li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'medications' })}>Medications</a>
-              </li><li className="sidebar-nav-item">
-                <a className={classNames('sidebar-nav-link', { active: activeLink === 'allergies' })} onClick={() => goToState('allergies')}>Allergies</a>
-              </li><li className="sidebar-nav-item">
-                <a className="sidebar-nav-link">Contacts</a>
-              </li>
+              {sidebarConfig.map(item => <li className="sidebar-nav-item">
+                { (item.isVisible && !_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`}>{item.name}</Link> : null }
+                { (item.isVisible && _.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
+              </li>)}
             </ul>
           </div>
         </div>

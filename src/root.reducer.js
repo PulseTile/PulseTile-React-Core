@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { loadingBarReducer } from 'react-redux-loading-bar'
 
+import { pluginsReducerConfig } from './plugins.config'
 import fetchInitialiseReducer from './ducks/fetch-initialise.duck'
 import loginStatusReducer from './ducks/login-status.duck'
 import setCredentialsREducer from './ducks/set-credentials.duck'
@@ -14,13 +15,9 @@ import fetchAdvancedPatientSearchReducer from './ducks/fetch-advanced-patient-se
 import fetchPatientSummaryReducer from './ducks/fetch-patient-summary.duck'
 import fetchProfileAppPreferencesReducer from './ducks/fetch-profile-application-preferences.duck'
 import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
-import fetchPatientAllergiesReducer from './ducks/fetch-patient-allergies.duck'
-import fetchPatientAllergiesCreareReducer from './ducks/fetch-patient-allergies-create.duck'
-import fetchPatientAllergiesDetailReducer from './ducks/fetch-patient-allergies-detail.duck'
 import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck'
-import fetchPatientAllergiesDetailEditReducer from './ducks/fetch-patient-allergies-detail-edit.duck'
 
-const rootReducer = combineReducers({
+let reducers = {
   router: routerReducer,
   form: formReducer,
   initialiseData: fetchInitialiseReducer,
@@ -34,12 +31,14 @@ const rootReducer = combineReducers({
   patientsSummaries: fetchPatientSummaryReducer,
   isSidebarVisible: setSidebarVisibilityReducer,
   profileAppPreferences: fetchProfileAppPreferencesReducer,
-  patientsAllergies: fetchPatientAllergiesReducer,
-  patientAllergiesCreate: fetchPatientAllergiesCreareReducer,
-  allergiesDetail: fetchPatientAllergiesDetailReducer,
   patientsInfo: fetchPatientsInfoReducer,
-  allergiesDetailEdit: fetchPatientAllergiesDetailEditReducer,
   loadingBar: loadingBarReducer,
+};
+
+pluginsReducerConfig.forEach((el) => {
+  reducers = Object.assign(reducers, el);
 });
+
+const rootReducer = combineReducers(reducers);
 
 export default rootReducer;

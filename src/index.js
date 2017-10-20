@@ -42,11 +42,7 @@ const initialState = {
   patientsSummaries: {},
   isSidebarVisible: false,
   profileAppPreferences: {},
-  patientsAllergies: {},
-  patientAllergiesCreate: {},
-  allergiesDetail: {},
   patientsInfo: {},
-  allergiesDetailEdit: {},
 };
 
 //create store and enhance with middleware

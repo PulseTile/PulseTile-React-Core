@@ -15,39 +15,40 @@ export default class SortableTable extends PureComponent {
     onCellClick: PropTypes.func.isRequired,
     sortingOrder: PropTypes.oneOf(['asc', 'desc']).isRequired,
     columnNameSortBy: PropTypes.string.isRequired,
+    table: PropTypes.string.isRequired,
   };
 
   state = {
-    hoveredRowName: '',
+    hoveredRowIndex: '',
   };
 
   getSortableTableRows = (rowsData) => {
-    const { onCellClick, columnNameSortBy, headers } = this.props;
-    const { hoveredRowName } = this.state;
+    const { onCellClick, columnNameSortBy, headers, table } = this.props;
+    const { hoveredRowIndex } = this.state;
 
-    return _.cond([
-      [_.negate(_.isEmpty), _.map(rowData =>
+    return (
+      !_.isEmpty(rowsData) ? rowsData.map((rowData, index) =>
         <SortableTableRow
           key={_.uniqueId('__SortableTableRow__')}
           rowData={rowData}
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           headers={headers}
-          onMouseEnter={this.handleMouseEnter}
-          onMouseLeave={this.handleMouseLeave}
-          hoveredRowName={hoveredRowName}
-          ref={(el) => { this.tableRow = el; }}
-        />)],
-      [_.T, () => <SortableTableEmptyDataRow />],
-    ])(rowsData);
+          onMouseEnter={this.hoverTableRow}
+          onMouseLeave={this.unHoverTableRow}
+          hoveredRowIndex={hoveredRowIndex}
+          index={index}
+          table={table}
+        />) : <SortableTableEmptyDataRow />
+    )
   };
 
-  handleMouseEnter = (name) => {
-    this.setState({ hoveredRowName: name });
+  hoverTableRow = (index) => {
+    this.setState({ hoveredRowIndex: index });
   };
 
-  handleMouseLeave = () => {
-    this.setState({ hoveredRowName: '' });
+  unHoverTableRow = () => {
+    this.setState({ hoveredRowIndex: '' });
   };
 
   resizeFixedTables = () => {
@@ -61,14 +62,11 @@ export default class SortableTable extends PureComponent {
 
       tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
       tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
-
-      const height = _.head(tableFullRows).offsetHeight;
-      this.tableRow.setState({ height: `${height}px` });
     }
   };
 
   render() {
-    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy } = this.props;
+    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table } = this.props;
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
@@ -79,9 +77,10 @@ export default class SortableTable extends PureComponent {
     window.addEventListener('resize', () => {
       this.resizeFixedTables()
     });
+
     return (
       <div>
-        {data.length ? <table
+        {(table === 'patientsList' && !_.isEmpty(data)) ? <table
           className="table table-striped  table-bordered table-sorted table-hover table-fixedcol table-patients-name"
           ref={(el) => { this.tableNames = el; }}
         >
@@ -89,7 +88,7 @@ export default class SortableTable extends PureComponent {
             {/*//TODO inject theme here*/}
             {headersName.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersName__')}></col>)}
           </colgroup>
-          <thead>
+          <thead ref="tableHead">
             <SortableTableHeaderRow
               headers={headersName}
               onHeaderCellClick={onHeaderCellClick}
@@ -102,7 +101,7 @@ export default class SortableTable extends PureComponent {
           </tbody>
         </table> : null }
         <table
-          className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table"
+          className={`table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table ${table}`}
           ref={(el) => { this.tableFull = el; }}
         >
           <colgroup>
@@ -121,7 +120,7 @@ export default class SortableTable extends PureComponent {
             {this.getSortableTableRows(rowsData)}
           </tbody>
         </table>
-        {data.length ? <table
+        {(table === 'patientsList' && !_.isEmpty(data)) ? <table
           className="table table-striped table-bordered table-sorted table-fixedcol table-patients-controls"
           ref={(el) => { this.tableControls = el; }}
         >

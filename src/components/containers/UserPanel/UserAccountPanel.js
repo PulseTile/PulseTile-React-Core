@@ -28,16 +28,28 @@ export default class UserAccountPanel extends PureComponent {
   };
 
   render() {
-    const { user, actions } = this.props;
+    const { user, actions, onClick } = this.props;
     return (
       <div className="dropdown-user dropdown-menu-right dropdown-menu">
-        <div className="user-profile-image" onClick={() => this.context.router.history.push(clientUrls.USER_PROFILE)}>
+        <div
+          className="user-profile-image"
+          onClick={() =>{
+            this.context.router.history.push(clientUrls.USER_PROFILE);
+            onClick('')
+          }}
+        >
           <div className="img">
             <img src={userImage} alt="" />
           </div>
         </div>
         <div className="user-profile-info">
-          <div className="name" onClick={() => this.context.router.history.push(clientUrls.USER_PROFILE)}>{user.given_name} {user.family_name}</div>
+          <div
+            className="name"
+            onClick={() =>{
+              this.context.router.history.push(clientUrls.USER_PROFILE);
+              onClick('')
+            }}
+          >{user.given_name} {user.family_name}</div>
           <div className="specification">
             <div className="item"><em>{user.role}</em></div>
             <div className="item">{user.email}</div>

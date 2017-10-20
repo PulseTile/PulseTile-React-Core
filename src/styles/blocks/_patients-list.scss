@@ -81,7 +81,7 @@
 }
 
 .table-patients-full {
-  td:last-child,th:last-child {
+  td[name='viewPatientNavigation'], th[name='viewPatientNavigation'] {
     @include respond-to(xs) { display: none; }
   }
 }
