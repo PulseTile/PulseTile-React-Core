@@ -33,3 +33,31 @@
   }
   .rz-tick.rz-selected { background: $base-color; }
 }
+
+.rc-slider-track {
+  background: $base-color;
+}
+
+.rc-slider-dot-active {
+  border-color: $base-color;
+}
+
+.rc-slider-dot {
+  border-color: $base-color;
+  background-color: $base-color;
+}
+
+.rc-slider-handle {
+  border-color: $base-color;
+  background-color: $base-color;
+}
+
+.rc-slider-handle {
+  &:active {
+    background: $auxiliary-color;
+    box-shadow: 0 0 0 $auxiliary-color;
+  }
+  &:hover {
+    border-color: $base-color;
+  }
+}
