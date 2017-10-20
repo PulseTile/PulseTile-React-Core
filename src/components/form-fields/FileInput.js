@@ -43,7 +43,7 @@ export default class FileInput extends PureComponent {
                 />
                 <label htmlFor={name} className="btn btn-success btn-inverse btn-normal-icon">
                   <i className="fa fa-plus"/>
-                  <span>Upload logo</span>
+                  <span> Upload logo </span>
                 </label>
               </div>
               <div className="fcustomfile-text"/>
