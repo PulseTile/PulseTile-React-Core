@@ -52,3 +52,19 @@ export const fetchPatientsInfoOnMount = ({
     actions.fetchPatientsInfoRequest()
   },
 });
+
+export const fetchPatientDiagnosesOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientDiagnosesRequest({ userId })
+  },
+});
+
+export const fetchPatientClinicalNotesOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientClinicalNotesRequest({ userId })
+  },
+});
