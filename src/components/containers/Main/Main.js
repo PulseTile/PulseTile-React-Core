@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import _ from 'lodash/fp';
 
 import ProtectedRoute from './ProtectedRoute';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
@@ -31,7 +32,7 @@ export default class Main extends PureComponent {
             <ProtectedRoute exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} userAccount={userAccount} />
             <ProtectedRoute exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
             <ProtectedRoute exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
-            {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} />)}
+            {routersPluginConfig.map(item => <Route key={_.uniqueId('__PluginRoute__')} exact path={item.path} component={item.component} />)}
           </Switch>
         </main>
       )

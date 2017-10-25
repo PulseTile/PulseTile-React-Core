@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Panel } from 'react-bootstrap';
+import { bootstrapUtils } from 'react-bootstrap/lib/utils';
+
+bootstrapUtils.addStyle(Panel, 'secondary');
 
 const PTPanel = props => <Col xs={12} md={6}>
   <Panel header={props.header} bsStyle="secondary" className="mainPagePanel">
