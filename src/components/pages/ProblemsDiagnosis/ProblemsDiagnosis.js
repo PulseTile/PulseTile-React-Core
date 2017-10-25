@@ -20,6 +20,7 @@ import PaginationBlock from '../../presentational/PaginationBlock/PaginationBloc
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
+import { valuesNames } from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -161,21 +162,32 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { diagnosisDetail, actions } = this.props;
-    formValues.causeCode = diagnosisDetail.causeCode;
-    formValues.sourceId = '';
-    if (name === ALLERGIE_PANEL) {
-      allergieDetail.cause = formValues.cause;
-      allergieDetail.reaction = formValues.reaction;
-      formValues.causeTerminology = allergieDetail.causeTerminology;
-    }
-    actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToDetailEditString(formValues));
+    const { actions } = this.props;
+    actions.fetchPatientDiagnosesDetailEditRequest(this.formValuesToDetailEditString(formValues));
     this.setState(prevState => ({
       editedPanel: {
         ...prevState.editedPanel,
         [name]: false,
       },
     }))
+  };
+
+  formValuesToDetailEditString = (formValues) => {
+    const { userId } = this.props;
+    const isProblemValid = _.isEmpty((formValues[valuesNames.PROBLEM]));
+    const problem= _.get(valuesNames.PROBLEM)(formValues);
+    const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
+    const description = _.get(valuesNames.DESCRIPTION)(formValues);
+    const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
+    const code = _.get(valuesNames.CODE)(formValues);
+    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
+    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
+    const date = _.get(valuesNames.DATE)(formValues);
+    const source = 'ethercis';
+
+    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology ,code, sourceId, source, isImport,  userId });
+    return ({ problem, dateOfOnset, description, author, terminology, code, author, isImport, sourceId, date });
   };
 
   render() {
