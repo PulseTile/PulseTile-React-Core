@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import _ from 'lodash/fp';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
 
 export default class DateInput extends PureComponent {
     static propTypes = {
@@ -17,7 +18,7 @@ export default class DateInput extends PureComponent {
     };
 
     render() {
-      const { label, placeholder, input, meta: { active, error }, disabled, value } = this.props;
+      const { label, placeholder, input, meta: { active, error }, disabled, value, format } = this.props;
       const hasError = !_.isEmpty(error);
       if (value !== undefined) {
         input.value = value
@@ -31,7 +32,7 @@ export default class DateInput extends PureComponent {
             </div>
             <DatePicker
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
-              selected={input.value}
+              selected={moment(input.value)}
               placeholderText={placeholder}
               disabled={disabled}
               peekNextMonth
@@ -39,6 +40,7 @@ export default class DateInput extends PureComponent {
               showYearDropdown
               dropdownMode="select"
               {...input}
+              value={moment(input.value).format(format)}
             />
             {hasError && <span className="help-block animate-fade">{error}</span>}
           </div>

@@ -84,6 +84,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                     type="text"
                     component={DateInput}
                     placeholder="03/08/1970"
+                    props={{ format: 'DD/MM/YYYY' }}
                   />
                 </div>
               </div>

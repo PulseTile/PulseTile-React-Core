@@ -61,6 +61,7 @@ export default class PersonalForm extends PureComponent {
                       type="text"
                       placeholder=""
                       component={DateInput}
+                      props={{ format: 'DD-MMM-YYYY' }}
                     />
                     <Field
                       label="Gender"

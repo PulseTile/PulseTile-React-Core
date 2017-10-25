@@ -5,7 +5,6 @@ import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
-import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 import { validateDiagnosisPanelForm } from '../../ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
 
@@ -32,8 +31,6 @@ export default class DiagnosisPanelForm extends PureComponent {
   }
   render() {
     const { detail } = this.props;
-    const dateOfOnset = getDDMMMYYYY(detail.dateOfOnset);
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="panel-body-inner">
         <form name="diagnosesPanelForm" className="form">
@@ -55,7 +52,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DATE_OF_ONSET}
                   id={valuesNames.DATE_OF_ONSET}
                   component={DateInput}
-                  props={{ value: dateOfOnset }}
+                  props={{ format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>
@@ -111,7 +108,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>
