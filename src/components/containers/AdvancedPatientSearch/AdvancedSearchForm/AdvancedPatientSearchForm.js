@@ -79,12 +79,12 @@ export default class AdvancedPatientSearchForm extends PureComponent {
               <div className="row ng-scope" >
                 <div className="col-xs-12 col-sm-6">
                   <Field
-                    label="Date of Birth"
                     name={valuesNames.DATE_OF_BIRTH}
-                    type="text"
+                    id={valuesNames.DATE_OF_BIRTH}
+                    label="Date of Birth"
                     component={DateInput}
                     placeholder="03/08/1970"
-                    props={{ format: 'DD/MM/YYYY' }}
+                    props={{ format: 'MM/DD/YYYY' }}
                   />
                 </div>
               </div>

@@ -16,6 +16,7 @@ const Header = props =>
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/:sourceId`} component={HeaderToolbar} />
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.DIAGNOSES}`} component={HeaderToolbar} />
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.DIAGNOSES}/:sourceId`} component={HeaderToolbar} />
+      <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.DIAGNOSES}/create`} component={HeaderToolbar} />
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_NOTES}`} component={HeaderToolbar} />
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_NOTES}/:sourceId`} component={HeaderToolbar} />
       <Route path={clientUrls.ROOT} component={HeaderTitle} />

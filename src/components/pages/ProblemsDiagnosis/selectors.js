@@ -1,7 +1,8 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const diagnosesPanelFormSelector = _.getOr({}, 'form.diagnosesPanelFormSelector')
+const diagnosesPanelFormSelector = _.getOr({}, 'form.diagnosesPanelFormSelector');
+const diagnosesCreateFormSelector = _.getOr({}, 'form.diagnosesCreateFormSelector');
 
 const patientDiagnosesSelector = createSelector(
   ({ patientsDiagnoses }) => patientsDiagnoses,
@@ -24,4 +25,7 @@ const patientDiagnosesDetailSelector = createSelector(
 const diagnosisPanelFormSelector = createSelector(diagnosesPanelFormSelector,
   diagnosisPanelFormState => ({ diagnosisPanelFormState }));
 
-export { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector }
+const diagnosesCreateFormStateSelector = createSelector(diagnosesCreateFormSelector,
+  diagnosisCreateFormState => ({ diagnosisCreateFormState }));
+
+export { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector, diagnosesCreateFormStateSelector }

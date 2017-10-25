@@ -13,13 +13,15 @@ import { diagnosesColumnsConfig, defaultColumnsSelected } from './diagnoses-tabl
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailRequest } from './ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientDiagnosesDetailEditRequest } from './ducks/fetch-patient-diagnoses-detail-edit.duck';
-import { fetchPatientDiagnosesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector } from './selectors';
+import { fetchPatientDiagnosesCreateRequest } from './ducks/fetch-patient-diagnoses-create.duck';
+import { fetchPatientDiagnosesOnMount, fetchPatientDiagnosesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector, diagnosesCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
+import ProblemsDiagnosisCreate from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreate';
 import { valuesNames } from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
@@ -27,12 +29,13 @@ const DIAGNOSES_DETAIL = 'diagnosesDetail';
 const DIAGNOSES_CREATE = 'diagnosesCreate';
 const DIAGNOSES_PANEL = 'diagnosesPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientDiagnosesRequest, fetchPatientDiagnosesDetailRequest, fetchPatientDiagnosesDetailEditRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientDiagnosesRequest, fetchPatientDiagnosesDetailRequest, fetchPatientDiagnosesDetailEditRequest, fetchPatientDiagnosesCreateRequest }, dispatch) });
 
 @connect(patientDiagnosesSelector, mapDispatchToProps)
 @connect(patientDiagnosesDetailSelector, mapDispatchToProps)
 @connect(diagnosisPanelFormSelector)
-@compose(lifecycle(fetchPatientDiagnosesOnMount))
+@connect(diagnosesCreateFormStateSelector)
+@compose(lifecycle(fetchPatientDiagnosesOnMount), lifecycle(fetchPatientDiagnosesDetailOnMount))
 export default class ProblemsDiagnosis extends PureComponent {
   static propTypes = {
     allDiagnoses: PropTypes.arrayOf(PropTypes.object),
@@ -118,9 +121,11 @@ export default class ProblemsDiagnosis extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    // diagnoses.map((item) => {
-    //   item.dateOfOnset = getDDMMMYYYY(item.dateOfOnset);
-    // });
+    if(diagnoses !== undefined) {
+      diagnoses.map((item) => {
+        item.dateOfOnset = getDDMMMYYYY(item.dateOfOnset);
+      });
+    }
 
     const filterByDiagnoses = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByProblemPredicate))(diagnoses);
     const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(diagnoses);
@@ -175,7 +180,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   formValuesToDetailEditString = (formValues) => {
     const { userId } = this.props;
     const isProblemValid = _.isEmpty((formValues[valuesNames.PROBLEM]));
-    const problem= _.get(valuesNames.PROBLEM)(formValues);
+    const problem = _.get(valuesNames.PROBLEM)(formValues);
     const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
     const description = _.get(valuesNames.DESCRIPTION)(formValues);
     const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
@@ -186,13 +191,48 @@ export default class ProblemsDiagnosis extends PureComponent {
     const date = _.get(valuesNames.DATE)(formValues);
     const source = 'ethercis';
 
-    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology ,code, sourceId, source, isImport,  userId });
-    return ({ problem, dateOfOnset, description, author, terminology, code, author, isImport, sourceId, date });
+    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology, code, sourceId, source, isImport, userId });
+    return ({ problem, dateOfOnset, description, terminology, code, author, isImport, sourceId, date });
+  };
+
+  handleCreateCancel = () => {
+    const { userId } = this.props;
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+  };
+
+  handleSaveSettingsCreateForm = (formValues) => {
+    const { actions, userId } = this.props;
+    actions.fetchPatientDiagnosesCreateRequest(this.formValuesToCreateString(formValues));
+    setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+    this.hideCreateForm();
+  };
+
+  formValuesToCreateString = (formValues) => {
+    const { userId } = this.props;
+    const isProblemValid = _.isEmpty((formValues[valuesNames.PROBLEM]));
+    const problem = _.get(valuesNames.PROBLEM)(formValues);
+    const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
+    const description = _.get(valuesNames.DESCRIPTION)(formValues);
+    const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
+    const code = _.get(valuesNames.CODE)(formValues);
+    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
+    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
+    const date = _.get(valuesNames.DATE)(formValues);
+
+    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology, code, sourceId, isImport, userId });
+    return ({ problem, dateOfOnset, description, terminology, code, author, isImport, sourceId, date, userId });
+  };
+
+  hideCreateForm = () => {
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false })
   };
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
-    const { allDiagnoses, diagnosesPerPageAmount, diagnosisDetail, diagnosisPanelFormState } = this.props;
+    const { allDiagnoses, diagnosesPerPageAmount, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL);
     const isPanelMain = (expandedPanel === DIAGNOSES_MAIN);
@@ -262,6 +302,20 @@ export default class ProblemsDiagnosis extends PureComponent {
               onCancel={this.handleDiagnosisDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               diagnosisPanelFormValues={diagnosisPanelFormState.values}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <ProblemsDiagnosisCreate
+              onExpand={this.handleExpand}
+              name={DIAGNOSES_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={DIAGNOSES_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={diagnosisCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
             />
           </Col> : null}
         </Row>

@@ -61,6 +61,15 @@ export const fetchPatientDiagnosesOnMount = ({
   },
 });
 
+export const fetchPatientDiagnosesDetailOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    const sourceId = _.get('params.sourceId', match);
+    if (userId && sourceId) actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId })
+  },
+});
+
 export const fetchPatientClinicalNotesOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
