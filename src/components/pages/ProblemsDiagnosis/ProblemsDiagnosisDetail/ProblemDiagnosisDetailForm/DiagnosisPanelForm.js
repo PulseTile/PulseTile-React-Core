@@ -91,6 +91,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.CODE}
                   label={valuesLabels.CODE}
                   component={StaticFormField}
+                  props={{ className: 'non-edit-value' }}
                 />
               </div>
             </div>
