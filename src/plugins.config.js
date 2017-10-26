@@ -8,7 +8,7 @@ import ClinicalNotes from './components/pages/ClinicalNotes/ClinicalNotes';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
-  { key: 'problems', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
+  { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '', name: 'Contacts', isVisible: true },
