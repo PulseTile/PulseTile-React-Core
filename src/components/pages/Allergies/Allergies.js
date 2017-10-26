@@ -22,6 +22,7 @@ import AllergiesCreate from './AllergiesCreate/AllergiesCreate';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { valuesNames } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
 import { clientUrls } from '../../../config/client-urls.constants';
+import Spinner from '../../ui-elements/Spinner/Spinner'
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -68,13 +69,21 @@ export default class Allergies extends PureComponent {
     isCreatePanelVisible: false,
     editedPanel: {},
     offset: 0,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
+    this.setState({ isLoading: true });
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, isLoading: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`) {
+      this.setState({ isLoading: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`) {
+      this.setState({ isLoading: false })
     }
   }
 
@@ -84,7 +93,7 @@ export default class Allergies extends PureComponent {
 
   handleDetailAllergiesClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };
@@ -130,7 +139,7 @@ export default class Allergies extends PureComponent {
 
   handleCreate = (name) => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
   };
 
@@ -242,7 +251,7 @@ export default class Allergies extends PureComponent {
   handleSetOffset = offset => this.setState({ offset });
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail, allergiesPerPageAmount } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
@@ -276,6 +285,7 @@ export default class Allergies extends PureComponent {
                   sortingOrder={sortingOrder}
                   table="allergies"
                 />
+                {isLoading ? <Spinner /> : null }
                 <div className="panel-control">
                   <div className="wrap-control-group">
                     {this.shouldHavePagination(filteredAllergies) &&
