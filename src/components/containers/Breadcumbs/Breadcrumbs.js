@@ -27,17 +27,21 @@ class Breadcrumbs extends PureComponent {
   };
 
   render() {
-    const { router, userAccount } = this.props;
+    const { router, userAccount, patientSummeries } = this.props;
+    let userId;
+    if (patientSummeries !== undefined) {
+      userId = patientSummeries.id
+    }
     let breadcrumbs = null;
     const routingComponents = (router.location.hash.split('?')[0]).split('/');
-    const statePatientsSummary = `${window.location.hash.split('/allergies')[0].split('#')[1]}/patients-summary`;
+    const statePatientsSummary = `/patients/${userId}/patients-summary`;
     do {
       const routerHash = routingComponents.pop();
       breadcrumbs = this.getRouterBreadcrumbs(routerHash);
-      if (routerHash === 'allergies' && userAccount.role === 'IDCR') {
+      if (userAccount.role === 'IDCR') {
         breadcrumbs[1].state = statePatientsSummary;
       }
-      if (routerHash === 'allergies' && userAccount.role !== 'IDCR') {
+      if (userAccount.role !== 'IDCR') {
         breadcrumbs[0].state = statePatientsSummary;
       }
       if (breadcrumbs) break
