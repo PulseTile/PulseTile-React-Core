@@ -6,6 +6,7 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
+import moment from 'moment';
 
 import ProblemsDiagnosisListHeader from './header/ProblemsDiagnosisListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
@@ -121,7 +122,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    if(diagnoses !== undefined) {
+    if (diagnoses !== undefined) {
       diagnoses.map((item) => {
         item.dateOfOnset = getDDMMMYYYY(item.dateOfOnset);
       });
@@ -203,6 +204,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId } = this.props;
+    formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
     actions.fetchPatientDiagnosesCreateRequest(this.formValuesToCreateString(formValues));
     setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);

@@ -14,7 +14,12 @@ import { defaultFormValues } from './default-values.config';
   validate: validateDiagnosisPanelForm,
 })
 export default class ProblemsDiagnosisCreateForm extends PureComponent {
+  componentDidMount() {
+    this.props.initialize(defaultFormValues);
+  }
   render() {
+    const date = new Date();
+    const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
         <form name="diagnosesCreateForm" className="form">
@@ -92,7 +97,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>
