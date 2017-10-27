@@ -5,7 +5,7 @@ export const clinicalNotesColumnsConfig = [
   { key: 'author', title: 'Author', width: '33%' },
   { key: 'dateCreated', title: 'Date Created', transformer: getDDMMMYYYY, width: '25%' },
   { key: 'source', title: 'Source', width: '19%' },
-  { key: 'sourceId', title: 'sourceId', width: 0 },
+  { key: 'sourceId', title: 'sourceId', width: 0, display: 'none' },
 ];
 
 export const defaultColumnsSelected = {

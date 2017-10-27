@@ -187,6 +187,8 @@ export default class ClinicalNotes extends PureComponent {
                 <SortableTable
                   headers={columnsToShowConfig}
                   data={clinicalNotesOnFirstPage}
+                  resourceData={allClinicalNotes}
+                  emptyDataMessage="No clinical notes"
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailDiagnosesClick}
                   columnNameSortBy={columnNameSortBy}
@@ -208,7 +210,7 @@ export default class ClinicalNotes extends PureComponent {
                     <div className="control-group with-indent right">
                       {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(CLINICAL_NOTES_CREATE)}>
                         <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text">Create</span>
+                        <span className="btn-text"> Create</span>
                       </PTButton> : null}
                     </div>
                   </div>

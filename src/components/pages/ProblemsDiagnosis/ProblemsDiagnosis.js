@@ -57,7 +57,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: DIAGNOSES_PANEL,
-    columnNameSortBy: 'diagnoses',
+    columnNameSortBy: 'problem',
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -128,9 +128,9 @@ export default class ProblemsDiagnosis extends PureComponent {
       });
     }
 
-    const filterByDiagnoses = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByProblemPredicate))(diagnoses);
-    const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(diagnoses);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(diagnoses);
+    const filterByDiagnoses = _.flow(_.filter(filterByProblemPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(diagnoses);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(diagnoses);
+    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(diagnoses);
 
     const filteredAndSortedDiagnoses = [filterByDiagnoses, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
@@ -262,6 +262,8 @@ export default class ProblemsDiagnosis extends PureComponent {
                 <SortableTable
                   headers={columnsToShowConfig}
                   data={diagnosesOnFirstPage}
+                  resourceData={allDiagnoses}
+                  emptyDataMessage="No diagnoses"
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailDiagnosesClick}
                   columnNameSortBy={columnNameSortBy}
@@ -283,7 +285,7 @@ export default class ProblemsDiagnosis extends PureComponent {
                     <div className="control-group with-indent right">
                       {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(DIAGNOSES_CREATE)}>
                         <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text">Create</span>
+                        <span className="btn-text"> Create</span>
                       </PTButton> : null}
                     </div>
                   </div>

@@ -38,7 +38,7 @@ export default class ProblemsDiagnosisListHeader extends PureComponent {
             <div className="addon">
               <i className="fa fa-filter" />
             </div>
-            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} />
+            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} autoFocus />
           </div>
         </div>}
       </div>

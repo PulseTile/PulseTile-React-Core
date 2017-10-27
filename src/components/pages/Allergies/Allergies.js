@@ -126,8 +126,8 @@ export default class Allergies extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    const filterByCause = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByCausePredicate))(allergies);
-    const filterByReaction = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByReactionPredicate))(allergies);
+    const filterByCause = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByCausePredicate))(allergies);
+    const filterByReaction = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByReactionPredicate))(allergies);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(allergies);
 
     const filteredAndSortedAllergies = [filterByCause, filterByReaction, filterBySource].filter((item) => {
@@ -279,6 +279,8 @@ export default class Allergies extends PureComponent {
                 <SortableTable
                   headers={columnsToShowConfig}
                   data={allergiesOnFirstPage}
+                  resourceData={allAllergies}
+                  emptyDataMessage="No allergies"
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailAllergiesClick}
                   columnNameSortBy={columnNameSortBy}
@@ -301,7 +303,7 @@ export default class Allergies extends PureComponent {
                     <div className="control-group with-indent right">
                       {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(ALLERGIES_CREATE)}>
                         <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text">Create</span>
+                        <span className="btn-text"> Create</span>
                       </PTButton> : null}
                     </div>
                   </div>
