@@ -149,8 +149,10 @@ export default class Contacts extends PureComponent {
 
   handleSaveSettingsDetailForm = (formValues, name) => {
     const { contactDetail, actions } = this.props;
+
     formValues.causeCode = contactDetail.causeCode;
     formValues.sourceId = '';
+
     if (name === CONTACT_PANEL) {
       contactDetail.cause = formValues.cause;
       contactDetail.reaction = formValues.reaction;
@@ -287,6 +289,8 @@ export default class Contacts extends PureComponent {
                 <SortableTable
                   headers={columnsToShowConfig}
                   data={contactsOnFirstPage}
+                  resourceData={allContacts}
+                  emptyDataMessage="No contacts"
                   onHeaderCellClick={this.handleHeaderCellClick}
                   onCellClick={this.handleDetailContactsClick}
                   columnNameSortBy={columnNameSortBy}
@@ -316,7 +320,6 @@ export default class Contacts extends PureComponent {
               </div>
             </div>
           </Col> : null}
-
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <ContactsDetail
               onExpand={this.handleExpand}

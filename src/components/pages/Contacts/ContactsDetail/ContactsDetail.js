@@ -15,6 +15,9 @@ export default class ContactsDetail extends PureComponent {
   render() {
     const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, contactPanelFormValues, metaPanelFormValues } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
+
+    console.dir('detail', detail);
+
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
@@ -34,38 +37,46 @@ export default class ContactsDetail extends PureComponent {
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper">
-                  <Row>
-                    <Col xs={12} md={6}>
-                      <Row>
-                        <div className="col-md-11">
-                          <div className="form-group">
-                            <label className="control-label">Cause</label>
-                            <div className="form-control-static">{detail.cause}</div>
-                          </div>
-
-                          <div className="form-group">
-                            <label className="control-label">Reaction</label>
-                            <div className="form-control-static">{detail.reaction}</div>
-                          </div>
-
-                          <div className="form-group">
-                            <label className="control-label">Author</label>
-                            <div className="form-control-static">{detail.author}</div>
-                          </div>
-
-                          <div className="form-group">
-                            <label className="control-label">Date</label>
-                            <div className="form-control-static">{dateCreated}</div>
-                          </div>
-
-                          <div className="form-group">
-                            <label className="control-label">Source</label>
-                            <div className="form-control-static">{detail.source}</div>
-                          </div>
+                  <div>
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">Type</label>
+                          <div className="form-control-static">{detail.clinicalNotesType}</div>
                         </div>
-                      </Row>
-                    </Col>
-                  </Row>
+                      </div>
+                    </div>
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">Note</label>
+                          <div className="form-control-static">{detail.note}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">Author</label>
+                          <div className="form-control-static">{detail.author}</div>
+                        </div>
+                      </div>
+                      <div className="col-expand-right">
+                        <div className="form-group">
+                          <label className="control-label">Date</label>
+                          <div className="form-control-static">{dateCreated}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">Source</label>
+                          <div className="form-control-static">{detail.source}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

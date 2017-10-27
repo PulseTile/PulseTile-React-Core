@@ -6,7 +6,7 @@ export const contactsColumnsConfig = [
   { key: 'relationship', title: 'Relationship',  width: '28%' },
 	{ key: 'nextOfKin', title: 'Next Of Kin', transformer: formatYesNo, width: '25%' },
 	{ key: 'source', title: 'Source', width: '19%' },
-	{ key: 'sourceId', title: 'SourceID', width: 0 },
+	{ key: 'sourceId', title: 'SourceID', display: 'none' },
 ];
 
 export const defaultColumnsSelected = {
