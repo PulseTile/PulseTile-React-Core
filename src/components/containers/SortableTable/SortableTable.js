@@ -22,24 +22,28 @@ export default class SortableTable extends PureComponent {
     hoveredRowIndex: '',
   };
 
-  getSortableTableRows = (rowsData) => {
+  getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
     const { onCellClick, columnNameSortBy, headers, table } = this.props;
     const { hoveredRowIndex } = this.state;
 
     return (
-      !_.isEmpty(rowsData) ? rowsData.map((rowData, index) =>
-        <SortableTableRow
-          key={_.uniqueId('__SortableTableRow__')}
-          rowData={rowData}
-          onCellClick={onCellClick}
-          columnNameSortBy={columnNameSortBy}
-          headers={headers}
-          onMouseEnter={this.hoverTableRow}
-          onMouseLeave={this.unHoverTableRow}
-          hoveredRowIndex={hoveredRowIndex}
-          index={index}
-          table={table}
-        />) : <SortableTableEmptyDataRow />
+      _.isUndefined(resourceData)
+        ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} />
+        : !resourceData.length
+          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} />
+          : rowsData.map((rowData, index) =>
+            <SortableTableRow
+              key={_.uniqueId('__SortableTableRow__')}
+              rowData={rowData}
+              onCellClick={onCellClick}
+              columnNameSortBy={columnNameSortBy}
+              headers={headers}
+              onMouseEnter={this.hoverTableRow}
+              onMouseLeave={this.unHoverTableRow}
+              hoveredRowIndex={hoveredRowIndex}
+              index={index}
+              table={table}
+            />)
     )
   };
 
@@ -66,7 +70,7 @@ export default class SortableTable extends PureComponent {
   };
 
   render() {
-    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table } = this.props;
+    const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table, resourceData, emptyDataMessage } = this.props;
     const rowsData = getArrByTemplate(headers, data);
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
@@ -97,7 +101,7 @@ export default class SortableTable extends PureComponent {
             />
           </thead>
           <tbody>
-            {this.getSortableTableRows(rowsDataName)}
+            {this.getSortableTableRows(rowsDataName, resourceData, emptyDataMessage)}
           </tbody>
         </table> : null }
         <table
@@ -106,7 +110,12 @@ export default class SortableTable extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headers.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')}></col>)}
+            {headers.map((item) => {
+              if (item.display) {
+                return (<col style={{ width: item.width, display: item.display }} key={_.uniqueId('__colHeaders__')}></col>)
+              }
+              return (<col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')}></col>)
+            })}
           </colgroup>
           <thead>
             <SortableTableHeaderRow
@@ -117,7 +126,7 @@ export default class SortableTable extends PureComponent {
             />
           </thead>
           <tbody>
-            {this.getSortableTableRows(rowsData)}
+            {this.getSortableTableRows(rowsData, resourceData, emptyDataMessage)}
           </tbody>
         </table>
         {(table === 'patientsList' && !_.isEmpty(data)) ? <table
@@ -137,7 +146,7 @@ export default class SortableTable extends PureComponent {
             />
           </thead>
           <tbody>
-            {this.getSortableTableRows(rowsDataView)}
+            {this.getSortableTableRows(rowsDataView, resourceData, emptyDataMessage)}
           </tbody>
         </table> : null }
       </div>)

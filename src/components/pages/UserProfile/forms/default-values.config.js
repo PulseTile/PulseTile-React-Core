@@ -5,6 +5,7 @@ const defaultPersonalFormValues = {
   [valuesPersonalForm.LAST_NAME]: 'Smith',
   [valuesPersonalForm.SELECT_GENDER]: 'female',
   [valuesPersonalForm.DOCTOR]: 'Dr Emma Huston',
+  [valuesPersonalForm.DATE_OF_BIRTH]: 0,
 };
 
 const defaultContactFormValues = {

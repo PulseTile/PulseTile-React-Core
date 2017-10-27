@@ -101,7 +101,7 @@ export default class AdvancedPatientSearch extends PureComponent {
     handleSearch = () => {
       const { formValues } = this.props;
       if (formValues.selectAgeField === 'range') {
-        formValues.dateOfBirth = '';
+        formValues.dateOfBirth = 0;
       }
       const queryParams = {
         searchString: JSON.stringify(this.formValuesToSearchString(formValues)),

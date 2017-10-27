@@ -1,7 +1,9 @@
 import React from 'react';
 
 const SortableTableEmptyDataRow = props => <tr>
-  <td colSpan="10"><span className="label label-default">No patients found</span></td>
+  <td colSpan="10">
+    {props.isLoading ? <span className="label label-default">Loading...</span> : <span className="label label-default">{props.emptyDataMessage}</span> }
+  </td>
 </tr>;
 
 export default SortableTableEmptyDataRow

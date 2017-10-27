@@ -10,6 +10,7 @@ export const clientUrls = {
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
+  CLINICAL_NOTES: 'clinicalNotes',
 };
 
 export const mainPagesTitles = {
@@ -78,6 +79,30 @@ export const mainPagesTitles = {
       state: '/allergies',
     }],
   },
+  'diagnoses': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Problems / Diagnoses',
+      state: '/diagnoses',
+    }],
+  },
+  'clinicalNotes': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Clinical Notes',
+      state: '/clinicalNotes',
+    }],
+  },
 };
 
 export const mainPagesTitlesForPatients = {
@@ -138,6 +163,27 @@ export const mainPagesTitlesForPatients = {
     }, {
       title: 'Allergies',
       state: '/allergies',
+    }],
+  },
+  'diagnoses': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Problems / Diagnoses',
+      state: '/diagnoses',
+    }],
+  },
+  'clinicalNotes': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Clinical Notes',
+      state: '/clinicalNotes',
     }],
   },
 };

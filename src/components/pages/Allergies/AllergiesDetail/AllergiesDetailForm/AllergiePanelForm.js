@@ -6,7 +6,6 @@ import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaF
 import DateInput from '../../../../form-fields/DateInput';
 import { validateAllergiesForm } from '../../AllergiesCreate/AllergiesCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../AllergiesCreate/AllergiesCreateForm/values-names.config';
-import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'allergiePanelFormSelector',
@@ -28,7 +27,6 @@ export default class AllergiePanelForm extends PureComponent {
   }
   render() {
     const { detail } = this.props;
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="panel-body-inner">
         <form name="allergiePanelForm" className="form">
@@ -69,7 +67,7 @@ export default class AllergiePanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

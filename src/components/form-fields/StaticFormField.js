@@ -8,11 +8,11 @@ export default class StaticFormField extends PureComponent {
   };
 
   render() {
-    const { label, input} = this.props;
+    const { label, input, className} = this.props;
     return (
       <div className="form-group">
         <label className="control-label">{label}</label>
-        <div className="form-control-static" {...input}>{input.value}</div>
+        <div className={className} {...input}>{input.value}</div>
       </div>
     )
   }

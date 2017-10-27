@@ -136,6 +136,8 @@ export default class PatientsList extends PureComponent {
               <SortableTable
                 headers={columnsToShowConfig}
                 data={patientsOnFirstPage}
+                resourceData={allPatients}
+                emptyDataMessage="No patients found"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handlePatientViewClick}
                 columnNameSortBy={columnNameSortBy}
