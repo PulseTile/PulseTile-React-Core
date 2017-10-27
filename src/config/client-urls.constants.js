@@ -9,7 +9,8 @@ export const clientUrls = {
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
-  ALLERGIES: 'allergies',
+	ALLERGIES: 'allergies',
+	CONTACTS: 'contacts',
 };
 
 export const mainPagesTitles = {
@@ -78,6 +79,18 @@ export const mainPagesTitles = {
       state: '/allergies',
     }],
   },
+	'contacts': {
+		breadcrumbs: [{
+			title: 'Patient Listings',
+			state: '/patients',
+		}, {
+			title: 'Patient Summary',
+			state: '/patients-summary',
+		}, {
+			title: 'Contacts',
+			state: '/contacts',
+		}],
+	},
 };
 
 export const mainPagesTitlesForPatients = {
@@ -140,4 +153,13 @@ export const mainPagesTitlesForPatients = {
       state: '/allergies',
     }],
   },
+	'contacts': {
+		breadcrumbs: [{
+			title: 'Patient Summary',
+			state: '/patients-summary',
+		}, {
+			title: 'Contacts',
+			state: '/contacts',
+		}],
+	},
 };

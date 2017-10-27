@@ -11,9 +11,9 @@ const searchForPatient = (location, actions) => {
 
 export const fetchPatientOnSearch = ({
   componentDidMount() {
-    const { location, actions } = this.props;
-    searchForPatient(location, actions)
-  },
+		const { location, actions } = this.props;
+		searchForPatient(location, actions)
+	},
 
   componentWillReceiveProps(nextProps) {
     const { location, actions } = nextProps;

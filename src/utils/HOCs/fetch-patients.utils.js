@@ -46,6 +46,23 @@ export const fetchPatientAllergiesDetailOnMount = ({
   },
 });
 
+export const fetchPatientContactsOnMount = ({
+	componentDidMount() {
+		const { actions, match } = this.props;
+		const userId = _.get('params.userId', match);
+		if (userId) actions.fetchPatientContactsRequest({ userId })
+	},
+});
+
+export const fetchPatientContactsDetailOnMount = ({
+	componentDidMount() {
+		const { actions, match } = this.props;
+		const userId = _.get('params.userId', match);
+		const sourceId = _.get('params.sourceId', match);
+		if (userId && sourceId) actions.fetchPatientContactsDetailRequest({ userId, sourceId })
+	},
+});
+
 export const fetchPatientsInfoOnMount = ({
   componentDidMount() {
     const { actions } = this.props;
