@@ -11,6 +11,7 @@ import toolbarSelector from './selectors';
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
+import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
@@ -72,7 +73,7 @@ class HeaderToolbar extends PureComponent {
                     </div>
                     <div className="column-2">
                       <div className="patient-info-item"><span className="key">Gender:</span> {gender}</div>
-                      <div className="patient-info-item"><span className="key">NHS No.</span> <span>{userId}</span></div>
+                      <div className="patient-info-item"><span className="key">NHS No.</span> <span>{formatNHSNumber(userId)}</span></div>
                     </div>
                   </div>
                   <div className="patient-info-group-1">

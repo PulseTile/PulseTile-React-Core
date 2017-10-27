@@ -35,6 +35,7 @@ export default class AllergieMetaForm extends PureComponent {
                   name={valuesNames.CAUSECODE}
                   label={valuesLabels.CAUSECODE}
                   component={StaticFormField}
+                  props={{ className: 'form-control-static' }}
                 />
               </div>
             </div>
@@ -52,6 +53,7 @@ export default class AllergieMetaForm extends PureComponent {
                   name={valuesNames.TERMINOLOGYCODE}
                   label={valuesLabels.TERMINOLOGYCODE}
                   component={StaticFormField}
+                  props={{ className: 'form-control-static' }}
                 />
               </div>
             </div>

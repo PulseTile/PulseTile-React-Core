@@ -1,0 +1,9 @@
+# Roadmap
+## React version Block 2
+
+- Week 1: Problems-Diagnosis heading / Clinical notes heading / Spinner http://prntscr.com/h2qgfv
+- Week 2: Contacts heading / Vaccinations heading / Medications heading 
+- Week 3: Orders heading (potentially would be swapped with a generic plugin) / Personal Notes heading (potentially would be swapped with a generic plugin) / Procedures heading  (potentially would be swapped with a generic plugin)
+- Week 4: Test results heading / Referrals heading / "Loading" on loading patient headings
+- Week 5: Events heading (without WebRTC functionality, only edit, create +Timeline)
+- Week 6 - 7: Final testing and completion of bug fixes
