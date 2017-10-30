@@ -8,8 +8,6 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
-import SortableTable from '../../containers/SortableTable/SortableTable';
-import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import { allergiesColumnsConfig, defaultColumnsSelected } from './allergies-table-columns.config'
 import { fetchPatientAllergiesRequest } from './ducks/fetch-patient-allergies.duck';
 import { fetchPatientAllergiesCreateRequest } from './ducks/fetch-patient-allergies-create.duck';
@@ -19,11 +17,11 @@ import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import PTButton from '../../ui-elements/PTButton/PTButton';
 import { valuesNames } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
 import { clientUrls } from '../../../config/client-urls.constants';
 import Spinner from '../../ui-elements/Spinner/Spinner'
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm/AllergiesCreateForm'
+import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -42,17 +40,12 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
-    allergiesPerPageAmount: PropTypes.number,
   };
 
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.object,
     }),
-  };
-
-  static defaultProps = {
-    allergiesPerPageAmount: 10,
   };
 
   state = {
@@ -94,7 +87,7 @@ export default class Allergies extends PureComponent {
 
   handleDetailAllergiesClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };
@@ -138,9 +131,9 @@ export default class Allergies extends PureComponent {
     return _.head(filteredAndSortedAllergies)
   };
 
-  handleCreate = (name) => {
+  handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true, expandedPanel: 'all' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
   };
 
@@ -238,30 +231,18 @@ export default class Allergies extends PureComponent {
     }))
   };
 
-  getAllergiesOnFirstPage = (allergies) => {
-    const { offset } = this.state;
-    const { allergiesPerPageAmount } = this.props;
-
-    return (_.size(allergies) > allergiesPerPageAmount
-      ? _.slice(offset, offset + allergiesPerPageAmount)(allergies)
-      : allergies)
-  };
-
-  shouldHavePagination = allergies => _.size(allergies) > this.props.allergiesPerPageAmount;
-
   handleSetOffset = offset => this.setState({ offset });
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail, allergiesPerPageAmount } = this.props;
     const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-    const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
     const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
 
-    const allergiesOnFirstPage = _.flow(this.getAllergiesOnFirstPage)(filteredAllergies);
+    const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -277,40 +258,22 @@ export default class Allergies extends PureComponent {
                 onExpand={this.handleExpand}
                 currentPanel={ALLERGIES_MAIN}
               />
-              <div className="panel-body">
-                <SortableTable
-                  headers={columnsToShowConfig}
-                  data={allergiesOnFirstPage}
-                  resourceData={allAllergies}
-                  emptyDataMessage="No allergies"
-                  onHeaderCellClick={this.handleHeaderCellClick}
-                  onCellClick={this.handleDetailAllergiesClick}
-                  columnNameSortBy={columnNameSortBy}
-                  sortingOrder={sortingOrder}
-                  table="allergies"
-                />
-                {isLoading ? <Spinner /> : null }
-                <div className="panel-control">
-                  <div className="wrap-control-group">
-                    {this.shouldHavePagination(filteredAllergies) &&
-                    <div className="control-group with-indent left">
-                      <PaginationBlock
-                        entriesPerPage={allergiesPerPageAmount}
-                        totalEntriesAmount={_.size(allAllergies)}
-                        offset={offset}
-                        setOffset={this.handleSetOffset}
-                      />
-                    </div>
-                    }
-                    <div className="control-group with-indent right">
-                      {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(ALLERGIES_CREATE)}>
-                        <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text"> Create</span>
-                      </PTButton> : null}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allAllergies}
+                emptyDataMessage="No allergies"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailAllergiesClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="allergies"
+                filteredData={filteredAllergies}
+                totalEntriesAmount={_.size(allAllergies)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+              />
             </div>
           </Col> : null}
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>

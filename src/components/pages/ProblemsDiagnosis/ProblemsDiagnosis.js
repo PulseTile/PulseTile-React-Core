@@ -9,7 +9,7 @@ import { lifecycle, compose } from 'recompose';
 import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
-import SortableTable from '../../containers/SortableTable/SortableTable';
+import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { diagnosesColumnsConfig, defaultColumnsSelected } from './diagnoses-table-columns.config'
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailRequest } from './ducks/fetch-patient-diagnoses-detail.duck';
@@ -18,8 +18,6 @@ import { fetchPatientDiagnosesCreateRequest } from './ducks/fetch-patient-diagno
 import { fetchPatientDiagnosesOnMount, fetchPatientDiagnosesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector, diagnosesCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
-import PTButton from '../../ui-elements/PTButton/PTButton';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
@@ -41,17 +39,12 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class ProblemsDiagnosis extends PureComponent {
   static propTypes = {
     allDiagnoses: PropTypes.arrayOf(PropTypes.object),
-    diagnosesPerPageAmount: PropTypes.number,
   };
 
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.object,
     }),
-  };
-
-  static defaultProps = {
-    diagnosesPerPageAmount: 10,
   };
 
   state = {
@@ -79,15 +72,6 @@ export default class ProblemsDiagnosis extends PureComponent {
     }
   }
 
-  getDiagnosesOnFirstPage = (diagnoses) => {
-    const { offset } = this.state;
-    const { diagnosesPerPageAmount } = this.props;
-
-    return (_.size(diagnoses) > diagnosesPerPageAmount
-      ? _.slice(offset, offset + diagnosesPerPageAmount)(diagnoses)
-      : diagnoses)
-  };
-
   handleExpand = (name, currentPanel) => {
     if (currentPanel === DIAGNOSES_MAIN) {
       if (this.state.expandedPanel === 'all') {
@@ -108,7 +92,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleDetailDiagnosesClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {} });
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {}, expandedPanel: 'all' });
     actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
   };
@@ -140,13 +124,11 @@ export default class ProblemsDiagnosis extends PureComponent {
     return _.head(filteredAndSortedDiagnoses)
   };
 
-  shouldHavePagination = diagnoses => _.size(diagnoses) > this.props.diagnosesPerPageAmount;
-
   handleSetOffset = offset => this.setState({ offset });
 
-  handleCreate = (name) => {
+  handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
   };
 
@@ -235,7 +217,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
-    const { allDiagnoses, diagnosesPerPageAmount, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
+    const { allDiagnoses, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL);
     const isPanelMain = (expandedPanel === DIAGNOSES_MAIN);
@@ -244,7 +226,6 @@ export default class ProblemsDiagnosis extends PureComponent {
     const columnsToShowConfig = diagnosesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredDiagnoses = this.filterAndSortDiagnoses(allDiagnoses);
-    const diagnosesOnFirstPage = _.flow(this.getDiagnosesOnFirstPage)(filteredDiagnoses);
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -260,39 +241,22 @@ export default class ProblemsDiagnosis extends PureComponent {
                 onExpand={this.handleExpand}
                 currentPanel={DIAGNOSES_MAIN}
               />
-              <div className="panel-body">
-                <SortableTable
-                  headers={columnsToShowConfig}
-                  data={diagnosesOnFirstPage}
-                  resourceData={allDiagnoses}
-                  emptyDataMessage="No diagnoses"
-                  onHeaderCellClick={this.handleHeaderCellClick}
-                  onCellClick={this.handleDetailDiagnosesClick}
-                  columnNameSortBy={columnNameSortBy}
-                  sortingOrder={sortingOrder}
-                  table="diagnoses"
-                />
-                <div className="panel-control">
-                  <div className="wrap-control-group">
-                    {this.shouldHavePagination(filteredDiagnoses) &&
-                    <div className="control-group with-indent left">
-                      <PaginationBlock
-                        entriesPerPage={diagnosesPerPageAmount}
-                        totalEntriesAmount={_.size(allDiagnoses)}
-                        offset={offset}
-                        setOffset={this.handleSetOffset}
-                      />
-                    </div>
-                    }
-                    <div className="control-group with-indent right">
-                      {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(DIAGNOSES_CREATE)}>
-                        <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text"> Create</span>
-                      </PTButton> : null}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allDiagnoses}
+                emptyDataMessage="No diagnoses"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailDiagnosesClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="diagnoses"
+                filteredData={filteredDiagnoses}
+                totalEntriesAmount={_.size(allDiagnoses)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+              />
             </div>
           </Col> : null }
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
