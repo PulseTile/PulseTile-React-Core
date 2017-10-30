@@ -12,10 +12,10 @@ export const fetchPatientClinicalNotesDetailEditRequest = createAction(FETCH_PAT
 export const fetchPatientClinicalNotesDetailEditSuccess = createAction(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_EDIT_SUCCESS);
 export const fetchPatientClinicalNotesDetailEditFailure = createAction(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_EDIT_FAILURE);
 
-export const fetchPatientDiagnosesDetailEditEpic = (action$, store) =>
+export const fetchPatientClinicalNotesDetailEditEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_EDIT_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.put(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes`, {
+      ajax.put(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes`, payload, {
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })

@@ -19,6 +19,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
+import { valuesNames } from './ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
 
 const CLINICAL_NOTES_MAIN = 'clinicalNotesMain';
 const CLINICAL_NOTES_DETAIL = 'clinicalNotesDetail';
@@ -99,7 +100,7 @@ export default class ClinicalNotes extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailDiagnosesClick = (id, name, sourceId) => {
+  handleDetailClinicalNotesClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, editedPanel: {} });
     actions.fetchPatientClinicalNotesDetailRequest({ userId, sourceId });
@@ -157,6 +158,31 @@ export default class ClinicalNotes extends PureComponent {
     }))
   };
 
+  handleSaveSettingsDetailForm = (formValues, name) => {
+    const { actions } = this.props;
+    actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToDetailEditString(formValues));
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: false,
+      },
+    }))
+  };
+
+  formValuesToDetailEditString = (formValues) => {
+    const { userId, clinicalNoteDetail } = this.props;
+    const isTypeValid = _.isEmpty((formValues[valuesNames.CLINICAL_NOTES_TYPE]));
+    const clinicalNotesType = _.get(valuesNames.CLINICAL_NOTES_TYPE)(formValues);
+    const note = _.get(valuesNames.NOTE)(formValues);
+    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const date = _.get(valuesNames.DATE)(formValues);
+    const sourceId = clinicalNoteDetail.sourceId;
+    const source = clinicalNoteDetail.source;
+
+    if (!isTypeValid) return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
+    return ({ clinicalNotesType, note, author, date, sourceId, source });
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
     const { allClinicalNotes, clinicalNotesPerPageAmount, clinicalNoteDetail, clinicalNoteFormState } = this.props;
@@ -191,10 +217,10 @@ export default class ClinicalNotes extends PureComponent {
                   resourceData={allClinicalNotes}
                   emptyDataMessage="No clinical notes"
                   onHeaderCellClick={this.handleHeaderCellClick}
-                  onCellClick={this.handleDetailDiagnosesClick}
+                  onCellClick={this.handleDetailClinicalNotesClick}
                   columnNameSortBy={columnNameSortBy}
                   sortingOrder={sortingOrder}
-                  table="diagnoses"
+                  table="clinicalNotes"
                 />
                 <div className="panel-control">
                   <div className="wrap-control-group">
