@@ -13,7 +13,7 @@ export const fetchPatientClinicalNotesDetailRequest = createAction(FETCH_PATIENT
 export const fetchPatientClinicalNotesDetailSuccess = createAction(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_SUCCESS);
 export const fetchPatientClinicalNotesDetailFailure = createAction(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_FAILURE);
 
-export const fetchPatientDiagnosesDetailEpic = (action$, store) =>
+export const fetchPatientClinicalNotesDetailEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_REQUEST)
     .mergeMap(({ payload }) =>
       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes/${payload.sourceId}`, {

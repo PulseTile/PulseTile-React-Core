@@ -199,7 +199,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
   };
 
@@ -230,7 +230,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   hideCreateForm = () => {
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false })
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
   render() {

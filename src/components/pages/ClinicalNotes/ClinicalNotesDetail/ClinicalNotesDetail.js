@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
+import ClinicalNotesPanelForm from './ClinicalNotesDetailForm/ClinicalNotesPanelForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
@@ -71,6 +72,23 @@ export default class ClinicalNotesDetail extends PureComponent {
                 </div>
               </div>
             </div>
+          </PluginDetailPanel> : null}
+          {(expandedPanel === CLINICAL_NOTES_PANEL || expandedPanel === 'all') && editedPanel[CLINICAL_NOTES_PANEL] ? <PluginDetailPanel
+            onExpand={onExpand}
+            name={CLINICAL_NOTES_PANEL}
+            title="Edit Personal Note"
+            isOpen={openedPanel === CLINICAL_NOTES_PANEL}
+            currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={clinicalNoteFormValues}
+            isBtnShowPanel={false}
+          >
+            <ClinicalNotesPanelForm
+              detail={detail}
+            />
           </PluginDetailPanel> : null}
         </div>
       </div>

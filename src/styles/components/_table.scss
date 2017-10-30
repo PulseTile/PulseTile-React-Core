@@ -298,7 +298,8 @@ table > tbody > tr {
 }
 
 .allergies > tbody > tr,
-.diagnoses > tbody > tr {
+.diagnoses > tbody > tr,
+.clinicalNotes > tbody > tr {
   height: 100%;
   @include respond-from(xs) {
     height: 40px;
