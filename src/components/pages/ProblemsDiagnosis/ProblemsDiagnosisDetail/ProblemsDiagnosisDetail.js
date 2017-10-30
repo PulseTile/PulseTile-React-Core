@@ -25,6 +25,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={diagnosisPanelFormValues}
+            isBtnShowPanel={false}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -100,6 +101,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={diagnosisPanelFormValues}
+            isBtnShowPanel={false}
           >
             <DiagnosisPanelForm
               detail={detail}

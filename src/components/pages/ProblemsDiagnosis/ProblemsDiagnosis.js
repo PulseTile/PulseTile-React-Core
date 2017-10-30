@@ -22,8 +22,9 @@ import PaginationBlock from '../../presentational/PaginationBlock/PaginationBloc
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
-import ProblemsDiagnosisCreate from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreate';
+import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { valuesNames } from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
+import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/ProblemsDiagnosisCreateForm'
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -145,7 +146,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleCreate = (name) => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
   };
 
@@ -198,7 +199,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
   };
 
@@ -310,7 +311,7 @@ export default class ProblemsDiagnosis extends PureComponent {
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <ProblemsDiagnosisCreate
+            <PluginCreate
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}
@@ -321,6 +322,10 @@ export default class ProblemsDiagnosis extends PureComponent {
               formValues={diagnosisCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ProblemsDiagnosisCreateForm />
+              }
+              title="Create Problem and Diagnosis"
             />
           </Col> : null}
         </Row>

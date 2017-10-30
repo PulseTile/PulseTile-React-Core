@@ -30,6 +30,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={allergiePanelFormValues}
+            isBtnShowPanel
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -82,6 +83,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={allergiePanelFormValues}
+            isBtnShowPanel
           >
             <AllergiePanelForm
               detail={detail}
@@ -99,6 +101,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
+            isBtnShowPanel
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -136,6 +139,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
+            isBtnShowPanel
           >
             <AllergieMetaForm
               detail={detail}

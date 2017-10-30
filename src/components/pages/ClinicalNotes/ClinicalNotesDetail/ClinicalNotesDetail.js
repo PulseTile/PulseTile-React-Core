@@ -23,6 +23,7 @@ export default class ClinicalNotesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={clinicalNoteFormValues}
+            isBtnShowPanel={false}
           >
             <div className="panel-body-inner">
               <div className="form">
