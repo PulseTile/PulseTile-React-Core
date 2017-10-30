@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import AlergiesDetailPanel from '../AllergiesDetail/AlergiesDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import AllergiesCreateForm from './AllergiesCreateForm/AllergiesCreateForm'
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
@@ -12,7 +12,7 @@ export default class AllergiesCreate extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === ALLERGIES_CREATE || expandedPanel === 'all') ? <AlergiesDetailPanel
+          {(expandedPanel === ALLERGIES_CREATE || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIES_CREATE}
             title="Create Allergy"
@@ -34,7 +34,7 @@ export default class AllergiesCreate extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel> : null}
+          </PluginDetailPanel> : null}
         </div>
       </div>
     )

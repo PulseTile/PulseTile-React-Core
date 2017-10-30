@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
-import AllergiesListHeader from './header/AllergiesListHeader';
+import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import { allergiesColumnsConfig, defaultColumnsSelected } from './allergies-table-columns.config'
@@ -267,10 +267,11 @@ export default class Allergies extends PureComponent {
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
             <div className="panel panel-primary">
-              <AllergiesListHeader
+              <PluginListHeader
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Allergies"
                 isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
                 name={ALLERGIES_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={ALLERGIES_MAIN}

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import AlergiesDetailPanel from './AlergiesDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import AllergiePanelForm from './AllergiesDetailForm/AllergiePanelForm'
 import AllergieMetaForm from './AllergiesDetailForm/AllergieMetaForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
@@ -18,7 +18,7 @@ export default class AllergiesDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && !editedPanel[ALLERGIE_PANEL] ? <AlergiesDetailPanel
+          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && !editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
             title="Allergy"
@@ -69,8 +69,8 @@ export default class AllergiesDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel> : null}
-          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && editedPanel[ALLERGIE_PANEL] ? <AlergiesDetailPanel
+          </PluginDetailPanel> : null}
+          {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
             title="Allergy"
@@ -86,8 +86,8 @@ export default class AllergiesDetail extends PureComponent {
             <AllergiePanelForm
               detail={detail}
             />
-          </AlergiesDetailPanel> : null }
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <AlergiesDetailPanel
+          </PluginDetailPanel> : null }
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
             title="Metadata"
@@ -123,8 +123,8 @@ export default class AllergiesDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel> : null}
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') && editedPanel[META_PANEL] ? <AlergiesDetailPanel
+          </PluginDetailPanel> : null}
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') && editedPanel[META_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
             title="Metadata"
@@ -140,7 +140,7 @@ export default class AllergiesDetail extends PureComponent {
             <AllergieMetaForm
               detail={detail}
             />
-          </AlergiesDetailPanel> : null }
+          </PluginDetailPanel> : null }
         </div>
       </div>
     )

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash/fp';
 
-import PTButton from '../../../ui-elements/PTButton/PTButton';
-import AllergiesDetailHeader from '../header/AllergiesDetailHeader';
+import PTButton from '../ui-elements/PTButton/PTButton';
+import PluginDetailHeader from './PluginDetailHeader';
 
-export default class AlergiesDetailPanel extends PureComponent {
+export default class PluginDetailPanel extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
@@ -25,7 +25,7 @@ export default class AlergiesDetailPanel extends PureComponent {
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
-        <AllergiesDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} />
+        <PluginDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} isBtnShowPanel />
         <div className="panel-body">
           {children}
           {(!isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">

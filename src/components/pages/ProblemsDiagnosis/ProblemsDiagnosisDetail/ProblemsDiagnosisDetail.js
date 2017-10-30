@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import ProblemsDiagnosisDetailPanel from './ProblemsDiagnosisDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import DiagnosisPanelForm from './ProblemDiagnosisDetailForm/DiagnosisPanelForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
@@ -14,7 +14,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && !editedPanel[DIAGNOSES_PANEL] ? <ProblemsDiagnosisDetailPanel
+          {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && !editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
             title="Problem / Diagnosis"
@@ -88,8 +88,8 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </ProblemsDiagnosisDetailPanel> : null}
-          {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && editedPanel[DIAGNOSES_PANEL] ? <ProblemsDiagnosisDetailPanel
+          </PluginDetailPanel> : null}
+          {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
             title="Edit Problem / Diagnosis"
@@ -104,7 +104,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
             <DiagnosisPanelForm
               detail={detail}
             />
-          </ProblemsDiagnosisDetailPanel> : null }
+          </PluginDetailPanel> : null }
         </div>
       </div>
     )

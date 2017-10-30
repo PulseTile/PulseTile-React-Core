@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import ProblemsDiagnosisDetailPanel from '../ProblemsDiagnosisDetail/ProblemsDiagnosisDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreateForm/ProblemsDiagnosisCreateForm'
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
@@ -12,7 +12,7 @@ export default class ProblemsDiagnosisCreate extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === DIAGNOSES_CREATE || expandedPanel === 'all') ? <ProblemsDiagnosisDetailPanel
+          {(expandedPanel === DIAGNOSES_CREATE || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_CREATE}
             title="Create Problem and Diagnosis"
@@ -33,7 +33,7 @@ export default class ProblemsDiagnosisCreate extends PureComponent {
                 </div>
               </div>
             </div>
-          </ProblemsDiagnosisDetailPanel> : null}
+          </PluginDetailPanel> : null}
         </div>
       </div>
     )

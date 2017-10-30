@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
-import ClinicalNotesListHeader from './header/ClinicalNotesListHeader';
+import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import { clinicalNotesColumnsConfig, defaultColumnsSelected } from './clinical-notes-table-columns.config'
 import { fetchPatientClinicalNotesRequest } from './ducks/fetch-patient-clinical-notes.duck';
@@ -122,7 +122,7 @@ export default class ClinicalNotes extends PureComponent {
     const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(clinicalNotes);
 
-    const filteredAndSortedClinicalNotes = [filterByClinicalNotesType, filterByAuthor,filterByDate, filterBySource].filter((item) => {
+    const filteredAndSortedClinicalNotes = [filterByClinicalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
@@ -175,10 +175,11 @@ export default class ClinicalNotes extends PureComponent {
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
             <div className="panel panel-primary">
-              <ClinicalNotesListHeader
+              <PluginListHeader
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Clinical Notes"
                 isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible
                 name={CLINICAL_NOTES_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={CLINICAL_NOTES_MAIN}

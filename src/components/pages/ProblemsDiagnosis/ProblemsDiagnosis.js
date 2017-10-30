@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import moment from 'moment';
 
-import ProblemsDiagnosisListHeader from './header/ProblemsDiagnosisListHeader';
+import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import { diagnosesColumnsConfig, defaultColumnsSelected } from './diagnoses-table-columns.config'
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
@@ -250,10 +250,11 @@ export default class ProblemsDiagnosis extends PureComponent {
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
             <div className="panel panel-primary">
-              <ProblemsDiagnosisListHeader
+              <PluginListHeader
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Problems / Diagnoses"
                 isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
                 name={DIAGNOSES_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={DIAGNOSES_MAIN}
