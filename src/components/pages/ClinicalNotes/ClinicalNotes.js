@@ -20,6 +20,7 @@ import PaginationBlock from '../../presentational/PaginationBlock/PaginationBloc
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
 import { valuesNames } from './ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const CLINICAL_NOTES_MAIN = 'clinicalNotesMain';
 const CLINICAL_NOTES_DETAIL = 'clinicalNotesDetail';
@@ -118,8 +119,14 @@ export default class ClinicalNotes extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    const filterByClinicalNotesType = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByClinicalNotesTypePredicate))(clinicalNotes);
-    const filterByAuthor = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(clinicalNotes);
+    if (clinicalNotes !== undefined) {
+      clinicalNotes.map((item) => {
+        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+      });
+    }
+
+    const filterByClinicalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByClinicalNotesTypePredicate))(clinicalNotes);
+    const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(clinicalNotes);
     const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(clinicalNotes);
 
