@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
-import AllergiesListHeader from './header/AllergiesListHeader';
+import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import { allergiesColumnsConfig, defaultColumnsSelected } from './allergies-table-columns.config'
@@ -18,11 +18,12 @@ import { fetchPatientAllergiesDetailEditRequest } from './ducks/fetch-patient-al
 import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
-import AllergiesCreate from './AllergiesCreate/AllergiesCreate';
+import PluginCreate from '../../plugin-page-component/PluginCreate';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { valuesNames } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
 import { clientUrls } from '../../../config/client-urls.constants';
 import Spinner from '../../ui-elements/Spinner/Spinner'
+import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm/AllergiesCreateForm'
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -139,7 +140,7 @@ export default class Allergies extends PureComponent {
 
   handleCreate = (name) => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
   };
 
@@ -176,7 +177,7 @@ export default class Allergies extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
   };
 
@@ -267,10 +268,11 @@ export default class Allergies extends PureComponent {
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
             <div className="panel panel-primary">
-              <AllergiesListHeader
+              <PluginListHeader
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Allergies"
                 isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
                 name={ALLERGIES_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={ALLERGIES_MAIN}
@@ -329,7 +331,7 @@ export default class Allergies extends PureComponent {
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <AllergiesCreate
+            <PluginCreate
               onExpand={this.handleExpand}
               name={ALLERGIES_CREATE}
               openedPanel={openedPanel}
@@ -340,6 +342,10 @@ export default class Allergies extends PureComponent {
               formValues={allergiesCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <AllergiesCreateForm />
+              }
+              title="Create Allergy"
             />
           </Col> : null}
         </Row>

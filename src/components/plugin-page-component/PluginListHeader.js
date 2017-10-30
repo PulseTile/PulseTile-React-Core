@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import PTButton from '../../../ui-elements/PTButton/PTButton';
+import PTButton from '../ui-elements/PTButton/PTButton';
 
-export default class ProblemsDiagnosisListHeader extends PureComponent {
+export default class PluginListHeader extends PureComponent {
   static propTypes = {
     onFilterChange: PropTypes.func.isRequired,
     panelTitle: PropTypes.string.isRequired,
@@ -19,7 +19,7 @@ export default class ProblemsDiagnosisListHeader extends PureComponent {
 
   render() {
     const { isFilterInputVisible } = this.state;
-    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel } = this.props;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, isBtnTableVisible, onExpand, name, currentPanel } = this.props;
 
     return (
       <div className="panel-heading">
@@ -27,6 +27,9 @@ export default class ProblemsDiagnosisListHeader extends PureComponent {
           { isBtnExpandVisible ? <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name, currentPanel)}>
             <i className="btn-icon fa fa-expand" />
             <i className="btn-icon fa fa-compress" />
+          </PTButton> : null }
+          { isBtnTableVisible ? <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle btn-table">
+            <i className="btn-icon fa fa-table" />
           </PTButton> : null }
           <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
             <i className="btn-icon fa fa-filter" />
