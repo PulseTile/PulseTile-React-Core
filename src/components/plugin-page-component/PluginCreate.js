@@ -1,27 +1,24 @@
 import React, { PureComponent } from 'react';
 
-import AlergiesDetailPanel from '../AllergiesDetail/AlergiesDetailPanel'
-import AllergiesCreateForm from './AllergiesCreateForm/AllergiesCreateForm'
-import PTButton from '../../../ui-elements/PTButton/PTButton';
+import PluginDetailPanel from './PluginDetailPanel'
+import PTButton from '../ui-elements/PTButton/PTButton';
 
-const ALLERGIES_CREATE = 'allergiesCreate';
-
-export default class AllergiesCreate extends PureComponent {
+export default class PluginCreate extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onSaveSettings, formValues, onCancel, isCreatePanelVisible}  = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onSaveSettings, formValues, onCancel, isCreatePanelVisible, componentForm, title}  = this.props;
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === ALLERGIES_CREATE || expandedPanel === 'all') ? <AlergiesDetailPanel
+          {(expandedPanel === name || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
-            name={ALLERGIES_CREATE}
-            title="Create Allergy"
+            name={name}
+            title={title}
             onShow={onShow}
-            isOpen={openedPanel === ALLERGIES_CREATE}
+            isOpen={openedPanel === name}
             currentPanel={currentPanel}
             isCreatePanelVisible={isCreatePanelVisible}
           >
-            <AllergiesCreateForm />
+            {componentForm}
             <div className="panel-control">
               <div className="wrap-control-group">
                 <div className="control-group right">
@@ -34,7 +31,7 @@ export default class AllergiesCreate extends PureComponent {
                 </div>
               </div>
             </div>
-          </AlergiesDetailPanel> : null}
+          </PluginDetailPanel> : null}
         </div>
       </div>
     )
