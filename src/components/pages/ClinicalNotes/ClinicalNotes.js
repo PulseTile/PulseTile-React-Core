@@ -9,8 +9,8 @@ import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
+import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import ClinicalNotesCreateForm from './ClinicalNotesCreate/ClinicalNotesCreateForm/ClinicalNotesCreateForm';
-import SortableTable from '../../containers/SortableTable/SortableTable';
 import { clinicalNotesColumnsConfig, defaultColumnsSelected } from './clinical-notes-table-columns.config'
 import { fetchPatientClinicalNotesRequest } from './ducks/fetch-patient-clinical-notes.duck';
 import { fetchPatientClinicalNotesDetailRequest } from './ducks/fetch-patient-clinical-notes-detail.duck';
@@ -19,8 +19,6 @@ import { fetchPatientClinicalNotesCreateRequest } from './ducks/fetch-patient-cl
 import { fetchPatientClinicalNotesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientClinicalNotesSelector, patientClinicalNotesDetailSelector, clinicalNotePanelFormSelector, clinicalCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
-import PTButton from '../../ui-elements/PTButton/PTButton';
 import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
 import { valuesNames } from './ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
@@ -40,17 +38,12 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 export default class ClinicalNotes extends PureComponent {
   static propTypes = {
     allClinicalNotes: PropTypes.arrayOf(PropTypes.object),
-    clinicalNotesPerPageAmount: PropTypes.number,
   };
 
   static contextTypes = {
     router: PropTypes.shape({
       history: PropTypes.object,
     }),
-  };
-
-  static defaultProps = {
-    clinicalNotesPerPageAmount: 10,
   };
 
   state = {
@@ -77,15 +70,6 @@ export default class ClinicalNotes extends PureComponent {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
   }
-
-  getClinicalNotesOnFirstPage = (clinicalNotes) => {
-    const { offset } = this.state;
-    const { clinicalNotesPerPageAmount } = this.props;
-
-    return (_.size(clinicalNotes) > clinicalNotesPerPageAmount
-      ? _.slice(offset, offset + clinicalNotesPerPageAmount)(clinicalNotes)
-      : clinicalNotes)
-  };
 
   handleExpand = (name, currentPanel) => {
     if (currentPanel === CLINICAL_NOTES_MAIN) {
@@ -141,13 +125,11 @@ export default class ClinicalNotes extends PureComponent {
     return _.head(filteredAndSortedClinicalNotes)
   };
 
-  shouldHavePagination = clinicalNotes => _.size(clinicalNotes) > this.props.clinicalNotesPerPageAmount;
-
   handleSetOffset = offset => this.setState({ offset });
 
-  handleCreate = (name) => {
+  handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: name, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`);
   };
 
@@ -226,7 +208,7 @@ export default class ClinicalNotes extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
-    const { allClinicalNotes, clinicalNotesPerPageAmount, clinicalNoteDetail, clinicalNoteFormState, clinicalCreateFormState } = this.props;
+    const { allClinicalNotes, clinicalNoteDetail, clinicalNoteFormState, clinicalCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === CLINICAL_NOTES_DETAIL || expandedPanel === CLINICAL_NOTES_PANEL);
     const isPanelMain = (expandedPanel === CLINICAL_NOTES_MAIN);
@@ -235,7 +217,6 @@ export default class ClinicalNotes extends PureComponent {
     const columnsToShowConfig = clinicalNotesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredClinicalNotes = this.filterAndSortClinicalNotes(allClinicalNotes);
-    const clinicalNotesOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredClinicalNotes);
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -251,39 +232,22 @@ export default class ClinicalNotes extends PureComponent {
                 onExpand={this.handleExpand}
                 currentPanel={CLINICAL_NOTES_MAIN}
               />
-              <div className="panel-body">
-                <SortableTable
-                  headers={columnsToShowConfig}
-                  data={clinicalNotesOnFirstPage}
-                  resourceData={allClinicalNotes}
-                  emptyDataMessage="No clinical notes"
-                  onHeaderCellClick={this.handleHeaderCellClick}
-                  onCellClick={this.handleDetailClinicalNotesClick}
-                  columnNameSortBy={columnNameSortBy}
-                  sortingOrder={sortingOrder}
-                  table="clinicalNotes"
-                />
-                <div className="panel-control">
-                  <div className="wrap-control-group">
-                    {this.shouldHavePagination(filteredClinicalNotes) &&
-                    <div className="control-group with-indent left">
-                      <PaginationBlock
-                        entriesPerPage={clinicalNotesPerPageAmount}
-                        totalEntriesAmount={_.size(allClinicalNotes)}
-                        offset={offset}
-                        setOffset={this.handleSetOffset}
-                      />
-                    </div>
-                    }
-                    <div className="control-group with-indent right">
-                      {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => this.handleCreate(CLINICAL_NOTES_CREATE)}>
-                        <i className="btn-icon fa fa-plus" />
-                        <span className="btn-text"> Create</span>
-                      </PTButton> : null}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allClinicalNotes}
+                emptyDataMessage="No clinical notes"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailClinicalNotesClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="clinicalNotes"
+                filteredData={filteredClinicalNotes}
+                totalEntriesAmount={_.size(allClinicalNotes)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+              />
             </div>
           </Col> : null }
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
