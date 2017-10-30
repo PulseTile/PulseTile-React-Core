@@ -1,8 +1,12 @@
 const validateContactsForm = (values) => {
   const errors = {};
-  errors.cause = !values.cause ? 'You must enter a value.' : null;
-  errors.reaction = !values.reaction ? 'You must enter a value.' : null;
-  errors.causeTerminology = !values.causeTerminology ? 'You must enter a value.' : null;
+	errors.name = !values.name ? "You must enter a value." : null;
+	errors.relationship = !values.relationship ? "You must enter a value." : null;
+	errors.nextOfKin = null;
+	errors.relationshipType = !values.relationshipType ? "You must enter a value." : null;
+	errors.contactInformation = !values.contactInformation ? "You must enter a value." : null;
+	errors.note = !values.note ? "You must enter a value." : null;
+
   return errors
 };
 

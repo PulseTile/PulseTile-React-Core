@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
+import { Row, Col } from 'react-bootstrap';
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
+import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import { validateContactsForm } from '../../ContactsCreate/ContactsCreateForm/validation';
-import { valuesNames, valuesLabels } from '../../ContactsCreate/ContactsCreateForm/values-names.config';
-import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels, relationshipOptions } from '../../ContactsCreate/ContactsCreateForm/values-names.config';
 
 @reduxForm({
   form: 'contactPanelFormSelector',
@@ -19,16 +20,19 @@ export default class ContactPanelForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.CAUSE]: value.cause,
-      [valuesNames.REACTION]: value.reaction,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.NAME]: value.name,
+      [valuesNames.REALATIONSHIP]: value.relationship,
+			[valuesNames.NEXT_OF_KIN]: value.nextOfKin,
+			[valuesNames.REALATIONSHIP_TYPE]: value.relationshipType,
+			[valuesNames.CONTACT_INFORMATION]: value.contactInformation,
+			[valuesNames.NOTES]: value.notes,
+			[valuesNames.AUTHOR]: value.author,
     };
 
     return defaultFormValues;
   }
   render() {
     const { detail } = this.props;
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="panel-body-inner">
         <form name="contactPanelForm" className="form">
@@ -36,21 +40,68 @@ export default class ContactPanelForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.CAUSE}
-                  name={valuesNames.CAUSE}
-                  id={valuesNames.CAUSE}
+                  label={valuesLabels.NAME}
+                  name={valuesNames.NAME}
+                  id={valuesNames.NAME}
                   type="text"
-                  placeholder=""
                   component={ValidatedInput}
-                />
-                <Field
-                  label={valuesLabels.REACTION}
-                  name={valuesNames.REACTION}
-                  id={valuesNames.REACTION}
-                  component={ValidateTextareaFormGroup}
                 />
               </div>
             </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Row>
+                  <Col md={6} xs={12}>
+                    <Field
+                      label={valuesLabels.REALATIONSHIP}
+                      name={valuesNames.REALATIONSHIP}
+                      id={valuesNames.REALATIONSHIP}
+                      options={relationshipOptions}
+                      component={SelectFormGroup}
+                    />
+                  </Col>
+                  <Col md={6} xs={12}>
+                    <Field
+                      label={valuesLabels.NEXT_OF_KIN}
+                      name={valuesNames.NEXT_OF_KIN}
+                      id={valuesNames.NEXT_OF_KIN}
+                      type="checkbox"
+                      component={ValidatedInput}
+                    />
+                  </Col>
+                </Row>
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.REALATIONSHIP_TYPE}
+                  name={valuesNames.REALATIONSHIP_TYPE}
+                  id={valuesNames.REALATIONSHIP_TYPE}
+                  type="text"
+                  component={ValidatedInput}
+                />
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.CONTACT_INFORMATION}
+                  name={valuesNames.CONTACT_INFORMATION}
+                  id={valuesNames.CONTACT_INFORMATION}
+                  component={ValidatedTextareaFormGroup}
+                />
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.NOTES}
+                  name={valuesNames.NOTES}
+                  id={valuesNames.NOTES}
+                  component={ValidatedTextareaFormGroup}
+                />
+              </div>
+            </div>
+
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
@@ -69,7 +120,7 @@ export default class ContactPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

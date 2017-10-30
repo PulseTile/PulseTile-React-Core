@@ -1,9 +1,9 @@
 import moment from 'moment';
 
-export const getUTCDate = dateOfBirth => moment(dateOfBirth).utc()
+export const getUTCDate = date => moment(date).utc()
 
-export const getAgeYears = dateOfBirth => moment().diff(dateOfBirth, 'years');
+export const getAgeYears = date => moment().diff(date, 'years');
 
-export const getDDMMMYYYY = dateOfBirth => (moment(dateOfBirth).isValid()
-  ? moment(dateOfBirth).format('DD-MMM-YYYY')
-  : dateOfBirth);
+export const getDDMMMYYYY = date => (moment(date).isValid()
+  ? moment(date).format('DD-MMM-YYYY')
+  : date);

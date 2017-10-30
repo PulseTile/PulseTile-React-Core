@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateDiagnosisPanelForm } from './validation';
@@ -51,7 +51,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   label={valuesLabels.DESCRIPTION}
                   name={valuesNames.DESCRIPTION}
                   id={valuesNames.DESCRIPTION}
-                  component={ValidateTextareaFormGroup}
+                  component={ValidatedTextareaFormGroup}
                 />
               </div>
               <div className="col-expand-right">

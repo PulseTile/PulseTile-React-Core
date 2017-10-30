@@ -147,22 +147,9 @@ export default class Contacts extends PureComponent {
     this.hideCreateForm();
   };
 
-  handleSaveSettingsDetailForm = (formValues, name) => {
-    const { contactDetail, actions } = this.props;
+  handleSaveSettingsDetailForm = (formValues) => {
+    const { actions } = this.props;
 
-    formValues.causeCode = contactDetail.causeCode;
-    formValues.sourceId = '';
-
-    if (name === CONTACT_PANEL) {
-      contactDetail.cause = formValues.cause;
-      contactDetail.reaction = formValues.reaction;
-      formValues.causeTerminology = contactDetail.causeTerminology;
-    }
-    if (name === META_PANEL) {
-      contactDetail.causeTerminology = formValues.causeTerminology;
-      formValues.cause = contactDetail.cause;
-      formValues.reaction = contactDetail.reaction;
-    }
     actions.fetchPatientContactsDetailEditRequest(this.formValuesToDetailEditString(formValues));
     this.setState(prevState => ({
       editedPanel: {
@@ -197,20 +184,18 @@ export default class Contacts extends PureComponent {
 
   formValuesToDetailEditString = (formValues) => {
     const { userId } = this.props;
-    const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
-    const cause = _.get(valuesNames.CAUSE)(formValues);
-    const reaction = _.get(valuesNames.REACTION)(formValues);
-    const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const currentDate = _.get(valuesNames.DATE)(formValues);
-    const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
-    const source = 'ethercis';
 
-    if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, sourceId, source, userId });
-    return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
+		const name = _.get(valuesNames.NAME)(formValues);
+		const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
+		const nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
+		const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
+		const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
+		const notes = _.get(valuesNames.NOTES)(formValues);
+		const author = _.get(valuesNames.AUTHOR)(formValues);
+		const currentDate = _.get(valuesNames.DATE)(formValues);
+		const source = 'ethercis';
+
+    return ({ name, relationship, nextOfKin, relationshipType, contactInformation, notes, author, currentDate, source, userId });
   };
 
   hideCreateForm = () => {

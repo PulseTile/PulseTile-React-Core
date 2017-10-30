@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
@@ -31,7 +31,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   label={valuesLabels.REACTION}
                   name={valuesNames.REACTION}
                   id={valuesNames.REACTION}
-                  component={ValidateTextareaFormGroup}
+                  component={ValidatedTextareaFormGroup}
                 />
               </div>
             </div>

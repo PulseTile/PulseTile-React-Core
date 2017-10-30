@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import { validateAllergiesForm } from '../../AllergiesCreate/AllergiesCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../AllergiesCreate/AllergiesCreateForm/values-names.config';
@@ -45,7 +45,7 @@ export default class AllergiePanelForm extends PureComponent {
                   label={valuesLabels.REACTION}
                   name={valuesNames.REACTION}
                   id={valuesNames.REACTION}
-                  component={ValidateTextareaFormGroup}
+                  component={ValidatedTextareaFormGroup}
                 />
               </div>
             </div>

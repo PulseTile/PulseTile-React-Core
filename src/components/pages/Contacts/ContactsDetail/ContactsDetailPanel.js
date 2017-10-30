@@ -18,17 +18,19 @@ export default class ContactsDetailPanel extends PureComponent {
     onCancel: PropTypes.func.isRequired,
     onSaveSettings: PropTypes.func.isRequired,
     editedPanel: PropTypes.object,
+		isShowControlPanel: PropTypes.bool
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible } = this.props;
+		const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible, isShowControlPanel  } = this.props;
 
-    return (
+		return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
         <ContactsDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} />
         <div className="panel-body">
-          {children}
-          {(!isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">
+					{children}
+
+          {(isShowControlPanel && !isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
@@ -37,7 +39,7 @@ export default class ContactsDetailPanel extends PureComponent {
               </div>
             </div>
           </div> : null }
-          {(!isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control ng-scope">
+          {(isShowControlPanel &&  !isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control ng-scope">
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
@@ -49,8 +51,9 @@ export default class ContactsDetailPanel extends PureComponent {
               </div>
             </div>
           </div> : null }
+
         </div>
       </div>
-    )
+		)
   }
 }

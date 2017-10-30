@@ -4,25 +4,26 @@ import classNames from 'classnames';
 
 export default class CustomInputCheckbox extends PureComponent {
     static propTypes = {
-      label: PropTypes.string.isRequired,
+      label: PropTypes.string,
       input: PropTypes.object.isRequired,
-      meta: PropTypes.object.isRequired,
+      meta: PropTypes.object,
     };
 
     render() {
-      const { label, input, meta } = this.props;
+      const { label, input, id } = this.props;
 
       return (
         <div className="wrap-fcustominp">
-          <div>
+          <div className="fcustominp">
             <input
               type="checkbox"
               checked={input.value}
-              {...input}
+              id={id ? id : ''}
+							{...input}
             />
-            {/*<label htmlFor={input.name} />*/}
+            <label htmlFor={input.name} />
           </div>
-          <label htmlFor={input.name} className="fcustominp-label ng-binding">{label}</label>
+          {label ? <label htmlFor={name} className="fcustominp-label">{label}</label> : null}
         </div>
       )
     }

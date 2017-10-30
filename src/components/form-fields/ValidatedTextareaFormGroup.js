@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import _ from 'lodash/fp';
 
-export default class ValidateTextareaFormGroup extends PureComponent {
+export default class ValidatedTextareaFormGroup extends PureComponent {
   static propTypes = {
     label: PropTypes.string.isRequired,
     input: PropTypes.object.isRequired,

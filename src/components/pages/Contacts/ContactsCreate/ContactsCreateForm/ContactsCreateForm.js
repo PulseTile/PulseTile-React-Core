@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { Row, Col } from 'react-bootstrap';
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateContactsForm } from './validation';
@@ -49,7 +49,7 @@ export default class ContactsCreateForm extends PureComponent {
               label={valuesLabels.REACTION}
               name={valuesNames.REACTION}
               id={valuesNames.REACTION}
-              component={ValidateTextareaFormGroup}
+              component={ValidatedTextareaFormGroup}
             />
             <Row>
               <Col md={6}>
