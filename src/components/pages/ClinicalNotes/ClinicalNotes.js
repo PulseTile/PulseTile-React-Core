@@ -8,13 +8,16 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
+import PluginCreate from '../../plugin-page-component/PluginCreate';
+import ClinicalNotesCreateForm from './ClinicalNotesCreate/ClinicalNotesCreateForm/ClinicalNotesCreateForm';
 import SortableTable from '../../containers/SortableTable/SortableTable';
 import { clinicalNotesColumnsConfig, defaultColumnsSelected } from './clinical-notes-table-columns.config'
 import { fetchPatientClinicalNotesRequest } from './ducks/fetch-patient-clinical-notes.duck';
 import { fetchPatientClinicalNotesDetailRequest } from './ducks/fetch-patient-clinical-notes-detail.duck';
 import { fetchPatientClinicalNotesDetailEditRequest } from './ducks/fetch-patient-clinical-notes-detail-edit.duck';
+import { fetchPatientClinicalNotesCreateRequest } from './ducks/fetch-patient-clinical-notes-create.duck';
 import { fetchPatientClinicalNotesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientClinicalNotesSelector, patientClinicalNotesDetailSelector, clinicalNotePanelFormSelector } from './selectors';
+import { patientClinicalNotesSelector, patientClinicalNotesDetailSelector, clinicalNotePanelFormSelector, clinicalCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PTButton from '../../ui-elements/PTButton/PTButton';
@@ -27,11 +30,12 @@ const CLINICAL_NOTES_DETAIL = 'clinicalNotesDetail';
 const CLINICAL_NOTES_CREATE = 'clinicalNotesCreate';
 const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalNotesRequest, fetchPatientClinicalNotesDetailRequest, fetchPatientClinicalNotesDetailEditRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalNotesRequest, fetchPatientClinicalNotesDetailRequest, fetchPatientClinicalNotesDetailEditRequest, fetchPatientClinicalNotesCreateRequest }, dispatch) });
 
 @connect(patientClinicalNotesSelector, mapDispatchToProps)
 @connect(patientClinicalNotesDetailSelector, mapDispatchToProps)
 @connect(clinicalNotePanelFormSelector)
+@connect(clinicalCreateFormStateSelector)
 @compose(lifecycle(fetchPatientClinicalNotesOnMount))
 export default class ClinicalNotes extends PureComponent {
   static propTypes = {
@@ -190,9 +194,39 @@ export default class ClinicalNotes extends PureComponent {
     return ({ clinicalNotesType, note, author, date, sourceId, source });
   };
 
+  handleCreateCancel = () => {
+    const { userId } = this.props;
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all' });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+  };
+
+  handleSaveSettingsCreateForm = (formValues) => {
+    const { actions, userId } = this.props;
+    actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToCreateString(formValues));
+    setTimeout(() => actions.fetchPatientClinicalNotesRequest({ userId }), 1000);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+    this.hideCreateForm();
+  };
+
+  formValuesToCreateString = (formValues) => {
+    const { userId } = this.props;
+    const isTypeValid = _.isEmpty((formValues[valuesNames.CLINICAL_NOTES_TYPE]));
+    const clinicalNotesType = _.get(valuesNames.CLINICAL_NOTES_TYPE)(formValues);
+    const note = _.get(valuesNames.NOTE)(formValues);
+    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const source = _.get(valuesNames.SOURCE)(formValues);
+
+    if (!isTypeValid) return ({ clinicalNotesType, note, author, source, userId });
+    return ({ clinicalNotesType, note, author, source });
+  };
+
+  hideCreateForm = () => {
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
-    const { allClinicalNotes, clinicalNotesPerPageAmount, clinicalNoteDetail, clinicalNoteFormState } = this.props;
+    const { allClinicalNotes, clinicalNotesPerPageAmount, clinicalNoteDetail, clinicalNoteFormState, clinicalCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === CLINICAL_NOTES_DETAIL || expandedPanel === CLINICAL_NOTES_PANEL);
     const isPanelMain = (expandedPanel === CLINICAL_NOTES_MAIN);
@@ -265,6 +299,24 @@ export default class ClinicalNotes extends PureComponent {
               onCancel={this.handleClinicalNotesDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               clinicalNoteFormValues={clinicalNoteFormState.values}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              onExpand={this.handleExpand}
+              name={CLINICAL_NOTES_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={CLINICAL_NOTES_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={clinicalCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ClinicalNotesCreateForm />
+              }
+              title="Create Clinical Note"
             />
           </Col> : null}
         </Row>
