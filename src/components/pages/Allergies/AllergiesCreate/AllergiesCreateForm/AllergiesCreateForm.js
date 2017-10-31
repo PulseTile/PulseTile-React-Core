@@ -6,19 +6,20 @@ import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesForm } from './validation';
+import { validateAllergiesCreateForm } from './validation';
 import { valuesNames, valuesLabels } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
 
 @reduxForm({
   form: 'allergiesCreateFormSelector',
-  validate: validateAllergiesForm,
+  validate: validateAllergiesCreateForm,
 })
 export default class AllergiesCreateForm extends PureComponent {
   componentDidMount() {
     this.props.initialize(defaultFormValues);
   }
   render() {
+    const {isSubmit} = this.props;
     const date = new Date();
     const dateCreated = date.getTime();
     return (
@@ -31,9 +32,8 @@ export default class AllergiesCreateForm extends PureComponent {
                   label={valuesLabels.CAUSE}
                   name={valuesNames.CAUSE}
                   id={valuesNames.CAUSE}
-                  type="text"
-                  placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </Col>
               <Col md={6}>
@@ -41,7 +41,7 @@ export default class AllergiesCreateForm extends PureComponent {
                   name={valuesNames.CAUSECODE}
                   label={valuesLabels.CAUSECODE}
                   component={StaticFormField}
-                  props={{ className: 'form-control-static' }}
+                  props={{ className: 'form-control-static', isSubmit }}
                 />
               </Col>
             </Row>
@@ -50,6 +50,7 @@ export default class AllergiesCreateForm extends PureComponent {
               name={valuesNames.REACTION}
               id={valuesNames.REACTION}
               component={ValidatedTextareaFormGroup}
+              props={{ isSubmit }}
             />
             <Row>
               <Col md={6}>
@@ -57,9 +58,8 @@ export default class AllergiesCreateForm extends PureComponent {
                   label={valuesLabels.TERMINOLOGY}
                   name={valuesNames.TERMINOLOGY}
                   id={valuesNames.TERMINOLOGY}
-                  type="text"
-                  placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </Col>
               <Col md={6}>

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'lodash/fp';
 import CustomInputCheckbox from './CustomInputCheckbox';
 
 export default class ValidatedInputFormGroup extends PureComponent {
@@ -16,12 +15,23 @@ export default class ValidatedInputFormGroup extends PureComponent {
       }).isRequired,
     };
 
-    render() {
-      const { label, labelCheckbox, placeholder, input, type, meta: { active, error }, id, disabled } = this.props;
-      const hasError = !_.isEmpty(error);
+    state={
+      isChanged: false,
+    };
 
-			return (
-        <div className={classNames('form-group', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.meta.dirty) {
+        this.setState({ isChanged: true })
+      }
+    }
+
+    render() {
+      const { label, labelCheckbox, placeholder, input, type, meta: { error, touched }, id, disabled, isSubmit, isNotValidate } = this.props;
+      const { isChanged } = this.state;
+      const showError = ((touched || isChanged || isSubmit) && error);
+
+      return (
+        <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
           <label htmlFor={input.name} className="control-label">{label}</label>
           <div className="input-holder">
 						{
@@ -40,11 +50,9 @@ export default class ValidatedInputFormGroup extends PureComponent {
               />
 						}
           </div>
-					{hasError && <span className="required-label">{error}</span>}
+          {showError && <span className="required-label">{error}</span>}
         </div>
 			)
 
-			// console.log('this.props', this.props);
-			// console.log('input', {...input});
     }
 }

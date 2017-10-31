@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'lodash/fp';
 
 export default class ValidatedTextareaFormGroup extends PureComponent {
   static propTypes = {
@@ -13,12 +12,23 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
     }).isRequired,
   };
 
+  state={
+    isChanged: false,
+  };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.meta.dirty) {
+      this.setState({ isChanged: true })
+    }
+  }
+
   render() {
-    const { label, input, meta: { active, error }, id } = this.props;
-    const hasError = !_.isEmpty(error);
+    const { label, input, meta: { error, touched }, id, isSubmit } = this.props;
+    const { isChanged } = this.state;
+    const showError = ((touched || isChanged || isSubmit) && error);
 
     return (
-      <div className={classNames('form-group', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
+      <div className={classNames('form-group', { 'has-error': showError }, { 'has-success': isChanged && !error })}>
         <label htmlFor={input.name} className="control-label">{label}</label>
         <div className="input-holder">
           <textarea
@@ -27,7 +37,7 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
             {...input}
           />
         </div>
-        {hasError && <span className="required-label">{error}</span>}
+        {showError && <span className="required-label">{error}</span>}
       </div>
     )
   }

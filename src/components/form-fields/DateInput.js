@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'lodash/fp';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import moment from 'moment';
@@ -17,14 +16,25 @@ export default class DateInput extends PureComponent {
       }).isRequired,
     };
 
+    state={
+      isChanged: false,
+    };
+
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.meta.dirty) {
+        this.setState({ isChanged: true })
+      }
+    }
+
     render() {
-      const { label, placeholder, input, meta: { active, error }, disabled, value, format } = this.props;
-      const hasError = !_.isEmpty(error);
+      const { label, placeholder, input, meta: { error, touched }, disabled, value, format, isSubmit } = this.props;
+      const { isChanged } = this.state;
+      const showError = ((touched || isChanged || isSubmit) && error);
       if (value !== undefined) {
         input.value = value;
       }
       return (
-        <div className={classNames('form-group form-group-sm', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
+        <div className={classNames('form-group form-group-sm', { 'has-error': showError }, { 'has-success': isChanged && !error })}>
           <label htmlFor={input.name} className="control-label">{label}</label>
           <div className="inner-addon addon-left">
             <div className="addon">
@@ -42,7 +52,7 @@ export default class DateInput extends PureComponent {
               {...input}
               value={input.value ? moment(input.value).format(format) : ''}
             />
-            {hasError && <span className="help-block animate-fade">{error}</span>}
+            {showError && <span className="help-block animate-fade">{error}</span>}
           </div>
         </div>
       )

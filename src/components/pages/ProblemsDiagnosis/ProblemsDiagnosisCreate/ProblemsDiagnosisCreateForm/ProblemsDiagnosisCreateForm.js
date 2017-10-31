@@ -18,6 +18,8 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
     this.props.initialize(defaultFormValues);
   }
   render() {
+    const {isSubmit} = this.props;
+    const isNotValidate = true;
     const date = new Date();
     const dateCreated = date.getTime();
     return (
@@ -33,6 +35,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -41,7 +44,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DATE_OF_ONSET}
                   id={valuesNames.DATE_OF_ONSET}
                   component={DateInput}
-                  props={{ format: 'DD-MMM-YYYY' }}
+                  props={{ format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>
@@ -52,6 +55,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DESCRIPTION}
                   id={valuesNames.DESCRIPTION}
                   component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -60,6 +64,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}
+                  props={{ isSubmit, isNotValidate }}
                 />
               </div>
             </div>
@@ -70,6 +75,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.TERMINOLOGY}
                   id={valuesNames.TERMINOLOGY}
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -77,7 +83,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.CODE}
                   label={valuesLabels.CODE}
                   component={StaticFormField}
-                  props={{ className: 'non-edit-value' }}
+                  props={{ className: 'non-edit-value', isSubmit }}
                 />
               </div>
             </div>
@@ -88,7 +94,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.AUTHOR}
                   id={valuesNames.AUTHOR}
                   component={ValidatedInput}
-                  props={{ disabled: true }}
+                  props={{ disabled: true, isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -97,7 +103,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

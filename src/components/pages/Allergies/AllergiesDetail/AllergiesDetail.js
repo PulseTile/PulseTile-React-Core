@@ -13,7 +13,7 @@ const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues } = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues, isSubmit } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="section-detail">
@@ -87,6 +87,7 @@ export default class AllergiesDetail extends PureComponent {
           >
             <AllergiePanelForm
               detail={detail}
+              isSubmit={isSubmit}
             />
           </PluginDetailPanel> : null }
           {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <PluginDetailPanel
@@ -143,6 +144,7 @@ export default class AllergiesDetail extends PureComponent {
           >
             <AllergieMetaForm
               detail={detail}
+              isSubmit={isSubmit}
             />
           </PluginDetailPanel> : null }
         </div>
