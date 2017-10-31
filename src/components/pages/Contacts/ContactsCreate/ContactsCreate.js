@@ -22,19 +22,19 @@ export default class ContactsCreate extends PureComponent {
             isCreatePanelVisible={isCreatePanelVisible}
           >
             <ContactsCreateForm />
-            <div className="panel-control">
-              <div className="wrap-control-group">
-                <div className="control-group right">
-                  <PTButton className="btn btn-danger" onClick={() => onCancel()}>
-                    <i className="fa fa-ban" /> Cancel
-                  </PTButton>
-                  <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues)}>
-                    <i className="fa fa-check" /> Complete
-                  </PTButton>
+              <div className="panel-control">
+                <div className="wrap-control-group">
+                  <div className="control-group right">
+                    <PTButton className="btn btn-danger" onClick={() => onCancel()}>
+                      <i className="fa fa-ban" /> Cancel
+                    </PTButton>
+                    <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues)}>
+                      <i className="fa fa-check" /> Complete
+                    </PTButton>
+                  </div>
                 </div>
               </div>
-            </div>
-          </ContactsDetailPanel> : null}
+            </ContactsDetailPanel> : null}
         </div>
       </div>
     )

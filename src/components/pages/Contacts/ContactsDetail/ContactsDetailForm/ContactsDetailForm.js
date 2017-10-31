@@ -10,10 +10,10 @@ import { validateContactsForm } from '../../ContactsCreate/ContactsCreateForm/va
 import { valuesNames, valuesLabels, relationshipOptions } from '../../ContactsCreate/ContactsCreateForm/values-names.config';
 
 @reduxForm({
-  form: 'contactPanelFormSelector',
+  form: 'contactsDetailFormSelector',
   validate: validateContactsForm,
 })
-export default class ContactPanelForm extends PureComponent {
+export default class ContactsDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
@@ -35,7 +35,7 @@ export default class ContactPanelForm extends PureComponent {
     const { detail } = this.props;
     return (
       <div className="panel-body-inner">
-        <form name="contactPanelForm" className="form">
+        <form name="contactsDetailForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">

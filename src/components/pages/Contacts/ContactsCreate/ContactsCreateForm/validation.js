@@ -5,7 +5,7 @@ const validateContactsForm = (values) => {
 	errors.nextOfKin = null;
 	errors.relationshipType = !values.relationshipType ? "You must enter a value." : null;
 	errors.contactInformation = !values.contactInformation ? "You must enter a value." : null;
-	errors.note = !values.note ? "You must enter a value." : null;
+	errors.notes = !values.notes ? "You must enter a value." : null;
 
   return errors
 };

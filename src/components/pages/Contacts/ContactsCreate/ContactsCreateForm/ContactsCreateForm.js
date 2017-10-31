@@ -4,10 +4,11 @@ import { Row, Col } from 'react-bootstrap';
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
+import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateContactsForm } from './validation';
-import { valuesNames, valuesLabels } from './values-names.config';
+import { valuesNames, valuesLabels, relationshipOptions  } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
@@ -22,68 +23,123 @@ export default class ContactsCreateForm extends PureComponent {
   render() {
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
+
     return (
       <div className="panel-body-inner">
         <form name="contactsCreateForm" className="form">
           <div className="form-group-wrapper">
-            <Row>
-              <Col md={6}>
+            <div className="row-expand">
+              <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.CAUSE}
-                  name={valuesNames.CAUSE}
-                  id={valuesNames.CAUSE}
+                  label={valuesLabels.NAME}
+                  name={valuesNames.NAME}
+                  id={valuesNames.NAME}
                   type="text"
-                  placeholder=""
                   component={ValidatedInput}
                 />
-              </Col>
-              <Col md={6}>
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Row>
+                  <Col md={6} xs={12}>
+                    <Field
+                      label={valuesLabels.REALATIONSHIP}
+                      name={valuesNames.REALATIONSHIP}
+                      id={valuesNames.REALATIONSHIP}
+                      options={relationshipOptions}
+                      component={SelectFormGroup}
+                    />
+                  </Col>
+                  <Col md={6} xs={12}>
+                    <Field
+                      label={valuesLabels.NEXT_OF_KIN}
+                      name={valuesNames.NEXT_OF_KIN}
+                      id={valuesNames.NEXT_OF_KIN}
+                      type="checkbox"
+                      component={ValidatedInput}
+                    />
+                  </Col>
+                </Row>
+              </div>
+              <div className="col-expand-right">
                 <Field
-                  name={valuesNames.CAUSECODE}
-                  label={valuesLabels.CAUSECODE}
-                  component={StaticFormField}
-                />
-              </Col>
-            </Row>
-            <Field
-              label={valuesLabels.REACTION}
-              name={valuesNames.REACTION}
-              id={valuesNames.REACTION}
-              component={ValidatedTextareaFormGroup}
-            />
-            <Row>
-              <Col md={6}>
-                <Field
-                  label={valuesLabels.TERMINOLOGY}
-                  name={valuesNames.TERMINOLOGY}
-                  id={valuesNames.TERMINOLOGY}
+                  label={valuesLabels.REALATIONSHIP_TYPE}
+                  name={valuesNames.REALATIONSHIP_TYPE}
+                  id={valuesNames.REALATIONSHIP_TYPE}
                   type="text"
-                  placeholder=""
                   component={ValidatedInput}
                 />
-              </Col>
-              <Col md={6}>
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Row>
+                  <Col md={6} xs={12}>
+                    <Field
+                      name={valuesNames.REALATIONSHIP_CODE}
+                      label={valuesLabels.REALATIONSHIP_CODE}
+                      component={StaticFormField}
+                      props={{ className: 'form-control-static' }}
+                    />
+                  </Col>
+                  <Col md={6} xs={12}>
+                    <Field
+                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
+                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
+                      component={StaticFormField}
+                      props={{ className: 'form-control-static' }}
+                    />
+                  </Col>
+                </Row>
+
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
                 <Field
-                  name={valuesNames.TERMINOLOGYCODE}
-                  label={valuesLabels.TERMINOLOGYCODE}
-                  component={StaticFormField}
+                  label={valuesLabels.CONTACT_INFORMATION}
+                  name={valuesNames.CONTACT_INFORMATION}
+                  id={valuesNames.CONTACT_INFORMATION}
+                  component={ValidatedTextareaFormGroup}
                 />
-              </Col>
-            </Row>
-            <Field
-              label={valuesLabels.AUTHOR}
-              name={valuesNames.AUTHOR}
-              id={valuesNames.AUTHOR}
-              component={ValidatedInput}
-              props={{ disabled: true }}
-            />
-            <Field
-              label={valuesLabels.DATE}
-              name={valuesNames.DATE}
-              id={valuesNames.DATE}
-              component={DateInput}
-              props={{ disabled: true, value: dateCreated }}
-            />
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.NOTES}
+                  name={valuesNames.NOTES}
+                  id={valuesNames.NOTES}
+                  component={ValidatedTextareaFormGroup}
+                />
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.AUTHOR}
+                  name={valuesNames.AUTHOR}
+                  id={valuesNames.AUTHOR}
+                  component={ValidatedInput}
+                  props={{ disabled: true }}
+                />
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.DATE}
+                  name={valuesNames.DATE}
+                  id={valuesNames.DATE}
+                  component={DateInput}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
+                />
+              </div>
+            </div>
           </div>
         </form>
       </div>)

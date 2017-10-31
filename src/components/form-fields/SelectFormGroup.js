@@ -12,10 +12,11 @@ export default class SelectFormGroup extends PureComponent {
   };
 
   render() {
-    const { label, name, options, input, id } = this.props;
+    const { label, name, options, input, id, meta: { active, error } } = this.props;
+		const hasError = !_.isEmpty(error);
 
     return (
-      <div className="form-group">
+      <div className={classNames('form-group', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
         <label htmlFor="selectAgeField" className="control-label">{label}</label>
         <select
           className="form-control input-sm"
@@ -23,10 +24,12 @@ export default class SelectFormGroup extends PureComponent {
           id={id ? id : ''}
           {...input}
         >
+          <option></option>
           {options.map(({ value, title }) =>
             <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
           )};
         </select>
+				{hasError && <span className="required-label">{error}</span>}
       </div>
     )
   }

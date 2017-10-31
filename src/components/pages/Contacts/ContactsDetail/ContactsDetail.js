@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 
 import ContactsDetailPanel from './ContactsDetailPanel'
-import ContactPanelForm from './ContactsDetailForm/ContactsPanelForm'
+import ContactsDetailForm from './ContactsDetailForm/ContactsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 
@@ -13,7 +13,7 @@ const META_PANEL = 'metaPanel';
 export default class ContactsDetail extends PureComponent {
   render() {
 		let dateCreated;
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, contactPanelFormValues, metaPanelFormValues } = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, contactsDetailFormValues, metaPanelFormValues } = this.props;
 
     if (detail) {
 			dateCreated = getDDMMMYYYY(detail.dateCreated);
@@ -33,7 +33,7 @@ export default class ContactsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={contactPanelFormValues}
+            formValues={contactsDetailFormValues}
             isShowControlPanel={true}
           >
             <div className="panel-body-inner">
@@ -117,10 +117,10 @@ export default class ContactsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={contactPanelFormValues}
+            formValues={contactsDetailFormValues}
             isShowControlPanel={true}
           >
-            <ContactPanelForm detail={detail} />
+            <ContactsDetailForm detail={detail} />
           </ContactsDetailPanel> : null }
 
           {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <ContactsDetailPanel

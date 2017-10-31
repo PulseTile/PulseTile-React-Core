@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
 const contactsCreateFormSelector = _.getOr({}, 'form.contactsCreateFormSelector')
-const contactPanelFormSelector = _.getOr({}, 'form.contactPanelFormSelector')
+const contactsDetailFormSelector = _.getOr({}, 'form.contactsDetailFormSelector')
 const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
 
 const patientContactsSelector = createSelector(
@@ -14,8 +14,8 @@ const patientContactsSelector = createSelector(
   }
 );
 
-const contactPanelFormStateSelector = createSelector(contactPanelFormSelector,
-  contactPanelFormState => ({ contactPanelFormState }));
+const contactsDetailFormStateSelector = createSelector(contactsDetailFormSelector,
+  contactsDetailFormState => ({ contactsDetailFormState }));
 
 const contactsCreateFormStateSelector = createSelector(contactsCreateFormSelector,
   contactsCreateFormState => ({ contactsCreateFormState }));
@@ -32,4 +32,4 @@ const patientContactsDetailSelector = createSelector(
   }
 );
 
-export { patientContactsSelector, contactPanelFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector }
+export { patientContactsSelector, contactsDetailFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector }

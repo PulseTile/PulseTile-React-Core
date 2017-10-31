@@ -16,7 +16,7 @@ import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contact
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
 import { fetchPatientContactsDetailEditRequest } from './ducks/fetch-patient-contacts-detail-edit.duck';
 import { fetchPatientContactsOnMount, fetchPatientContactsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientContactsSelector, contactPanelFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector } from './selectors';
+import { patientContactsSelector, contactsDetailFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector } from './selectors';
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import ContactsCreate from './ContactsCreate/ContactsCreate';
 import PTButton from '../../ui-elements/PTButton/PTButton';
@@ -33,7 +33,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 
 @connect(patientContactsSelector, mapDispatchToProps)
 @connect(patientContactsDetailSelector, mapDispatchToProps)
-@connect(contactPanelFormStateSelector)
+@connect(contactsDetailFormStateSelector)
 @connect(contactsCreateFormStateSelector)
 @connect(metaPanelFormStateSelector)
 @compose(lifecycle(fetchPatientContactsOnMount), lifecycle(fetchPatientContactsDetailOnMount))
@@ -147,7 +147,7 @@ export default class Contacts extends PureComponent {
     this.hideCreateForm();
   };
 
-  handleSaveSettingsDetailForm = (formValues) => {
+  handleSaveSettingsDetailForm = (formValues, name) => {
     const { actions } = this.props;
 
     actions.fetchPatientContactsDetailEditRequest(this.formValuesToDetailEditString(formValues));
@@ -167,19 +167,21 @@ export default class Contacts extends PureComponent {
 
   formValuesToCreateString = (formValues) => {
     const { userId } = this.props;
-    const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
-    const cause = _.get(valuesNames.CAUSE)(formValues);
-    const reaction = _.get(valuesNames.REACTION)(formValues);
-    const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const currentDate = _.get(valuesNames.DATE)(formValues);
-    const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
 
-    if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, isImport, sourceId, userId });
-    return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
+    const name = _.get(valuesNames.NAME)(formValues);
+		let nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
+		nextOfKin = nextOfKin ? nextOfKin : false;
+		const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
+		const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
+		const relationshipCode = _.get(valuesNames.REALATIONSHIP_CODE)(formValues);
+		const relationshipTerminology = _.get(valuesNames.REALATIONSHIP_TERMINOLOGY)(formValues);
+		const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
+		const notes = _.get(valuesNames.NOTES)(formValues);
+		const author = _.get(valuesNames.AUTHOR)(formValues);
+		const dateSubmitted = new Date();
+		const source = 'ethercis';
+
+    return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source });
   };
 
   formValuesToDetailEditString = (formValues) => {
@@ -192,10 +194,11 @@ export default class Contacts extends PureComponent {
 		const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
 		const notes = _.get(valuesNames.NOTES)(formValues);
 		const author = _.get(valuesNames.AUTHOR)(formValues);
-		const currentDate = _.get(valuesNames.DATE)(formValues);
+		const dateSubmitted = new Date();
+		const sourceId = _.get(valuesNames.SOURCEID)(formValues);
 		const source = 'ethercis';
 
-    return ({ name, relationship, nextOfKin, relationshipType, contactInformation, notes, author, currentDate, source, userId });
+    return ({ userId, name, relationship, nextOfKin, relationshipType, contactInformation, notes, author, dateSubmitted, source, sourceId });
   };
 
   hideCreateForm = () => {
@@ -240,7 +243,7 @@ export default class Contacts extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
-    const { allContacts, contactPanelFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
+    const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
 		let fixedAllContacts;
 
 		if (allContacts) {
@@ -318,7 +321,7 @@ export default class Contacts extends PureComponent {
               editedPanel={editedPanel}
               onCancel={this.handleContactDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
-              contactPanelFormValues={contactPanelFormState.values}
+              contactsDetailFormValues={contactsDetailFormState.values}
               metaPanelFormValues={metaPanelFormState.values}
             />
           </Col> : null}
