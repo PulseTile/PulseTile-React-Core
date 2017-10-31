@@ -13,9 +13,6 @@ const Header = props =>
     <Switch>
       <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={HeaderToolbar} />
       {routersPluginConfig.map(item => <Route exact path={item.path} component={HeaderToolbar} />)}
-      {/*<Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}`} component={HeaderToolbar} />*/}
-      {/*<Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}/create`} component={HeaderToolbar} />*/}
-      {/*<Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}/:sourceId`} component={HeaderToolbar} />*/}
       <Route path={clientUrls.ROOT} component={HeaderTitle} />
     </Switch>
   </div>
