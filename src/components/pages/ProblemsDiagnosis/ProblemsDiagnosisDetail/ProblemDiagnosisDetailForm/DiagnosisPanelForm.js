@@ -30,7 +30,8 @@ export default class DiagnosisPanelForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
-    const { detail } = this.props;
+    const { detail, isSubmit } = this.props;
+    const isNotValidate = true;
     return (
       <div className="panel-body-inner">
         <form name="diagnosesPanelForm" className="form">
@@ -41,9 +42,8 @@ export default class DiagnosisPanelForm extends PureComponent {
                   label={valuesLabels.PROBLEM}
                   name={valuesNames.PROBLEM}
                   id={valuesNames.PROBLEM}
-                  type="text"
-                  placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -52,7 +52,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DATE_OF_ONSET}
                   id={valuesNames.DATE_OF_ONSET}
                   component={DateInput}
-                  props={{ format: 'DD-MMM-YYYY' }}
+                  props={{ format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>
@@ -63,6 +63,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DESCRIPTION}
                   id={valuesNames.DESCRIPTION}
                   component={ValidateTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -71,6 +72,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}
+                  props={{ isNotValidate }}
                 />
               </div>
             </div>
@@ -81,6 +83,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.TERMINOLOGY}
                   id={valuesNames.TERMINOLOGY}
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -99,7 +102,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.AUTHOR}
                   id={valuesNames.AUTHOR}
                   component={ValidatedInput}
-                  props={{ disabled: true }}
+                  props={{ disabled: true, isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -108,7 +111,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

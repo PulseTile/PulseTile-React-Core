@@ -22,6 +22,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
 import { valuesNames } from './ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 
 const CLINICAL_NOTES_MAIN = 'clinicalNotesMain';
 const CLINICAL_NOTES_DETAIL = 'clinicalNotesDetail';
@@ -61,6 +62,7 @@ export default class ClinicalNotes extends PureComponent {
     isCreatePanelVisible: false,
     editedPanel: {},
     offset: 0,
+    isSubmit: false,
   };
 
   componentWillReceiveProps() {
@@ -129,7 +131,7 @@ export default class ClinicalNotes extends PureComponent {
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`);
   };
 
@@ -139,6 +141,7 @@ export default class ClinicalNotes extends PureComponent {
         ...prevState.editedPanel,
         [name]: true,
       },
+      isSubmit: false,
     }))
   };
 
@@ -148,58 +151,60 @@ export default class ClinicalNotes extends PureComponent {
         ...prevState.editedPanel,
         [name]: false,
       },
+      isSubmit: false,
     }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions } = this.props;
-    actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToDetailEditString(formValues));
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-    }))
-  };
-
-  formValuesToDetailEditString = (formValues) => {
-    const { userId, clinicalNoteDetail } = this.props;
-    const isTypeValid = _.isEmpty((formValues[valuesNames.CLINICAL_NOTES_TYPE]));
-    const clinicalNotesType = _.get(valuesNames.CLINICAL_NOTES_TYPE)(formValues);
-    const note = _.get(valuesNames.NOTE)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const date = _.get(valuesNames.DATE)(formValues);
-    const sourceId = clinicalNoteDetail.sourceId;
-    const source = clinicalNoteDetail.source;
-
-    if (!isTypeValid) return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
-    return ({ clinicalNotesType, note, author, date, sourceId, source });
+    const { actions, clinicalNoteFormState } = this.props;
+    if (checkIsValidateForm(clinicalNoteFormState)) {
+      actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      this.setState(prevState => ({
+        editedPanel: {
+          ...prevState.editedPanel,
+          [name]: false,
+        },
+        isSubmit: false,
+      }))
+    } else {
+      this.setState({ isSubmit: true });
+    }
   };
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
-    const { actions, userId } = this.props;
-    actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToCreateString(formValues));
-    setTimeout(() => actions.fetchPatientClinicalNotesRequest({ userId }), 1000);
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
-    this.hideCreateForm();
+    const { actions, userId, clinicalCreateFormState } = this.props;
+    if (checkIsValidateForm(clinicalCreateFormState)) {
+      actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
+      setTimeout(() => actions.fetchPatientClinicalNotesRequest({userId}), 1000);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+      this.hideCreateForm();
+    } else {
+      this.setState({ isSubmit: true });
+    }
   };
 
-  formValuesToCreateString = (formValues) => {
-    const { userId } = this.props;
-    const isTypeValid = _.isEmpty((formValues[valuesNames.CLINICAL_NOTES_TYPE]));
+  formValuesToString = (formValues, formName) => {
+    const { userId, clinicalNoteDetail } = this.props;
     const clinicalNotesType = _.get(valuesNames.CLINICAL_NOTES_TYPE)(formValues);
     const note = _.get(valuesNames.NOTE)(formValues);
     const author = _.get(valuesNames.AUTHOR)(formValues);
-    const source = _.get(valuesNames.SOURCE)(formValues);
 
-    if (!isTypeValid) return ({ clinicalNotesType, note, author, source, userId });
-    return ({ clinicalNotesType, note, author, source });
+    if (formName === 'create') {
+      const source = _.get(valuesNames.SOURCE)(formValues);
+      return ({ clinicalNotesType, note, author, source, userId });
+    }
+    if (formName === 'edit') {
+      const date = _.get(valuesNames.DATE)(formValues);
+      const sourceId = clinicalNoteDetail.sourceId;
+      const source = clinicalNoteDetail.source;
+      return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
+    }
   };
 
   hideCreateForm = () => {
@@ -207,7 +212,7 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
     const { allClinicalNotes, clinicalNoteDetail, clinicalNoteFormState, clinicalCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === CLINICAL_NOTES_DETAIL || expandedPanel === CLINICAL_NOTES_PANEL);
@@ -263,6 +268,7 @@ export default class ClinicalNotes extends PureComponent {
               onCancel={this.handleClinicalNotesDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               clinicalNoteFormValues={clinicalNoteFormState.values}
+              isSubmit={isSubmit}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
@@ -278,7 +284,7 @@ export default class ClinicalNotes extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <ClinicalNotesCreateForm />
+                <ClinicalNotesCreateForm isSubmit={isSubmit} />
               }
               title="Create Clinical Note"
             />

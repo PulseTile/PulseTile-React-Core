@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import _ from 'lodash/fp';
 
 export default class ValidatedInputFormGroup extends PureComponent {
     static propTypes = {
@@ -14,12 +13,23 @@ export default class ValidatedInputFormGroup extends PureComponent {
       }).isRequired,
     };
 
+    state={
+      isChanged: false,
+    };
+
+    componentWillReceiveProps(nextProps) {
+      if (nextProps.meta.dirty) {
+        this.setState({ isChanged: true })
+      }
+    }
+
     render() {
-      const { label, placeholder, input, meta: { active, error }, id, disabled } = this.props;
-      const hasError = !_.isEmpty(error);
+      const { label, placeholder, input, meta: { error, touched }, id, disabled, isSubmit, isNotValidate } = this.props;
+      const { isChanged } = this.state;
+      const showError = ((touched || isChanged || isSubmit) && error);
 
       return (
-        <div className={classNames('form-group', { 'has-error': hasError }, { 'has-success': !hasError && active })}>
+        <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
           <label htmlFor={input.name} className="control-label">{label}</label>
           <div className="input-holder">
             <input
@@ -30,7 +40,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
               {...input}
             />
           </div>
-          {hasError && <span className="required-label">{error}</span>}
+          {showError && <span className="required-label">{error}</span>}
         </div>
       )
     }

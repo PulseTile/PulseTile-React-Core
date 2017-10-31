@@ -5,9 +5,11 @@ import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import { valuesNames, valuesLabels } from '../../ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
+import { validateClinicalNotesPanelForm } from '../../ClinicalNotesCreate/ClinicalNotesCreateForm/validation';
 
 @reduxForm({
-  form: 'clinicalNotesPanelFormSelector'
+  form: 'clinicalNotesPanelFormSelector',
+  validate: validateClinicalNotesPanelForm,
 })
 export default class ClinicalNotesPanelForm extends PureComponent {
   componentDidMount() {
@@ -24,7 +26,7 @@ export default class ClinicalNotesPanelForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
-    const { detail } = this.props;
+    const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="clinicalNotesPanelForm" className="form">
@@ -38,12 +40,14 @@ export default class ClinicalNotesPanelForm extends PureComponent {
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
                 <Field
                   label={valuesLabels.NOTE}
                   name={valuesNames.NOTE}
                   id={valuesNames.NOTE}
                   component={ValidateTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>

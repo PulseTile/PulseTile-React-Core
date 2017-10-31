@@ -17,6 +17,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
     this.props.initialize(defaultFormValues);
   }
   render() {
+    const {isSubmit} = this.props;
     const date = new Date();
     const dateCreated = date.getTime();
     return (
@@ -32,6 +33,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -42,6 +44,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.NOTE}
                   id={valuesNames.NOTE}
                   component={ValidateTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>

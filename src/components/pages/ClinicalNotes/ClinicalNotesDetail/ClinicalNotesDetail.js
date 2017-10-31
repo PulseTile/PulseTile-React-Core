@@ -8,7 +8,7 @@ const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
 
 export default class ClinicalNotesDetail extends PureComponent {
   render() {
-    const { onExpand, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, clinicalNoteFormValues } = this.props;
+    const { onExpand, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, clinicalNoteFormValues, isSubmit } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="section-detail">
@@ -88,6 +88,7 @@ export default class ClinicalNotesDetail extends PureComponent {
           >
             <ClinicalNotesPanelForm
               detail={detail}
+              isSubmit={isSubmit}
             />
           </PluginDetailPanel> : null}
         </div>

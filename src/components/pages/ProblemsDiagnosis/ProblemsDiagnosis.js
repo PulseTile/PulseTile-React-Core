@@ -19,6 +19,7 @@ import { fetchPatientDiagnosesOnMount, fetchPatientDiagnosesDetailOnMount } from
 import { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPanelFormSelector, diagnosesCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { valuesNames } from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
@@ -62,6 +63,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     isCreatePanelVisible: false,
     editedPanel: {},
     offset: 0,
+    isSubmit: false,
   };
 
   componentWillReceiveProps() {
@@ -128,7 +130,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
   };
 
@@ -138,6 +140,7 @@ export default class ProblemsDiagnosis extends PureComponent {
         ...prevState.editedPanel,
         [name]: true,
       },
+      isSubmit: false,
     }))
   };
 
@@ -147,68 +150,63 @@ export default class ProblemsDiagnosis extends PureComponent {
         ...prevState.editedPanel,
         [name]: false,
       },
+      isSubmit: false,
     }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions } = this.props;
-    actions.fetchPatientDiagnosesDetailEditRequest(this.formValuesToDetailEditString(formValues));
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-    }))
-  };
-
-  formValuesToDetailEditString = (formValues) => {
-    const { userId } = this.props;
-    const isProblemValid = _.isEmpty((formValues[valuesNames.PROBLEM]));
-    const problem = _.get(valuesNames.PROBLEM)(formValues);
-    const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
-    const description = _.get(valuesNames.DESCRIPTION)(formValues);
-    const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const code = _.get(valuesNames.CODE)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const date = _.get(valuesNames.DATE)(formValues);
-    const source = 'ethercis';
-
-    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology, code, sourceId, source, isImport, userId });
-    return ({ problem, dateOfOnset, description, terminology, code, author, isImport, sourceId, date });
+    const { actions, diagnosisPanelFormState } = this.props;
+    if (checkIsValidateForm(diagnosisPanelFormState)) {
+      actions.fetchPatientDiagnosesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      this.setState(prevState => ({
+        editedPanel: {
+          ...prevState.editedPanel,
+          [name]: false,
+        },
+        isSubmit: false,
+      }))
+    } else {
+      this.setState({ isSubmit: true });
+    }
   };
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
-    const { actions, userId } = this.props;
-    formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
-    actions.fetchPatientDiagnosesCreateRequest(this.formValuesToCreateString(formValues));
-    setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
-    this.hideCreateForm();
+    const { actions, userId, diagnosisCreateFormState } = this.props;
+
+    if (checkIsValidateForm(diagnosisCreateFormState)) {
+      formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
+      actions.fetchPatientDiagnosesCreateRequest(this.formValuesToString(formValues, 'create'));
+      setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+      this.setState({ isSubmit: false });
+      this.hideCreateForm();
+    } else {
+      this.setState({ isSubmit: true });
+    }
   };
 
-  formValuesToCreateString = (formValues) => {
+  formValuesToString = (formValues, formName) => {
     const { userId } = this.props;
-    const isProblemValid = _.isEmpty((formValues[valuesNames.PROBLEM]));
     const problem = _.get(valuesNames.PROBLEM)(formValues);
     const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
     const description = _.get(valuesNames.DESCRIPTION)(formValues);
     const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
     const code = _.get(valuesNames.CODE)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
     const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const date = _.get(valuesNames.DATE)(formValues);
-
-    if (!isProblemValid) return ({ problem, dateOfOnset, description, terminology, code, sourceId, isImport, userId });
-    return ({ problem, dateOfOnset, description, terminology, code, author, isImport, sourceId, date, userId });
+    if (formName === 'create') {
+      const isImport = _.get(valuesNames.ISIMPORT)(formValues);
+      return ({ problem, dateOfOnset, description, terminology, code, sourceId, isImport, userId });
+    }
+    if (formName === 'edit') {
+      const source = 'ethercis';
+      return ({ problem, dateOfOnset, description, terminology, code, sourceId, source, userId });
+    }
   };
 
   hideCreateForm = () => {
@@ -216,7 +214,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
     const { allDiagnoses, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL);
@@ -272,6 +270,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               onCancel={this.handleDiagnosisDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               diagnosisPanelFormValues={diagnosisPanelFormState.values}
+              isSubmit={isSubmit}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
@@ -287,7 +286,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <ProblemsDiagnosisCreateForm />
+                <ProblemsDiagnosisCreateForm isSubmit={isSubmit} />
               }
               title="Create Problem and Diagnosis"
             />

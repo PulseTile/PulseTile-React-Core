@@ -8,7 +8,7 @@ const DIAGNOSES_PANEL = 'diagnosesPanel';
 
 export default class ProblemsDiagnosisDetail extends PureComponent {
   render() {
-    const { onExpand, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, diagnosisPanelFormValues } = this.props;
+    const { onExpand, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, diagnosisPanelFormValues, isSubmit } = this.props;
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     const dateOfOnset = getDDMMMYYYY(detail.dateOfOnset);
     return (
@@ -105,6 +105,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
           >
             <DiagnosisPanelForm
               detail={detail}
+              isSubmit={isSubmit}
             />
           </PluginDetailPanel> : null }
         </div>

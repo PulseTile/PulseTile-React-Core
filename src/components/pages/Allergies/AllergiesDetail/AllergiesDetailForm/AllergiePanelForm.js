@@ -4,12 +4,12 @@ import { Field, reduxForm } from 'redux-form'
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
-import { validateAllergiesForm } from '../../AllergiesCreate/AllergiesCreateForm/validation';
+import { validateAllergiesPanel } from '../../AllergiesCreate/AllergiesCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../AllergiesCreate/AllergiesCreateForm/values-names.config';
 
 @reduxForm({
   form: 'allergiePanelFormSelector',
-  validate: validateAllergiesForm,
+  validate: validateAllergiesPanel,
 })
 export default class AllergiePanelForm extends PureComponent {
   componentDidMount() {
@@ -26,7 +26,7 @@ export default class AllergiePanelForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
-    const { detail } = this.props;
+    const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="allergiePanelForm" className="form">
@@ -40,12 +40,14 @@ export default class AllergiePanelForm extends PureComponent {
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
+                  props={isSubmit}
                 />
                 <Field
                   label={valuesLabels.REACTION}
                   name={valuesNames.REACTION}
                   id={valuesNames.REACTION}
                   component={ValidateTextareaFormGroup}
+                  props={isSubmit}
                 />
               </div>
             </div>

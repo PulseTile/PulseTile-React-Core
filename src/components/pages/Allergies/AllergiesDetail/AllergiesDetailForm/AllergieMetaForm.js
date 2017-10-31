@@ -3,12 +3,12 @@ import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
 import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesForm } from '../../AllergiesCreate/AllergiesCreateForm/validation';
+import { validateAllergiesMeta } from '../../AllergiesCreate/AllergiesCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../AllergiesCreate/AllergiesCreateForm/values-names.config';
 
 @reduxForm({
   form: 'metaPanelFormSelector',
-  validate: validateAllergiesForm,
+  validate: validateAllergiesMeta,
 })
 export default class AllergieMetaForm extends PureComponent {
   componentDidMount() {
@@ -25,6 +25,7 @@ export default class AllergieMetaForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
+    const { isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="allergieMetaForm" className="form">
@@ -46,6 +47,7 @@ export default class AllergieMetaForm extends PureComponent {
                   name={valuesNames.TERMINOLOGY}
                   id={valuesNames.TERMINOLOGY}
                   component={ValidatedInput}
+                  props={{isSubmit}}
                 />
               </div>
               <div className="col-expand-right">

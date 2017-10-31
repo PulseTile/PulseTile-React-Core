@@ -22,6 +22,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import Spinner from '../../ui-elements/Spinner/Spinner'
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -64,6 +65,7 @@ export default class Allergies extends PureComponent {
     editedPanel: {},
     offset: 0,
     isLoading: true,
+    isSubmit: false,
   };
 
   componentWillReceiveProps() {
@@ -81,17 +83,6 @@ export default class Allergies extends PureComponent {
     }
   }
 
-  handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
-
-  handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
-
-  handleDetailAllergiesClick = (id, name, sourceId) => {
-    const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
-    actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
-  };
-
   handleExpand = (name, currentPanel) => {
     if (currentPanel === ALLERGIES_MAIN) {
       if (this.state.expandedPanel === 'all') {
@@ -106,8 +97,15 @@ export default class Allergies extends PureComponent {
     }
   };
 
-  handleShow = (name) => {
-    this.setState({ openedPanel: name })
+  handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
+
+  handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
+
+  handleDetailAllergiesClick = (id, name, sourceId) => {
+    const { actions, userId } = this.props;
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
+    actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };
 
   filterAndSortAllergies = (allergies) => {
@@ -131,22 +129,36 @@ export default class Allergies extends PureComponent {
     return _.head(filteredAndSortedAllergies)
   };
 
+  handleSetOffset = offset => this.setState({ offset });
+
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
   };
 
-  handleSaveSettingsCreateForm = (formValues) => {
-    const { actions, userId } = this.props;
-    actions.fetchPatientAllergiesCreateRequest(this.formValuesToCreateString(formValues));
-    setTimeout(() => actions.fetchPatientAllergiesRequest({ userId }), 1000);
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
-    this.hideCreateForm();
+  handleEdit = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: true,
+      },
+      isSubmit: false,
+    }))
+  };
+
+  handleAllergieDetailCancel = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: false,
+      },
+      isSubmit: false,
+    }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { allergieDetail, actions } = this.props;
+    const { allergieDetail, actions, allergiePanelFormState } = this.props;
     formValues.causeCode = allergieDetail.causeCode;
     formValues.sourceId = '';
     if (name === ALLERGIE_PANEL) {
@@ -159,88 +171,74 @@ export default class Allergies extends PureComponent {
       formValues.cause = allergieDetail.cause;
       formValues.reaction = allergieDetail.reaction;
     }
-    actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToDetailEditString(formValues));
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-    }))
+    if (checkIsValidateForm(allergiePanelFormState)) {
+      actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      this.setState(prevState => ({
+        editedPanel: {
+          ...prevState.editedPanel,
+          [name]: false,
+        },
+        isSubmit: false,
+      }))
+    } else {
+      this.setState({ isSubmit: true });
+    }
   };
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all' });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
   };
 
-  formValuesToCreateString = (formValues) => {
+  handleSaveSettingsCreateForm = (formValues) => {
+    const { actions, userId, allergiesCreateFormState } = this.props;
+    if (checkIsValidateForm(allergiesCreateFormState)) {
+      actions.fetchPatientAllergiesCreateRequest(this.formValuesToString(formValues, 'create'));
+      setTimeout(() => actions.fetchPatientAllergiesRequest({ userId }), 1000);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
+      this.hideCreateForm();
+    } else {
+      this.setState({ isSubmit: true });
+    }
+  };
+
+  formValuesToString = (formValues, formName) => {
     const { userId } = this.props;
-    const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
     const cause = _.get(valuesNames.CAUSE)(formValues);
     const reaction = _.get(valuesNames.REACTION)(formValues);
     const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const currentDate = _.get(valuesNames.DATE)(formValues);
     const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
     const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
 
-    if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, isImport, sourceId, userId });
-    return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
+    if (formName === 'create') {
+      const isImport = _.get(valuesNames.ISIMPORT)(formValues);
+      return ({ cause, reaction, causeTerminology, causeCode, isImport, sourceId, userId });
+    }
+    if (formName === 'edit') {
+      const source = 'ethercis';
+      return ({ cause, reaction, causeTerminology, causeCode, sourceId, source, userId });
+    }
   };
 
-  formValuesToDetailEditString = (formValues) => {
-    const { userId } = this.props;
-    const isCauseValid = _.isEmpty((formValues[valuesNames.CAUSE]));
-    const cause = _.get(valuesNames.CAUSE)(formValues);
-    const reaction = _.get(valuesNames.REACTION)(formValues);
-    const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
-    const currentDate = _.get(valuesNames.DATE)(formValues);
-    const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
-    const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    const terminologyCode = _.get(valuesNames.TERMINOLOGYCODE)(formValues);
-    const source = 'ethercis';
-
-    if (!isCauseValid) return ({ cause, reaction, causeTerminology, causeCode, sourceId, source, userId });
-    return ({ cause, reaction, causeTerminology, author, currentDate, causeCode, isImport, sourceId, terminologyCode });
-  };
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
-  handleEdit = (name) => {
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: true,
-      },
-    }))
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
   };
-
-  handleAllergieDetailCancel = (name) => {
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-    }))
-  };
-
-  handleSetOffset = offset => this.setState({ offset });
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading } = this.state;
-    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail, allergiesPerPageAmount } = this.props;
-    const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit } = this.state;
+    const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
+
+    const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 
@@ -291,6 +289,7 @@ export default class Allergies extends PureComponent {
               onSaveSettings={this.handleSaveSettingsDetailForm}
               allergiePanelFormValues={allergiePanelFormState.values}
               metaPanelFormValues={metaPanelFormState.values}
+              isSubmit={isSubmit}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
@@ -306,7 +305,7 @@ export default class Allergies extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <AllergiesCreateForm />
+                <AllergiesCreateForm isSubmit={isSubmit} />
               }
               title="Create Allergy"
             />
