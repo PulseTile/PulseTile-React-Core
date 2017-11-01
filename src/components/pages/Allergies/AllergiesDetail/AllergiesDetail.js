@@ -13,7 +13,9 @@ const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
   render() {
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues, isSubmit } = this.props;
+    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues, isSubmit } = this.props;
+		let { detail } = this.props;
+		detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (
       <div className="section-detail">

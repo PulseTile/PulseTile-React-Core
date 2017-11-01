@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
 import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidateTextareaFormGroup from '../../../../form-fields/ValidateTextareaFormGroup';
+import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateVaccinationPanelForm } from './validation';
@@ -75,7 +75,7 @@ export default class VaccinationCreateForm extends PureComponent {
                   label={valuesLabels.COMMENT}
                   name={valuesNames.COMMENT}
                   id={valuesNames.COMMENT}
-                  component={ValidateTextareaFormGroup}
+                  component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
               </div>
