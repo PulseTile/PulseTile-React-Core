@@ -54,7 +54,7 @@ export default class Contacts extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: CONTACT_PANEL,
-    columnNameSortBy: 'cause',
+    columnNameSortBy: 'name',
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -114,10 +114,10 @@ export default class Contacts extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
-    const filterByName = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByNamePredicate))(contacts);
-		const filterByRelationship = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
-		const filterByNextOfKin = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(contacts);
+    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(contacts);
+		const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
+		const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
+    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(contacts);
 
     const filteredAndSortedContacts = [filterByName, filterByRelationship, filterByNextOfKin, filterBySource].filter((item) => {
       return _.size(item) !== 0;
