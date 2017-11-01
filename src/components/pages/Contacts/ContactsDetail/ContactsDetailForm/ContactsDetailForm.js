@@ -32,7 +32,7 @@ export default class ContactsDetailForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
-    const { detail } = this.props;
+    const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="contactsDetailForm" className="form">
@@ -45,6 +45,7 @@ export default class ContactsDetailForm extends PureComponent {
                   id={valuesNames.NAME}
                   type="text"
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -59,6 +60,7 @@ export default class ContactsDetailForm extends PureComponent {
                       id={valuesNames.REALATIONSHIP}
                       options={relationshipOptions}
                       component={SelectFormGroup}
+                      props={{ isSubmit }}
                     />
                   </Col>
                   <Col md={6} xs={12}>
@@ -68,6 +70,7 @@ export default class ContactsDetailForm extends PureComponent {
                       id={valuesNames.NEXT_OF_KIN}
                       type="checkbox"
                       component={ValidatedInput}
+                      props={{ isSubmit }}
                     />
                   </Col>
                 </Row>
@@ -79,6 +82,7 @@ export default class ContactsDetailForm extends PureComponent {
                   id={valuesNames.REALATIONSHIP_TYPE}
                   type="text"
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -90,6 +94,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.CONTACT_INFORMATION}
                   id={valuesNames.CONTACT_INFORMATION}
                   component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -98,6 +103,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.NOTES}
                   id={valuesNames.NOTES}
                   component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -109,7 +115,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.AUTHOR}
                   id={valuesNames.AUTHOR}
                   component={ValidatedInput}
-                  props={{ disabled: true }}
+                  props={{ disabled: true, isSubmit }}
                 />
               </div>
             </div>
@@ -120,7 +126,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

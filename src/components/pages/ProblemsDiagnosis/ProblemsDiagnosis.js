@@ -275,6 +275,7 @@ export default class ProblemsDiagnosis extends PureComponent {
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
+              title="Create Problem and Diagnosis"
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}
@@ -288,7 +289,6 @@ export default class ProblemsDiagnosis extends PureComponent {
               componentForm={
                 <ProblemsDiagnosisCreateForm isSubmit={isSubmit} />
               }
-              title="Create Problem and Diagnosis"
             />
           </Col> : null}
         </Row>

@@ -189,9 +189,6 @@ export const mainPagesTitlesForPatients = {
   },
   'clinicalNotes': {
     breadcrumbs: [{
-      title: 'Patient Listings',
-      state: '/patients',
-    }, {
       title: 'Patient Summary',
       state: '/patients-summary',
     }, {

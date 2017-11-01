@@ -40,12 +40,13 @@ export default class ValidatedInputFormGroup extends PureComponent {
                 name={name}
                 id={id}
                 input={input}
+                disabled={disabled}
               /> : <input
                 className="form-control input-sm"
-                disabled={disabled}
                 placeholder={placeholder}
                 id={id}
                 type={type}
+                disabled={disabled}
 								{...input}
               />
 						}

@@ -21,6 +21,8 @@ export default class ContactsCreateForm extends PureComponent {
     this.props.initialize(defaultFormValues);
   }
   render() {
+		const {isSubmit} = this.props;
+		const isNotValidate = true;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
@@ -36,6 +38,7 @@ export default class ContactsCreateForm extends PureComponent {
                   id={valuesNames.NAME}
                   type="text"
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -50,6 +53,7 @@ export default class ContactsCreateForm extends PureComponent {
                       id={valuesNames.REALATIONSHIP}
                       options={relationshipOptions}
                       component={SelectFormGroup}
+                      props={{ isSubmit }}
                     />
                   </Col>
                   <Col md={6} xs={12}>
@@ -59,6 +63,7 @@ export default class ContactsCreateForm extends PureComponent {
                       id={valuesNames.NEXT_OF_KIN}
                       type="checkbox"
                       component={ValidatedInput}
+                      props={{ isSubmit }}
                     />
                   </Col>
                 </Row>
@@ -70,6 +75,7 @@ export default class ContactsCreateForm extends PureComponent {
                   id={valuesNames.REALATIONSHIP_TYPE}
                   type="text"
                   component={ValidatedInput}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -82,7 +88,7 @@ export default class ContactsCreateForm extends PureComponent {
                       name={valuesNames.REALATIONSHIP_CODE}
                       label={valuesLabels.REALATIONSHIP_CODE}
                       component={StaticFormField}
-                      props={{ className: 'form-control-static' }}
+                      props={{ className: 'form-control-static', isSubmit }}
                     />
                   </Col>
                   <Col md={6} xs={12}>
@@ -90,7 +96,7 @@ export default class ContactsCreateForm extends PureComponent {
                       name={valuesNames.REALATIONSHIP_TERMINOLOGY}
                       label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
                       component={StaticFormField}
-                      props={{ className: 'form-control-static' }}
+                      props={{ className: 'form-control-static', isSubmit }}
                     />
                   </Col>
                 </Row>
@@ -105,6 +111,7 @@ export default class ContactsCreateForm extends PureComponent {
                   name={valuesNames.CONTACT_INFORMATION}
                   id={valuesNames.CONTACT_INFORMATION}
                   component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -113,6 +120,7 @@ export default class ContactsCreateForm extends PureComponent {
                   name={valuesNames.NOTES}
                   id={valuesNames.NOTES}
                   component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>
@@ -124,7 +132,7 @@ export default class ContactsCreateForm extends PureComponent {
                   name={valuesNames.AUTHOR}
                   id={valuesNames.AUTHOR}
                   component={ValidatedInput}
-                  props={{ disabled: true }}
+                  props={{ disabled: true, isSubmit }}
                 />
               </div>
             </div>
@@ -136,7 +144,7 @@ export default class ContactsCreateForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

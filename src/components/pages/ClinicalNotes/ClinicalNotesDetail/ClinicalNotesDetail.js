@@ -8,8 +8,11 @@ const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
 
 export default class ClinicalNotesDetail extends PureComponent {
   render() {
-    const { onExpand, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, clinicalNoteFormValues, isSubmit } = this.props;
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, clinicalNoteFormValues, isSubmit } = this.props;
+		let { detail } = this.props;
+		detail = detail || {};
+		const dateCreated = getDDMMMYYYY(detail.dateCreated);
+
     return (
       <div className="section-detail">
         <div className="panel-group accordion">

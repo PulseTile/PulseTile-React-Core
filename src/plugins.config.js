@@ -2,10 +2,10 @@ import { clientUrls } from './config/client-urls.constants';
 import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index'
 import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index'
 import { clinicalNotesEpic, clinicalNotesReducer } from './components/pages/ClinicalNotes/index'
+import { contactsEpic, contactsReducer } from './components/pages/Contacts/index'
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
 import ClinicalNotes from './components/pages/ClinicalNotes/ClinicalNotes';
-import { contactsEpic, contactsReducer } from './components/pages/Contacts/index'
 import Contacts from './components/pages/Contacts/Contacts';
 
 export const sidebarConfig = [
@@ -13,8 +13,8 @@ export const sidebarConfig = [
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
-  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
-  { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
+	{ key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
+	{ key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
 ];
 
 export const dashboardVisible = {

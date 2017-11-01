@@ -1,28 +1,23 @@
 import React, { PureComponent } from 'react';
 
-
-import ContactsDetailPanel from './ContactsDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import ContactsDetailForm from './ContactsDetailForm/ContactsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-
 
 const CONTACT_PANEL = 'contactPanel';
 const META_PANEL = 'metaPanel';
 
-
 export default class ContactsDetail extends PureComponent {
   render() {
-		let dateCreated;
-    const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, detail, onEdit, editedPanel, onCancel, onSaveSettings, contactsDetailFormValues, metaPanelFormValues } = this.props;
-
-    if (detail) {
-			dateCreated = getDDMMMYYYY(detail.dateCreated);
-		}
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, contactsDetailFormValues, metaPanelFormValues, isSubmit } = this.props;
+		let { detail } = this.props;
+		detail = detail || {};
+		const dateCreated = getDDMMMYYYY(detail.dateCreated);
 
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === CONTACT_PANEL || expandedPanel === 'all') && !editedPanel[CONTACT_PANEL] ? <ContactsDetailPanel
+          {(expandedPanel === CONTACT_PANEL || expandedPanel === 'all') && !editedPanel[CONTACT_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={CONTACT_PANEL}
             title="Contact"
@@ -34,6 +29,7 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
+						isBtnShowPanel={true}
             isShowControlPanel={true}
           >
             <div className="panel-body-inner">
@@ -104,12 +100,12 @@ export default class ContactsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </ContactsDetailPanel> : null}
+          </PluginDetailPanel> : null}
 
-          {(expandedPanel === CONTACT_PANEL || expandedPanel === 'all') && editedPanel[CONTACT_PANEL] ? <ContactsDetailPanel
+          {(expandedPanel === CONTACT_PANEL || expandedPanel === 'all') && editedPanel[CONTACT_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={CONTACT_PANEL}
-            title="Contact"
+            title="Edit Contact"
             onShow={onShow}
             isOpen={openedPanel === CONTACT_PANEL}
             currentPanel={currentPanel}
@@ -118,12 +114,16 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
+						isBtnShowPanel={true}
             isShowControlPanel={true}
           >
-            <ContactsDetailForm detail={detail} />
-          </ContactsDetailPanel> : null }
+            <ContactsDetailForm
+							detail={detail}
+							isSubmit={isSubmit}
+						/>
+          </PluginDetailPanel> : null }
 
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <ContactsDetailPanel
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
             title="Metadata"
@@ -135,6 +135,7 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
+						isBtnShowPanel={true}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -156,7 +157,7 @@ export default class ContactsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </ContactsDetailPanel> : null}
+          </PluginDetailPanel> : null}
         </div>
       </div>
     )
