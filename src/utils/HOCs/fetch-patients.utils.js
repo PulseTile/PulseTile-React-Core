@@ -1,5 +1,34 @@
 import _ from 'lodash/fp';
-import qs from 'qs';
+
+const generateFetchListOnMount = (fetchRequest) => {
+  return {
+    componentDidMount() {
+      const { actions, match } = this.props;
+      const userId = _.get('params.userId', match);
+      if (userId) actions[fetchRequest]({ userId })
+    },
+    componentWillReceiveProps(nextProps) {
+      const { actions, match } = this.props;
+      const nextUserId = _.get('match.params.userId', nextProps);
+      const userId = _.get('params.userId', match);
+
+      if (nextUserId !== userId) {
+        actions[fetchRequest]({ userId: nextUserId })
+      }
+    },
+  }
+};
+
+const generateFetchDetailOnMount = (fetchRequest) => {
+  return {
+    componentDidMount() {
+      const { actions, match } = this.props;
+      const userId = _.get('params.userId', match);
+      const sourceId = _.get('params.sourceId', match);
+      if (userId && sourceId) actions[fetchRequest]({ userId, sourceId })
+    },
+  }
+};
 
 export const fetchPatientsOnMount = ({
   componentDidMount() {
@@ -21,76 +50,15 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchPatientSummaryOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientSummaryRequest({ userId })
-  },
-});
+export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
 
-export const fetchPatientAllergiesOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientAllergiesRequest({ userId })
-  },
-});
+export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
+export const fetchPatientAllergiesDetailOnMount = (generateFetchDetailOnMount('fetchPatientAllergiesDetailRequest'));
 
-export const fetchPatientAllergiesDetailOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    const sourceId = _.get('params.sourceId', match);
-    if (userId && sourceId) actions.fetchPatientAllergiesDetailRequest({ userId, sourceId })
-  },
-});
+export const fetchPatientDiagnosesOnMount = (generateFetchListOnMount('fetchPatientDiagnosesRequest'));
+export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiagnosesDetailRequest'));
 
-export const fetchPatientsInfoOnMount = ({
-  componentDidMount() {
-    const { actions } = this.props;
-    actions.fetchPatientsInfoRequest()
-  },
-});
+export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
 
-export const fetchPatientDiagnosesOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientDiagnosesRequest({ userId })
-  },
-});
-
-export const fetchPatientDiagnosesDetailOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    const sourceId = _.get('params.sourceId', match);
-    if (userId && sourceId) actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId })
-  },
-});
-
-export const fetchPatientClinicalNotesOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientClinicalNotesRequest({ userId })
-  },
-});
-
-export const fetchPatientVaccinationsOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientVaccinationsRequest({ userId })
-  },
-});
-
-export const fetchPatientVaccinationsDetailOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    const sourceId = _.get('params.sourceId', match);
-    if (userId && sourceId) actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId })
-  },
-});
+export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
+export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
