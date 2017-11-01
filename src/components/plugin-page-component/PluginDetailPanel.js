@@ -33,7 +33,8 @@ export default class PluginDetailPanel extends PureComponent {
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
-                  <i className="fa fa-edit" /> Edit
+                  <i className="btn-icon fa fa-edit" />
+                  <span className="btn-text"> Edit</span>
                 </PTButton>
               </div>
             </div>
@@ -42,10 +43,12 @@ export default class PluginDetailPanel extends PureComponent {
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
-                  <i className="fa fa-ban" /> Cancel
+                  <i className="btn-icon fa fa-ban" />
+                  <span className="btn-text"> Cancel</span>
                 </PTButton>
                 <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
-                  <i className="fa fa-check" /> Complete
+                  <i className="btn-icon fa fa-check" />
+                  <span className="btn-text"> Complete</span>
                 </PTButton>
               </div>
             </div>

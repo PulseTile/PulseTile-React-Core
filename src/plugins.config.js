@@ -1,12 +1,16 @@
 import { clientUrls } from './config/client-urls.constants';
+
 import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index'
 import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index'
 import { clinicalNotesEpic, clinicalNotesReducer } from './components/pages/ClinicalNotes/index'
 import { contactsEpic, contactsReducer } from './components/pages/Contacts/index'
+import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccinations/index'
+
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
 import ClinicalNotes from './components/pages/ClinicalNotes/ClinicalNotes';
 import Contacts from './components/pages/Contacts/Contacts';
+import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -15,6 +19,7 @@ export const sidebarConfig = [
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
 	{ key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
 	{ key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
+  { key: 'vaccinations', pathToTransition: '/vaccinations', name: ' Vaccinations', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -40,6 +45,10 @@ export const routersPluginConfig = [
 	{ key: 'contacts', component: Contacts, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}` },
 	{ key: 'contactsCreate', component: Contacts, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}/create` },
 	{ key: 'contactsDetail', component: Contacts, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}/:sourceId` },
+
+  { key: 'vaccinations', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}` },
+  { key: 'vaccinationsCreate', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}/create` },
+  { key: 'vaccinationsDetail', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}/:sourceId` },
 ];
 
 export const pluginsEpicConfig = [
@@ -47,6 +56,7 @@ export const pluginsEpicConfig = [
   diagnosesEpic,
   clinicalNotesEpic,
 	contactsEpic,
+  vaccinationsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -54,4 +64,5 @@ export const pluginsReducerConfig = [
   diagnosesReducer,
   clinicalNotesReducer,
 	contactsReducer,
+  vaccinationsReducer,
 ];

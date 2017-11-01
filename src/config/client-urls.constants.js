@@ -12,6 +12,7 @@ export const clientUrls = {
 	ALLERGIES: 'allergies',
 	CONTACTS: 'contacts',
   CLINICAL_NOTES: 'clinicalNotes',
+  VACCINATIONS: 'vaccinations',
 };
 
 export const mainPagesTitles = {
@@ -116,6 +117,18 @@ export const mainPagesTitles = {
 			state: '/contacts',
 		}],
 	},
+  'vaccinations': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Vaccinations',
+      state: '/vaccinations',
+    }],
+  },
 };
 
 export const mainPagesTitlesForPatients = {
@@ -205,4 +218,13 @@ export const mainPagesTitlesForPatients = {
 			state: '/contacts',
 		}],
 	},
+  'vaccinations': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Vaccinations',
+      state: '/vaccinations',
+    }],
+  },
 };
