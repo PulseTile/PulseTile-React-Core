@@ -25,7 +25,7 @@ const redirectAccordingRole = (user) => {
     return location.href = userSummaryUrl;
   }
 
-  return location.href = `/#${clientUrls.CHARTS}`;
+  // return location.href = `/#${clientUrls.CHARTS}`;
 };
 
 //TODO should be refactored to actual sequence, not parallel listening

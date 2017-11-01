@@ -6,4 +6,11 @@ const userAccountSelector = createSelector(
   (router, userAccount) => ({ router, userAccount })
 );
 
-export default userAccountSelector;
+const patientsInfoSelector = state => state.patientsInfo;
+
+const patientInfoSelector = createSelector(
+  patientsInfoSelector,
+  patientsInfo => ({ patientsInfo })
+);
+
+export { userAccountSelector, patientInfoSelector };

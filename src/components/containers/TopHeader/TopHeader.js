@@ -8,12 +8,13 @@ import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
 import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
-import userAccountSelector from './selectors';
+import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants'
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
 @connect(userAccountSelector, mapDispatchToProps)
+@connect(patientInfoSelector, mapDispatchToProps)
 class TopHeader extends PureComponent {
   static contextTypes = {
     router: PropTypes.shape({
@@ -27,7 +28,7 @@ class TopHeader extends PureComponent {
   };
 
   render() {
-    const { userAccount, router } = this.props;
+    const { userAccount, router, patientsInfo } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
 
@@ -36,7 +37,7 @@ class TopHeader extends PureComponent {
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>
           <i className="fa fa-arrow-left" />
         </PTButton> : null }
-        <MainLogo />
+        <MainLogo patientsInfo={patientsInfo} />
         <UserPanel />
         <NavSearch userAccount={userAccount} />
       </div>
