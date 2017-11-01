@@ -77,3 +77,20 @@ export const fetchPatientClinicalNotesOnMount = ({
     if (userId) actions.fetchPatientClinicalNotesRequest({ userId })
   },
 });
+
+export const fetchPatientVaccinationsOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientVaccinationsRequest({ userId })
+  },
+});
+
+export const fetchPatientVaccinationsDetailOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    const sourceId = _.get('params.sourceId', match);
+    if (userId && sourceId) actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId })
+  },
+});
