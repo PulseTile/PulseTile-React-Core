@@ -4,7 +4,7 @@ import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import GenericPluginPanelForm from './GenericPluginDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
-const GENERIC_PLUGIN_PANEL = 'genericPluginPanel';
+const GENERIC_PLUGIN_PANEL = 'genericPluginsPanel';
 
 export default class GenericPluginDetail extends PureComponent {
   render() {
@@ -37,7 +37,7 @@ export default class GenericPluginDetail extends PureComponent {
                       <div className="col-expand-left">
                         <div className="form-group">
                           <label className="control-label">Type</label>
-                          <div className="form-control-static">{detail.genericPluginType}</div>
+                          <div className="form-control-static">{detail.clinicalNotesType}</div>
                         </div>
                       </div>
                     </div>

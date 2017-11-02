@@ -30,7 +30,6 @@ export default class ContactsDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
 						isBtnShowPanel={true}
-            isShowControlPanel={true}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -115,7 +114,6 @@ export default class ContactsDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
 						isBtnShowPanel={true}
-            isShowControlPanel={true}
           >
             <ContactsDetailForm
 							detail={detail}
@@ -136,6 +134,7 @@ export default class ContactsDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
 						isBtnShowPanel={true}
+            isShowControlPanel={false}
           >
             <div className="panel-body-inner">
               <div className="form">

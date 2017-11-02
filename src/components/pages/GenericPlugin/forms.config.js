@@ -1,5 +1,5 @@
 export const valuesNames = {
-  CLINICAL_NOTES_TYPE: 'clinicalNotesType',
+  GENERIC_PLUGIN_TYPE: 'clinicalNotesType',
   NOTE: 'note',
   AUTHOR: 'author',
   DATE: 'currentDate',
@@ -8,7 +8,7 @@ export const valuesNames = {
 };
 
 export const valuesLabels = {
-  CLINICAL_NOTES_TYPE: 'Type',
+  GENERIC_PLUGIN_TYPE: 'Type',
   NOTE: 'Note',
   AUTHOR: 'Author',
   DATE: 'Date',

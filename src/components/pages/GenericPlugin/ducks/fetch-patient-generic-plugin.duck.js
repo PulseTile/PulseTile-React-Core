@@ -21,7 +21,7 @@ export const fetchPatientGenericPluginEpic = (action$, store) =>
       })
         .map(response => fetchPatientGenericPluginSuccess({
           userId: payload.userId,
-          clinicalNotes: response,
+          genericPlugin: response,
         }))
         .catch(error => Observable.of(fetchPatientGenericPluginFailure(error)))
     );
@@ -29,7 +29,7 @@ export const fetchPatientGenericPluginEpic = (action$, store) =>
 export default function reducer(patientsGenericPlugin = {}, action) {
   switch (action.type) {
     case FETCH_PATIENT_GENERIC_PLUGIN_SUCCESS:
-      return _.set(action.payload.userId, action.payload.clinicalNotes, patientsGenericPlugin);
+      return _.set(action.payload.userId, action.payload.genericPlugin, patientsGenericPlugin);
     default:
       return patientsGenericPlugin;
   }

@@ -21,6 +21,10 @@ export default class PluginDetailPanel extends PureComponent {
 		isShowControlPanel: PropTypes.bool
   };
 
+  static defaultProps = {
+    isShowControlPanel: true,
+  };
+
   render() {
     const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible, isBtnShowPanel, isShowControlPanel } = this.props;
 

@@ -14,11 +14,11 @@ const patientGenericPluginSelector = createSelector(
 );
 
 const patientGenericPluginDetailSelector = createSelector(
-  ({ genericPluginsDetail }) => genericPluginsDetail,
+  ({ genericPluginDetail }) => genericPluginDetail,
   (state, props) => _.getOr(null, 'match.params.userId', props),
-  (genericPluginsDetail, userId) => {
-    const genericPluginDetail = genericPluginsDetail[userId];
-    return ({ genericPluginDetail, userId });
+  (genericPluginDetail, userId) => {
+    const genericPluginDetailOfUser = genericPluginDetail[userId];
+    return ({ genericPluginDetail: genericPluginDetailOfUser, userId });
   }
 );
 
@@ -26,6 +26,6 @@ const genericPluginDetailFormSelector = createSelector(genericPluginsDetailFormS
   genericPluginFormState => ({ genericPluginFormState }));
 
 const genericPluginCreateFormStateSelector = createSelector(genericPluginsCreateFormSelector,
-  genericCreateFormState => ({ genericCreateFormState }));
+  genericPluginCreateFormState => ({ genericPluginCreateFormState }));
 
 export { patientGenericPluginSelector, patientGenericPluginDetailSelector, genericPluginDetailFormSelector, genericPluginCreateFormStateSelector }

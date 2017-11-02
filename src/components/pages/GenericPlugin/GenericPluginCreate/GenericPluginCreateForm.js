@@ -9,7 +9,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 
 @reduxForm({
-  form: 'genericPluginCreateFormSelector',
+  form: 'genericPluginsCreateFormSelector',
   validate: validateForm,
 })
 export default class GenericPluginCreateForm extends PureComponent {
@@ -22,7 +22,7 @@ export default class GenericPluginCreateForm extends PureComponent {
     const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
-        <form name="genericPluginCreateForm" className="form">
+        <form name="genericPluginsCreateForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
