@@ -98,7 +98,7 @@ label:focus,
   margin-left: 0;
 }
 @include respond-from(sm) {
-  .showSidebar,
+  .showSidebar.main,
   .showSidebar .sidebar + .main {
     margin-left: 185px;
   }

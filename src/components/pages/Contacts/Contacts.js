@@ -65,7 +65,7 @@ export default class Contacts extends PureComponent {
     isCreatePanelVisible: false,
     editedPanel: {},
     offset: 0,
-		isSubmit: false,
+    isSubmit: false,
   };
 
   componentWillReceiveProps() {
@@ -76,19 +76,19 @@ export default class Contacts extends PureComponent {
     }
   }
 
-	handleExpand = (name, currentPanel) => {
-		if (currentPanel === CONTACTS_MAIN) {
-			if (this.state.expandedPanel === 'all') {
-				this.setState({ expandedPanel: name });
-			} else {
-				this.setState({ expandedPanel: 'all' });
-			}
-		} else if (this.state.expandedPanel === 'all') {
-			this.setState({ expandedPanel: name, openedPanel: name });
-		} else {
-			this.setState({ expandedPanel: 'all' });
-		}
-	};
+ handleExpand = (name, currentPanel) => {
+   if (currentPanel === CONTACTS_MAIN) {
+     if (this.state.expandedPanel === 'all') {
+       this.setState({ expandedPanel: name });
+     } else {
+       this.setState({ expandedPanel: 'all' });
+     }
+   } else if (this.state.expandedPanel === 'all') {
+     this.setState({ expandedPanel: name, openedPanel: name });
+   } else {
+     this.setState({ expandedPanel: 'all' });
+   }
+ };
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
@@ -105,8 +105,8 @@ export default class Contacts extends PureComponent {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-		const filterByRelationshipPredicate = _.flow(_.get('relationship'), _.toLower, _.includes(nameShouldInclude));
-		const filterByNextOfKinPredicate = _.flow(_.get('nextOfKin'), _.toLower, _.includes(nameShouldInclude));
+    const filterByRelationshipPredicate = _.flow(_.get('relationship'), _.toLower, _.includes(nameShouldInclude));
+    const filterByNextOfKinPredicate = _.flow(_.get('nextOfKin'), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
@@ -115,8 +115,8 @@ export default class Contacts extends PureComponent {
     ])(sortingOrder);
 
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(contacts);
-		const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
-		const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
+    const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
+    const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
     const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(contacts);
 
     const filteredAndSortedContacts = [filterByName, filterByRelationship, filterByNextOfKin, filterBySource].filter((item) => {
@@ -126,7 +126,7 @@ export default class Contacts extends PureComponent {
     return _.head(filteredAndSortedContacts)
   };
 
-	handleSetOffset = offset => this.setState({ offset });
+ handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
@@ -134,187 +134,186 @@ export default class Contacts extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`);
   };
 
-	handleEdit = (name) => {
-		this.setState(prevState => ({
-			editedPanel: {
-				...prevState.editedPanel,
-				[name]: true,
-			},
-			isSubmit: false,
-		}))
-	};
+ handleEdit = (name) => {
+   this.setState(prevState => ({
+     editedPanel: {
+       ...prevState.editedPanel,
+       [name]: true,
+     },
+     isSubmit: false,
+   }))
+ };
 
-	handleContactDetailCancel = (name) => {
-		this.setState(prevState => ({
-			editedPanel: {
-				...prevState.editedPanel,
-				[name]: false,
-			},
-			isSubmit: false,
-		}))
-	};
+ handleContactDetailCancel = (name) => {
+   this.setState(prevState => ({
+     editedPanel: {
+       ...prevState.editedPanel,
+       [name]: false,
+     },
+     isSubmit: false,
+   }))
+ };
 
-	handleSaveSettingsDetailForm = (formValues, name) => {
-		const { actions } = this.props;
+ handleSaveSettingsDetailForm = (formValues, name) => {
+   const { actions } = this.props;
 
-		actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-		this.setState(prevState => ({
-			editedPanel: {
-				...prevState.editedPanel,
-				[name]: false,
-			},
-			isSubmit: false,
-		}))
-	};
+   actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+   this.setState(prevState => ({
+     editedPanel: {
+       ...prevState.editedPanel,
+       [name]: false,
+     },
+     isSubmit: false,
+   }))
+ };
 
-	handleCreateCancel = () => {
-		const { userId } = this.props;
-		this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false });
-		this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
-	};
+ handleCreateCancel = () => {
+   const { userId } = this.props;
+   this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false });
+   this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
+ };
 
-	handleSaveSettingsCreateForm = (formValues) => {
-		const { actions, userId, contactsCreateFormState } = this.props;
+ handleSaveSettingsCreateForm = (formValues) => {
+   const { actions, userId, contactsCreateFormState } = this.props;
 
-		if (checkIsValidateForm(contactsCreateFormState)) {
+   if (checkIsValidateForm(contactsCreateFormState)) {
+     actions.fetchPatientContactsCreateRequest(this.formValuesToString(formValues, 'create'));
+     setTimeout(() => actions.fetchPatientContactsRequest({ userId }), 1000);
+     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
+     this.hideCreateForm();
+     this.setState({ isSubmit: false });
+   } else {
+     this.setState({ isSubmit: true });
+   }
+ };
 
-			actions.fetchPatientContactsCreateRequest(this.formValuesToString(formValues, 'create'));
-			setTimeout(() => actions.fetchPatientContactsRequest({ userId }), 1000);
-			this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
-			this.hideCreateForm();
-			this.setState({ isSubmit: false });
-		} else {
-			this.setState({ isSubmit: true });
-		}
-	};
+ formValuesToString = (formValues, formName) => {
+   const { userId } = this.props;
 
-	formValuesToString = (formValues, formName) => {
-    const { userId } = this.props;
+   const name = _.get(valuesNames.NAME)(formValues);
+   let nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
+   nextOfKin = nextOfKin || false;
+   const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
+   const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
+   const relationshipCode = _.get(valuesNames.REALATIONSHIP_CODE)(formValues);
+   const relationshipTerminology = _.get(valuesNames.REALATIONSHIP_TERMINOLOGY)(formValues);
+   const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
+   const notes = _.get(valuesNames.NOTES)(formValues);
+   const author = _.get(valuesNames.AUTHOR)(formValues);
+   const dateSubmitted = new Date();
+   const source = 'ethercis';
 
-    const name = _.get(valuesNames.NAME)(formValues);
-		let nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
-		nextOfKin = nextOfKin ? nextOfKin : false;
-		const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
-		const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
-		const relationshipCode = _.get(valuesNames.REALATIONSHIP_CODE)(formValues);
-		const relationshipTerminology = _.get(valuesNames.REALATIONSHIP_TERMINOLOGY)(formValues);
-		const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
-		const notes = _.get(valuesNames.NOTES)(formValues);
-		const author = _.get(valuesNames.AUTHOR)(formValues);
-		const dateSubmitted = new Date();
-		const source = 'ethercis';
-
-		if (formName === 'create') {
-			return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source });
-		}
-		if (formName === 'edit') {
-			const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-			return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source, sourceId });
-		}
-  };
+   if (formName === 'create') {
+     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source });
+   }
+   if (formName === 'edit') {
+     const sourceId = _.get(valuesNames.SOURCEID)(formValues);
+     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source, sourceId });
+   }
+ };
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false })
   };
 
-	handleShow = (name) => {
-		this.setState({ openedPanel: name })
-	};
+ handleShow = (name) => {
+   this.setState({ openedPanel: name })
+ };
 
-	fixContactsItems = (contacts) => contacts.map(el => {
-    el.nextOfKin = el.nextOfKin || false;
-    return el;
-  });
+ fixContactsItems = contacts => contacts.map((el) => {
+   el.nextOfKin = el.nextOfKin || false;
+   return el;
+ });
 
-	render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-    const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
+ render() {
+   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+   const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
 
-		const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
-		const isPanelMain = (expandedPanel === CONTACTS_MAIN);
-		const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
+   const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
+   const isPanelMain = (expandedPanel === CONTACTS_MAIN);
+   const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
-		let fixedAllContacts;
+   let fixedAllContacts;
 
-		if (allContacts) {
-			fixedAllContacts = this.fixContactsItems(allContacts);
-		}
+   if (allContacts) {
+     fixedAllContacts = this.fixContactsItems(allContacts);
+   }
 
-		const columnsToShowConfig = contactsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+   const columnsToShowConfig = contactsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-		const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
+   const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
 
-    return (<section className="page-wrapper">
-      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-        <Row>
-          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-            <div className="panel panel-primary">
-              <PluginListHeader
-                onFilterChange={this.handleFilterChange}
-                panelTitle="Contacts"
-                isBtnExpandVisible={isBtnExpandVisible}
-								isBtnTableVisible={false}
-                name={CONTACTS_MAIN}
-                onExpand={this.handleExpand}
-                currentPanel={CONTACTS_MAIN}
-              />
-							<PluginMainPanel
-								headers={columnsToShowConfig}
-								resourceData={fixedAllContacts}
-								emptyDataMessage="No contacts"
-								onHeaderCellClick={this.handleHeaderCellClick}
-								onCellClick={this.handleDetailContactsClick}
-								columnNameSortBy={columnNameSortBy}
-								sortingOrder={sortingOrder}
-								table="contacts"
+   return (<section className="page-wrapper">
+     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+       <Row>
+         {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+           <div className="panel panel-primary">
+             <PluginListHeader
+               onFilterChange={this.handleFilterChange}
+               panelTitle="Contacts"
+               isBtnExpandVisible={isBtnExpandVisible}
+               isBtnTableVisible={false}
+               name={CONTACTS_MAIN}
+               onExpand={this.handleExpand}
+               currentPanel={CONTACTS_MAIN}
+             />
+             <PluginMainPanel
+               headers={columnsToShowConfig}
+               resourceData={fixedAllContacts}
+               emptyDataMessage="No contacts"
+               onHeaderCellClick={this.handleHeaderCellClick}
+               onCellClick={this.handleDetailContactsClick}
+               columnNameSortBy={columnNameSortBy}
+               sortingOrder={sortingOrder}
+               table="contacts"
 
-								filteredData={filteredContacts}
-								totalEntriesAmount={_.size(fixedAllContacts)}
-								offset={offset}
-								setOffset={this.handleSetOffset}
-								isBtnCreateVisible={isBtnCreateVisible}
-								onCreate={this.handleCreate}
-							/>
-            </div>
-          </Col> : null}
-          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <ContactsDetail
-              onExpand={this.handleExpand}
-              name={CONTACTS_DETAIL}
-              openedPanel={openedPanel}
-              onShow={this.handleShow}
-              expandedPanel={expandedPanel}
-              currentPanel={CONTACTS_DETAIL}
-              detail={contactDetail}
-              onEdit={this.handleEdit}
-              editedPanel={editedPanel}
-              onCancel={this.handleContactDetailCancel}
-              onSaveSettings={this.handleSaveSettingsDetailForm}
-              contactsDetailFormValues={contactsDetailFormState.values}
-              metaPanelFormValues={metaPanelFormState.values}
-							isSubmit={isSubmit}
-            />
-          </Col> : null}
-          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-						<PluginCreate
-							title="Create Contacts"
-							onExpand={this.handleExpand}
-							name={CONTACTS_CREATE}
-							openedPanel={openedPanel}
-							onShow={this.handleShow}
-							expandedPanel={expandedPanel}
-							currentPanel={CONTACTS_CREATE}
-							onSaveSettings={this.handleSaveSettingsCreateForm}
-							formValues={contactsCreateFormState.values}
-							onCancel={this.handleCreateCancel}
-							isCreatePanelVisible={isCreatePanelVisible}
-							componentForm={
-								<ContactsCreateForm isSubmit={isSubmit} />
-							}
-						/>
-          </Col> : null}
-        </Row>
-      </div>
-    </section>)
-  }
+               filteredData={filteredContacts}
+               totalEntriesAmount={_.size(fixedAllContacts)}
+               offset={offset}
+               setOffset={this.handleSetOffset}
+               isBtnCreateVisible={isBtnCreateVisible}
+               onCreate={this.handleCreate}
+             />
+           </div>
+         </Col> : null}
+         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+           <ContactsDetail
+             onExpand={this.handleExpand}
+             name={CONTACTS_DETAIL}
+             openedPanel={openedPanel}
+             onShow={this.handleShow}
+             expandedPanel={expandedPanel}
+             currentPanel={CONTACTS_DETAIL}
+             detail={contactDetail}
+             onEdit={this.handleEdit}
+             editedPanel={editedPanel}
+             onCancel={this.handleContactDetailCancel}
+             onSaveSettings={this.handleSaveSettingsDetailForm}
+             contactsDetailFormValues={contactsDetailFormState.values}
+             metaPanelFormValues={metaPanelFormState.values}
+             isSubmit={isSubmit}
+           />
+         </Col> : null}
+         {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+           <PluginCreate
+             title="Create Contacts"
+             onExpand={this.handleExpand}
+             name={CONTACTS_CREATE}
+             openedPanel={openedPanel}
+             onShow={this.handleShow}
+             expandedPanel={expandedPanel}
+             currentPanel={CONTACTS_CREATE}
+             onSaveSettings={this.handleSaveSettingsCreateForm}
+             formValues={contactsCreateFormState.values}
+             onCancel={this.handleCreateCancel}
+             isCreatePanelVisible={isCreatePanelVisible}
+             componentForm={
+               <ContactsCreateForm isSubmit={isSubmit} />
+             }
+           />
+         </Col> : null}
+       </Row>
+     </div>
+   </section>)
+ }
 }

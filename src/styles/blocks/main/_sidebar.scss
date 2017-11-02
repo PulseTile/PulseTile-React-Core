@@ -29,10 +29,12 @@
     display: none !important;
   }
 }
-.showSidebar .sidebar {
+.showSidebar .sidebar,
+.showSidebar.sidebar {
   transform: translate(0, 0);
 }
-.showSidebar .sidebar-underlay {
+.showSidebar .sidebar-underlay,
+.showSidebar.sidebar-underlay {
   display: block;
 }
 

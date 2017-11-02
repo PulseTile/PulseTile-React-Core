@@ -8,7 +8,7 @@ import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
 import DateInput from '../../../../form-fields/DateInput';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import { validateContactsForm } from './validation';
-import { valuesNames, valuesLabels, relationshipOptions  } from './values-names.config';
+import { valuesNames, valuesLabels, relationshipOptions } from './values-names.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
 
@@ -21,8 +21,8 @@ export default class ContactsCreateForm extends PureComponent {
     this.props.initialize(defaultFormValues);
   }
   render() {
-		const {isSubmit} = this.props;
-		const isNotValidate = true;
+    const { isSubmit } = this.props;
+    const isNotValidate = true;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 

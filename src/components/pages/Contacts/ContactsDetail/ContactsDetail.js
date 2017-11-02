@@ -10,9 +10,9 @@ const META_PANEL = 'metaPanel';
 export default class ContactsDetail extends PureComponent {
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, contactsDetailFormValues, metaPanelFormValues, isSubmit } = this.props;
-		let { detail } = this.props;
-		detail = detail || {};
-		const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    let { detail } = this.props;
+    detail = detail || {};
+    const dateCreated = getDDMMMYYYY(detail.dateCreated);
 
     return (
       <div className="section-detail">
@@ -29,7 +29,7 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
-						isBtnShowPanel={true}
+            isBtnShowPanel
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -113,12 +113,12 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={contactsDetailFormValues}
-						isBtnShowPanel={true}
+            isBtnShowPanel
           >
             <ContactsDetailForm
-							detail={detail}
-							isSubmit={isSubmit}
-						/>
+              detail={detail}
+              isSubmit={isSubmit}
+            />
           </PluginDetailPanel> : null }
 
           {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
@@ -133,7 +133,7 @@ export default class ContactsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
-						isBtnShowPanel={true}
+            isBtnShowPanel
             isShowControlPanel={false}
           >
             <div className="panel-body-inner">

@@ -9,8 +9,8 @@ const VACCINATIONS_PANEL = 'vaccinationsPanel';
 export default class VaccinationDetail extends PureComponent {
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, vaccinationPanelFormValues, isSubmit } = this.props;
-		let { detail } = this.props;
-		detail = detail || {};
+    let { detail } = this.props;
+    detail = detail || {};
     const vaccinationDateTime = getDDMMMYYYY(detail.vaccinationDateTime);
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
     return (

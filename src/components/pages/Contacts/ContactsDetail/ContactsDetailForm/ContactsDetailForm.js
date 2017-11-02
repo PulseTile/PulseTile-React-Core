@@ -22,11 +22,11 @@ export default class ContactsDetailForm extends PureComponent {
     const defaultFormValues = {
       [valuesNames.NAME]: value.name,
       [valuesNames.REALATIONSHIP]: value.relationship,
-			[valuesNames.NEXT_OF_KIN]: value.nextOfKin,
-			[valuesNames.REALATIONSHIP_TYPE]: value.relationshipType,
-			[valuesNames.CONTACT_INFORMATION]: value.contactInformation,
-			[valuesNames.NOTES]: value.notes,
-			[valuesNames.AUTHOR]: value.author,
+      [valuesNames.NEXT_OF_KIN]: value.nextOfKin,
+      [valuesNames.REALATIONSHIP_TYPE]: value.relationshipType,
+      [valuesNames.CONTACT_INFORMATION]: value.contactInformation,
+      [valuesNames.NOTES]: value.notes,
+      [valuesNames.AUTHOR]: value.author,
     };
 
     return defaultFormValues;

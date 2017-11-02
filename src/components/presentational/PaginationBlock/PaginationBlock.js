@@ -74,21 +74,21 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
 
   return (<ul className="pagination-block">
     <li className={classNames('pagination-item arrow', { disabled: isFirstPage })}>
-      <button className="pagination-link" onClick={isFirstPage ? _.noop : setPage(1)}>«</button>
+      <a className="pagination-link" onClick={isFirstPage ? _.noop : setPage(1)}>«</a>
     </li>
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
-      <button className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</button>
+      <a className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</a>
     </li>
     { pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
       <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
-        <button className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</button>
+        <a className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</a>
       </li>
     )}
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
-      <button className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</button>
+      <a className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</a>
     </li>
     <li className={classNames('pagination-item arrow', { disabled: isLastPage })}>
-      <button className="pagination-link" onClick={isLastPage ? _.noop : setPage(pagesAmount)}>»</button>
+      <a className="pagination-link" onClick={isLastPage ? _.noop : setPage(pagesAmount)}>»</a>
     </li>
   </ul>)
 };
