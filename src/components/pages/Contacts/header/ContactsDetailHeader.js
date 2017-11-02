@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
 export default class ContactsDetailHeader extends PureComponent {
-
   render() {
     const { onExpand, name, title, onShow, currentPanel } = this.props;
 
