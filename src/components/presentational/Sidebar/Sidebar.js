@@ -7,12 +7,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { sidebarConfig } from '../../../plugins.config';
-import sidebarSelector from './selectors';
+import { sidebarSelector, patientsSummariesSelector } from './selectors';
 import { setSidebarVisibility } from '../../../ducks/set-sidebar-visibility';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
 @connect(sidebarSelector, mapDispatchToProps)
+@connect(patientsSummariesSelector, mapDispatchToProps)
 export default class Sidebar extends PureComponent {
   static propTypes = {
     activeLink: PropTypes.string,
@@ -33,6 +34,12 @@ export default class Sidebar extends PureComponent {
 
   componentDidMount() {
     this.setPositionForSidebar();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.patientsSummaries.length !== 0) {
+      this.setPositionForSidebar();
+    }
   }
 
   setPositionForSidebar() {
