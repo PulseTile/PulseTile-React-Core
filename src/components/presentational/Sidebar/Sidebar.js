@@ -26,6 +26,9 @@ export default class Sidebar extends PureComponent {
     window.addEventListener('scroll', () => {
       this.setPositionForSidebar()
     });
+    window.addEventListener('orientationchange', () => {
+      this.setPositionForSidebar()
+    });
   }
 
   componentDidMount() {
