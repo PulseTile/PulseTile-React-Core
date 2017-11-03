@@ -9,11 +9,12 @@ export const clientUrls = {
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
-	ALLERGIES: 'allergies',
-	CONTACTS: 'contacts',
-	CLINICAL_NOTES: 'clinicalNotes',
+  ALLERGIES: 'allergies',
+  CONTACTS: 'contacts',
+  CLINICAL_NOTES: 'clinicalNotes',
   VACCINATIONS: 'vaccinations',
-	GENERIC_PLUGIN: 'genericPlugin',
+  MEDICATIONS: 'medications',
+  GENERIC_PLUGIN: 'genericPlugin',
 };
 
 export const mainPagesTitles = {
@@ -106,18 +107,18 @@ export const mainPagesTitles = {
       state: '/clinicalNotes',
     }],
   },
-	'contacts': {
-		breadcrumbs: [{
-			title: 'Patient Listings',
-			state: '/patients',
-		}, {
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Contacts',
-			state: '/contacts',
-		}],
-	},
+  'contacts': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Contacts',
+      state: '/contacts',
+    }],
+  },
   'vaccinations': {
     breadcrumbs: [{
       title: 'Patient Listings',
@@ -130,18 +131,30 @@ export const mainPagesTitles = {
       state: '/vaccinations',
     }],
   },
-	'genericPlugin': {
-		breadcrumbs: [{
-			title: 'Patient Listings',
-			state: '/patients',
-		}, {
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Generic Plugin',
-			state: '/genericPlugin',
-		}],
-	},
+  'medications': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Medications',
+      state: '/medications',
+    }],
+  },
+  'genericPlugin': {
+    breadcrumbs: [{
+      title: 'Patient Listings',
+      state: '/patients',
+    }, {
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Generic Plugin',
+      state: '/genericPlugin',
+    }],
+  },
 };
 
 export const mainPagesTitlesForPatients = {
@@ -222,15 +235,15 @@ export const mainPagesTitlesForPatients = {
       state: '/clinicalNotes',
     }],
   },
-	'contacts': {
-		breadcrumbs: [{
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Contacts',
-			state: '/contacts',
-		}],
-	},
+  'contacts': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Contacts',
+      state: '/contacts',
+    }],
+  },
   'vaccinations': {
     breadcrumbs: [{
       title: 'Patient Summary',
@@ -240,13 +253,22 @@ export const mainPagesTitlesForPatients = {
       state: '/vaccinations',
     }],
   },
-	'genericPlugin': {
-		breadcrumbs: [{
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Generic Plugin',
-			state: '/genericPlugin',
-		}],
-	},
+  'medications': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Medications',
+      state: '/medications',
+    }],
+  },
+  'genericPlugin': {
+    breadcrumbs: [{
+      title: 'Patient Summary',
+      state: '/patients-summary',
+    }, {
+      title: 'Generic Plugin',
+      state: '/genericPlugin',
+    }],
+  },
 };

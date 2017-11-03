@@ -56,9 +56,9 @@ export default class PatientsSummary extends PureComponent {
               <div className="panel-body">
                 <div className="dashboard">
                   {(selectedCategory.problems && dashboardVisible.problems) ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} state="diagnoses" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.contacts && dashboardVisible.contacts) ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} /> : null}
+                  {(selectedCategory.contacts && dashboardVisible.contacts) ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} state="contacts" goToState={this.handleGoToState} /> : null}
                   {(selectedCategory.allergies && dashboardVisible.allergies) ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.medications && dashboardVisible.medications) ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} /> : null}
+                  {(selectedCategory.medications && dashboardVisible.medications) ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} state="medications" goToState={this.handleGoToState} /> : null}
                 </div>
               </div>
             </div>
