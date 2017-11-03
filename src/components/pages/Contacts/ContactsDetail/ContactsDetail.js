@@ -55,6 +55,10 @@ export default class ContactsDetail extends PureComponent {
                         <label className="control-label">Relationship Type</label>
                         <div className="form-control-static">{detail.relationshipType}</div>
                       </div>
+                      <div className="form-group">
+                        <label className="control-label">Contact Information</label>
+                        <div className="form-control-static">{detail.contactInformation}</div>
+                      </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">

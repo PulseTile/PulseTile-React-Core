@@ -85,16 +85,16 @@ export default class ContactsCreateForm extends PureComponent {
                 <Row>
                   <Col md={6} xs={12}>
                     <Field
-                      name={valuesNames.REALATIONSHIP_CODE}
-                      label={valuesLabels.REALATIONSHIP_CODE}
+                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
+                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
                       component={StaticFormField}
                       props={{ className: 'form-control-static', isSubmit }}
                     />
                   </Col>
                   <Col md={6} xs={12}>
                     <Field
-                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
-                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
+                      name={valuesNames.REALATIONSHIP_CODE}
+                      label={valuesLabels.REALATIONSHIP_CODE}
                       component={StaticFormField}
                       props={{ className: 'form-control-static', isSubmit }}
                     />

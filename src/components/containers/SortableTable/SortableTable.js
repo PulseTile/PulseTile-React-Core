@@ -18,6 +18,10 @@ export default class SortableTable extends PureComponent {
     table: PropTypes.string.isRequired,
   };
 
+  static defaultProps = {
+    table: ''
+  };
+
   state = {
     hoveredRowIndex: '',
   };
@@ -64,8 +68,8 @@ export default class SortableTable extends PureComponent {
       const tableFullRows = _.last(tableFull.children).children;
       const tds = _.head(tableFullRows).children;
 
-      tableNames.style.width = `${_.head(tds).offsetWidth + 1}px`;
-      tableControls.style.width = `${tds[tds.length - 1].offsetWidth}px`;
+      tableNames.style.width = `${_.head(tds).offsetWidth + 2}px`;
+      tableControls.style.width = `${tds[tds.length - 3].offsetWidth}px`;
     }
   };
 

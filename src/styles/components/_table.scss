@@ -290,19 +290,12 @@ td[name='sourceId'], th[name='sourceId'] {
   }
 }
 
-table > tbody > tr {
+.table-row-higher > tbody > tr,
+.patientsList > tbody > tr,
+.table-patients-name > tbody > tr,
+.table-patients-controls > tbody > tr {
   height: 100%;
   @include respond-from(xs) {
     height: 60px;
-  }
-}
-
-.allergies > tbody > tr,
-.diagnoses > tbody > tr,
-.clinicalNotes > tbody > tr,
-.vaccinations > tbody > tr {
-  height: 100%;
-  @include respond-from(xs) {
-    height: 40px;
   }
 }

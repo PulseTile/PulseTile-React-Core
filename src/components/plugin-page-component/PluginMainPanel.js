@@ -8,7 +8,7 @@ import PaginationBlock from '../presentational/PaginationBlock/PaginationBlock';
 export default class PluginMainPanel extends PureComponent {
   static defaultProps = {
     listPerPageAmount: 10,
-    emptyDataMessage: 'No list',
+    emptyDataMessage: 'No list'
   };
   getClinicalNotesOnFirstPage = (list) => {
     const { listPerPageAmount, offset } = this.props;
@@ -34,7 +34,6 @@ export default class PluginMainPanel extends PureComponent {
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           sortingOrder={sortingOrder}
-          table={table}
         />
         <div className="panel-control">
           <div className="wrap-control-group">

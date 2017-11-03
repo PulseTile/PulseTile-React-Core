@@ -264,7 +264,6 @@ export default class Allergies extends PureComponent {
                 onCellClick={this.handleDetailAllergiesClick}
                 columnNameSortBy={columnNameSortBy}
                 sortingOrder={sortingOrder}
-                table="allergies"
                 filteredData={filteredAllergies}
                 totalEntriesAmount={_.size(allAllergies)}
                 offset={offset}
