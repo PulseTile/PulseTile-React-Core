@@ -2,40 +2,33 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { Row, Col } from 'react-bootstrap';
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import { validateContactsForm } from '../../ContactsCreate/ContactsCreateForm/validation';
-import { valuesNames, valuesLabels, relationshipOptions } from '../../ContactsCreate/ContactsCreateForm/values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import SelectFormGroup from '../../../form-fields/SelectFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateForm } from '../forms.validation';
+import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
+import { defaultFormValues } from './default-values.config';
+import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 @reduxForm({
-  form: 'contactsDetailFormSelector',
-  validate: validateContactsForm,
+  form: 'contactsCreateFormSelector',
+  validate: validateForm,
 })
-export default class ContactsDetailForm extends PureComponent {
+export default class ContactsCreateForm extends PureComponent {
   componentDidMount() {
-    const { detail, initialize } = this.props;
-    initialize(this.defaultValuesForm(detail));
-  }
-  defaultValuesForm(value) {
-    const defaultFormValues = {
-      [valuesNames.NAME]: value.name,
-      [valuesNames.REALATIONSHIP]: value.relationship,
-      [valuesNames.NEXT_OF_KIN]: value.nextOfKin,
-      [valuesNames.REALATIONSHIP_TYPE]: value.relationshipType,
-      [valuesNames.CONTACT_INFORMATION]: value.contactInformation,
-      [valuesNames.NOTES]: value.notes,
-      [valuesNames.AUTHOR]: value.author,
-    };
-
-    return defaultFormValues;
+    this.props.initialize(defaultFormValues);
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const { isSubmit } = this.props;
+    const isNotValidate = true;
+    const date = new Date();
+    const dateCreated = getDDMMMYYYY(date.getTime());
+
     return (
       <div className="panel-body-inner">
-        <form name="contactsDetailForm" className="form">
+        <form name="contactsCreateForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
@@ -89,6 +82,30 @@ export default class ContactsDetailForm extends PureComponent {
 
             <div className="row-expand">
               <div className="col-expand-left">
+                <Row>
+                  <Col md={6} xs={12}>
+                    <Field
+                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
+                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
+                      component={StaticFormField}
+                      props={{ className: 'form-control-static', isSubmit }}
+                    />
+                  </Col>
+                  <Col md={6} xs={12}>
+                    <Field
+                      name={valuesNames.REALATIONSHIP_CODE}
+                      label={valuesLabels.REALATIONSHIP_CODE}
+                      component={StaticFormField}
+                      props={{ className: 'form-control-static', isSubmit }}
+                    />
+                  </Col>
+                </Row>
+
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
                 <Field
                   label={valuesLabels.CONTACT_INFORMATION}
                   name={valuesNames.CONTACT_INFORMATION}
@@ -119,6 +136,7 @@ export default class ContactsDetailForm extends PureComponent {
                 />
               </div>
             </div>
+
             <div className="row-expand">
               <div className="col-expand-right">
                 <Field
@@ -126,7 +144,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

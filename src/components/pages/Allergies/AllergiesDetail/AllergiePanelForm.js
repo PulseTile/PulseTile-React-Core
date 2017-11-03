@@ -1,25 +1,25 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import { valuesNames, valuesLabels } from '../../ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
-import { validateClinicalNotesPanelForm } from '../../ClinicalNotesCreate/ClinicalNotesCreateForm/validation';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import { validateAllergiesPanel } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 @reduxForm({
-  form: 'clinicalNotesPanelFormSelector',
-  validate: validateClinicalNotesPanelForm,
+  form: 'allergiePanelFormSelector',
+  validate: validateAllergiesPanel,
 })
-export default class ClinicalNotesPanelForm extends PureComponent {
+export default class AllergiePanelForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.CLINICAL_NOTES_TYPE]: value.clinicalNotesType,
-      [valuesNames.NOTE]: value.note,
+      [valuesNames.CAUSE]: value.cause,
+      [valuesNames.REACTION]: value.reaction,
       [valuesNames.AUTHOR]: value.author,
     };
 
@@ -29,25 +29,25 @@ export default class ClinicalNotesPanelForm extends PureComponent {
     const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
-        <form name="clinicalNotesPanelForm" className="form">
+        <form name="allergiePanelForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.CLINICAL_NOTES_TYPE}
-                  name={valuesNames.CLINICAL_NOTES_TYPE}
-                  id={valuesNames.CLINICAL_NOTES_TYPE}
+                  label={valuesLabels.CAUSE}
+                  name={valuesNames.CAUSE}
+                  id={valuesNames.CAUSE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
-                  props={{ isSubmit }}
+                  props={isSubmit}
                 />
                 <Field
-                  label={valuesLabels.NOTE}
-                  name={valuesNames.NOTE}
-                  id={valuesNames.NOTE}
+                  label={valuesLabels.REACTION}
+                  name={valuesNames.REACTION}
+                  id={valuesNames.REACTION}
                   component={ValidatedTextareaFormGroup}
-                  props={{ isSubmit }}
+                  props={isSubmit}
                 />
               </div>
             </div>
@@ -61,6 +61,8 @@ export default class ClinicalNotesPanelForm extends PureComponent {
                   props={{ disabled: true }}
                 />
               </div>
+            </div>
+            <div className="row-expand">
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.DATE}

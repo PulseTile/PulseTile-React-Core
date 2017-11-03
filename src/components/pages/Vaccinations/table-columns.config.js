@@ -1,6 +1,6 @@
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
-export const vaccinationsColumnsConfig = [
+export const columnsConfig = [
   { key: 'vaccinationName', title: 'Name', width: '56%' },
   { key: 'source', title: 'Source', width: '19%' },
   { key: 'dateCreated', title: 'Date', transformer: getDDMMMYYYY, width: '25%' },

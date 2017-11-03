@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import ClinicalNotesPanelForm from './ClinicalNotesDetailForm/ClinicalNotesPanelForm'
+import ClinicalNotesPanelForm from './ClinicalNotesPanelForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';

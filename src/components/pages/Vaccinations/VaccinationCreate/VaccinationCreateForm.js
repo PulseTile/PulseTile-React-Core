@@ -1,39 +1,29 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateVaccinationPanelForm } from '../../VaccinationCreate/VaccinationCreateForm/validation';
-import { valuesNames, valuesLabels } from '../../VaccinationCreate/VaccinationCreateForm/values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { valuesNames, valuesLabels } from '../forms.config';
+import { validateForm } from '../forms.validation';
+import { defaultFormValues } from './default-values.config';
 
 @reduxForm({
-  form: 'vaccinationsPanelFormSelector',
-  validate: validateVaccinationPanelForm,
+  form: 'vaccinationsCreateFormSelector',
+  validate: validateForm,
 })
-export default class VaccinationPanelForm extends PureComponent {
+export default class VaccinationCreateForm extends PureComponent {
   componentDidMount() {
-    const { detail, initialize } = this.props;
-    initialize(this.defaultValuesForm(detail));
-  }
-  defaultValuesForm(value) {
-    const defaultFormValues = {
-      [valuesNames.VACCINATION_NAME]: value.vaccinationName,
-      [valuesNames.VACCINATION_DATE]: value.vaccinationDateTime,
-      [valuesNames.VACCINATION_SOURCE]: value.source,
-      [valuesNames.SERIES_NUMBER]: value.series,
-      [valuesNames.COMMENT]: value.comment,
-      [valuesNames.AUTHOR]: value.author,
-    };
-
-    return defaultFormValues;
+    this.props.initialize(defaultFormValues);
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const {isSubmit} = this.props;
+    const date = new Date();
+    const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
-        <form name="vaccinationsPanelForm" className="form">
+        <form name="vaccinationsCreateForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
@@ -106,7 +96,7 @@ export default class VaccinationPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

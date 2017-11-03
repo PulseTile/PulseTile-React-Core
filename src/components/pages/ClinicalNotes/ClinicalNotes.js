@@ -10,8 +10,9 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import ClinicalNotesCreateForm from './ClinicalNotesCreate/ClinicalNotesCreateForm/ClinicalNotesCreateForm';
-import { clinicalNotesColumnsConfig, defaultColumnsSelected } from './clinical-notes-table-columns.config'
+import ClinicalNotesCreateForm from './ClinicalNotesCreate/ClinicalNotesCreateForm';
+import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { valuesNames } from './forms.config';
 import { fetchPatientClinicalNotesRequest } from './ducks/fetch-patient-clinical-notes.duck';
 import { fetchPatientClinicalNotesDetailRequest } from './ducks/fetch-patient-clinical-notes-detail.duck';
 import { fetchPatientClinicalNotesDetailEditRequest } from './ducks/fetch-patient-clinical-notes-detail-edit.duck';
@@ -20,7 +21,6 @@ import { fetchPatientClinicalNotesOnMount } from '../../../utils/HOCs/fetch-pati
 import { patientClinicalNotesSelector, patientClinicalNotesDetailSelector, clinicalNotePanelFormSelector, clinicalCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
-import { valuesNames } from './ClinicalNotesCreate/ClinicalNotesCreateForm/values-names.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 
@@ -219,7 +219,7 @@ export default class ClinicalNotes extends PureComponent {
     const isPanelMain = (expandedPanel === CLINICAL_NOTES_MAIN);
     const isPanelCreate = (expandedPanel === CLINICAL_NOTES_CREATE);
 
-    const columnsToShowConfig = clinicalNotesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredClinicalNotes = this.filterAndSortClinicalNotes(allClinicalNotes);
 

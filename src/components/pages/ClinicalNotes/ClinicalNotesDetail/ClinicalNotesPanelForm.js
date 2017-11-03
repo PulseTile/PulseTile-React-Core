@@ -1,28 +1,35 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import { validateClinicalNotesPanelForm } from './validation';
-import { valuesNames, valuesLabels } from './values-names.config';
-import { defaultFormValues } from './default-values.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import { valuesNames, valuesLabels } from '../forms.config';
+import { validateForm } from '../forms.validation';
 
 @reduxForm({
-  form: 'clinicalNotesCreateFormSelector',
-  validate: validateClinicalNotesPanelForm,
+  form: 'clinicalNotesPanelFormSelector',
+  validate: validateForm,
 })
-export default class ProblemsDiagnosisCreateForm extends PureComponent {
+export default class ClinicalNotesPanelForm extends PureComponent {
   componentDidMount() {
-    this.props.initialize(defaultFormValues);
+    const { detail, initialize } = this.props;
+    initialize(this.defaultValuesForm(detail));
+  }
+  defaultValuesForm(value) {
+    const defaultFormValues = {
+      [valuesNames.CLINICAL_NOTES_TYPE]: value.clinicalNotesType,
+      [valuesNames.NOTE]: value.note,
+      [valuesNames.AUTHOR]: value.author,
+    };
+
+    return defaultFormValues;
   }
   render() {
-    const {isSubmit} = this.props;
-    const date = new Date();
-    const dateCreated = date.getTime();
+    const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
-        <form name="clinicalNoteCreateForm" className="form">
+        <form name="clinicalNotesPanelForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
@@ -35,10 +42,6 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
-              </div>
-            </div>
-            <div className="row-expand">
-              <div className="col-expand-left">
                 <Field
                   label={valuesLabels.NOTE}
                   name={valuesNames.NOTE}
@@ -64,7 +67,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

@@ -1,40 +1,30 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateDiagnosisPanelForm } from '../../ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/validation';
-import { valuesNames, valuesLabels } from '../../ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateForm } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
+import { defaultFormValues } from './default-values.config';
 
 @reduxForm({
-  form: 'diagnosesPanelFormSelector',
-  validate: validateDiagnosisPanelForm,
+  form: 'diagnosesCreateFormSelector',
+  validate: validateForm,
 })
-export default class DiagnosisPanelForm extends PureComponent {
+export default class ProblemsDiagnosisCreateForm extends PureComponent {
   componentDidMount() {
-    const { detail, initialize } = this.props;
-    initialize(this.defaultValuesForm(detail));
-  }
-  defaultValuesForm(value) {
-    const defaultFormValues = {
-      [valuesNames.PROBLEM]: value.problem,
-      [valuesNames.DATE_OF_ONSET]: value.dateOfOnset,
-      [valuesNames.DESCRIPTION]: value.description,
-      [valuesNames.TERMINOLOGY]: value.terminology,
-      [valuesNames.CODE]: value.code,
-      [valuesNames.AUTHOR]: value.author,
-    };
-
-    return defaultFormValues;
+    this.props.initialize(defaultFormValues);
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const {isSubmit} = this.props;
     const isNotValidate = true;
+    const date = new Date();
+    const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
-        <form name="diagnosesPanelForm" className="form">
+        <form name="diagnosesCreateForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
@@ -42,6 +32,8 @@ export default class DiagnosisPanelForm extends PureComponent {
                   label={valuesLabels.PROBLEM}
                   name={valuesNames.PROBLEM}
                   id={valuesNames.PROBLEM}
+                  type="text"
+                  placeholder=""
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
@@ -72,7 +64,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}
-                  props={{ isNotValidate }}
+                  props={{ isSubmit, isNotValidate }}
                 />
               </div>
             </div>
@@ -91,7 +83,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.CODE}
                   label={valuesLabels.CODE}
                   component={StaticFormField}
-                  props={{ className: 'non-edit-value' }}
+                  props={{ className: 'non-edit-value', isSubmit }}
                 />
               </div>
             </div>
@@ -111,7 +103,7 @@ export default class DiagnosisPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

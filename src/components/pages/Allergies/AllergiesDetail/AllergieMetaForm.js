@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesMeta } from '../../AllergiesCreate/AllergiesCreateForm/validation';
-import { valuesNames, valuesLabels } from '../../AllergiesCreate/AllergiesCreateForm/values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateAllergiesMeta } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 @reduxForm({
   form: 'metaPanelFormSelector',

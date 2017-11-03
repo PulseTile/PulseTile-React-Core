@@ -1,4 +1,4 @@
-const validateDiagnosisPanelForm = (values) => {
+const validateForm = (values) => {
   const errors = {};
   errors.problem = !values.problem ? 'You must enter a value.' : null;
   errors.description = !values.description ? 'You must enter a value.' : null;
@@ -7,4 +7,4 @@ const validateDiagnosisPanelForm = (values) => {
   return errors
 };
 
-export { validateDiagnosisPanelForm }
+export { validateForm }

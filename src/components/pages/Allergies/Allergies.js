@@ -8,7 +8,8 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
-import { allergiesColumnsConfig, defaultColumnsSelected } from './allergies-table-columns.config'
+import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { valuesNames } from './forms.config';
 import { fetchPatientAllergiesRequest } from './ducks/fetch-patient-allergies.duck';
 import { fetchPatientAllergiesCreateRequest } from './ducks/fetch-patient-allergies-create.duck';
 import { fetchPatientAllergiesDetailRequest } from './ducks/fetch-patient-allergies-detail.duck';
@@ -17,10 +18,9 @@ import { fetchPatientAllergiesOnMount, fetchPatientAllergiesDetailOnMount } from
 import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCreateFormStateSelector, metaPanelFormStateSelector, patientAllergiesDetailSelector } from './selectors';
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import { valuesNames } from './AllergiesCreate/AllergiesCreateForm/values-names.config';
 import { clientUrls } from '../../../config/client-urls.constants';
 import Spinner from '../../ui-elements/Spinner/Spinner'
-import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm/AllergiesCreateForm'
+import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 
@@ -238,7 +238,7 @@ export default class Allergies extends PureComponent {
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
 
-    const columnsToShowConfig = allergiesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredAllergies = this.filterAndSortAllergies(allAllergies);
 

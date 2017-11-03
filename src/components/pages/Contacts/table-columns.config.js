@@ -1,7 +1,7 @@
 import { formatYesNo } from '../../../utils/table-helpers/table.utils';
 
 
-export const contactsColumnsConfig = [
+export const columnsConfig = [
   { key: 'name', title: 'Name', width: '28%' },
   { key: 'relationship', title: 'Relationship', width: '28%' },
   { key: 'nextOfKin', title: 'Next Of Kin', transformer: formatYesNo, width: '25%' },

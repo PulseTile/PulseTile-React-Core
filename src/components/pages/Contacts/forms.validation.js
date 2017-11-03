@@ -1,4 +1,4 @@
-const validateContactsForm = (values) => {
+const validateForm = (values) => {
   const errors = {};
   errors.name = !values.name ? 'You must enter a value.' : null;
   errors.relationship = !values.relationship ? 'You must enter a value.' : null;
@@ -10,4 +10,4 @@ const validateContactsForm = (values) => {
   return errors
 };
 
-export { validateContactsForm }
+export { validateForm }

@@ -1,4 +1,4 @@
-const validateVaccinationPanelForm = (values) => {
+const validateForm = (values) => {
   const errors = {};
   errors.vaccinationName = !values.vaccinationName ? 'You must enter a value.' : null;
   errors.vaccinationDateTime = !values.vaccinationDateTime ? 'You must enter a valid date.' : null;
@@ -16,4 +16,4 @@ const validateVaccinationPanelForm = (values) => {
   return errors
 };
 
-export { validateVaccinationPanelForm }
+export { validateForm }

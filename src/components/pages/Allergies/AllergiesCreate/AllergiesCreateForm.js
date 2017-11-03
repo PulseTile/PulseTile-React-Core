@@ -2,12 +2,12 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { Row, Col } from 'react-bootstrap';
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateAllergiesCreateForm } from './validation';
-import { valuesNames, valuesLabels } from './values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateAllergiesCreateForm } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 
 @reduxForm({

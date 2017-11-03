@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import AllergiePanelForm from './AllergiesDetailForm/AllergiePanelForm'
-import AllergieMetaForm from './AllergiesDetailForm/AllergieMetaForm'
+import AllergiePanelForm from './AllergiePanelForm'
+import AllergieMetaForm from './AllergieMetaForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 

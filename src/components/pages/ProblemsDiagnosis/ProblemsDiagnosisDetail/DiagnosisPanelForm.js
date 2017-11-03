@@ -1,30 +1,40 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateDiagnosisPanelForm } from './validation';
-import { valuesNames, valuesLabels } from './values-names.config';
-import { defaultFormValues } from './default-values.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateForm } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 @reduxForm({
-  form: 'diagnosesCreateFormSelector',
-  validate: validateDiagnosisPanelForm,
+  form: 'diagnosesPanelFormSelector',
+  validate: validateForm,
 })
-export default class ProblemsDiagnosisCreateForm extends PureComponent {
+export default class DiagnosisPanelForm extends PureComponent {
   componentDidMount() {
-    this.props.initialize(defaultFormValues);
+    const { detail, initialize } = this.props;
+    initialize(this.defaultValuesForm(detail));
+  }
+  defaultValuesForm(value) {
+    const defaultFormValues = {
+      [valuesNames.PROBLEM]: value.problem,
+      [valuesNames.DATE_OF_ONSET]: value.dateOfOnset,
+      [valuesNames.DESCRIPTION]: value.description,
+      [valuesNames.TERMINOLOGY]: value.terminology,
+      [valuesNames.CODE]: value.code,
+      [valuesNames.AUTHOR]: value.author,
+    };
+
+    return defaultFormValues;
   }
   render() {
-    const {isSubmit} = this.props;
+    const { detail, isSubmit } = this.props;
     const isNotValidate = true;
-    const date = new Date();
-    const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
-        <form name="diagnosesCreateForm" className="form">
+        <form name="diagnosesPanelForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
@@ -32,8 +42,6 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   label={valuesLabels.PROBLEM}
                   name={valuesNames.PROBLEM}
                   id={valuesNames.PROBLEM}
-                  type="text"
-                  placeholder=""
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
@@ -64,7 +72,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}
-                  props={{ isSubmit, isNotValidate }}
+                  props={{ isNotValidate }}
                 />
               </div>
             </div>
@@ -83,7 +91,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.CODE}
                   label={valuesLabels.CODE}
                   component={StaticFormField}
-                  props={{ className: 'non-edit-value', isSubmit }}
+                  props={{ className: 'non-edit-value' }}
                 />
               </div>
             </div>
@@ -103,7 +111,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

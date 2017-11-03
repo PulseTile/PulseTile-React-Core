@@ -1,4 +1,4 @@
-export const allergiesColumnsConfig = [
+export const columnsConfig = [
   { key: 'cause', title: 'Cause', width: '25%' },
   { key: 'reaction', title: 'Reaction', width: '55%' },
   { key: 'source', title: 'Source', width: '20%' },

@@ -10,7 +10,8 @@ import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import { vaccinationsColumnsConfig, defaultColumnsSelected } from './vaccinations-table-columns.config'
+import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { valuesNames } from './forms.config';
 import { fetchPatientVaccinationsRequest } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsDetailRequest } from './ducks/fetch-patient-vaccinations-detail.duck';
 import { fetchPatientVaccinationsDetailEditRequest } from './ducks/fetch-patient-vaccinations-detail-edit.duck';
@@ -22,8 +23,7 @@ import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import { valuesNames } from './VaccinationCreate/VaccinationCreateForm/values-names.config';
-import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm/VaccinationCreateForm'
+import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
 
 const VACCINATIONS_MAIN = 'vaccinationsMain';
 const VACCINATIONS_DETAIL = 'vaccinationsDetail';
@@ -215,7 +215,7 @@ export default class Vaccination extends PureComponent {
     const isPanelMain = (expandedPanel === VACCINATIONS_MAIN);
     const isPanelCreate = (expandedPanel === VACCINATIONS_CREATE);
 
-    const columnsToShowConfig = vaccinationsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredVaccinations = this.filterAndSortVaccinations(allVaccinations);
 

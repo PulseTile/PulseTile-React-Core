@@ -10,7 +10,8 @@ import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import { diagnosesColumnsConfig, defaultColumnsSelected } from './diagnoses-table-columns.config'
+import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { valuesNames } from './forms.config';
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailRequest } from './ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientDiagnosesDetailEditRequest } from './ducks/fetch-patient-diagnoses-detail-edit.duck';
@@ -22,8 +23,7 @@ import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import { valuesNames } from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/values-names.config';
-import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm/ProblemsDiagnosisCreateForm'
+import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm'
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -221,7 +221,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const isPanelMain = (expandedPanel === DIAGNOSES_MAIN);
     const isPanelCreate = (expandedPanel === DIAGNOSES_CREATE);
 
-    const columnsToShowConfig = diagnosesColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredDiagnoses = this.filterAndSortDiagnoses(allDiagnoses);
 

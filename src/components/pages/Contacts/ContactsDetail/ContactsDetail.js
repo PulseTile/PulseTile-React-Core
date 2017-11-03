@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import ContactsDetailForm from './ContactsDetailForm/ContactsDetailForm'
+import ContactsDetailForm from './ContactsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const CONTACT_PANEL = 'contactPanel';

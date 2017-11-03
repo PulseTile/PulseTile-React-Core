@@ -1,6 +1,6 @@
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
-export const diagnosesColumnsConfig = [
+export const columnsConfig = [
   { key: 'problem', title: 'Problems / Diagnoses', width: '56%' },
   { key: 'dateOfOnset', title: 'Date', transformer: getDDMMMYYYY, width: '25%' },
   { key: 'source', title: 'Source', width: '19%' },

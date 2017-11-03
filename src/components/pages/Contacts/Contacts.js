@@ -10,7 +10,8 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
-import { contactsColumnsConfig, defaultColumnsSelected } from './contacts-table-columns.config'
+import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { valuesNames } from './forms.config';
 import { fetchPatientContactsRequest } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contacts-create.duck';
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
@@ -21,8 +22,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import ContactsCreateForm from './ContactsCreate/ContactsCreateForm/ContactsCreateForm'
-import { valuesNames } from './ContactsCreate/ContactsCreateForm/values-names.config';
+import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -238,7 +238,7 @@ export default class Contacts extends PureComponent {
      fixedAllContacts = this.fixContactsItems(allContacts);
    }
 
-   const columnsToShowConfig = contactsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
    const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
 

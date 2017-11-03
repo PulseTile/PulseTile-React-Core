@@ -32,6 +32,24 @@ export const dashboardVisible = {
   medications: true,
 };
 
+export const pluginsEpicConfig = [
+  allergiesEpic,
+  diagnosesEpic,
+  clinicalNotesEpic,
+  contactsEpic,
+  vaccinationsEpic,
+  genericPluginEpic,
+];
+
+export const pluginsReducerConfig = [
+  allergiesReducer,
+  diagnosesReducer,
+  clinicalNotesReducer,
+  contactsReducer,
+  vaccinationsReducer,
+  genericPluginReducer,
+];
+
 export const routersPluginConfig = [
   { key: 'allergies', component: Allergies, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}` },
   { key: 'allergiesCreate', component: Allergies, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.ALLERGIES}/create` },
@@ -57,22 +75,4 @@ export const routersPluginConfig = [
 	{ key: 'genericPluginCreate', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/create` },
 	{ key: 'genericPluginDetail', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/:sourceId` },
 
-];
-
-export const pluginsEpicConfig = [
-  allergiesEpic,
-  diagnosesEpic,
-	clinicalNotesEpic,
-	contactsEpic,
-	vaccinationsEpic,
-	genericPluginEpic,
-];
-
-export const pluginsReducerConfig = [
-  allergiesReducer,
-  diagnosesReducer,
-  clinicalNotesReducer,
-	contactsReducer,
-  vaccinationsReducer,
-	genericPluginReducer,
 ];
