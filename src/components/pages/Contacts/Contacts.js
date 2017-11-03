@@ -189,27 +189,26 @@ export default class Contacts extends PureComponent {
 
  formValuesToString = (formValues, formName) => {
    const { userId } = this.props;
+   const sendData = {};
 
-   const name = _.get(valuesNames.NAME)(formValues);
-   let nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
-   nextOfKin = nextOfKin || false;
-   const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
-   const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
-   const relationshipCode = _.get(valuesNames.REALATIONSHIP_CODE)(formValues);
-   const relationshipTerminology = _.get(valuesNames.REALATIONSHIP_TERMINOLOGY)(formValues);
-   const contactInformation = _.get(valuesNames.CONTACT_INFORMATION)(formValues);
-   const notes = _.get(valuesNames.NOTES)(formValues);
-   const author = _.get(valuesNames.AUTHOR)(formValues);
-   const dateSubmitted = new Date();
-   const source = 'ethercis';
+   sendData['userId'] = userId;
+   sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+   sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
+   sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
+   sendData[valuesNames.REALATIONSHIP_TYPE] = formValues[valuesNames.REALATIONSHIP_TYPE];
+   sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
+   sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = formValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
+   sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
+   sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+   sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+   sendData['dateSubmitted'] = new Date();
+   sendData['source'] = 'ethercis';
 
-   if (formName === 'create') {
-     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source });
-   }
    if (formName === 'edit') {
-     const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, contactInformation, notes, author, dateSubmitted, source, sourceId });
+     sendData[valuesNames.SOURCEID] = formValues[valuesNames.SOURCEID];
    }
+
+   return sendData;
  };
 
   hideCreateForm = () => {
@@ -296,7 +295,7 @@ export default class Contacts extends PureComponent {
          </Col> : null}
          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
            <PluginCreate
-             title="Create Contacts"
+             title="Create Contact"
              onExpand={this.handleExpand}
              name={CONTACTS_CREATE}
              openedPanel={openedPanel}
