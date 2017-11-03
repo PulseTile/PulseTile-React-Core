@@ -16,6 +16,52 @@ export const clientUrls = {
 	GENERIC_PLUGIN: 'genericPlugin',
 };
 
+const pluginsPages = {
+  'allergies': {
+    breadcrumbs: [{
+      title: 'Allergies',
+      state: '/allergies',
+    }],
+  },
+  'diagnoses': {
+    breadcrumbs: [{
+      title: 'Problems / Diagnoses',
+      state: '/diagnoses',
+    }],
+  },
+  'clinicalNotes': {
+    breadcrumbs: [{
+      title: 'Clinical Notes',
+      state: '/clinicalNotes',
+    }],
+  },
+  'contacts': {
+    breadcrumbs: [{
+      title: 'Contacts',
+      state: '/contacts',
+    }],
+  },
+  'vaccinations': {
+    breadcrumbs: [{
+      title: 'Vaccinations',
+      state: '/vaccinations',
+    }],
+  },
+  'genericPlugin': {
+    breadcrumbs: [{
+      title: 'Generic Plugin',
+      state: '/genericPlugin',
+    }],
+  },
+};
+
+const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
+  for (let nameOfPage in pluginsPages) {
+    const breadcrumbs = breadcrumbsBefore.concat(pluginsPages[nameOfPage].breadcrumbs);
+    list[nameOfPage] = { breadcrumbs };
+  }
+};
+
 export const mainPagesTitles = {
   '/': {
     breadcrumbs: [{
@@ -70,105 +116,24 @@ export const mainPagesTitles = {
     breadcrumbs: [],
     headerTitle: 'Search results',
   },
-  'allergies': {
-    breadcrumbs: [{
-      title: 'Patient Listings',
-      state: '/patients',
-    }, {
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Allergies',
-      state: '/allergies',
-    }],
-  },
-  'diagnoses': {
-    breadcrumbs: [{
-      title: 'Patient Listings',
-      state: '/patients',
-    }, {
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Problems / Diagnoses',
-      state: '/diagnoses',
-    }],
-  },
-  'clinicalNotes': {
-    breadcrumbs: [{
-      title: 'Patient Listings',
-      state: '/patients',
-    }, {
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Clinical Notes',
-      state: '/clinicalNotes',
-    }],
-  },
-	'contacts': {
-		breadcrumbs: [{
-			title: 'Patient Listings',
-			state: '/patients',
-		}, {
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Contacts',
-			state: '/contacts',
-		}],
-	},
-  'vaccinations': {
-    breadcrumbs: [{
-      title: 'Patient Listings',
-      state: '/patients',
-    }, {
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Vaccinations',
-      state: '/vaccinations',
-    }],
-  },
-	'genericPlugin': {
-		breadcrumbs: [{
-			title: 'Patient Listings',
-			state: '/patients',
-		}, {
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Generic Plugin',
-			state: '/genericPlugin',
-		}],
-	},
 };
+addPluginsPagesToLists(mainPagesTitles, [{
+  title: 'Patient Listings',
+  state: '/patients',
+}, {
+  title: 'Patient Summary',
+  state: '/patients-summary',
+}]);
 
 export const mainPagesTitlesForPatients = {
   '/': {
     breadcrumbs: [{
-      title: 'System Dashboard',
-      state: '/',
+      title: 'Patient Summary',
+      state: '/patients-summary',
     }],
-    headerTitle: 'System Dashboard',
+    headerTitle: 'Patient Summary',
   },
-  'charts': {
-    breadcrumbs: [{
-      title: 'System Dashboard',
-      state: '/charts',
-    }],
-    headerTitle: 'System Dashboard',
-  },
-  'patients': {
-    breadcrumbs: [{
-      title: 'Home',
-      state: '/',
-    }, {
-      title: 'Patient Listings',
-      state: '/patients',
-    }],
-    headerTitle: 'Patients Lists',
-  },
+
   'profile': {
     breadcrumbs: [{
       title: 'Patient Information',
@@ -176,77 +141,14 @@ export const mainPagesTitlesForPatients = {
     }],
     headerTitle: 'Personal Information',
   },
-  'search-report': {
-    breadcrumbs: [{
-      title: 'Home',
-      state: '/',
-    }, {
-      title: 'Search Report',
-      state: '/search-report',
-    }],
-  },
   'patients-summary': {
     breadcrumbs: [{
       title: 'Patient Summary',
       state: '/patients-summary',
     }],
   },
-  'patients-full-details': {
-    breadcrumbs: [],
-    headerTitle: 'Search results',
-  },
-  'allergies': {
-    breadcrumbs: [{
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Allergies',
-      state: '/allergies',
-    }],
-  },
-  'diagnoses': {
-    breadcrumbs: [{
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Problems / Diagnoses',
-      state: '/diagnoses',
-    }],
-  },
-  'clinicalNotes': {
-    breadcrumbs: [{
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Clinical Notes',
-      state: '/clinicalNotes',
-    }],
-  },
-	'contacts': {
-		breadcrumbs: [{
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Contacts',
-			state: '/contacts',
-		}],
-	},
-  'vaccinations': {
-    breadcrumbs: [{
-      title: 'Patient Summary',
-      state: '/patients-summary',
-    }, {
-      title: 'Vaccinations',
-      state: '/vaccinations',
-    }],
-  },
-	'genericPlugin': {
-		breadcrumbs: [{
-			title: 'Patient Summary',
-			state: '/patients-summary',
-		}, {
-			title: 'Generic Plugin',
-			state: '/genericPlugin',
-		}],
-	},
 };
+addPluginsPagesToLists(mainPagesTitlesForPatients, [{
+  title: 'Patient Summary',
+  state: '/patients-summary',
+}]);
