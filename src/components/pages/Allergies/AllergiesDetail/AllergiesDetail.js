@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import AllergiePanelForm from './AllergiePanelForm'
-import AllergieMetaForm from './AllergieMetaForm'
+import AllergyDetailMainForm from './AllergyDetailMainForm'
+import AllergyDetailMetaForm from './AllergyDetailMetaForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 
@@ -87,7 +87,7 @@ export default class AllergiesDetail extends PureComponent {
             formValues={allergiePanelFormValues}
             isBtnShowPanel
           >
-            <AllergiePanelForm
+            <AllergyDetailMainForm
               detail={detail}
               isSubmit={isSubmit}
             />
@@ -144,7 +144,7 @@ export default class AllergiesDetail extends PureComponent {
             formValues={metaPanelFormValues}
             isBtnShowPanel
           >
-            <AllergieMetaForm
+            <AllergyDetailMetaForm
               detail={detail}
               isSubmit={isSubmit}
             />

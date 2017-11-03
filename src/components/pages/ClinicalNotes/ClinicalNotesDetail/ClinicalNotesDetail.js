@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import ClinicalNotesPanelForm from './ClinicalNotesPanelForm'
+import ClinicalNotesDetailForm from './ClinicalNotesDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
@@ -89,7 +89,7 @@ export default class ClinicalNotesDetail extends PureComponent {
             formValues={clinicalNoteFormValues}
             isBtnShowPanel={false}
           >
-            <ClinicalNotesPanelForm
+            <ClinicalNotesDetailForm
               detail={detail}
               isSubmit={isSubmit}
             />

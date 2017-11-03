@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import VaccinationPanelForm from './VaccinationPanelForm'
+import VaccinationDetailForm from './VaccinationDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const VACCINATIONS_PANEL = 'vaccinationsPanel';
@@ -101,7 +101,7 @@ export default class VaccinationDetail extends PureComponent {
             formValues={vaccinationPanelFormValues}
             isBtnShowPanel={false}
           >
-            <VaccinationPanelForm
+            <VaccinationDetailForm
               detail={detail}
               isSubmit={isSubmit}
             />
