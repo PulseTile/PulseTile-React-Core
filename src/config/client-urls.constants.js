@@ -13,7 +13,8 @@ export const clientUrls = {
 	CONTACTS: 'contacts',
 	CLINICAL_NOTES: 'clinicalNotes',
   VACCINATIONS: 'vaccinations',
-	GENERIC_PLUGIN: 'genericPlugin',
+  MEDICATIONS: 'medications',
+  GENERIC_PLUGIN: 'genericPlugin',
 };
 
 const pluginsPages = {
@@ -51,6 +52,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Generic Plugin',
       state: '/genericPlugin',
+    }],
+  },
+  'medications': {
+    breadcrumbs: [{
+      title: 'Medications',
+      state: '/medications',
     }],
   },
 };

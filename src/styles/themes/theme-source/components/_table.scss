@@ -42,11 +42,6 @@
       &:nth-of-type(odd) {
         background-color: map-get($colored-table, 'row-odd-background');
       }
-      &:hover {
-        td:not(:last-child) {
-          background-color: map-get($colored-table, 'row-background-hover');
-        }
-      }
     }
   }
 }
