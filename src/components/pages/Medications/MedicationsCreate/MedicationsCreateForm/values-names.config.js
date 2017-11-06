@@ -3,6 +3,9 @@ export const valuesNames = {
   DOSE_AMOUNT: 'doseAmount',
   DOSE_TIMING: 'doseTiming',
   DOSE_DIRECTIONS: 'doseDirections',
+  DOSE_INTERVAL: 'doseInterval',
+  DOSE_QUANTITY: 'doseQuantity',
+  FINISH_CANCELLED: 'finishCancelled',
   MEDICATION_CODE: 'medicationCode',
   MEDICATION_TERMINOLOGY: 'medicationTerminology',
   ROUTE: 'route',
@@ -27,7 +30,6 @@ export const valuesLabels = {
 };
 
 export const routeOptions = [
-  { title: '-- Route --', value: '-- Route --' },
   { title: 'Po Per Oral', value: 'Po Per Oral' },
   { title: 'IV Intra Venous', value: 'IV Intra Venous' },
   { title: 'IM Intra Muscular', value: 'IM Intra Muscular' },

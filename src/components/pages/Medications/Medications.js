@@ -159,8 +159,9 @@ export default class Medications extends PureComponent {
 
  handleSaveSettingsDetailForm = (formValues, name) => {
    const { actions } = this.props;
-
-   actions.fetchPatientMedicationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+   if(name === MEDICATION_PANEL) {
+     actions.fetchPatientMedicationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+   }
    this.setState(prevState => ({
      editedPanel: {
        ...prevState.editedPanel,

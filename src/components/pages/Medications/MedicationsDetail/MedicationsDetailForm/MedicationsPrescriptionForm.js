@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
+import _ from 'lodash/fp';
 
 import DateInput from '../../../../form-fields/DateInput';
 import CustomInputInline from '../../../../form-fields/CustomInputInline';
@@ -12,26 +13,29 @@ import { valuesNames, valuesLabels, routeOptions } from '../../MedicationsCreate
   form: 'medicationsPrescriptionFormSelector',
 })
 export default class MedicationsPrescriptionForm extends PureComponent {
+  state={
+    prescriptionFormValue: {},
+  };
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
+  }
+  componentWillReceiveProps(nextProps) {
+    this.state.prescriptionFormValue = nextProps.formValues;
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
       [valuesNames.NAME]: value.name,
       [valuesNames.DOSE_AMOUNT]: value.doseAmount,
-      [valuesNames.DOSE_TIMING]: value.doseTiming,
-      [valuesNames.DOSE_DIRECTIONS]: value.doseDirections,
-      [valuesNames.MEDICATION_CODE]: value.medicationCode,
-      [valuesNames.MEDICATION_TERMINOLOGY]: value.medicationTerminology,
-      [valuesNames.ROUTE]: value.route,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.DOSE_INTERVAL]: '',
+      [valuesNames.DOSE_QUANTITY]: '',
     };
 
     return defaultFormValues;
   }
   render() {
     const { detail, isSubmit, isOpenHourlySchedule, toggleHourlySchedule } = this.props;
+    const { prescriptionFormValue } = this.state;
     const currentDate = new Date();
     return (
       <div className="panel-body-inner">
@@ -69,7 +73,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                     <div className="wrap-fcustominps-inline">
                       <Field
                         label="Morning"
-                        name="doseInterval"
+                        name={valuesNames.DOSE_INTERVAL}
                         id="doseIntervalMorning"
                         type="radio"
                         value="morning"
@@ -78,7 +82,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       />
                       <Field
                         label="Evening"
-                        name="doseInterval"
+                        name={valuesNames.DOSE_INTERVAL}
                         id="doseIntervalEvening"
                         type="radio"
                         value="evening"
@@ -87,7 +91,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       />
                       <Field
                         label="Specific"
-                        name="doseInterval"
+                        name={valuesNames.DOSE_INTERVAL}
                         id="doseIntervalSpecific"
                         type="radio"
                         value="specific"
@@ -105,7 +109,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                     <div className="wrap-fcustominps-inline">
                       <Field
                         label="1X"
-                        name="doseQuantity"
+                        name={valuesNames.DOSE_QUANTITY}
                         id="doseQuantity1x"
                         type="radio"
                         value="1x"
@@ -114,7 +118,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       />
                       <Field
                         label="2X"
-                        name="doseQuantity"
+                        name={valuesNames.DOSE_QUANTITY}
                         id="doseQuantity2x"
                         type="radio"
                         value="2x"
@@ -123,16 +127,16 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       />
                       <Field
                         label="3X"
-                        name="doseQuantity"
+                        name={valuesNames.DOSE_QUANTITY}
                         id="doseQuantity3x"
                         type="radio"
-                        value="4x"
+                        value="3x"
                         className="fcustominp-label"
                         component={CustomInputInline}
                       />
                       <Field
                         label="4X"
-                        name="doseQuantity"
+                        name={valuesNames.DOSE_QUANTITY}
                         id="doseQuantity4x"
                         type="radio"
                         value="4x"
@@ -141,7 +145,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       />
                       <Field
                         label="Other"
-                        name="doseQuantity"
+                        name={valuesNames.DOSE_QUANTITY}
                         id="doseQuantityOther"
                         type="radio"
                         value="other"
@@ -162,12 +166,12 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                   id={valuesNames.ROUTE}
                   options={routeOptions}
                   component={SelectFormGroup}
-                  props={{ isSubmit }}
+                  props={{ isSubmit, placeholder: '-- Route --' }}
                 />
               </div>
             </div>
 
-            <div className="row-expand">
+            {(!_.isEmpty(prescriptionFormValue[valuesNames.DOSE_INTERVAL]) && !_.isEmpty(prescriptionFormValue[valuesNames.DOSE_QUANTITY])) ? <div className="row-expand">
               <div className="col-expand-left">
                 <div>
                   <div className="row">
@@ -186,7 +190,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                         <div className="input-holder">
                           <Field
                             label="Until Cancelled"
-                            name="finishCancelled"
+                            name={valuesNames.FINISH_CANCELLED}
                             id="finishCancelled"
                             type="checkbox"
                             className="fcustominp-label"
@@ -202,7 +206,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> : null }
           </div>
 
           <div className="panel-body-section">

@@ -8,6 +8,8 @@ import DateInput from '../../../../form-fields/DateInput';
 import { validateMedicationsForm } from '../../MedicationsCreate/MedicationsCreateForm/validation';
 import { valuesNames, valuesLabels } from '../../MedicationsCreate/MedicationsCreateForm/values-names.config';
 
+const PRESCRIPTION_PANEL = 'prescriptionPanel';
+
 @reduxForm({
   form: 'medicationsDetailFormSelector',
   validate: validateMedicationsForm,
@@ -32,7 +34,7 @@ export default class MedicationsDetailForm extends PureComponent {
     return defaultFormValues;
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const { detail, isSubmit, onShow } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="medicationsDetailForm" className="form">
@@ -65,9 +67,9 @@ export default class MedicationsDetailForm extends PureComponent {
                       <label className="control-label"></label>
                       <div className="input-holder">
                         <Field
-                          label='Variable'
-                          name='doseAmountVariable'
-                          id='doseAmountVariable'
+                          label="Variable"
+                          name="doseAmountVariable"
+                          id="doseAmountVariable"
                           type="checkbox"
                           className="fcustominp-label"
                           component={CustomInputInline}
@@ -92,7 +94,7 @@ export default class MedicationsDetailForm extends PureComponent {
                 <div className="form-group">
                   <div className="wrap-control-group">
                     <div className="control-group left">
-                      <button type="button" className="btn btn-primary btn-inverse"><span className="btn-text">Prescription</span></button>
+                      <button type="button" className="btn btn-primary btn-inverse" onClick={() => onShow(PRESCRIPTION_PANEL)}><span className="btn-text">Prescription</span></button>
                     </div>
                   </div>
                 </div>

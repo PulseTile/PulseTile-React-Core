@@ -8,11 +8,17 @@ export default class CustomInputInline extends PureComponent {
   };
 
   render() {
-    const { label, input, className, type, id, value } = this.props;
+    const { label, input, className, type, id } = this.props;
     return (
       <div className="wrap-fcustominp">
         <div className="fcustominp">
-          <input type={type} id={id} name={input.name} value={value} />
+          <input
+            type={type}
+            id={id}
+            name={input.name}
+            value={input.value}
+            {...input}
+          />
           <label htmlFor={id}></label>
         </div>
         <label htmlFor={id} className={className}>{label}</label>

@@ -110,6 +110,7 @@ export default class MedicationsDetail extends PureComponent {
             <MedicationsDetailForm
               detail={detail}
               isSubmit={isSubmit}
+              onShow={onShow}
             />
           </PluginDetailPanel> : null }
 
@@ -148,7 +149,7 @@ export default class MedicationsDetail extends PureComponent {
                 <div className="panel-body-section">
                   <div className="form-group">
                     <label className="control-label">Dose Timing:</label>
-                    <div className="form-control-static">{detail.doseTiming}</div>
+                    <div className="form-control-static">2X each morning</div>
                   </div>
                   <div className="form-group">
                     <div className="wrap-control-group">
@@ -235,6 +236,7 @@ export default class MedicationsDetail extends PureComponent {
               detail={detail}
               isSubmit={isSubmit}
               isOpenHourlySchedule={isOpenHourlySchedule}
+              formValues={prescriptionPanelFormValues}
             />
           </PluginDetailPanel> : null }
 
