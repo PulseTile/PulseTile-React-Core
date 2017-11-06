@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import MedicationsDetailForm from './MedicationsDetailForm/MedicationsDetailForm'
+import MedicationsPrescriptionForm from './MedicationsDetailForm/MedicationsPrescriptionForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
@@ -12,7 +13,7 @@ const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
 
 export default class MedicationsDetail extends PureComponent {
   render() {
-    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, medicationsDetailFormValues, metaPanelFormValues, isSubmit, toggleHourlySchedule, isOpenHourlySchedule } = this.props;
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, medicationsDetailFormValues, prescriptionPanelFormValues, isSubmit, toggleHourlySchedule, isOpenHourlySchedule } = this.props;
     let { detail } = this.props;
     detail = detail || {};
     const startDate = getDDMMMYYYY(detail.startDate);
@@ -112,7 +113,7 @@ export default class MedicationsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && !editedPanel[PRESCRIPTION_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={PRESCRIPTION_PANEL}
             title="Prescription (1)"
@@ -123,7 +124,7 @@ export default class MedicationsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
+            formValues={prescriptionPanelFormValues}
             isBtnShowPanel
           >
             <div className="panel-body-inner">
@@ -215,6 +216,28 @@ export default class MedicationsDetail extends PureComponent {
             </div>
           </PluginDetailPanel> : null}
 
+          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && editedPanel[PRESCRIPTION_PANEL] ? <PluginDetailPanel
+            onExpand={onExpand}
+            name={PRESCRIPTION_PANEL}
+            title="Edit Prescription (1)"
+            onShow={onShow}
+            isOpen={openedPanel === PRESCRIPTION_PANEL}
+            currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={prescriptionPanelFormValues}
+            isBtnShowPanel
+          >
+            <MedicationsPrescriptionForm
+              toggleHourlySchedule={toggleHourlySchedule}
+              detail={detail}
+              isSubmit={isSubmit}
+              isOpenHourlySchedule={isOpenHourlySchedule}
+            />
+          </PluginDetailPanel> : null }
+
           {(expandedPanel === WARNINGS_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={WARNINGS_PANEL}
@@ -226,7 +249,6 @@ export default class MedicationsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
             isBtnShowPanel
             isShowControlPanel={false}
           >
@@ -279,7 +301,6 @@ export default class MedicationsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
             isBtnShowPanel
             isShowControlPanel={false}
           >

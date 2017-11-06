@@ -16,7 +16,7 @@ import { fetchPatientMedicationsCreateRequest } from './ducks/fetch-patient-medi
 import { fetchPatientMedicationsDetailRequest } from './ducks/fetch-patient-medications-detail.duck';
 import { fetchPatientMedicationsDetailEditRequest } from './ducks/fetch-patient-medications-detail-edit.duck';
 import { fetchPatientMedicationsOnMount, fetchPatientMedicationsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientMedicationsSelector, medicationsDetailFormStateSelector, medicationsCreateFormStateSelector, metaPanelFormStateSelector, patientMedicationsDetailSelector } from './selectors';
+import { patientMedicationsSelector, medicationsDetailFormStateSelector, medicationsCreateFormStateSelector, prescriptionPanelFormStateSelector, patientMedicationsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import MedicationsDetail from './MedicationsDetail/MedicationsDetail';
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientMedicationsDetailSelector, mapDispatchToProps)
 @connect(medicationsDetailFormStateSelector)
 @connect(medicationsCreateFormStateSelector)
-@connect(metaPanelFormStateSelector)
+@connect(prescriptionPanelFormStateSelector)
 @compose(lifecycle(fetchPatientMedicationsOnMount), lifecycle(fetchPatientMedicationsDetailOnMount))
 
 export default class Medications extends PureComponent {
@@ -190,30 +190,31 @@ export default class Medications extends PureComponent {
    }
  };
 
- formValuesToString = (formValues, formName) => {
-   const { userId } = this.props;
 
-   const name = _.get(valuesNames.NAME)(formValues);
-   let nextOfKin = _.get(valuesNames.NEXT_OF_KIN)(formValues);
-   nextOfKin = nextOfKin || false;
-   const relationship = _.get(valuesNames.REALATIONSHIP)(formValues);
-   const relationshipType = _.get(valuesNames.REALATIONSHIP_TYPE)(formValues);
-   const relationshipCode = _.get(valuesNames.REALATIONSHIP_CODE)(formValues);
-   const relationshipTerminology = _.get(valuesNames.REALATIONSHIP_TERMINOLOGY)(formValues);
-   const medicationInformation = _.get(valuesNames.MEDICATION_INFORMATION)(formValues);
-   const notes = _.get(valuesNames.NOTES)(formValues);
-   const author = _.get(valuesNames.AUTHOR)(formValues);
-   const dateSubmitted = new Date();
-   const source = 'ethercis';
+  formValuesToString = (formValues, formName) => {
+    const { userId, medicationDetail } = this.props;
+    const sendData = {};
 
-   if (formName === 'create') {
-     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, medicationInformation, notes, author, dateSubmitted, source });
-   }
-   if (formName === 'edit') {
-     const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-     return ({ userId, name, relationship, nextOfKin, relationshipType, relationshipCode, relationshipTerminology, medicationInformation, notes, author, dateSubmitted, source, sourceId });
-   }
- };
+    sendData['userId'] = userId;
+    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.DOSE_AMOUNT] = formValues[valuesNames.DOSE_AMOUNT];
+    sendData[valuesNames.DOSE_TIMING] = formValues[valuesNames.DOSE_TIMING];
+    sendData[valuesNames.DOSE_DIRECTIONS] = formValues[valuesNames.DOSE_DIRECTIONS];
+    sendData[valuesNames.MEDICATION_CODE] = formValues[valuesNames.MEDICATION_CODE];
+    sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
+    sendData[valuesNames.ROUTE] = formValues[valuesNames.ROUTE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+
+    sendData[valuesNames.START_DATE] = new Date(medicationDetail[valuesNames.START_DATE]);
+    sendData[valuesNames.START_TIME] = new Date(medicationDetail[valuesNames.START_TIME]);
+    sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
+
+    if (formName === 'edit') {
+      sendData[valuesNames.SOURCEID] = medicationDetail.sourceId;
+    }
+
+    return sendData;
+  };
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isSecondPanel: false })
@@ -227,7 +228,7 @@ export default class Medications extends PureComponent {
 
  render() {
    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule } = this.state;
-   const { allMedications, medicationsDetailFormState, medicationsCreateFormState, metaPanelFormState, medicationDetail } = this.props;
+   const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
 
    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL);
    const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
@@ -284,7 +285,7 @@ export default class Medications extends PureComponent {
              onCancel={this.handleContactDetailCancel}
              onSaveSettings={this.handleSaveSettingsDetailForm}
              medicationsDetailFormValues={medicationsDetailFormState.values}
-             metaPanelFormValues={metaPanelFormState.values}
+             prescriptionPanelFormValues={prescriptionPanelFormState.values}
              isSubmit={isSubmit}
              toggleHourlySchedule={this.toggleHourlySchedule}
              isOpenHourlySchedule={isOpenHourlySchedule}
