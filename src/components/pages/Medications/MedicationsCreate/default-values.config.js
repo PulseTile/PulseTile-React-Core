@@ -5,5 +5,4 @@ export const defaultFormValues = {
   [valuesNames.SOURCEID]: '',
   [valuesNames.MEDICATION_CODE]: 173134014,
   [valuesNames.MEDICATION_TERMINOLOGY]: 'SNOMED-CT',
-  [valuesNames.ROUTE]: 'oral',
 };

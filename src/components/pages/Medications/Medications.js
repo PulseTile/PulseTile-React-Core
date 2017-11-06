@@ -214,6 +214,9 @@ export default class Medications extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, medicationDetail } = this.props;
     const sendData = {};
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const startTime = now - today;
 
     sendData.userId = userId;
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
@@ -221,16 +224,21 @@ export default class Medications extends PureComponent {
     sendData[valuesNames.DOSE_TIMING] = formValues[valuesNames.DOSE_TIMING];
     sendData[valuesNames.DOSE_DIRECTIONS] = formValues[valuesNames.DOSE_DIRECTIONS];
     sendData[valuesNames.MEDICATION_CODE] = formValues[valuesNames.MEDICATION_CODE];
-    sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
     sendData[valuesNames.ROUTE] = formValues[valuesNames.ROUTE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
-    sendData[valuesNames.START_DATE] = new Date(medicationDetail[valuesNames.START_DATE]);
-    sendData[valuesNames.START_TIME] = new Date(medicationDetail[valuesNames.START_TIME]);
-    sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
-
     if (formName === 'edit') {
+      sendData[valuesNames.START_DATE] = new Date(medicationDetail[valuesNames.START_DATE]);
+      sendData[valuesNames.START_TIME] = new Date(medicationDetail[valuesNames.START_TIME]);
+      sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
+      sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
       sendData[valuesNames.SOURCEID] = medicationDetail.sourceId;
+    }
+
+    if (formName === 'create') {
+      sendData[valuesNames.SOURCEID] = '';
+      sendData[valuesNames.START_DATE] = new Date().getTime();
+      sendData[valuesNames.START_TIME] = startTime;
     }
 
     return sendData;
@@ -281,7 +289,6 @@ export default class Medications extends PureComponent {
                columnNameSortBy={columnNameSortBy}
                sortingOrder={sortingOrder}
                table="medications"
-
                filteredData={filteredMedications}
                totalEntriesAmount={_.size(allMedications)}
                offset={offset}
@@ -313,7 +320,7 @@ export default class Medications extends PureComponent {
          </Col> : null}
          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
            <PluginCreate
-             title="Create Medications"
+             title="Create Medication"
              onExpand={this.handleExpand}
              name={MEDICATIONS_CREATE}
              openedPanel={openedPanel}

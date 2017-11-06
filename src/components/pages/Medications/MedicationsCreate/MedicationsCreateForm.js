@@ -1,20 +1,19 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { Row, Col } from 'react-bootstrap';
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import StaticFormField from '../../../form-fields/StaticFormField';
-import { validateMedicationsForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
+import CustomInputInline from '../../../form-fields/CustomInputInline';
+import { validateMedicationsCreateForm } from '../forms.validation';
+import { valuesNames, valuesLabels, routeOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'medicationsCreateFormSelector',
-  validate: validateMedicationsForm,
+  validate: validateMedicationsCreateForm,
 })
 export default class MedicationsCreateForm extends PureComponent {
   componentDidMount() {
@@ -22,7 +21,6 @@ export default class MedicationsCreateForm extends PureComponent {
   }
   render() {
     const { isSubmit } = this.props;
-    const isNotValidate = true;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
@@ -41,90 +39,64 @@ export default class MedicationsCreateForm extends PureComponent {
                   props={{ isSubmit }}
                 />
               </div>
+              <div className="col-expand-right">
+                <div className="row">
+                  <div className="col-xs-12 col-md-6">
+                    <Field
+                      label={valuesLabels.DOSE_AMOUNT}
+                      name={valuesNames.DOSE_AMOUNT}
+                      id={valuesNames.DOSE_AMOUNT}
+                      type="text"
+                      component={ValidatedInput}
+                      props={{ isSubmit }}
+                    />
+                  </div>
+                  <div className="col-xs-12 col-md-6">
+                    <div className="form-group">
+                      <label className="control-label"></label>
+                      <div className="input-holder">
+                        <Field
+                          label="Variable"
+                          name="doseAmountVariable"
+                          id="doseAmountVariable"
+                          type="checkbox"
+                          className="fcustominp-label"
+                          component={CustomInputInline}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div className="row-expand">
               <div className="col-expand-left">
-                <Row>
-                  <Col md={6} xs={12}>
-                    <Field
-                      label={valuesLabels.REALATIONSHIP}
-                      name={valuesNames.REALATIONSHIP}
-                      id={valuesNames.REALATIONSHIP}
-                      options={relationshipOptions}
-                      component={SelectFormGroup}
-                      props={{ isSubmit }}
-                    />
-                  </Col>
-                  <Col md={6} xs={12}>
-                    <Field
-                      label={valuesLabels.NEXT_OF_KIN}
-                      name={valuesNames.NEXT_OF_KIN}
-                      id={valuesNames.NEXT_OF_KIN}
-                      type="checkbox"
-                      component={ValidatedInput}
-                      props={{ isSubmit }}
-                    />
-                  </Col>
-                </Row>
-              </div>
-              <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.REALATIONSHIP_TYPE}
-                  name={valuesNames.REALATIONSHIP_TYPE}
-                  id={valuesNames.REALATIONSHIP_TYPE}
+                  label={valuesLabels.DOSE_TIMING}
+                  name={valuesNames.DOSE_TIMING}
+                  id={valuesNames.DOSE_TIMING}
                   type="text"
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
-              </div>
-            </div>
-
-            <div className="row-expand">
-              <div className="col-expand-left">
-                <Row>
-                  <Col md={6} xs={12}>
-                    <Field
-                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
-                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
-                      component={StaticFormField}
-                      props={{ className: 'form-control-static', isSubmit }}
-                    />
-                  </Col>
-                  <Col md={6} xs={12}>
-                    <Field
-                      name={valuesNames.REALATIONSHIP_CODE}
-                      label={valuesLabels.REALATIONSHIP_CODE}
-                      component={StaticFormField}
-                      props={{ className: 'form-control-static', isSubmit }}
-                    />
-                  </Col>
-                </Row>
-
-              </div>
-            </div>
-
-            <div className="row-expand">
-              <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.CONTACT_INFORMATION}
-                  name={valuesNames.CONTACT_INFORMATION}
-                  id={valuesNames.CONTACT_INFORMATION}
+                  label={valuesLabels.DOSE_DIRECTIONS}
+                  name={valuesNames.DOSE_DIRECTIONS}
+                  id={valuesNames.DOSE_DIRECTIONS}
                   component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
-              </div>
-              <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.NOTES}
-                  name={valuesNames.NOTES}
-                  id={valuesNames.NOTES}
-                  component={ValidatedTextareaFormGroup}
-                  props={{ isSubmit }}
+                  label={valuesLabels.ROUTE}
+                  name={valuesNames.ROUTE}
+                  id={valuesNames.ROUTE}
+                  options={routeOptions}
+                  component={SelectFormGroup}
+                  props={{ isSubmit, placeholder: '-- Route --' }}
                 />
               </div>
             </div>
-
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
@@ -135,14 +107,11 @@ export default class MedicationsCreateForm extends PureComponent {
                   props={{ disabled: true, isSubmit }}
                 />
               </div>
-            </div>
-
-            <div className="row-expand">
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.DATE}
-                  name={valuesNames.DATE}
-                  id={valuesNames.DATE}
+                  label={valuesLabels.START_DATE}
+                  name={valuesNames.START_DATE}
+                  id={valuesNames.START_DATE}
                   component={DateInput}
                   props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
