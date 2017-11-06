@@ -2,15 +2,15 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import { Row, Col } from 'react-bootstrap';
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
-import DateInput from '../../../../form-fields/DateInput';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import { validateMedicationsForm } from './validation';
-import { valuesNames, valuesLabels, relationshipOptions } from './values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import SelectFormGroup from '../../../form-fields/SelectFormGroup';
+import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import { validateMedicationsForm } from '../forms.validation';
+import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
-import { getDDMMMYYYY } from '../../../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'medicationsCreateFormSelector',

@@ -2,11 +2,11 @@ import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 import _ from 'lodash/fp';
 
-import DateInput from '../../../../form-fields/DateInput';
-import CustomInputInline from '../../../../form-fields/CustomInputInline';
-import StaticFormField from '../../../../form-fields/StaticFormField';
-import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
-import { valuesNames, valuesLabels, routeOptions } from '../../MedicationsCreate/MedicationsCreateForm/values-names.config';
+import DateInput from '../../../form-fields/DateInput';
+import CustomInputInline from '../../../form-fields/CustomInputInline';
+import StaticFormField from '../../../form-fields/StaticFormField';
+import SelectFormGroup from '../../../form-fields/SelectFormGroup';
+import { valuesNames, valuesLabels, routeOptions } from '../forms.config';
 
 @reduxForm({
   form: 'medicationsPrescriptionFormSelector',

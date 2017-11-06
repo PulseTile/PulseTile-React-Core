@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
 
-import ValidatedInput from '../../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../../form-fields/ValidatedTextareaFormGroup';
-import CustomInputInline from '../../../../form-fields/CustomInputInline';
-import DateInput from '../../../../form-fields/DateInput';
-import { validateMedicationsForm } from '../../MedicationsCreate/MedicationsCreateForm/validation';
-import { valuesNames, valuesLabels } from '../../MedicationsCreate/MedicationsCreateForm/values-names.config';
+import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
+import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import CustomInputInline from '../../../form-fields/CustomInputInline';
+import DateInput from '../../../form-fields/DateInput';
+import { validateMedicationsForm } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
 

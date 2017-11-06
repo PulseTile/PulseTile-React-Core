@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import MedicationsDetailForm from './MedicationsDetailForm/MedicationsDetailForm'
-import MedicationsPrescriptionForm from './MedicationsDetailForm/MedicationsPrescriptionForm'
+import MedicationsDetailForm from './MedicationsDetailForm'
+import MedicationsPrescriptionForm from './MedicationsPrescriptionForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 

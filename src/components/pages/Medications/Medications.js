@@ -21,8 +21,8 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import MedicationsDetail from './MedicationsDetail/MedicationsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm/MedicationsCreateForm'
-import { valuesNames } from './MedicationsCreate/MedicationsCreateForm/values-names.config';
+import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
+import { valuesNames } from './forms.config';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -158,17 +158,29 @@ export default class Medications extends PureComponent {
  };
 
  handleSaveSettingsDetailForm = (formValues, name) => {
-   const { actions } = this.props;
-   if(name === MEDICATION_PANEL) {
-     actions.fetchPatientMedicationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+   const { actions, medicationsDetailFormState } = this.props;
+   if (name === MEDICATION_PANEL) {
+     if (checkIsValidateForm(medicationsDetailFormState)) {
+       actions.fetchPatientMedicationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+       this.setState(prevState => ({
+         editedPanel: {
+           ...prevState.editedPanel,
+           [name]: false,
+         },
+         isSubmit: false,
+       }))
+     } else {
+       this.setState({ isSubmit: true });
+     }
+   } else {
+     this.setState(prevState => ({
+       editedPanel: {
+         ...prevState.editedPanel,
+         [name]: false,
+       },
+       isSubmit: false,
+     }))
    }
-   this.setState(prevState => ({
-     editedPanel: {
-       ...prevState.editedPanel,
-       [name]: false,
-     },
-     isSubmit: false,
-   }))
  };
 
  handleCreateCancel = () => {
@@ -196,7 +208,7 @@ export default class Medications extends PureComponent {
     const { userId, medicationDetail } = this.props;
     const sendData = {};
 
-    sendData['userId'] = userId;
+    sendData.userId = userId;
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
     sendData[valuesNames.DOSE_AMOUNT] = formValues[valuesNames.DOSE_AMOUNT];
     sendData[valuesNames.DOSE_TIMING] = formValues[valuesNames.DOSE_TIMING];
