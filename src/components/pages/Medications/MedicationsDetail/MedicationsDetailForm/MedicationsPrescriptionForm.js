@@ -6,7 +6,6 @@ import DateInput from '../../../../form-fields/DateInput';
 import CustomInputInline from '../../../../form-fields/CustomInputInline';
 import StaticFormField from '../../../../form-fields/StaticFormField';
 import SelectFormGroup from '../../../../form-fields/SelectFormGroup';
-import PTButton from '../../../../ui-elements/PTButton/PTButton';
 import { valuesNames, valuesLabels, routeOptions } from '../../MedicationsCreate/MedicationsCreateForm/values-names.config';
 
 @reduxForm({
@@ -24,19 +23,22 @@ export default class MedicationsPrescriptionForm extends PureComponent {
     this.state.prescriptionFormValue = nextProps.formValues;
   }
   defaultValuesForm(value) {
+    const date = new Date();
     const defaultFormValues = {
       [valuesNames.NAME]: value.name,
       [valuesNames.DOSE_AMOUNT]: value.doseAmount,
       [valuesNames.DOSE_INTERVAL]: '',
       [valuesNames.DOSE_QUANTITY]: '',
+      [valuesNames.CURRENT_DATE]: date.getTime(),
+      [valuesNames.FINISH_CANCELLED]: true,
+      [valuesNames.ROUTE]: '',
     };
 
     return defaultFormValues;
   }
   render() {
-    const { detail, isSubmit, isOpenHourlySchedule, toggleHourlySchedule } = this.props;
+    const { isSubmit, isOpenHourlySchedule, toggleHourlySchedule } = this.props;
     const { prescriptionFormValue } = this.state;
-    const currentDate = new Date();
     return (
       <div className="panel-body-inner">
         <form name="prescriptionForm" className="form">
@@ -177,11 +179,11 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                   <div className="row">
                     <div className="col-xs-12 col-md-6">
                       <Field
-                        label="Start"
-                        name="start"
-                        id="start"
+                        label={valuesLabels.CURRENT_DATE}
+                        name={valuesNames.CURRENT_DATE}
+                        id={valuesNames.CURRENT_DATE}
                         component={DateInput}
-                        props={{ value: currentDate, format: 'DD-MMM-YYYY', isSubmit }}
+                        props={{ format: 'DD-MMM-YYYY', isSubmit }}
                       />
                     </div>
                     <div className="col-xs-12 col-md-6">
@@ -189,9 +191,9 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                         <label className="control-label hidden-sm"></label>
                         <div className="input-holder">
                           <Field
-                            label="Until Cancelled"
+                            label={valuesLabels.FINISH_CANCELLED}
                             name={valuesNames.FINISH_CANCELLED}
-                            id="finishCancelled"
+                            id={valuesNames.FINISH_CANCELLED}
                             type="checkbox"
                             className="fcustominp-label"
                             component={CustomInputInline}
@@ -200,10 +202,27 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                       </div>
                     </div>
                   </div>
-                  <div className="row">
+                  {(!prescriptionFormValue[valuesNames.FINISH_CANCELLED]) ? <div className="row">
                     <div className="col-xs-12 col-md-6">
+                      <Field
+                        label={valuesLabels.FINISH_DATE}
+                        name={valuesNames.FINISH_DATE}
+                        id={valuesNames.FINISH_DATE}
+                        component={DateInput}
+                        props={{ format: 'DD-MMM-YYYY', isSubmit }}
+                      />
                     </div>
-                  </div>
+                  </div> : null }
+                </div>
+              </div>
+            </div> : null }
+            {(prescriptionFormValue[valuesNames.FINISH_CANCELLED] && prescriptionFormValue[valuesNames.ROUTE].length && prescriptionFormValue[valuesNames.ROUTE] !== '-- Route --' && !_.isEmpty(prescriptionFormValue[valuesNames.DOSE_INTERVAL]) && !_.isEmpty(prescriptionFormValue[valuesNames.DOSE_QUANTITY])) ? <div className="form-group">
+              <div className="wrap-control-group">
+                <div className="control-group left">
+                  <button type="button" className="btn btn-success btn-icon-normal">
+                    <i className="btn-icon fa fa-plus" />
+                    <span className="btn-text">Add Dosage</span>
+                  </button>
                 </div>
               </div>
             </div> : null }
@@ -213,19 +232,19 @@ export default class MedicationsPrescriptionForm extends PureComponent {
             <div className="form-group">
               <label className="control-label">Dose Timing:</label>
               <div className="non-edit-value">
-                <PTButton className="btn btn-danger btn-sm btn-icon-normal btn-square">
+                <button type="button" className="btn btn-danger btn-sm btn-icon-normal btn-square">
                   <i className="btn-icon fa fa-ban" />
-                </PTButton>
+                </button>
                 <span className="ng-binding"> 2X each morning </span>
               </div>
             </div>
             <div className="form-group">
               <div className="wrap-control-group">
                 <div className="control-group left">
-                  <PTButton className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" onClick={() => toggleHourlySchedule()}>
+                  <button type="button" className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" onClick={() => toggleHourlySchedule()}>
                     <i className="btn-icon fa fa-table" />
                     <span className="btn-text"> Hourly Schedule</span>
-                  </PTButton>
+                  </button>
                 </div>
               </div>
               {isOpenHourlySchedule ? <div className="schedule-block ng-scope">

@@ -99,7 +99,7 @@ export default class Medications extends PureComponent {
 
   handleDetailMedicationsClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {}, isOpenHourlySchedule: true })
     actions.fetchPatientMedicationsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };

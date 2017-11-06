@@ -15,6 +15,8 @@ export const valuesNames = {
   START_TIME: 'startTime',
   SOURCEID: 'sourceId',
   ISIMPORT: 'isImport',
+  CURRENT_DATE: 'start',
+  FINISH_DATE: 'pFinishDateTime',
 };
 
 export const valuesLabels = {
@@ -27,6 +29,9 @@ export const valuesLabels = {
   START_DATE: 'Date',
   DATE_CREATED: 'Date',
   START_TIME: 'Date',
+  CURRENT_DATE: 'Start',
+  FINISH_CANCELLED: 'Until Cancelled',
+  FINISH_DATE: 'Finish',
 };
 
 export const routeOptions = [
