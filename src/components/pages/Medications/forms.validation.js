@@ -7,4 +7,15 @@ const validateMedicationsForm = (values) => {
   return errors
 };
 
-export { validateMedicationsForm }
+const validateMedicationsPrescriptionForm = (values) => {
+  const errors = {};
+  if(!values.route || values.route === '-- Route --') {
+    errors.route = 'You must enter a value.'
+  } else {
+    errors.route = null;
+  }
+
+  return errors
+};
+
+export { validateMedicationsForm, validateMedicationsPrescriptionForm }

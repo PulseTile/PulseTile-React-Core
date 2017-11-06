@@ -7,9 +7,11 @@ import CustomInputInline from '../../../form-fields/CustomInputInline';
 import StaticFormField from '../../../form-fields/StaticFormField';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import { valuesNames, valuesLabels, routeOptions } from '../forms.config';
+import { validateMedicationsPrescriptionForm } from '../forms.validation';
 
 @reduxForm({
   form: 'medicationsPrescriptionFormSelector',
+  validate: validateMedicationsPrescriptionForm,
 })
 export default class MedicationsPrescriptionForm extends PureComponent {
   state={
