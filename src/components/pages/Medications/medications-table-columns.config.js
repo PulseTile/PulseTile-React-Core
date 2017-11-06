@@ -1,6 +1,6 @@
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
-export const medicationsColumnsConfig = [
+export const columnsConfig = [
   { key: 'name', title: 'Name', width: '23%' },
   { key: 'doseAmount', title: 'Dose', width: '33%' },
   { key: 'dateCreated', title: 'Supply', transformer: getDDMMMYYYY, width: '25%' },

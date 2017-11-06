@@ -10,7 +10,7 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
-import { medicationsColumnsConfig, defaultColumnsSelected } from './medications-table-columns.config'
+import { columnsConfig, defaultColumnsSelected } from './medications-table-columns.config'
 import { fetchPatientMedicationsRequest } from './ducks/fetch-patient-medications.duck';
 import { fetchPatientMedicationsCreateRequest } from './ducks/fetch-patient-medications-create.duck';
 import { fetchPatientMedicationsDetailRequest } from './ducks/fetch-patient-medications-detail.duck';
@@ -23,6 +23,7 @@ import MedicationsDetail from './MedicationsDetail/MedicationsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -108,8 +109,8 @@ export default class Medications extends PureComponent {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByRelationshipPredicate = _.flow(_.get('relationship'), _.toLower, _.includes(nameShouldInclude));
-    const filterByNextOfKinPredicate = _.flow(_.get('nextOfKin'), _.toLower, _.includes(nameShouldInclude));
+    const filterByDoseAmountPredicate = _.flow(_.get('doseAmount'), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
@@ -117,12 +118,18 @@ export default class Medications extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
+    if (medications !== undefined) {
+      medications.map((item) => {
+        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+      });
+    }
+
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(medications);
-    const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(medications);
-    const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(medications);
+    const filterByDoseAmount = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDoseAmountPredicate))(medications);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(medications);
     const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(medications);
 
-    const filteredAndSortedMedications = [filterByName, filterByRelationship, filterByNextOfKin, filterBySource].filter((item) => {
+    const filteredAndSortedMedications = [filterByName, filterByDoseAmount, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
@@ -247,7 +254,7 @@ export default class Medications extends PureComponent {
    const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
    const isPanelCreate = (expandedPanel === MEDICATIONS_CREATE);
 
-   const columnsToShowConfig = medicationsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
    const filteredMedications = this.filterAndSortMedications(allMedications);
 
