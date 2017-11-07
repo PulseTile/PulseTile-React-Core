@@ -116,13 +116,16 @@ export default class Vaccination extends PureComponent {
     }
 
     const filterByVaccinations = _.flow(_.filter(filterByVaccinationsPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(vaccinations);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(vaccinations);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder)(vaccinations);
     const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(vaccinations);
 
     const filteredAndSortedVaccinations = [filterByVaccinations, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
+    if (columnNameSortBy === 'dateCreated') {
+      return filterByDate
+    }
     return _.head(filteredAndSortedVaccinations)
   };
 

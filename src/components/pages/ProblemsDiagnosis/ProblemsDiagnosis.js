@@ -116,13 +116,16 @@ export default class ProblemsDiagnosis extends PureComponent {
     }
 
     const filterByDiagnoses = _.flow(_.filter(filterByProblemPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(diagnoses);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(diagnoses);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder)(diagnoses);
     const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(diagnoses);
 
     const filteredAndSortedDiagnoses = [filterByDiagnoses, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
+    if (columnNameSortBy === 'dateOfOnset') {
+      return filterByDate
+    }
     return _.head(filteredAndSortedDiagnoses)
   };
 

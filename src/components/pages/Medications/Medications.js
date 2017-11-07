@@ -126,13 +126,16 @@ export default class Medications extends PureComponent {
 
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(medications);
     const filterByDoseAmount = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDoseAmountPredicate))(medications);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(medications);
+    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(medications);
     const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(medications);
 
     const filteredAndSortedMedications = [filterByName, filterByDoseAmount, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
+    if (columnNameSortBy === 'dateCreated') {
+      return filterByDate
+    }
     return _.head(filteredAndSortedMedications)
   };
 

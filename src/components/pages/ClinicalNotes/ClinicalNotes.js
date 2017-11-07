@@ -117,13 +117,16 @@ export default class ClinicalNotes extends PureComponent {
 
     const filterByClinicalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByClinicalNotesTypePredicate))(clinicalNotes);
     const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(clinicalNotes);
-    const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
+    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(clinicalNotes);
 
     const filteredAndSortedClinicalNotes = [filterByClinicalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
+    if (columnNameSortBy === 'dateCreated') {
+      return filterByDate
+    }
     return _.head(filteredAndSortedClinicalNotes)
   };
 
