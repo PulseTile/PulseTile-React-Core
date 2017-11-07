@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
+import MedicationsDetailPanel from './MedicationsDetailPanel'
 import MedicationsDetailForm from './MedicationsDetailForm'
 import MedicationsPrescriptionForm from './MedicationsPrescriptionForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
@@ -21,7 +22,7 @@ export default class MedicationsDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === MEDICATION_PANEL || expandedPanel === 'all') && !editedPanel[MEDICATION_PANEL] ? <PluginDetailPanel
+          {(expandedPanel === MEDICATION_PANEL || expandedPanel === 'all') && !editedPanel[MEDICATION_PANEL] ? <MedicationsDetailPanel
             onExpand={onExpand}
             name={MEDICATION_PANEL}
             title="Medication"
@@ -91,7 +92,7 @@ export default class MedicationsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
+          </MedicationsDetailPanel> : null}
 
           {(expandedPanel === MEDICATION_PANEL || expandedPanel === 'all') && editedPanel[MEDICATION_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
