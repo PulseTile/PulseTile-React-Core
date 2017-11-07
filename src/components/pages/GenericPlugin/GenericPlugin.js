@@ -102,7 +102,7 @@ export default class GenericPlugin extends PureComponent {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
     const filterByGenericPluginTypePredicate = _.flow(_.get('clinicalNotesType'), _.toLower, _.includes(nameShouldInclude));
     const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(''), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
@@ -117,13 +117,16 @@ export default class GenericPlugin extends PureComponent {
 
     const filterByGenericPluginType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByGenericPluginTypePredicate))(genericPlugins);
     const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(genericPlugins);
-    const filterByDate = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterByDatePredicate))(genericPlugins);
+    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(genericPlugins);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(genericPlugins);
 
     const filteredAndSortedGenericPlugin = [filterByGenericPluginType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
+    if (columnNameSortBy === 'dateCreated') {
+      return filterByDate
+    }
     return _.head(filteredAndSortedGenericPlugin)
   };
 
@@ -181,7 +184,7 @@ export default class GenericPlugin extends PureComponent {
     const { actions, userId, genericPluginCreateFormState } = this.props;
     if (checkIsValidateForm(genericPluginCreateFormState)) {
       actions.fetchPatientGenericPluginCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientGenericPluginRequest({userId}), 1000);
+      setTimeout(() => actions.fetchPatientGenericPluginRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}`);
       this.hideCreateForm();
     } else {

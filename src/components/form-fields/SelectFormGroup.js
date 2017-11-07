@@ -19,6 +19,10 @@ export default class SelectFormGroup extends PureComponent {
 		isChanged: false,
 	};
 
+	defaultProps={
+    placeholder: ''
+  };
+
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.meta.dirty) {
 			this.setState({ isChanged: true })
@@ -26,7 +30,7 @@ export default class SelectFormGroup extends PureComponent {
 	}
 
   render() {
-    const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit,isNotValidate } = this.props;
+    const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit,isNotValidate, placeholder } = this.props;
 		const { isChanged } = this.state;
 		const showError = ((touched || isChanged || isSubmit) && error);
 
@@ -40,7 +44,7 @@ export default class SelectFormGroup extends PureComponent {
           disabled={disabled}
           {...input}
         >
-          <option></option>
+          <option>{placeholder}</option>
           {options.map(({ value, title }) =>
             <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
           )};

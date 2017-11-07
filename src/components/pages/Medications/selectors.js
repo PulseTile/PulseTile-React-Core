@@ -3,7 +3,7 @@ import _ from 'lodash/fp';
 
 const medicationsCreateFormSelector = _.getOr({}, 'form.medicationsCreateFormSelector')
 const medicationsDetailFormSelector = _.getOr({}, 'form.medicationsDetailFormSelector')
-const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
+const medicationsPrescriptionFormSelector = _.getOr({}, 'form.medicationsPrescriptionFormSelector')
 
 const patientMedicationsSelector = createSelector(
   ({ patientsMedications }) => patientsMedications,
@@ -20,8 +20,8 @@ const medicationsDetailFormStateSelector = createSelector(medicationsDetailFormS
 const medicationsCreateFormStateSelector = createSelector(medicationsCreateFormSelector,
   medicationsCreateFormState => ({ medicationsCreateFormState }));
 
-const metaPanelFormStateSelector = createSelector(metaPanelFormSelector,
-  metaPanelFormState => ({ metaPanelFormState }));
+const prescriptionPanelFormStateSelector = createSelector(medicationsPrescriptionFormSelector,
+  prescriptionPanelFormState => ({ prescriptionPanelFormState }));
 
 const patientMedicationsDetailSelector = createSelector(
   ({ medicationsDetail }) => medicationsDetail,
@@ -32,4 +32,4 @@ const patientMedicationsDetailSelector = createSelector(
   }
 );
 
-export { patientMedicationsSelector, medicationsDetailFormStateSelector, medicationsCreateFormStateSelector, metaPanelFormStateSelector, patientMedicationsDetailSelector }
+export { patientMedicationsSelector, medicationsDetailFormStateSelector, medicationsCreateFormStateSelector, prescriptionPanelFormStateSelector, patientMedicationsDetailSelector }

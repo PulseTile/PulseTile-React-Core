@@ -191,7 +191,7 @@ export default class Contacts extends PureComponent {
    const { userId } = this.props;
    const sendData = {};
 
-   sendData['userId'] = userId;
+   sendData.userId = userId;
    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
    sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
    sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
@@ -201,8 +201,8 @@ export default class Contacts extends PureComponent {
    sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-   sendData['dateSubmitted'] = new Date();
-   sendData['source'] = 'ethercis';
+   sendData.dateSubmitted = new Date();
+   sendData.source = 'ethercis';
 
    if (formName === 'edit') {
      sendData[valuesNames.SOURCEID] = formValues[valuesNames.SOURCEID];
