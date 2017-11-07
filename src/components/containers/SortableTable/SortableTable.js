@@ -47,6 +47,7 @@ export default class SortableTable extends PureComponent {
               hoveredRowIndex={hoveredRowIndex}
               index={index}
               table={table}
+              resourceData={resourceData}
             />)
     )
   };

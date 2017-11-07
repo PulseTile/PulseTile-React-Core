@@ -267,6 +267,15 @@ export default class Medications extends PureComponent {
 
    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
+   if (allMedications !== undefined) {
+     if (allMedications[0]) {
+       allMedications[0].warning = true;
+     }
+     if (allMedications[1]) {
+       allMedications[1].danger = true;
+     }
+   }
+
    const filteredMedications = this.filterAndSortMedications(allMedications);
 
    return (<section className="page-wrapper">
