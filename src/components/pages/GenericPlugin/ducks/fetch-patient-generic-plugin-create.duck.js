@@ -15,7 +15,7 @@ export const fetchPatientGenericPluginCreateFailure = createAction(FFETCH_PATIEN
 export const fetchPatientGenericPluginCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_GENERIC_PLUGIN_CREATE_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.post(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes`, payload, {
+      ajax.post(`${usersUrls.PATIENTS_URL}/${payload.userId}/generic-plugin`, payload, {
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })

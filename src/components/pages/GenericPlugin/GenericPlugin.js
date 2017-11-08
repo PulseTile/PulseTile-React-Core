@@ -51,7 +51,7 @@ export default class GenericPlugin extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: GENERIC_PLUGIN_PANEL,
-    columnNameSortBy: 'clinicalNotesType',
+    columnNameSortBy: 'type',
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -100,7 +100,7 @@ export default class GenericPlugin extends PureComponent {
 
   filterAndSortGenericPlugin = (genericPlugins) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByGenericPluginTypePredicate = _.flow(_.get('clinicalNotesType'), _.toLower, _.includes(nameShouldInclude));
+    const filterByGenericPluginTypePredicate = _.flow(_.get('type'), _.toLower, _.includes(nameShouldInclude));
     const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
     const filterByDatePredicate = _.flow(_.get(''), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
@@ -194,19 +194,19 @@ export default class GenericPlugin extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     const { userId, genericPluginDetail } = this.props;
-    const clinicalNotesType = _.get(valuesNames.GENERIC_PLUGIN_TYPE)(formValues);
+    const type = _.get(valuesNames.GENERIC_PLUGIN_TYPE)(formValues);
     const note = _.get(valuesNames.NOTE)(formValues);
     const author = _.get(valuesNames.AUTHOR)(formValues);
 
     if (formName === 'create') {
       const source = _.get(valuesNames.SOURCE)(formValues);
-      return ({ clinicalNotesType, note, author, source, userId });
+      return ({ type, note, author, source, userId });
     }
     if (formName === 'edit') {
       const date = _.get(valuesNames.DATE)(formValues);
       const sourceId = genericPluginDetail.sourceId;
       const source = genericPluginDetail.source;
-      return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
+      return ({ type, note, author, date, sourceId, source, userId });
     }
   };
 

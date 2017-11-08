@@ -1,5 +1,5 @@
 export const valuesNames = {
-  GENERIC_PLUGIN_TYPE: 'clinicalNotesType',
+  GENERIC_PLUGIN_TYPE: 'type',
   NOTE: 'note',
   AUTHOR: 'author',
   DATE: 'currentDate',

@@ -18,7 +18,7 @@ export default class GenericPluginPanelForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.GENERIC_PLUGIN_TYPE]: value.clinicalNotesType,
+      [valuesNames.GENERIC_PLUGIN_TYPE]: value.type,
       [valuesNames.NOTE]: value.note,
       [valuesNames.AUTHOR]: value.author,
     };

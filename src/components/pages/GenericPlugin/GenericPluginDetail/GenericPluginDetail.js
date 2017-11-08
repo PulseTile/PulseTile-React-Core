@@ -37,7 +37,7 @@ export default class GenericPluginDetail extends PureComponent {
                       <div className="col-expand-left">
                         <div className="form-group">
                           <label className="control-label">Type</label>
-                          <div className="form-control-static">{detail.clinicalNotesType}</div>
+                          <div className="form-control-static">{detail.type}</div>
                         </div>
                       </div>
                     </div>
