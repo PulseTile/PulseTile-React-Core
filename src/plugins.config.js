@@ -24,7 +24,7 @@ export const sidebarConfig = [
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
   { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: ' Vaccinations', isVisible: true },
-  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: ' Generic Plugin', isVisible: true },
+  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: ' Generic Plugin', isVisible: false },
 ];
 
 export const dashboardVisible = {
