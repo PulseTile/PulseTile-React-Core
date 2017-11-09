@@ -3,6 +3,7 @@ import { clientUrls } from './config/client-urls.constants';
 import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index'
 import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index'
 import { clinicalNotesEpic, clinicalNotesReducer } from './components/pages/ClinicalNotes/index'
+import { personalNotesEpic, personalNotesReducer } from './components/pages/PersonalNotes/index'
 import { contactsEpic, contactsReducer } from './components/pages/Contacts/index'
 import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccinations/index'
 import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
@@ -11,6 +12,7 @@ import { genericPluginEpic, genericPluginReducer } from './components/pages/Gene
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
 import ClinicalNotes from './components/pages/ClinicalNotes/ClinicalNotes';
+import PersonalNotes from './components/pages/PersonalNotes/PersonalNotes';
 import Contacts from './components/pages/Contacts/Contacts';
 import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 import Medications from './components/pages/Medications/Medications';
@@ -25,6 +27,7 @@ export const sidebarConfig = [
   { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: ' Vaccinations', isVisible: true },
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: ' Generic Plugin', isVisible: false },
+  { key: 'personalNotes', pathToTransition: '/personalNotes', name: ' Personal Notes', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -38,6 +41,7 @@ export const pluginsEpicConfig = [
   allergiesEpic,
   diagnosesEpic,
   clinicalNotesEpic,
+  personalNotesEpic,
   contactsEpic,
   vaccinationsEpic,
   genericPluginEpic,
@@ -48,6 +52,7 @@ export const pluginsReducerConfig = [
   allergiesReducer,
   diagnosesReducer,
   clinicalNotesReducer,
+  personalNotesReducer,
   contactsReducer,
   vaccinationsReducer,
   genericPluginReducer,
@@ -66,6 +71,10 @@ export const routersPluginConfig = [
   { key: 'clinicalNotes', component: ClinicalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_NOTES}` },
   { key: 'clinicalNotesCreate', component: ClinicalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_NOTES}/create` },
   { key: 'clinicalNotesDetail', component: ClinicalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_NOTES}/:sourceId` },
+
+  { key: 'personalNotes', component: PersonalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PERSONAL_NOTES}` },
+  { key: 'personalNotesCreate', component: PersonalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PERSONAL_NOTES}/create` },
+  { key: 'personalNotesDetail', component: PersonalNotes, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PERSONAL_NOTES}/:sourceId` },
 
   { key: 'contacts', component: Contacts, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}` },
   { key: 'contactsCreate', component: Contacts, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CONTACTS}/create` },

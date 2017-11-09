@@ -12,6 +12,7 @@ export const clientUrls = {
 	ALLERGIES: 'allergies',
 	CONTACTS: 'contacts',
 	CLINICAL_NOTES: 'clinicalNotes',
+  PERSONAL_NOTES: 'personalNotes',
   VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
@@ -34,6 +35,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Clinical Notes',
       state: '/clinicalNotes',
+    }],
+  },
+  'personalNotes': {
+    breadcrumbs: [{
+      title: 'Personal Notes',
+      state: '/personalNotes',
     }],
   },
   'contacts': {
