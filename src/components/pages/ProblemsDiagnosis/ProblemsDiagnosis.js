@@ -158,9 +158,14 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, diagnosisPanelFormState } = this.props;
+    const { actions, diagnosisPanelFormState, userId, diagnosisDetail } = this.props;
+    const sourceId = diagnosisDetail.sourceId;
     if (checkIsValidateForm(diagnosisPanelFormState)) {
       actions.fetchPatientDiagnosesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientDiagnosesRequest({ userId });
+        actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
+      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -183,7 +188,6 @@ export default class ProblemsDiagnosis extends PureComponent {
     const { actions, userId, diagnosisCreateFormState } = this.props;
 
     if (checkIsValidateForm(diagnosisCreateFormState)) {
-      formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
       actions.fetchPatientDiagnosesCreateRequest(this.formValuesToString(formValues, 'create'));
       setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
@@ -195,21 +199,27 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId } = this.props;
-    const problem = _.get(valuesNames.PROBLEM)(formValues);
-    const dateOfOnset = _.get(valuesNames.DATE_OF_ONSET)(formValues);
-    const description = _.get(valuesNames.DESCRIPTION)(formValues);
-    const terminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const code = _.get(valuesNames.CODE)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
-    if (formName === 'create') {
-      const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-      return ({ problem, dateOfOnset, description, terminology, code, sourceId, isImport, userId });
-    }
+    const { userId, diagnosisDetail } = this.props;
+    const sendData = {};
+
+    sendData.userId = userId;
+    sendData[valuesNames.PROBLEM] = formValues[valuesNames.PROBLEM];
+    sendData[valuesNames.DESCRIPTION] = formValues[valuesNames.DESCRIPTION];
+    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
+    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
+    sendData[valuesNames.DATE_OF_ONSET] = moment(formValues[valuesNames.DATE_OF_ONSET]).format('YYYY-MM-DD');
+
     if (formName === 'edit') {
-      const source = 'ethercis';
-      return ({ problem, dateOfOnset, description, terminology, code, sourceId, source, userId });
+      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+      sendData[valuesNames.SOURCEID] = formValues[valuesNames.SOURCEID];
     }
+
+    if (formName === 'edit') {
+      sendData.source = 'ethercis';
+      sendData.sourceId = diagnosisDetail.sourceId;
+    }
+
+    return sendData;
   };
 
   hideCreateForm = () => {

@@ -8,7 +8,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import { validateForm } from '../forms.validation';
 
 @reduxForm({
-  form: 'genericPluginPanelFormSelector',
+  form: 'genericPluginsDetailFormSelector',
   validate: validateForm,
 })
 export default class GenericPluginPanelForm extends PureComponent {

@@ -158,9 +158,14 @@ export default class Vaccination extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, vaccinationPanelFormState } = this.props;
+    const { actions, vaccinationPanelFormState, userId, vaccinationDetail } = this.props;
+    const sourceId = vaccinationDetail.sourceId;
     if (checkIsValidateForm(vaccinationPanelFormState)) {
       actions.fetchPatientVaccinationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientVaccinationsRequest({ userId });
+        actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId });
+      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -195,15 +200,22 @@ export default class Vaccination extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId } = this.props;
-    const vaccinationName = _.get(valuesNames.VACCINATION_NAME)(formValues);
-    const vaccinationDateTime = new Date(_.get(valuesNames.VACCINATION_DATE)(formValues));
-    const series = _.get(valuesNames.SERIES_NUMBER)(formValues);
-    const comment = _.get(valuesNames.COMMENT)(formValues);
-    const source = _.get(valuesNames.VACCINATION_SOURCE)(formValues);
-    const dateCreated = new Date();
+    const { userId, vaccinationDetail } = this.props;
+    const sendData = {};
 
-    return ({ vaccinationName, vaccinationDateTime, series, comment, source, dateCreated, userId });
+    sendData.userId = userId;
+    sendData[valuesNames.VACCINATION_NAME] = formValues[valuesNames.VACCINATION_NAME];
+    sendData[valuesNames.VACCINATION_DATE] = formValues[valuesNames.VACCINATION_DATE];
+    sendData[valuesNames.SERIES_NUMBER] = formValues[valuesNames.SERIES_NUMBER];
+    sendData[valuesNames.COMMENT] = formValues[valuesNames.COMMENT];
+    sendData[valuesNames.VACCINATION_SOURCE] = formValues[valuesNames.VACCINATION_SOURCE];
+    sendData.dateCreated = new Date();
+
+    if (formName === 'edit') {
+      sendData.sourceId = vaccinationDetail.sourceId;
+    }
+
+    return sendData;
   };
 
   hideCreateForm = () => {

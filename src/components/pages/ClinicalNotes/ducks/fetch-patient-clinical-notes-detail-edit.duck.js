@@ -15,7 +15,7 @@ export const fetchPatientClinicalNotesDetailEditFailure = createAction(FETCH_PAT
 export const fetchPatientClinicalNotesDetailEditEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_CLINICAL_NOTES_DETAIL_EDIT_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.put(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes`, payload, {
+      ajax.put(`${usersUrls.PATIENTS_URL}/${payload.userId}/clinicalnotes/${payload.sourceId}`, payload, {
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
