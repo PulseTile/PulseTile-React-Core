@@ -69,7 +69,7 @@ export default class MedicationsDetail extends PureComponent {
                       </div>
                       <div className="form-group">
                         <label className="control-label">Dose Directions</label>
-                        <div className="form-control-static">{detail.doseTiming}</div>
+                        <div className="form-control-static">{detail.doseDirections}</div>
                       </div>
                     </div>
                   </div>
