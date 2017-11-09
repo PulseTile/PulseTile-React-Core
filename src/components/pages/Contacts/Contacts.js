@@ -155,16 +155,24 @@ export default class Contacts extends PureComponent {
  };
 
  handleSaveSettingsDetailForm = (formValues, name) => {
-   const { actions } = this.props;
-
-   actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-   this.setState(prevState => ({
-     editedPanel: {
-       ...prevState.editedPanel,
-       [name]: false,
-     },
-     isSubmit: false,
-   }))
+   const { actions, contactDetail, userId, contactsDetailFormState } = this.props;
+   const sourceId = contactDetail.sourceId;
+   if (checkIsValidateForm(contactsDetailFormState)) {
+     actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+     setTimeout(() => {
+       actions.fetchPatientContactsRequest({ userId });
+       actions.fetchPatientContactsDetailRequest({ userId, sourceId });
+     }, 1000);
+     this.setState(prevState => ({
+       editedPanel: {
+         ...prevState.editedPanel,
+         [name]: false,
+       },
+       isSubmit: false,
+     }))
+   } else {
+     this.setState({ isSubmit: true });
+   }
  };
 
  handleCreateCancel = () => {
@@ -188,7 +196,7 @@ export default class Contacts extends PureComponent {
  };
 
  formValuesToString = (formValues, formName) => {
-   const { userId } = this.props;
+   const { userId, contactDetail } = this.props;
    const sendData = {};
 
    sendData.userId = userId;
@@ -205,7 +213,7 @@ export default class Contacts extends PureComponent {
    sendData.source = 'ethercis';
 
    if (formName === 'edit') {
-     sendData[valuesNames.SOURCEID] = formValues[valuesNames.SOURCEID];
+     sendData.sourceId = contactDetail.sourceId;
    }
 
    return sendData;

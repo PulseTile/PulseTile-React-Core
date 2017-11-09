@@ -159,9 +159,14 @@ export default class GenericPlugin extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, genericPluginFormState } = this.props;
+    const { actions, genericPluginFormState, userId, genericPluginDetail } = this.props;
+    const sourceId = genericPluginDetail.sourceId;
     if (checkIsValidateForm(genericPluginFormState)) {
       actions.fetchPatientGenericPluginDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientGenericPluginRequest({ userId });
+        actions.fetchPatientGenericPluginDetailRequest({ userId, sourceId });
+      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -194,20 +199,24 @@ export default class GenericPlugin extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     const { userId, genericPluginDetail } = this.props;
-    const clinicalNotesType = _.get(valuesNames.GENERIC_PLUGIN_TYPE)(formValues);
-    const note = _.get(valuesNames.NOTE)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const sendData = {};
+
+    sendData.userId = userId;
+    sendData[valuesNames.GENERIC_PLUGIN_TYPE] = formValues[valuesNames.GENERIC_PLUGIN_TYPE];
+    sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+
+    if (formName === 'edit') {
+      sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
+      sendData.sourceId = genericPluginDetail.sourceId;
+      sendData.source = genericPluginDetail.source;
+    }
 
     if (formName === 'create') {
-      const source = _.get(valuesNames.SOURCE)(formValues);
-      return ({ clinicalNotesType, note, author, source, userId });
+      sendData.source = formValues[valuesNames.SOURCE];
     }
-    if (formName === 'edit') {
-      const date = _.get(valuesNames.DATE)(formValues);
-      const sourceId = genericPluginDetail.sourceId;
-      const source = genericPluginDetail.source;
-      return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
-    }
+
+    return sendData;
   };
 
   hideCreateForm = () => {

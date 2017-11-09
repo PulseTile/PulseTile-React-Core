@@ -32,7 +32,7 @@ export default class SortableTableRow extends PureComponent {
       if (rowItem.name === 'id') {
         return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{formatNHSNumber(rowItem.value)}</td>
       }
-      if (rowItem.value === warningNameField || rowItem.value === dangerNameField) {
+      if ((rowItem.value === warningNameField || rowItem.value === dangerNameField) && rowItem.name === 'name') {
         return (
           <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>
             <span>

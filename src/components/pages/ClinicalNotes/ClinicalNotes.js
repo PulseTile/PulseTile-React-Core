@@ -159,9 +159,14 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, clinicalNoteFormState } = this.props;
+    const { actions, clinicalNoteFormState, userId, clinicalNoteDetail } = this.props;
+    const sourceId = clinicalNoteDetail.sourceId;
     if (checkIsValidateForm(clinicalNoteFormState)) {
       actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientClinicalNotesRequest({ userId });
+        actions.fetchPatientClinicalNotesDetailRequest({ userId, sourceId });
+      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -184,7 +189,7 @@ export default class ClinicalNotes extends PureComponent {
     const { actions, userId, clinicalCreateFormState } = this.props;
     if (checkIsValidateForm(clinicalCreateFormState)) {
       actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientClinicalNotesRequest({userId}), 1000);
+      setTimeout(() => actions.fetchPatientClinicalNotesRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
       this.hideCreateForm();
     } else {
@@ -194,20 +199,24 @@ export default class ClinicalNotes extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     const { userId, clinicalNoteDetail } = this.props;
-    const clinicalNotesType = _.get(valuesNames.CLINICAL_NOTES_TYPE)(formValues);
-    const note = _.get(valuesNames.NOTE)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const sendData = {};
+
+    sendData.userId = userId;
+    sendData[valuesNames.CLINICAL_NOTES_TYPE] = formValues[valuesNames.CLINICAL_NOTES_TYPE];
+    sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+
+    if (formName === 'edit') {
+      sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
+      sendData.sourceId = clinicalNoteDetail.sourceId;
+      sendData.source = clinicalNoteDetail.source;
+    }
 
     if (formName === 'create') {
-      const source = _.get(valuesNames.SOURCE)(formValues);
-      return ({ clinicalNotesType, note, author, source, userId });
+      sendData.source = formValues[valuesNames.SOURCE];
     }
-    if (formName === 'edit') {
-      const date = _.get(valuesNames.DATE)(formValues);
-      const sourceId = clinicalNoteDetail.sourceId;
-      const source = clinicalNoteDetail.source;
-      return ({ clinicalNotesType, note, author, date, sourceId, source, userId });
-    }
+
+    return sendData;
   };
 
   hideCreateForm = () => {

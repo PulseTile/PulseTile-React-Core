@@ -158,9 +158,9 @@ export default class Allergies extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { allergieDetail, actions, allergiePanelFormState } = this.props;
+    const { allergieDetail, actions, allergiePanelFormState, userId } = this.props;
+    const sourceId = allergieDetail.sourceId;
     formValues.causeCode = allergieDetail.causeCode;
-    formValues.sourceId = '';
     if (name === ALLERGIE_PANEL) {
       allergieDetail.cause = formValues.cause;
       allergieDetail.reaction = formValues.reaction;
@@ -173,6 +173,10 @@ export default class Allergies extends PureComponent {
     }
     if (checkIsValidateForm(allergiePanelFormState)) {
       actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientAllergiesRequest({ userId });
+        actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
+      }, 1500);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -204,21 +208,26 @@ export default class Allergies extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId } = this.props;
-    const cause = _.get(valuesNames.CAUSE)(formValues);
-    const reaction = _.get(valuesNames.REACTION)(formValues);
-    const causeTerminology = _.get(valuesNames.TERMINOLOGY)(formValues);
-    const causeCode = _.get(valuesNames.CAUSECODE)(formValues);
-    const sourceId = _.get(valuesNames.SOURCEID)(formValues);
+    const { userId, allergieDetail } = this.props;
+    const sendData = {};
+
+    sendData.userId = userId;
+    sendData[valuesNames.CAUSE] = formValues[valuesNames.CAUSE];
+    sendData[valuesNames.REACTION] = formValues[valuesNames.REACTION];
+    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
+    sendData[valuesNames.CAUSECODE] = formValues[valuesNames.CAUSECODE];
+
+    if (formName === 'edit') {
+      sendData.sourceId = allergieDetail.sourceId;
+      sendData.source = 'ethercis';
+    }
 
     if (formName === 'create') {
-      const isImport = _.get(valuesNames.ISIMPORT)(formValues);
-      return ({ cause, reaction, causeTerminology, causeCode, isImport, sourceId, userId });
+      sendData.sourceId = '';
+      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
     }
-    if (formName === 'edit') {
-      const source = 'ethercis';
-      return ({ cause, reaction, causeTerminology, causeCode, sourceId, source, userId });
-    }
+
+    return sendData;
   };
 
 
