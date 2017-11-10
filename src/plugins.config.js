@@ -8,6 +8,7 @@ import { contactsEpic, contactsReducer } from './components/pages/Contacts/index
 import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccinations/index'
 import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
+import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -17,6 +18,7 @@ import Contacts from './components/pages/Contacts/Contacts';
 import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 import Medications from './components/pages/Medications/Medications';
 import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
+import Procedures from './components/pages/Procedures/Procedures';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -24,10 +26,11 @@ export const sidebarConfig = [
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
-  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: ' Clinical Notes', isVisible: true },
-  { key: 'vaccinations', pathToTransition: '/vaccinations', name: ' Vaccinations', isVisible: true },
-  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: ' Generic Plugin', isVisible: false },
-  { key: 'personalNotes', pathToTransition: '/personalNotes', name: ' Personal Notes', isVisible: true },
+  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
+  { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
+  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
+  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -46,6 +49,7 @@ export const pluginsEpicConfig = [
   vaccinationsEpic,
   genericPluginEpic,
   medicationsEpic,
+  proceduresEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -57,6 +61,7 @@ export const pluginsReducerConfig = [
   vaccinationsReducer,
   genericPluginReducer,
   medicationsReducer,
+  proceduresReducer,
 ];
 
 export const routersPluginConfig = [
@@ -91,5 +96,9 @@ export const routersPluginConfig = [
   { key: 'genericPlugin', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}` },
   { key: 'genericPluginCreate', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/create` },
   { key: 'genericPluginDetail', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/:sourceId` },
+
+  { key: 'procedures', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}` },
+  { key: 'proceduresCreate', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/create` },
+  { key: 'proceduresDetail', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/:sourceId` },
 
 ];
