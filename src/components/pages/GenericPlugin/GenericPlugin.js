@@ -51,7 +51,7 @@ export default class GenericPlugin extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: GENERIC_PLUGIN_PANEL,
-    columnNameSortBy: 'clinicalNotesType',
+    columnNameSortBy: 'type',
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -100,7 +100,7 @@ export default class GenericPlugin extends PureComponent {
 
   filterAndSortGenericPlugin = (genericPlugins) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByGenericPluginTypePredicate = _.flow(_.get('clinicalNotesType'), _.toLower, _.includes(nameShouldInclude));
+    const filterByGenericPluginTypePredicate = _.flow(_.get('type'), _.toLower, _.includes(nameShouldInclude));
     const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
     const filterByDatePredicate = _.flow(_.get(''), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));

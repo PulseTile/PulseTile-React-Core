@@ -8,18 +8,18 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import { validateForm } from '../forms.validation';
 
 @reduxForm({
-  form: 'genericPluginsDetailFormSelector',
+  form: 'personalNotesPanelFormSelector',
   validate: validateForm,
 })
-export default class GenericPluginPanelForm extends PureComponent {
+export default class ClinicalNotesDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.GENERIC_PLUGIN_TYPE]: value.type,
-      [valuesNames.NOTE]: value.note,
+      [valuesNames.NOTE_TYPE]: value.noteType,
+      [valuesNames.NOTES]: value.notes,
       [valuesNames.AUTHOR]: value.author,
     };
 
@@ -29,23 +29,23 @@ export default class GenericPluginPanelForm extends PureComponent {
     const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
-        <form name="genericPluginPanelForm" className="form">
+        <form name="personalNotesPanelForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.GENERIC_PLUGIN_TYPE}
-                  name={valuesNames.GENERIC_PLUGIN_TYPE}
-                  id={valuesNames.GENERIC_PLUGIN_TYPE}
+                  label={valuesLabels.NOTE_TYPE}
+                  name={valuesNames.NOTE_TYPE}
+                  id={valuesNames.NOTE_TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
                 <Field
-                  label={valuesLabels.NOTE}
-                  name={valuesNames.NOTE}
-                  id={valuesNames.NOTE}
+                  label={valuesLabels.NOTES}
+                  name={valuesNames.NOTES}
+                  id={valuesNames.NOTES}
                   component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
