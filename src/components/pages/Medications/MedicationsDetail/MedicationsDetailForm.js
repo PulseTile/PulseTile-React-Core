@@ -5,6 +5,7 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import CustomInputInline from '../../../form-fields/CustomInputInline';
 import DateInput from '../../../form-fields/DateInput';
+import StaticFormField from '../../../form-fields/StaticFormField';
 import { validateMedicationsForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 
@@ -84,12 +85,10 @@ export default class MedicationsDetailForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.DOSE_TIMING}
                   name={valuesNames.DOSE_TIMING}
-                  id={valuesNames.DOSE_TIMING}
-                  type="text"
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
+                  label={valuesLabels.DOSE_TIMING}
+                  component={StaticFormField}
+                  props={{ className: 'form-control-static' }}
                 />
                 <div className="form-group">
                   <div className="wrap-control-group">

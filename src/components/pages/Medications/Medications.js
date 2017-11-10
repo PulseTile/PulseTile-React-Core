@@ -247,6 +247,7 @@ export default class Medications extends PureComponent {
       sendData[valuesNames.SOURCEID] = '';
       sendData[valuesNames.START_DATE] = new Date().getTime();
       sendData[valuesNames.START_TIME] = startTime;
+      sendData[valuesNames.ISIMPORT] = false;
     }
 
     return sendData;

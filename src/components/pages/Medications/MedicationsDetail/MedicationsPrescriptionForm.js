@@ -223,7 +223,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
                 <div className="control-group left">
                   <button type="button" className="btn btn-success btn-icon-normal">
                     <i className="btn-icon fa fa-plus" />
-                    <span className="btn-text">Add Dosage</span>
+                    <span className="btn-text"> Add Dosage</span>
                   </button>
                 </div>
               </div>
