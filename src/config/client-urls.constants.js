@@ -16,6 +16,7 @@ export const clientUrls = {
   VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
+  PROCEDURES: 'procedures',
 };
 
 const pluginsPages = {
@@ -67,7 +68,14 @@ const pluginsPages = {
       state: '/medications',
     }],
   },
+  'procedures': {
+    breadcrumbs: [{
+      title: 'Procedures',
+      state: '/procedures',
+    }],
+  },
 };
+
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
   for (let nameOfPage in pluginsPages) {
