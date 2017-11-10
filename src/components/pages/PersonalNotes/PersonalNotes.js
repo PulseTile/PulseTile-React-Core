@@ -160,9 +160,14 @@ export default class PersonalNotes extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, personalNoteFormState } = this.props;
+    const { actions, personalNoteFormState, userId, personalNoteDetail } = this.props;
+    const sourceId = personalNoteDetail.sourceId;
     if (checkIsValidateForm(personalNoteFormState)) {
       actions.fetchPatientPersonalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      setTimeout(() => {
+        actions.fetchPatientPersonalNotesDetailRequest({ userId, sourceId });
+        actions.fetchPatientPersonalNotesRequest({ userId });
+      }, 2000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -195,20 +200,24 @@ export default class PersonalNotes extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     const { userId, personalNoteDetail } = this.props;
-    const noteType = _.get(valuesNames.NOTE_TYPE)(formValues);
-    const notes = _.get(valuesNames.NOTES)(formValues);
-    const author = _.get(valuesNames.AUTHOR)(formValues);
+    const sendData = {};
+
+    sendData.userId = userId;
+    sendData[valuesNames.NOTE_TYPE] = formValues[valuesNames.NOTE_TYPE];
+    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+
+    if (formName === 'edit') {
+      sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
+      sendData.sourceId = personalNoteDetail.sourceId;
+      sendData.source = personalNoteDetail.source;
+    }
 
     if (formName === 'create') {
-      const source = _.get(valuesNames.SOURCE)(formValues);
-      return ({ noteType, notes, author, source, userId });
+      sendData.source = formValues[valuesNames.SOURCE];
     }
-    if (formName === 'edit') {
-      const date = _.get(valuesNames.DATE)(formValues);
-      const sourceId = personalNoteDetail.sourceId;
-      const source = personalNoteDetail.source;
-      return ({ noteType, notes, author, date, sourceId, source, userId });
-    }
+
+    return sendData;
   };
 
   hideCreateForm = () => {
