@@ -236,7 +236,6 @@ export default class PersonalNotes extends PureComponent {
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Personal Notes"
                 isBtnExpandVisible={isBtnExpandVisible}
-                isBtnTableVisible
                 name={PERSONAL_NOTES_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={PERSONAL_NOTES_MAIN}
