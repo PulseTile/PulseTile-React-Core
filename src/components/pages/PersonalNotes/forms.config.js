@@ -1,15 +1,15 @@
 export const valuesNames = {
-  GENERIC_PLUGIN_TYPE: 'type',
-  NOTE: 'note',
+  NOTE_TYPE: 'noteType',
+  NOTES: 'notes',
   AUTHOR: 'author',
-  DATE: 'currentDate',
+  DATE: 'dateCreated',
   SOURCEID: 'sourceId',
   SOURCE: 'source',
 };
 
 export const valuesLabels = {
-  GENERIC_PLUGIN_TYPE: 'Type',
-  NOTE: 'Note',
+  NOTE_TYPE: 'Type',
+  NOTES: 'Note',
   AUTHOR: 'Author',
   DATE: 'Date',
 };

@@ -60,6 +60,8 @@ export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('f
 
 export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
 
+export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
+
 export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
 
 export const fetchPatientContactsOnMount = (generateFetchListOnMount('fetchPatientContactsRequest'));

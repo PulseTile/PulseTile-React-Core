@@ -4,48 +4,45 @@ import { Field, reduxForm } from 'redux-form'
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import { valuesNames, valuesLabels } from '../forms.config';
 import { validateForm } from '../forms.validation';
+import { valuesNames, valuesLabels } from '../forms.config';
+import { defaultFormValues } from './default-values.config';
 
 @reduxForm({
-  form: 'genericPluginsDetailFormSelector',
+  form: 'personalNotesCreateFormSelector',
   validate: validateForm,
 })
-export default class GenericPluginPanelForm extends PureComponent {
+export default class ProblemsDiagnosisCreateForm extends PureComponent {
   componentDidMount() {
-    const { detail, initialize } = this.props;
-    initialize(this.defaultValuesForm(detail));
-  }
-  defaultValuesForm(value) {
-    const defaultFormValues = {
-      [valuesNames.GENERIC_PLUGIN_TYPE]: value.type,
-      [valuesNames.NOTE]: value.note,
-      [valuesNames.AUTHOR]: value.author,
-    };
-
-    return defaultFormValues;
+    this.props.initialize(defaultFormValues);
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const {isSubmit} = this.props;
+    const date = new Date();
+    const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
-        <form name="genericPluginPanelForm" className="form">
+        <form name="personalNoteCreateForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.GENERIC_PLUGIN_TYPE}
-                  name={valuesNames.GENERIC_PLUGIN_TYPE}
-                  id={valuesNames.GENERIC_PLUGIN_TYPE}
+                  label={valuesLabels.NOTE_TYPE}
+                  name={valuesNames.NOTE_TYPE}
+                  id={valuesNames.NOTE_TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
+              </div>
+            </div>
+            <div className="row-expand">
+              <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.NOTE}
-                  name={valuesNames.NOTE}
-                  id={valuesNames.NOTE}
+                  label={valuesLabels.NOTES}
+                  name={valuesNames.NOTES}
+                  id={valuesNames.NOTES}
                   component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
@@ -67,7 +64,7 @@ export default class GenericPluginPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>
