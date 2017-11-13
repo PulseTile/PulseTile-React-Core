@@ -159,14 +159,9 @@ export default class GenericPlugin extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, genericPluginFormState, userId, genericPluginDetail } = this.props;
-    const sourceId = genericPluginDetail.sourceId;
+    const { actions, genericPluginFormState } = this.props;
     if (checkIsValidateForm(genericPluginFormState)) {
       actions.fetchPatientGenericPluginDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientGenericPluginRequest({ userId });
-        actions.fetchPatientGenericPluginDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -189,7 +184,6 @@ export default class GenericPlugin extends PureComponent {
     const { actions, userId, genericPluginCreateFormState } = this.props;
     if (checkIsValidateForm(genericPluginCreateFormState)) {
       actions.fetchPatientGenericPluginCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientGenericPluginRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}`);
       this.hideCreateForm();
     } else {

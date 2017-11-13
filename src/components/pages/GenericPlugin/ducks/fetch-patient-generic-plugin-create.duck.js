@@ -3,6 +3,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { fetchPatientGenericPluginRequest } from './fetch-patient-generic-plugin.duck'
 
 export const FETCH_PATIENT_GENERIC_PLUGIN_CREATE_REQUEST = 'FETCH_PATIENT_GENERIC_PLUGIN_CREATE_REQUEST';
 export const FETCH_PATIENT_GENERIC_PLUGIN_CREATE_SUCCESS = 'FETCH_PATIENT_GENERIC_PLUGIN_CREATE_SUCCESS';
@@ -19,7 +20,14 @@ export const fetchPatientGenericPluginCreateEpic = (action$, store) =>
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
-        .map(({ response }) => fetchPatientGenericPluginCreateSuccess(response))
+        .flatMap(({ response }) => {
+          const userId = payload.userId;
+
+          return [
+            fetchPatientGenericPluginCreateSuccess(response),
+            fetchPatientGenericPluginRequest({ userId }),
+          ];
+        })
         .catch(error => Observable.of(fetchPatientGenericPluginCreateFailure(error)))
     );
 
