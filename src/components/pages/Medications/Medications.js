@@ -253,6 +253,9 @@ export default class Medications extends PureComponent {
 
  handleShow = (name) => {
    this.setState({ openedPanel: name })
+   if (this.state.expandedPanel !== 'all') {
+     this.setState({ expandedPanel: name })
+   }
  };
 
  toggleHourlySchedule = () => this.setState(prevState => ({ isOpenHourlySchedule: !prevState.isOpenHourlySchedule }));
