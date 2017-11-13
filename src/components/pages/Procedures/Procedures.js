@@ -84,9 +84,9 @@ export default class Procedures extends PureComponent {
         this.setState({ expandedPanel: 'all' });
       }
     } else if (this.state.expandedPanel === 'all') {
-     this.setState({ expandedPanel: name, openedPanel: name });
+      this.setState({ expandedPanel: name, openedPanel: name });
     } else {
-     this.setState({ expandedPanel: 'all' });
+      this.setState({ expandedPanel: 'all' });
     }
   };
 
@@ -155,14 +155,9 @@ export default class Procedures extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, procedureDetail, userId, proceduresDetailFormState } = this.props;
-    const sourceId = procedureDetail.sourceId;
+    const { actions, proceduresDetailFormState } = this.props;
     if (checkIsValidateForm(proceduresDetailFormState)) {
       actions.fetchPatientProceduresDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientProceduresRequest({ userId });
-        actions.fetchPatientProceduresDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -186,7 +181,6 @@ export default class Procedures extends PureComponent {
 
     if (checkIsValidateForm(proceduresCreateFormState)) {
       actions.fetchPatientProceduresCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientProceduresRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`);
       this.hideCreateForm();
       this.setState({ isSubmit: false });
@@ -223,89 +217,89 @@ export default class Procedures extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
- render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-   const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
 
-   const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
-   const isPanelMain = (expandedPanel === PROCEDURES_MAIN);
-   const isPanelCreate = (expandedPanel === PROCEDURES_CREATE);
+    const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
+    const isPanelMain = (expandedPanel === PROCEDURES_MAIN);
+    const isPanelCreate = (expandedPanel === PROCEDURES_CREATE);
 
-   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-   const filteredProcedures = this.filterAndSortProcedures(allProcedures);
+    const filteredProcedures = this.filterAndSortProcedures(allProcedures);
 
-   return (<section className="page-wrapper">
-     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-       <Row>
-         {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-           <div className="panel panel-primary">
-             <PluginListHeader
-               onFilterChange={this.handleFilterChange}
-               panelTitle="Procedures"
-               isBtnExpandVisible={isBtnExpandVisible}
-               isBtnTableVisible={false}
-               name={PROCEDURES_MAIN}
-               onExpand={this.handleExpand}
-               currentPanel={PROCEDURES_MAIN}
-             />
-             <PluginMainPanel
-               headers={columnsToShowConfig}
-               resourceData={allProcedures}
-               emptyDataMessage="No procedures"
-               onHeaderCellClick={this.handleHeaderCellClick}
-               onCellClick={this.handleDetailProceduresClick}
-               columnNameSortBy={columnNameSortBy}
-               sortingOrder={sortingOrder}
-               table="procedures"
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+            <div className="panel panel-primary">
+              <PluginListHeader
+                onFilterChange={this.handleFilterChange}
+                panelTitle="Procedures"
+                isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
+                name={PROCEDURES_MAIN}
+                onExpand={this.handleExpand}
+                currentPanel={PROCEDURES_MAIN}
+              />
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allProcedures}
+                emptyDataMessage="No procedures"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailProceduresClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="procedures"
 
-               filteredData={filteredProcedures}
-               totalEntriesAmount={_.size(allProcedures)}
-               offset={offset}
-               setOffset={this.handleSetOffset}
-               isBtnCreateVisible={isBtnCreateVisible}
-               onCreate={this.handleCreate}
-             />
-           </div>
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <ProceduresDetail
-             onExpand={this.handleExpand}
-             name={PROCEDURES_DETAIL}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={PROCEDURES_DETAIL}
-             detail={procedureDetail}
-             onEdit={this.handleEdit}
-             editedPanel={editedPanel}
-             onCancel={this.handleProcedureDetailCancel}
-             onSaveSettings={this.handleSaveSettingsDetailForm}
-             proceduresDetailFormValues={proceduresDetailFormState.values}
-             metaPanelFormValues={metaPanelFormState.values}
-             isSubmit={isSubmit}
-           />
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <PluginCreate
-             title="Create Procedure"
-             onExpand={this.handleExpand}
-             name={PROCEDURES_CREATE}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={PROCEDURES_CREATE}
-             onSaveSettings={this.handleSaveSettingsCreateForm}
-             formValues={proceduresCreateFormState.values}
-             onCancel={this.handleCreateCancel}
-             isCreatePanelVisible={isCreatePanelVisible}
-             componentForm={
-               <ProceduresCreateForm isSubmit={isSubmit} />
-             }
-           />
-         </Col> : null}
-       </Row>
-     </div>
-   </section>)
- }
+                filteredData={filteredProcedures}
+                totalEntriesAmount={_.size(allProcedures)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+              />
+            </div>
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <ProceduresDetail
+              onExpand={this.handleExpand}
+              name={PROCEDURES_DETAIL}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={PROCEDURES_DETAIL}
+              detail={procedureDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleProcedureDetailCancel}
+              onSaveSettings={this.handleSaveSettingsDetailForm}
+              proceduresDetailFormValues={proceduresDetailFormState.values}
+              metaPanelFormValues={metaPanelFormState.values}
+              isSubmit={isSubmit}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              title="Create Procedure"
+              onExpand={this.handleExpand}
+              name={PROCEDURES_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={PROCEDURES_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={proceduresCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ProceduresCreateForm isSubmit={isSubmit} />
+              }
+            />
+          </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }
