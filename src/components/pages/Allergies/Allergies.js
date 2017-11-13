@@ -158,8 +158,7 @@ export default class Allergies extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { allergieDetail, actions, allergiePanelFormState, userId, dispatch } = this.props;
-    // const sourceId = allergieDetail.sourceId;
+    const { allergieDetail, actions, allergiePanelFormState } = this.props;
     formValues.causeCode = allergieDetail.causeCode;
     if (name === ALLERGIE_PANEL) {
       allergieDetail.cause = formValues.cause;
@@ -195,7 +194,6 @@ export default class Allergies extends PureComponent {
     const { actions, userId, allergiesCreateFormState } = this.props;
     if (checkIsValidateForm(allergiesCreateFormState)) {
       actions.fetchPatientAllergiesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientAllergiesRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
       this.hideCreateForm();
     } else {

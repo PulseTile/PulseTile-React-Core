@@ -3,7 +3,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-import { FETCH_PATIENT_ALLERGIES_UPDATE_REQUEST } from './fetch-patient-allergies.duck'
+import { fetchPatientAllergiesUpdateRequest } from './fetch-patient-allergies.duck'
 
 export const FETCH_PATIENT_ALLERGIES_DETAIL_EDIT_REQUEST = 'FETCH_PATIENT_ALLERGIES_DETAIL_EDIT_REQUEST';
 export const FETCH_PATIENT_ALLERGIES_DETAIL_EDIT_SUCCESS = 'FETCH_PATIENT_ALLERGIES_DETAIL_EDIT_SUCCESS';
@@ -20,14 +20,14 @@ export const fetchPatientAllergiesDetailEditEpic = (action$, store) =>
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
-        .map(({ response }) => {
+        .flatMap(({ response }) => {
           const userId = payload.userId;
           const sourceId = payload.sourceId;
-          store.dispatch({
-            type: FETCH_PATIENT_ALLERGIES_UPDATE_REQUEST,
-            payload: { userId, sourceId },
-          });
-          return fetchPatientAllergiesDetailEditSuccess(response);
+
+          return [
+            fetchPatientAllergiesDetailEditSuccess(response),
+            fetchPatientAllergiesUpdateRequest({ userId, sourceId }),
+          ];
         })
         .catch(error => Observable.of(fetchPatientAllergiesDetailEditFailure(error)))
     );
