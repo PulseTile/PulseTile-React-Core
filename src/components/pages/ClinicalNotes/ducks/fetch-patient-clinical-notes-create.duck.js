@@ -7,11 +7,11 @@ import { fetchPatientClinicalNotesRequest } from './fetch-patient-clinical-notes
 
 export const FETCH_PATIENT_CLINICAL_NOTES_CREATE_REQUEST = 'FETCH_PATIENT_CLINICAL_NOTES_CREATE_REQUEST';
 export const FETCH_PATIENT_CLINICAL_NOTES_CREATE_SUCCESS = 'FETCH_PATIENT_CLINICAL_NOTES_CREATE_SUCCESS';
-export const FFETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE = 'FFETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE';
+export const FETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE = 'FETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE';
 
 export const fetchPatientClinicalNotesCreateRequest = createAction(FETCH_PATIENT_CLINICAL_NOTES_CREATE_REQUEST);
 export const fetchPatientClinicalNotesCreateSuccess = createAction(FETCH_PATIENT_CLINICAL_NOTES_CREATE_SUCCESS);
-export const fetchPatientClinicalNotesCreateFailure = createAction(FFETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE);
+export const fetchPatientClinicalNotesCreateFailure = createAction(FETCH_PATIENT_CLINICAL_NOTES_CREATE_FAILURE);
 
 export const fetchPatientClinicalNotesCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_CLINICAL_NOTES_CREATE_REQUEST)

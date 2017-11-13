@@ -38,6 +38,7 @@ export const fetchPatientClinicalNotesUpdateEpic = (action$, store) =>
         .flatMap((response) => {
           const userId = payload.userId;
           const sourceId = payload.sourceId;
+
           return [
             fetchPatientClinicalNotesSuccess({ userId, clinicalNotes: response }),
             fetchPatientClinicalNotesDetailRequest({ userId, sourceId }),

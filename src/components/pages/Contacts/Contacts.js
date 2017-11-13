@@ -155,14 +155,9 @@ export default class Contacts extends PureComponent {
  };
 
  handleSaveSettingsDetailForm = (formValues, name) => {
-   const { actions, contactDetail, userId, contactsDetailFormState } = this.props;
-   const sourceId = contactDetail.sourceId;
+   const { actions, contactsDetailFormState } = this.props;
    if (checkIsValidateForm(contactsDetailFormState)) {
      actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-     setTimeout(() => {
-       actions.fetchPatientContactsRequest({ userId });
-       actions.fetchPatientContactsDetailRequest({ userId, sourceId });
-     }, 1000);
      this.setState(prevState => ({
        editedPanel: {
          ...prevState.editedPanel,
@@ -186,7 +181,6 @@ export default class Contacts extends PureComponent {
 
    if (checkIsValidateForm(contactsCreateFormState)) {
      actions.fetchPatientContactsCreateRequest(this.formValuesToString(formValues, 'create'));
-     setTimeout(() => actions.fetchPatientContactsRequest({ userId }), 1000);
      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
      this.hideCreateForm();
      this.setState({ isSubmit: false });
