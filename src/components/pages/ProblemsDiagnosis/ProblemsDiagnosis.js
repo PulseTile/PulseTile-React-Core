@@ -158,14 +158,9 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, diagnosisPanelFormState, userId, diagnosisDetail } = this.props;
-    const sourceId = diagnosisDetail.sourceId;
+    const { actions, diagnosisPanelFormState } = this.props;
     if (checkIsValidateForm(diagnosisPanelFormState)) {
       actions.fetchPatientDiagnosesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientDiagnosesRequest({ userId });
-        actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -189,7 +184,6 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     if (checkIsValidateForm(diagnosisCreateFormState)) {
       actions.fetchPatientDiagnosesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientDiagnosesRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
       this.setState({ isSubmit: false });
       this.hideCreateForm();
