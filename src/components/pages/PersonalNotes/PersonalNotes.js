@@ -160,14 +160,9 @@ export default class PersonalNotes extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, personalNoteFormState, userId, personalNoteDetail } = this.props;
-    const sourceId = personalNoteDetail.sourceId;
+    const { actions, personalNoteFormState } = this.props;
     if (checkIsValidateForm(personalNoteFormState)) {
       actions.fetchPatientPersonalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientPersonalNotesDetailRequest({ userId, sourceId });
-        actions.fetchPatientPersonalNotesRequest({ userId });
-      }, 2000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -190,7 +185,6 @@ export default class PersonalNotes extends PureComponent {
     const { actions, userId, personalCreateFormState } = this.props;
     if (checkIsValidateForm(personalCreateFormState)) {
       actions.fetchPatientPersonalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientPersonalNotesRequest({userId}), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}`);
       this.hideCreateForm();
     } else {
