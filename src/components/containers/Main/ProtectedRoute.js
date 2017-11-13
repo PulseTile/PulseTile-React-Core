@@ -7,9 +7,9 @@ import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 const ProtectedRoute = ({ userAccount, ...props }) => {
-  return <Route {...props} />
-  // if (isIDCRRole(userAccount)) return <Route {...props} />
-  // return <Redirect to={`#${clientUrls.PATIENTS}/${_.get('nhsNumber', userAccount)}/${clientUrls.PATIENTS_SUMMARY}`} />;
+  // return <Route {...props} />
+  if (isIDCRRole(userAccount)) return <Route {...props} />
+  return <Redirect to={`#${clientUrls.PATIENTS}/${_.get('nhsNumber', userAccount)}/${clientUrls.PATIENTS_SUMMARY}`} />;
 };
 
 ProtectedRoute.propTypes = {
