@@ -6,6 +6,7 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
+import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
@@ -195,6 +196,7 @@ export default class PersonalNotes extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, personalNoteDetail } = this.props;
     const sendData = {};
+    const currentDate = new Date();
 
     sendData.userId = userId;
     sendData[valuesNames.NOTE_TYPE] = formValues[valuesNames.NOTE_TYPE];
@@ -208,6 +210,7 @@ export default class PersonalNotes extends PureComponent {
     }
 
     if (formName === 'create') {
+      sendData[valuesNames.DATE] = moment(currentDate).format('YYYY-MM-DD');
       sendData.source = formValues[valuesNames.SOURCE];
     }
 
