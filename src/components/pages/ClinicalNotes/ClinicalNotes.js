@@ -159,14 +159,9 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, clinicalNoteFormState, userId, clinicalNoteDetail } = this.props;
-    const sourceId = clinicalNoteDetail.sourceId;
+    const { actions, clinicalNoteFormState } = this.props;
     if (checkIsValidateForm(clinicalNoteFormState)) {
       actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientClinicalNotesRequest({ userId });
-        actions.fetchPatientClinicalNotesDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -189,7 +184,6 @@ export default class ClinicalNotes extends PureComponent {
     const { actions, userId, clinicalCreateFormState } = this.props;
     if (checkIsValidateForm(clinicalCreateFormState)) {
       actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientClinicalNotesRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
       this.hideCreateForm();
     } else {
