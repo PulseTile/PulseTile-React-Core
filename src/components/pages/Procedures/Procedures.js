@@ -122,8 +122,6 @@ export default class Procedures extends PureComponent {
       });
     }
 
-    console.log('procedures', procedures);
-
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(procedures);
     const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(procedures);
     const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByTimePredicate))(procedures);
