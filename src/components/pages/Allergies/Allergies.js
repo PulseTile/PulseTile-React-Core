@@ -19,7 +19,6 @@ import { patientAllergiesSelector, allergiePanelFormStateSelector, allergiesCrea
 import AllergiesDetail from './AllergiesDetail/AllergiesDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { clientUrls } from '../../../config/client-urls.constants';
-import Spinner from '../../ui-elements/Spinner/Spinner'
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
@@ -186,7 +185,7 @@ export default class Allergies extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
   };
 
@@ -196,6 +195,7 @@ export default class Allergies extends PureComponent {
       actions.fetchPatientAllergiesCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
       this.hideCreateForm();
+      this.setState({ isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -273,6 +273,7 @@ export default class Allergies extends PureComponent {
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null}
