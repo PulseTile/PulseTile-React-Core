@@ -3,14 +3,15 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { fetchPatientVaccinationsRequest } from './fetch-patient-vaccinations.duck'
 
 export const FETCH_PATIENT_VACCINATIONS_CREATE_REQUEST = 'FETCH_PATIENT_VACCINATIONS_CREATE_REQUEST';
 export const FETCH_PATIENT_VACCINATIONS_CREATE_SUCCESS = 'FETCH_PATIENT_VACCINATIONS_CREATE_SUCCESS';
-export const FFETCH_PATIENT_VACCINATIONS_CREATE_FAILURE = 'FFETCH_PATIENT_VACCINATIONS_CREATE_FAILURE';
+export const FETCH_PATIENT_VACCINATIONS_CREATE_FAILURE = 'FETCH_PATIENT_VACCINATIONS_CREATE_FAILURE';
 
 export const fetchPatientVaccinationsCreateRequest = createAction(FETCH_PATIENT_VACCINATIONS_CREATE_REQUEST);
 export const fetchPatientVaccinationsCreateSuccess = createAction(FETCH_PATIENT_VACCINATIONS_CREATE_SUCCESS);
-export const fetchPatientVaccinationsCreateFailure = createAction(FFETCH_PATIENT_VACCINATIONS_CREATE_FAILURE);
+export const fetchPatientVaccinationsCreateFailure = createAction(FETCH_PATIENT_VACCINATIONS_CREATE_FAILURE);
 
 export const fetchPatientVaccinationsCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_VACCINATIONS_CREATE_REQUEST)
@@ -19,7 +20,14 @@ export const fetchPatientVaccinationsCreateEpic = (action$, store) =>
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
-        .map(({ response }) => fetchPatientVaccinationsCreateSuccess(response))
+        .flatMap(({ response }) => {
+          const userId = payload.userId;
+
+          return [
+            fetchPatientVaccinationsCreateSuccess(response),
+            fetchPatientVaccinationsRequest({ userId }),
+          ];
+        })
         .catch(error => Observable.of(fetchPatientVaccinationsCreateFailure(error)))
     );
 

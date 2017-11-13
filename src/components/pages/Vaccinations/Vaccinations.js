@@ -158,14 +158,9 @@ export default class Vaccination extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, vaccinationPanelFormState, userId, vaccinationDetail } = this.props;
-    const sourceId = vaccinationDetail.sourceId;
+    const { actions, vaccinationPanelFormState } = this.props;
     if (checkIsValidateForm(vaccinationPanelFormState)) {
       actions.fetchPatientVaccinationsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientVaccinationsRequest({ userId });
-        actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -190,7 +185,6 @@ export default class Vaccination extends PureComponent {
     if (checkIsValidateForm(vaccinationCreateFormState)) {
       formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
       actions.fetchPatientVaccinationsCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientVaccinationsRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
       this.setState({ isSubmit: false });
       this.hideCreateForm();
