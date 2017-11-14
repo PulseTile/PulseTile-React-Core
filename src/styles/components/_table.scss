@@ -69,7 +69,7 @@
 }
 .wrap-table-scrollX {
   max-width: initial;
-  overflow-x: scroll; 
+  overflow-x: scroll;
   width: 100%;
   .table { width: 1px; }
 }
@@ -94,8 +94,10 @@
   background-color: map-get($colored-table, 'background');
   tbody {
     tr {
-      &[ng-click]:hover td,
-      &:hover td[ng-click] {
+      &:hover td[data-table-hover] {
+        background-color: map-get($colored-table, 'row-background-hover');
+      }
+      &.hovered td[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
     }

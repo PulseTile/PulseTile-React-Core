@@ -228,7 +228,7 @@ export default class Contacts extends PureComponent {
 
  render() {
    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-   const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
+   const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail } = this.props;
 
    const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
    const isPanelMain = (expandedPanel === CONTACTS_MAIN);
@@ -243,6 +243,11 @@ export default class Contacts extends PureComponent {
    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
    const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
+
+   let sourceId;
+   if (!_.isEmpty(contactDetail)) {
+     sourceId = contactDetail.sourceId;
+   }
 
    return (<section className="page-wrapper">
      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -267,13 +272,13 @@ export default class Contacts extends PureComponent {
                columnNameSortBy={columnNameSortBy}
                sortingOrder={sortingOrder}
                table="contacts"
-
                filteredData={filteredContacts}
                totalEntriesAmount={_.size(fixedAllContacts)}
                offset={offset}
                setOffset={this.handleSetOffset}
                isBtnCreateVisible={isBtnCreateVisible}
                onCreate={this.handleCreate}
+               id={sourceId}
              />
            </div>
          </Col> : null}

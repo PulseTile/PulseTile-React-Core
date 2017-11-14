@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-import SortableTable from '../../containers/SortableTable/SortableTable';
+import SortableTablePatients from '../SortableTable/SortableTablePatients';
 import PaginationBlock from '../../presentational/PaginationBlock/PaginationBlock';
 import PatientsListHeader from './header/PatientsListHeader';
 import ViewPatienDropdown from './actions-column/ViewPatienDropdown';
@@ -133,7 +133,7 @@ export default class PatientsList extends PureComponent {
           />
           <div className="panel-body">
             <div className="wrap-patients-table">
-              <SortableTable
+              <SortableTablePatients
                 headers={columnsToShowConfig}
                 data={patientsOnFirstPage}
                 resourceData={allPatients}

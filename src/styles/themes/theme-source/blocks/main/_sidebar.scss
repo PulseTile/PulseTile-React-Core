@@ -28,7 +28,8 @@
   background-color: $base-color;
   color: $text-on-base-color;
 }
-.is-not-touch-device .sidebar-nav-link:hover {
+.is-not-touch-device .sidebar-nav-link:hover,
+.is-not-touch-device .sidebar-nav-link:focus {
   background-color: $base-color;
   color: $text-on-base-color;
 }

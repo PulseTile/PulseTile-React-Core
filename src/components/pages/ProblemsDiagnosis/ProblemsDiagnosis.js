@@ -232,6 +232,11 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     const filteredDiagnoses = this.filterAndSortDiagnoses(allDiagnoses);
 
+    let sourceId;
+    if (!_.isEmpty(diagnosisDetail)) {
+      sourceId = diagnosisDetail.sourceId;
+    }
+
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
@@ -261,6 +266,7 @@ export default class ProblemsDiagnosis extends PureComponent {
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
               />
             </div>
           </Col> : null }

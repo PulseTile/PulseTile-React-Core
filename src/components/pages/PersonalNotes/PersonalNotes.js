@@ -233,6 +233,11 @@ export default class PersonalNotes extends PureComponent {
 
     const filteredPersonalNotes = this.filterAndSortPersonalNotes(allPersonalNotes);
 
+    let sourceId;
+    if (!_.isEmpty(personalNoteDetail)) {
+      sourceId = personalNoteDetail.sourceId;
+    }
+
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
@@ -261,6 +266,7 @@ export default class PersonalNotes extends PureComponent {
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
               />
             </div>
           </Col> : null }

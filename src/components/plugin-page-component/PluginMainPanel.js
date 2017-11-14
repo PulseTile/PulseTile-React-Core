@@ -22,7 +22,7 @@ export default class PluginMainPanel extends PureComponent {
   shouldHavePagination = list => _.size(list) > this.props.listPerPageAmount;
 
   render() {
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id } = this.props;
     const listOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredData);
     return (
       <div className="panel-body">
@@ -35,6 +35,7 @@ export default class PluginMainPanel extends PureComponent {
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           sortingOrder={sortingOrder}
+          id={id}
         />
         {isLoading ? <Spinner /> : null }
         <div className="panel-control">
