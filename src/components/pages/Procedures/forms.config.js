@@ -9,7 +9,13 @@ export const valuesNames = {
   AUTHOR: 'author',
   DATE: 'dateSubmitted',
   SOURCE: 'source',
-  SOURCE_ID: 'sourceId'
+  SOURCE_ID: 'sourceId',
+
+  STATUS: 'currentStatus',
+  ORIGINAL_COMPOSITION: 'originalComposition',
+  ORIGINAL_SOURCE: 'originalSource',
+  PROCEDURE_NAME: 'procedureName',
+
 };
 
 export const valuesLabels = {
@@ -23,5 +29,10 @@ export const valuesLabels = {
   AUTHOR: 'Author',
   DATE: 'Date',
   SOURCE: 'Source',
-  SOURCE_ID: 'Source ID'
+  SOURCE_ID: 'Source ID',
+
+  STATUS: 'Current Status',
+  ORIGINAL_COMPOSITION: 'Original Composition',
+  ORIGINAL_SOURCE: 'Original Source',
+  PROCEDURE_NAME: 'Procedure Name',
 };

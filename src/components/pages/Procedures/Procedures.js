@@ -23,6 +23,7 @@ import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import ProceduresDetail from './ProceduresDetail/ProceduresDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ProceduresCreateForm from './ProceduresCreate/ProceduresCreateForm'
+import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
 
 const PROCEDURES_MAIN = 'proceduresMain';
 const PROCEDURES_DETAIL = 'proceduresDetail';
@@ -105,8 +106,8 @@ export default class Procedures extends PureComponent {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('date'), _.toLower, _.includes(nameShouldInclude));
-    const filterByTimePredicate = _.flow(_.get('time'), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get('dateConvert'), _.toLower, _.includes(nameShouldInclude));
+    const filterByTimePredicate = _.flow(_.get('timeConvert'), _.toLower, _.includes(nameShouldInclude));
     const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
@@ -114,9 +115,16 @@ export default class Procedures extends PureComponent {
       [_.stubTrue, () => v => v],
     ])(sortingOrder);
 
+    if (procedures !== undefined) {
+      procedures.map((item) => {
+        item.dateConvert = getDDMMMYYYY(item.date);
+        item.timeConvert = getHHmm(item.time);
+      });
+    }
+
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(procedures);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(procedures);
-    const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByTimePredicate))(procedures);
+    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(procedures);
+    const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByTimePredicate))(procedures);
     const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(procedures);
 
     const filteredAndSortedProcedures = [filterByName, filterByDate, filterByTime, filterBySource].filter((item) => {
@@ -192,18 +200,38 @@ export default class Procedures extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, procedureDetail } = this.props;
     const sendData = {};
+    const currentDate = new Date();
+    const currentTime = currentDate - new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
     sendData.userId = userId;
-    // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
-    // sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
-    // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData.dateSubmitted = new Date();
-    sendData.source = 'ethercis';
+
+    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.DATE_OF_PROCEDURE] = formValues[valuesNames.DATE_OF_PROCEDURE];
+    sendData[valuesNames.PERFORMER] = formValues[valuesNames.PERFORMER];
+    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
+    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+
+    sendData[valuesNames.DATE] = currentDate;
+    sendData[valuesNames.SOURCE] = 'ethercis';
 
     if (formName === 'edit') {
-      sendData.sourceId = procedureDetail.sourceId;
+      sendData[valuesNames.SOURCE_ID] = procedureDetail[valuesNames.SOURCE_ID];
+
+      sendData[valuesNames.PROCEDURE_NAME] = procedureDetail[valuesNames.PROCEDURE_NAME];
+      sendData[valuesNames.STATUS] = procedureDetail[valuesNames.STATUS];
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = procedureDetail[valuesNames.ORIGINAL_COMPOSITION];
+      sendData[valuesNames.ORIGINAL_SOURCE] = procedureDetail[valuesNames.ORIGINAL_SOURCE];
+      sendData[valuesNames.TIME] = procedureDetail[valuesNames.TIME];
+    }
+
+    if (formName === 'create') {
+      sendData[valuesNames.PROCEDURE_NAME] = formValues[valuesNames.NAME];
+      sendData[valuesNames.STATUS] = "";
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = "";
+      sendData[valuesNames.ORIGINAL_SOURCE] = "";
+      sendData[valuesNames.TIME] = currentTime;
     }
 
     return sendData;

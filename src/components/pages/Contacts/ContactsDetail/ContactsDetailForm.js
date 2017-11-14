@@ -119,8 +119,6 @@ export default class ContactsDetailForm extends PureComponent {
                   props={{ disabled: true, isSubmit }}
                 />
               </div>
-            </div>
-            <div className="row-expand">
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.DATE}
