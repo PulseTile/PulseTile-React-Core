@@ -7,10 +7,11 @@ import _ from 'lodash/fp';
 
 import ProtectedRoute from './ProtectedRoute';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
-import {sidebarAndUserSelector, mainSelector } from './selectors';
+import { sidebarAndUserSelector, mainSelector } from './selectors';
 import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary } from '../../pages';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { routersPluginConfig } from '../../../plugins.config';
+import { redirectAccordingRole } from '../../../utils/redirect-helpers.utils'
 
 @withRouter
 @connect(sidebarAndUserSelector)
@@ -20,14 +21,20 @@ export default class Main extends PureComponent {
       isSidebarVisible: PropTypes.bool.isRequired,
     };
 
+    componentWillReceiveProps(nextProps) {
+      this.props.history.listen(() => {
+        redirectAccordingRole(nextProps.userAccount);
+      })
+    }
+
     render() {
       const { isSidebarVisible, userAccount, patientSummeriesParams } = this.props;
-      const patientSummeries= _.head(_.values(patientSummeriesParams));
+      const patientSummeries = _.head(_.values(patientSummeriesParams));
       return (
         <main className={classNames('main', { showSidebar: isSidebarVisible })}>
           <Breadcrumbs
             userAccount={userAccount}
-            patientSummeries={ patientSummeries }
+            patientSummeries={patientSummeries}
           />
           <Switch>
             <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />

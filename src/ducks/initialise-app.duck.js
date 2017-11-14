@@ -9,7 +9,7 @@ import { setTheme } from './set-theme.duck';
 import { setLogo } from './set-logo.duck';
 import { setTitle } from './set-title.duck';
 import { redirectToLogin } from './login-status.duck'
-import { clientUrls } from '../config/client-urls.constants';
+import { redirectAccordingRole } from '../utils/redirect-helpers.utils'
 
 export const INITIALISE_START = 'INITIALISE_START';
 export const INITIALISE_SUCCESS = 'INITIALISE_SUCCESS';
@@ -18,15 +18,6 @@ export const INITIALISE_FAILURE = 'INITIALISE_FAILURE';
 export const initialiseStart = createAction(INITIALISE_START);
 export const initialiseSuccess = createAction(INITIALISE_SUCCESS);
 export const initialiseFailure = createAction(INITIALISE_FAILURE);
-
-const redirectAccordingRole = (user) => {
-  if (_.flow(_.get('role'), _.eq('PHR'))(user)) {
-    const userSummaryUrl = `/#${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
-    return location.href = userSummaryUrl;
-  }
-
-  return location.href = `/#${clientUrls.CHARTS}`;
-};
 
 //TODO should be refactored to actual sequence, not parallel listening
 export const initialiseEpic = (action$, store) => Observable.merge(
