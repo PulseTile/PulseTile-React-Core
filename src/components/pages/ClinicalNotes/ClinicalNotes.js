@@ -229,6 +229,11 @@ export default class ClinicalNotes extends PureComponent {
 
     const filteredClinicalNotes = this.filterAndSortClinicalNotes(allClinicalNotes);
 
+    let sourceId;
+    if (!_.isEmpty(clinicalNoteDetail)) {
+      sourceId = clinicalNoteDetail.sourceId;
+    }
+
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
@@ -258,6 +263,7 @@ export default class ClinicalNotes extends PureComponent {
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
               />
             </div>
           </Col> : null }

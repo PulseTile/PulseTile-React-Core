@@ -49,8 +49,10 @@
   background-color: map-get($colored-table, 'background');
   tbody {
     tr {
-      &[data-table-hover]:hover td[data-table-hover]:not(:last-child),
-      &:hover td[data-table-hover]:not(:last-child) {
+      &:hover td[data-table-hover] {
+        background-color: map-get($colored-table, 'row-background-hover');
+      }
+      &.hovered td[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
     }

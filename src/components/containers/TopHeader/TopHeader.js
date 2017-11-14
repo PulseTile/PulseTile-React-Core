@@ -37,7 +37,10 @@ class TopHeader extends PureComponent {
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>
           <i className="fa fa-arrow-left" />
         </PTButton> : null }
-        <MainLogo patientsInfo={patientsInfo} />
+        <MainLogo
+          patientsInfo={patientsInfo}
+          userAccount={userAccount}
+        />
         <UserPanel />
         <NavSearch userAccount={userAccount} />
       </div>

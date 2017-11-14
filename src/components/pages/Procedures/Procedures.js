@@ -255,6 +255,11 @@ export default class Procedures extends PureComponent {
 
     const filteredProcedures = this.filterAndSortProcedures(allProcedures);
 
+    let sourceId;
+    if (!_.isEmpty(procedureDetail)) {
+      sourceId = procedureDetail.sourceId;
+    }
+
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
@@ -278,13 +283,13 @@ export default class Procedures extends PureComponent {
                 columnNameSortBy={columnNameSortBy}
                 sortingOrder={sortingOrder}
                 table="procedures"
-
                 filteredData={filteredProcedures}
                 totalEntriesAmount={_.size(allProcedures)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
               />
             </div>
           </Col> : null}
