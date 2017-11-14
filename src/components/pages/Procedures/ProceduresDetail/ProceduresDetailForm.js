@@ -53,7 +53,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.DATE_OF_PROCEDURE}
                   id={valuesNames.DATE_OF_PROCEDURE}
                   component={DateInput}
-                  props={{ value: detail[valuesNames.DATE_OF_PROCEDURE], format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

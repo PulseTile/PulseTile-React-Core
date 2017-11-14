@@ -61,8 +61,6 @@ export default class AllergyDetailMainForm extends PureComponent {
                   props={{ disabled: true }}
                 />
               </div>
-            </div>
-            <div className="row-expand">
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.DATE}

@@ -28,7 +28,7 @@ import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
 const PROCEDURES_MAIN = 'proceduresMain';
 const PROCEDURES_DETAIL = 'proceduresDetail';
 const PROCEDURES_CREATE = 'proceduresCreate';
-const CONTACT_PANEL = 'procedurePanel';
+const PROCEDURE_PANEL = 'procedurePanel';
 const META_PANEL = 'metaPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientProceduresRequest, fetchPatientProceduresCreateRequest, fetchPatientProceduresDetailRequest, fetchPatientProceduresDetailEditRequest }, dispatch) });
@@ -54,8 +54,8 @@ export default class Procedures extends PureComponent {
   state = {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
-    openedPanel: CONTACT_PANEL,
-    columnNameSortBy: 'name',
+    openedPanel: PROCEDURE_PANEL,
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -97,7 +97,7 @@ export default class Procedures extends PureComponent {
 
   handleDetailProceduresClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, editedPanel: {} })
     actions.fetchPatientProceduresDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/${sourceId}`);
   };
@@ -105,10 +105,10 @@ export default class Procedures extends PureComponent {
   filterAndSortProcedures = (procedures) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateConvert'), _.toLower, _.includes(nameShouldInclude));
-    const filterByTimePredicate = _.flow(_.get('timeConvert'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_OF_PROCEDURE}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterByTimePredicate = _.flow(_.get(`${valuesNames.TIME}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
@@ -117,8 +117,8 @@ export default class Procedures extends PureComponent {
 
     if (procedures !== undefined) {
       procedures.map((item) => {
-        item.dateConvert = getDDMMMYYYY(item.date);
-        item.timeConvert = getHHmm(item.time);
+        item[`${valuesNames.DATE_OF_PROCEDURE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_OF_PROCEDURE]);
+        item[`${valuesNames.TIME}Convert`] = getHHmm(item[valuesNames.TIME]);
       });
     }
 
@@ -180,7 +180,7 @@ export default class Procedures extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`);
   };
 
@@ -212,6 +212,8 @@ export default class Procedures extends PureComponent {
     sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
     sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    sendData[valuesNames.PROCEDURE_NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.TIME] = currentTime;
 
     sendData[valuesNames.DATE] = currentDate;
     sendData[valuesNames.SOURCE] = 'ethercis';
@@ -219,26 +221,22 @@ export default class Procedures extends PureComponent {
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = procedureDetail[valuesNames.SOURCE_ID];
 
-      sendData[valuesNames.PROCEDURE_NAME] = procedureDetail[valuesNames.PROCEDURE_NAME];
       sendData[valuesNames.STATUS] = procedureDetail[valuesNames.STATUS];
       sendData[valuesNames.ORIGINAL_COMPOSITION] = procedureDetail[valuesNames.ORIGINAL_COMPOSITION];
       sendData[valuesNames.ORIGINAL_SOURCE] = procedureDetail[valuesNames.ORIGINAL_SOURCE];
-      sendData[valuesNames.TIME] = procedureDetail[valuesNames.TIME];
     }
 
     if (formName === 'create') {
-      sendData[valuesNames.PROCEDURE_NAME] = formValues[valuesNames.NAME];
       sendData[valuesNames.STATUS] = "";
       sendData[valuesNames.ORIGINAL_COMPOSITION] = "";
       sendData[valuesNames.ORIGINAL_SOURCE] = "";
-      sendData[valuesNames.TIME] = currentTime;
     }
 
     return sendData;
   };
 
   hideCreateForm = () => {
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false })
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isSecondPanel: false })
   };
 
   handleShow = (name) => {
@@ -249,7 +247,7 @@ export default class Procedures extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
     const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
 
-    const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
+    const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === PROCEDURE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === PROCEDURES_MAIN);
     const isPanelCreate = (expandedPanel === PROCEDURES_CREATE);
 
