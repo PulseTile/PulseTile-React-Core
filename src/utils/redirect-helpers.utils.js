@@ -20,8 +20,8 @@ export const redirectAccordingRole = (user) => {
       const userSummaryUrl = `/#${clientUrls.PATIENTS}/${_.get('nhsNumber', user)}/${clientUrls.PATIENTS_SUMMARY}`;
       //Trick for PHR user login
       if (locationHrefBeforeLogin &&
-        (locationHrefBeforeLogin.indexOf(user.nhsNumber) > -1 ||
-        locationHrefBeforeLogin.indexOf('profile') > -1)) {
+        (locationHrefBeforeLogin.indexOf(user.nhsNumber) === -1 ||
+        locationHrefBeforeLogin.indexOf('profile') === -1)) {
         location.href = locationHrefBeforeLogin;
       } else if (location.href.indexOf(user.nhsNumber) === -1) {
         // if (locationHrefBeforeLogin) {

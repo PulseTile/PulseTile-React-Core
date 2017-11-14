@@ -22,9 +22,11 @@ export default class Main extends PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
-      this.props.history.listen(() => {
-        redirectAccordingRole(nextProps.userAccount);
-      })
+      if (!_.isEmpty(nextProps.userAccount)) {
+        this.props.history.listen(() => {
+          redirectAccordingRole(nextProps.userAccount);
+        })
+      }
     }
 
     render() {
