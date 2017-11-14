@@ -76,7 +76,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
               </div>
             </div>
             {isBirthDateSelected ?
-              <div className="row ng-scope" >
+              <div className="form-group ng-scope" >
                 <div className="col-xs-12 col-sm-6">
                   <Field
                     name={valuesNames.DATE_OF_BIRTH}
@@ -103,11 +103,15 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                       <Field
                         label="Male"
                         name={valuesNames.MALE}
+                        id={valuesNames.MALE}
+                        type="checkbox"
                         component={CustomInputCheckbox}
                       />
                       <Field
                         label="Female"
                         name={valuesNames.FEMALE}
+                        id={valuesNames.FEMALE}
+                        type="checkbox"
                         component={CustomInputCheckbox}
                       />
                     </div>
