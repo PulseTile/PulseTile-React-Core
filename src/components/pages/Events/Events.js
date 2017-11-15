@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import EventsListHeader from './events-page-component/EventsListHeader';
-import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import EventsMainPanel from './events-page-component/EventsMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
@@ -265,7 +265,7 @@ export default class Events extends PureComponent {
                 onExpand={this.handleExpand}
                 currentPanel={EVENTS_MAIN}
               />
-              <PluginMainPanel
+              <EventsMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allEvents}
                 emptyDataMessage="No events"

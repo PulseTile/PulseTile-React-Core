@@ -7,7 +7,7 @@ import PTButton from '../../../ui-elements/PTButton/PTButton';
 const FILTER_CONTENT = 'filterContent';
 const VIEW_CONTENT = 'viewContent';
 
-export default class PluginListHeader extends PureComponent {
+export default class EventsListHeader extends PureComponent {
   static propTypes = {
     onFilterChange: PropTypes.func.isRequired,
     panelTitle: PropTypes.string.isRequired,
