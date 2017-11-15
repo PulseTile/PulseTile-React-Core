@@ -228,10 +228,10 @@ export default class Medications extends PureComponent {
     sendData[valuesNames.MEDICATION_CODE] = formValues[valuesNames.MEDICATION_CODE];
     sendData[valuesNames.ROUTE] = formValues[valuesNames.ROUTE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    sendData[valuesNames.START_DATE] = new Date().getTime();
+    sendData[valuesNames.START_TIME] = startTime;
 
     if (formName === 'edit') {
-      sendData[valuesNames.START_DATE] = new Date(medicationDetail[valuesNames.START_DATE]);
-      sendData[valuesNames.START_TIME] = new Date(medicationDetail[valuesNames.START_TIME]);
       sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
       sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
       sendData[valuesNames.SOURCEID] = medicationDetail.sourceId;
@@ -239,8 +239,6 @@ export default class Medications extends PureComponent {
 
     if (formName === 'create') {
       sendData[valuesNames.SOURCEID] = '';
-      sendData[valuesNames.START_DATE] = new Date().getTime();
-      sendData[valuesNames.START_TIME] = startTime;
       sendData[valuesNames.ISIMPORT] = false;
     }
 

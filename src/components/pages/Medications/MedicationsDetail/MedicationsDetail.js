@@ -17,7 +17,7 @@ export default class MedicationsDetail extends PureComponent {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, medicationsDetailFormValues, prescriptionPanelFormValues, isSubmit, toggleHourlySchedule, isOpenHourlySchedule } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const startDate = getDDMMMYYYY(detail.startDate);
+    const dateCreated = getDDMMMYYYY(detail.dateCreated);
 
     return (
       <div className="section-detail">
@@ -84,7 +84,7 @@ export default class MedicationsDetail extends PureComponent {
                     <div className="col-expand-right">
                       <div className="form-group">
                         <label className="control-label">Date</label>
-                        <div className="form-control-static">{startDate}</div>
+                        <div className="form-control-static">{dateCreated}</div>
                       </div>
                     </div>
                   </div>
@@ -97,7 +97,7 @@ export default class MedicationsDetail extends PureComponent {
           {(expandedPanel === MEDICATION_PANEL || expandedPanel === 'all') && editedPanel[MEDICATION_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={MEDICATION_PANEL}
-            title="Edit Contact"
+            title="Edit Medication"
             onShow={onShow}
             isOpen={openedPanel === MEDICATION_PANEL}
             currentPanel={currentPanel}

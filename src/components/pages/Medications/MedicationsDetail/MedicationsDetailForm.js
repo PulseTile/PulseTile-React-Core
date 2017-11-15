@@ -120,11 +120,11 @@ export default class MedicationsDetailForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.START_DATE}
-                  name={valuesNames.START_DATE}
-                  id={valuesNames.START_DATE}
+                  label={valuesLabels.DATE_CREATED}
+                  name={valuesNames.DATE_CREATED}
+                  id={valuesNames.DATE_CREATED}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.startDate, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>
