@@ -9,6 +9,7 @@ import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccin
 import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
+import { eventsEpic, eventsReducer } from './components/pages/Events/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -19,6 +20,7 @@ import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 import Medications from './components/pages/Medications/Medications';
 import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
 import Procedures from './components/pages/Procedures/Procedures';
+import Events from './components/pages/Events/Events';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -31,6 +33,7 @@ export const sidebarConfig = [
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -50,6 +53,7 @@ export const pluginsEpicConfig = [
   genericPluginEpic,
   medicationsEpic,
   proceduresEpic,
+  eventsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -62,6 +66,7 @@ export const pluginsReducerConfig = [
   genericPluginReducer,
   medicationsReducer,
   proceduresReducer,
+  eventsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -100,5 +105,9 @@ export const routersPluginConfig = [
   { key: 'procedures', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}` },
   { key: 'proceduresCreate', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/create` },
   { key: 'proceduresDetail', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/:sourceId` },
+
+  { key: 'events', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}` },
+  { key: 'eventsCreate', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}/create` },
+  { key: 'eventsDetail', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}/:sourceId` },
 
 ];
