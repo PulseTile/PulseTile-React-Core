@@ -75,3 +75,5 @@ export const fetchPatientMedicationsDetailOnMount = (generateFetchDetailOnMount(
 
 export const fetchPatientProceduresOnMount = (generateFetchListOnMount('fetchPatientProceduresRequest'));
 export const fetchPatientProceduresDetailOnMount = (generateFetchDetailOnMount('fetchPatientProceduresDetailRequest'));
+
+export const fetchPatientTestResultsOnMount = (generateFetchListOnMount('fetchPatientTestResultsRequest'));

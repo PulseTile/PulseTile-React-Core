@@ -202,12 +202,12 @@ export default class GenericPlugin extends PureComponent {
 
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData.sourceId = genericPluginDetail.sourceId;
-      sendData.source = genericPluginDetail.source;
+      sendData[valuesNames.SOURCE_ID] = genericPluginDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = genericPluginDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
-      sendData.source = formValues[valuesNames.SOURCE];
+      sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
     return sendData;

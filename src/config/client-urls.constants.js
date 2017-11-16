@@ -17,6 +17,7 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
   PROCEDURES: 'procedures',
+  TEST_RESULTS: 'results',
 };
 
 const pluginsPages = {
@@ -72,6 +73,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Procedures',
       state: '/procedures',
+    }],
+  },
+  'testResults': {
+    breadcrumbs: [{
+      title: 'Test Results',
+      state: '/results',
     }],
   },
 };
