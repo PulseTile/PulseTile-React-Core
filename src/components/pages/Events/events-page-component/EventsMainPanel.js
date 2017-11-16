@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import SortableTable from '../../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../../presentational/PaginationBlock/PaginationBlock';
-import Spinner from '../../../ui-elements/Spinner/Spinner'
+import Spinner from '../../../ui-elements/Spinner/Spinner';
+import Timelines from './EventsTimelines';
 
 const CREATE_CONTENT = 'createContent';
 
@@ -54,11 +55,11 @@ export default class EventsMainPanel extends PureComponent {
 
   render() {
     const { openedPanel, activeCreate } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView } = this.props;
     const listOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredData);
     return (
       <div className="panel-body">
-        <SortableTable
+        {activeView === 'table' ? <SortableTable
           headers={headers}
           data={listOnFirstPage}
           resourceData={resourceData}
@@ -68,20 +69,21 @@ export default class EventsMainPanel extends PureComponent {
           columnNameSortBy={columnNameSortBy}
           sortingOrder={sortingOrder}
           id={id}
-        />
+        /> : null }
         {isLoading ? <Spinner /> : null }
+        {activeView === 'timeline' ? <Timelines
+          eventsTimeline={eventsTimeline}
+        /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">
-            {this.shouldHavePagination(filteredData) &&
-            <div className="control-group with-indent left">
+            {(this.shouldHavePagination(filteredData) && activeView === 'table') ? <div className="control-group with-indent left">
               <PaginationBlock
                 entriesPerPage={listPerPageAmount}
                 totalEntriesAmount={totalEntriesAmount}
                 offset={offset}
                 setOffset={setOffset}
               />
-            </div>
-            }
+            </div> : null }
             <div className="control-group with-indent right" ref={node => this.node = node}>
               <div className={classNames('dropdown', { 'open': openedPanel === CREATE_CONTENT })}>
                 <PTButton className="btn btn-success btn-dropdown-toggle btn-table" onClick={() => this.handleMouseDown(CREATE_CONTENT)}>

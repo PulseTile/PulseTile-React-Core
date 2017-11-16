@@ -19,7 +19,6 @@ export default class EventsListHeader extends PureComponent {
     openedPanel: '',
     isFilterOpen: false,
     isTimelinesOpen: false,
-    activeView: 'table',
   };
 
   handleSelect = (selected) => {
@@ -57,8 +56,8 @@ export default class EventsListHeader extends PureComponent {
   };
 
   render() {
-    const { isFilterInputVisible, selected, openedPanel, isFilterOpen, isTimelinesOpen, activeView } = this.state;
-    const { onFilterChange, panelTitle, isBtnExpandVisible, isBtnTableVisible, onExpand, name, currentPanel } = this.props;
+    const { isFilterInputVisible, selected, openedPanel, isFilterOpen, isTimelinesOpen } = this.state;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, isBtnTableVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility } = this.props;
 
     return (
       <div className="panel-heading" ref={node => this.node = node}>
@@ -95,7 +94,7 @@ export default class EventsListHeader extends PureComponent {
             <div className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size">
               <div className="heading">TABLES</div>
               <div className="dropdown-menu-list">
-                <div className={classNames('dropdown-menu-item', { 'active': activeView === 'table' })}>
+                <div className={classNames('dropdown-menu-item', { 'active': activeView === 'table' })} onClick={() => toggleViewVisibility('table')}>
                   <i className="dropdown-menu-item-icon fa fa-table"></i>
                   <span className="dropdown-menu-item-text">Events</span>
                 </div>
@@ -103,7 +102,7 @@ export default class EventsListHeader extends PureComponent {
               <div className="heading">TIMELINES</div>
               <div className="dropdown-menu-wrap-list">
                 <div className="dropdown-menu-list">
-                  <div className={classNames('dropdown-menu-item', { 'active': activeView === 'timeline' })}>
+                  <div className={classNames('dropdown-menu-item', { 'active': activeView === 'timeline' })} onClick={() => toggleViewVisibility('timeline')}>
                     <i className="dropdown-menu-item-icon fa fa-sliders"></i>
                     <span className="dropdown-menu-item-text">Events</span></div>
                 </div>

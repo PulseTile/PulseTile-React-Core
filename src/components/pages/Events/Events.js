@@ -19,6 +19,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
+import { modificateEventsArr } from './events-helpers.utils';
 
 const EVENTS_MAIN = 'eventsMain';
 const EVENTS_DETAIL = 'eventsDetail';
@@ -58,6 +59,7 @@ export default class Events extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    activeView: 'table',
   };
 
   componentWillReceiveProps() {
@@ -218,9 +220,9 @@ export default class Events extends PureComponent {
     }
 
     if (formName === 'create') {
-      sendData[valuesNames.STATUS] = "";
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = "";
-      sendData[valuesNames.ORIGINAL_SOURCE] = "";
+      sendData[valuesNames.STATUS] = '';
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = '';
+      sendData[valuesNames.ORIGINAL_SOURCE] = '';
     }
 
     return sendData;
@@ -234,9 +236,13 @@ export default class Events extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  toggleViewVisibility = (currentView) => {
+    this.setState({ activeView: currentView })
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-    const { allEvents, eventsDetailFormState, eventsCreateFormState, metaPanelFormState, eventDetail, eventsPerPageAmount } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView } = this.state;
+    const { allEvents, eventsDetailFormState, eventsCreateFormState, metaPanelFormState, eventDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === EVENTS_MAIN);
@@ -251,6 +257,8 @@ export default class Events extends PureComponent {
       sourceId = eventDetail.sourceId;
     }
 
+    const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(allEvents) : {};
+
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
@@ -264,6 +272,8 @@ export default class Events extends PureComponent {
                 name={EVENTS_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={EVENTS_MAIN}
+                activeView={activeView}
+                toggleViewVisibility={this.toggleViewVisibility}
               />
               <EventsMainPanel
                 headers={columnsToShowConfig}
@@ -281,6 +291,8 @@ export default class Events extends PureComponent {
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
                 id={sourceId}
+                eventsTimeline={eventsTimeline}
+                activeView={activeView}
               />
             </div>
           </Col> : null}
