@@ -84,10 +84,10 @@ export default class Sidebar extends PureComponent {
           <div className="sidebar-nav">
             <div>
               <ul className="sidebar-nav-list">
-                {sidebarConfig.map(item => item.isVisible ? <li className="sidebar-nav-item">
-                    { (!_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link> : null }
-                    { (_.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
-                  </li> : null)
+                {sidebarConfig.map(item => (item.isVisible ? <li className="sidebar-nav-item">
+                  { (!_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link> : null }
+                  { (_.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
+                </li> : null))
                 }
               </ul>
             </div>
