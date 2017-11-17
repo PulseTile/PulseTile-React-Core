@@ -27,9 +27,9 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.NOTE_TYPE}
-                  name={valuesNames.NOTE_TYPE}
-                  id={valuesNames.NOTE_TYPE}
+                  label={valuesLabels.TYPE}
+                  name={valuesNames.TYPE}
+                  id={valuesNames.TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}

@@ -9,6 +9,11 @@ export const valuesNames = {
   NOTES: 'notes',
   AUTHOR: 'author',
   DATE: 'currentDate',
+  DATE_CREATED: 'dateCreated',
+  DATE_SUBMITTED: 'dateSubmitted',
+
+  SOURCE: 'source',
+  SOURCE_ID: 'sourceId',
 };
 
 export const valuesLabels = {
@@ -22,6 +27,9 @@ export const valuesLabels = {
   NOTES: 'Note',
   AUTHOR: 'Author',
   DATE: 'Date',
+
+  SOURCE: 'Source',
+  SOURCE_ID: 'Source ID',
 };
 
 export const relationshipOptions = [

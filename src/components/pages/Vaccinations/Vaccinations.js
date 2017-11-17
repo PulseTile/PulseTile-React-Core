@@ -52,7 +52,7 @@ export default class Vaccination extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: VACCINATIONS_PANEL,
-    columnNameSortBy: 'vaccinationName',
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -101,9 +101,10 @@ export default class Vaccination extends PureComponent {
 
   filterAndSortVaccinations = (vaccinations) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByVaccinationsPredicate = _.flow(_.get('vaccinationName'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
+    const filterByVaccinationsPredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
+
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -111,19 +112,19 @@ export default class Vaccination extends PureComponent {
 
     if (vaccinations !== undefined) {
       vaccinations.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
       });
     }
 
     const filterByVaccinations = _.flow(_.filter(filterByVaccinationsPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(vaccinations);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder)(vaccinations);
-    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(vaccinations);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder)(vaccinations);
+    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder)(vaccinations);
 
     const filteredAndSortedVaccinations = [filterByVaccinations, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateCreated') {
+    if (columnNameSortBy === valuesNames.DATE) {
       return filterByDate
     }
     return _.head(filteredAndSortedVaccinations)
@@ -198,15 +199,15 @@ export default class Vaccination extends PureComponent {
     const sendData = {};
 
     sendData.userId = userId;
-    sendData[valuesNames.VACCINATION_NAME] = formValues[valuesNames.VACCINATION_NAME];
-    sendData[valuesNames.VACCINATION_DATE] = formValues[valuesNames.VACCINATION_DATE];
+    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.DATE_TIME] = formValues[valuesNames.DATE_TIME];
     sendData[valuesNames.SERIES_NUMBER] = formValues[valuesNames.SERIES_NUMBER];
     sendData[valuesNames.COMMENT] = formValues[valuesNames.COMMENT];
-    sendData[valuesNames.VACCINATION_SOURCE] = formValues[valuesNames.VACCINATION_SOURCE];
-    sendData.dateCreated = new Date();
+    sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
+    sendData[valuesNames.DATE] = new Date();
 
     if (formName === 'edit') {
-      sendData.sourceId = vaccinationDetail.sourceId;
+      sendData[valuesNames.SOURCE_ID] = vaccinationDetail[valuesNames.SOURCE_ID];
     }
 
     return sendData;
@@ -230,7 +231,7 @@ export default class Vaccination extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(vaccinationDetail)) {
-      sourceId = vaccinationDetail.sourceId;
+      sourceId = vaccinationDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">

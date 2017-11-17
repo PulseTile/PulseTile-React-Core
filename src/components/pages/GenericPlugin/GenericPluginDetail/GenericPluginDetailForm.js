@@ -18,9 +18,9 @@ export default class GenericPluginPanelForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.GENERIC_PLUGIN_TYPE]: value.type,
-      [valuesNames.NOTE]: value.note,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.TYPE]: value[valuesNames.TYPE],
+      [valuesNames.NOTE]: value[valuesNames.NOTE],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -34,9 +34,9 @@ export default class GenericPluginPanelForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.GENERIC_PLUGIN_TYPE}
-                  name={valuesNames.GENERIC_PLUGIN_TYPE}
-                  id={valuesNames.GENERIC_PLUGIN_TYPE}
+                  label={valuesLabels.TYPE}
+                  name={valuesNames.TYPE}
+                  id={valuesNames.TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
@@ -67,7 +67,7 @@ export default class GenericPluginPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

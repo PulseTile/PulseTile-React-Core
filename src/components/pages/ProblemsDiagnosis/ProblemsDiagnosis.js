@@ -52,7 +52,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: DIAGNOSES_PANEL,
-    columnNameSortBy: 'problem',
+    columnNameSortBy: valuesNames.PROBLEM,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -101,9 +101,10 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   filterAndSortDiagnoses = (diagnoses) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByProblemPredicate = _.flow(_.get('problem'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateOfOnset'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByProblemPredicate = _.flow(_.get(valuesNames.PROBLEM), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_OF_ONSET}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -111,19 +112,19 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     if (diagnoses !== undefined) {
       diagnoses.map((item) => {
-        item.dateOfOnset = getDDMMMYYYY(item.dateOfOnset);
+        item[`${valuesNames.DATE_OF_ONSET}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_OF_ONSET]);
       });
     }
 
     const filterByDiagnoses = _.flow(_.filter(filterByProblemPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(diagnoses);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder)(diagnoses);
-    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy]), reverseIfDescOrder)(diagnoses);
+    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder)(diagnoses);
+    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder)(diagnoses);
 
     const filteredAndSortedDiagnoses = [filterByDiagnoses, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateOfOnset') {
+    if (columnNameSortBy === valuesNames.DATE_OF_ONSET) {
       return filterByDate
     }
     return _.head(filteredAndSortedDiagnoses)
@@ -205,12 +206,12 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     if (formName === 'edit') {
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
-      sendData[valuesNames.SOURCEID] = formValues[valuesNames.SOURCEID];
+      sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
     }
 
     if (formName === 'edit') {
-      sendData.source = 'ethercis';
-      sendData.sourceId = diagnosisDetail.sourceId;
+      sendData[valuesNames.SOURCE] = 'ethercis';
+      sendData[valuesNames.SOURCE_ID] = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
     return sendData;
@@ -234,7 +235,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(diagnosisDetail)) {
-      sourceId = diagnosisDetail.sourceId;
+      sourceId = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">

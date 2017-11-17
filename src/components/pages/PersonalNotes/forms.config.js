@@ -1,15 +1,19 @@
 export const valuesNames = {
-  NOTE_TYPE: 'noteType',
+  TYPE: 'noteType',
   NOTES: 'notes',
   AUTHOR: 'author',
   DATE: 'dateCreated',
-  SOURCEID: 'sourceId',
+
   SOURCE: 'source',
+  SOURCE_ID: 'sourceId',
 };
 
 export const valuesLabels = {
-  NOTE_TYPE: 'Type',
+  TYPE: 'Type',
   NOTES: 'Note',
   AUTHOR: 'Author',
   DATE: 'Date',
+
+  SOURCE: 'Source',
+  SOURCE_ID: 'Source ID',
 };

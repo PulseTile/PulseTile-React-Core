@@ -51,7 +51,7 @@ export default class ClinicalNotes extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: CLINICAL_NOTES_PANEL,
-    columnNameSortBy: 'clinicalNotesType',
+    columnNameSortBy: valuesNames.TYPE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -100,10 +100,11 @@ export default class ClinicalNotes extends PureComponent {
 
   filterAndSortClinicalNotes = (clinicalNotes) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByClinicalNotesTypePredicate = _.flow(_.get('clinicalNotesType'), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByClinicalNotesTypePredicate = _.flow(_.get(valuesNames.TYPE), _.toLower, _.includes(nameShouldInclude));
+    const filterByAuthorPredicate = _.flow(_.get(valuesNames.AUTHOR), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_CREATED}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -111,20 +112,20 @@ export default class ClinicalNotes extends PureComponent {
 
     if (clinicalNotes !== undefined) {
       clinicalNotes.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+        item[`${valuesNames.DATE_CREATED}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_CREATED]);
       });
     }
 
     const filterByClinicalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByClinicalNotesTypePredicate))(clinicalNotes);
     const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(clinicalNotes);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(clinicalNotes);
+    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(clinicalNotes);
+    const filterBySource = _.flow(_.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder, _.filter(filterBySourcePredicate))(clinicalNotes);
 
     const filteredAndSortedClinicalNotes = [filterByClinicalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateCreated') {
+    if (columnNameSortBy === valuesNames.DATE_CREATED) {
       return filterByDate
     }
     return _.head(filteredAndSortedClinicalNotes)
@@ -196,18 +197,18 @@ export default class ClinicalNotes extends PureComponent {
     const sendData = {};
 
     sendData.userId = userId;
-    sendData[valuesNames.CLINICAL_NOTES_TYPE] = formValues[valuesNames.CLINICAL_NOTES_TYPE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
     sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData.sourceId = clinicalNoteDetail.sourceId;
-      sendData.source = clinicalNoteDetail.source;
+      sendData[valuesNames.SOURCE_ID] = clinicalNoteDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = clinicalNoteDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
-      sendData.source = formValues[valuesNames.SOURCE];
+      sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
     return sendData;
@@ -231,7 +232,7 @@ export default class ClinicalNotes extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(clinicalNoteDetail)) {
-      sourceId = clinicalNoteDetail.sourceId;
+      sourceId = clinicalNoteDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">

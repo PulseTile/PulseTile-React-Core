@@ -52,7 +52,7 @@ export default class PersonalNotes extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: PERSONAL_NOTES_PANEL,
-    columnNameSortBy: 'noteType',
+    columnNameSortBy: valuesNames.NOTE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -102,10 +102,10 @@ export default class PersonalNotes extends PureComponent {
   filterAndSortPersonalNotes = (personalNotes) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
-    const filterByPersonalNotesTypePredicate = _.flow(_.get('noteType'), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByPersonalNotesTypePredicate = _.flow(_.get(valuesNames.NOTE), _.toLower, _.includes(nameShouldInclude));
+    const filterByAuthorPredicate = _.flow(_.get(valuesNames.AUTHOR), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -113,20 +113,20 @@ export default class PersonalNotes extends PureComponent {
 
     if (personalNotes !== undefined) {
       personalNotes.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
       });
     }
 
     const filterByPersonalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByPersonalNotesTypePredicate))(personalNotes);
     const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(personalNotes);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(personalNotes);
+    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(personalNotes);
     const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(personalNotes);
 
     const filteredAndSortedPersonalNotes = [filterByPersonalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateCreated') {
+    if (columnNameSortBy === valuesNames.DATE) {
       return filterByDate
     }
     return _.head(filteredAndSortedPersonalNotes)
@@ -199,19 +199,19 @@ export default class PersonalNotes extends PureComponent {
     const currentDate = new Date();
 
     sendData.userId = userId;
-    sendData[valuesNames.NOTE_TYPE] = formValues[valuesNames.NOTE_TYPE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
     sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData.sourceId = personalNoteDetail.sourceId;
-      sendData.source = personalNoteDetail.source;
+      sendData[valuesNames.SOURCE_ID] = personalNoteDetail[valuesNames.SOURCE_ID];
+      sendData[SOURCE] = personalNoteDetail[SOURCE];
     }
 
     if (formName === 'create') {
       sendData[valuesNames.DATE] = moment(currentDate).format('YYYY-MM-DD');
-      sendData.source = formValues[valuesNames.SOURCE];
+      sendData[SOURCE] = formValues[valuesNames.SOURCE];
     }
 
     return sendData;
@@ -235,7 +235,7 @@ export default class PersonalNotes extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(personalNoteDetail)) {
-      sourceId = personalNoteDetail.sourceId;
+      sourceId = personalNoteDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">

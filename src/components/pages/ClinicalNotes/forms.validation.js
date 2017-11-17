@@ -1,7 +1,9 @@
+import { valuesNames } from './forms.config';
+
 const validateForm = (values) => {
   const errors = {};
-  errors.clinicalNotesType = !values.clinicalNotesType ? 'You must enter a value.' : null;
-  errors.note = !values.note ? 'You must enter a value.' : null;
+  errors[valuesNames.TYPE] = !values[valuesNames.TYPE] ? 'You must enter a value.' : null;
+  errors[valuesNames.NOTE] = !values[valuesNames.NOTE] ? 'You must enter a value.' : null;
   return errors
 };
 

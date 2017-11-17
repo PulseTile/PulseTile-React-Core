@@ -54,7 +54,7 @@ export default class Contacts extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: CONTACT_PANEL,
-    columnNameSortBy: 'name',
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -104,10 +104,10 @@ export default class Contacts extends PureComponent {
   filterAndSortContacts = (contacts) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByRelationshipPredicate = _.flow(_.get('relationship'), _.toLower, _.includes(nameShouldInclude));
-    const filterByNextOfKinPredicate = _.flow(_.get('nextOfKin'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
+    const filterByRelationshipPredicate = _.flow(_.get(valuesNames.REALATIONSHIP), _.toLower, _.includes(nameShouldInclude));
+    const filterByNextOfKinPredicate = _.flow(_.get(valuesNames.NEXT_OF_KIN), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
@@ -203,11 +203,11 @@ export default class Contacts extends PureComponent {
    sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-   sendData.dateSubmitted = new Date();
-   sendData.source = 'ethercis';
+   sendData[valuesNames.DATE_SUBMITTED] = new Date();
+   sendData[valuesNames.SOURCE] = 'ethercis';
 
    if (formName === 'edit') {
-     sendData.sourceId = contactDetail.sourceId;
+     sendData[valuesNames.SOURCE_ID] = contactDetail[valuesNames.SOURCE_ID];
    }
 
    return sendData;
@@ -222,7 +222,7 @@ export default class Contacts extends PureComponent {
  };
 
  fixContactsItems = contacts => contacts.map((el) => {
-   el.nextOfKin = el.nextOfKin || false;
+   el[valuesNames.NEXT_OF_KIN] = el[valuesNames.NEXT_OF_KIN] || false;
    return el;
  });
 
@@ -246,7 +246,7 @@ export default class Contacts extends PureComponent {
 
    let sourceId;
    if (!_.isEmpty(contactDetail)) {
-     sourceId = contactDetail.sourceId;
+     sourceId = contactDetail[valuesNames.SOURCE_ID];
    }
 
    return (<section className="page-wrapper">

@@ -27,8 +27,8 @@ export default class MedicationsPrescriptionForm extends PureComponent {
   defaultValuesForm(value) {
     const date = new Date();
     const defaultFormValues = {
-      [valuesNames.NAME]: value.name,
-      [valuesNames.DOSE_AMOUNT]: value.doseAmount,
+      [valuesNames.NAME]: value[valuesNames.NAME],
+      [valuesNames.DOSE_AMOUNT]: value[valuesNames.DOSE_AMOUNT],
       [valuesNames.DOSE_INTERVAL]: '',
       [valuesNames.DOSE_QUANTITY]: '',
       [valuesNames.CURRENT_DATE]: date.getTime(),

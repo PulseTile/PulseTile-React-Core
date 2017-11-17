@@ -17,9 +17,9 @@ export default class AllergieMetaForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.CAUSECODE]: value.causeCode,
-      [valuesNames.TERMINOLOGY]: value.causeTerminology,
-      [valuesNames.TERMINOLOGYCODE]: value.terminologyCode,
+      [valuesNames.CAUSECODE]: value[valuesNames.CAUSECODE],
+      [valuesNames.TERMINOLOGY]: value[valuesNames.TERMINOLOGY],
+      [valuesNames.TERMINOLOGYCODE]: value[valuesNames.TERMINOLOGYCODE],
     };
 
     return defaultFormValues;

@@ -33,9 +33,8 @@ export default class TestResultsDetail extends PureComponent {
     detail = detail || {};
     const sampleTaken = getDDMMMYYYY(detail[valuesNames.TAKEN]);
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE]);
-    let listOfResults = this.getListOfResult(detail[valuesNames.TR]);
+    const listOfResults = this.getListOfResult(detail[valuesNames.TR]);
 
-    console.log('listOfResults', listOfResults);
     return (
       <div className="section-detail">
         <div className="panel-group accordion">

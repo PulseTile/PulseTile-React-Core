@@ -51,7 +51,7 @@ export default class GenericPlugin extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: GENERIC_PLUGIN_PANEL,
-    columnNameSortBy: 'type',
+    columnNameSortBy: valuesNames.TYPE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -100,10 +100,11 @@ export default class GenericPlugin extends PureComponent {
 
   filterAndSortGenericPlugin = (genericPlugins) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByGenericPluginTypePredicate = _.flow(_.get('type'), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(''), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByGenericPluginTypePredicate = _.flow(_.get(valuesNames.TYPE), _.toLower, _.includes(nameShouldInclude));
+    const filterByAuthorPredicate = _.flow(_.get(valuesNames.AUTHOR), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_CREATED}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -111,20 +112,20 @@ export default class GenericPlugin extends PureComponent {
 
     if (genericPlugins !== undefined) {
       genericPlugins.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+        item[`${valuesNames.DATE_CREATED}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_CREATED]);
       });
     }
 
     const filterByGenericPluginType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByGenericPluginTypePredicate))(genericPlugins);
     const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(genericPlugins);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(genericPlugins);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(genericPlugins);
+    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(genericPlugins);
+    const filterBySource = _.flow(_.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder, _.filter(filterBySourcePredicate))(genericPlugins);
 
     const filteredAndSortedGenericPlugin = [filterByGenericPluginType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateCreated') {
+    if (columnNameSortBy === valuesNames.DATE_CREATED) {
       return filterByDate
     }
     return _.head(filteredAndSortedGenericPlugin)
@@ -196,7 +197,7 @@ export default class GenericPlugin extends PureComponent {
     const sendData = {};
 
     sendData.userId = userId;
-    sendData[valuesNames.GENERIC_PLUGIN_TYPE] = formValues[valuesNames.GENERIC_PLUGIN_TYPE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
     sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
@@ -231,7 +232,7 @@ export default class GenericPlugin extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(genericPluginDetail)) {
-      sourceId = genericPluginDetail.sourceId;
+      sourceId = genericPluginDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">
