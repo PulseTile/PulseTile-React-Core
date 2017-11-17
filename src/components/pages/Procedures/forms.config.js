@@ -15,7 +15,6 @@ export const valuesNames = {
   ORIGINAL_COMPOSITION: 'originalComposition',
   ORIGINAL_SOURCE: 'originalSource',
   PROCEDURE_NAME: 'procedureName',
-
 };
 
 export const valuesLabels = {

@@ -9,6 +9,7 @@ import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccin
 import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
+import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -19,6 +20,7 @@ import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 import Medications from './components/pages/Medications/Medications';
 import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
 import Procedures from './components/pages/Procedures/Procedures';
+import TestResults from './components/pages/TestResults/TestResults';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -28,8 +30,9 @@ export const sidebarConfig = [
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
   { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
-  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
+  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: true },
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'testResults', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
 ];
 
@@ -50,6 +53,7 @@ export const pluginsEpicConfig = [
   genericPluginEpic,
   medicationsEpic,
   proceduresEpic,
+  testResultsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -62,6 +66,7 @@ export const pluginsReducerConfig = [
   genericPluginReducer,
   medicationsReducer,
   proceduresReducer,
+  testResultsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -100,5 +105,9 @@ export const routersPluginConfig = [
   { key: 'procedures', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}` },
   { key: 'proceduresCreate', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/create` },
   { key: 'proceduresDetail', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/:sourceId` },
+
+  { key: 'testResults', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}` },
+  { key: 'testResultsCreate', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/create` },
+  { key: 'testResultsDetail', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/:sourceId` },
 
 ];
