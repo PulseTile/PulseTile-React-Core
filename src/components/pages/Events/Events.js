@@ -99,9 +99,8 @@ export default class Events extends PureComponent {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_OF_EVENT}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterByTimePredicate = _.flow(_.get(`${valuesNames.TIME}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+    const filterByTypePredicate = _.flow(_.get(valuesNames.TYPE), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(valuesNames.DATE_TIME), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
@@ -110,17 +109,15 @@ export default class Events extends PureComponent {
 
     if (events !== undefined) {
       events.map((item) => {
-        item[`${valuesNames.DATE_OF_EVENT}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_OF_EVENT]);
-        item[`${valuesNames.TIME}Convert`] = getHHmm(item[valuesNames.TIME]);
+        item[valuesNames.DATE_TIME] = getDDMMMYYYY(item[valuesNames.DATE_TIME]);
       });
     }
 
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(events);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(events);
-    const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByTimePredicate))(events);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(events);
+    const filterByType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByTypePredicate))(events);
+    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(events);
 
-    const filteredAndSortedEvents = [filterByName, filterByDate, filterByTime, filterBySource].filter((item) => {
+    const filteredAndSortedEvents = [filterByName, filterByType, filterByDate].filter((item) => {
       return _.size(item) !== 0;
     });
 
