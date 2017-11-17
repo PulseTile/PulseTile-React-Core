@@ -18,6 +18,7 @@ export const clientUrls = {
   GENERIC_PLUGIN: 'genericPlugin',
   PROCEDURES: 'procedures',
   TEST_RESULTS: 'results',
+  REFERRALS: 'referrals',
 };
 
 const pluginsPages = {
@@ -79,6 +80,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Test Results',
       state: '/results',
+    }],
+  },
+  'referrals': {
+    breadcrumbs: [{
+      title: 'Referrals',
+      state: '/referrals',
     }],
   },
 };

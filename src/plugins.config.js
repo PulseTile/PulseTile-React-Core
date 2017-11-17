@@ -10,6 +10,7 @@ import { medicationsEpic, medicationsReducer } from './components/pages/Medicati
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
 import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
+import { referralsEpic, referralsReducer } from './components/pages/Referrals/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -21,6 +22,7 @@ import Medications from './components/pages/Medications/Medications';
 import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
 import Procedures from './components/pages/Procedures/Procedures';
 import TestResults from './components/pages/TestResults/TestResults';
+import Referrals from './components/pages/Referrals/Referrals';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -34,6 +36,7 @@ export const sidebarConfig = [
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
   { key: 'testResults', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
+  { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -54,6 +57,7 @@ export const pluginsEpicConfig = [
   medicationsEpic,
   proceduresEpic,
   testResultsEpic,
+  referralsEpic
 ];
 
 export const pluginsReducerConfig = [
@@ -67,6 +71,7 @@ export const pluginsReducerConfig = [
   medicationsReducer,
   proceduresReducer,
   testResultsReducer,
+  referralsReducer
 ];
 
 export const routersPluginConfig = [
@@ -107,7 +112,10 @@ export const routersPluginConfig = [
   { key: 'proceduresDetail', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/:sourceId` },
 
   { key: 'testResults', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}` },
-  { key: 'testResultsCreate', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/create` },
   { key: 'testResultsDetail', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/:sourceId` },
+
+  { key: 'referrals', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}` },
+  { key: 'referralsCreate', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/create` },
+  { key: 'referralsDetail', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/:sourceId` },
 
 ];
