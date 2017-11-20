@@ -9,7 +9,7 @@ const REFERRAL_PANEL = 'referralPanel';
 
 export default class ReferralsDetail extends PureComponent {
   render() {
-    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, referralsDetailFormValues, metaPanelFormValues, isSubmit } = this.props;
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, referralsDetailFormValues, isSubmit } = this.props;
     let { detail } = this.props;
     detail = detail || {};
     const dateOfReferral = getDDMMMYYYY(detail[valuesNames.DATE]);
@@ -30,7 +30,6 @@ export default class ReferralsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={referralsDetailFormValues}
-            isBtnShowPanel
           >
             <div className="panel-body-inner">
               <div className="form-group-wrapper">
@@ -112,7 +111,6 @@ export default class ReferralsDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={referralsDetailFormValues}
-            isBtnShowPanel
           >
             <ReferralsDetailForm
               detail={detail}

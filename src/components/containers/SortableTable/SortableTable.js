@@ -24,12 +24,12 @@ export default class SortableTable extends PureComponent {
 
   getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
     const { onCellClick, columnNameSortBy, headers, table, id } = this.props;
-
+    const amountCollumns = headers.length - 1;
     return (
       _.isUndefined(resourceData)
-        ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} />
+        ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
         : !resourceData.length
-          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} />
+          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
           : rowsData.map((rowData, index) =>
             <SortableTableRow
               key={_.uniqueId('__SortableTableRow__')}

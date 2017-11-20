@@ -29,7 +29,6 @@ const REFERRALS_MAIN = 'referralsMain';
 const REFERRALS_DETAIL = 'referralsDetail';
 const REFERRALS_CREATE = 'referralsCreate';
 const REFERRAL_PANEL = 'referralPanel';
-const META_PANEL = 'metaPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientReferralsRequest, fetchPatientReferralsCreateRequest, fetchPatientReferralsDetailRequest, fetchPatientReferralsDetailEditRequest }, dispatch) });
 
@@ -37,7 +36,6 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientReferralsDetailSelector, mapDispatchToProps)
 @connect(referralsDetailFormStateSelector)
 @connect(referralsCreateFormStateSelector)
-@connect(metaPanelFormStateSelector)
 @compose(lifecycle(fetchPatientReferralsOnMount), lifecycle(fetchPatientReferralsDetailOnMount))
 
 export default class Referrals extends PureComponent {
@@ -231,7 +229,7 @@ export default class Referrals extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
     const { allReferrals, referralsDetailFormState, referralsCreateFormState, metaPanelFormState, referralDetail, referralsPerPageAmount } = this.props;
 
-    const isPanelDetails = (expandedPanel === REFERRALS_DETAIL || expandedPanel === REFERRAL_PANEL || expandedPanel === META_PANEL);
+    const isPanelDetails = (expandedPanel === REFERRALS_DETAIL || expandedPanel === REFERRAL_PANEL);
     const isPanelMain = (expandedPanel === REFERRALS_MAIN);
     const isPanelCreate = (expandedPanel === REFERRALS_CREATE);
 
@@ -291,7 +289,6 @@ export default class Referrals extends PureComponent {
               onCancel={this.handleReferralDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               referralsDetailFormValues={referralsDetailFormState.values}
-              metaPanelFormValues={metaPanelFormState.values}
               isSubmit={isSubmit}
             />
           </Col> : null}

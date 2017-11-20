@@ -183,7 +183,7 @@ export default class TestResults extends PureComponent {
              <div className="panel panel-primary">
                <PluginListHeader
                  onFilterChange={this.handleFilterChange}
-                 panelTitle="TestResults"
+                 panelTitle="Test Results"
                  isBtnExpandVisible={isBtnExpandVisible}
                  isBtnTableVisible={false}
                  name={TEST_RESULTS_MAIN}
@@ -193,7 +193,7 @@ export default class TestResults extends PureComponent {
                <PluginMainPanel
                  headers={columnsToShowConfig}
                  resourceData={allTestResults}
-                 emptyDataMessage="No test results"
+                 emptyDataMessage="No results"
                  onHeaderCellClick={this.handleHeaderCellClick}
                  onCellClick={this.handleDetailTestResultsClick}
                  columnNameSortBy={columnNameSortBy}
