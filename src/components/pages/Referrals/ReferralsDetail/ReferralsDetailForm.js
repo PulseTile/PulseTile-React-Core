@@ -8,23 +8,22 @@ import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 
 @reduxForm({
-  form: 'proceduresDetailFormSelector',
+  form: 'referralsDetailFormSelector',
   validate: validateForm,
 })
 
-export default class ProceduresDetailForm extends PureComponent {
+export default class ReferralDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.NAME]: value[valuesNames.NAME],
-      [valuesNames.DATE_OF_PROCEDURE]: value[valuesNames.DATE_OF_PROCEDURE],
-      [valuesNames.PERFORMER]: value[valuesNames.PERFORMER],
-      [valuesNames.NOTES]: value[valuesNames.NOTES],
-      [valuesNames.TERMINOLOGY]: value[valuesNames.TERMINOLOGY],
-      [valuesNames.CODE]: value[valuesNames.CODE],
+      [valuesNames.FROM]: value[valuesNames.FROM],
+      [valuesNames.TO]: value[valuesNames.TO],
+      [valuesNames.DATE]: value[valuesNames.DATE],
+      [valuesNames.REASON]: value[valuesNames.REASON],
+      [valuesNames.SUMMARY]: value[valuesNames.SUMMARY],
       [valuesNames.AUTHOR]: value[valuesNames.AUTHOR]
     };
 
@@ -34,14 +33,14 @@ export default class ProceduresDetailForm extends PureComponent {
     const { detail, isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
-        <form name="proceduresDetailForm" className="form">
+        <form name="referralsDetailForm" className="form">
           <div className="form-group-wrapper">
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.NAME}
-                  name={valuesNames.NAME}
-                  id={valuesNames.NAME}
+                  label={valuesLabels.FROM}
+                  name={valuesNames.FROM}
+                  id={valuesNames.FROM}
                   type="text"
                   component={ValidatedInput}
                   props={{ isSubmit }}
@@ -49,9 +48,22 @@ export default class ProceduresDetailForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.DATE_OF_PROCEDURE}
-                  name={valuesNames.DATE_OF_PROCEDURE}
-                  id={valuesNames.DATE_OF_PROCEDURE}
+                  label={valuesLabels.TO}
+                  name={valuesNames.TO}
+                  id={valuesNames.TO}
+                  type="text"
+                  component={ValidatedInput}
+                  props={{ isSubmit }}
+                />
+              </div>
+            </div>
+
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.DATE}
+                  name={valuesNames.DATE}
+                  id={valuesNames.DATE}
                   component={DateInput}
                   props={{ format: 'DD-MMM-YYYY', isSubmit }}
                 />
@@ -61,43 +73,19 @@ export default class ProceduresDetailForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.PERFORMER}
-                  name={valuesNames.PERFORMER}
-                  id={valuesNames.PERFORMER}
-                  type="text"
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
-                />
-              </div>
-              <div className="col-expand-right">
-                <Field
-                  label={valuesLabels.NOTES}
-                  name={valuesNames.NOTES}
-                  id={valuesNames.NOTES}
+                  label={valuesLabels.REASON}
+                  name={valuesNames.REASON}
+                  id={valuesNames.REASON}
                   component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
               </div>
-            </div>
-
-            <div className="row-expand">
-              <div className="col-expand-left">
-                <Field
-                  label={valuesLabels.TERMINOLOGY}
-                  name={valuesNames.TERMINOLOGY}
-                  id={valuesNames.TERMINOLOGY}
-                  type="text"
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
-                />
-              </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.CODE}
-                  name={valuesNames.CODE}
-                  id={valuesNames.CODE}
-                  type="text"
-                  component={ValidatedInput}
+                  label={valuesLabels.SUMMARY}
+                  name={valuesNames.SUMMARY}
+                  id={valuesNames.SUMMARY}
+                  component={ValidatedTextareaFormGroup}
                   props={{ isSubmit }}
                 />
               </div>
@@ -115,11 +103,11 @@ export default class ProceduresDetailForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.DATE}
-                  name={valuesNames.DATE}
-                  id={valuesNames.DATE}
+                  label={valuesLabels.DATE_CREATED}
+                  name={valuesNames.DATE_CREATED}
+                  id={valuesNames.DATE_CREATED}
                   component={DateInput}
-                  props={{ disabled: true, value: detail[valuesNames.DATE], format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

@@ -52,7 +52,7 @@ export default class PersonalNotes extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: PERSONAL_NOTES_PANEL,
-    columnNameSortBy: valuesNames.NOTE,
+    columnNameSortBy: valuesNames.TYPE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,

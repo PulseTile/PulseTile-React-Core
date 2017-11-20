@@ -11,6 +11,7 @@ import { genericPluginEpic, genericPluginReducer } from './components/pages/Gene
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
 import { eventsEpic, eventsReducer } from './components/pages/Events/index'
 import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
+import { referralsEpic, referralsReducer } from './components/pages/Referrals/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -23,6 +24,7 @@ import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
 import Procedures from './components/pages/Procedures/Procedures';
 import Events from './components/pages/Events/Events';
 import TestResults from './components/pages/TestResults/TestResults';
+import Referrals from './components/pages/Referrals/Referrals';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -34,9 +36,10 @@ export const sidebarConfig = [
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
-  { key: 'testResults', pathToTransition: '/results', name: 'Test Results', isVisible: true },
+  { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
   { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -58,6 +61,7 @@ export const pluginsEpicConfig = [
   proceduresEpic,
   eventsEpic,
   testResultsEpic,
+  referralsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -72,6 +76,7 @@ export const pluginsReducerConfig = [
   proceduresReducer,
   eventsReducer,
   testResultsReducer,
+  referralsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -116,7 +121,10 @@ export const routersPluginConfig = [
   { key: 'eventsDetail', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}/:sourceId` },
 
   { key: 'testResults', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}` },
-  { key: 'testResultsCreate', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/create` },
   { key: 'testResultsDetail', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/:sourceId` },
+
+  { key: 'referrals', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}` },
+  { key: 'referralsCreate', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/create` },
+  { key: 'referralsDetail', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/:sourceId` },
 
 ];
