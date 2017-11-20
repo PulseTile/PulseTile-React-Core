@@ -65,6 +65,7 @@ export default class Referrals extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
@@ -73,6 +74,9 @@ export default class Referrals extends PureComponent {
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -95,7 +99,7 @@ export default class Referrals extends PureComponent {
 
   handleDetailReferralsClick = (id, name, sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientReferralsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/${sourceId}`);
   };
@@ -135,7 +139,7 @@ export default class Referrals extends PureComponent {
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: REFERRALS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: REFERRALS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/create`);
   };
 
@@ -156,6 +160,7 @@ export default class Referrals extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -169,6 +174,7 @@ export default class Referrals extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -188,7 +194,7 @@ export default class Referrals extends PureComponent {
       actions.fetchPatientReferralsCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`);
       this.hideCreateForm();
-      this.setState({ isSubmit: false });
+      this.setState({ isSubmit: false, isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -226,7 +232,7 @@ export default class Referrals extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allReferrals, referralsDetailFormState, referralsCreateFormState, metaPanelFormState, referralDetail, referralsPerPageAmount } = this.props;
 
     const isPanelDetails = (expandedPanel === REFERRALS_DETAIL || expandedPanel === REFERRAL_PANEL);
@@ -272,6 +278,7 @@ export default class Referrals extends PureComponent {
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
                 id={sourceId}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null}
