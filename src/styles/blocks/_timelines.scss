@@ -2,11 +2,15 @@
   border: 1px solid #d8d8d8;
   margin-bottom: 7px;
   padding: 11px 8px 12px 14px;
+
+  & > div > div:first-child {
+    padding-right: 15px;
+  }
 }
-.timeline-content-scroll {
-  height: 648px;
-  overflow: hidden;
-}
+//.timeline-content-scroll {
+//  height: 648px;
+//  overflow: hidden;
+//}
 .timeline {
   margin: 0 auto;
   max-width: 454px;

@@ -66,6 +66,7 @@ export default class Contacts extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
@@ -74,6 +75,9 @@ export default class Contacts extends PureComponent {
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
  handleExpand = (name, currentPanel) => {
@@ -94,9 +98,9 @@ export default class Contacts extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailContactsClick = (id, name, sourceId) => {
+  handleDetailContactsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientContactsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}`);
   };
@@ -130,7 +134,7 @@ export default class Contacts extends PureComponent {
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`);
   };
 
@@ -151,6 +155,7 @@ export default class Contacts extends PureComponent {
        [name]: false,
      },
      isSubmit: false,
+     isLoading: true,
    }))
  };
 
@@ -164,6 +169,7 @@ export default class Contacts extends PureComponent {
          [name]: false,
        },
        isSubmit: false,
+       isLoading: true,
      }))
    } else {
      this.setState({ isSubmit: true });
@@ -183,7 +189,7 @@ export default class Contacts extends PureComponent {
      actions.fetchPatientContactsCreateRequest(this.formValuesToString(formValues, 'create'));
      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
      this.hideCreateForm();
-     this.setState({ isSubmit: false });
+     this.setState({ isSubmit: false, isLoading: true });
    } else {
      this.setState({ isSubmit: true });
    }
@@ -227,7 +233,7 @@ export default class Contacts extends PureComponent {
  });
 
  render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
    const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail } = this.props;
 
    const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
@@ -279,6 +285,7 @@ export default class Contacts extends PureComponent {
                isBtnCreateVisible={isBtnCreateVisible}
                onCreate={this.handleCreate}
                id={sourceId}
+               isLoading={isLoading}
              />
            </div>
          </Col> : null}

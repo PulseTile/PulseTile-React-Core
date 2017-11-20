@@ -9,14 +9,15 @@ export const clientUrls = {
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
-	ALLERGIES: 'allergies',
-	CONTACTS: 'contacts',
-	CLINICAL_NOTES: 'clinicalNotes',
+  ALLERGIES: 'allergies',
+  CONTACTS: 'contacts',
+  CLINICAL_NOTES: 'clinicalNotes',
   PERSONAL_NOTES: 'personalNotes',
   VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
   PROCEDURES: 'procedures',
+  EVENTS: 'events',
   TEST_RESULTS: 'results',
   REFERRALS: 'referrals',
 };
@@ -76,6 +77,12 @@ const pluginsPages = {
       state: '/procedures',
     }],
   },
+  'events': {
+    breadcrumbs: [{
+      title: 'Events',
+      state: '/events',
+    }],
+  },
   'results': {
     breadcrumbs: [{
       title: 'Test Results',
@@ -92,7 +99,7 @@ const pluginsPages = {
 
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
-  for (let nameOfPage in pluginsPages) {
+  for (const nameOfPage in pluginsPages) {
     const breadcrumbs = breadcrumbsBefore.concat(pluginsPages[nameOfPage].breadcrumbs);
     list[nameOfPage] = { breadcrumbs };
   }

@@ -68,18 +68,14 @@ export default class Allergies extends PureComponent {
   };
 
   componentWillReceiveProps() {
-    this.setState({ isLoading: true });
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, isLoading: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`) {
+    setTimeout(() => {
       this.setState({ isLoading: false })
-    }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`) {
-      this.setState({ isLoading: false })
-    }
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -100,7 +96,7 @@ export default class Allergies extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailAllergiesClick = (id, name, sourceId) => {
+  handleDetailAllergiesClick = (sourceId) => {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
@@ -154,6 +150,7 @@ export default class Allergies extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -180,6 +177,7 @@ export default class Allergies extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });

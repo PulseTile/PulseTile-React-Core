@@ -9,6 +9,7 @@ import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccin
 import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
+import { eventsEpic, eventsReducer } from './components/pages/Events/index'
 import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
 import { referralsEpic, referralsReducer } from './components/pages/Referrals/index'
 
@@ -21,6 +22,7 @@ import Vaccinations from './components/pages/Vaccinations/Vaccinations';
 import Medications from './components/pages/Medications/Medications';
 import GenericPlugin from './components/pages/GenericPlugin/GenericPlugin';
 import Procedures from './components/pages/Procedures/Procedures';
+import Events from './components/pages/Events/Events';
 import TestResults from './components/pages/TestResults/TestResults';
 import Referrals from './components/pages/Referrals/Referrals';
 
@@ -36,6 +38,7 @@ export const sidebarConfig = [
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
   { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
 ];
 
@@ -56,8 +59,9 @@ export const pluginsEpicConfig = [
   genericPluginEpic,
   medicationsEpic,
   proceduresEpic,
+  eventsEpic,
   testResultsEpic,
-  referralsEpic
+  referralsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -70,8 +74,9 @@ export const pluginsReducerConfig = [
   genericPluginReducer,
   medicationsReducer,
   proceduresReducer,
+  eventsReducer,
   testResultsReducer,
-  referralsReducer
+  referralsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -110,6 +115,10 @@ export const routersPluginConfig = [
   { key: 'procedures', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}` },
   { key: 'proceduresCreate', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/create` },
   { key: 'proceduresDetail', component: Procedures, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.PROCEDURES}/:sourceId` },
+
+  { key: 'events', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}` },
+  { key: 'eventsCreate', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}/create` },
+  { key: 'eventsDetail', component: Events, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.EVENTS}/:sourceId` },
 
   { key: 'testResults', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}` },
   { key: 'testResultsDetail', component: TestResults, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TEST_RESULTS}/:sourceId` },
