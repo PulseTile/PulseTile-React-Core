@@ -76,7 +76,7 @@ const pluginsPages = {
       state: '/procedures',
     }],
   },
-  'testResults': {
+  'results': {
     breadcrumbs: [{
       title: 'Test Results',
       state: '/results',

@@ -34,7 +34,7 @@ export const sidebarConfig = [
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
-  { key: 'testResults', pathToTransition: '/results', name: 'Test Results', isVisible: true },
+  { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
 ];
