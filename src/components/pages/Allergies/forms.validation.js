@@ -1,21 +1,23 @@
+import { valuesNames } from './forms.config';
+
 const validateAllergiesCreateForm = (values) => {
   const errors = {};
-  errors.cause = !values.cause ? 'You must enter a value.' : null;
-  errors.reaction = !values.reaction ? 'You must enter a value.' : null;
-  errors.causeTerminology = !values.causeTerminology ? 'You must enter a value.' : null;
+  errors[valuesNames.CAUSE] = !values[valuesNames.CAUSE] ? 'You must enter a value.' : null;
+  errors[valuesNames.REACTION] = !values[valuesNames.REACTION] ? 'You must enter a value.' : null;
+  errors[valuesNames.TERMINOLOGY] = !values[valuesNames.TERMINOLOGY] ? 'You must enter a value.' : null;
   return errors
 };
 
 const validateAllergiesMeta = (values) => {
   const errors = {};
-  errors.causeTerminology = !values.causeTerminology ? 'You must enter a value.' : null;
+  errors[valuesNames.TERMINOLOGY] = !values[valuesNames.TERMINOLOGY] ? 'You must enter a value.' : null;
   return errors
 };
 
 const validateAllergiesPanel = (values) => {
   const errors = {};
-  errors.cause = !values.cause ? 'You must enter a value.' : null;
-  errors.reaction = !values.reaction ? 'You must enter a value.' : null;
+  errors[valuesNames.CAUSE] = !values[valuesNames.CAUSE] ? 'You must enter a value.' : null;
+  errors[valuesNames.REACTION] = !values[valuesNames.REACTION] ? 'You must enter a value.' : null;
   return errors
 };
 

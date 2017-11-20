@@ -52,7 +52,7 @@ export default class Allergies extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: ALLERGIE_PANEL,
-    columnNameSortBy: 'cause',
+    columnNameSortBy: valuesNames.CAUSE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -109,9 +109,10 @@ export default class Allergies extends PureComponent {
 
   filterAndSortAllergies = (allergies) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByCausePredicate = _.flow(_.get('cause'), _.toLower, _.includes(nameShouldInclude));
-    const filterByReactionPredicate = _.flow(_.get('reaction'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByCausePredicate = _.flow(_.get(valuesNames.CAUSE), _.toLower, _.includes(nameShouldInclude));
+    const filterByReactionPredicate = _.flow(_.get(valuesNames.REACTION), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
+
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
@@ -158,16 +159,18 @@ export default class Allergies extends PureComponent {
 
   handleSaveSettingsDetailForm = (formValues, name) => {
     const { allergieDetail, actions, allergiePanelFormState } = this.props;
-    formValues.causeCode = allergieDetail.causeCode;
+
+    formValues[valuesNames.CAUSECODE] = allergieDetail[valuesNames.CAUSECODE];
+
     if (name === ALLERGIE_PANEL) {
-      allergieDetail.cause = formValues.cause;
-      allergieDetail.reaction = formValues.reaction;
-      formValues.causeTerminology = allergieDetail.causeTerminology;
+      allergieDetail[valuesNames.CAUSE] = formValues[valuesNames.CAUSE];
+      allergieDetail[valuesNames.REACTION] = formValues[valuesNames.REACTION];
+      formValues[valuesNames.TERMINOLOGY] = allergieDetail[valuesNames.TERMINOLOGY];
     }
     if (name === META_PANEL) {
-      allergieDetail.causeTerminology = formValues.causeTerminology;
-      formValues.cause = allergieDetail.cause;
-      formValues.reaction = allergieDetail.reaction;
+      formValues[valuesNames.CAUSE] = allergieDetail[valuesNames.CAUSE];
+      formValues[valuesNames.REACTION] = allergieDetail[valuesNames.REACTION];
+      allergieDetail[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
     }
     if (checkIsValidateForm(allergiePanelFormState)) {
       actions.fetchPatientAllergiesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
@@ -212,12 +215,12 @@ export default class Allergies extends PureComponent {
     sendData[valuesNames.CAUSECODE] = formValues[valuesNames.CAUSECODE];
 
     if (formName === 'edit') {
-      sendData.sourceId = allergieDetail.sourceId;
-      sendData.source = 'ethercis';
+      sendData[valuesNames.SOURCE_ID] = allergieDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = 'ethercis';
     }
 
     if (formName === 'create') {
-      sendData.sourceId = '';
+      sendData[valuesNames.SOURCE_ID] = '';
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
     }
 
@@ -247,7 +250,7 @@ export default class Allergies extends PureComponent {
 
     let sourceId;
     if (!_.isEmpty(allergieDetail)) {
-      sourceId = allergieDetail.sourceId;
+      sourceId = allergieDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">
@@ -273,7 +276,7 @@ export default class Allergies extends PureComponent {
                 columnNameSortBy={columnNameSortBy}
                 sortingOrder={sortingOrder}
                 filteredData={filteredAllergies}
-                totalEntriesAmount={_.size(allAllergies)}
+                totalEntriesAmount={_.size(filteredAllergies)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

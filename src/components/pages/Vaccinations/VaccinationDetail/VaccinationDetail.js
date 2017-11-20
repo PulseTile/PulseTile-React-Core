@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import VaccinationDetailForm from './VaccinationDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 const VACCINATIONS_PANEL = 'vaccinationsPanel';
 
@@ -11,8 +12,8 @@ export default class VaccinationDetail extends PureComponent {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, vaccinationPanelFormValues, isSubmit } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const vaccinationDateTime = getDDMMMYYYY(detail.vaccinationDateTime);
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    const vaccinationDateTime = getDDMMMYYYY(detail[valuesLabels.DATE_TIME]);
+    const dateCreated = getDDMMMYYYY(detail[valuesLabels.DATE]);
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
@@ -36,13 +37,13 @@ export default class VaccinationDetail extends PureComponent {
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Vaccination Name</label>
-                          <div className="form-control-static">{detail.vaccinationName}</div>
+                          <label className="control-label">{valuesLabels.NAME}</label>
+                          <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
-                          <label className="control-label">Vaccination Date</label>
+                          <label className="control-label">{valuesLabels.DATE_TIME}</label>
                           <div className="form-control-static">{vaccinationDateTime}</div>
                         </div>
                       </div>
@@ -50,35 +51,35 @@ export default class VaccinationDetail extends PureComponent {
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Series Number</label>
-                          <div className="form-control-static">{detail.series}</div>
+                          <label className="control-label">{valuesLabels.SERIES_NUMBER}</label>
+                          <div className="form-control-static">{detail[valuesNames.SERIES_NUMBER]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
-                          <label className="control-label">Vaccination Source</label>
-                          <div className="form-control-static">{detail.source}</div>
+                          <label className="control-label">{valuesLabels.SOURCE}</label>
+                          <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
                         </div>
                       </div>
                     </div>
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Comment</label>
-                          <div className="form-control-static">{detail.comment}</div>
+                          <label className="control-label">{valuesLabels.COMMENT}</label>
+                          <div className="form-control-static">{detail[valuesNames.COMMENT]}</div>
                         </div>
                       </div>
                     </div>
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Author</label>
-                          <div className="form-control-static">{detail.author}</div>
+                          <label className="control-label">{valuesLabels.AUTHOR}</label>
+                          <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
-                          <label className="control-label">Date</label>
+                          <label className="control-label">{valuesLabels.DATE}</label>
                           <div className="form-control-static">{dateCreated}</div>
                         </div>
                       </div>

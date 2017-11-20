@@ -18,9 +18,9 @@ export default class AllergyDetailMainForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.CAUSE]: value.cause,
-      [valuesNames.REACTION]: value.reaction,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.CAUSE]: value[valuesNames.CAUSE],
+      [valuesNames.REACTION]: value[valuesNames.REACTION],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -67,7 +67,7 @@ export default class AllergyDetailMainForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

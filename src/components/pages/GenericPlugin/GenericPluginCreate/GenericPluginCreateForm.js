@@ -27,9 +27,9 @@ export default class GenericPluginCreateForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.GENERIC_PLUGIN_TYPE}
-                  name={valuesNames.GENERIC_PLUGIN_TYPE}
-                  id={valuesNames.GENERIC_PLUGIN_TYPE}
+                  label={valuesLabels.TYPE}
+                  name={valuesNames.TYPE}
+                  id={valuesNames.TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}

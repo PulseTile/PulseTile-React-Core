@@ -1,12 +1,9 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { Row, Col } from 'react-bootstrap';
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
-import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import StaticFormField from '../../../form-fields/StaticFormField';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';

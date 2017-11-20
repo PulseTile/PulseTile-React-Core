@@ -21,13 +21,13 @@ export default class ContactsDetailForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.NAME]: value.name,
-      [valuesNames.REALATIONSHIP]: value.relationship,
-      [valuesNames.NEXT_OF_KIN]: value.nextOfKin,
-      [valuesNames.REALATIONSHIP_TYPE]: value.relationshipType,
-      [valuesNames.CONTACT_INFORMATION]: value.contactInformation,
-      [valuesNames.NOTES]: value.notes,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.NAME]: value[valuesNames.NAME],
+      [valuesNames.REALATIONSHIP]: value[valuesNames.REALATIONSHIP],
+      [valuesNames.NEXT_OF_KIN]: value[valuesNames.NEXT_OF_KIN],
+      [valuesNames.REALATIONSHIP_TYPE]: value[valuesNames.REALATIONSHIP_TYPE],
+      [valuesNames.CONTACT_INFORMATION]: value[valuesNames.CONTACT_INFORMATION],
+      [valuesNames.NOTES]: [valuesNames.NOTES],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -125,7 +125,7 @@ export default class ContactsDetailForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

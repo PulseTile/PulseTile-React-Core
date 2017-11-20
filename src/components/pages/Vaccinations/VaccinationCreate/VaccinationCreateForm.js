@@ -28,9 +28,9 @@ export default class VaccinationCreateForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.VACCINATION_NAME}
-                  name={valuesNames.VACCINATION_NAME}
-                  id={valuesNames.VACCINATION_NAME}
+                  label={valuesLabels.NAME}
+                  name={valuesNames.NAME}
+                  id={valuesNames.NAME}
                   component={ValidatedInput}
                   props={{ isSubmit }}
                 />
@@ -39,18 +39,18 @@ export default class VaccinationCreateForm extends PureComponent {
                 <div className="row">
                   <div className="col-xs-12 col-md-6">
                     <Field
-                      label={valuesLabels.VACCINATION_DATE}
-                      name={valuesNames.VACCINATION_DATE}
-                      id={valuesNames.VACCINATION_DATE}
+                      label={valuesLabels.DATE_TIME}
+                      name={valuesNames.DATE_TIME}
+                      id={valuesNames.DATE_TIME}
                       component={DateInput}
                       props={{ format: 'DD-MMM-YYYY', isSubmit }}
                     />
                   </div>
                   <div className="col-xs-12 col-md-6">
                     <Field
-                      label={valuesLabels.VACCINATION_SOURCE}
-                      name={valuesNames.VACCINATION_SOURCE}
-                      id={valuesNames.VACCINATION_SOURCE}
+                      label={valuesLabels.SOURCE}
+                      name={valuesNames.SOURCE}
+                      id={valuesNames.SOURCE}
                       component={StaticFormField}
                       props={{ className: 'non-edit-value ng-binding' }}
                     />

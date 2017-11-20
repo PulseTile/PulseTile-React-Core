@@ -1,18 +1,20 @@
+import { valuesNames } from './forms.config';
+
 const validateMedicationsForm = (values) => {
   const errors = {};
-  errors.name = !values.name ? 'You must enter a value.' : null;
-  errors.doseAmount = !values.doseAmount ? 'You must enter a value.' : null;
-  errors.doseDirections = !values.doseDirections ? 'You must enter a value.' : null;
+  errors[valuesNames.NAME] = !values[valuesNames.NAME] ? 'You must enter a value.' : null;
+  errors[valuesNames.DOSE_AMOUNT] = !values[valuesNames.DOSE_AMOUNT] ? 'You must enter a value.' : null;
+  errors[valuesNames.DOSE_DIRECTIONS] = !values[valuesNames.DOSE_DIRECTIONS] ? 'You must enter a value.' : null;
 
   return errors
 };
 
 const validateMedicationsPrescriptionForm = (values) => {
   const errors = {};
-  if(!values.route || values.route === '-- Route --') {
-    errors.route = 'You must enter a value.'
+  if(!values[valuesNames.ROUTE] || values[valuesNames.ROUTE] === '-- Route --') {
+    errors[valuesNames.ROUTE] = 'You must enter a value.'
   } else {
-    errors.route = null;
+    errors[valuesNames.ROUTE] = null;
   }
 
   return errors
@@ -20,14 +22,14 @@ const validateMedicationsPrescriptionForm = (values) => {
 
 const validateMedicationsCreateForm = (values) => {
   const errors = {};
-  errors.name = !values.name ? 'You must enter a value.' : null;
-  errors.doseTiming = !values.doseTiming ? 'You must enter a value.' : null;
-  errors.doseAmount = !values.doseAmount ? 'You must enter a value.' : null;
-  errors.doseDirections = !values.doseDirections ? 'You must enter a value.' : null;
-  if(!values.route || values.route === '-- Route --') {
-    errors.route = 'You must enter a value.'
+  errors[valuesNames.NAME] = !values[valuesNames.NAME] ? 'You must enter a value.' : null;
+  errors[valuesNames.DOSE_TIMING] = !values[valuesNames.DOSE_TIMING] ? 'You must enter a value.' : null;
+  errors[valuesNames.DOSE_AMOUNT] = !values[valuesNames.DOSE_AMOUNT] ? 'You must enter a value.' : null;
+  errors[valuesNames.DOSE_DIRECTIONS] = !values[valuesNames.DOSE_DIRECTIONS] ? 'You must enter a value.' : null;
+  if(!values[valuesNames.ROUTE] || values[valuesNames.ROUTE] === '-- Route --') {
+    errors[valuesNames.ROUTE] = 'You must enter a value.'
   } else {
-    errors.route = null;
+    errors[valuesNames.ROUTE] = null;
   }
 
   return errors

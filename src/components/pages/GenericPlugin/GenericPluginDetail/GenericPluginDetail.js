@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import GenericPluginPanelForm from './GenericPluginDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 const GENERIC_PLUGIN_PANEL = 'genericPluginsPanel';
 
@@ -11,7 +12,7 @@ export default class GenericPluginDetail extends PureComponent {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, genericPluginFormValues, isSubmit } = this.props;
 		let { detail } = this.props;
 		detail = detail || {};
-		const dateCreated = getDDMMMYYYY(detail.dateCreated);
+		const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
@@ -36,29 +37,29 @@ export default class GenericPluginDetail extends PureComponent {
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Type</label>
-                          <div className="form-control-static">{detail.type}</div>
+                          <label className="control-label">{valuesLabels.TYPE}</label>
+                          <div className="form-control-static">{detail[valuesNames.TYPE]}</div>
                         </div>
                       </div>
                     </div>
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Note</label>
-                          <div className="form-control-static">{detail.note}</div>
+                          <label className="control-label">{valuesLabels.NOTE}</label>
+                          <div className="form-control-static">{detail[valuesNames.NOTE]}</div>
                         </div>
                       </div>
                     </div>
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Author</label>
-                          <div className="form-control-static">{detail.author}</div>
+                          <label className="control-label">{valuesLabels.AUTHOR}</label>
+                          <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
-                          <label className="control-label">Date</label>
+                          <label className="control-label">{valuesLabels.DATE}</label>
                           <div className="form-control-static">{dateCreated}</div>
                         </div>
                       </div>
@@ -66,8 +67,8 @@ export default class GenericPluginDetail extends PureComponent {
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
-                          <label className="control-label">Source</label>
-                          <div className="form-control-static">{detail.source}</div>
+                          <label className="control-label">{valuesLabels.SOURCE}</label>
+                          <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
                         </div>
                       </div>
                     </div>

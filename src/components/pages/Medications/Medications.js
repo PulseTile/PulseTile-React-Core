@@ -57,7 +57,7 @@ export default class Medications extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: MEDICATION_PANEL,
-    columnNameSortBy: 'name',
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -108,10 +108,10 @@ export default class Medications extends PureComponent {
   filterAndSortMedications = (medications) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDoseAmountPredicate = _.flow(_.get('doseAmount'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
+    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
+    const filterByDoseAmountPredicate = _.flow(_.get(valuesNames.DOSE_AMOUNT), _.toLower, _.includes(nameShouldInclude));
+    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_CREATED}Convert`), _.toLower, _.includes(nameShouldInclude));
+    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
 
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
@@ -120,20 +120,20 @@ export default class Medications extends PureComponent {
 
     if (medications !== undefined) {
       medications.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
+        item[`${valuesNames.DATE_CREATED}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_CREATED]);
       });
     }
 
     const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(medications);
     const filterByDoseAmount = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDoseAmountPredicate))(medications);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(medications);
+    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(medications);
     const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(medications);
 
     const filteredAndSortedMedications = [filterByName, filterByDoseAmount, filterByDate, filterBySource].filter((item) => {
       return _.size(item) !== 0;
     });
 
-    if (columnNameSortBy === 'dateCreated') {
+    if (columnNameSortBy === valuesNames.DATE_CREATED) {
       return filterByDate
     }
     return _.head(filteredAndSortedMedications)
@@ -234,11 +234,11 @@ export default class Medications extends PureComponent {
     if (formName === 'edit') {
       sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
       sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
-      sendData[valuesNames.SOURCEID] = medicationDetail.sourceId;
+      sendData[valuesNames.SOURCE_ID] = medicationDetail[valuesNames.SOURCE_ID];
     }
 
     if (formName === 'create') {
-      sendData[valuesNames.SOURCEID] = '';
+      sendData[valuesNames.SOURCE_ID] = '';
       sendData[valuesNames.ISIMPORT] = false;
     }
 
@@ -281,7 +281,7 @@ export default class Medications extends PureComponent {
 
    let sourceId;
    if (!_.isEmpty(medicationDetail)) {
-     sourceId = medicationDetail.sourceId;
+     sourceId = medicationDetail[valuesNames.SOURCE_ID];
    }
 
    return (<section className="page-wrapper">

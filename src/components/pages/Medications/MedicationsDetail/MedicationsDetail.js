@@ -5,6 +5,7 @@ import MedicationsDetailPanel from './MedicationsDetailPanel'
 import MedicationsDetailForm from './MedicationsDetailForm'
 import MedicationsPrescriptionForm from './MedicationsPrescriptionForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels } from '../forms.config';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 
 const MEDICATION_PANEL = 'medicationPanel';
@@ -17,7 +18,7 @@ export default class MedicationsDetail extends PureComponent {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, medicationsDetailFormValues, prescriptionPanelFormValues, isSubmit, toggleHourlySchedule, isOpenHourlySchedule } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
@@ -42,14 +43,14 @@ export default class MedicationsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Name</label>
-                        <div className="form-control-static">{detail.name}</div>
+                        <label className="control-label">{valuesLabels.NAME}</label>
+                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Dose Amount</label>
-                        <div className="form-control-static">{detail.doseAmount}</div>
+                        <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
+                        <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
                       </div>
                     </div>
                   </div>
@@ -57,8 +58,8 @@ export default class MedicationsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Dose Timing</label>
-                        <div className="form-control-static">{detail.doseTiming}</div>
+                        <label className="control-label">{valuesLabels.DOSE_TIMING}</label>
+                        <div className="form-control-static">{detail[valuesNames.DOSE_TIMING]}</div>
                       </div>
                       <div className="form-group">
                         <div className="wrap-control-group">
@@ -68,8 +69,8 @@ export default class MedicationsDetail extends PureComponent {
                         </div>
                       </div>
                       <div className="form-group">
-                        <label className="control-label">Dose Directions</label>
-                        <div className="form-control-static">{detail.doseDirections}</div>
+                        <label className="control-label">{valuesLabels.DOSE_DIRECTIONS}</label>
+                        <div className="form-control-static">{detail[valuesNames.DOSE_DIRECTIONS]}</div>
                       </div>
                     </div>
                   </div>
@@ -77,13 +78,13 @@ export default class MedicationsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Author</label>
-                        <div className="form-control-static">{detail.author}</div>
+                        <label className="control-label">{valuesLabels.AUTHOR}</label>
+                        <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Date</label>
+                        <label className="control-label">{valuesLabels.DATE_CREATED}</label>
                         <div className="form-control-static">{dateCreated}</div>
                       </div>
                     </div>
@@ -135,21 +136,21 @@ export default class MedicationsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Name</label>
-                        <div className="form-control-static">{detail.name}</div>
+                        <label className="control-label">{valuesLabels.NAME}</label>
+                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Dose Amount</label>
-                        <div className="form-control-static">{detail.doseAmount}</div>
+                        <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
+                        <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="panel-body-section">
                   <div className="form-group">
-                    <label className="control-label">Dose Timing:</label>
+                    <label className="control-label">{valuesLabels.DOSE_TIMING}</label>
                     <div className="form-control-static">2X each morning</div>
                   </div>
                   <div className="form-group">
