@@ -57,6 +57,7 @@ export default class TestResults extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
@@ -65,6 +66,9 @@ export default class TestResults extends PureComponent {
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
  handleExpand = (name, currentPanel) => {
@@ -85,9 +89,9 @@ export default class TestResults extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailTestResultsClick = (id, name, sourceId) => {
+  handleDetailTestResultsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, openedPanel: TEST_RESULT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, openedPanel: TEST_RESULT_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientTestResultsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}`);
   };
@@ -128,7 +132,7 @@ export default class TestResults extends PureComponent {
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: TEST_RESULTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: TEST_RESULTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/create`);
   };
 
@@ -149,6 +153,7 @@ export default class TestResults extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -158,75 +163,76 @@ export default class TestResults extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
- render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-   const { allTestResults, testResultDetail } = this.props;
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { allTestResults, testResultDetail } = this.props;
 
-   const isPanelDetails = (expandedPanel === TEST_RESULTS_DETAIL || expandedPanel === TEST_RESULT_PANEL || expandedPanel === META_PANEL);
-   const isPanelMain = (expandedPanel === TEST_RESULTS_MAIN);
-   const isPanelCreate = (expandedPanel === TEST_RESULTS_CREATE);
+    const isPanelDetails = (expandedPanel === TEST_RESULTS_DETAIL || expandedPanel === TEST_RESULT_PANEL || expandedPanel === META_PANEL);
+    const isPanelMain = (expandedPanel === TEST_RESULTS_MAIN);
+    const isPanelCreate = (expandedPanel === TEST_RESULTS_CREATE);
 
-   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-   const filteredTestResults = this.filterAndSortTestResults(allTestResults);
+    const filteredTestResults = this.filterAndSortTestResults(allTestResults);
 
-   let sourceId;
-   if (!_.isEmpty(testResultDetail)) {
-     sourceId = testResultDetail.sourceId;
-   }
+    let sourceId;
+    if (!_.isEmpty(testResultDetail)) {
+      sourceId = testResultDetail.sourceId;
+    }
 
-   return (<section className="page-wrapper">
-     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-       <Row>
-         {(isPanelMain || expandedPanel === 'all')
-           ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-             <div className="panel panel-primary">
-               <PluginListHeader
-                 onFilterChange={this.handleFilterChange}
-                 panelTitle="Test Results"
-                 isBtnExpandVisible={isBtnExpandVisible}
-                 isBtnTableVisible={false}
-                 name={TEST_RESULTS_MAIN}
-                 onExpand={this.handleExpand}
-                 currentPanel={TEST_RESULTS_MAIN}
-               />
-               <PluginMainPanel
-                 headers={columnsToShowConfig}
-                 resourceData={allTestResults}
-                 emptyDataMessage="No results"
-                 onHeaderCellClick={this.handleHeaderCellClick}
-                 onCellClick={this.handleDetailTestResultsClick}
-                 columnNameSortBy={columnNameSortBy}
-                 sortingOrder={sortingOrder}
-                 table="testResults"
-                 filteredData={filteredTestResults}
-                 totalEntriesAmount={_.size(filteredTestResults)}
-                 offset={offset}
-                 setOffset={this.handleSetOffset}
-                 onCreate={this.handleCreate}
-                 id={sourceId}
-               />
-             </div>
-           </Col> : null}
-         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible
-           ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-             <TestResultsDetail
-               onExpand={this.handleExpand}
-               name={TEST_RESULTS_DETAIL}
-               openedPanel={openedPanel}
-               onShow={this.handleShow}
-               expandedPanel={expandedPanel}
-               currentPanel={TEST_RESULTS_DETAIL}
-               detail={testResultDetail}
-               onEdit={this.handleEdit}
-               editedPanel={editedPanel}
-               onCancel={this.handleTestResultDetailCancel}
-               onSaveSettings={this.handleSaveSettingsDetailForm}
-               isSubmit={isSubmit}
-             />
-           </Col> : null}
-       </Row>
-     </div>
-   </section>)
- }
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all')
+            ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+              <div className="panel panel-primary">
+                <PluginListHeader
+                  onFilterChange={this.handleFilterChange}
+                  panelTitle="TestResults"
+                  isBtnExpandVisible={isBtnExpandVisible}
+                  isBtnTableVisible={false}
+                  name={TEST_RESULTS_MAIN}
+                  onExpand={this.handleExpand}
+                  currentPanel={TEST_RESULTS_MAIN}
+                />
+                <PluginMainPanel
+                  headers={columnsToShowConfig}
+                  resourceData={allTestResults}
+                  emptyDataMessage="No test results"
+                  onHeaderCellClick={this.handleHeaderCellClick}
+                  onCellClick={this.handleDetailTestResultsClick}
+                  columnNameSortBy={columnNameSortBy}
+                  sortingOrder={sortingOrder}
+                  table="testResults"
+                  filteredData={filteredTestResults}
+                  totalEntriesAmount={_.size(filteredTestResults)}
+                  offset={offset}
+                  setOffset={this.handleSetOffset}
+                  onCreate={this.handleCreate}
+                  id={sourceId}
+                  isLoading={isLoading}
+                />
+              </div>
+            </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible
+            ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+              <TestResultsDetail
+                onExpand={this.handleExpand}
+                name={TEST_RESULTS_DETAIL}
+                openedPanel={openedPanel}
+                onShow={this.handleShow}
+                expandedPanel={expandedPanel}
+                currentPanel={TEST_RESULTS_DETAIL}
+                detail={testResultDetail}
+                onEdit={this.handleEdit}
+                editedPanel={editedPanel}
+                onCancel={this.handleTestResultDetailCancel}
+                onSaveSettings={this.handleSaveSettingsDetailForm}
+                isSubmit={isSubmit}
+              />
+            </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }
