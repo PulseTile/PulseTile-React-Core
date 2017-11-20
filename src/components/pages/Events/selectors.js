@@ -11,4 +11,13 @@ const patientEventsSelector = createSelector(
   }
 );
 
-export { patientEventsSelector }
+const patientEventsDetailSelector = createSelector(
+  ({ eventsDetail }) => eventsDetail,
+  (state, props) => _.getOr(null, 'match.params.userId', props),
+  (eventsDetail, userId) => {
+    const eventDetail = eventsDetail[userId];
+    return ({ eventDetail, userId });
+  }
+);
+
+export { patientEventsSelector, patientEventsDetailSelector }

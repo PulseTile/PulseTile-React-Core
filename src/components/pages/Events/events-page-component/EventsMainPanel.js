@@ -73,6 +73,8 @@ export default class EventsMainPanel extends PureComponent {
         {isLoading ? <Spinner /> : null }
         {activeView === 'timeline' ? <Timelines
           eventsTimeline={eventsTimeline}
+          onCellClick={onCellClick}
+          id={id}
         /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">

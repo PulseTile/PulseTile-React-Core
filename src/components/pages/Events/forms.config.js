@@ -6,6 +6,15 @@ export const valuesNames = {
   TYPE: 'type',
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
+  AUTHOR: 'author',
 };
 
-export const valuesLabels = {};
+export const valuesLabels = {
+  NAME: 'Event Name',
+  TYPE: 'Event Type',
+  DESCRIPTION: 'Notes',
+  EVENT_DATE: 'Event Date',
+  DATE: 'Date',
+  AUTHOR: 'Author',
+  SOURCE: 'Source',
+};

@@ -27,7 +27,7 @@ export default class SortableTableRow extends PureComponent {
     const rowDataItem = rowData.map((rowItem, index) => {
       if ((rowItem.value === warningNameField || rowItem.value === dangerNameField) && rowItem.name === 'name') {
         return (
-          <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy })}>
+          <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy })}>
             <span>
               { rowItem.value === warningNameField ? <span className="highlighter-warning"></span> : null }
               { rowItem.value === dangerNameField ? <span className="highlighter-danger"></span> : null }
@@ -36,7 +36,7 @@ export default class SortableTableRow extends PureComponent {
           </td>
         )
       }
-      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
     });
 
     return (<tr className={classNames({ 'info': id === sourceId })}>
