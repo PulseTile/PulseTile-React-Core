@@ -1,6 +1,7 @@
 .wrap-rzslider {
   border: 1px solid #d8d8d8;
   border-bottom: 0;
+  height: 100%;
   padding: 0 8px 0 13px;
 }
 .wrap-rzslider-search {
@@ -85,6 +86,8 @@
   .rz-tick.rz-selected { background: $base-color; }
 }
 
+//REACT STYLES FOR SLIDER RANGE
+
 .rc-slider-track {
   background: $base-color;
   height: 7px;
@@ -122,5 +125,17 @@
   }
   &:hover {
     border-color: $base-color;
+  }
+}
+
+.rc-slider-tooltip-hidden {
+  display: block !important;
+}
+
+.wrap-rzslider {
+  .rc-slider {
+    height: 7px;
+    margin: 52px 0 41px;
+    width: 100%;
   }
 }

@@ -254,7 +254,7 @@ export default class Events extends PureComponent {
       sourceId = eventDetail.sourceId;
     }
 
-    const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(allEvents) : {};
+    const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(this.filterAndSortEvents(allEvents)) : {};
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
