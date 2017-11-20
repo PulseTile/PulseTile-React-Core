@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 
-import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
+import EventsDetailPanel from './EventsDetailPanel'
 // import EventsDetailForm from './EventsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
@@ -21,7 +21,7 @@ export default class EventsDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === EVENT_PANEL || expandedPanel === 'all') && !editedPanel[EVENT_PANEL] ? <PluginDetailPanel
+          {(expandedPanel === EVENT_PANEL || expandedPanel === 'all') && !editedPanel[EVENT_PANEL] ? <EventsDetailPanel
             onExpand={onExpand}
             name={EVENT_PANEL}
             title={`Event - ${detail[valuesNames.TYPE]} Details`}
@@ -77,8 +77,8 @@ export default class EventsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <PluginDetailPanel
+          </EventsDetailPanel> : null}
+          {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <EventsDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
             title={`Event - ${detail[valuesNames.TYPE]} Metadata`}
@@ -113,8 +113,8 @@ export default class EventsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
-          {(expandedPanel === CHAT_PANEL || expandedPanel === 'all') && !editedPanel[CHAT_PANEL] ? <PluginDetailPanel
+          </EventsDetailPanel> : null}
+          {(expandedPanel === CHAT_PANEL || expandedPanel === 'all') && !editedPanel[CHAT_PANEL] ? <EventsDetailPanel
             onExpand={onExpand}
             name={CHAT_PANEL}
             title="Chat"
@@ -138,7 +138,7 @@ export default class EventsDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
+          </EventsDetailPanel> : null}
         </div>
       </div>
     )
