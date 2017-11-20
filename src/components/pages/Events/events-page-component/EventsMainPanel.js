@@ -15,7 +15,7 @@ export default class EventsMainPanel extends PureComponent {
     listPerPageAmount: 10,
     emptyDataMessage: 'No list',
   };
-  getClinicalNotesOnFirstPage = (list) => {
+  getEventsOnFirstPage = (list) => {
     const { listPerPageAmount, offset } = this.props;
 
     return (_.size(list) > listPerPageAmount
@@ -56,7 +56,7 @@ export default class EventsMainPanel extends PureComponent {
   render() {
     const { openedPanel, activeCreate } = this.state;
     const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView } = this.props;
-    const listOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredData);
+    const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
     return (
       <div className="panel-body">
         {activeView === 'table' ? <SortableTable
