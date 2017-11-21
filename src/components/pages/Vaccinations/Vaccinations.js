@@ -20,7 +20,7 @@ import { fetchPatientVaccinationsOnMount, fetchPatientVaccinationsDetailOnMount 
 import { patientVaccinationsSelector, patientVaccinationsDetailSelector, vaccinationPanelFormSelector, vaccinationsCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
@@ -112,37 +112,6 @@ export default class Vaccination extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}`);
   };
 
-  filterAndSortVaccinations = (vaccinations) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByVaccinationsPredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (vaccinations !== undefined) {
-      vaccinations.map((item) => {
-        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
-      });
-    }
-
-    const filterByVaccinations = _.flow(_.filter(filterByVaccinationsPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(vaccinations);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder)(vaccinations);
-    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder)(vaccinations);
-
-    const filteredAndSortedVaccinations = [filterByVaccinations, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === valuesNames.DATE) {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedVaccinations)
-  };
-
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
@@ -232,6 +201,24 @@ export default class Vaccination extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.SOURCE, `${valuesNames.DATE}Convert`]
+    });
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allVaccinations, vaccinationDetail, vaccinationPanelFormState, vaccinationCreateFormState } = this.props;
@@ -242,7 +229,7 @@ export default class Vaccination extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredVaccinations = this.filterAndSortVaccinations(allVaccinations);
+    const filteredVaccinations = this.formToShowCollection(allVaccinations);
 
     let sourceId;
     if (!_.isEmpty(vaccinationDetail)) {

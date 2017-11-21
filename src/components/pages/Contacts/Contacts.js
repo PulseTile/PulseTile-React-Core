@@ -19,7 +19,7 @@ import { fetchPatientContactsDetailEditRequest } from './ducks/fetch-patient-con
 import { fetchPatientContactsOnMount, fetchPatientContactsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientContactsSelector, contactsDetailFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
@@ -112,31 +112,6 @@ export default class Contacts extends PureComponent {
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientContactsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}`);
-  };
-
-  filterAndSortContacts = (contacts) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByRelationshipPredicate = _.flow(_.get(valuesNames.REALATIONSHIP), _.toLower, _.includes(nameShouldInclude));
-    const filterByNextOfKinPredicate = _.flow(_.get(valuesNames.NEXT_OF_KIN), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(contacts);
-    const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
-    const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(contacts);
-
-    const filteredAndSortedContacts = [filterByName, filterByRelationship, filterByNextOfKin, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedContacts)
   };
 
  handleSetOffset = offset => this.setState({ offset });
@@ -232,14 +207,21 @@ export default class Contacts extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false })
   };
 
- handleShow = (name) => {
-   this.setState({ openedPanel: name })
- };
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
+  };
 
- fixContactsItems = contacts => contacts.map((el) => {
-   el[valuesNames.NEXT_OF_KIN] = el[valuesNames.NEXT_OF_KIN] || false;
-   return el;
- });
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.REALATIONSHIP, valuesNames.NEXT_OF_KIN, valuesNames.SOURCE]
+    });
+  };
 
  render() {
    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
@@ -249,15 +231,13 @@ export default class Contacts extends PureComponent {
    const isPanelMain = (expandedPanel === CONTACTS_MAIN);
    const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
-   let fixedAllContacts;
-
-   if (allContacts) {
-     fixedAllContacts = this.fixContactsItems(allContacts);
-   }
+   const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
+           key: valuesNames.NEXT_OF_KIN,
+           fn: (el) => (el || false)
+         }]);
+   const filteredContacts = this.formToShowCollection(fixedAllContacts);
 
    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-
-   const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
 
    let sourceId;
    if (!_.isEmpty(contactDetail)) {
@@ -288,7 +268,7 @@ export default class Contacts extends PureComponent {
                sortingOrder={sortingOrder}
                table="contacts"
                filteredData={filteredContacts}
-               totalEntriesAmount={_.size(fixedAllContacts)}
+               totalEntriesAmount={_.size(filteredContacts)}
                offset={offset}
                setOffset={this.handleSetOffset}
                isBtnCreateVisible={isBtnCreateVisible}

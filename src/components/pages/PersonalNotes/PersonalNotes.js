@@ -23,7 +23,7 @@ import { patientPersonalNotesSelector, patientPersonalNotesDetailSelector, perso
 import { clientUrls } from '../../../config/client-urls.constants';
 import PersonalNotesDetail from './PersonalNotesDetail/PersonalNotesDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
 const PERSONAL_NOTES_MAIN = 'personalNotesMain';
 const PERSONAL_NOTES_DETAIL = 'personalNotesDetail';
@@ -112,39 +112,6 @@ export default class PersonalNotes extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/${sourceId}`);
   };
 
-  filterAndSortPersonalNotes = (personalNotes) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByPersonalNotesTypePredicate = _.flow(_.get(valuesNames.NOTE), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get(valuesNames.AUTHOR), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (personalNotes !== undefined) {
-      personalNotes.map((item) => {
-        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
-      });
-    }
-
-    const filterByPersonalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByPersonalNotesTypePredicate))(personalNotes);
-    const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(personalNotes);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(personalNotes);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(personalNotes);
-
-    const filteredAndSortedPersonalNotes = [filterByPersonalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === valuesNames.DATE) {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedPersonalNotes)
-  };
-
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
@@ -222,12 +189,12 @@ export default class PersonalNotes extends PureComponent {
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
       sendData[valuesNames.SOURCE_ID] = personalNoteDetail[valuesNames.SOURCE_ID];
-      sendData[SOURCE] = personalNoteDetail[SOURCE];
+      sendData[valuesNames.SOURCE] = personalNoteDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
       sendData[valuesNames.DATE] = moment(currentDate).format('YYYY-MM-DD');
-      sendData[SOURCE] = formValues[valuesNames.SOURCE];
+      sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
     return sendData;
@@ -235,6 +202,24 @@ export default class PersonalNotes extends PureComponent {
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
+  };
+
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NOTE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
+    });
   };
 
   render() {
@@ -247,7 +232,7 @@ export default class PersonalNotes extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredPersonalNotes = this.filterAndSortPersonalNotes(allPersonalNotes);
+    const filteredPersonalNotes = this.formToShowCollection(allPersonalNotes);
 
     let sourceId;
     if (!_.isEmpty(personalNoteDetail)) {
