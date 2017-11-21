@@ -124,3 +124,13 @@
     border-color: $base-color;
   }
 }
+.rc-slider {
+  margin-top: 13px;
+}
+.rc-slider-mark {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.rc-slider-mark-text,
+.rc-slider-mark-text-active { color: #333; }

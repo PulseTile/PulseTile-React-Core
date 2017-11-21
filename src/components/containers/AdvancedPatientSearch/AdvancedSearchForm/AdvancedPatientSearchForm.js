@@ -45,7 +45,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                 />
               </div>
             </div>
-            <div className="row ng-scope">
+            <div className="row">
               <div className="col-xs-12 col-sm-6">
                 <Field
                   label="Last Name"
@@ -65,7 +65,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                 />
               </div>
             </div>
-            <div className="row ng-scope">
+            <div className="row">
               <div className="col-xs-12 col-sm-4">
                 <Field
                   label="Select Age Params"
@@ -76,17 +76,17 @@ export default class AdvancedPatientSearchForm extends PureComponent {
               </div>
             </div>
             {isBirthDateSelected ?
-              <div className="form-group ng-scope" >
+              <div className="row">
                 <div className="col-xs-12 col-sm-6">
-                  <Field
-                    name={valuesNames.DATE_OF_BIRTH}
-                    id={valuesNames.DATE_OF_BIRTH}
-                    label="Date of Birth"
-                    component={DateInput}
-                    placeholder="03/08/1970"
-                    props={{ format: 'MM/DD/YYYY' }}
-                  />
-                </div>
+              <Field
+              name={valuesNames.DATE_OF_BIRTH}
+              id={valuesNames.DATE_OF_BIRTH}
+              label="Date of Birth"
+              component={DateInput}
+              placeholder="03/08/1970"
+              props={{ format: 'MM/DD/YYYY' }}
+              />
+              </div>
               </div>
               :
               <Field
