@@ -260,7 +260,7 @@ export default class Vaccination extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="vaccinations"
                 filteredData={filteredVaccinations}
-                totalEntriesAmount={_.size(allVaccinations)}
+                totalEntriesAmount={_.size(filteredVaccinations)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

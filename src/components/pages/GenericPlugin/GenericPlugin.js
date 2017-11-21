@@ -260,7 +260,7 @@ export default class GenericPlugin extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="genericPlugins"
                 filteredData={filteredGenericPlugin}
-                totalEntriesAmount={_.size(allGenericPlugin)}
+                totalEntriesAmount={_.size(filteredGenericPlugin)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

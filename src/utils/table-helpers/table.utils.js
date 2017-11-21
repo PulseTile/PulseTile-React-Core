@@ -1,6 +1,7 @@
 import _ from 'lodash/fp';
 
-const EMPTY_VALUE_STUB = '-';
+const EMPTY_VALUE_STUB = ' ';
+const DASH = '-';
 
 const emptyTransformer = val => val;
 

@@ -264,7 +264,7 @@ export default class ProblemsDiagnosis extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="diagnoses"
                 filteredData={filteredDiagnoses}
-                totalEntriesAmount={_.size(allDiagnoses)}
+                totalEntriesAmount={_.size(filteredDiagnoses)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

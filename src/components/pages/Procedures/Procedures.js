@@ -289,7 +289,7 @@ export default class Procedures extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="procedures"
                 filteredData={filteredProcedures}
-                totalEntriesAmount={_.size(allProcedures)}
+                totalEntriesAmount={_.size(filteredProcedures)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

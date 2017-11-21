@@ -260,7 +260,7 @@ export default class ClinicalNotes extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="clinicalNotes"
                 filteredData={filteredClinicalNotes}
-                totalEntriesAmount={_.size(allClinicalNotes)}
+                totalEntriesAmount={_.size(filteredClinicalNotes)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

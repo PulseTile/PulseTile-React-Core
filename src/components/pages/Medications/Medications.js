@@ -307,7 +307,7 @@ export default class Medications extends PureComponent {
                sortingOrder={sortingOrder}
                table="medications"
                filteredData={filteredMedications}
-               totalEntriesAmount={_.size(allMedications)}
+               totalEntriesAmount={_.size(filteredMedications)}
                offset={offset}
                setOffset={this.handleSetOffset}
                isBtnCreateVisible={isBtnCreateVisible}

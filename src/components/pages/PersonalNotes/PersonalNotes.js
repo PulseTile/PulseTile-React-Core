@@ -218,7 +218,7 @@ export default class PersonalNotes extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NOTE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
+      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
     });
   };
 
@@ -262,7 +262,7 @@ export default class PersonalNotes extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="personalNotes"
                 filteredData={filteredPersonalNotes}
-                totalEntriesAmount={_.size(allPersonalNotes)}
+                totalEntriesAmount={_.size(filteredPersonalNotes)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

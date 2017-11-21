@@ -17,6 +17,7 @@
     padding: 10px 4px 10px 5px;
     vertical-align: middle;
     word-wrap: break-word;
+    line-height: 20px;
     @include respond-from(sm) {
       padding: 10px 4px 10px 10px;
     }

@@ -15,6 +15,10 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return setOffset((page - 1) * entriesPerPage)
   };
 
+  if (totalEntriesAmount < offset) {
+    setPage(pagesAmount)();
+  }
+
   const calculatePageNumber = (i, actualPage, paginationRange, totalPages) => {
     const halfWay = Math.ceil(paginationRange / 2);
     if (i === paginationRange) {

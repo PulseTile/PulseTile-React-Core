@@ -286,7 +286,7 @@ export default class Events extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="events"
                 filteredData={filteredEvents}
-                totalEntriesAmount={_.size(allEvents)}
+                totalEntriesAmount={_.size(filteredEvents)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}

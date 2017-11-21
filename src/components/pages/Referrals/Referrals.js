@@ -268,7 +268,7 @@ export default class Referrals extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="referrals"
                 filteredData={filteredReferrals}
-                totalEntriesAmount={_.size(allReferrals)}
+                totalEntriesAmount={_.size(filteredReferrals)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
