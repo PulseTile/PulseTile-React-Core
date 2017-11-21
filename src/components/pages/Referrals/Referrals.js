@@ -106,7 +106,7 @@ export default class Referrals extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailReferralsClick = (id, name, sourceId) => {
+  handleDetailReferralsClick = (sourceId) => {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientReferralsDetailRequest({ userId, sourceId });

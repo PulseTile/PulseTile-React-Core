@@ -76,7 +76,7 @@ export default class SortableTablePatients extends PureComponent {
 
   render() {
     const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table, resourceData, emptyDataMessage } = this.props;
-    const rowsData = getArrByTemplate(headers, data);
+    const rowsData = getArrByTemplate(headers, data, '-');
     const headersName = [_.head(headers)];
     const headersView = [_.last(headers)];
     const rowsDataName = rowsData.map(el => el.filter(el => (el.name === 'name' || el.name === 'id')));
