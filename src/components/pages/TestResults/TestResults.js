@@ -63,9 +63,15 @@ export default class TestResults extends PureComponent {
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TEST_RESULT_PANEL, isDetailPanelVisible: false })
+    }
+
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
