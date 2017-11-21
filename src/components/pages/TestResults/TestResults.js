@@ -14,9 +14,10 @@ import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientTestResultsRequest } from './ducks/fetch-patient-test-results.duck';
 import { fetchPatientTestResultsDetailRequest } from './ducks/fetch-patient-test-results-detail.duck';
-import { fetchPatientTestResultsOnMount, fetchPatientTestResultsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientTestResultsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientTestResultsSelector, patientTestResultsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import TestResultsDetail from './TestResultsDetail/TestResultsDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
@@ -96,38 +97,6 @@ export default class TestResults extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}`);
   };
 
-  filterAndSortTestResults = (testResults) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByTakenPredicate = _.flow(_.get(`${valuesNames.TAKEN}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (testResults !== undefined) {
-      testResults.map((item) => {
-        item[`${valuesNames.TAKEN}Convert`] = getDDMMMYYYY(item[valuesNames.TAKEN]);
-        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
-      });
-    }
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(testResults);
-    const filterByTaken = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByTakenPredicate))(testResults);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(testResults);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(testResults);
-
-    const filteredAndSortedTestResults = [filterByName, filterByTaken, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedTestResults)
-  };
-
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
@@ -163,6 +132,28 @@ export default class TestResults extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.TAKEN,
+      keyTo: `${valuesNames.TAKEN}Convert`,
+      fn: getDDMMMYYYY
+    }, {
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, `${valuesNames.TAKEN}Convert`, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
+    });
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allTestResults, testResultDetail } = this.props;
@@ -173,7 +164,7 @@ export default class TestResults extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredTestResults = this.filterAndSortTestResults(allTestResults);
+    const filteredTestResults = this.formToShowCollection(allTestResults);
 
     let sourceId;
     if (!_.isEmpty(testResultDetail)) {

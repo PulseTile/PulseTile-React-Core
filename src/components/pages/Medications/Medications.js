@@ -18,7 +18,7 @@ import { fetchPatientMedicationsDetailEditRequest } from './ducks/fetch-patient-
 import { fetchPatientMedicationsOnMount, fetchPatientMedicationsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientMedicationsSelector, medicationsDetailFormStateSelector, medicationsCreateFormStateSelector, prescriptionPanelFormStateSelector, patientMedicationsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import MedicationsDetail from './MedicationsDetail/MedicationsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
@@ -109,41 +109,7 @@ export default class Medications extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };
 
-  filterAndSortMedications = (medications) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByDoseAmountPredicate = _.flow(_.get(valuesNames.DOSE_AMOUNT), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_CREATED}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (medications !== undefined) {
-      medications.map((item) => {
-        item[`${valuesNames.DATE_CREATED}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_CREATED]);
-      });
-    }
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(medications);
-    const filterByDoseAmount = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDoseAmountPredicate))(medications);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(medications);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(medications);
-
-    const filteredAndSortedMedications = [filterByName, filterByDoseAmount, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === valuesNames.DATE_CREATED) {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedMedications)
-  };
-
- handleSetOffset = offset => this.setState({ offset });
+  handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
@@ -151,15 +117,15 @@ export default class Medications extends PureComponent {
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`);
   };
 
- handleEdit = (name) => {
-   this.setState(prevState => ({
-     editedPanel: {
-       ...prevState.editedPanel,
-       [name]: true,
-     },
-     isSubmit: false,
-   }))
- };
+  handleEdit = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: true,
+      },
+      isSubmit: false,
+    }))
+  };
 
  handleContactDetailCancel = (name) => {
    this.setState(prevState => ({
@@ -219,7 +185,6 @@ export default class Medications extends PureComponent {
    }
  };
 
-
   formValuesToString = (formValues, formName) => {
     const { userId, medicationDetail } = this.props;
     const sendData = {};
@@ -256,14 +221,32 @@ export default class Medications extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isSecondPanel: false })
   };
 
- handleShow = (name) => {
-   this.setState({ openedPanel: name })
-   if (this.state.expandedPanel !== 'all') {
-     this.setState({ expandedPanel: name })
-   }
- };
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
+    if (this.state.expandedPanel !== 'all') {
+      this.setState({ expandedPanel: name })
+    }
+  };
 
- toggleHourlySchedule = () => this.setState(prevState => ({ isOpenHourlySchedule: !prevState.isOpenHourlySchedule }));
+  toggleHourlySchedule = () => this.setState(prevState => ({ isOpenHourlySchedule: !prevState.isOpenHourlySchedule }));
+
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_CREATED,
+      keyTo: `${valuesNames.DATE_CREATED}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.DOSE_AMOUNT, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
+    });
+  };
 
  render() {
    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
@@ -284,7 +267,7 @@ export default class Medications extends PureComponent {
      }
    }
 
-   const filteredMedications = this.filterAndSortMedications(allMedications);
+   const filteredMedications = this.formToShowCollection(allMedications);
 
    let sourceId;
    if (!_.isEmpty(medicationDetail)) {

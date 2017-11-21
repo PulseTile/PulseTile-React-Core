@@ -19,7 +19,7 @@ import { fetchPatientReferralsDetailEditRequest } from './ducks/fetch-patient-re
 import { fetchPatientReferralsOnMount, fetchPatientReferralsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientReferralsSelector, referralsDetailFormStateSelector, referralsCreateFormStateSelector, metaPanelFormStateSelector, patientReferralsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import ReferralsDetail from './ReferralsDetail/ReferralsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ReferralsCreateForm from './ReferralsCreate/ReferralsCreateForm'
@@ -102,37 +102,6 @@ export default class Referrals extends PureComponent {
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientReferralsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/${sourceId}`);
-  };
-
-  filterAndSortReferrals = (referrals) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterByFromPredicate = _.flow(_.get(valuesNames.FROM), _.toLower, _.includes(nameShouldInclude));
-    const filterByToPredicate = _.flow(_.get(valuesNames.TO), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (referrals !== undefined) {
-      referrals.map((item) => {
-        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
-      });
-    }
-
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(referrals);
-    const filterByFrom = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByFromPredicate))(referrals);
-    const filterByTo = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByToPredicate))(referrals);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(referrals);
-
-    const filteredAndSortedReferrals = [filterByDate, filterByFrom, filterByTo, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedReferrals)
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -231,6 +200,24 @@ export default class Referrals extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [`${valuesNames.DATE}Convert`, valuesNames.FROM, valuesNames.TO, valuesNames.SOURCE]
+    });
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allReferrals, referralsDetailFormState, referralsCreateFormState, metaPanelFormState, referralDetail, referralsPerPageAmount } = this.props;
@@ -241,7 +228,7 @@ export default class Referrals extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredReferrals = this.filterAndSortReferrals(allReferrals);
+    const filteredReferrals = this.formToShowCollection(allReferrals);
 
     let sourceId;
     if (!_.isEmpty(referralDetail)) {
