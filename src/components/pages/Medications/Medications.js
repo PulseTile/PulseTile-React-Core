@@ -240,123 +240,123 @@ export default class Medications extends PureComponent {
   toggleHourlySchedule = () => this.setState(prevState => ({ isOpenHourlySchedule: !prevState.isOpenHourlySchedule }));
 
   formToShowCollection = (collection) => {
-    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE_CREATED,
       keyTo: `${valuesNames.DATE_CREATED}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
-      collection: collection,
+      collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NAME, valuesNames.DOSE_AMOUNT, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
+      filterKeys: [valuesNames.NAME, valuesNames.DOSE_AMOUNT, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE],
     });
   };
 
- render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
-   const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
+    const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
 
-   const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL);
-   const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
-   const isPanelCreate = (expandedPanel === MEDICATIONS_CREATE);
+    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL);
+    const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
+    const isPanelCreate = (expandedPanel === MEDICATIONS_CREATE);
 
-   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-   if (allMedications !== undefined) {
-     if (allMedications[0]) {
-       allMedications[0].warning = true;
-     }
-     if (allMedications[1]) {
-       allMedications[1].danger = true;
-     }
-   }
+    if (allMedications !== undefined) {
+      if (allMedications[0]) {
+        allMedications[0].warning = true;
+      }
+      if (allMedications[1]) {
+        allMedications[1].danger = true;
+      }
+    }
 
-   const filteredMedications = this.formToShowCollection(allMedications);
+    const filteredMedications = this.formToShowCollection(allMedications);
 
-   let sourceId;
-   if (!_.isEmpty(medicationDetail)) {
-     sourceId = medicationDetail[valuesNames.SOURCE_ID];
-   }
+    let sourceId;
+    if (!_.isEmpty(medicationDetail)) {
+      sourceId = medicationDetail[valuesNames.SOURCE_ID];
+    }
 
-   return (<section className="page-wrapper">
-     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-       <Row>
-         {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-           <div className="panel panel-primary">
-             <PluginListHeader
-               onFilterChange={this.handleFilterChange}
-               panelTitle="All Medications"
-               isBtnExpandVisible={isBtnExpandVisible}
-               isBtnTableVisible={false}
-               name={MEDICATIONS_MAIN}
-               onExpand={this.handleExpand}
-               currentPanel={MEDICATIONS_MAIN}
-             />
-             <PluginMainPanel
-               headers={columnsToShowConfig}
-               resourceData={allMedications}
-               emptyDataMessage="No medications"
-               onHeaderCellClick={this.handleHeaderCellClick}
-               onCellClick={this.handleDetailMedicationsClick}
-               columnNameSortBy={columnNameSortBy}
-               sortingOrder={sortingOrder}
-               table="medications"
-               filteredData={filteredMedications}
-               totalEntriesAmount={_.size(allMedications)}
-               offset={offset}
-               setOffset={this.handleSetOffset}
-               isBtnCreateVisible={isBtnCreateVisible}
-               onCreate={this.handleCreate}
-               id={sourceId}
-               isLoading={isLoading}
-             />
-           </div>
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <MedicationsDetail
-             onExpand={this.handleExpand}
-             name={MEDICATIONS_DETAIL}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={MEDICATIONS_DETAIL}
-             detail={medicationDetail}
-             onEdit={this.handleEdit}
-             editedPanel={editedPanel}
-             onCancel={this.handleContactDetailCancel}
-             onSaveSettings={this.handleSaveSettingsDetailForm}
-             medicationsDetailFormValues={medicationsDetailFormState.values}
-             prescriptionPanelFormValues={prescriptionPanelFormState.values}
-             isSubmit={isSubmit}
-             toggleHourlySchedule={this.toggleHourlySchedule}
-             isOpenHourlySchedule={isOpenHourlySchedule}
-           />
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <PluginCreate
-             title="Create Medication"
-             onExpand={this.handleExpand}
-             name={MEDICATIONS_CREATE}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={MEDICATIONS_CREATE}
-             onSaveSettings={this.handleSaveSettingsCreateForm}
-             formValues={medicationsCreateFormState.values}
-             onCancel={this.handleCreateCancel}
-             isCreatePanelVisible={isCreatePanelVisible}
-             componentForm={
-               <MedicationsCreateForm isSubmit={isSubmit} />
-             }
-           />
-         </Col> : null}
-       </Row>
-     </div>
-   </section>)
- }
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+            <div className="panel panel-primary">
+              <PluginListHeader
+                onFilterChange={this.handleFilterChange}
+                panelTitle="All Medications"
+                isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
+                name={MEDICATIONS_MAIN}
+                onExpand={this.handleExpand}
+                currentPanel={MEDICATIONS_MAIN}
+              />
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allMedications}
+                emptyDataMessage="No medications"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailMedicationsClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="medications"
+                filteredData={filteredMedications}
+                totalEntriesAmount={_.size(allMedications)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
+              />
+            </div>
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <MedicationsDetail
+              onExpand={this.handleExpand}
+              name={MEDICATIONS_DETAIL}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={MEDICATIONS_DETAIL}
+              detail={medicationDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleContactDetailCancel}
+              onSaveSettings={this.handleSaveSettingsDetailForm}
+              medicationsDetailFormValues={medicationsDetailFormState.values}
+              prescriptionPanelFormValues={prescriptionPanelFormState.values}
+              isSubmit={isSubmit}
+              toggleHourlySchedule={this.toggleHourlySchedule}
+              isOpenHourlySchedule={isOpenHourlySchedule}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              title="Create Medication"
+              onExpand={this.handleExpand}
+              name={MEDICATIONS_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={MEDICATIONS_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={medicationsCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <MedicationsCreateForm isSubmit={isSubmit} />
+              }
+            />
+          </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }

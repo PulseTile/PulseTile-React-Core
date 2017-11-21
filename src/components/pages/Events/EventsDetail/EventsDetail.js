@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import moment from 'moment';
 
 import EventsDetailPanel from './EventsDetailPanel'
-// import EventsDetailForm from './EventsDetailForm'
+import EventsDetailForm from './EventsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
@@ -78,6 +78,26 @@ export default class EventsDetail extends PureComponent {
               </div>
             </div>
           </EventsDetailPanel> : null}
+          {(expandedPanel === EVENT_PANEL || expandedPanel === 'all') && editedPanel[EVENT_PANEL] ? <EventsDetailPanel
+            onExpand={onExpand}
+            name={EVENT_PANEL}
+            title={`Event Event - ${detail[valuesNames.TYPE]} Details`}
+            onShow={onShow}
+            isOpen={openedPanel === EVENT_PANEL}
+            currentPanel={currentPanel}
+            onEdit={onEdit}
+            editedPanel={editedPanel}
+            onCancel={onCancel}
+            onSaveSettings={onSaveSettings}
+            formValues={eventsDetailFormValues}
+            isBtnShowPanel
+          >
+            <EventsDetailForm
+              detail={detail}
+              isSubmit={isSubmit}
+              onShow={onShow}
+            />
+          </EventsDetailPanel> : null }
           {(expandedPanel === META_PANEL || expandedPanel === 'all') && !editedPanel[META_PANEL] ? <EventsDetailPanel
             onExpand={onExpand}
             name={META_PANEL}
