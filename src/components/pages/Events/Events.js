@@ -14,13 +14,14 @@ import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientEventsRequest } from './ducks/fetch-patient-events.duck';
 import { fetchPatientEventsDetailRequest } from './ducks/fetch-patient-events-detail.duck';
+import { fetchPatientEventsDetailEditRequest } from './ducks/fetch-patient-events-detail-edit.duck';
 import { fetchPatientEventsOnMount, fetchPatientEventsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientEventsSelector, patientEventsDetailSelector } from './selectors';
+import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import EventsDetail from './EventsDetail/EventsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { modificateEventsArr } from './events-helpers.utils';
 
 const EVENTS_MAIN = 'eventsMain';
@@ -30,10 +31,11 @@ const EVENT_PANEL = 'eventPanel';
 const META_PANEL = 'metaPanel';
 const CHAT_PANEL = 'chatPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest, fetchPatientEventsDetailRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest, fetchPatientEventsDetailRequest, fetchPatientEventsDetailEditRequest }, dispatch) });
 
 @connect(patientEventsSelector, mapDispatchToProps)
 @connect(patientEventsDetailSelector, mapDispatchToProps)
+@connect(eventsDetailFormStateSelector)
 @compose(lifecycle(fetchPatientEventsOnMount), lifecycle(fetchPatientEventsDetailOnMount))
 
 export default class Events extends PureComponent {
@@ -180,30 +182,17 @@ export default class Events extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, eventDetail } = this.props;
     const sendData = {};
-    const currentDate = new Date();
-    const currentTime = currentDate - new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
     sendData.userId = userId;
 
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.DATE_OF_EVENT] = formValues[valuesNames.DATE_OF_EVENT];
-    sendData[valuesNames.PERFORMER] = formValues[valuesNames.PERFORMER];
-    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
-    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
+    sendData[valuesNames.DATE_TIME] = new Date(formValues[valuesNames.DATE_TIME]);
+    sendData[valuesNames.DESCRIPTION] = formValues[valuesNames.DESCRIPTION];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData[valuesNames.EVENT_NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.TIME] = currentTime;
-
-    sendData[valuesNames.DATE] = currentDate;
-    sendData[valuesNames.SOURCE] = 'ethercis';
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = eventDetail[valuesNames.SOURCE_ID];
-
-      sendData[valuesNames.STATUS] = eventDetail[valuesNames.STATUS];
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = eventDetail[valuesNames.ORIGINAL_COMPOSITION];
-      sendData[valuesNames.ORIGINAL_SOURCE] = eventDetail[valuesNames.ORIGINAL_SOURCE];
     }
 
     if (formName === 'create') {
@@ -311,6 +300,7 @@ export default class Events extends PureComponent {
               editedPanel={editedPanel}
               onCancel={this.handleEventDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
+              eventsDetailFormValues={eventsDetailFormState.values}
               isSubmit={isSubmit}
             />
           </Col> : null}

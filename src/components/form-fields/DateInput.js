@@ -27,7 +27,7 @@ export default class DateInput extends PureComponent {
     }
 
     render() {
-      const { label, placeholder, input, meta: { error, touched }, disabled, value, format, isSubmit } = this.props;
+      const { label, placeholder, input, meta: { error, touched }, disabled, value, format, isSubmit, showTimeSelect, timeFormat, minDate, timeIntervals } = this.props;
       const { isChanged } = this.state;
       const showError = ((touched || isChanged || isSubmit) && error);
       if (value !== undefined) {
@@ -45,6 +45,10 @@ export default class DateInput extends PureComponent {
               selected={input.value ? moment(input.value) : moment()}
               placeholderText={placeholder}
               disabled={disabled}
+              showTimeSelect={showTimeSelect}
+              timeFormat={timeFormat}
+              timeIntervals={timeIntervals}
+              minDate={minDate}
               peekNextMonth
               showMonthDropdown
               showYearDropdown
