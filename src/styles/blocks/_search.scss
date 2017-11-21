@@ -135,6 +135,9 @@
   .control-search-select {
     position: relative;
     z-index: 2;
+    .dropdown-menu-search-select {
+      margin-left: 5px;
+    }
   }
 }
 
