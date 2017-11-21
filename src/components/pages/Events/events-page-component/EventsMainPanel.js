@@ -55,7 +55,7 @@ export default class EventsMainPanel extends PureComponent {
 
   render() {
     const { openedPanel, activeCreate } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType } = this.props;
     const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
     return (
       <div className="panel-body">
@@ -94,10 +94,10 @@ export default class EventsMainPanel extends PureComponent {
                 <div className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size">
                   <div className="dropdown-menu-wrap-list">
                     <div className="dropdown-menu-list">
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Appointment</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Admission</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Transfer</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Discharge</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Appointment' })} onClick={() => onCreate('Appointment')}><span className="dropdown-menu-item-text">Appointment</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Admission' })} onClick={() => onCreate('Admission')}><span className="dropdown-menu-item-text">Admission</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Transfer' })} onClick={() => onCreate('Transfer')}><span className="dropdown-menu-item-text">Transfer</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Discharge' })} onClick={() => onCreate('Discharge')}><span className="dropdown-menu-item-text">Discharge</span></div>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
+const eventsCreateFormSelector = _.getOr({}, 'form.eventsCreateFormSelector')
 const eventsDetailFormSelector = _.getOr({}, 'form.eventsDetailFormSelector')
 
 const patientEventsSelector = createSelector(
@@ -15,6 +16,9 @@ const patientEventsSelector = createSelector(
 const eventsDetailFormStateSelector = createSelector(eventsDetailFormSelector,
   eventsDetailFormState => ({ eventsDetailFormState }));
 
+const eventsCreateFormStateSelector = createSelector(eventsCreateFormSelector,
+  eventsCreateFormState => ({ eventsCreateFormState }));
+
 const patientEventsDetailSelector = createSelector(
   ({ eventsDetail }) => eventsDetail,
   (state, props) => _.getOr(null, 'match.params.userId', props),
@@ -24,4 +28,4 @@ const patientEventsDetailSelector = createSelector(
   }
 );
 
-export { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector }
+export { patientEventsSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector, patientEventsDetailSelector }

@@ -15,14 +15,16 @@ import { valuesNames } from './forms.config';
 import { fetchPatientEventsRequest } from './ducks/fetch-patient-events.duck';
 import { fetchPatientEventsDetailRequest } from './ducks/fetch-patient-events-detail.duck';
 import { fetchPatientEventsDetailEditRequest } from './ducks/fetch-patient-events-detail-edit.duck';
+import { fetchPatientEventsCreateRequest } from './ducks/fetch-patient-events-create.duck';
 import { fetchPatientEventsOnMount, fetchPatientEventsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector } from './selectors';
+import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import EventsDetail from './EventsDetail/EventsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { modificateEventsArr } from './events-helpers.utils';
+import EventsCreateForm from './EventsCreate/EventsCreateForm'
 
 const EVENTS_MAIN = 'eventsMain';
 const EVENTS_DETAIL = 'eventsDetail';
@@ -31,11 +33,12 @@ const EVENT_PANEL = 'eventPanel';
 const META_PANEL = 'metaPanel';
 const CHAT_PANEL = 'chatPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest, fetchPatientEventsDetailRequest, fetchPatientEventsDetailEditRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest, fetchPatientEventsDetailRequest, fetchPatientEventsDetailEditRequest, fetchPatientEventsCreateRequest }, dispatch) });
 
 @connect(patientEventsSelector, mapDispatchToProps)
 @connect(patientEventsDetailSelector, mapDispatchToProps)
 @connect(eventsDetailFormStateSelector)
+@connect(eventsCreateFormStateSelector)
 @compose(lifecycle(fetchPatientEventsOnMount), lifecycle(fetchPatientEventsDetailOnMount))
 
 export default class Events extends PureComponent {
@@ -67,6 +70,7 @@ export default class Events extends PureComponent {
     isSubmit: false,
     activeView: 'table',
     isLoading: true,
+    eventsType: '',
   };
 
   componentWillReceiveProps() {
@@ -77,8 +81,8 @@ export default class Events extends PureComponent {
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false })
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create` && _.isEmpty(this.state.eventsType)) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false })
@@ -109,16 +113,16 @@ export default class Events extends PureComponent {
 
   handleDetailEventsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, isLoading: true })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, isLoading: true, eventsType: '' })
     actions.fetchPatientEventsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
-  handleCreate = () => {
+  handleCreate = (eventsType) => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true, eventsType })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create`);
   };
 
@@ -162,7 +166,7 @@ export default class Events extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true, eventsType: '' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
   };
 
@@ -195,12 +199,6 @@ export default class Events extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = eventDetail[valuesNames.SOURCE_ID];
     }
 
-    if (formName === 'create') {
-      sendData[valuesNames.STATUS] = '';
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = '';
-      sendData[valuesNames.ORIGINAL_SOURCE] = '';
-    }
-
     return sendData;
   };
 
@@ -217,25 +215,25 @@ export default class Events extends PureComponent {
   };
 
   formToShowCollection = (collection) => {
-    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE_TIME,
       keyTo: `${valuesNames.DATE_TIME}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
-      collection: collection,
+      collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NAME, valuesNames.TYPE, `${valuesNames.DATE_TIME}Convert`]
+      filterKeys: [valuesNames.NAME, valuesNames.TYPE, `${valuesNames.DATE_TIME}Convert`],
     });
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType } = this.state;
     const { allEvents, eventsDetailFormState, eventsCreateFormState, metaPanelFormState, eventDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL || expandedPanel === CHAT_PANEL);
@@ -284,6 +282,7 @@ export default class Events extends PureComponent {
                 eventsTimeline={eventsTimeline}
                 activeView={activeView}
                 isLoading={isLoading}
+                eventsType={eventsType}
               />
             </div>
           </Col> : null}
@@ -306,7 +305,7 @@ export default class Events extends PureComponent {
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
-              title="Create Event"
+              title={`Create - ${eventsType}`}
               onExpand={this.handleExpand}
               name={EVENTS_CREATE}
               openedPanel={openedPanel}
@@ -318,7 +317,10 @@ export default class Events extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <EventsCreateForm isSubmit={isSubmit} />
+                <EventsCreateForm
+                  isSubmit={isSubmit}
+                  eventsType={eventsType}
+                />
               }
             />
           </Col> : null}
