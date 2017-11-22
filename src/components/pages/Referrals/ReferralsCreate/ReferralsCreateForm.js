@@ -19,7 +19,6 @@ export default class ReferralsCreateForm extends PureComponent {
   }
   render() {
     const { isSubmit } = this.props;
-    const isNotValidate = true;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 

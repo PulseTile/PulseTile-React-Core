@@ -7,7 +7,7 @@ import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFo
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateEventsForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
+import { valuesNames, valuesLabels, connectionOptions, detailsOptions } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 @reduxForm({
@@ -77,8 +77,43 @@ export default class EventsCreateForm extends PureComponent {
                   component={DateInput}
                   props={{ format: 'DD-MMM-YYYY HH:mm', isSubmit, showTimeSelect: true, timeFormat: 'HH:mm', timeIntervals: 5, minDate: moment() }}
                 />
+                {eventsType === 'Discharge' ? <div className="form-group highlighter-wrapper ng-scope has-success">
+                  <span></span>
+                  <label className="vitals-label">To make connection</label>
+                  <div className="input-holder">
+                    <label className="switch">
+                      <input id="isConnection" type="checkbox" name="isConnection" value="on" defaultChecked />
+                      <div className="slider">
+                        <span className="text text-check-true">Yes</span>
+                        <span className="text text-check-false">No</span>
+                      </div>
+                    </label>
+                  </div>
+                </div> : null }
               </div>
             </div>
+            {eventsType === 'Discharge' ? <div className="row-expand ng-scope">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.CONNECTION}
+                  name={valuesNames.CONNECTION}
+                  id={valuesNames.CONNECTION}
+                  options={connectionOptions}
+                  component={SelectFormGroup}
+                  props={{ isSubmit, placeholder: '-- Select --' }}
+                />
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.DETAILS}
+                  name={valuesNames.DETAILS}
+                  id={valuesNames.DETAILS}
+                  options={detailsOptions}
+                  component={SelectFormGroup}
+                  props={{ isSubmit, placeholder: '-- Select --' }}
+                />
+              </div>
+            </div> : null }
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field

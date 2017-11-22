@@ -32,6 +32,13 @@ export default class EventsMainPanel extends PureComponent {
     document.addEventListener('click', this.handleClick, false);
   }
 
+  componentWillReceiveProps(nextProps) {
+    const { eventsType } = this.props;
+    if (eventsType !== nextProps.eventsType) {
+      this.setState({ openedPanel: '' });
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
   }
