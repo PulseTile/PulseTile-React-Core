@@ -12,7 +12,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
   validate: validateForm,
 })
 
-export default class ContactsDetailForm extends PureComponent {
+export default class ProceduresDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));

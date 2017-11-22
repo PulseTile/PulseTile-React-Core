@@ -13,23 +13,32 @@ import EventsMainPanel from './events-page-component/EventsMainPanel';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientEventsRequest } from './ducks/fetch-patient-events.duck';
+import { fetchPatientEventsDetailRequest } from './ducks/fetch-patient-events-detail.duck';
+import { fetchPatientEventsDetailEditRequest } from './ducks/fetch-patient-events-detail-edit.duck';
+import { fetchPatientEventsCreateRequest } from './ducks/fetch-patient-events-create.duck';
 import { fetchPatientEventsOnMount, fetchPatientEventsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientEventsSelector } from './selectors';
+import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import EventsDetail from './EventsDetail/EventsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { modificateEventsArr } from './events-helpers.utils';
+import EventsCreateForm from './EventsCreate/EventsCreateForm'
 
 const EVENTS_MAIN = 'eventsMain';
 const EVENTS_DETAIL = 'eventsDetail';
 const EVENTS_CREATE = 'eventsCreate';
 const EVENT_PANEL = 'eventPanel';
 const META_PANEL = 'metaPanel';
+const CHAT_PANEL = 'chatPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientEventsRequest, fetchPatientEventsDetailRequest, fetchPatientEventsDetailEditRequest, fetchPatientEventsCreateRequest }, dispatch) });
 
 @connect(patientEventsSelector, mapDispatchToProps)
+@connect(patientEventsDetailSelector, mapDispatchToProps)
+@connect(eventsDetailFormStateSelector)
+@connect(eventsCreateFormStateSelector)
 @compose(lifecycle(fetchPatientEventsOnMount), lifecycle(fetchPatientEventsDetailOnMount))
 
 export default class Events extends PureComponent {
@@ -60,14 +69,30 @@ export default class Events extends PureComponent {
     offset: 0,
     isSubmit: false,
     activeView: 'table',
+    isLoading: true,
+    eventsType: '',
+    isTimelinesOpen: false,
+    valueEventsRange: [],
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, eventsType: 'initEventsType' })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create` && _.isEmpty(this.state.eventsType)) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false, eventsType: 'initEventsType' })
+    }
+
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -88,47 +113,18 @@ export default class Events extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailEventsClick = (id, name, sourceId) => {
+  handleDetailEventsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, isLoading: true, eventsType: '' })
     actions.fetchPatientEventsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}`);
   };
 
-  filterAndSortEvents = (events) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByTypePredicate = _.flow(_.get(valuesNames.TYPE), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(valuesNames.DATE_TIME), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (events !== undefined) {
-      events.map((item) => {
-        item[valuesNames.DATE_TIME] = getDDMMMYYYY(item[valuesNames.DATE_TIME]);
-      });
-    }
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(events);
-    const filterByType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByTypePredicate))(events);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(events);
-
-    const filteredAndSortedEvents = [filterByName, filterByType, filterByDate].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedEvents)
-  };
-
   handleSetOffset = offset => this.setState({ offset });
 
-  handleCreate = () => {
+  handleCreate = (eventsType) => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true, eventsType })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create`);
   };
 
@@ -149,6 +145,7 @@ export default class Events extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -162,6 +159,7 @@ export default class Events extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -170,7 +168,7 @@ export default class Events extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true, eventsType: '' });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
   };
 
@@ -181,7 +179,7 @@ export default class Events extends PureComponent {
       actions.fetchPatientEventsCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
       this.hideCreateForm();
-      this.setState({ isSubmit: false });
+      this.setState({ isSubmit: false, isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -190,36 +188,17 @@ export default class Events extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, eventDetail } = this.props;
     const sendData = {};
-    const currentDate = new Date();
-    const currentTime = currentDate - new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
     sendData.userId = userId;
 
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.DATE_OF_EVENT] = formValues[valuesNames.DATE_OF_EVENT];
-    sendData[valuesNames.PERFORMER] = formValues[valuesNames.PERFORMER];
-    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
-    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
+    sendData[valuesNames.DATE_TIME] = new Date(formValues[valuesNames.DATE_TIME]);
+    sendData[valuesNames.DESCRIPTION] = formValues[valuesNames.DESCRIPTION];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData[valuesNames.EVENT_NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.TIME] = currentTime;
-
-    sendData[valuesNames.DATE] = currentDate;
-    sendData[valuesNames.SOURCE] = 'ethercis';
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = eventDetail[valuesNames.SOURCE_ID];
-
-      sendData[valuesNames.STATUS] = eventDetail[valuesNames.STATUS];
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = eventDetail[valuesNames.ORIGINAL_COMPOSITION];
-      sendData[valuesNames.ORIGINAL_SOURCE] = eventDetail[valuesNames.ORIGINAL_SOURCE];
-    }
-
-    if (formName === 'create') {
-      sendData[valuesNames.STATUS] = '';
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = '';
-      sendData[valuesNames.ORIGINAL_SOURCE] = '';
     }
 
     return sendData;
@@ -237,24 +216,45 @@ export default class Events extends PureComponent {
     this.setState({ activeView: currentView })
   };
 
-  render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView } = this.state;
-    const { allEvents, eventsDetailFormState, eventsCreateFormState, metaPanelFormState, eventDetail } = this.props;
+  formToShowCollection = (collection) => {
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
-    const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL);
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_TIME,
+      keyTo: `${valuesNames.DATE_TIME}Convert`,
+      fn: getDDMMMYYYY,
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.TYPE, `${valuesNames.DATE_TIME}Convert`],
+    });
+  };
+
+  toggleTimelinesVisibility = () => this.setState(prevState => ({ isTimelinesOpen: !prevState.isTimelinesOpen }));
+
+  onRangeChange = (value) => {
+    this.setState({valueEventsRange: value})
+  }
+
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
+    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail } = this.props;
+
+    const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL || expandedPanel === CHAT_PANEL);
     const isPanelMain = (expandedPanel === EVENTS_MAIN);
     const isPanelCreate = (expandedPanel === EVENTS_CREATE);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredEvents = this.filterAndSortEvents(allEvents);
+    const filteredEvents = this.formToShowCollection(allEvents);
 
-    let sourceId;
-    if (!_.isEmpty(eventDetail)) {
-      sourceId = eventDetail.sourceId;
-    }
 
-    const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(this.filterAndSortEvents(allEvents)) : {};
+    const sourceId = (!_.isEmpty(eventDetail)) ? eventDetail.sourceId : '';
+    const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(filteredEvents) : {};
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -271,6 +271,8 @@ export default class Events extends PureComponent {
                 currentPanel={EVENTS_MAIN}
                 activeView={activeView}
                 toggleViewVisibility={this.toggleViewVisibility}
+                isTimelinesOpen={isTimelinesOpen}
+                toggleTimelinesVisibility={this.toggleTimelinesVisibility}
               />
               <EventsMainPanel
                 headers={columnsToShowConfig}
@@ -282,7 +284,7 @@ export default class Events extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="events"
                 filteredData={filteredEvents}
-                totalEntriesAmount={_.size(allEvents)}
+                totalEntriesAmount={_.size(filteredEvents)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
@@ -290,6 +292,10 @@ export default class Events extends PureComponent {
                 id={sourceId}
                 eventsTimeline={eventsTimeline}
                 activeView={activeView}
+                isLoading={isLoading}
+                eventsType={eventsType}
+                isTimelinesOpen={isTimelinesOpen}
+                onRangeChange={this.onRangeChange}
               />
             </div>
           </Col> : null}
@@ -307,13 +313,12 @@ export default class Events extends PureComponent {
               onCancel={this.handleEventDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               eventsDetailFormValues={eventsDetailFormState.values}
-              metaPanelFormValues={metaPanelFormState.values}
               isSubmit={isSubmit}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
-              title="Create Event"
+              title={`Create - ${eventsType}`}
               onExpand={this.handleExpand}
               name={EVENTS_CREATE}
               openedPanel={openedPanel}
@@ -325,7 +330,10 @@ export default class Events extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <EventsCreateForm isSubmit={isSubmit} />
+                <EventsCreateForm
+                  isSubmit={isSubmit}
+                  eventsType={eventsType}
+                />
               }
             />
           </Col> : null}

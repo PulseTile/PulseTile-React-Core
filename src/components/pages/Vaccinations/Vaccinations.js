@@ -20,7 +20,7 @@ import { fetchPatientVaccinationsOnMount, fetchPatientVaccinationsDetailOnMount 
 import { patientVaccinationsSelector, patientVaccinationsDetailSelector, vaccinationPanelFormSelector, vaccinationsCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
@@ -64,14 +64,27 @@ export default class Vaccination extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isDetailPanelVisible: false })
+    }
+
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -92,49 +105,18 @@ export default class Vaccination extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailVaccinationsClick = (id, name, sourceId) => {
+  handleDetailVaccinationsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, editedPanel: {}, expandedPanel: 'all' });
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}`);
-  };
-
-  filterAndSortVaccinations = (vaccinations) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByVaccinationsPredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE}Convert`), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (vaccinations !== undefined) {
-      vaccinations.map((item) => {
-        item[`${valuesNames.DATE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE]);
-      });
-    }
-
-    const filterByVaccinations = _.flow(_.filter(filterByVaccinationsPredicate), _.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder)(vaccinations);
-    const filterByDate = _.flow(_.filter(filterByDatePredicate), _.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder)(vaccinations);
-    const filterBySource = _.flow(_.filter(filterBySourcePredicate), _.sortBy([columnNameSortBy].toString().toLowerCase()), reverseIfDescOrder)(vaccinations);
-
-    const filteredAndSortedVaccinations = [filterByVaccinations, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === valuesNames.DATE) {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedVaccinations)
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`);
   };
 
@@ -155,6 +137,7 @@ export default class Vaccination extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -168,6 +151,7 @@ export default class Vaccination extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -176,7 +160,7 @@ export default class Vaccination extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
   };
 
@@ -187,7 +171,7 @@ export default class Vaccination extends PureComponent {
       formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
       actions.fetchPatientVaccinationsCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
-      this.setState({ isSubmit: false });
+      this.setState({ isSubmit: false, isLoading: true });
       this.hideCreateForm();
     } else {
       this.setState({ isSubmit: true });
@@ -217,8 +201,26 @@ export default class Vaccination extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.SOURCE, `${valuesNames.DATE}Convert`]
+    });
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allVaccinations, vaccinationDetail, vaccinationPanelFormState, vaccinationCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === VACCINATIONS_DETAIL || expandedPanel === VACCINATIONS_PANEL);
@@ -227,7 +229,7 @@ export default class Vaccination extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredVaccinations = this.filterAndSortVaccinations(allVaccinations);
+    const filteredVaccinations = this.formToShowCollection(allVaccinations);
 
     let sourceId;
     if (!_.isEmpty(vaccinationDetail)) {
@@ -258,12 +260,13 @@ export default class Vaccination extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="vaccinations"
                 filteredData={filteredVaccinations}
-                totalEntriesAmount={_.size(allVaccinations)}
+                totalEntriesAmount={_.size(filteredVaccinations)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
                 id={sourceId}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null }

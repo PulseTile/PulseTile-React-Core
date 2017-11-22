@@ -68,18 +68,23 @@ export default class Allergies extends PureComponent {
   };
 
   componentWillReceiveProps() {
-    this.setState({ isLoading: true });
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, isLoading: false })
-    }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`) {
-      this.setState({ isLoading: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`) {
-      this.setState({ isLoading: false })
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isDetailPanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isDetailPanelVisible: false })
+    }
+
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -100,7 +105,7 @@ export default class Allergies extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailAllergiesClick = (id, name, sourceId) => {
+  handleDetailAllergiesClick = (sourceId) => {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
@@ -154,6 +159,7 @@ export default class Allergies extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -180,6 +186,7 @@ export default class Allergies extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });

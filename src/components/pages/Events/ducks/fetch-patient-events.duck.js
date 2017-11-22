@@ -4,7 +4,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-// import { fetchPatientEventsDetailRequest } from './fetch-patient-events-detail.duck';
+import { fetchPatientEventsDetailRequest } from './fetch-patient-events-detail.duck';
 
 export const FETCH_PATIENT_EVENTS_REQUEST = 'FETCH_PATIENT_EVENTS_REQUEST';
 export const FETCH_PATIENT_EVENTS_SUCCESS = 'FETCH_PATIENT_EVENTS_SUCCESS';

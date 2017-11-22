@@ -5,8 +5,8 @@ import CustomInputCheckbox from './CustomInputCheckbox';
 
 export default class ValidatedInputFormGroup extends PureComponent {
     static propTypes = {
-			label: PropTypes.string.isRequired,
-			labelCheckbox: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      labelCheckbox: PropTypes.string,
       placeholder: PropTypes.string,
       input: PropTypes.object.isRequired,
       meta: PropTypes.shape({
@@ -34,8 +34,8 @@ export default class ValidatedInputFormGroup extends PureComponent {
         <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
           <label htmlFor={input.name} className="control-label">{label}</label>
           <div className="input-holder">
-						{
-							type === 'checkbox' ? <CustomInputCheckbox
+            {
+              type === 'checkbox' ? <CustomInputCheckbox
                 labelCheckbox={labelCheckbox}
                 name={name}
                 id={id}
@@ -47,13 +47,12 @@ export default class ValidatedInputFormGroup extends PureComponent {
                 id={id}
                 type={type}
                 disabled={disabled}
-								{...input}
+                {...input}
               />
-						}
+            }
           </div>
           {showError && <span className="required-label">{error}</span>}
         </div>
-			)
-
+      )
     }
 }

@@ -19,7 +19,7 @@ import { fetchPatientProceduresDetailEditRequest } from './ducks/fetch-patient-p
 import { fetchPatientProceduresOnMount, fetchPatientProceduresDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientProceduresSelector, proceduresDetailFormStateSelector, proceduresCreateFormStateSelector, metaPanelFormStateSelector, patientProceduresDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import ProceduresDetail from './ProceduresDetail/ProceduresDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ProceduresCreateForm from './ProceduresCreate/ProceduresCreateForm'
@@ -67,14 +67,27 @@ export default class Procedures extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isDetailPanelVisible: false })
+    }
+
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -95,50 +108,18 @@ export default class Procedures extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailProceduresClick = (id, name, sourceId) => {
+  handleDetailProceduresClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, editedPanel: {}, isLoading: true })
     actions.fetchPatientProceduresDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/${sourceId}`);
-  };
-
-  filterAndSortProcedures = (procedures) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get(valuesNames.NAME), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(`${valuesNames.DATE_OF_PROCEDURE}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterByTimePredicate = _.flow(_.get(`${valuesNames.TIME}Convert`), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (procedures !== undefined) {
-      procedures.map((item) => {
-        item[`${valuesNames.DATE_OF_PROCEDURE}Convert`] = getDDMMMYYYY(item[valuesNames.DATE_OF_PROCEDURE]);
-        item[`${valuesNames.TIME}Convert`] = getHHmm(item[valuesNames.TIME]);
-      });
-    }
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(procedures);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByDatePredicate))(procedures);
-    const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy]]), reverseIfDescOrder, _.filter(filterByTimePredicate))(procedures);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(procedures);
-
-    const filteredAndSortedProcedures = [filterByName, filterByDate, filterByTime, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedProcedures)
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/create`);
   };
 
@@ -159,6 +140,7 @@ export default class Procedures extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
@@ -172,6 +154,7 @@ export default class Procedures extends PureComponent {
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -191,7 +174,7 @@ export default class Procedures extends PureComponent {
       actions.fetchPatientProceduresCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`);
       this.hideCreateForm();
-      this.setState({ isSubmit: false });
+      this.setState({ isSubmit: false, isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -227,9 +210,9 @@ export default class Procedures extends PureComponent {
     }
 
     if (formName === 'create') {
-      sendData[valuesNames.STATUS] = "";
-      sendData[valuesNames.ORIGINAL_COMPOSITION] = "";
-      sendData[valuesNames.ORIGINAL_SOURCE] = "";
+      sendData[valuesNames.STATUS] = '';
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = '';
+      sendData[valuesNames.ORIGINAL_SOURCE] = '';
     }
 
     return sendData;
@@ -243,8 +226,30 @@ export default class Procedures extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_OF_PROCEDURE,
+      keyTo: `${valuesNames.DATE_OF_PROCEDURE}Convert`,
+      fn: getDDMMMYYYY
+    }, {
+      keyFrom: valuesNames.TIME,
+      keyTo: `${valuesNames.TIME}Convert`,
+      fn: getHHmm
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, `${valuesNames.DATE_OF_PROCEDURE}Convert`, `${valuesNames.TIME}Convert`, valuesNames.SOURCE]
+    });
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
 
     const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === PROCEDURE_PANEL || expandedPanel === META_PANEL);
@@ -253,7 +258,7 @@ export default class Procedures extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredProcedures = this.filterAndSortProcedures(allProcedures);
+    const filteredProcedures = this.formToShowCollection(allProcedures);
 
     let sourceId;
     if (!_.isEmpty(procedureDetail)) {
@@ -284,12 +289,13 @@ export default class Procedures extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="procedures"
                 filteredData={filteredProcedures}
-                totalEntriesAmount={_.size(allProcedures)}
+                totalEntriesAmount={_.size(filteredProcedures)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
                 id={sourceId}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null}

@@ -20,7 +20,9 @@ export default class SortableTableHeaderRow extends PureComponent {
       sortingOrder: 'asc',
     };
 
-    getNextSorting = (sortingOrder) => {
+    getNextSorting = (name, sortingOrder) => {
+      if (this.props.columnNameSortBy !== name) { return 'asc'; }
+
       switch (sortingOrder) {
         case 'asc':
           return 'desc';
@@ -33,7 +35,7 @@ export default class SortableTableHeaderRow extends PureComponent {
     handleCellClick = (e, name) => {
       if (name !== 'viewPatientNavigation') {
         const { onHeaderCellClick } = this.props;
-        const sortingOrder = this.getNextSorting(this.state.sortingOrder);
+        const sortingOrder = this.getNextSorting(name, this.state.sortingOrder);
         this.setState({ sortingOrder });
         if (_.isFunction(onHeaderCellClick)) onHeaderCellClick(e, { name, sortingOrder })
       }

@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { Scrollbars } from 'react-custom-scrollbars';
+import classNames from 'classnames';
 
 export default class EventsTimelines extends PureComponent {
   render() {
-    const { eventsTimeline } = this.props;
+    const { eventsTimeline, onCellClick, id  } = this.props;
     const timelines = [];
     for (const key in eventsTimeline) {
       timelines.push(
@@ -12,8 +13,8 @@ export default class EventsTimelines extends PureComponent {
           <div className="timeline-header">{moment(parseInt(key)).format('DD-MMM-YYYY')}</div>
           <div className="timeline-date-group">
             {eventsTimeline[key].map(event =>
-              <div className={`timeline-date ${event.sideDateInTimeline}`}>
-                <div className="timeline-date-content">
+              <div className={`timeline-date ${event.sideDateInTimeline}`} onClick={() => onCellClick(event.sourceId)}>
+                <div className={classNames('timeline-date-content', { 'active': id === event.sourceId })}>
                   <div className="timeline-date-title">{event.name}</div>
                   <div className="timeline-date-subtitle">{event.type}</div>
                   <div className="timeline-date-text">{event.dateTime}</div>

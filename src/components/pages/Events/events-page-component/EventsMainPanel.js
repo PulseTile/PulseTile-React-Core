@@ -21,6 +21,14 @@ export default class EventsMainPanel extends PureComponent {
     emptyDataMessage: 'No list',
   };
 
+  getEventsOnFirstPage = (list) => {
+    const { listPerPageAmount, offset } = this.props;
+
+    return (_.size(list) > listPerPageAmount
+      ? _.slice(offset, offset + listPerPageAmount)(list)
+      : list)
+  };
+
   state = {
     openedPanel: '',
     activeCreate: '',
@@ -28,6 +36,13 @@ export default class EventsMainPanel extends PureComponent {
 
   componentWillMount() {
     document.addEventListener('click', this.handleClick, false);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { eventsType } = this.props;
+    if (eventsType !== nextProps.eventsType) {
+      this.setState({ openedPanel: '' });
+    }
   }
 
   componentWillUnmount() {
@@ -51,30 +66,22 @@ export default class EventsMainPanel extends PureComponent {
 
   shouldHavePagination = list => _.size(list) > this.props.listPerPageAmount;
 
-  getEventsOnFirstPage = (list) => {
-    const { listPerPageAmount, offset } = this.props;
-
-    return (_.size(list) > listPerPageAmount
-      ? _.slice(offset, offset + listPerPageAmount)(list)
-      : list)
-  };
-
   render() {
     const { openedPanel, activeCreate } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, onRangeChange } = this.props;
     const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
 
-    const minValueRange = (!_.isEmpty(filteredData)) ? new Date(_.last(filteredData).dateTime).getTime() : 0;
-    const maxValueRange = (!_.isEmpty(filteredData)) ? new Date(_.head(filteredData).dateTime).getTime() : 0;
+    const minValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.min(...resourceData.map(item => item.dateTime))).getTime() : 0;
+    const maxValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.max(...resourceData.map(item => item.dateTime))).getTime() : 0;
 
     const minDateRange = moment(minValueRange).format('DD-MMM-YYYY');
     const maxDateRange = moment(maxValueRange).format('DD-MMM-YYYY');
 
-    const marks = { [minValueRange]: minDateRange, [maxValueRange]: maxDateRange }
+    const marks = { [minValueRange]: minDateRange, 1466719030445: '24-June-2016', [maxValueRange]: maxDateRange }
 
     return (
       <div className="panel-body">
-        <div className="wrap-rzslider">
+        {isTimelinesOpen ? <div className="wrap-rzslider">
           {(minValueRange !== 0 && maxValueRange !== 0)
             ? <Range
               min={minValueRange}
@@ -83,8 +90,9 @@ export default class EventsMainPanel extends PureComponent {
               marks={marks}
               tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
               tipProps={{ visible: true, defaultVisible: true }}
+              onChange={onRangeChange}
             /> : null }
-        </div>
+        </div> : null}
         {activeView === 'table' ? <SortableTable
           headers={headers}
           data={listOnFirstPage}
@@ -99,6 +107,8 @@ export default class EventsMainPanel extends PureComponent {
         {isLoading ? <Spinner /> : null }
         {activeView === 'timeline' ? <Timelines
           eventsTimeline={eventsTimeline}
+          onCellClick={onCellClick}
+          id={id}
         /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">
@@ -118,10 +128,10 @@ export default class EventsMainPanel extends PureComponent {
                 <div className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size">
                   <div className="dropdown-menu-wrap-list">
                     <div className="dropdown-menu-list">
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Appointment</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Admission</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Transfer</span></div>
-                      <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Discharge</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Appointment' })} onClick={() => onCreate('Appointment')}><span className="dropdown-menu-item-text">Appointment</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Admission' })} onClick={() => onCreate('Admission')}><span className="dropdown-menu-item-text">Admission</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Transfer' })} onClick={() => onCreate('Transfer')}><span className="dropdown-menu-item-text">Transfer</span></div>
+                      <div className={classNames('dropdown-menu-item', { 'active': eventsType === 'Discharge' })} onClick={() => onCreate('Discharge')}><span className="dropdown-menu-item-text">Discharge</span></div>
                     </div>
                   </div>
                 </div>

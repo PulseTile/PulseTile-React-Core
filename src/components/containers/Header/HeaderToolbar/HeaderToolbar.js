@@ -12,11 +12,13 @@ import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
 import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
+import { fetchPatientSummaryOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientSummaryRequest } from '../../../../ducks/fetch-patient-summary.duck';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility, fetchPatientSummaryRequest }, dispatch) });
 
 @connect(toolbarSelector, mapDispatchToProps)
-@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount))
+@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchPatientSummaryOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,
