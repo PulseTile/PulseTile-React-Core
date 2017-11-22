@@ -71,6 +71,8 @@ export default class Events extends PureComponent {
     activeView: 'table',
     isLoading: true,
     eventsType: '',
+    isTimelinesOpen: false,
+    valueEventsRange: [],
   };
 
   componentWillReceiveProps() {
@@ -232,9 +234,15 @@ export default class Events extends PureComponent {
     });
   };
 
+  toggleTimelinesVisibility = () => this.setState(prevState => ({ isTimelinesOpen: !prevState.isTimelinesOpen }));
+
+  onRangeChange = (value) => {
+    this.setState({valueEventsRange: value})
+  }
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType } = this.state;
-    const { allEvents, eventsDetailFormState, eventsCreateFormState, metaPanelFormState, eventDetail } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
+    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL || expandedPanel === CHAT_PANEL);
     const isPanelMain = (expandedPanel === EVENTS_MAIN);
@@ -243,6 +251,7 @@ export default class Events extends PureComponent {
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredEvents = this.formToShowCollection(allEvents);
+
 
     const sourceId = (!_.isEmpty(eventDetail)) ? eventDetail.sourceId : '';
     const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(filteredEvents) : {};
@@ -262,6 +271,8 @@ export default class Events extends PureComponent {
                 currentPanel={EVENTS_MAIN}
                 activeView={activeView}
                 toggleViewVisibility={this.toggleViewVisibility}
+                isTimelinesOpen={isTimelinesOpen}
+                toggleTimelinesVisibility={this.toggleTimelinesVisibility}
               />
               <EventsMainPanel
                 headers={columnsToShowConfig}
@@ -283,6 +294,8 @@ export default class Events extends PureComponent {
                 activeView={activeView}
                 isLoading={isLoading}
                 eventsType={eventsType}
+                isTimelinesOpen={isTimelinesOpen}
+                onRangeChange={this.onRangeChange}
               />
             </div>
           </Col> : null}
