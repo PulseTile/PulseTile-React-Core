@@ -6,7 +6,6 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
-import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
@@ -193,7 +192,7 @@ export default class PersonalNotes extends PureComponent {
     }
 
     if (formName === 'create') {
-      sendData[valuesNames.DATE] = moment(currentDate).format('YYYY-MM-DD');
+      sendData[valuesNames.DATE] = currentDate.getTime();
       sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
@@ -205,20 +204,20 @@ export default class PersonalNotes extends PureComponent {
   };
 
   formToShowCollection = (collection) => {
-    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE,
       keyTo: `${valuesNames.DATE}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
-      collection: collection,
+      collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
+      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE],
     });
   };
 
