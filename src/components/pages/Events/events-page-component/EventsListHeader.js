@@ -18,19 +18,7 @@ export default class EventsListHeader extends PureComponent {
     selected: '',
     openedPanel: '',
     isFilterOpen: false,
-    isTimelinesOpen: false,
   };
-
-  handleSelect = (selected) => {
-    this.setState({ selected });
-    document.body.click();
-  };
-
-  toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible, isFilterOpen: !prevState.isFilterOpen }),
-    () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
-  );
-
-  toggleTimelinesVisibility = () => this.setState(prevState => ({ isTimelinesOpen: !prevState.isTimelinesOpen }));
 
   componentWillMount() {
     document.addEventListener('click', this.handleClick, false);
@@ -39,6 +27,10 @@ export default class EventsListHeader extends PureComponent {
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
   }
+
+  toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible, isFilterOpen: !prevState.isFilterOpen }),
+    () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
+  );
 
   handleClick = (e) => {
     if (!this.node.contains(e.target)) {
@@ -56,8 +48,8 @@ export default class EventsListHeader extends PureComponent {
   };
 
   render() {
-    const { isFilterInputVisible, selected, openedPanel, isFilterOpen, isTimelinesOpen } = this.state;
-    const { onFilterChange, panelTitle, isBtnExpandVisible, isBtnTableVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility } = this.props;
+    const { isFilterInputVisible, openedPanel, isFilterOpen } = this.state;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility, isTimelinesOpen, toggleTimelinesVisibility } = this.props;
 
     return (
       <div className="panel-heading" ref={node => this.node = node}>
@@ -73,7 +65,7 @@ export default class EventsListHeader extends PureComponent {
                   <div className={classNames('dropdown-menu-item', { 'active': isFilterOpen })} onClick={this.toggleFilterInputVisibility}>
                     <span className="dropdown-menu-item-text">Filter</span>
                   </div>
-                  <div className={classNames('dropdown-menu-item', { 'active': isTimelinesOpen })} onClick={this.toggleTimelinesVisibility}>
+                  <div className={classNames('dropdown-menu-item', { 'active': isTimelinesOpen })} onClick={() => toggleTimelinesVisibility()}>
                     <span className="dropdown-menu-item-text">Timelines</span>
                   </div>
                 </div>

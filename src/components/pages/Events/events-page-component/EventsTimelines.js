@@ -17,7 +17,7 @@ export default class EventsTimelines extends PureComponent {
                 <div className={classNames('timeline-date-content', { 'active': id === event.sourceId })}>
                   <div className="timeline-date-title">{event.name}</div>
                   <div className="timeline-date-subtitle">{event.type}</div>
-                  <div className="timeline-date-text">{moment(parseInt(event.dateTime)).format('DD-MMM-YYYY')}</div>
+                  <div className="timeline-date-text">{event.dateTime}</div>
                 </div>
               </div>
             )}

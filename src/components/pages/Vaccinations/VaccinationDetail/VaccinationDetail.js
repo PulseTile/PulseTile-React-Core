@@ -12,8 +12,8 @@ export default class VaccinationDetail extends PureComponent {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, vaccinationPanelFormValues, isSubmit } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const vaccinationDateTime = getDDMMMYYYY(detail[valuesLabels.DATE_TIME]);
-    const dateCreated = getDDMMMYYYY(detail[valuesLabels.DATE]);
+    const vaccinationDateTime = getDDMMMYYYY(detail[valuesNames.DATE_TIME]);
+    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE]);
     return (
       <div className="section-detail">
         <div className="panel-group accordion">

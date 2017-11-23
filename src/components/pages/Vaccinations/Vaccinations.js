@@ -168,7 +168,6 @@ export default class Vaccination extends PureComponent {
     const { actions, userId, vaccinationCreateFormState } = this.props;
 
     if (checkIsValidateForm(vaccinationCreateFormState)) {
-      formValues.dateOfOnset = moment(formValues.dateOfOnset).format('YYYY-MM-DD');
       actions.fetchPatientVaccinationsCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
       this.setState({ isSubmit: false, isLoading: true });
@@ -184,7 +183,6 @@ export default class Vaccination extends PureComponent {
 
     sendData.userId = userId;
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.DATE_TIME] = formValues[valuesNames.DATE_TIME];
     sendData[valuesNames.SERIES_NUMBER] = formValues[valuesNames.SERIES_NUMBER];
     sendData[valuesNames.COMMENT] = formValues[valuesNames.COMMENT];
     sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
@@ -192,6 +190,11 @@ export default class Vaccination extends PureComponent {
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = vaccinationDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.DATE_TIME] = formValues[valuesNames.DATE_TIME];
+    }
+
+    if (formName === 'create') {
+      sendData[valuesNames.DATE_TIME] = new Date(formValues[valuesNames.DATE_TIME]);
     }
 
     return sendData;
@@ -202,20 +205,20 @@ export default class Vaccination extends PureComponent {
   };
 
   formToShowCollection = (collection) => {
-    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE,
       keyTo: `${valuesNames.DATE}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
-      collection: collection,
+      collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NAME, valuesNames.SOURCE, `${valuesNames.DATE}Convert`]
+      filterKeys: [valuesNames.NAME, valuesNames.SOURCE, `${valuesNames.DATE}Convert`],
     });
   };
 

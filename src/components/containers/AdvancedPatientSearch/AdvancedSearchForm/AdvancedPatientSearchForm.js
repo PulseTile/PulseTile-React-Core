@@ -78,15 +78,15 @@ export default class AdvancedPatientSearchForm extends PureComponent {
             {isBirthDateSelected ?
               <div className="row">
                 <div className="col-xs-12 col-sm-6">
-              <Field
-              name={valuesNames.DATE_OF_BIRTH}
-              id={valuesNames.DATE_OF_BIRTH}
-              label="Date of Birth"
-              component={DateInput}
-              placeholder="03/08/1970"
-              props={{ format: 'MM/DD/YYYY' }}
-              />
-              </div>
+                  <Field
+                    name={valuesNames.DATE_OF_BIRTH}
+                    id={valuesNames.DATE_OF_BIRTH}
+                    label="Date of Birth"
+                    component={DateInput}
+                    placeholder="03/08/1970"
+                    props={{ format: 'MM/DD/YYYY' }}
+                  />
+                </div>
               </div>
               :
               <Field

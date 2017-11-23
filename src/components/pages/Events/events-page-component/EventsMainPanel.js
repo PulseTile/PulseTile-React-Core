@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
+import Slider from 'rc-slider';
+import moment from 'moment';
 
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import SortableTable from '../../../containers/SortableTable/SortableTable';
@@ -10,11 +12,15 @@ import Timelines from './EventsTimelines';
 
 const CREATE_CONTENT = 'createContent';
 
+const createSliderWithTooltip = Slider.createSliderWithTooltip;
+const Range = createSliderWithTooltip(Slider.Range);
+
 export default class EventsMainPanel extends PureComponent {
   static defaultProps = {
     listPerPageAmount: 10,
     emptyDataMessage: 'No list',
   };
+
   getEventsOnFirstPage = (list) => {
     const { listPerPageAmount, offset } = this.props;
 
@@ -30,6 +36,13 @@ export default class EventsMainPanel extends PureComponent {
 
   componentWillMount() {
     document.addEventListener('click', this.handleClick, false);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { eventsType } = this.props;
+    if (eventsType !== nextProps.eventsType) {
+      this.setState({ openedPanel: '' });
+    }
   }
 
   componentWillUnmount() {
@@ -55,10 +68,31 @@ export default class EventsMainPanel extends PureComponent {
 
   render() {
     const { openedPanel, activeCreate } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, onRangeChange } = this.props;
     const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
+
+    const minValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.min(...resourceData.map(item => item.dateTime))).getTime() : 0;
+    const maxValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.max(...resourceData.map(item => item.dateTime))).getTime() : 0;
+
+    const minDateRange = moment(minValueRange).format('DD-MMM-YYYY');
+    const maxDateRange = moment(maxValueRange).format('DD-MMM-YYYY');
+
+    const marks = { [minValueRange]: minDateRange, 1466719030445: '24-June-2016', [maxValueRange]: maxDateRange }
+
     return (
       <div className="panel-body">
+        {isTimelinesOpen ? <div className="wrap-rzslider">
+          {(minValueRange !== 0 && maxValueRange !== 0)
+            ? <Range
+              min={minValueRange}
+              max={maxValueRange}
+              defaultValue={[minValueRange, maxValueRange]}
+              marks={marks}
+              tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
+              tipProps={{ visible: true, defaultVisible: true }}
+              onChange={onRangeChange}
+            /> : null }
+        </div> : null}
         {activeView === 'table' ? <SortableTable
           headers={headers}
           data={listOnFirstPage}
