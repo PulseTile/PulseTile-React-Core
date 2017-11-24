@@ -81,7 +81,7 @@ export default class EventsMainPanel extends PureComponent {
       <div className="panel-body">
         {isTimelinesOpen ? <div className="wrap-rzslider">
           {(minValueRange !== 0 && maxValueRange !== 0)
-            ? <Range
+            ? <div className="wrap-rzslider-events"><Range
               min={min}
               max={max}
               defaultValue={[min, max]}
@@ -89,7 +89,7 @@ export default class EventsMainPanel extends PureComponent {
               tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
               tipProps={{ visible: true, defaultVisible: true }}
               onChange={onRangeChange}
-            /> : null }
+            /></div> : null }
         </div> : null}
         {activeView === 'table' ? <SortableTable
           headers={headers}
