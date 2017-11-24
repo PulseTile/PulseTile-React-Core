@@ -75,7 +75,7 @@ export default class PersonalNotes extends PureComponent {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: PERSONAL_NOTES_CREATE, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PERSONAL_NOTES_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isDetailPanelVisible: false })

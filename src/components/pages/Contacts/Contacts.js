@@ -78,7 +78,7 @@ export default class Contacts extends PureComponent {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false })
@@ -109,7 +109,7 @@ export default class Contacts extends PureComponent {
 
   handleDetailContactsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {}, isLoading: true })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientContactsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}`);
   };

@@ -92,7 +92,7 @@ export default class Events extends PureComponent {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, eventsType: 'initEventsType' })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create` && _.isEmpty(this.state.eventsType)) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false, eventsType: 'initEventsType' })
@@ -123,7 +123,7 @@ export default class Events extends PureComponent {
 
   handleDetailEventsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, isLoading: true, eventsType: '' })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true, eventsType: '' })
     actions.fetchPatientEventsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}`);
   };

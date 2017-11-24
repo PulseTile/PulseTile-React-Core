@@ -30,6 +30,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
     render() {
       const { formValues } = this.props;
       const isBirthDateSelected = _.flow(_.get('selectAgeField'), _.eq('birthday'))(formValues);
+      const isAdvancedSearch = true;
 
       return (
         <form name="advancedSearchForm" className="form ng-pristine ng-invalid ng-invalid-required">
@@ -42,6 +43,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                   placeholder="e.g. 123 456 7890"
                   type="text"
                   component={ValidatedInput}
+                  props={{isAdvancedSearch}}
                 />
               </div>
             </div>
@@ -53,6 +55,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                   placeholder="e. g. Smith"
                   type="text"
                   component={ValidatedInput}
+                  props={{isAdvancedSearch}}
                 />
               </div>
               <div className="col-xs-12 col-sm-6">
@@ -62,6 +65,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                   placeholder="e.g. John"
                   type="text"
                   component={ValidatedInput}
+                  props={{isAdvancedSearch}}
                 />
               </div>
             </div>
@@ -72,6 +76,7 @@ export default class AdvancedPatientSearchForm extends PureComponent {
                   name={valuesNames.SELECT_AGE}
                   component={SelectFormGroup}
                   options={optionsForAgeField}
+                  props={{isAdvancedSearch}}
                 />
               </div>
             </div>

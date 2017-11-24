@@ -15,6 +15,7 @@ import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duc
 import { setLogo } from '../../../ducks/set-logo.duck';
 import { setTitle } from '../../../ducks/set-title.duck';
 import { setTheme } from '../../../ducks/set-theme.duck';
+import themes from './theme-config'
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
@@ -55,7 +56,7 @@ class UserProfile extends PureComponent {
   };
 
   handleCancel = (name) => {
-    const {patientsInfo, dispatch} = this.props;
+    const { patientsInfo, dispatch } = this.props;
     dispatch(setTheme(patientsInfo.themeColor));
     this.setState(prevState => ({
       editedPanel: {
@@ -67,7 +68,7 @@ class UserProfile extends PureComponent {
 
   handleSaveSettingsForm = (formValues, name) => {
     const { actions, formState, patientsInfo, dispatch } = this.props;
-    Object.keys(patientsInfo).forEach(function(key) {
+    Object.keys(patientsInfo).forEach((key) => {
       patientsInfo[key] = formValues[key];
     });
     if (_.isEmpty(formState.syncErrors.title) && _.isEmpty(formState.syncErrors.browserTitle)) {
@@ -87,9 +88,8 @@ class UserProfile extends PureComponent {
     const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
     const { formState, patientsInfo } = this.props;
 
-    const themeStyle = {
-      background: patientsInfo.themeColor,
-    };
+
+    const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
@@ -132,8 +132,8 @@ class UserProfile extends PureComponent {
                                   <label className="control-label">Application
                                                       Theme</label>
                                   <div className="palette-color">
-                                    <span className="palette-color-icon" style={themeStyle}></span>
-                                    <span className="palette-color-name"></span>
+                                    <span className="palette-color-icon" style={{ background: theme.baseColor }}></span>
+                                    <span className="palette-color-name">{theme.name}</span>
                                   </div>
                                 </div>
 
