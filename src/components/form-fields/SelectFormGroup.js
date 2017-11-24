@@ -30,7 +30,7 @@ export default class SelectFormGroup extends PureComponent {
  }
 
  render() {
-   const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit, isNotValidate, placeholder } = this.props;
+   const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit, isNotValidate, placeholder, isAdvancedSearch } = this.props;
    const { isChanged } = this.state;
    const showError = ((touched || isChanged || isSubmit) && error);
 
@@ -49,7 +49,8 @@ export default class SelectFormGroup extends PureComponent {
            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
          ) : null }
        </select>
-       {showError && <span className="required-label">{error}</span>}
+       {(showError && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+       {(showError && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
      </div>
    )
  }

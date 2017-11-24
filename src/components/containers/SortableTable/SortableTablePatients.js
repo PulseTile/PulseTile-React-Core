@@ -29,12 +29,13 @@ export default class SortableTablePatients extends PureComponent {
   getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
     const { onCellClick, columnNameSortBy, headers, table } = this.props;
     const { hoveredRowIndex } = this.state;
+    const amountCollumns = headers.length;
 
     return (
       _.isUndefined(resourceData)
-        ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} />
+        ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
         : !resourceData.length
-          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} />
+          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
           : rowsData.map((rowData, index) =>
             <SortableTableHoveredRow
               key={_.uniqueId('__SortableTableRow__')}

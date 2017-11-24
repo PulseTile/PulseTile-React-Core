@@ -26,7 +26,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
     }
 
     render() {
-      const { label, labelCheckbox, placeholder, input, type, meta: { error, touched }, id, disabled, isSubmit, isNotValidate } = this.props;
+      const { label, labelCheckbox, placeholder, input, type, meta: { error, touched }, id, disabled, isSubmit, isNotValidate, isAdvancedSearch } = this.props;
       const { isChanged } = this.state;
       const showError = ((touched || isChanged || isSubmit) && error);
 
@@ -51,7 +51,8 @@ export default class ValidatedInputFormGroup extends PureComponent {
               />
             }
           </div>
-          {showError && <span className="required-label">{error}</span>}
+          {(showError && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+          {(showError && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
         </div>
       )
     }
