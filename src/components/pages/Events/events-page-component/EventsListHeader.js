@@ -47,6 +47,8 @@ export default class EventsListHeader extends PureComponent {
     })
   };
 
+  handleClickFilterFocus = () => this.setState({ openedPanel: '' });
+
   render() {
     const { isFilterInputVisible, openedPanel, isFilterOpen } = this.state;
     const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility, isTimelinesOpen, toggleTimelinesVisibility } = this.props;
@@ -108,7 +110,7 @@ export default class EventsListHeader extends PureComponent {
             <div className="addon">
               <i className="fa fa-filter" />
             </div>
-            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} autoFocus />
+            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} onClick={() => this.handleClickFilterFocus()} autoFocus />
           </div>
         </div>}
       </div>

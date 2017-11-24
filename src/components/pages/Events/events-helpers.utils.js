@@ -1,4 +1,5 @@
 import _ from 'lodash/fp';
+import moment from 'moment';
 
 export const modificateEventsArr = (arr) => {
   let result = _.flow(
@@ -20,4 +21,23 @@ export const modificateEventsArr = (arr) => {
   }))(result);
 
   return result;
+};
+
+export const getMarksArray = (min, max) => {
+  const marks = {};
+  const rangeAmountPart = 20;
+
+  const differrent = max - min;
+  const markWeight = parseInt(differrent / rangeAmountPart);
+
+  marks[min] =  moment(min).format('DD-MMM-YYYY');
+  marks[max] =  moment(max).format('DD-MMM-YYYY');
+
+  for (let i = 1; i < rangeAmountPart; i += 1) {
+    const mark = min + markWeight * i;
+    const markLabel = (i === rangeAmountPart / 2) ? moment(mark).format('DD-MMM-YYYY') : '';
+    marks[mark] = { label: markLabel };
+  }
+
+  return marks;
 };

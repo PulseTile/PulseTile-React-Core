@@ -81,7 +81,7 @@ export default class EventsDetail extends PureComponent {
           {(expandedPanel === EVENT_PANEL || expandedPanel === 'all') && editedPanel[EVENT_PANEL] ? <EventsDetailPanel
             onExpand={onExpand}
             name={EVENT_PANEL}
-            title={`Event Event - ${detail[valuesNames.TYPE]} Details`}
+            title={`Edit Event - ${detail[valuesNames.TYPE]} Details`}
             onShow={onShow}
             isOpen={openedPanel === EVENT_PANEL}
             currentPanel={currentPanel}

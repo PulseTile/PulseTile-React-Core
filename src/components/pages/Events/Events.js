@@ -6,6 +6,7 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
+import { debounce } from 'throttle-debounce';
 
 import EventsListHeader from './events-page-component/EventsListHeader';
 import EventsMainPanel from './events-page-component/EventsMainPanel';
@@ -51,6 +52,13 @@ export default class Events extends PureComponent {
       history: PropTypes.object,
     }),
   };
+
+  constructor(props) {
+    super(props);
+
+    this.onRangeChange = this.onRangeChange.bind(this);
+    this.onRangeChange = debounce(100, this.onRangeChange);
+  }
 
   state = {
     nameShouldInclude: '',
@@ -217,7 +225,12 @@ export default class Events extends PureComponent {
   };
 
   formToShowCollection = (collection) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude, valueEventsRange } = this.state;
+    const timeOneDay = (24 * 60 * 60 * 1000) - 1;
+
+    if (valueEventsRange.length) {
+      collection = collection.filter(el => el[valuesNames.DATE_TIME] >= valueEventsRange[0] && el[valuesNames.DATE_TIME] <= valueEventsRange[1] + timeOneDay);
+    }
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE_TIME,
@@ -225,20 +238,37 @@ export default class Events extends PureComponent {
       fn: getDDMMMYYYY,
     }]);
 
-    return operationsOnCollection.filterAndSort({
+    collection = operationsOnCollection.filterAndSort({
       collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
       filterKeys: [valuesNames.NAME, valuesNames.TYPE, `${valuesNames.DATE_TIME}Convert`],
     });
+
+    return collection;
   };
 
-  toggleTimelinesVisibility = () => this.setState(prevState => ({ isTimelinesOpen: !prevState.isTimelinesOpen }));
+  toggleTimelinesVisibility = () => {
+    this.setState(prevState => ({ isTimelinesOpen: !prevState.isTimelinesOpen }));
+    this.setDefaultRangeValues();
+  };
 
-  onRangeChange = (value) => {
-    this.setState({valueEventsRange: value})
+  onRangeChange(value) {
+    this.setState({ valueEventsRange: value })
   }
+
+  setDefaultRangeValues = () => {
+    const { allEvents } = this.props;
+    const renges = [];
+
+    const minValueRange = (!_.isEmpty(allEvents)) ? new Date(Math.min(...allEvents.map(item => item.dateTime))).getTime() : 0;
+    const maxValueRange = (!_.isEmpty(allEvents)) ? new Date(Math.max(...allEvents.map(item => item.dateTime))).getTime() : 0;
+
+    renges.push(minValueRange, maxValueRange);
+
+    this.onRangeChange(renges)
+  };
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
@@ -252,9 +282,11 @@ export default class Events extends PureComponent {
 
     const filteredEvents = this.formToShowCollection(allEvents);
 
-
     const sourceId = (!_.isEmpty(eventDetail)) ? eventDetail.sourceId : '';
     const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(filteredEvents) : {};
+
+    const minValueRange = valueEventsRange[0];
+    const maxValueRange = valueEventsRange[1];
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -296,6 +328,8 @@ export default class Events extends PureComponent {
                 eventsType={eventsType}
                 isTimelinesOpen={isTimelinesOpen}
                 onRangeChange={this.onRangeChange}
+                minValueRange={minValueRange}
+                maxValueRange={maxValueRange}
               />
             </div>
           </Col> : null}

@@ -71,7 +71,7 @@ export default class EventsCreateForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.EVENT_DATE}
+                  label={valuesLabels.EVENT_DATE_TIME}
                   name={valuesNames.DATE_TIME}
                   id={valuesNames.DATE_TIME}
                   component={DateInput}

@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 export default class EventsTimelines extends PureComponent {
   render() {
-    const { eventsTimeline, onCellClick, id  } = this.props;
+    const { eventsTimeline, onCellClick, id } = this.props;
     const timelines = [];
     for (const key in eventsTimeline) {
       timelines.push(
@@ -17,7 +17,7 @@ export default class EventsTimelines extends PureComponent {
                 <div className={classNames('timeline-date-content', { 'active': id === event.sourceId })}>
                   <div className="timeline-date-title">{event.name}</div>
                   <div className="timeline-date-subtitle">{event.type}</div>
-                  <div className="timeline-date-text">{event.dateTime}</div>
+                  <div className="timeline-date-text">{moment(parseInt(event.dateTime)).format('DD-MMM-YYYY')}</div>
                 </div>
               </div>
             )}
@@ -29,7 +29,7 @@ export default class EventsTimelines extends PureComponent {
       <div className="wrap-timeline">
         <Scrollbars
           style={{ height: 648 }}
-          renderTrackVertical={props => <div {...props} className="track-vertical"/>}
+          renderTrackVertical={props => <div {...props} className="track-vertical" />}
         >
           <div className="timeline-content-scroll">
             <div className="timeline">
