@@ -38,6 +38,7 @@ export default class FileInput extends PureComponent {
                 <input
                   className="form-control input-sm"
                   type="file"
+                  accept="image/jpeg,image/png,image/gif"
                   id={id}
                   onChange={this.onChange}
                 />
