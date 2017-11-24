@@ -31,7 +31,7 @@ export const operationsOnCollection = {
     let str = '';
 
     filterKeys.forEach((key) => {
-      str += item[key].toString().toLowerCase() + ' ';
+      str += item[key] ? item[key].toString().toLowerCase() + ' ' : '';
     });
 
     return str.indexOf(filterBy.toLowerCase() || '') !== -1;
