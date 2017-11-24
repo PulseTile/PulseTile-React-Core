@@ -21,7 +21,7 @@ const setThemeOnBody = (theme) => {
       themeName = 'themeDefault';
   }
 
-  _.head(window.document.getElementsByTagName('body')).className = themeName;
+  window.document.getElementsByTagName('body')[0].classList.add(themeName);
 }
 
 export const setThemeEpic = (action$, store) =>

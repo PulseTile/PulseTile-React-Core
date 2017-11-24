@@ -70,7 +70,7 @@ export default class SortableTablePatients extends PureComponent {
       const tds = _.head(tableFullRows).children;
 
       tableNames.style.width = `${_.head(tds).offsetWidth + 2}px`;
-      tableControls.style.width = `${tds[tds.length - 3].offsetWidth}px`;
+      tableControls.style.width = `${tds[tds.length - 1].offsetWidth + 1}px`;
     }
   };
 
