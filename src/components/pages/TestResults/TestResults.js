@@ -185,7 +185,7 @@ export default class TestResults extends PureComponent {
               <div className="panel panel-primary">
                 <PluginListHeader
                   onFilterChange={this.handleFilterChange}
-                  panelTitle="TestResults"
+                  panelTitle="Test Results"
                   isBtnExpandVisible={isBtnExpandVisible}
                   isBtnTableVisible={false}
                   name={TEST_RESULTS_MAIN}
