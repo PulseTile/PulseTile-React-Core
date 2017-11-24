@@ -9,6 +9,7 @@ import SortableTable from '../../../containers/SortableTable/SortableTable';
 import PaginationBlock from '../../../presentational/PaginationBlock/PaginationBlock';
 import Spinner from '../../../ui-elements/Spinner/Spinner';
 import Timelines from './EventsTimelines';
+import { getMarksArray } from '../events-helpers.utils'
 
 const CREATE_CONTENT = 'createContent';
 
@@ -67,26 +68,23 @@ export default class EventsMainPanel extends PureComponent {
   shouldHavePagination = list => _.size(list) > this.props.listPerPageAmount;
 
   render() {
-    const { openedPanel, activeCreate } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, onRangeChange } = this.props;
+    const { openedPanel } = this.state;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, onRangeChange, minValueRange, maxValueRange } = this.props;
     const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
 
-    const minValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.min(...resourceData.map(item => item.dateTime))).getTime() : 0;
-    const maxValueRange = (!_.isEmpty(resourceData)) ? new Date(Math.max(...resourceData.map(item => item.dateTime))).getTime() : 0;
+    const min = (!_.isEmpty(resourceData)) ? new Date(Math.min(...resourceData.map(item => item.dateTime))).getTime() : 0;
+    const max = (!_.isEmpty(resourceData)) ? new Date(Math.max(...resourceData.map(item => item.dateTime))).getTime() : 0;
 
-    const minDateRange = moment(minValueRange).format('DD-MMM-YYYY');
-    const maxDateRange = moment(maxValueRange).format('DD-MMM-YYYY');
-
-    const marks = { [minValueRange]: minDateRange, 1466719030445: '24-June-2016', [maxValueRange]: maxDateRange }
+    const marks = getMarksArray(min, max);
 
     return (
       <div className="panel-body">
         {isTimelinesOpen ? <div className="wrap-rzslider">
           {(minValueRange !== 0 && maxValueRange !== 0)
             ? <Range
-              min={minValueRange}
-              max={maxValueRange}
-              defaultValue={[minValueRange, maxValueRange]}
+              min={min}
+              max={max}
+              defaultValue={[min, max]}
               marks={marks}
               tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
               tipProps={{ visible: true, defaultVisible: true }}

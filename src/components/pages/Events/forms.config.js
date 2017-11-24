@@ -21,6 +21,7 @@ export const valuesLabels = {
   SOURCE: 'Source',
   CONNECTION: 'To make connection with',
   DETAILS: 'Details',
+  EVENT_DATE_TIME: 'Event Date Time',
 };
 
 export const connectionOptions = [
