@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import LoadingBar from 'react-redux-loading-bar'
 

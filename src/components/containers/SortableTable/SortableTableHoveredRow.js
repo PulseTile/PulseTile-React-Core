@@ -29,6 +29,9 @@ export default class SortableTableHoveredRow extends PureComponent {
       if (rowItem.name === 'id') {
         return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableHoveredRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{formatNHSNumber(rowItem.value)}</td>
       }
+      if (rowItem.name === 'viewPatientNavigation') {
+        return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableHoveredRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames('patient-control', { 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      }
       return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableHoveredRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{rowItem.value}</td>
     });
 
