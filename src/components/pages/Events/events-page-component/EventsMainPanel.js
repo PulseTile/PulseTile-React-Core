@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
-import Slider from 'rc-slider';
+import { Range } from 'rc-slider';
 import moment from 'moment';
 
 import PTButton from '../../../ui-elements/PTButton/PTButton';
@@ -12,9 +12,6 @@ import Timelines from './EventsTimelines';
 import { getMarksArray } from '../events-helpers.utils'
 
 const CREATE_CONTENT = 'createContent';
-
-const createSliderWithTooltip = Slider.createSliderWithTooltip;
-const Range = createSliderWithTooltip(Slider.Range);
 
 export default class EventsMainPanel extends PureComponent {
   static defaultProps = {
@@ -33,6 +30,8 @@ export default class EventsMainPanel extends PureComponent {
   state = {
     openedPanel: '',
     activeCreate: '',
+    rangeForm: null,
+    rangeTo: null
   };
 
   componentWillMount() {
@@ -65,11 +64,18 @@ export default class EventsMainPanel extends PureComponent {
     })
   };
 
+  changeRange = (value) => {
+    const { onRangeChange } = this.props;
+
+    this.setState({ rangeForm: value[0], rangeTo: value[1] })
+    onRangeChange(value);
+  };
+
   shouldHavePagination = list => _.size(list) > this.props.listPerPageAmount;
 
   render() {
     const { openedPanel } = this.state;
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, onRangeChange, minValueRange, maxValueRange } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, onCreate, listPerPageAmount, isLoading, id, eventsTimeline, activeView, eventsType, isTimelinesOpen, minValueRange, maxValueRange } = this.props;
     const listOnFirstPage = _.flow(this.getEventsOnFirstPage)(filteredData);
 
     const min = (!_.isEmpty(resourceData)) ? new Date(Math.min(...resourceData.map(item => item.dateTime))).getTime() : 0;
@@ -81,15 +87,27 @@ export default class EventsMainPanel extends PureComponent {
       <div className="panel-body">
         {isTimelinesOpen ? <div className="wrap-rzslider">
           {(minValueRange !== 0 && maxValueRange !== 0)
-            ? <div className="wrap-rzslider-events"><Range
-              min={min}
-              max={max}
-              defaultValue={[min, max]}
-              marks={marks}
-              tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
-              tipProps={{ visible: true, defaultVisible: true }}
-              onChange={onRangeChange}
-            /></div> : null }
+            ? <div>
+                <div className="rzslider-tooltip rzslider-tooltip--left">
+                  <div className="rzslider-tooltip-content">
+                    <div className="rzslider-tooltip-inner">From: {moment(this.state.rangeForm || minValueRange).format('DD MMM YYYY')}</div>
+                  </div>
+                </div>
+                <div className="rzslider-tooltip rzslider-tooltip--right">
+                  <div className="rzslider-tooltip-content">
+                    <div className="rzslider-tooltip-inner">To: {moment(this.state.rangeTo || maxValueRange).format('DD MMM YYYY')}</div>
+                  </div>
+                </div>
+                <div className="wrap-rzslider-events"><Range
+                  min={min}
+                  max={max}
+                  defaultValue={[min, max]}
+                  marks={marks}
+                  tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
+                  tipProps={{ visible: true, defaultVisible: true }}
+                  onChange={this.changeRange}
+                  /></div>
+            </div>: null }
         </div> : null}
         {activeView === 'table' ? <SortableTable
           headers={headers}
