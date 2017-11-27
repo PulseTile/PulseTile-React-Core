@@ -43,7 +43,13 @@ export const operationsOnCollection = {
       [_.stubTrue, () => v => v],
     ])(sortingByOrder);
 
-    return _.flow(_.sortBy([item => item[sortingByKey].toString().toLowerCase()]), reverseIfDescOrder)(collection);
+    return _.flow(_.sortBy([item => {
+      if (!_.isNaN(+item[sortingByKey])) {
+        return +item[sortingByKey];
+      }
+
+      return item[sortingByKey].toString().toLowerCase();
+    }]), reverseIfDescOrder)(collection);
   },
 
   filterAndSort: (options) => {

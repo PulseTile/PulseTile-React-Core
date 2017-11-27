@@ -67,9 +67,10 @@ export default class PatientsList extends PureComponent {
     }
 
     handleNoDropdownClick = (e) => {
-      if (!(e.target.classList.contains('patient-buttons') ||
-            e.target.parentNode.classList.contains('patient-buttons'))) {
-        console.log('handleNoDropdownClick');
+      const el = e.target;
+      if (!((el.classList && el.classList.contains('patient-buttons')) ||
+            (el.parentNode && el.parentNode.classList && el.parentNode.classList.contains('patient-buttons'))
+          )) {
         this.onSetOpenedDropdownID(null);
       }
     };
