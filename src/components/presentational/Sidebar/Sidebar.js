@@ -30,6 +30,9 @@ export default class Sidebar extends PureComponent {
     window.addEventListener('orientationchange', () => {
       this.setPositionForSidebar()
     });
+    if(_.isEmpty(this.props.patientsSummaries)){
+      this.hideSidebarOnMobile();
+    }
   }
 
   componentDidMount() {
@@ -70,8 +73,13 @@ export default class Sidebar extends PureComponent {
 
   toggleSidebarVisibility = () => {
     const { actions, isSidebarVisible } = this.props;
+    actions.setSidebarVisibility(!isSidebarVisible);
+  };
+
+  hideSidebarOnMobile = () => {
+    const { actions } = this.props;
     if (window.innerWidth < 768) {
-      actions.setSidebarVisibility(!isSidebarVisible);
+      actions.setSidebarVisibility(false);
     }
   };
 
