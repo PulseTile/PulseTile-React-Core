@@ -8,7 +8,6 @@ import { clientUrls } from '../../../../config/client-urls.constants';
 @lifecycle(unmountOnBlur)
 export default class ViewPatientDropdownOptions extends PureComponent {
     static propTypes = {
-      toggleVisibility: PropTypes.func.isRequired,
       handlePatientViewClick: PropTypes.func.isRequired,
     };
 

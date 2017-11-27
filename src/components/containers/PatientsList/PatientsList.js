@@ -45,6 +45,7 @@ export default class PatientsList extends PureComponent {
       selectedColumns: defaultColumnsSelected,
       patientPath: '',
       isDisclaimerModalVisible: false,
+      openedDropdownID: null
     };
 
     /* utils */
@@ -57,7 +58,27 @@ export default class PatientsList extends PureComponent {
         : patients)
     };
 
-    addActionsColumn = _.map(patient => _.set('viewPatientNavigation', <ViewPatienDropdown patient={patient} onPatientViewClick={this.handlePatientViewClick} />, patient));
+    componentWillMount() {
+      document.addEventListener('click', this.handleNoDropdownClick, false);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener('click', this.handleNoDropdownClick, false);
+    }
+
+    handleNoDropdownClick = (e) => {
+      if (!(e.target.classList.contains('patient-buttons') ||
+            e.target.parentNode.classList.contains('patient-buttons'))) {
+        console.log('handleNoDropdownClick');
+        this.onSetOpenedDropdownID(null);
+      }
+    };
+
+    onSetOpenedDropdownID = (id) => {
+      this.setState({ openedDropdownID: id });
+    };
+
+    addActionsColumn = _.map(patient => _.set('viewPatientNavigation', <ViewPatienDropdown patient={patient} onPatientViewClick={this.handlePatientViewClick} openedDropdownID={this.state.openedDropdownID} onSetOpenedDropdownID={this.onSetOpenedDropdownID} />, patient));
 
     /* handlers */
     handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
