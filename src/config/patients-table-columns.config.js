@@ -18,7 +18,7 @@ export const patientsColumnsConfig = [
   { key: 'vitalsCount', title: 'Vitals ', icon: <span>#</span>, width: 100 },
   { key: 'diagnosesDate', title: 'Diagnoses', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 130 },
   { key: 'diagnosesCount', title: 'Diagnoses ', icon: <span>#</span>, width: 120 },
-  { key: 'viewPatientNavigation', title: '', icon: <span />, width: 80 },
+  { key: 'viewPatientNavigation', title: '', icon: <span />, width: 95 },
 ];
 
 export const defaultColumnsSelected = {

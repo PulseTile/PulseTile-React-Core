@@ -19,7 +19,7 @@ export default class SortableTablePatients extends PureComponent {
   };
 
   static defaultProps = {
-    table: ''
+    table: '',
   };
 
   state = {
