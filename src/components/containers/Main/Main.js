@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import _ from 'lodash/fp';
+import { bindActionCreators } from 'redux';
 
 import ProtectedRoute from './ProtectedRoute';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
@@ -12,9 +13,12 @@ import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile,
 import { clientUrls } from '../../../config/client-urls.constants';
 import { routersPluginConfig } from '../../../plugins.config';
 import { redirectAccordingRole } from '../../../utils/redirect-helpers.utils'
+import { setSidebarVisibility } from '../../../ducks/set-sidebar-visibility';
+
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
 @withRouter
-@connect(sidebarAndUserSelector)
+@connect(sidebarAndUserSelector, mapDispatchToProps)
 @connect(mainSelector)
 @connect(initialiseSelector)
 export default class Main extends PureComponent {
@@ -23,9 +27,13 @@ export default class Main extends PureComponent {
     };
 
     componentWillReceiveProps(nextProps) {
+      const { actions } = this.props;
       if (!_.isEmpty(nextProps.userAccount)) {
         this.props.history.listen(() => {
           redirectAccordingRole(nextProps.userAccount);
+          if (window.innerWidth < 768) {
+            actions.setSidebarVisibility(false);
+          }
         })
       }
     }

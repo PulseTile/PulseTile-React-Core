@@ -31,6 +31,7 @@
 }
 .showSidebar .sidebar,
 .showSidebar.sidebar {
+  overflow-y: hidden;
   transform: translate(0, 0);
 }
 .showSidebar .sidebar-underlay,
