@@ -140,44 +140,46 @@ export default class PatientsList extends PureComponent {
 
       //TODO use <PTPanel/>
       return (
-        <div className="panel panel-primary">
-          <PatientsListHeader
-            onFilterChange={this.handleFilterChange}
-            onColumnsSelected={this.handleColumnsSelected}
-            selectedColumns={selectedColumns}
-            panelTitle={panelTitle}
-          />
-          <div className="panel-body">
-            <div className="wrap-patients-table">
-              <SortableTablePatients
-                headers={columnsToShowConfig}
-                data={patientsOnFirstPage}
-                resourceData={allPatients}
-                emptyDataMessage="No patients found"
-                onHeaderCellClick={this.handleHeaderCellClick}
-                onCellClick={this.handlePatientViewClick}
-                columnNameSortBy={columnNameSortBy}
-                sortingOrder={sortingOrder}
-                table="patientsList"
-              />
+        <div className="patients-list">
+          <div className="panel panel-primary">
+            <PatientsListHeader
+              onFilterChange={this.handleFilterChange}
+              onColumnsSelected={this.handleColumnsSelected}
+              selectedColumns={selectedColumns}
+              panelTitle={panelTitle}
+            />
+            <div className="panel-body">
+              <div className="wrap-patients-table">
+                <SortableTablePatients
+                  headers={columnsToShowConfig}
+                  data={patientsOnFirstPage}
+                  resourceData={allPatients}
+                  emptyDataMessage="No patients found"
+                  onHeaderCellClick={this.handleHeaderCellClick}
+                  onCellClick={this.handlePatientViewClick}
+                  columnNameSortBy={columnNameSortBy}
+                  sortingOrder={sortingOrder}
+                  table="patientsList"
+                />
+              </div>
+              {this.shouldHavePagination(filteredPatients) &&
+              <div className="control-group with-indent center">
+                <PaginationBlock
+                  entriesPerPage={patientsPerPageAmount}
+                  totalEntriesAmount={_.size(filteredPatients)}
+                  offset={offset}
+                  setOffset={this.handleSetOffset}
+                />
+              </div>
+              }
             </div>
-            {this.shouldHavePagination(filteredPatients) &&
-            <div className="control-group with-indent center">
-              <PaginationBlock
-                entriesPerPage={patientsPerPageAmount}
-                totalEntriesAmount={_.size(filteredPatients)}
-                offset={offset}
-                setOffset={this.handleSetOffset}
-              />
-            </div>
-            }
+            {isDisclaimerModalVisible && <PatientAccessDisclaimerModal
+              onClose={this.toggleDisclaimerModalVisible}
+              onAgreeRedirectTo={patientPath}
+              history={history}
+              isVisible={isDisclaimerModalVisible}
+            />}
           </div>
-          {isDisclaimerModalVisible && <PatientAccessDisclaimerModal
-            onClose={this.toggleDisclaimerModalVisible}
-            onAgreeRedirectTo={patientPath}
-            history={history}
-            isVisible={isDisclaimerModalVisible}
-          />}
         </div>)
     }
 }
