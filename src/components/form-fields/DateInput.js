@@ -41,7 +41,7 @@ export default class DateInput extends PureComponent {
               <i className="fa fa-calendar" />
             </div>
             <DatePicker
-              readOnly
+              readOnly={!disabled}
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
               selected={input.value ? moment(input.value) : moment()}
               placeholderText={placeholder}
