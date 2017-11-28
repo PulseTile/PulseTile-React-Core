@@ -30,7 +30,7 @@ export default class Sidebar extends PureComponent {
     window.addEventListener('orientationchange', () => {
       this.setPositionForSidebar()
     });
-    if(_.isEmpty(this.props.patientsSummaries)){
+    if (_.isEmpty(this.props.patientsSummaries)) {
       this.hideSidebarOnMobile();
     }
   }
@@ -73,7 +73,9 @@ export default class Sidebar extends PureComponent {
 
   toggleSidebarVisibility = () => {
     const { actions, isSidebarVisible } = this.props;
-    actions.setSidebarVisibility(!isSidebarVisible);
+    if (window.innerWidth < 768) {
+      actions.setSidebarVisibility(!isSidebarVisible);
+    }
   };
 
   hideSidebarOnMobile = () => {
