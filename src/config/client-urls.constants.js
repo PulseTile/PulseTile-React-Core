@@ -20,6 +20,7 @@ export const clientUrls = {
   EVENTS: 'events',
   TEST_RESULTS: 'results',
   REFERRALS: 'referrals',
+  MDTS: 'mdt',
 };
 
 const pluginsPages = {
@@ -93,6 +94,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Referrals',
       state: '/referrals',
+    }],
+  },
+  'mdt': {
+    breadcrumbs: [{
+      title: 'MDT',
+      state: '/mdt',
     }],
   },
 };

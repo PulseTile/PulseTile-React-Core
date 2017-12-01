@@ -12,6 +12,7 @@ import { proceduresEpic, proceduresReducer } from './components/pages/Procedures
 import { eventsEpic, eventsReducer } from './components/pages/Events/index'
 import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
 import { referralsEpic, referralsReducer } from './components/pages/Referrals/index'
+import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -25,6 +26,7 @@ import Procedures from './components/pages/Procedures/Procedures';
 import Events from './components/pages/Events/Events';
 import TestResults from './components/pages/TestResults/TestResults';
 import Referrals from './components/pages/Referrals/Referrals';
+import MDTs from './components/pages/MDTs/MDTs';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -40,6 +42,7 @@ export const sidebarConfig = [
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
   { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
+  { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -62,6 +65,7 @@ export const pluginsEpicConfig = [
   eventsEpic,
   testResultsEpic,
   referralsEpic,
+  mdtsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -77,6 +81,7 @@ export const pluginsReducerConfig = [
   eventsReducer,
   testResultsReducer,
   referralsReducer,
+  mdtsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -126,5 +131,9 @@ export const routersPluginConfig = [
   { key: 'referrals', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}` },
   { key: 'referralsCreate', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/create` },
   { key: 'referralsDetail', component: Referrals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.REFERRALS}/:sourceId` },
+
+  { key: 'mdts', component: MDTs, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.MDTS}` },
+  { key: 'mdtsCreate', component: MDTs, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.MDTS}/create` },
+  { key: 'mdtsDetail', component: MDTs, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.MDTS}/:sourceId` },
 
 ];
