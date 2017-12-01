@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders spinner with props correctly 1`] = `
+<div
+  anotherProps="anotherProps"
+  className="test-spinner"
+  testProps="testProps"
+>
+  <div
+    className="content-spinner__inner"
+  >
+    <div
+      className="content-spinner__circle content-spinner__circle--1"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--2"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--3"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--4"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--5"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--6"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--7"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--8"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--9"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--10"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--11"
+    />
+    <div
+      className="content-spinner__circle content-spinner__circle--12"
+    />
+  </div>
+</div>
+`;

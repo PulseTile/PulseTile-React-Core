@@ -2,7 +2,7 @@ import React from 'react';
 
 const Spinner = ({ ...restProps }) => {
   return (
-    <div className="content-spinner">
+    <div className="content-spinner" {...restProps}>
       <div className="content-spinner__inner">
         <div className="content-spinner__circle content-spinner__circle--1"></div>
         <div className="content-spinner__circle content-spinner__circle--2"></div>

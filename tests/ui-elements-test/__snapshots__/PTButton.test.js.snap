@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders button with children element correctly 1`] = `
+<button
+  anotherProps="anotherProps"
+  className="test-button"
+  testProps="testProps"
+>
+  <i
+    className="btn-icon fa fa-angle-left"
+  />
+  <span
+    className="btn-text"
+  >
+    test text
+  </span>
+</button>
+`;
+
+exports[`renders simple button correctly 1`] = `
+<button
+  className="test-button"
+  testProps="testProps"
+>
+  test button
+</button>
+`;
