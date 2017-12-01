@@ -80,7 +80,7 @@ export default class Referrals extends PureComponent {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: REFERRALS_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
     setTimeout(() => {
