@@ -20,6 +20,7 @@ export const clientUrls = {
   EVENTS: 'events',
   TEST_RESULTS: 'results',
   REFERRALS: 'referrals',
+  ORDERS: 'orders',
 };
 
 const pluginsPages = {
@@ -93,6 +94,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Referrals',
       state: '/referrals',
+    }],
+  },
+  'orders': {
+    breadcrumbs: [{
+      title: 'Orders',
+      state: '/orders',
     }],
   },
 };

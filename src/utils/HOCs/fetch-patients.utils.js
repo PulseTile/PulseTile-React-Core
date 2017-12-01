@@ -50,6 +50,12 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
+export const fetchListOrdersOnMount = ({
+  componentDidMount() {
+    this.props.actions.fetchListOrdersRequest()
+  },
+});
+
 export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
@@ -83,3 +89,6 @@ export const fetchPatientTestResultsOnMount = (generateFetchListOnMount('fetchPa
 
 export const fetchPatientReferralsOnMount = (generateFetchListOnMount('fetchPatientReferralsRequest'));
 export const fetchPatientReferralsDetailOnMount = (generateFetchDetailOnMount('fetchPatientReferralsDetailRequest'));
+
+export const fetchPatientOrdersOnMount = (generateFetchListOnMount('fetchPatientOrdersRequest'));
+export const fetchPatientOrdersDetailOnMount = (generateFetchDetailOnMount('fetchPatientOrdersDetailRequest'));

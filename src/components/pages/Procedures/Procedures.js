@@ -82,7 +82,7 @@ export default class Procedures extends PureComponent {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
     setTimeout(() => {
