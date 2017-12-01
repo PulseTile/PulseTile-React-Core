@@ -78,7 +78,7 @@ export default class ClinicalNotes extends PureComponent {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
     setTimeout(() => {

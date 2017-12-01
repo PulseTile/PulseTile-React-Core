@@ -95,7 +95,7 @@ export default class Events extends PureComponent {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false, eventsType: 'initEventsType' })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false, eventsType: 'initEventsType', expandedPanel: 'all' })
     }
 
     setTimeout(() => {

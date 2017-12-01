@@ -81,7 +81,7 @@ export default class Contacts extends PureComponent {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
     setTimeout(() => {

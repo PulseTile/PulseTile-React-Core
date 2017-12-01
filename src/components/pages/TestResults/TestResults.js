@@ -70,7 +70,7 @@ export default class TestResults extends PureComponent {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TEST_RESULT_PANEL, isDetailPanelVisible: false })
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TEST_RESULT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
     setTimeout(() => {
