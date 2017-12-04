@@ -80,7 +80,7 @@ export default class ClinicalNotesDetail extends PureComponent {
           {(expandedPanel === CLINICAL_NOTES_PANEL || expandedPanel === 'all') && editedPanel[CLINICAL_NOTES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={CLINICAL_NOTES_PANEL}
-            title="Edit Personal Note"
+            title="Edit Clinical Note"
             isOpen={openedPanel === CLINICAL_NOTES_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}
