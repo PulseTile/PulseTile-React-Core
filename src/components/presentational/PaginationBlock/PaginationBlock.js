@@ -76,23 +76,25 @@ const PaginationBlock = ({ entriesPerPage, totalEntriesAmount, offset, setOffset
     return pages;
   };
 
+  const noop = () => undefined;
+
   return (<ul className="pagination-block">
     <li className={classNames('pagination-item arrow', { disabled: isFirstPage })}>
-      <a className="pagination-link" onClick={isFirstPage ? _.noop : setPage(1)}>«</a>
+      <a className="pagination-link" onClick={isFirstPage ? noop() : setPage(1)}>«</a>
     </li>
     <li className={classNames('pagination-item arrow short-show', { disabled: isFirstPage })}>
-      <a className="pagination-link pp" onClick={isFirstPage ? _.noop : setPage(currentPage - 1)}>‹</a>
+      <a className="pagination-link pp" onClick={isFirstPage ? noop() : setPage(currentPage - 1)}>‹</a>
     </li>
     { pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
       <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
-        <a className="pagination-link" onClick={pageIndex === '...' ? _.noop : setPage(pageIndex)}>{pageIndex}</a>
+        <a className="pagination-link" onClick={pageIndex === '...' ? noop() : setPage(pageIndex)}>{pageIndex}</a>
       </li>
     )}
     <li className={classNames('pagination-item arrow short-show', { disabled: isLastPage })}>
-      <a className="pagination-link nn" onClick={isLastPage ? _.noop : setPage(currentPage + 1)}>›</a>
+      <a className="pagination-link nn" onClick={isLastPage ? noop() : setPage(currentPage + 1)}>›</a>
     </li>
     <li className={classNames('pagination-item arrow', { disabled: isLastPage })}>
-      <a className="pagination-link" onClick={isLastPage ? _.noop : setPage(pagesAmount)}>»</a>
+      <a className="pagination-link" onClick={isLastPage ? noop() : setPage(pagesAmount)}>»</a>
     </li>
   </ul>)
 };
