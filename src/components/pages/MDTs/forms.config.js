@@ -6,6 +6,7 @@ export const valuesNames = {
   DATE_OF_REQUEST: 'dateOfRequest',
   DATE_OF_MEETING: 'dateOfMeeting',
   DATE_CREATED: 'dateCreated',
+  AUTHOR: 'author',
 
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
@@ -25,6 +26,7 @@ export const valuesLabels = {
   DATE_OF_MEETING: 'Date of Meeting',
   DATE_OF_MEETING_NOT: 'Not Available',
   DATE_CREATED: 'Date',
+  AUTHOR: 'Author',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

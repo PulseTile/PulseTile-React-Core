@@ -184,11 +184,11 @@ export default class MDTs extends PureComponent {
     sendData[valuesNames.LINK] = formValues[valuesNames.LINK];
     sendData[valuesNames.QUESTION] = formValues[valuesNames.QUESTION];
     sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    sendData[valuesNames.DATE_OF_REQUEST] = formValues[valuesNames.DATE_OF_REQUEST];
-    sendData[valuesNames.DATE_OF_MEETING] = formValues[valuesNames.DATE_OF_MEETING];
+    sendData[valuesNames.DATE_OF_REQUEST] = new Date(formValues[valuesNames.DATE_OF_REQUEST]).getTime();
+    sendData[valuesNames.DATE_OF_MEETING] = new Date(formValues[valuesNames.DATE_OF_MEETING]).getTime();
+    sendData[valuesNames.DATE_CREATED] = new Date().getTime();
 
     if (formName === 'edit') {
-      sendData[valuesNames.DATE] = new Date();
       sendData[valuesNames.SOURCE_ID] = mdtDetail[valuesNames.SOURCE_ID];
       sendData[valuesNames.SOURCE] = mdtDetail[valuesNames.SOURCE];
     }
@@ -208,8 +208,12 @@ export default class MDTs extends PureComponent {
     const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
-      keyFrom: valuesNames.DATE_CREATED,
-      keyTo: `${valuesNames.DATE_CREATED}Convert`,
+      keyFrom: valuesNames.DATE_OF_REQUEST,
+      keyTo: `${valuesNames.DATE_OF_REQUEST}Convert`,
+      fn: getDDMMMYYYY
+    }, {
+      keyFrom: valuesNames.DATE_OF_MEETING,
+      keyTo: `${valuesNames.DATE_OF_MEETING}Convert`,
       fn: getDDMMMYYYY
     }]);
 
@@ -218,7 +222,7 @@ export default class MDTs extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
+      filterKeys: [`${valuesNames.DATE_OF_REQUEST}Convert`, valuesNames.TEAM, `${valuesNames.DATE_OF_MEETING}Convert`, valuesNames.SOURCE]
     });
   };
 
