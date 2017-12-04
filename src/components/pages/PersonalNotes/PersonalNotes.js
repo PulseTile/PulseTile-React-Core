@@ -17,7 +17,7 @@ import { fetchPatientPersonalNotesRequest } from './ducks/fetch-patient-personal
 import { fetchPatientPersonalNotesDetailRequest } from './ducks/fetch-patient-personal-notes-detail.duck';
 import { fetchPatientPersonalNotesDetailEditRequest } from './ducks/fetch-patient-personal-notes-detail-edit.duck';
 import { fetchPatientPersonalNotesCreateRequest } from './ducks/fetch-patient-personal-notes-create.duck';
-import { fetchPatientPersonalNotesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientPersonalNotesOnMount, fetchPatientPersonalNotesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientPersonalNotesSelector, patientPersonalNotesDetailSelector, personalNotePanelFormSelector, personalCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import PersonalNotesDetail from './PersonalNotesDetail/PersonalNotesDetail';
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientPersonalNotesDetailSelector, mapDispatchToProps)
 @connect(personalNotePanelFormSelector)
 @connect(personalCreateFormStateSelector)
-@compose(lifecycle(fetchPatientPersonalNotesOnMount))
+@compose(lifecycle(fetchPatientPersonalNotesOnMount), lifecycle(fetchPatientPersonalNotesDetailOnMount))
 export default class PersonalNotes extends PureComponent {
   static propTypes = {
     allPersonalNotes: PropTypes.arrayOf(PropTypes.object),

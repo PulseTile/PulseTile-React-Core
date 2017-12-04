@@ -10,35 +10,35 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import ClinicalNotesCreateForm from './ClinicalNotesCreate/ClinicalNotesCreateForm';
+import MDTsCreateForm from './MDTsCreate/MDTsCreateForm';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
-import { fetchPatientClinicalNotesRequest } from './ducks/fetch-patient-clinical-notes.duck';
-import { fetchPatientClinicalNotesDetailRequest } from './ducks/fetch-patient-clinical-notes-detail.duck';
-import { fetchPatientClinicalNotesDetailEditRequest } from './ducks/fetch-patient-clinical-notes-detail-edit.duck';
-import { fetchPatientClinicalNotesCreateRequest } from './ducks/fetch-patient-clinical-notes-create.duck';
-import { fetchPatientClinicalNotesOnMount, fetchPatientClinicalNotesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientClinicalNotesSelector, patientClinicalNotesDetailSelector, clinicalNotePanelFormSelector, clinicalCreateFormStateSelector } from './selectors';
+import { fetchPatientMDTsRequest } from './ducks/fetch-patient-mdts.duck';
+import { fetchPatientMDTsDetailRequest } from './ducks/fetch-patient-mdts-detail.duck';
+import { fetchPatientMDTsDetailEditRequest } from './ducks/fetch-patient-mdts-detail-edit.duck';
+import { fetchPatientMDTsCreateRequest } from './ducks/fetch-patient-mdts-create.duck';
+import { fetchPatientMDTsOnMount, fetchPatientMDTsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { patientMDTsSelector, patientMDTsDetailSelector, mdtPanelFormSelector, mdtCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import ClinicalNotesDetail from './ClinicalNotesDetail/ClinicalNotesDetail';
+import MDTsDetail from './MDTsDetail/MDTsDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
-const CLINICAL_NOTES_MAIN = 'clinicalNotesMain';
-const CLINICAL_NOTES_DETAIL = 'clinicalNotesDetail';
-const CLINICAL_NOTES_CREATE = 'clinicalNotesCreate';
-const CLINICAL_NOTES_PANEL = 'clinicalNotesPanel';
+const MDTS_MAIN = 'mdtsMain';
+const MDTS_DETAIL = 'mdtsDetail';
+const MDTS_CREATE = 'mdtsCreate';
+const MDTS_PANEL = 'mdtsPanel';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalNotesRequest, fetchPatientClinicalNotesDetailRequest, fetchPatientClinicalNotesDetailEditRequest, fetchPatientClinicalNotesCreateRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientMDTsRequest, fetchPatientMDTsDetailRequest, fetchPatientMDTsDetailEditRequest, fetchPatientMDTsCreateRequest }, dispatch) });
 
-@connect(patientClinicalNotesSelector, mapDispatchToProps)
-@connect(patientClinicalNotesDetailSelector, mapDispatchToProps)
-@connect(clinicalNotePanelFormSelector)
-@connect(clinicalCreateFormStateSelector)
-@compose(lifecycle(fetchPatientClinicalNotesOnMount), lifecycle(fetchPatientClinicalNotesDetailOnMount))
-export default class ClinicalNotes extends PureComponent {
+@connect(patientMDTsSelector, mapDispatchToProps)
+@connect(patientMDTsDetailSelector, mapDispatchToProps)
+@connect(mdtPanelFormSelector)
+@connect(mdtCreateFormStateSelector)
+@compose(lifecycle(fetchPatientMDTsOnMount), lifecycle(fetchPatientMDTsDetailOnMount))
+export default class MDTs extends PureComponent {
   static propTypes = {
-    allClinicalNotes: PropTypes.arrayOf(PropTypes.object),
+    allMDTs: PropTypes.arrayOf(PropTypes.object),
   };
 
   static contextTypes = {
@@ -50,8 +50,8 @@ export default class ClinicalNotes extends PureComponent {
   state = {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
-    openedPanel: CLINICAL_NOTES_PANEL,
-    columnNameSortBy: valuesNames.TYPE,
+    openedPanel: MDTS_PANEL,
+    columnNameSortBy: valuesNames.DATE_OF_REQUEST,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -71,14 +71,14 @@ export default class ClinicalNotes extends PureComponent {
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/${sourceId}` && sourceId !== undefined) {
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isDetailPanelVisible: false })
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: MDTS_CREATE, isDetailPanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, isDetailPanelVisible: false })
     }
 
     setTimeout(() => {
@@ -87,7 +87,7 @@ export default class ClinicalNotes extends PureComponent {
   }
 
   handleExpand = (name, currentPanel) => {
-    if (currentPanel === CLINICAL_NOTES_MAIN) {
+    if (currentPanel === MDTS_MAIN) {
       if (this.state.expandedPanel === 'all') {
         this.setState({ expandedPanel: name });
       } else {
@@ -104,19 +104,19 @@ export default class ClinicalNotes extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailClinicalNotesClick = (sourceId) => {
+  handleDetailMDTsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
-    actions.fetchPatientClinicalNotesDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/${sourceId}`);
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    actions.fetchPatientMDTsDetailRequest({ userId, sourceId });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`);
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: MDTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}/create`);
   };
 
   handleEdit = (name) => {
@@ -129,7 +129,7 @@ export default class ClinicalNotes extends PureComponent {
     }))
   };
 
-  handleClinicalNotesDetailCancel = (name) => {
+  handleMDTsDetailCancel = (name) => {
     this.setState(prevState => ({
       editedPanel: {
         ...prevState.editedPanel,
@@ -141,9 +141,9 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, clinicalNoteFormState } = this.props;
-    if (checkIsValidateForm(clinicalNoteFormState)) {
-      actions.fetchPatientClinicalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+    const { actions, mdtFormState } = this.props;
+    if (checkIsValidateForm(mdtFormState)) {
+      actions.fetchPatientMDTsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
@@ -159,15 +159,15 @@ export default class ClinicalNotes extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
-    const { actions, userId, clinicalCreateFormState } = this.props;
-    if (checkIsValidateForm(clinicalCreateFormState)) {
-      actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+    const { actions, userId, mdtCreateFormState } = this.props;
+    if (checkIsValidateForm(mdtCreateFormState)) {
+      actions.fetchPatientMDTsCreateRequest(this.formValuesToString(formValues, 'create'));
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MDTS}`);
       this.hideCreateForm();
       this.setState({ isLoading: true });
     } else {
@@ -176,18 +176,21 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId, clinicalNoteDetail } = this.props;
+    const { userId, mdtDetail } = this.props;
     const sendData = {};
 
     sendData.userId = userId;
-    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
-    sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
-    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    sendData[valuesNames.TEAM] = formValues[valuesNames.TEAM];
+    sendData[valuesNames.LINK] = formValues[valuesNames.LINK];
+    sendData[valuesNames.QUESTION] = formValues[valuesNames.QUESTION];
+    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+    sendData[valuesNames.DATE_OF_REQUEST] = new Date(formValues[valuesNames.DATE_OF_REQUEST]).getTime();
+    sendData[valuesNames.DATE_OF_MEETING] = new Date(formValues[valuesNames.DATE_OF_MEETING]).getTime();
+    sendData[valuesNames.DATE_CREATED] = new Date().getTime();
 
     if (formName === 'edit') {
-      sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData[valuesNames.SOURCE_ID] = clinicalNoteDetail[valuesNames.SOURCE_ID];
-      sendData[valuesNames.SOURCE] = clinicalNoteDetail[valuesNames.SOURCE];
+      sendData[valuesNames.SOURCE_ID] = mdtDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = mdtDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
@@ -198,15 +201,19 @@ export default class ClinicalNotes extends PureComponent {
   };
 
   hideCreateForm = () => {
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
   formToShowCollection = (collection) => {
     const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
-      keyFrom: valuesNames.DATE_CREATED,
-      keyTo: `${valuesNames.DATE_CREATED}Convert`,
+      keyFrom: valuesNames.DATE_OF_REQUEST,
+      keyTo: `${valuesNames.DATE_OF_REQUEST}Convert`,
+      fn: getDDMMMYYYY
+    }, {
+      keyFrom: valuesNames.DATE_OF_MEETING,
+      keyTo: `${valuesNames.DATE_OF_MEETING}Convert`,
       fn: getDDMMMYYYY
     }]);
 
@@ -215,25 +222,25 @@ export default class ClinicalNotes extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
+      filterKeys: [`${valuesNames.DATE_OF_REQUEST}Convert`, valuesNames.TEAM, `${valuesNames.DATE_OF_MEETING}Convert`, valuesNames.SOURCE]
     });
   };
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
-    const { allClinicalNotes, clinicalNoteDetail, clinicalNoteFormState, clinicalCreateFormState } = this.props;
+    const { allMDTs, mdtDetail, mdtFormState, mdtCreateFormState } = this.props;
 
-    const isPanelDetails = (expandedPanel === CLINICAL_NOTES_DETAIL || expandedPanel === CLINICAL_NOTES_PANEL);
-    const isPanelMain = (expandedPanel === CLINICAL_NOTES_MAIN);
-    const isPanelCreate = (expandedPanel === CLINICAL_NOTES_CREATE);
+    const isPanelDetails = (expandedPanel === MDTS_DETAIL || expandedPanel === MDTS_PANEL);
+    const isPanelMain = (expandedPanel === MDTS_MAIN);
+    const isPanelCreate = (expandedPanel === MDTS_CREATE);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredClinicalNotes = this.formToShowCollection(allClinicalNotes);
+    const filteredMDTs = this.formToShowCollection(allMDTs);
 
     let sourceId;
-    if (!_.isEmpty(clinicalNoteDetail)) {
-      sourceId = clinicalNoteDetail[valuesNames.SOURCE_ID];
+    if (!_.isEmpty(mdtDetail)) {
+      sourceId = mdtDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">
@@ -243,24 +250,24 @@ export default class ClinicalNotes extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Clinical Notes"
+                panelTitle="Generic MDT"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible
-                name={CLINICAL_NOTES_MAIN}
+                name={MDTS_MAIN}
                 onExpand={this.handleExpand}
-                currentPanel={CLINICAL_NOTES_MAIN}
+                currentPanel={MDTS_MAIN}
               />
               <PluginMainPanel
                 headers={columnsToShowConfig}
-                resourceData={allClinicalNotes}
-                emptyDataMessage="No clinical notes"
+                resourceData={allMDTs}
+                emptyDataMessage="No MDTs"
                 onHeaderCellClick={this.handleHeaderCellClick}
-                onCellClick={this.handleDetailClinicalNotesClick}
+                onCellClick={this.handleDetailMDTsClick}
                 columnNameSortBy={columnNameSortBy}
                 sortingOrder={sortingOrder}
-                table="clinicalNotes"
-                filteredData={filteredClinicalNotes}
-                totalEntriesAmount={_.size(filteredClinicalNotes)}
+                table="mdts"
+                filteredData={filteredMDTs}
+                totalEntriesAmount={_.size(filteredMDTs)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
@@ -271,37 +278,37 @@ export default class ClinicalNotes extends PureComponent {
             </div>
           </Col> : null }
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <ClinicalNotesDetail
+            <MDTsDetail
               onExpand={this.handleExpand}
-              name={CLINICAL_NOTES_DETAIL}
+              name={MDTS_DETAIL}
               openedPanel={openedPanel}
               expandedPanel={expandedPanel}
-              currentPanel={CLINICAL_NOTES_DETAIL}
-              detail={clinicalNoteDetail}
+              currentPanel={MDTS_DETAIL}
+              detail={mdtDetail}
               onEdit={this.handleEdit}
               editedPanel={editedPanel}
-              onCancel={this.handleClinicalNotesDetailCancel}
+              onCancel={this.handleMDTsDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
-              clinicalNoteFormValues={clinicalNoteFormState.values}
+              mdtFormValues={mdtFormState.values}
               isSubmit={isSubmit}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
               onExpand={this.handleExpand}
-              name={CLINICAL_NOTES_CREATE}
+              name={MDTS_CREATE}
               openedPanel={openedPanel}
               onShow={this.handleShow}
               expandedPanel={expandedPanel}
-              currentPanel={CLINICAL_NOTES_CREATE}
+              currentPanel={MDTS_CREATE}
               onSaveSettings={this.handleSaveSettingsCreateForm}
-              formValues={clinicalCreateFormState.values}
+              formValues={mdtCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <ClinicalNotesCreateForm isSubmit={isSubmit} />
+                <MDTsCreateForm isSubmit={isSubmit} />
               }
-              title="Create Clinical Note"
+              title="Create Create MDT"
             />
           </Col> : null}
         </Row>

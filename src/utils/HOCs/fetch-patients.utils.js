@@ -65,8 +65,10 @@ export const fetchPatientDiagnosesOnMount = (generateFetchListOnMount('fetchPati
 export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiagnosesDetailRequest'));
 
 export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
+export const fetchPatientClinicalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesDetailRequest'));
 
 export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
+export const fetchPatientPersonalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesDetailRequest'));
 
 export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
 
@@ -92,3 +94,6 @@ export const fetchPatientReferralsDetailOnMount = (generateFetchDetailOnMount('f
 
 export const fetchPatientOrdersOnMount = (generateFetchListOnMount('fetchPatientOrdersRequest'));
 export const fetchPatientOrdersDetailOnMount = (generateFetchDetailOnMount('fetchPatientOrdersDetailRequest'));
+
+export const fetchPatientMDTsOnMount = (generateFetchListOnMount('fetchPatientMDTsRequest'));
+export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchPatientMDTsDetailRequest'));
