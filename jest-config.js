@@ -18,4 +18,4 @@ module.exports = {
     '!**/dist/**',
   ],
   collectCoverage: true,
-}
+};
