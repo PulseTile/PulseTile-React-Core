@@ -198,6 +198,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_ONSET);
     return sendData;
   };
 

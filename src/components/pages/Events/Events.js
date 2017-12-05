@@ -209,6 +209,7 @@ export default class Events extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = eventDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_TIME);
     return sendData;
   };
 

@@ -126,7 +126,10 @@ export default class PatientsList extends PureComponent {
           'name', 'address', 'dateOfBirthConvert', 'gender', 'id',
           'diagnosesCount', 'ordersCount', 'resultsCount', 'vitalsCount',
           'diagnosesDateConvert', 'ordersDateConvert', 'resultsDateConvert', 'vitalsDateConvert'
-        ]
+        ],
+        modeSorting: {
+          number: ['dateOfBirth']
+        }
       });
     };
 

@@ -21,7 +21,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { clientUrls } from '../../../config/client-urls.constants';
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -110,28 +110,6 @@ export default class Allergies extends PureComponent {
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
-  };
-
-  filterAndSortAllergies = (allergies) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByCausePredicate = _.flow(_.get(valuesNames.CAUSE), _.toLower, _.includes(nameShouldInclude));
-    const filterByReactionPredicate = _.flow(_.get(valuesNames.REACTION), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get(valuesNames.SOURCE), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    const filterByCause = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByCausePredicate))(allergies);
-    const filterByReaction = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByReactionPredicate))(allergies);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(allergies);
-
-    const filteredAndSortedAllergies = [filterByCause, filterByReaction, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedAllergies)
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -231,6 +209,7 @@ export default class Allergies extends PureComponent {
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
     }
 
+    operationsOnCollection.propsToString(sendData);
     return sendData;
   };
 
@@ -243,6 +222,18 @@ export default class Allergies extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.CAUSE, valuesNames.REACTION, valuesNames.SOURCE]
+    });
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
@@ -253,7 +244,7 @@ export default class Allergies extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredAllergies = this.filterAndSortAllergies(allAllergies);
+    const filteredAllergies = this.formToShowCollection(allAllergies);
 
     let sourceId;
     if (!_.isEmpty(allergieDetail)) {

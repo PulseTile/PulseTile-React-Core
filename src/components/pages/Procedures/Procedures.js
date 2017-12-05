@@ -215,6 +215,7 @@ export default class Procedures extends PureComponent {
       sendData[valuesNames.ORIGINAL_SOURCE] = '';
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_PROCEDURE, valuesNames.TIME, valuesNames.DATE);
     return sendData;
   };
 

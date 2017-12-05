@@ -198,6 +198,7 @@ export default class Referrals extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = referralDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE, valuesNames.DATE_CREATED);
     return sendData;
   };
 

@@ -10,6 +10,10 @@ export const checkIsValidateForm = (formState) => {
 };
 
 export const operationsOnCollection = {
+  modsSorting: {
+    NUMBER: 'number'
+  },
+
   modificate: (collection, options) => {
     if (collection && options) {
       collection.map((item) => {
@@ -37,15 +41,22 @@ export const operationsOnCollection = {
     return str.indexOf(filterBy.toLowerCase() || '') !== -1;
   }),
 
-  sort: (collection, sortingByKey, sortingByOrder) => {
+  sort: (collection, sortingByKey, sortingByOrder, modeSorting) => {
     const reverseIfDescOrder = _.cond([
       [_.isEqual('desc'), () => _.reverse],
       [_.stubTrue, () => v => v],
     ])(sortingByOrder);
 
     return _.flow(_.sortBy([item => {
-      if (!_.isNaN(+item[sortingByKey])) {
-        return +item[sortingByKey];
+
+      if (modeSorting) {
+        if (modeSorting[operationsOnCollection.modsSorting.NUMBER] &&
+            modeSorting[operationsOnCollection.modsSorting.NUMBER].indexOf(sortingByKey) !== -1) {
+
+          if (!_.isNaN(+item[sortingByKey])) {
+            return +item[sortingByKey];
+          }
+        }
       }
 
       return item[sortingByKey].toString().toLowerCase();
@@ -53,14 +64,31 @@ export const operationsOnCollection = {
   },
 
   filterAndSort: (options) => {
-    const {filterBy, sortingByKey, sortingByOrder, filterKeys} = options;
+    const {filterBy, sortingByKey, sortingByOrder, filterKeys, modeSorting} = options;
     let collection = options.collection;
 
     if (collection) {
       collection = operationsOnCollection.filter(collection, filterBy, filterKeys);
-      collection = operationsOnCollection.sort(collection, sortingByKey, sortingByOrder);
+      collection = operationsOnCollection.sort(collection, sortingByKey, sortingByOrder, modeSorting);
     }
 
     return collection;
+  },
+
+  toString: (collection, ...ignoreKeys) => {
+    collection.map((itemCollection) => {
+      return operationsOnCollection.propsToString(itemCollection, ...ignoreKeys);
+    });
+  },
+
+  propsToString: (obj, ...ignoreKeys) => {
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key) &&
+          ignoreKeys.indexOf(key) === -1 &&
+          _.isNumber(obj[key])) {
+
+        obj[key] = obj[key].toString();
+      }
+    }
   }
 };

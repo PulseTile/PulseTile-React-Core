@@ -197,6 +197,7 @@ export default class MDTs extends PureComponent {
       sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_REQUEST, valuesNames.DATE_OF_MEETING, valuesNames.DATE_CREATED);
     return sendData;
   };
 

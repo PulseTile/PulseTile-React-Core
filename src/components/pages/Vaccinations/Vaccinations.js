@@ -197,6 +197,7 @@ export default class Vaccination extends PureComponent {
       sendData[valuesNames.DATE_TIME] = new Date(formValues[valuesNames.DATE_TIME]);
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE, valuesNames.DATE_TIME);
     return sendData;
   };
 

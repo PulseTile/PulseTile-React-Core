@@ -223,6 +223,7 @@ export default class Medications extends PureComponent {
       sendData[valuesNames.ISIMPORT] = false;
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DOSE_TIMING, valuesNames.START_DATE, valuesNames.START_TIME, valuesNames.DATE_CREATED);
     return sendData;
   };
 

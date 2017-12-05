@@ -44,7 +44,7 @@ export default class SelectFormGroup extends PureComponent {
          disabled={disabled}
          {...input}
        >
-         {!_.isEmpty(placeholder) ? <option>{placeholder}</option> : null }
+         <option>{placeholder ? placeholder : ''}</option>
          {!_.isEmpty(options) ? options.map(({ value, title }) =>
            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
          ) : null }

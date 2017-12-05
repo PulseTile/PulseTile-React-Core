@@ -5,7 +5,7 @@ const validateForm = (values) => {
   errors[valuesNames.NAME] = !values[valuesNames.NAME] ? 'You must enter a value.' : null;
   errors[valuesNames.REALATIONSHIP] = !values[valuesNames.REALATIONSHIP] ? 'You must enter a value.' : null;
   errors[valuesNames.NEXT_OF_KIN] = null;
-  errors[valuesNames.REALATIONSHIP_TYPE] = !values[valuesNames.REALATIONSHIP_TYPE] ? 'You must enter a value.' : null;
+  errors[valuesNames.REALATIONSHIP_CODE] = !values[valuesNames.REALATIONSHIP_CODE] ? 'You must enter a value.' : null;
   errors[valuesNames.CONTACT_INFORMATION] = !values[valuesNames.CONTACT_INFORMATION] ? 'You must enter a value.' : null;
   errors[valuesNames.NOTES] = !values[valuesNames.NOTES] ? 'You must enter a value.' : null;
 

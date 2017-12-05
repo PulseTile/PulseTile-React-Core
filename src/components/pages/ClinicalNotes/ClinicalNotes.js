@@ -194,6 +194,7 @@ export default class ClinicalNotes extends PureComponent {
       sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE);
     return sendData;
   };
 
