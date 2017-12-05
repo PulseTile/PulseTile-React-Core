@@ -20,6 +20,7 @@ export default class Sidebar extends PureComponent {
     userId: PropTypes.number,
   };
 
+  /* istanbul ignore next */
   componentWillMount() {
     window.addEventListener('resize', () => {
       this.setPositionForSidebar()
@@ -35,20 +36,23 @@ export default class Sidebar extends PureComponent {
     }
   }
 
+  /* istanbul ignore next */
   componentDidMount() {
     this.setPositionForSidebar();
   }
 
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     if (nextProps.patientsSummaries.length !== 0) {
       this.setPositionForSidebar();
     }
   }
 
+  /* istanbul ignore next */
   setPositionForSidebar() {
     const page = document;
-    const headerHeight = page.getElementsByClassName('header')[0].offsetHeight;
-    const footerHeight = page.getElementsByClassName('footer')[0].offsetHeight;
+    const headerHeight = page.getElementsByClassName('header')[0] ? page.getElementsByClassName('header')[0].offsetHeight : 0;
+    const footerHeight = page.getElementsByClassName('footer')[0] ? page.getElementsByClassName('footer')[0].offsetHeight : 0;
     const sidebar = page.getElementsByClassName('sidebar')[0];
     const sidebarUnderlay = page.getElementsByClassName('sidebar-underlay')[0];
 
@@ -71,7 +75,7 @@ export default class Sidebar extends PureComponent {
     }
   }
 
-  toggleSidebarVisibility = () => {
+  toggleSidebarVisibility = /* istanbul ignore next */ () => {
     const { actions, isSidebarVisible } = this.props;
     if (window.innerWidth < 768) {
       actions.setSidebarVisibility(!isSidebarVisible);
@@ -81,6 +85,7 @@ export default class Sidebar extends PureComponent {
   hideSidebarOnMobile = () => {
     const { actions } = this.props;
     if (window.innerWidth < 768) {
+      /* istanbul ignore next */
       actions.setSidebarVisibility(false);
     }
   };
