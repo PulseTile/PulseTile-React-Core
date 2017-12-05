@@ -15,6 +15,7 @@ module.exports = {
   },
   collectCoverageFrom: [
     '**/src/components/presentational/**.{js,jsx}',
+    // '**/src/components/form-fields/**.{js,jsx}',
     '**/src/components/ui-elements/**.{js,jsx}',
     '!**/src/components/**{selectors.js}',
     // '!**/src/components/**{forms.config.js}',

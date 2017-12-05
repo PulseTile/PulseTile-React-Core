@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders static component NotificationContent correctly 1`] = `
+exports[`Component <NotificationContent /> should renders correctly 1`] = `
 <div
   className="notifications-drop dropdown-menu dropdown-menu-right"
   id="tab-notifications"

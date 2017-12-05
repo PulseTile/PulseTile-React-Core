@@ -1,6 +1,183 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`sidebar testing renders Sidebar 1`] = `
+exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
+<div>
+  <div
+    className="sidebar-underlay showSidebar"
+  />
+  <div
+    className="sidebar showSidebar"
+    role="navigation"
+  >
+    <div
+      className="sidebar-nav"
+    >
+      <div>
+        <ul
+          className="sidebar-nav-list"
+        >
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link active"
+              href="/patients/9999999000/patients-summary"
+              onClick={[Function]}
+            >
+              Patient Summary
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/diagnoses"
+              onClick={[Function]}
+            >
+              Problems / Diagnosis
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/medications"
+              onClick={[Function]}
+            >
+              Medications
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/allergies"
+              onClick={[Function]}
+            >
+              Allergies
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/contacts"
+              onClick={[Function]}
+            >
+              Contacts
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/clinicalNotes"
+              onClick={[Function]}
+            >
+              Clinical Notes
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/vaccinations"
+              onClick={[Function]}
+            >
+              Vaccinations
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/personalNotes"
+              onClick={[Function]}
+            >
+              Personal Notes
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/results"
+              onClick={[Function]}
+            >
+              Test Results
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/procedures"
+              onClick={[Function]}
+            >
+              Procedures
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/events"
+              onClick={[Function]}
+            >
+              Events
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/referrals"
+              onClick={[Function]}
+            >
+              Referrals
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/mdt"
+              onClick={[Function]}
+            >
+              MDT
+            </a>
+          </li>
+          <li
+            className="sidebar-nav-item"
+          >
+            <a
+              className="sidebar-nav-link"
+              href="/patients/9999999000/orders"
+              onClick={[Function]}
+            >
+              Orders
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Sidebar /> should renders with props correctly 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -308,181 +485,4 @@ ShallowWrapper {
     userId={9999999000}
 />,
 }
-`;
-
-exports[`sidebar testing sidebar visible 1`] = `
-<div>
-  <div
-    className="sidebar-underlay showSidebar"
-  />
-  <div
-    className="sidebar showSidebar"
-    role="navigation"
-  >
-    <div
-      className="sidebar-nav"
-    >
-      <div>
-        <ul
-          className="sidebar-nav-list"
-        >
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link active"
-              href="/patients/9999999000/patients-summary"
-              onClick={[Function]}
-            >
-              Patient Summary
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/diagnoses"
-              onClick={[Function]}
-            >
-              Problems / Diagnosis
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/medications"
-              onClick={[Function]}
-            >
-              Medications
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/allergies"
-              onClick={[Function]}
-            >
-              Allergies
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/contacts"
-              onClick={[Function]}
-            >
-              Contacts
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/clinicalNotes"
-              onClick={[Function]}
-            >
-              Clinical Notes
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/vaccinations"
-              onClick={[Function]}
-            >
-              Vaccinations
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/personalNotes"
-              onClick={[Function]}
-            >
-              Personal Notes
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/results"
-              onClick={[Function]}
-            >
-              Test Results
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/procedures"
-              onClick={[Function]}
-            >
-              Procedures
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/events"
-              onClick={[Function]}
-            >
-              Events
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/referrals"
-              onClick={[Function]}
-            >
-              Referrals
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/mdt"
-              onClick={[Function]}
-            >
-              MDT
-            </a>
-          </li>
-          <li
-            className="sidebar-nav-item"
-          >
-            <a
-              className="sidebar-nav-link"
-              href="/patients/9999999000/orders"
-              onClick={[Function]}
-            >
-              Orders
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 `;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <CustomInputCheckbox /> should renders with props correctly 1`] = `
+<div
+  className="wrap-fcustominp"
+>
+  <div
+    className="fcustominp"
+  >
+    <input
+      checked={true}
+      id=""
+      type="checkbox"
+      value={true}
+    />
+    <label
+      htmlFor={undefined}
+    />
+  </div>
+  <label
+    className="fcustominp-label"
+    htmlFor={undefined}
+  >
+    Test label
+  </label>
+</div>
+`;

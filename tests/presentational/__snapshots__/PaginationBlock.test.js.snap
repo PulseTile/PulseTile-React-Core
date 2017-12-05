@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Test PaginationBlock component with transitions 1`] = `
+exports[`Component <PaginationBlock /> Test PaginationBlock component with transitions 1`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -491,7 +491,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Test PaginationBlock component with transitions 2`] = `
+exports[`Component <PaginationBlock /> Test PaginationBlock component with transitions 2`] = `
 ShallowWrapper {
   "complexSelector": ComplexSelector {
     "buildPredicate": [Function],
@@ -982,7 +982,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Test PaginationBlock when totalEntriesAmount less then offset 1`] = `
+exports[`Component <PaginationBlock /> Test PaginationBlock when totalEntriesAmount less then offset 1`] = `
 <ul
   className="pagination-block"
 >
@@ -1059,7 +1059,7 @@ exports[`Test PaginationBlock when totalEntriesAmount less then offset 1`] = `
 </ul>
 `;
 
-exports[`Test PaginationBlock when we are in the middle of the pagination block 1`] = `
+exports[`Component <PaginationBlock /> Test PaginationBlock when we are in the middle of the pagination block 1`] = `
 <ul
   className="pagination-block"
 >
@@ -1166,7 +1166,7 @@ exports[`Test PaginationBlock when we are in the middle of the pagination block 
 </ul>
 `;
 
-exports[`Test PaginationBlock when we have less than six pages 1`] = `
+exports[`Component <PaginationBlock /> Test PaginationBlock when we have less than six pages 1`] = `
 <ul
   className="pagination-block"
 >
@@ -1253,7 +1253,7 @@ exports[`Test PaginationBlock when we have less than six pages 1`] = `
 </ul>
 `;
 
-exports[`renders PaginationBlock on the first page 1`] = `
+exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
 <ul
   className="pagination-block"
 >
@@ -1360,7 +1360,7 @@ exports[`renders PaginationBlock on the first page 1`] = `
 </ul>
 `;
 
-exports[`renders PaginationBlock on the last page 1`] = `
+exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
 <ul
   className="pagination-block"
 >
@@ -1467,7 +1467,7 @@ exports[`renders PaginationBlock on the last page 1`] = `
 </ul>
 `;
 
-exports[`renders PaginationBlock when we move to another page 1`] = `
+exports[`Component <PaginationBlock /> should renders when we move to another page 1`] = `
 <ul
   className="pagination-block"
 >

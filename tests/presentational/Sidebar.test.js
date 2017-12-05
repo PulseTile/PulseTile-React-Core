@@ -13,8 +13,8 @@ const userId = 9999999000;
 const activeLink = 'patients-summary';
 const context = {};
 
-describe('sidebar testing', () => {
-  it('renders Sidebar', () => {
+describe('Component <Sidebar />', () => {
+  it('should renders with props correctly', () => {
     const sidebar = shallow(
       <Sidebar
         dispatch={dispatch}
@@ -24,7 +24,7 @@ describe('sidebar testing', () => {
       />);
     expect(sidebar).toMatchSnapshot();
   });
-  it('sidebar visible', () => {
+  it('should renders whet it is visible', () => {
     const tree = renderer
       .create(
         <StaticRouter location="someLocation" context={context}>

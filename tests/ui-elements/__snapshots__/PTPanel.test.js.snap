@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders PTPanel correctly 1`] = `
+exports[`Component <PTPanel /> should renders with props correctly 1`] = `
 <div
   className="col-md-6 col-xs-12"
 >

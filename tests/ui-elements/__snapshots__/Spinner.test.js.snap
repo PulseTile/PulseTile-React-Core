@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders spinner with props correctly 1`] = `
+exports[`Component <Spinner /> should renders with props correctly 1`] = `
 <div
   anotherProps="anotherProps"
   className="test-spinner"

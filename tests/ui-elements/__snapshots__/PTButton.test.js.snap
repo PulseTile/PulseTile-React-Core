@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders button with children element correctly 1`] = `
+exports[`Component <PTButton /> should renders with children element correctly 1`] = `
 <button
   anotherProps="anotherProps"
   className="test-button"
@@ -17,7 +17,7 @@ exports[`renders button with children element correctly 1`] = `
 </button>
 `;
 
-exports[`renders simple button correctly 1`] = `
+exports[`Component <PTButton /> should renders with props correctly 1`] = `
 <button
   className="test-button"
   testProps="testProps"
