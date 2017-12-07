@@ -1,8 +1,9 @@
 module.exports = {
-  verbose: false,
+  verbose: true,
   modulePaths: [
     '__stubs__',
   ],
+  testEnvironment: "jsdom",
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
     '^[./a-zA-Z0-9$_-]+\\.png$': '<rootDir>/RelativeImageStub.js',
@@ -15,9 +16,10 @@ module.exports = {
   },
   collectCoverageFrom: [
     '**/src/components/presentational/**.{js,jsx}',
-    // '**/src/components/form-fields/**.{js,jsx}',
+    '**/src/components/form-fields/**.{js,jsx}',
     '**/src/components/ui-elements/**.{js,jsx}',
     '!**/src/components/**{selectors.js}',
+
     // '!**/src/components/**{forms.config.js}',
     // '!**/src/components/**{forms.validation.js}',
     // '!**/src/components/**{table-columns.config.js}',
