@@ -21,16 +21,16 @@ const store = mockStore({
 });
 describe('Component <HeaderTitle />', () => {
   it('should renders correctly', () => {
-    const header = render(
+    const headerTitle = render(
       <HeaderTitle
         dispatch={dispatch}
         store={store}
       />);
-    expect(header).toMatchSnapshot();
-    expect(header.text()).toEqual('System Dashboard');
+    expect(headerTitle).toMatchSnapshot();
+    expect(headerTitle.text()).toEqual('System Dashboard');
   });
   it('should renders correctly on the user profile page', () => {
-    const header = render(
+    const headerTitle = render(
       <HeaderTitle
         dispatch={dispatch}
         store={mockStore({
@@ -43,8 +43,8 @@ describe('Component <HeaderTitle />', () => {
           },
         })}
       />);
-    expect(header).toMatchSnapshot();
-    expect(header.text()).toEqual('Personal Information');
+    expect(headerTitle).toMatchSnapshot();
+    expect(headerTitle.text()).toEqual('Personal Information');
   });
 });
 

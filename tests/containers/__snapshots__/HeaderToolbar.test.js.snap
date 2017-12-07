@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
+<div>
+  <div
+    class="wrap-header-toolbar"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="header-toolbar"
+      >
+        <button
+          aria-expanded="false"
+          class="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
+          data-target="#sidebar-nav"
+          data-toggle="collapse"
+        >
+          <i
+            class="btn-icon fa fa-bars"
+          >
+            
+          </i>
+          <span
+            class="btn-text"
+          >
+            Menu
+          </span>
+        </button>
+        <div
+          class="wrap-patient-info"
+        >
+          <div
+            class="patient-info-caption"
+          >
+            <div
+              class="patient-info-caption-btn btn-dropdown-toggle"
+            >
+              
+            </div>
+            <div
+              class="patient-info-caption-text text-truncate"
+            >
+              
+            </div>
+          </div>
+          <div
+            class="patient-info"
+          >
+            <div
+              class="patient-info-group-2"
+            >
+              <div
+                class="column-1"
+              >
+                <div
+                  class="patient-info-item"
+                >
+                  <span
+                    class="key"
+                  >
+                    D.O.B.
+                  </span>
+                   
+                </div>
+                <div
+                  class="patient-info-item"
+                >
+                  <span
+                    class="key"
+                  >
+                    Phone:
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="column-2"
+              >
+                <div
+                  class="patient-info-item"
+                >
+                  <span
+                    class="key"
+                  >
+                    Gender:
+                  </span>
+                   
+                </div>
+                <div
+                  class="patient-info-item"
+                >
+                  <span
+                    class="key"
+                  >
+                    NHS No.
+                  </span>
+                   
+                  <span>
+                    
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              class="patient-info-group-1"
+            >
+              <div
+                class="patient-info-item significant hidden-xs"
+              >
+                
+              </div>
+              <div
+                class="patient-info-item"
+              >
+                <span
+                  class="key"
+                >
+                  Doctor:
+                </span>
+                 
+              </div>
+            </div>
+            <div
+              class="patient-info-item"
+            >
+              <span
+                class="key"
+              >
+                Address:
+              </span>
+               
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div
+      class="sidebar-underlay showSidebar"
+    >
+      
+    </div>
+    <div
+      class="sidebar showSidebar"
+      role="navigation"
+    >
+      <div
+        class="sidebar-nav"
+      >
+        <div>
+          <ul
+            class="sidebar-nav-list"
+          >
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/patients-summary"
+              >
+                Patient Summary
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/diagnoses"
+              >
+                Problems / Diagnosis
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/medications"
+              >
+                Medications
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/allergies"
+              >
+                Allergies
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/contacts"
+              >
+                Contacts
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/clinicalNotes"
+              >
+                Clinical Notes
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/vaccinations"
+              >
+                Vaccinations
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/personalNotes"
+              >
+                Personal Notes
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/results"
+              >
+                Test Results
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link active"
+                href="/patients/null/procedures"
+              >
+                Procedures
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/events"
+              >
+                Events
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/referrals"
+              >
+                Referrals
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/mdt"
+              >
+                MDT
+              </a>
+            </li>
+            <li
+              class="sidebar-nav-item"
+            >
+              <a
+                class="sidebar-nav-link"
+                href="/patients/null/orders"
+              >
+                Orders
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
