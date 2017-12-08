@@ -111,6 +111,7 @@
     "bootstrap-sass": "3.3.7",
     "chart.js": "2.7.0",
     "classnames": "2.2.5",
+    "enzyme-adapter-react-15": "^1.0.5",
     "font-awesome": "4.7.0",
     "history": "4.7.2",
     "identity-obj-proxy": "^3.0.0",

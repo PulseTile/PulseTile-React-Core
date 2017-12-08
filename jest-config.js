@@ -19,8 +19,8 @@ module.exports = {
     '**/src/components/form-fields/**.{js,jsx}',
     '**/src/components/ui-elements/**.{js,jsx}',
     '**/src/components/containers/**.{js,jsx}',
-    '!**/src/components/**{selectors.js}',
 
+    '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
     '!**/src/components/**{forms.validation.js}',
     '!**/src/components/**{table-columns.config.js}',
@@ -37,4 +37,5 @@ module.exports = {
   collectCoverage: true,
   bail: true,
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  "notify": true,
 };

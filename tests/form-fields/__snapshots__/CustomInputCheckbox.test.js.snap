@@ -9,18 +9,45 @@ exports[`Component <CustomInputCheckbox /> should renders with all props correct
   >
     <input
       checked={true}
+      id="test-id"
+      name="test-name"
+      type="checkbox"
+      value={true}
+    />
+    <label
+      htmlFor="test-id"
+    />
+  </div>
+  <label
+    className="fcustominp-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+</div>
+`;
+
+exports[`Component <CustomInputCheckbox /> should renders without id prop correctly 1`] = `
+<div
+  className="wrap-fcustominp"
+>
+  <div
+    className="fcustominp"
+  >
+    <input
+      checked={true}
       id=""
       name="test-name"
       type="checkbox"
       value={true}
     />
     <label
-      htmlFor="test-name"
+      htmlFor=""
     />
   </div>
   <label
     className="fcustominp-label"
-    htmlFor="test-name"
+    htmlFor=""
   >
     Test label
   </label>
@@ -36,13 +63,13 @@ exports[`Component <CustomInputCheckbox /> should renders without label prop cor
   >
     <input
       checked={true}
-      id=""
+      id="test-id"
       name="test-name"
       type="checkbox"
       value={true}
     />
     <label
-      htmlFor="test-name"
+      htmlFor="test-id"
     />
   </div>
 </div>
