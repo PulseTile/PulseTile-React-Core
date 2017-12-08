@@ -1,226 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PaginationBlock /> Test PaginationBlock component with transitions 1`] = `
-<ul
-  className="pagination-block"
->
-  <li
-    className="pagination-item arrow disabled"
-  >
-    <a
-      className="pagination-link"
-    >
-      «
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow short-show disabled"
-  >
-    <a
-      className="pagination-link pp"
-    >
-      ‹
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show active"
-    key="__PaginationBlock__li__19"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      1
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__20"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      2
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__21"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      3
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__22"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      4
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show disabled"
-    key="__PaginationBlock__li__23"
-  >
-    <a
-      className="pagination-link"
-    >
-      ...
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__24"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      9
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow short-show"
-  >
-    <a
-      className="pagination-link nn"
-      onClick={[Function]}
-    >
-      ›
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      »
-    </a>
-  </li>
-</ul>
-`;
-
-exports[`Component <PaginationBlock /> Test PaginationBlock component with transitions 2`] = `
-<ul
-  className="pagination-block"
->
-  <li
-    className="pagination-item arrow disabled"
-  >
-    <a
-      className="pagination-link"
-    >
-      «
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow short-show disabled"
-  >
-    <a
-      className="pagination-link pp"
-    >
-      ‹
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show active"
-    key="__PaginationBlock__li__19"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      1
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__20"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      2
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__21"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      3
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__22"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      4
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show disabled"
-    key="__PaginationBlock__li__23"
-  >
-    <a
-      className="pagination-link"
-    >
-      ...
-    </a>
-  </li>
-  <li
-    className="pagination-item short-show"
-    key="__PaginationBlock__li__24"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      9
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow short-show"
-  >
-    <a
-      className="pagination-link nn"
-      onClick={[Function]}
-    >
-      ›
-    </a>
-  </li>
-  <li
-    className="pagination-item arrow"
-  >
-    <a
-      className="pagination-link"
-      onClick={[Function]}
-    >
-      »
-    </a>
-  </li>
-</ul>
-`;
-
-exports[`Component <PaginationBlock /> Test PaginationBlock when totalEntriesAmount less then offset 1`] = `
+exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount less then offset 1`] = `
 <ul
   className="pagination-block"
 >
@@ -297,7 +77,7 @@ exports[`Component <PaginationBlock /> Test PaginationBlock when totalEntriesAmo
 </ul>
 `;
 
-exports[`Component <PaginationBlock /> Test PaginationBlock when we are in the middle of the pagination block 1`] = `
+exports[`Component <PaginationBlock /> should be renders when we are in the middle of the pagination block 1`] = `
 <ul
   className="pagination-block"
 >
@@ -404,7 +184,7 @@ exports[`Component <PaginationBlock /> Test PaginationBlock when we are in the m
 </ul>
 `;
 
-exports[`Component <PaginationBlock /> Test PaginationBlock when we have less than six pages 1`] = `
+exports[`Component <PaginationBlock /> should be renders when we have less than six pages 1`] = `
 <ul
   className="pagination-block"
 >
@@ -466,6 +246,226 @@ exports[`Component <PaginationBlock /> Test PaginationBlock when we have less th
       onClick={[Function]}
     >
       4
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow short-show"
+  >
+    <a
+      className="pagination-link nn"
+      onClick={[Function]}
+    >
+      ›
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      »
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Component <PaginationBlock /> should be with transitions 1`] = `
+<ul
+  className="pagination-block"
+>
+  <li
+    className="pagination-item arrow disabled"
+  >
+    <a
+      className="pagination-link"
+    >
+      «
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow short-show disabled"
+  >
+    <a
+      className="pagination-link pp"
+    >
+      ‹
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show active"
+    key="__PaginationBlock__li__19"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__20"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__21"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      3
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__22"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      4
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show disabled"
+    key="__PaginationBlock__li__23"
+  >
+    <a
+      className="pagination-link"
+    >
+      ...
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__24"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      9
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow short-show"
+  >
+    <a
+      className="pagination-link nn"
+      onClick={[Function]}
+    >
+      ›
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      »
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Component <PaginationBlock /> should be with transitions 2`] = `
+<ul
+  className="pagination-block"
+>
+  <li
+    className="pagination-item arrow disabled"
+  >
+    <a
+      className="pagination-link"
+    >
+      «
+    </a>
+  </li>
+  <li
+    className="pagination-item arrow short-show disabled"
+  >
+    <a
+      className="pagination-link pp"
+    >
+      ‹
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show active"
+    key="__PaginationBlock__li__19"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      1
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__20"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      2
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__21"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      3
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__22"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      4
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show disabled"
+    key="__PaginationBlock__li__23"
+  >
+    <a
+      className="pagination-link"
+    >
+      ...
+    </a>
+  </li>
+  <li
+    className="pagination-item short-show"
+    key="__PaginationBlock__li__24"
+  >
+    <a
+      className="pagination-link"
+      onClick={[Function]}
+    >
+      9
     </a>
   </li>
   <li

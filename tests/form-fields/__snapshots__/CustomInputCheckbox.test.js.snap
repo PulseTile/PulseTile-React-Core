@@ -1,6 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <CustomInputCheckbox /> should renders with props correctly 1`] = `
+exports[`Component <CustomInputCheckbox /> should renders with all props correctly 1`] = `
+<div
+  className="wrap-fcustominp"
+>
+  <div
+    className="fcustominp"
+  >
+    <input
+      checked={true}
+      id="test-id"
+      name="test-name"
+      type="checkbox"
+      value={true}
+    />
+    <label
+      htmlFor="test-id"
+    />
+  </div>
+  <label
+    className="fcustominp-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+</div>
+`;
+
+exports[`Component <CustomInputCheckbox /> should renders without id prop correctly 1`] = `
 <div
   className="wrap-fcustominp"
 >
@@ -10,18 +37,40 @@ exports[`Component <CustomInputCheckbox /> should renders with props correctly 1
     <input
       checked={true}
       id=""
+      name="test-name"
       type="checkbox"
       value={true}
     />
     <label
-      htmlFor={undefined}
+      htmlFor=""
     />
   </div>
   <label
     className="fcustominp-label"
-    htmlFor={undefined}
+    htmlFor=""
   >
     Test label
   </label>
+</div>
+`;
+
+exports[`Component <CustomInputCheckbox /> should renders without label prop correctly 1`] = `
+<div
+  className="wrap-fcustominp"
+>
+  <div
+    className="fcustominp"
+  >
+    <input
+      checked={true}
+      id="test-id"
+      name="test-name"
+      type="checkbox"
+      value={true}
+    />
+    <label
+      htmlFor="test-id"
+    />
+  </div>
 </div>
 `;

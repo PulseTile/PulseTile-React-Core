@@ -56,7 +56,7 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Test PaginationBlock component with transitions', () => {
+  it('should be with transitions', () => {
     let offset = 0;
     const setOffset = (page) => {
       offset = page;
@@ -75,7 +75,7 @@ describe('Component <PaginationBlock />', () => {
   });
 
 
-  it('Test PaginationBlock when we have less than six pages', () => {
+  it('should be renders when we have less than six pages', () => {
     const offset = 10;
     const totalEntriesAmount = 40;
     const tree = renderer
@@ -90,7 +90,7 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Test PaginationBlock when we are in the middle of the pagination block', () => {
+  it('should be renders when we are in the middle of the pagination block', () => {
     const offset = 30;
     const totalEntriesAmount = 120;
     const tree = renderer
@@ -105,7 +105,7 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('Test PaginationBlock when totalEntriesAmount less then offset', () => {
+  it('should be renders when totalEntriesAmount less then offset', () => {
     const offset = 30;
     const totalEntriesAmount = 29;
     const tree = renderer
