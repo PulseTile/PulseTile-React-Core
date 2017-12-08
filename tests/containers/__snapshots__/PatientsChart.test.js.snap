@@ -1,0 +1,256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsChart /> should renders with props correctly 1`] = `
+<PatientsChart
+  backgroundColor="rgba(36, 161, 116,0.3)"
+  borderColor="rgba(36, 161, 116,1)"
+  isChartsDataReceived={true}
+  labels={
+    Array [
+      Object {
+        "name": "Comunity Care",
+        "prefix": "department",
+        "prefixLabel": "Setting",
+      },
+      Object {
+        "name": "Test",
+        "prefix": "test",
+        "prefixLabel": "test",
+      },
+    ]
+  }
+  patients={
+    Array [
+      Array [
+        Object {
+          "test": "test1",
+        },
+        Object {
+          "test": "test2",
+        },
+        Object {
+          "test": "test3",
+        },
+        Object {
+          "test": "test4",
+        },
+      ],
+      Array [
+        Object {
+          "test": "test1",
+        },
+        Object {
+          "test": "test2",
+        },
+      ],
+      Array [
+        Object {
+          "test": "test1",
+        },
+        Object {
+          "test": "test2",
+        },
+        Object {
+          "test": "test3",
+        },
+      ],
+    ]
+  }
+  subTitle="sub title test"
+  title="title test"
+>
+  <div
+    className="chart-block"
+  >
+    <div
+      className="chart-title-group"
+    >
+      <h2
+        className="chart-title"
+      >
+        title test
+      </h2>
+      <p
+        className="chart-subtitle"
+      >
+        sub title test
+      </p>
+    </div>
+    <div
+      className="wrap-chart chart-dashboard"
+    >
+      <Bar
+        data={
+          Object {
+            "datasets": Array [
+              Object {
+                "data": Array [
+                  4,
+                  2,
+                  3,
+                ],
+              },
+            ],
+            "labels": Array [
+              "Comunity Care",
+              "Test",
+            ],
+          }
+        }
+        height={350}
+        onElementsClick={[Function]}
+        options={
+          Object {
+            "capBezierPoints": false,
+            "elements": Object {
+              "rectangle": Object {
+                "backgroundColor": "rgba(36, 161, 116,0.3)",
+                "borderColor": "rgba(36, 161, 116,1)",
+                "borderWidth": 1,
+              },
+            },
+            "legend": Object {
+              "display": false,
+            },
+            "maintainAspectRatio": false,
+            "responsive": true,
+            "scales": Object {
+              "xAxes": Array [
+                Object {
+                  "stacked": true,
+                },
+              ],
+              "yAxes": Array [
+                Object {
+                  "stacked": true,
+                },
+              ],
+            },
+            "tooltips": Object {
+              "bodySpacing": 10,
+              "callbacks": Object {
+                "label": [Function],
+              },
+              "enabled": true,
+              "mode": "label",
+              "titleMarginBottom": 15,
+              "xPadding": 10,
+              "yPadding": 10,
+            },
+          }
+        }
+        width={600}
+      >
+        <ChartComponent
+          data={
+            Object {
+              "datasets": Array [
+                Object {
+                  "data": Array [
+                    4,
+                    2,
+                    3,
+                  ],
+                },
+              ],
+              "labels": Array [
+                "Comunity Care",
+                "Test",
+              ],
+            }
+          }
+          datasetKeyProvider={[Function]}
+          height={350}
+          legend={
+            Object {
+              "display": true,
+              "position": "bottom",
+            }
+          }
+          onElementsClick={[Function]}
+          options={
+            Object {
+              "capBezierPoints": false,
+              "elements": Object {
+                "rectangle": Object {
+                  "backgroundColor": "rgba(36, 161, 116,0.3)",
+                  "borderColor": "rgba(36, 161, 116,1)",
+                  "borderWidth": 1,
+                },
+              },
+              "legend": Object {
+                "display": false,
+              },
+              "maintainAspectRatio": false,
+              "responsive": true,
+              "scales": Object {
+                "xAxes": Array [
+                  Object {
+                    "stacked": true,
+                  },
+                ],
+                "yAxes": Array [
+                  Object {
+                    "stacked": true,
+                  },
+                ],
+              },
+              "tooltips": Object {
+                "bodySpacing": 10,
+                "callbacks": Object {
+                  "label": [Function],
+                },
+                "enabled": true,
+                "mode": "label",
+                "titleMarginBottom": 15,
+                "xPadding": 10,
+                "yPadding": 10,
+              },
+            }
+          }
+          redraw={false}
+          type="bar"
+          width={600}
+        >
+          <canvas
+            height={350}
+            onClick={[Function]}
+            width={600}
+          />
+        </ChartComponent>
+      </Bar>
+    </div>
+  </div>
+</PatientsChart>
+`;
+
+exports[`Component <PatientsChart /> should renders with props correctly 2`] = `
+<div
+  class="chart-block"
+>
+  <div
+    class="chart-title-group"
+  >
+    <h2
+      class="chart-title"
+    >
+      title test
+    </h2>
+    <p
+      class="chart-subtitle"
+    >
+      sub title test
+    </p>
+  </div>
+  <div
+    class="wrap-chart chart-dashboard"
+  >
+    <canvas
+      height="350"
+      width="600"
+    >
+      
+    </canvas>
+  </div>
+</div>
+`;

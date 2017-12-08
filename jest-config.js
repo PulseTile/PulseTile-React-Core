@@ -15,9 +15,9 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
   },
   collectCoverageFrom: [
-    '**/src/components/presentational/**.{js,jsx}',
-    '**/src/components/form-fields/**.{js,jsx}',
-    '**/src/components/ui-elements/**.{js,jsx}',
+    // '**/src/components/presentational/**.{js,jsx}',
+    // '**/src/components/form-fields/**.{js,jsx}',
+    // '**/src/components/ui-elements/**.{js,jsx}',
     '**/src/components/containers/**.{js,jsx}',
 
     '!**/src/components/**{selectors.js}',

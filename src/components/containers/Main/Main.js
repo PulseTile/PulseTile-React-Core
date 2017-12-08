@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 
-import ProtectedRoute from './ProtectedRoute';
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
 import { sidebarAndUserSelector, mainSelector, initialiseSelector } from './selectors';
 import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary } from '../../pages';
@@ -26,6 +25,7 @@ export default class Main extends PureComponent {
       isSidebarVisible: PropTypes.bool.isRequired,
     };
 
+    /* istanbul ignore next */
     componentWillReceiveProps(nextProps) {
       const { actions } = this.props;
       if (!_.isEmpty(nextProps.userAccount)) {
@@ -50,10 +50,10 @@ export default class Main extends PureComponent {
           {!_.isEmpty(initialiseData) ? <Switch>
             <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} />
-            <ProtectedRoute exact path={clientUrls.PATIENTS} component={PatientsLists} userAccount={userAccount} />
-            <ProtectedRoute exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} userAccount={userAccount} />
-            <ProtectedRoute exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
-            <ProtectedRoute exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
+            <Route exact path={clientUrls.PATIENTS} component={PatientsLists} userAccount={userAccount} />
+            <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} userAccount={userAccount} />
+            <Route exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
+            <Route exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
             {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} />)}
           </Switch> : null }
         </main>

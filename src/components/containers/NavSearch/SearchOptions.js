@@ -7,10 +7,14 @@ const SearchContent = ({ onSelect, selected, BASIC_SEARCH, ADVANCED_SEARCH, SEAR
     <div className="heading">Search Options</div>
     <div className="dropdown-menu-wrap-list">
       <div className="dropdown-menu-list">
-        <div className={classNames('dropdown-menu-item', { 'active': selected === BASIC_SEARCH })}
-             onClick={() => onSelect(BASIC_SEARCH)} ><span className="dropdown-menu-item-text">Patient Search - Basic</span></div>
-        <div className={classNames('dropdown-menu-item', { 'active': selected === ADVANCED_SEARCH })}
-             onClick={() => onSelect(ADVANCED_SEARCH)}><span className="dropdown-menu-item-text">Patient Search - Advanced</span></div>
+        <div
+          className={classNames('dropdown-menu-item', { 'active': selected === BASIC_SEARCH })}
+          onClick={() => onSelect(BASIC_SEARCH)}
+        ><span className="dropdown-menu-item-text">Patient Search - Basic</span></div>
+        <div
+          className={classNames('dropdown-menu-item', { 'active': selected === ADVANCED_SEARCH })}
+          onClick={() => onSelect(ADVANCED_SEARCH)}
+        ><span className="dropdown-menu-item-text">Patient Search - Advanced</span></div>
         <div className={classNames('dropdown-menu-item', { 'active': selected === SEARCH_CONTENT })}><span className="dropdown-menu-item-text">Clinical Query</span></div>
       </div>
     </div>

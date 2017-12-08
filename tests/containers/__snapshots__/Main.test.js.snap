@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Main /> should renders correctly 1`] = `
+<Route
+  render={[Function]}
+/>
+`;
+
+exports[`Component <Main /> should renders correctly when Breadcrumbs is Bad 1`] = `
+<main
+  class="main"
+>
+  <div
+    class="wrap-breadcrumbs"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="breadcrumbs"
+      >
+        <span>
+          <span
+            class="breadcrumb-link active"
+          >
+            Patient Summary
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Component <Main /> should renders correctly when initialiseData is empty 1`] = `
+<main
+  class="main"
+>
+  <div
+    class="wrap-breadcrumbs"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="breadcrumbs"
+      >
+        <span>
+          <a
+            class="breadcrumb-link"
+            href="/patients"
+          >
+            Patient Listings
+          </a>
+          <span
+            class="breadcrumb-separate"
+          >
+            
+          </span>
+        </span>
+        <span>
+          <a
+            class="breadcrumb-link"
+            href="/patients/9999999024/patients-summary"
+          >
+            Patient Summary
+          </a>
+          <span
+            class="breadcrumb-separate"
+          >
+            
+          </span>
+        </span>
+        <span>
+          <span
+            class="breadcrumb-link active"
+          >
+            Procedures
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
+`;
+
+exports[`Component <Main /> should renders correctly when initialiseData is not empty 1`] = `
+<main
+  class="main"
+>
+  <div
+    class="wrap-breadcrumbs"
+  >
+    <div
+      class="container-fluid"
+    >
+      <div
+        class="breadcrumbs"
+      >
+        <span>
+          <a
+            class="breadcrumb-link"
+            href="/patients/9999999024/patients-summary"
+          >
+            Patient Summary
+          </a>
+          <span
+            class="breadcrumb-separate"
+          >
+            
+          </span>
+        </span>
+        <span>
+          <span
+            class="breadcrumb-link active"
+          >
+            Procedures
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</main>
+`;

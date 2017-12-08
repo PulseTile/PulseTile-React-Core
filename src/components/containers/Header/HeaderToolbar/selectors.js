@@ -22,4 +22,9 @@ const toolbarSelector = createSelector(
       dateOfBirth: getDDMMMYYYY(dateOfBirth) });
   });
 
-export default toolbarSelector;
+const routerSelector = createSelector(
+  ({ router }) => router,
+  router => ({ router })
+);
+
+export { toolbarSelector, routerSelector };
