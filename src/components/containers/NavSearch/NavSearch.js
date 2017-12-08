@@ -56,7 +56,7 @@ export default class NavSearch extends PureComponent {
         <div className={classNames('control-group left control-search-select dropdown', { 'open': openedPanel === SEARCH_CONTENT })}>
           {isIDCRRole(userAccount) ?
             <div>
-              <SearchOptions onSelect={this.handleSelect}  {...{ selected, BASIC_SEARCH, ADVANCED_SEARCH, SEARCH_CONTENT }} />
+              <SearchOptions onSelect={this.handleSelect} {...{ selected, BASIC_SEARCH, ADVANCED_SEARCH, SEARCH_CONTENT }} />
               <PTButton className="btn btn-dropdown-toggle btn-search-toggle" onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
                 <i className="btn-icon fa fa-bars" />
               </PTButton>
