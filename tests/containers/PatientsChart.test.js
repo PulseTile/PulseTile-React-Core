@@ -1,7 +1,6 @@
 import React from 'react';
 import Enzyme, { mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
-import sinon from 'sinon';
 
 import PatientsChart from '../../src/components/containers/PatientsChart/PatientsChart';
 
@@ -78,6 +77,7 @@ describe('Component <PatientsChart />', () => {
     expect(subTitleProps).toEqual(subTitle);
     expect(isChartsDataReceived).toEqual(true);
     expect(patientsChart.props().labels).toHaveLength(2);
+    expect(patientsChart.contains('title test')).toBe(true);
     expect(patientsChart).toMatchSnapshot();
   });
   it('should renders with props correctly', () => {

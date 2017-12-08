@@ -14,15 +14,17 @@ export default class UserPanel extends PureComponent {
     openedPanel: '',
   };
 
+  /* istanbul ignore next */
   componentWillMount() {
     document.addEventListener('click', this.handleClick, false);
   }
 
+  /* istanbul ignore next */
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
   }
 
-  handleClick = (e) => {
+  handleClick = /* istanbul ignore next */ (e) => {
     if (!this.node.contains(e.target)) {
       this.setState({ openedPanel: '' });
     }
