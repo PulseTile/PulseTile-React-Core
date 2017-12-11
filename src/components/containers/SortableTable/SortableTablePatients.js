@@ -54,10 +54,12 @@ export default class SortableTablePatients extends PureComponent {
   };
 
   hoverTableRow = (index) => {
+    /* istanbul ignore next */
     this.setState({ hoveredRowIndex: index });
   };
 
   unHoverTableRow = () => {
+    /* istanbul ignore next */
     this.setState({ hoveredRowIndex: '' });
   };
 

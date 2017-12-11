@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SortableTableHeaderRow /> should renders correctly 1`] = `
+<tr>
+  <SortableTableHeaderCell
+    key="__SortableTableHeaderCell__1"
+    name="cause"
+    onClick={[Function]}
+    sortingOrder="asc"
+    title="Cause"
+  />
+  <SortableTableHeaderCell
+    key="__SortableTableHeaderCell__2"
+    name="reaction"
+    onClick={[Function]}
+    sortingOrder={null}
+    title="Reaction"
+  />
+  <SortableTableHeaderCell
+    key="__SortableTableHeaderCell__3"
+    name="sourceId"
+    onClick={[Function]}
+    sortingOrder={null}
+    title="Source ID"
+  />
+</tr>
+`;
