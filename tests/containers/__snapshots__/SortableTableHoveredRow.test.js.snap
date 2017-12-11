@@ -1,0 +1,137 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 1`] = `
+<SortableTableHoveredRow
+  columnNameSortBy="name"
+  headers={
+    Array [
+      Object {
+        "key": "name",
+        "title": "Name",
+        "width": "150",
+      },
+      Object {
+        "key": "address",
+        "title": "Address",
+        "width": "300",
+      },
+      Object {
+        "key": "test",
+        "title": "Test",
+        "width": "145",
+      },
+      Object {
+        "key": "id",
+        "title": "NHS No.",
+        "width": "115",
+      },
+      Object {
+        "key": "viewPatientNavigation",
+        "title": "",
+        "width": "90",
+      },
+    ]
+  }
+  hoveredRowIndex={1}
+  index={0}
+  resourceData={
+    Array [
+      Object {
+        "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+        "dateOfBirth": -363657600000,
+        "department": "Primary Care",
+        "gender": "Male",
+        "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+        "gpName": "Joseph May N.",
+        "id": "9999999006",
+        "name": "Ezra Gordon",
+        "nhsNumber": "9999999006",
+        "pasNo": "595941",
+        "phone": "070 6691 5178",
+      },
+    ]
+  }
+  rowData={
+    Array [
+      Object {
+        "name": "name",
+        "value": "Aengus O'Connor",
+      },
+      Object {
+        "name": "address",
+        "value": "26, High Street, Limerick, LK",
+      },
+      Object {
+        "name": "dateOfBirth",
+        "value": "19-Feb-1938",
+      },
+      Object {
+        "name": "id",
+        "value": "9999999024",
+      },
+      Object {
+        "name": "viewPatientNavigation",
+        "value": "test",
+      },
+    ]
+  }
+  table="patientsList"
+>
+  <tr
+    className=""
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <td
+      className="sorted"
+      data-table-hover={true}
+      data-th="Name"
+      key="__SortableTableHoveredRow__1"
+      name="name"
+      onClick={[Function]}
+    >
+      Aengus O'Connor
+    </td>
+    <td
+      className=""
+      data-table-hover={true}
+      data-th="Address"
+      key="__SortableTableHoveredRow__2"
+      name="address"
+      onClick={[Function]}
+    >
+      26, High Street, Limerick, LK
+    </td>
+    <td
+      className="text-center"
+      data-table-hover={true}
+      data-th="Test"
+      key="__SortableTableHoveredRow__3"
+      name="dateOfBirth"
+      onClick={[Function]}
+    >
+      19-Feb-1938
+    </td>
+    <td
+      className="text-center"
+      data-table-hover={true}
+      data-th="NHS No."
+      key="__SortableTableHoveredRow__4"
+      name="id"
+      onClick={[Function]}
+    >
+      999 999 9024
+    </td>
+    <td
+      className="patient-control"
+      data-table-hover={true}
+      data-th=""
+      key="__SortableTableHoveredRow__5"
+      name="viewPatientNavigation"
+      onClick={[Function]}
+    >
+      test
+    </td>
+  </tr>
+</SortableTableHoveredRow>
+`;

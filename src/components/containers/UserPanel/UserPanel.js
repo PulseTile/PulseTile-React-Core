@@ -31,6 +31,7 @@ export default class UserPanel extends PureComponent {
   };
 
   handleMouseDown = (name) => {
+    /* istanbul ignore next */
     this.setState((prevState) => {
       if (prevState.openedPanel !== name) {
         return ({ openedPanel: name })

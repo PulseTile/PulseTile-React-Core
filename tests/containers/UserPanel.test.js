@@ -28,7 +28,7 @@ const context = {};
 
 describe('Component <UserPanel />', () => {
   it('should renders with props correctly', () => {
-    const patientsChart = mount(
+    const userPanel = mount(
       <Provider store={store}>
         <StaticRouter location="someLocation" context={context}>
           <UserPanel
@@ -36,19 +36,24 @@ describe('Component <UserPanel />', () => {
           />
         </StaticRouter>
       </Provider>)
-    expect(patientsChart).toMatchSnapshot();
+    expect(userPanel).toMatchSnapshot();
   });
   it('should renders with props correctly', () => {
-    const patientsChart = shallow(
+    const userPanel = shallow(
       <UserPanel
         store={store}
-        openedPanel="userAccountPanelTest"
       />);
-    expect(patientsChart).toMatchSnapshot();
-    patientsChart.find('.btn-notification').simulate('click');
-    patientsChart.setProps({ openedPanel: 'userAccountPanel' });
-    patientsChart.find('.btn-notification').simulate('click');
-    patientsChart.find('.btn-user').simulate('click');
-    console.log(patientsChart.state());
+    expect(userPanel).toMatchSnapshot();
+    expect(userPanel.state().openedPanel).toEqual('');
+
+    userPanel.find('.btn-notification').simulate('click');
+    expect(userPanel.state().openedPanel).toEqual('notificationContent');
+
+    userPanel.setState({ openedPanel: 'userAccountPanel' });
+    expect(userPanel.state().openedPanel).toEqual('userAccountPanel');
+
+    userPanel.find('.btn-notification').simulate('click');
+    userPanel.find('.btn-user').simulate('click');
+    expect(userPanel.state().openedPanel).toEqual('userAccountPanel');
   });
 });
