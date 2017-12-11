@@ -1,5 +1,69 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <CustomInputCheckbox /> should renders after change props 1`] = `
+<CustomInputCheckbox
+  id="test-id"
+  input={
+    Object {
+      "checked": true,
+      "name": "test-name",
+      "value": true,
+    }
+  }
+>
+  <div
+    className="wrap-fcustominp"
+  >
+    <div
+      className="fcustominp"
+    >
+      <input
+        checked={true}
+        id="test-id"
+        name="test-name"
+        type="checkbox"
+        value={true}
+      />
+      <label
+        htmlFor="test-id"
+      />
+    </div>
+  </div>
+</CustomInputCheckbox>
+`;
+
+exports[`Component <CustomInputCheckbox /> should renders after change props 2`] = `
+<CustomInputCheckbox
+  id="test-id"
+  input={
+    Object {
+      "checked": false,
+      "name": "test-name",
+      "value": false,
+    }
+  }
+>
+  <div
+    className="wrap-fcustominp"
+  >
+    <div
+      className="fcustominp"
+    >
+      <input
+        checked={false}
+        id="test-id"
+        name="test-name"
+        type="checkbox"
+        value={false}
+      />
+      <label
+        htmlFor="test-id"
+      />
+    </div>
+  </div>
+</CustomInputCheckbox>
+`;
+
 exports[`Component <CustomInputCheckbox /> should renders with all props correctly 1`] = `
 <div
   className="wrap-fcustominp"

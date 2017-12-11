@@ -8,11 +8,11 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
     input: PropTypes.object.isRequired,
     meta: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.string,
+      error: PropTypes.any,
     }).isRequired,
   };
 
-  state={
+  state = {
     isChanged: false,
   };
 
@@ -29,10 +29,10 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
 
     return (
       <div className={classNames('form-group', { 'has-error': showError }, { 'has-success': isChanged && !error })}>
-        <label htmlFor={input.name} className="control-label">{label}</label>
+        <label htmlFor={id} className="control-label">{label}</label>
         <div className="input-holder">
           <textarea
-            className="form-control textarea-big input-sm ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
+            className="form-control textarea-big input-sm"
             id={id}
             {...input}
           />

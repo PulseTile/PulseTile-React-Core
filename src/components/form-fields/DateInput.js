@@ -12,11 +12,11 @@ export default class DateInput extends PureComponent {
       placeholder: PropTypes.string,
       meta: PropTypes.shape({
         active: PropTypes.bool,
-        error: PropTypes.bool,
+        error: PropTypes.any,
       }).isRequired,
     };
 
-    state={
+    state = {
       isChanged: false,
     };
 

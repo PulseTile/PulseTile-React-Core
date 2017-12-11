@@ -15,7 +15,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
       }).isRequired,
     };
 
-    state={
+    state = {
       isChanged: false,
     };
 

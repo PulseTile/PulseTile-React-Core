@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with all props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
