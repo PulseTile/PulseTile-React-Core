@@ -170,7 +170,5 @@ describe('Component <DateInput />', () => {
       },
       value: null
     });
-    tree = toJson(component);
-    expect(tree).toMatchSnapshot();
   });
 });
