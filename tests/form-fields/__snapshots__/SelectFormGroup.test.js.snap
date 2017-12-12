@@ -72,6 +72,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__11"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__12"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__13"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__14"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__15"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;
@@ -94,6 +124,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__16"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__17"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__18"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__19"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__20"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
   <span
     className="help-block animate-fade"
@@ -121,6 +181,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__21"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__22"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__23"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__24"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__25"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
   <span
     className="help-block animate-fade"
@@ -148,6 +238,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__26"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__27"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__28"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__29"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__30"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
   <span
     className="help-block animate-fade"
@@ -175,6 +295,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__31"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__32"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__33"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__34"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__35"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;
@@ -197,6 +347,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__36"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__37"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__38"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__39"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__40"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;
@@ -219,6 +399,36 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__41"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__42"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__43"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__44"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__45"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;
@@ -240,6 +450,36 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__46"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__47"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__48"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__49"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__50"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
   <span
     className="help-block animate-fade"
@@ -266,6 +506,36 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__51"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__52"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__53"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__54"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__55"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
   <span
     className="required-label"
@@ -292,6 +562,36 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__56"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__57"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__58"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__59"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__60"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;
@@ -313,6 +613,36 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     value=""
   >
     <option />
+    <option
+      key="__SelectFormGroupOption__61"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__62"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__63"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__64"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__65"
+      value={5}
+    >
+      Fife
+    </option>
   </select>
 </div>
 `;

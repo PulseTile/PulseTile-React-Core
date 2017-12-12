@@ -82,6 +82,7 @@ describe('Component <SelectFormGroup />', () => {
         id={testProps.id}
         label={testProps.label}
         input={testProps.input}
+        options={testProps.options}
         meta={testProps.meta}
         isSubmit={true}
         isAdvancedSearch={false}
@@ -185,6 +186,7 @@ describe('Component <SelectFormGroup />', () => {
         id={testProps.id}
         label={testProps.label}
         input={testProps.input}
+        options={testProps.options}
         meta={{
           dirty: true,
           touched: true,

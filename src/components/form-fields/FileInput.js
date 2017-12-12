@@ -9,7 +9,7 @@ export default class FileInput extends PureComponent {
     input: PropTypes.object.isRequired,
     meta: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.bool,
+      error: PropTypes.any,
     }).isRequired,
     id: PropTypes.string.isRequired,
   };

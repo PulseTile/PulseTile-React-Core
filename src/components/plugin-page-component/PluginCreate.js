@@ -17,6 +17,7 @@ export default class PluginCreate extends PureComponent {
             isOpen={openedPanel === name}
             currentPanel={currentPanel}
             isCreatePanelVisible={isCreatePanelVisible}
+            editedPanel={{}}
           >
             {componentForm}
             <div className="panel-control">
