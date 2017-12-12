@@ -1,0 +1,418 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ValidatedInputFormGroup /> should renders with all props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 3`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 4`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 5`] = `
+<div
+  className="form-group has-success"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 6`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different state of validation 7`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      disabled={false}
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different types of input correctly 1`] = `
+<ValidatedInputFormGroup
+  id="test-id"
+  input={
+    Object {
+      "name": "test-name",
+      "value": "",
+    }
+  }
+  isSubmit={true}
+  label="Test label"
+  meta={
+    Object {
+      "active": false,
+      "error": false,
+    }
+  }
+  type="text"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="test-id"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <input
+        className="form-control input-sm"
+        id="test-id"
+        name="test-name"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</ValidatedInputFormGroup>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with different types of input correctly 2`] = `
+<ValidatedInputFormGroup
+  id="test-id"
+  input={
+    Object {
+      "name": "test-name",
+      "value": true,
+    }
+  }
+  isSubmit={true}
+  label="Test label"
+  meta={
+    Object {
+      "active": false,
+      "error": false,
+    }
+  }
+  type="checkbox"
+>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="test-id"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <CustomInputCheckbox
+        id="test-id"
+        input={
+          Object {
+            "name": "test-name",
+            "value": true,
+          }
+        }
+        name="nodejs"
+      >
+        <div
+          className="wrap-fcustominp"
+        >
+          <div
+            className="fcustominp"
+          >
+            <input
+              checked={true}
+              id="test-id"
+              name="test-name"
+              type="checkbox"
+              value={true}
+            />
+            <label
+              htmlFor="test-id"
+            />
+          </div>
+        </div>
+      </CustomInputCheckbox>
+    </div>
+  </div>
+</ValidatedInputFormGroup>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with error message correctly 1`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with error message correctly 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="required-label"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with error message correctly 3`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedInputFormGroup /> should renders with error message correctly 4`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <input
+      className="form-control input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;

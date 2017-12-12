@@ -32,7 +32,7 @@ export default class ValidatedInputFormGroup extends PureComponent {
 
       return (
         <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
-          <label htmlFor={input.name} className="control-label">{label}</label>
+          <label htmlFor={id} className="control-label">{label}</label>
           <div className="input-holder">
             {
               type === 'checkbox' ? <CustomInputCheckbox
@@ -51,8 +51,8 @@ export default class ValidatedInputFormGroup extends PureComponent {
               />
             }
           </div>
-          {(showError && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
-          {(showError && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
+          {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+          {(showError && !isNotValidate && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
         </div>
       )
     }
