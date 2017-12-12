@@ -11,7 +11,7 @@ export default class SelectFormGroup extends PureComponent {
     name: PropTypes.string,
     meta: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.string,
+      error: PropTypes.any,
     }).isRequired,
   };
 
@@ -36,7 +36,7 @@ export default class SelectFormGroup extends PureComponent {
 
    return (
      <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
-       <label htmlFor="selectAgeField" className="control-label">{label}</label>
+       <label htmlFor={id || ''} className="control-label">{label}</label>
        <select
          className="form-control input-sm"
          name={name}
@@ -49,8 +49,8 @@ export default class SelectFormGroup extends PureComponent {
            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
          ) : null }
        </select>
-       {(showError && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
-       {(showError && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
+       {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+       {(showError && !isNotValidate && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
      </div>
    )
  }

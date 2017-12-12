@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SelectFormGroup /> should renders with all props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option>
+      Test placeholder
+    </option>
+    <option
+      key="__SelectFormGroupOption__1"
+      value={1}
+    >
+      One
+    </option>
+    <option
+      key="__SelectFormGroupOption__2"
+      value={2}
+    >
+      Two
+    </option>
+    <option
+      key="__SelectFormGroupOption__3"
+      value={3}
+    >
+      Three
+    </option>
+    <option
+      key="__SelectFormGroupOption__4"
+      value={4}
+    >
+      For
+    </option>
+    <option
+      key="__SelectFormGroupOption__5"
+      value={5}
+    >
+      Fife
+    </option>
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 3`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 4`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 5`] = `
+<div
+  className="form-group has-success"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 6`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with different state of validation 7`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    disabled={false}
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with error message correctly 1`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with error message correctly 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+  <span
+    className="required-label"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with error message correctly 3`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
+
+exports[`Component <SelectFormGroup /> should renders with error message correctly 4`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;
