@@ -238,7 +238,6 @@ describe('Component <ValidatedInputFormGroup />', () => {
 
     component.setProps({ type: testProps.typeCheckbox, input: testProps.inputCheckbox });
 
-    // expect(component.find('input')).toHaveLength(0);
     expect(component.find('CustomInputCheckbox')).toHaveLength(1);
     expect(component.instance().props['type']).toEqual(testProps.typeCheckbox);
 

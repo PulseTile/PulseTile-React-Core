@@ -5,7 +5,6 @@ import Adapter from 'enzyme-adapter-react-15';
 configure({ adapter: new Adapter() });
 
 import SelectFormGroup from '../../src/components/form-fields/SelectFormGroup';
-import PropTypes from "prop-types";
 
 const testProps = {
   label: 'Test label',
