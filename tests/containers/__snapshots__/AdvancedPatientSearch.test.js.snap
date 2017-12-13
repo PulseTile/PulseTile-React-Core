@@ -1,0 +1,339 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <AdvancedPatientSearch /> should renders with Data except nhs number in store correctly 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-search dropdown-menu-right without-shadow"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <div
+      className="panel panel-secondary without-margin open"
+    >
+      <div
+        className="panel-heading"
+      >
+        <div
+          className="control-group right"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-chevron-up"
+            />
+          </button>
+        </div>
+        <h3
+          className="panel-title"
+        >
+          <span
+            className="ng-binding"
+          >
+            Patient Search - Advanced
+          </span>
+          <span
+            className="hidden-xs hidden-sm ng-binding"
+          >
+            : Last Name: fafaf, First Name: afafafafafa, Date of Birth: 28/09/1937, Gender: All
+          </span>
+        </h3>
+      </div>
+      <div
+        className="panel-body"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <div
+          className="panel-body-inner"
+        >
+          <ReduxForm
+            formValues={
+              Object {
+                "ageRange": Array [
+                  0,
+                  100,
+                ],
+                "dateOfBirth": "28/09/1937",
+                "forename": "afafafafafa",
+                "selectAgeField": "birthday",
+                "sexFemale": true,
+                "sexMale": true,
+                "surname": "fafaf",
+              }
+            }
+          />
+        </div>
+        <div
+          className="panel-control"
+        >
+          <div
+            className="wrap-control-group hide-indent-bottom"
+          >
+            <div
+              className="control-group with-indent right"
+            >
+              <button
+                className="btn btn-danger btn-icon-normal"
+              >
+                <i
+                  className="btn-icon fa fa-times"
+                />
+                 
+                <span
+                  className="btn-text"
+                >
+                  Close
+                </span>
+              </button>
+              <button
+                className="btn btn-success btn-icon-normal"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <i
+                  className="btn-icon fa fa-search"
+                />
+                <span
+                  className="btn-text"
+                >
+                  Search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <AdvancedPatientSearch /> should renders with fill Data in store correctly 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-search dropdown-menu-right without-shadow"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <div
+      className="panel panel-secondary without-margin open"
+    >
+      <div
+        className="panel-heading"
+      >
+        <div
+          className="control-group right"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-chevron-up"
+            />
+          </button>
+        </div>
+        <h3
+          className="panel-title"
+        >
+          <span
+            className="ng-binding"
+          >
+            Patient Search - Advanced
+          </span>
+          <span
+            className="hidden-xs hidden-sm ng-binding"
+          >
+            : NHS Number: 9999999012, Last Name: fafaf, First Name: afafafafafa, Date of Birth: 28/09/1937, Gender: All
+          </span>
+        </h3>
+      </div>
+      <div
+        className="panel-body"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
+      >
+        <div
+          className="panel-body-inner"
+        >
+          <ReduxForm
+            formValues={
+              Object {
+                "ageRange": Array [
+                  0,
+                  100,
+                ],
+                "dateOfBirth": "28/09/1937",
+                "forename": "afafafafafa",
+                "nhsNumber": "9999999012",
+                "selectAgeField": "birthday",
+                "sexFemale": true,
+                "sexMale": true,
+                "surname": "fafaf",
+              }
+            }
+          />
+        </div>
+        <div
+          className="panel-control"
+        >
+          <div
+            className="wrap-control-group hide-indent-bottom"
+          >
+            <div
+              className="control-group with-indent right"
+            >
+              <button
+                className="btn btn-danger btn-icon-normal"
+              >
+                <i
+                  className="btn-icon fa fa-times"
+                />
+                 
+                <span
+                  className="btn-text"
+                >
+                  Close
+                </span>
+              </button>
+              <button
+                className="btn btn-success btn-icon-normal"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <i
+                  className="btn-icon fa fa-search"
+                />
+                <span
+                  className="btn-text"
+                >
+                  Search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <AdvancedPatientSearch /> should renders with init data in store correctly 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-search dropdown-menu-right"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <div
+      className="panel panel-secondary without-margin"
+    >
+      <div
+        className="panel-heading"
+      >
+        <div
+          className="control-group right"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-chevron-up"
+            />
+          </button>
+        </div>
+        <h3
+          className="panel-title"
+        >
+          <span
+            className="ng-binding"
+          >
+            Patient Search - Advanced
+          </span>
+          <span
+            className="hidden-xs hidden-sm ng-binding"
+          >
+            : Age Range: 0-100
+          </span>
+        </h3>
+      </div>
+      <div
+        className="panel-body"
+        style={
+          Object {
+            "display": "none",
+          }
+        }
+      >
+        <div
+          className="panel-body-inner"
+        >
+          <ReduxForm
+            formValues={
+              Object {
+                "ageRange": Array [
+                  0,
+                  100,
+                ],
+                "dateOfBirth": 0,
+                "selectAgeField": "range",
+                "sexFemale": false,
+                "sexMale": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="panel-control"
+        >
+          <div
+            className="wrap-control-group hide-indent-bottom"
+          >
+            <div
+              className="control-group with-indent right"
+            >
+              <button
+                className="btn btn-danger btn-icon-normal"
+              >
+                <i
+                  className="btn-icon fa fa-times"
+                />
+                 
+                <span
+                  className="btn-text"
+                >
+                  Close
+                </span>
+              </button>
+              <button
+                className="btn btn-success btn-icon-normal"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <i
+                  className="btn-icon fa fa-search"
+                />
+                <span
+                  className="btn-text"
+                >
+                  Search
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
