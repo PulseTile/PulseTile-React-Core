@@ -27,14 +27,16 @@ export const redirectAccordingRole = (user) => {
 
       } else if ((location.href.indexOf(user.nhsNumber) === -1) &&
                 (location.href.indexOf('profile') === -1)) {
-        // if (locationHrefBeforeLogin) {
-        //   let path = locationHrefBeforeLogin.split('#/')[1];
-        //   if (path !== '' ||
-        //     path !== 'charts') {
-        //     ConfirmationRedirectModal.openModal(currentUser.nhsNumber);
-        //   }
-        // }
 
+        if (locationHrefBeforeLogin) {
+          let path = locationHrefBeforeLogin.split('#/')[1];
+          if (path !== '' ||
+            path !== 'charts') {
+            // ConfirmationRedirectModal.openModal(currentUser.nhsNumber);
+          }
+        }
+
+        localStorage.removeItem('locationHrefBeforeLogin');
         return location.href = userSummaryUrl;
       }
 

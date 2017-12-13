@@ -14,9 +14,9 @@ export default class PluginDetailPanel extends PureComponent {
     children: PropTypes.element.isRequired,
     onShow: PropTypes.func.isRequired,
     onExpand: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired,
-    onSaveSettings: PropTypes.func.isRequired,
+    onEdit: PropTypes.func,
+    onCancel: PropTypes.func,
+    onSaveSettings: PropTypes.func,
     editedPanel: PropTypes.object,
 		isShowControlPanel: PropTypes.bool
   };
@@ -33,7 +33,7 @@ export default class PluginDetailPanel extends PureComponent {
         <PluginDetailHeader onExpand={onExpand} name={name} title={title} onShow={onShow} currentPanel={currentPanel} isBtnShowPanel={isBtnShowPanel} />
         <div className="panel-body">
           {children}
-          {(isShowControlPanel && !isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">
+          {(isShowControlPanel && !isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
@@ -43,7 +43,7 @@ export default class PluginDetailPanel extends PureComponent {
               </div>
             </div>
           </div> : null }
-          {(isShowControlPanel && !isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control ng-scope">
+          {(isShowControlPanel && !isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
