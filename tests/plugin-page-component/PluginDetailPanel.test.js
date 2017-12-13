@@ -5,7 +5,6 @@ import Adapter from 'enzyme-adapter-react-15';
 configure({ adapter: new Adapter() });
 
 import PluginDetailPanel from '../../src/components/plugin-page-component/PluginDetailPanel';
-import PropTypes from "prop-types";
 
 class SimpleComponent extends React.Component {
   render() {
