@@ -135,3 +135,298 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 1`] = `
   </tr>
 </SortableTableHoveredRow>
 `;
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 2`] = `
+<tr
+  className=""
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td
+    className="sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableHoveredRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    Aengus O'Connor
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableHoveredRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableHoveredRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableHoveredRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    999 999 9024
+  </td>
+  <td
+    className="patient-control"
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableHoveredRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 3`] = `
+<tr
+  className=""
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td
+    className="sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableHoveredRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    Aengus O'Connor
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableHoveredRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableHoveredRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableHoveredRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    999 999 9024
+  </td>
+  <td
+    className="patient-control"
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableHoveredRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 4`] = `
+<tr
+  className=""
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td
+    className="sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableHoveredRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    Aengus O'Connor
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableHoveredRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableHoveredRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableHoveredRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    999 999 9024
+  </td>
+  <td
+    className="patient-control"
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableHoveredRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 5`] = `
+<tr
+  className=""
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td
+    className="sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableHoveredRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    Aengus O'Connor
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableHoveredRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableHoveredRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableHoveredRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    999 999 9024
+  </td>
+  <td
+    className="patient-control"
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableHoveredRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;
+
+exports[`Component <SortableTableHoveredRow /> should renders correctly 6`] = `
+<tr
+  className=""
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <td
+    className="sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableHoveredRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    Aengus O'Connor
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableHoveredRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableHoveredRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className="text-center"
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableHoveredRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    999 999 9024
+  </td>
+  <td
+    className="patient-control"
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableHoveredRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;

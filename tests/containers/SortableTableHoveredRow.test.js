@@ -70,10 +70,12 @@ const rowData = [
     value: 'test',
   },
 ];
+const onCellClick = () => console.log('onCellClick function worked');
+const onMouseEnter = () => console.log('onMouseEnter function worked');
+const onMouseLeave = () => console.log('onMouseLeave function worked');
 
 
 describe('Component <SortableTableHoveredRow />', () => {
-  //
   it('should renders correctly', () => {
     const sortableTableHoveredRow = mount(
       <SortableTableHoveredRow
@@ -85,6 +87,35 @@ describe('Component <SortableTableHoveredRow />', () => {
         rowData={rowData}
         table="patientsList"
       />);
+    expect(sortableTableHoveredRow).toMatchSnapshot();
+  });
+  it('should renders correctly', () => {
+    const sortableTableHoveredRow = shallow(
+      <SortableTableHoveredRow
+        columnNameSortBy="name"
+        headers={headers}
+        hoveredRowIndex={1}
+        index={0}
+        resourceData={resourceData}
+        rowData={rowData}
+        table="patientsList"
+        onCellClick={onCellClick}
+        onMouseEnter={onMouseEnter}
+        onMouseLeave={onMouseLeave}
+      />);
+    sortableTableHoveredRow.find('[name="id"]').simulate('click');
+    expect(sortableTableHoveredRow).toMatchSnapshot();
+
+    sortableTableHoveredRow.find('[name="viewPatientNavigation"]').simulate('click');
+    expect(sortableTableHoveredRow).toMatchSnapshot();
+
+    sortableTableHoveredRow.find('[name="name"]').simulate('click');
+    expect(sortableTableHoveredRow).toMatchSnapshot();
+
+    sortableTableHoveredRow.find('tr').simulate('mouseEnter');
+    expect(sortableTableHoveredRow).toMatchSnapshot();
+
+    sortableTableHoveredRow.find('tr').simulate('mouseLeave');
     expect(sortableTableHoveredRow).toMatchSnapshot();
   });
 });

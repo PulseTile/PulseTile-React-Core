@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <SortableTableHeaderRow /> should renders correctly 1`] = `
+exports[`Component <SortableTableHeaderRow /> should renders shallow correctly 1`] = `
 <tr>
   <SortableTableHeaderCell
     key="__SortableTableHeaderCell__1"
