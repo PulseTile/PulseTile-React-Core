@@ -1,4 +1,5 @@
 module.exports = {
+  roots:['<rootDir>/tests'],
   verbose: true,
   modulePaths: [
     '__stubs__',
@@ -19,6 +20,10 @@ module.exports = {
     '**/src/components/form-fields/**.{js,jsx}',
     '**/src/components/ui-elements/**.{js,jsx}',
     '**/src/components/containers/**.{js,jsx}',
+    '**/src/components/plugin-page-component/**.{js,jsx}',
+    '**/src/components/pages/**.{js,jsx}',
+
+
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
     '!**/src/components/**{forms.validation.js}',
