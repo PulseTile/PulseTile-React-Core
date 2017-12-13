@@ -23,7 +23,7 @@ export default class PatientsListHeader extends PureComponent {
       () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
     );
 
-    togglePatientInfoPanelVisibility = (e, visibility) => this.setState(prevState => _.cond([
+    togglePatientInfoPanelVisibility = /* istanbul ignore next */ (e, visibility) => this.setState(prevState => _.cond([
       [_.isUndefined, () => ({ isPatientInfoPanelVisible: !prevState.isPatientInfoPanelVisible })],
       [v => v, isPatientInfoPanelVisible => ({ isPatientInfoPanelVisible })],
     ])(visibility));
