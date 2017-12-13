@@ -68,7 +68,7 @@ export default class NavSearch extends PureComponent {
           }
         </div>
         { selected === BASIC_SEARCH && <BasicPatientSearch /> }
-        { selected === ADVANCED_SEARCH && <AdvancedPatientSearch onClose={() => this.handleSelect(BASIC_SEARCH)} /> }
+        { selected === ADVANCED_SEARCH && <AdvancedPatientSearch className="advanced-search" onClose={() => this.handleSelect(BASIC_SEARCH)} /> }
       </div>
     </div>
   }

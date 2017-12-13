@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsListHeader /> should renders correctly 1`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-cog"
+        />
+      </PTButton>
+    </div>
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <h3
+    className="panel-title"
+  />
+</div>
+`;
+
+exports[`Component <PatientsListHeader /> should renders correctly 2`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <div
+      className="dropdown open"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-cog"
+        />
+      </PTButton>
+      <lifecycle(PatientsInfoPanel)
+        toggleVisibility={[Function]}
+      />
+    </div>
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <h3
+    className="panel-title"
+  />
+</div>
+`;
+
+exports[`Component <PatientsListHeader /> should renders correctly 3`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <div
+      className="dropdown open"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-cog"
+        />
+      </PTButton>
+      <lifecycle(PatientsInfoPanel)
+        toggleVisibility={[Function]}
+      />
+    </div>
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <h3
+    className="panel-title"
+  />
+  <div
+    className="panel-filter"
+  >
+    <div
+      className="inner-addon addon-left"
+    >
+      <div
+        className="addon"
+      >
+        <i
+          className="fa fa-filter"
+        />
+      </div>
+      <input
+        className="form-control"
+        placeholder="Filter..."
+      />
+    </div>
+  </div>
+</div>
+`;

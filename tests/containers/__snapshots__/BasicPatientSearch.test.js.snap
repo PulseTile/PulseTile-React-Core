@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <BasicPatientSearch /> should renders correctly shallow 1`] = `
+<div>
+  <PTButton
+    className="btn btn-search"
+    onClick={[Function]}
+  >
+    <i
+      className="btn-icon fa fa-search"
+    />
+  </PTButton>
+  <div
+    className="wrap-search-holder"
+  >
+    <div
+      className="search-holder"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value="test"
+        />
+      </form>
+      <i
+        className="clearAll fa fa-times-circle"
+        onClick={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <BasicPatientSearch /> should renders correctly shallow 2`] = `
+<div>
+  <PTButton
+    className="btn btn-search"
+    onClick={[Function]}
+  >
+    <i
+      className="btn-icon fa fa-search"
+    />
+  </PTButton>
+  <div
+    className="wrap-search-holder"
+  >
+    <div
+      className="search-holder"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Search"
+          type="text"
+          value=""
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
