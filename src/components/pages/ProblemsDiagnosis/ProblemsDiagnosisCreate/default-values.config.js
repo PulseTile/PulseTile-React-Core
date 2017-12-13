@@ -5,4 +5,5 @@ export const defaultFormValues = {
   [valuesNames.SOURCE_ID]: '',
   [valuesNames.ISIMPORT]: false,
   [valuesNames.CODE]: '12393890',
+  [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
 };
