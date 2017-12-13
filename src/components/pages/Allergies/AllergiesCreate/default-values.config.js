@@ -7,4 +7,5 @@ export const defaultFormValues = {
   [valuesNames.ISIMPORT]: false,
   [valuesNames.ISIMPORT]: false,
   [valuesNames.TERMINOLOGYCODE]: '12393890',
+  [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
 };

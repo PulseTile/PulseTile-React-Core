@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import AllergyDetailMainForm from './AllergyDetailMainForm'
-import AllergyDetailMetaForm from './AllergyDetailMetaForm'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
+import AllergyDetailMainForm from './AllergyDetailMainForm';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
@@ -105,6 +104,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
+            isShowControlPanel={false}
             isBtnShowPanel
           >
             <div className="panel-body-inner">
@@ -131,25 +131,6 @@ export default class AllergiesDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') && editedPanel[META_PANEL] ? <PluginDetailPanel
-            onExpand={onExpand}
-            name={META_PANEL}
-            title="Metadata"
-            isOpen={openedPanel === META_PANEL}
-            onShow={onShow}
-            currentPanel={currentPanel}
-            onEdit={onEdit}
-            editedPanel={editedPanel}
-            onCancel={onCancel}
-            onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
-            isBtnShowPanel
-          >
-            <AllergyDetailMetaForm
-              detail={detail}
-              isSubmit={isSubmit}
-            />
-          </PluginDetailPanel> : null }
         </div>
       </div>
     )

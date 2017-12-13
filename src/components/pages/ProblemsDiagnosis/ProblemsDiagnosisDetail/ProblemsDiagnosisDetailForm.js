@@ -77,13 +77,12 @@ export default class ProblemsDiagnosisDetailForm extends PureComponent {
               </div>
             </div>
             <div className="row-expand">
-              <div className="col-expand-left">
+              <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.TERMINOLOGY}
                   name={valuesNames.TERMINOLOGY}
-                  id={valuesNames.TERMINOLOGY}
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
+                  label={valuesLabels.TERMINOLOGY}
+                  component={StaticFormField}
+                  props={{ className: 'non-edit-value', isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
