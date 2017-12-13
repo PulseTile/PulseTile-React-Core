@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Modal } from 'react-bootstrap';
 
 const PatientAccessDisclaimerModal = ({ onAgreeRedirectTo, onClose, isVisible, ...restProps }) => {
-  const handleAgree = () => restProps.history.push(onAgreeRedirectTo);
+  const handleAgree = /* istanbul ignore next */ () => restProps.history.push(onAgreeRedirectTo);
 
   return (
     <Modal show={isVisible} onHide={onClose}>
