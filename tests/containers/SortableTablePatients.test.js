@@ -55,7 +55,7 @@ const resourceData = [
 const resizeEvent = new Event('resize');
 
 describe('Component <SortableTablePatients />', () => {
-  it('should renders with props correctly', () => {
+  it('should renders mount with props correctly', () => {
     const sortableTablePatients = mount(
       <SortableTablePatients
         headers={headers}
@@ -66,11 +66,14 @@ describe('Component <SortableTablePatients />', () => {
         sortingOrder="asc"
         table="patientsList"
       />)
-    expect(sortableTablePatients).toMatchSnapshot();
     window.dispatchEvent(resizeEvent);
+    sortableTablePatients.find('tr').at(1).simulate('mouseEnter');
+    expect(sortableTablePatients).toMatchSnapshot();
+    sortableTablePatients.find('tr').at(1).simulate('mouseLeave');
     expect(sortableTablePatients).toMatchSnapshot();
   });
-  it('should renders with props correctly when the resourceData is undefined', () => {
+
+  it('should renders shallow with props correctly when the resourceData is undefined', () => {
     const sortableTablePatients = shallow(
       <SortableTablePatients
         headers={headers}
@@ -82,7 +85,8 @@ describe('Component <SortableTablePatients />', () => {
       />)
     expect(sortableTablePatients).toMatchSnapshot();
   });
-  it('should renders with props correctly when the resourceData is empty array', () => {
+
+  it('should renders shallow with props correctly when the resourceData is empty array', () => {
     const sortableTablePatients = shallow(
       <SortableTablePatients
         headers={headers}
