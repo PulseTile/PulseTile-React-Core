@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ViewPatienDropdown /> should renders with another prop openedDropdownID correctly 1`] = `
+<div
+  className="patient-buttons dropdown"
+  onClick={[Function]}
+>
+  <button
+    aria-expanded={false}
+    aria-haspopup="true"
+    className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle"
+    onClick={[Function]}
+  />
+  <div
+    className="wrap-overflow"
+  >
+    <button
+      className="btn btn-success btn-inverse btn-sm btn-bold btn-view-patient"
+      onClick={[Function]}
+    >
+      View
+    </button>
+  </div>
+</div>
+`;
+
+exports[`Component <ViewPatienDropdown /> should renders with prop openedDropdownID correctly 1`] = `
+<div
+  className="patient-buttons dropdown open"
+  onClick={[Function]}
+>
+  <button
+    aria-expanded={true}
+    aria-haspopup="true"
+    className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle"
+    onClick={[Function]}
+  />
+  <lifecycle(ViewPatientDropdownOptions)
+    className="patients-dropdown-options"
+    handlePatientViewClick={[Function]}
+  />
+  <div
+    className="wrap-overflow"
+  >
+    <button
+      className="btn btn-success btn-inverse btn-sm btn-bold btn-view-patient"
+      onClick={[Function]}
+    >
+      View
+    </button>
+  </div>
+</div>
+`;

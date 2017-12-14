@@ -224,7 +224,33 @@ exports[`Component <PatientsChart /> should renders with props correctly 1`] = `
 </PatientsChart>
 `;
 
-exports[`Component <PatientsChart /> should renders with props correctly 2`] = `
+exports[`Component <PatientsChart /> should renders with props isChartsDataReceived false correctly 1`] = `
+<div
+  class="chart-block"
+>
+  <div
+    class="chart-title-group"
+  >
+    <h2
+      class="chart-title"
+    >
+      title test
+    </h2>
+    <p
+      class="chart-subtitle"
+    >
+      sub title test
+    </p>
+  </div>
+  <div
+    class="wrap-chart chart-dashboard"
+  >
+    
+  </div>
+</div>
+`;
+
+exports[`Component <PatientsChart /> should renders with props isChartsDataReceived true correctly 1`] = `
 <div
   class="chart-block"
 >

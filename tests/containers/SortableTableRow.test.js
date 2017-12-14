@@ -111,7 +111,7 @@ const rowDataDanger = [
 const onCellClick = () => console.log('test')
 
 describe('Component <SortableTableRow />', () => {
-  it('should renders correctly', () => {
+  it('should renders mount with prop rowDataWarning correctly', () => {
     const sortableTableRow = mount(
       <SortableTableRow
         columnNameSortBy="name"
@@ -123,10 +123,12 @@ describe('Component <SortableTableRow />', () => {
         table="patientsList"
         onCellClick={onCellClick}
       />);
-    expect(sortableTableRow).toMatchSnapshot();
     sortableTableRow.find('.highlighter-wrapper').simulate('click');
+    expect(sortableTableRow.find('.highlighter-warning')).toHaveLength(1);
+    expect(sortableTableRow.find('.highlighter-danger')).toHaveLength(0);
+    expect(sortableTableRow).toMatchSnapshot();
   });
-  it('should renders correctly', () => {
+  it('should renders shallow with prop rowDataDanger correctly', () => {
     const sortableTableRow = shallow(
       <SortableTableRow
         columnNameSortBy="name"
@@ -138,6 +140,10 @@ describe('Component <SortableTableRow />', () => {
         table="patientsList"
         onCellClick={onCellClick}
       />);
+    sortableTableRow.find('.highlighter-wrapper').simulate('click');
+    sortableTableRow.find('[name="address"]').simulate('click');
+    expect(sortableTableRow.find('.highlighter-danger')).toHaveLength(1);
+    expect(sortableTableRow.find('.highlighter-warning')).toHaveLength(0);
     expect(sortableTableRow).toMatchSnapshot();
   });
 });

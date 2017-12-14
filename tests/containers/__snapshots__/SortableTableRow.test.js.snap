@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <SortableTableRow /> should renders correctly 1`] = `
+exports[`Component <SortableTableRow /> should renders mount with prop rowDataWarning correctly 1`] = `
 <SortableTableRow
   columnNameSortBy="name"
   headers={
@@ -158,7 +158,7 @@ exports[`Component <SortableTableRow /> should renders correctly 1`] = `
 </SortableTableRow>
 `;
 
-exports[`Component <SortableTableRow /> should renders correctly 2`] = `
+exports[`Component <SortableTableRow /> should renders shallow with prop rowDataDanger correctly 1`] = `
 <tr
   className="info"
 >

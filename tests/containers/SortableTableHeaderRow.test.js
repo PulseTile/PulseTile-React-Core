@@ -27,7 +27,7 @@ const headers = [
 const onHeaderCellClick = () => console.log('test');
 
 describe('Component <SortableTableHeaderRow />', () => {
-  it('should renders correctly', () => {
+  it('should renders shallow correctly', () => {
     const sortableTableHeaderRow = shallow(
       <SortableTableHeaderRow
         columnNameSortBy="cause"
@@ -35,8 +35,8 @@ describe('Component <SortableTableHeaderRow />', () => {
         sortingOrder="asc"
         onHeaderCellClick={onHeaderCellClick}
       />);
+    sortableTableHeaderRow.find('[name="cause"]').simulate('click');
     expect(sortableTableHeaderRow).toMatchSnapshot();
-    sortableTableHeaderRow.find('tr').simulate('click');
   });
 });
 

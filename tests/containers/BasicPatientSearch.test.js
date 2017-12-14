@@ -28,6 +28,9 @@ describe('Component <BasicPatientSearch />', () => {
     basicPatientSearch.find('.btn-search').at(0).simulate('click', {
       preventDefault: () => {},
     });
+    basicPatientSearch.find('form').simulate('submit', {
+      preventDefault: () => {},
+    });
     expect(basicPatientSearch).toMatchSnapshot();
     basicPatientSearch.find('.clearAll').simulate('click');
     expect(basicPatientSearch.state().searchString).toEqual('');

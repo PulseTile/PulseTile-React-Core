@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 
 const PatientAccessDisclaimerModal = ({ onAgreeRedirectTo, onClose, isVisible, ...restProps }) => {
-  const handleAgree = () => restProps.history.push(onAgreeRedirectTo);
+  const handleAgree = /* istanbul ignore next */ () => restProps.history.push(onAgreeRedirectTo);
 
   return (
     <ConfirmationModal

@@ -1,7 +1,9 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux'
+import { StaticRouter } from 'react-router'
 
 import AdvancedPatientSearch from '../../src/components/containers/AdvancedPatientSearch/AdvancedPatientSearch';
 
@@ -29,14 +31,14 @@ const storeResourceFill = {
         selectAgeField: 'birthday',
         ageRange: [
           0,
-          100
+          100,
         ],
         sexMale: true,
         sexFemale: true,
         nhsNumber: '9999999012',
         surname: 'fafaf',
         forename: 'afafafafafa',
-        dateOfBirth: '28/09/1937'
+        dateOfBirth: '28/09/1937',
       },
     },
   },
@@ -48,13 +50,13 @@ const storeResourceWithoutNHS = {
         selectAgeField: 'birthday',
         ageRange: [
           0,
-          100
+          100,
         ],
         sexMale: true,
         sexFemale: true,
         surname: 'fafaf',
         forename: 'afafafafafa',
-        dateOfBirth: '28/09/1937'
+        dateOfBirth: '28/09/1937',
       },
     },
   },
@@ -75,6 +77,16 @@ const context = {
 
 
 describe('Component <AdvancedPatientSearch />', () => {
+  it('should renders mount with fill Data in store correctly', () => {
+    const advancedPatientSearch = mount(
+      <Provider store={storeFill}>
+        <StaticRouter location="someLocation" context={context}>
+          <AdvancedPatientSearch />
+        </StaticRouter>
+      </Provider>);
+    expect(advancedPatientSearch).toMatchSnapshot();
+  });
+
   it('should renders with init data in store correctly', () => {
     const advancedPatientSearch = shallow(
       <AdvancedPatientSearch
@@ -86,6 +98,7 @@ describe('Component <AdvancedPatientSearch />', () => {
     expect(advancedPatientSearch.state().isOpen).toEqual(false);
     expect(advancedPatientSearch).toMatchSnapshot();
   });
+
   it('should renders with fill Data in store correctly', () => {
     const advancedPatientSearch = shallow(
       <AdvancedPatientSearch
@@ -99,6 +112,7 @@ describe('Component <AdvancedPatientSearch />', () => {
     expect(advancedPatientSearch.state().isOpen).toEqual(true);
     expect(advancedPatientSearch).toMatchSnapshot();
   });
+
   it('should renders with Data except nhs number in store correctly', () => {
     const advancedPatientSearch = shallow(
       <AdvancedPatientSearch

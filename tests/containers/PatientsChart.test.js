@@ -80,7 +80,7 @@ describe('Component <PatientsChart />', () => {
     expect(patientsChart.contains('title test')).toBe(true);
     expect(patientsChart).toMatchSnapshot();
   });
-  it('should renders with props correctly', () => {
+  it('should renders with props isChartsDataReceived true correctly', () => {
     const patientsChart = render(
       <PatientsChart
         title="title test"
@@ -88,6 +88,19 @@ describe('Component <PatientsChart />', () => {
         borderColor="rgba(36, 161, 116,1)"
         backgroundColor="rgba(36, 161, 116,0.3)"
         isChartsDataReceived
+        labels={labels}
+        patients={patients}
+      />);
+    expect(patientsChart).toMatchSnapshot();
+  });
+  it('should renders with props isChartsDataReceived false correctly', () => {
+    const patientsChart = render(
+      <PatientsChart
+        title="title test"
+        subTitle="sub title test"
+        borderColor="rgba(36, 161, 116,1)"
+        backgroundColor="rgba(36, 161, 116,0.3)"
+        isChartsDataReceived={false}
         labels={labels}
         patients={patients}
       />);
