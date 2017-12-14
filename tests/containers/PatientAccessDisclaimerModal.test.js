@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow, mount } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import PatientAccessDisclaimerModal from '../../src/components/containers/PatientsList/PatientAccessDisclaimerModal';
@@ -17,15 +17,7 @@ describe('Component <PatientAccessDisclaimerModal />', () => {
         history={history}
       />
     );
-    expect(patientAccessDisclaimerModal).toMatchSnapshot();
-  });
-  it('should renders shallow correctly', () => {
-    const patientAccessDisclaimerModal = shallow(
-      <PatientAccessDisclaimerModal
-        history={history}
-      />
-    );
-    patientAccessDisclaimerModal.find('.btn-success').simulate('click');
+    expect(patientAccessDisclaimerModal.find('ConfirmationModal')).toHaveLength(1);
     expect(patientAccessDisclaimerModal).toMatchSnapshot();
   });
 });
