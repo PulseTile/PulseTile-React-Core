@@ -66,7 +66,7 @@ export default class PatientsList extends PureComponent {
       document.removeEventListener('click', this.handleNoDropdownClick, false);
     }
 
-    handleNoDropdownClick = (e) => {
+    handleNoDropdownClick = /* istanbul ignore next */ (e) => {
       const el = e.target;
       if (!((el.classList && el.classList.contains('patient-buttons')) ||
             (el.parentNode && el.parentNode.classList && el.parentNode.classList.contains('patient-buttons'))
@@ -90,7 +90,7 @@ export default class PatientsList extends PureComponent {
 
     handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
-    handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
+    handleColumnsSelected = /* istanbul ignore next */ selectedColumns => this.setState({ selectedColumns });
 
     handlePatientViewClick = /* istanbul ignore next */ (userId, candidatePluginName) => {
       //TODO move to util function, some conjunction & disjunction magic at 12 am

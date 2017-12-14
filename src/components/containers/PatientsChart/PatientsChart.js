@@ -47,6 +47,7 @@ const PatientsChart = props => <div className="chart-block">
           yPadding: 10,
           callbacks: {
             label(tooltipItem) {
+              /* istanbul ignore next */
               return `  Patients : ${tooltipItem.yLabel}`;
             },
           },
