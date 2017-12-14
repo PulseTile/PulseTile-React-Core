@@ -32,7 +32,7 @@ export const redirectAccordingRole = (user) => {
           let path = locationHrefBeforeLogin.split('#/')[1];
           if (path !== '' ||
             path !== 'charts') {
-            // ConfirmationRedirectModal.openModal(currentUser.nhsNumber);
+            localStorage.setItem('isShowDisclaimerOfRedirect', 'true');
           }
         }
 
