@@ -44,6 +44,7 @@ class HeaderToolbar extends PureComponent {
     do {
       routerHash = routingComponents.pop();
       breadcrumbs = this.getState(routerHash);
+      /* istanbul ignore next */
       if (breadcrumbs) break
     } while (routingComponents.length);
 

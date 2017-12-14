@@ -3,301 +3,145 @@
 exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
 <div>
   <div
-    class="wrap-header-toolbar"
+    className="wrap-header-toolbar"
   >
     <div
-      class="container-fluid"
+      className="container-fluid"
     >
       <div
-        class="header-toolbar"
+        className="header-toolbar"
       >
         <button
           aria-expanded="false"
-          class="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
+          className="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
           data-target="#sidebar-nav"
           data-toggle="collapse"
+          onClick={[Function]}
         >
           <i
-            class="btn-icon fa fa-bars"
-          >
-            
-          </i>
+            className="btn-icon fa fa-bars"
+          />
           <span
-            class="btn-text"
+            className="btn-text"
           >
             Menu
           </span>
         </button>
         <div
-          class="wrap-patient-info"
+          className="wrap-patient-info"
         >
           <div
-            class="patient-info-caption"
+            className="patient-info-caption"
           >
             <div
-              class="patient-info-caption-btn btn-dropdown-toggle"
-            >
-              
-            </div>
+              className="patient-info-caption-btn btn-dropdown-toggle"
+            />
             <div
-              class="patient-info-caption-text text-truncate"
+              className="patient-info-caption-text text-truncate"
             >
-              
+              Ivor Cox
             </div>
           </div>
           <div
-            class="patient-info"
+            className="patient-info"
           >
             <div
-              class="patient-info-group-2"
+              className="patient-info-group-2"
             >
               <div
-                class="column-1"
+                className="column-1"
               >
                 <div
-                  class="patient-info-item"
+                  className="patient-info-item"
                 >
                   <span
-                    class="key"
+                    className="key"
                   >
                     D.O.B.
                   </span>
                    
+                  06-Jun-1944
                 </div>
                 <div
-                  class="patient-info-item"
+                  className="patient-info-item"
                 >
                   <span
-                    class="key"
+                    className="key"
                   >
                     Phone:
                   </span>
                    
+                  (011981) 32362
                 </div>
               </div>
               <div
-                class="column-2"
+                className="column-2"
               >
                 <div
-                  class="patient-info-item"
+                  className="patient-info-item"
                 >
                   <span
-                    class="key"
+                    className="key"
                   >
                     Gender:
                   </span>
                    
+                  Male
                 </div>
                 <div
-                  class="patient-info-item"
+                  className="patient-info-item"
                 >
                   <span
-                    class="key"
+                    className="key"
                   >
                     NHS No.
                   </span>
                    
                   <span>
-                    
+                    999 999 9000
                   </span>
                 </div>
               </div>
             </div>
             <div
-              class="patient-info-group-1"
+              className="patient-info-group-1"
             >
               <div
-                class="patient-info-item significant hidden-xs"
+                className="patient-info-item significant hidden-xs"
               >
-                
+                Ivor Cox
               </div>
               <div
-                class="patient-info-item"
+                className="patient-info-item"
               >
                 <span
-                  class="key"
+                  className="key"
                 >
                   Doctor:
                 </span>
                  
+                Goff Carolyn D.
               </div>
             </div>
             <div
-              class="patient-info-item"
+              className="patient-info-item"
             >
               <span
-                class="key"
+                className="key"
               >
                 Address:
               </span>
                
+              Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div>
-    <div
-      class="sidebar-underlay showSidebar"
-    >
-      
-    </div>
-    <div
-      class="sidebar showSidebar"
-      role="navigation"
-    >
-      <div
-        class="sidebar-nav"
-      >
-        <div>
-          <ul
-            class="sidebar-nav-list"
-          >
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/patients-summary"
-              >
-                Patient Summary
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/diagnoses"
-              >
-                Problems / Diagnosis
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/medications"
-              >
-                Medications
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/allergies"
-              >
-                Allergies
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/contacts"
-              >
-                Contacts
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/clinicalNotes"
-              >
-                Clinical Notes
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/vaccinations"
-              >
-                Vaccinations
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/personalNotes"
-              >
-                Personal Notes
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/results"
-              >
-                Test Results
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link active"
-                href="/patients/null/procedures"
-              >
-                Procedures
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/events"
-              >
-                Events
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/referrals"
-              >
-                Referrals
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/mdt"
-              >
-                MDT
-              </a>
-            </li>
-            <li
-              class="sidebar-nav-item"
-            >
-              <a
-                class="sidebar-nav-link"
-                href="/patients/null/orders"
-              >
-                Orders
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  <Connect(Connect(Sidebar))
+    activeLink="procedures"
+    userId="9999999000"
+  />
 </div>
 `;
