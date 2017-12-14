@@ -1,5 +1,2951 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data in store correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter
+    basename=""
+    context={
+      Object {
+        "router": Object {
+          "history": Object {
+            "goBack": [Function],
+            "push": [Function],
+            "replace": [Function],
+            "test": "test",
+          },
+        },
+      }
+    }
+    location="someLocation"
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "someLocation",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(AdvancedPatientSearch)>
+        <AdvancedPatientSearch
+          dispatch={[Function]}
+          formIsValid={true}
+          formValues={
+            Object {
+              "ageRange": Array [
+                0,
+                100,
+              ],
+              "dateOfBirth": "28/09/1937",
+              "forename": "afafafafafa",
+              "nhsNumber": "9999999012",
+              "selectAgeField": "birthday",
+              "sexFemale": true,
+              "sexMale": true,
+              "surname": "fafaf",
+            }
+          }
+        >
+          <div
+            className="dropdown-menu dropdown-menu-search dropdown-menu-right without-shadow"
+          >
+            <div
+              className="panel-group accordion"
+            >
+              <div
+                className="panel panel-secondary without-margin open"
+              >
+                <div
+                  className="panel-heading"
+                >
+                  <div
+                    className="control-group right"
+                  >
+                    <button
+                      className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
+                      onClick={[Function]}
+                    >
+                      <i
+                        className="btn-icon fa fa-chevron-up"
+                      />
+                    </button>
+                  </div>
+                  <h3
+                    className="panel-title"
+                  >
+                    <span
+                      className="ng-binding"
+                    >
+                      Patient Search - Advanced
+                    </span>
+                    <span
+                      className="hidden-xs hidden-sm ng-binding"
+                    >
+                      : NHS Number: 9999999012, Last Name: fafaf, First Name: afafafafafa, Date of Birth: 28/09/1937, Gender: All
+                    </span>
+                  </h3>
+                </div>
+                <div
+                  className="panel-body"
+                  style={
+                    Object {
+                      "display": "block",
+                    }
+                  }
+                >
+                  <div
+                    className="panel-body-inner"
+                  >
+                    <ReduxForm
+                      formValues={
+                        Object {
+                          "ageRange": Array [
+                            0,
+                            100,
+                          ],
+                          "dateOfBirth": "28/09/1937",
+                          "forename": "afafafafafa",
+                          "nhsNumber": "9999999012",
+                          "selectAgeField": "birthday",
+                          "sexFemale": true,
+                          "sexMale": true,
+                          "surname": "fafaf",
+                        }
+                      }
+                    >
+                      <Connect(Form(AdvancedPatientSearchForm))
+                        destroyOnUnmount={true}
+                        enableReinitialize={false}
+                        forceUnregisterOnUnmount={false}
+                        form="advancedPatientSearchForm"
+                        formValues={
+                          Object {
+                            "ageRange": Array [
+                              0,
+                              100,
+                            ],
+                            "dateOfBirth": "28/09/1937",
+                            "forename": "afafafafafa",
+                            "nhsNumber": "9999999012",
+                            "selectAgeField": "birthday",
+                            "sexFemale": true,
+                            "sexMale": true,
+                            "surname": "fafaf",
+                          }
+                        }
+                        getFormState={[Function]}
+                        keepDirtyOnReinitialize={false}
+                        persistentSubmitErrors={false}
+                        pure={true}
+                        shouldAsyncValidate={[Function]}
+                        shouldValidate={[Function]}
+                        touchOnBlur={true}
+                        touchOnChange={false}
+                        validate={[Function]}
+                      >
+                        <Form(AdvancedPatientSearchForm)
+                          anyTouched={false}
+                          array={
+                            Object {
+                              "insert": [Function],
+                              "move": [Function],
+                              "pop": [Function],
+                              "push": [Function],
+                              "remove": [Function],
+                              "removeAll": [Function],
+                              "shift": [Function],
+                              "splice": [Function],
+                              "swap": [Function],
+                              "unshift": [Function],
+                            }
+                          }
+                          arrayInsert={[Function]}
+                          arrayMove={[Function]}
+                          arrayPop={[Function]}
+                          arrayPush={[Function]}
+                          arrayRemove={[Function]}
+                          arrayRemoveAll={[Function]}
+                          arrayShift={[Function]}
+                          arraySplice={[Function]}
+                          arraySwap={[Function]}
+                          arrayUnshift={[Function]}
+                          asyncValidating={false}
+                          autofill={[Function]}
+                          blur={[Function]}
+                          change={[Function]}
+                          clearAsyncError={[Function]}
+                          clearSubmit={[Function]}
+                          clearSubmitErrors={[Function]}
+                          destroy={[Function]}
+                          destroyOnUnmount={true}
+                          dirty={true}
+                          dispatch={[Function]}
+                          enableReinitialize={false}
+                          focus={[Function]}
+                          forceUnregisterOnUnmount={false}
+                          form="advancedPatientSearchForm"
+                          formValues={
+                            Object {
+                              "ageRange": Array [
+                                0,
+                                100,
+                              ],
+                              "dateOfBirth": "28/09/1937",
+                              "forename": "afafafafafa",
+                              "nhsNumber": "9999999012",
+                              "selectAgeField": "birthday",
+                              "sexFemale": true,
+                              "sexMale": true,
+                              "surname": "fafaf",
+                            }
+                          }
+                          getFormState={[Function]}
+                          initialize={[Function]}
+                          initialized={false}
+                          invalid={false}
+                          keepDirtyOnReinitialize={false}
+                          persistentSubmitErrors={false}
+                          pristine={false}
+                          pure={true}
+                          registerField={[Function]}
+                          reset={[Function]}
+                          setSubmitFailed={[Function]}
+                          setSubmitSucceeded={[Function]}
+                          shouldAsyncValidate={[Function]}
+                          shouldValidate={[Function]}
+                          startAsyncValidation={[Function]}
+                          startSubmit={[Function]}
+                          stopAsyncValidation={[Function]}
+                          stopSubmit={[Function]}
+                          submit={[Function]}
+                          submitFailed={false}
+                          submitSucceeded={false}
+                          submitting={false}
+                          syncErrors={Object {}}
+                          syncWarnings={Object {}}
+                          touch={[Function]}
+                          touchOnBlur={true}
+                          touchOnChange={false}
+                          unregisterField={[Function]}
+                          untouch={[Function]}
+                          updateSyncErrors={[Function]}
+                          updateSyncWarnings={[Function]}
+                          valid={true}
+                          validExceptSubmit={true}
+                          validate={[Function]}
+                          values={
+                            Object {
+                              "ageRange": Array [
+                                0,
+                                100,
+                              ],
+                              "dateOfBirth": "28/09/1937",
+                              "forename": "afafafafafa",
+                              "nhsNumber": "9999999012",
+                              "selectAgeField": "birthday",
+                              "sexFemale": true,
+                              "sexMale": true,
+                              "surname": "fafaf",
+                            }
+                          }
+                        >
+                          <AdvancedPatientSearchForm
+                            anyTouched={false}
+                            array={
+                              Object {
+                                "insert": [Function],
+                                "move": [Function],
+                                "pop": [Function],
+                                "push": [Function],
+                                "remove": [Function],
+                                "removeAll": [Function],
+                                "shift": [Function],
+                                "splice": [Function],
+                                "swap": [Function],
+                                "unshift": [Function],
+                              }
+                            }
+                            asyncValidate={[Function]}
+                            asyncValidating={false}
+                            autofill={[Function]}
+                            blur={[Function]}
+                            change={[Function]}
+                            clearAsyncError={[Function]}
+                            clearSubmit={[Function]}
+                            clearSubmitErrors={[Function]}
+                            destroy={[Function]}
+                            dirty={true}
+                            dispatch={[Function]}
+                            form="advancedPatientSearchForm"
+                            formValues={
+                              Object {
+                                "ageRange": Array [
+                                  0,
+                                  100,
+                                ],
+                                "dateOfBirth": "28/09/1937",
+                                "forename": "afafafafafa",
+                                "nhsNumber": "9999999012",
+                                "selectAgeField": "birthday",
+                                "sexFemale": true,
+                                "sexMale": true,
+                                "surname": "fafaf",
+                              }
+                            }
+                            handleSubmit={[Function]}
+                            initialize={[Function]}
+                            initialized={false}
+                            invalid={false}
+                            pristine={false}
+                            pure={true}
+                            reset={[Function]}
+                            submit={[Function]}
+                            submitFailed={false}
+                            submitSucceeded={false}
+                            submitting={false}
+                            touch={[Function]}
+                            untouch={[Function]}
+                            valid={true}
+                            validate={[Function]}
+                          >
+                            <form
+                              className="form ng-pristine ng-invalid ng-invalid-required"
+                              name="advancedSearchForm"
+                            >
+                              <div
+                                className="form-group-wrapper"
+                              >
+                                <div
+                                  className="row"
+                                >
+                                  <div
+                                    className="col-xs-12 col-sm-6 ng-scope"
+                                  >
+                                    <Field
+                                      component={[Function]}
+                                      label="NHS Number"
+                                      name="nhsNumber"
+                                      placeholder="e.g. 123 456 7890"
+                                      props={
+                                        Object {
+                                          "isAdvancedSearch": true,
+                                        }
+                                      }
+                                      type="text"
+                                    >
+                                      <Connect(ConnectedField)
+                                        _reduxForm={
+                                          Object {
+                                            "anyTouched": false,
+                                            "array": Object {
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeAll": [Function],
+                                              "shift": [Function],
+                                              "splice": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                            },
+                                            "arrayInsert": [Function],
+                                            "arrayMove": [Function],
+                                            "arrayPop": [Function],
+                                            "arrayPush": [Function],
+                                            "arrayRemove": [Function],
+                                            "arrayRemoveAll": [Function],
+                                            "arrayShift": [Function],
+                                            "arraySplice": [Function],
+                                            "arraySwap": [Function],
+                                            "arrayUnshift": [Function],
+                                            "asyncErrors": undefined,
+                                            "asyncValidate": [Function],
+                                            "asyncValidating": false,
+                                            "autofill": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "clearAsyncError": [Function],
+                                            "clearSubmit": [Function],
+                                            "clearSubmitErrors": [Function],
+                                            "destroy": [Function],
+                                            "destroyOnUnmount": true,
+                                            "dirty": true,
+                                            "dispatch": [Function],
+                                            "enableReinitialize": false,
+                                            "error": undefined,
+                                            "focus": [Function],
+                                            "forceUnregisterOnUnmount": false,
+                                            "form": "advancedPatientSearchForm",
+                                            "formValues": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "getFormState": [Function],
+                                            "getValues": [Function],
+                                            "initialValues": undefined,
+                                            "initialize": [Function],
+                                            "initialized": false,
+                                            "invalid": false,
+                                            "keepDirtyOnReinitialize": false,
+                                            "persistentSubmitErrors": false,
+                                            "pristine": false,
+                                            "pure": true,
+                                            "register": [Function],
+                                            "registerField": [Function],
+                                            "registerInnerOnSubmit": [Function],
+                                            "registeredFields": undefined,
+                                            "reset": [Function],
+                                            "sectionPrefix": undefined,
+                                            "setSubmitFailed": [Function],
+                                            "setSubmitSucceeded": [Function],
+                                            "shouldAsyncValidate": [Function],
+                                            "shouldValidate": [Function],
+                                            "startAsyncValidation": [Function],
+                                            "startSubmit": [Function],
+                                            "stopAsyncValidation": [Function],
+                                            "stopSubmit": [Function],
+                                            "submit": [Function],
+                                            "submitFailed": false,
+                                            "submitSucceeded": false,
+                                            "submitting": false,
+                                            "syncErrors": Object {},
+                                            "syncWarnings": Object {},
+                                            "touch": [Function],
+                                            "touchOnBlur": true,
+                                            "touchOnChange": false,
+                                            "triggerSubmit": undefined,
+                                            "unregister": [Function],
+                                            "unregisterField": [Function],
+                                            "untouch": [Function],
+                                            "updateSyncErrors": [Function],
+                                            "updateSyncWarnings": [Function],
+                                            "valid": true,
+                                            "validExceptSubmit": true,
+                                            "validate": [Function],
+                                            "values": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "warning": undefined,
+                                          }
+                                        }
+                                        component={[Function]}
+                                        label="NHS Number"
+                                        name="nhsNumber"
+                                        normalize={[Function]}
+                                        placeholder="e.g. 123 456 7890"
+                                        props={
+                                          Object {
+                                            "isAdvancedSearch": true,
+                                          }
+                                        }
+                                        type="text"
+                                      >
+                                        <ConnectedField
+                                          _reduxForm={
+                                            Object {
+                                              "anyTouched": false,
+                                              "array": Object {
+                                                "insert": [Function],
+                                                "move": [Function],
+                                                "pop": [Function],
+                                                "push": [Function],
+                                                "remove": [Function],
+                                                "removeAll": [Function],
+                                                "shift": [Function],
+                                                "splice": [Function],
+                                                "swap": [Function],
+                                                "unshift": [Function],
+                                              },
+                                              "arrayInsert": [Function],
+                                              "arrayMove": [Function],
+                                              "arrayPop": [Function],
+                                              "arrayPush": [Function],
+                                              "arrayRemove": [Function],
+                                              "arrayRemoveAll": [Function],
+                                              "arrayShift": [Function],
+                                              "arraySplice": [Function],
+                                              "arraySwap": [Function],
+                                              "arrayUnshift": [Function],
+                                              "asyncErrors": undefined,
+                                              "asyncValidate": [Function],
+                                              "asyncValidating": false,
+                                              "autofill": [Function],
+                                              "blur": [Function],
+                                              "change": [Function],
+                                              "clearAsyncError": [Function],
+                                              "clearSubmit": [Function],
+                                              "clearSubmitErrors": [Function],
+                                              "destroy": [Function],
+                                              "destroyOnUnmount": true,
+                                              "dirty": true,
+                                              "dispatch": [Function],
+                                              "enableReinitialize": false,
+                                              "error": undefined,
+                                              "focus": [Function],
+                                              "forceUnregisterOnUnmount": false,
+                                              "form": "advancedPatientSearchForm",
+                                              "formValues": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "getFormState": [Function],
+                                              "getValues": [Function],
+                                              "initialValues": undefined,
+                                              "initialize": [Function],
+                                              "initialized": false,
+                                              "invalid": false,
+                                              "keepDirtyOnReinitialize": false,
+                                              "persistentSubmitErrors": false,
+                                              "pristine": false,
+                                              "pure": true,
+                                              "register": [Function],
+                                              "registerField": [Function],
+                                              "registerInnerOnSubmit": [Function],
+                                              "registeredFields": undefined,
+                                              "reset": [Function],
+                                              "sectionPrefix": undefined,
+                                              "setSubmitFailed": [Function],
+                                              "setSubmitSucceeded": [Function],
+                                              "shouldAsyncValidate": [Function],
+                                              "shouldValidate": [Function],
+                                              "startAsyncValidation": [Function],
+                                              "startSubmit": [Function],
+                                              "stopAsyncValidation": [Function],
+                                              "stopSubmit": [Function],
+                                              "submit": [Function],
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "syncErrors": Object {},
+                                              "syncWarnings": Object {},
+                                              "touch": [Function],
+                                              "touchOnBlur": true,
+                                              "touchOnChange": false,
+                                              "triggerSubmit": undefined,
+                                              "unregister": [Function],
+                                              "unregisterField": [Function],
+                                              "untouch": [Function],
+                                              "updateSyncErrors": [Function],
+                                              "updateSyncWarnings": [Function],
+                                              "valid": true,
+                                              "validExceptSubmit": true,
+                                              "validate": [Function],
+                                              "values": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "warning": undefined,
+                                            }
+                                          }
+                                          asyncValidating={false}
+                                          component={[Function]}
+                                          dirty={true}
+                                          dispatch={[Function]}
+                                          label="NHS Number"
+                                          name="nhsNumber"
+                                          normalize={[Function]}
+                                          placeholder="e.g. 123 456 7890"
+                                          pristine={false}
+                                          props={
+                                            Object {
+                                              "isAdvancedSearch": true,
+                                            }
+                                          }
+                                          type="text"
+                                          value="9999999012"
+                                        >
+                                          <ValidatedInputFormGroup
+                                            input={
+                                              Object {
+                                                "name": "nhsNumber",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onDragStart": [Function],
+                                                "onDrop": [Function],
+                                                "onFocus": [Function],
+                                                "value": "9999999012",
+                                              }
+                                            }
+                                            isAdvancedSearch={true}
+                                            label="NHS Number"
+                                            meta={
+                                              Object {
+                                                "active": false,
+                                                "asyncValidating": false,
+                                                "autofilled": false,
+                                                "dirty": true,
+                                                "dispatch": [Function],
+                                                "error": undefined,
+                                                "form": "advancedPatientSearchForm",
+                                                "initial": undefined,
+                                                "invalid": false,
+                                                "pristine": false,
+                                                "submitFailed": false,
+                                                "submitting": false,
+                                                "touched": false,
+                                                "valid": true,
+                                                "visited": false,
+                                                "warning": undefined,
+                                              }
+                                            }
+                                            placeholder="e.g. 123 456 7890"
+                                            type="text"
+                                          >
+                                            <div
+                                              className="form-group"
+                                            >
+                                              <label
+                                                className="control-label"
+                                              >
+                                                NHS Number
+                                              </label>
+                                              <div
+                                                className="input-holder"
+                                              >
+                                                <input
+                                                  className="form-control input-sm"
+                                                  name="nhsNumber"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onDragStart={[Function]}
+                                                  onDrop={[Function]}
+                                                  onFocus={[Function]}
+                                                  placeholder="e.g. 123 456 7890"
+                                                  type="text"
+                                                  value="9999999012"
+                                                />
+                                              </div>
+                                            </div>
+                                          </ValidatedInputFormGroup>
+                                        </ConnectedField>
+                                      </Connect(ConnectedField)>
+                                    </Field>
+                                  </div>
+                                </div>
+                                <div
+                                  className="row"
+                                >
+                                  <div
+                                    className="col-xs-12 col-sm-6"
+                                  >
+                                    <Field
+                                      component={[Function]}
+                                      label="Last Name"
+                                      name="surname"
+                                      placeholder="e. g. Smith"
+                                      props={
+                                        Object {
+                                          "isAdvancedSearch": true,
+                                        }
+                                      }
+                                      type="text"
+                                    >
+                                      <Connect(ConnectedField)
+                                        _reduxForm={
+                                          Object {
+                                            "anyTouched": false,
+                                            "array": Object {
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeAll": [Function],
+                                              "shift": [Function],
+                                              "splice": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                            },
+                                            "arrayInsert": [Function],
+                                            "arrayMove": [Function],
+                                            "arrayPop": [Function],
+                                            "arrayPush": [Function],
+                                            "arrayRemove": [Function],
+                                            "arrayRemoveAll": [Function],
+                                            "arrayShift": [Function],
+                                            "arraySplice": [Function],
+                                            "arraySwap": [Function],
+                                            "arrayUnshift": [Function],
+                                            "asyncErrors": undefined,
+                                            "asyncValidate": [Function],
+                                            "asyncValidating": false,
+                                            "autofill": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "clearAsyncError": [Function],
+                                            "clearSubmit": [Function],
+                                            "clearSubmitErrors": [Function],
+                                            "destroy": [Function],
+                                            "destroyOnUnmount": true,
+                                            "dirty": true,
+                                            "dispatch": [Function],
+                                            "enableReinitialize": false,
+                                            "error": undefined,
+                                            "focus": [Function],
+                                            "forceUnregisterOnUnmount": false,
+                                            "form": "advancedPatientSearchForm",
+                                            "formValues": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "getFormState": [Function],
+                                            "getValues": [Function],
+                                            "initialValues": undefined,
+                                            "initialize": [Function],
+                                            "initialized": false,
+                                            "invalid": false,
+                                            "keepDirtyOnReinitialize": false,
+                                            "persistentSubmitErrors": false,
+                                            "pristine": false,
+                                            "pure": true,
+                                            "register": [Function],
+                                            "registerField": [Function],
+                                            "registerInnerOnSubmit": [Function],
+                                            "registeredFields": undefined,
+                                            "reset": [Function],
+                                            "sectionPrefix": undefined,
+                                            "setSubmitFailed": [Function],
+                                            "setSubmitSucceeded": [Function],
+                                            "shouldAsyncValidate": [Function],
+                                            "shouldValidate": [Function],
+                                            "startAsyncValidation": [Function],
+                                            "startSubmit": [Function],
+                                            "stopAsyncValidation": [Function],
+                                            "stopSubmit": [Function],
+                                            "submit": [Function],
+                                            "submitFailed": false,
+                                            "submitSucceeded": false,
+                                            "submitting": false,
+                                            "syncErrors": Object {},
+                                            "syncWarnings": Object {},
+                                            "touch": [Function],
+                                            "touchOnBlur": true,
+                                            "touchOnChange": false,
+                                            "triggerSubmit": undefined,
+                                            "unregister": [Function],
+                                            "unregisterField": [Function],
+                                            "untouch": [Function],
+                                            "updateSyncErrors": [Function],
+                                            "updateSyncWarnings": [Function],
+                                            "valid": true,
+                                            "validExceptSubmit": true,
+                                            "validate": [Function],
+                                            "values": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "warning": undefined,
+                                          }
+                                        }
+                                        component={[Function]}
+                                        label="Last Name"
+                                        name="surname"
+                                        normalize={[Function]}
+                                        placeholder="e. g. Smith"
+                                        props={
+                                          Object {
+                                            "isAdvancedSearch": true,
+                                          }
+                                        }
+                                        type="text"
+                                      >
+                                        <ConnectedField
+                                          _reduxForm={
+                                            Object {
+                                              "anyTouched": false,
+                                              "array": Object {
+                                                "insert": [Function],
+                                                "move": [Function],
+                                                "pop": [Function],
+                                                "push": [Function],
+                                                "remove": [Function],
+                                                "removeAll": [Function],
+                                                "shift": [Function],
+                                                "splice": [Function],
+                                                "swap": [Function],
+                                                "unshift": [Function],
+                                              },
+                                              "arrayInsert": [Function],
+                                              "arrayMove": [Function],
+                                              "arrayPop": [Function],
+                                              "arrayPush": [Function],
+                                              "arrayRemove": [Function],
+                                              "arrayRemoveAll": [Function],
+                                              "arrayShift": [Function],
+                                              "arraySplice": [Function],
+                                              "arraySwap": [Function],
+                                              "arrayUnshift": [Function],
+                                              "asyncErrors": undefined,
+                                              "asyncValidate": [Function],
+                                              "asyncValidating": false,
+                                              "autofill": [Function],
+                                              "blur": [Function],
+                                              "change": [Function],
+                                              "clearAsyncError": [Function],
+                                              "clearSubmit": [Function],
+                                              "clearSubmitErrors": [Function],
+                                              "destroy": [Function],
+                                              "destroyOnUnmount": true,
+                                              "dirty": true,
+                                              "dispatch": [Function],
+                                              "enableReinitialize": false,
+                                              "error": undefined,
+                                              "focus": [Function],
+                                              "forceUnregisterOnUnmount": false,
+                                              "form": "advancedPatientSearchForm",
+                                              "formValues": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "getFormState": [Function],
+                                              "getValues": [Function],
+                                              "initialValues": undefined,
+                                              "initialize": [Function],
+                                              "initialized": false,
+                                              "invalid": false,
+                                              "keepDirtyOnReinitialize": false,
+                                              "persistentSubmitErrors": false,
+                                              "pristine": false,
+                                              "pure": true,
+                                              "register": [Function],
+                                              "registerField": [Function],
+                                              "registerInnerOnSubmit": [Function],
+                                              "registeredFields": undefined,
+                                              "reset": [Function],
+                                              "sectionPrefix": undefined,
+                                              "setSubmitFailed": [Function],
+                                              "setSubmitSucceeded": [Function],
+                                              "shouldAsyncValidate": [Function],
+                                              "shouldValidate": [Function],
+                                              "startAsyncValidation": [Function],
+                                              "startSubmit": [Function],
+                                              "stopAsyncValidation": [Function],
+                                              "stopSubmit": [Function],
+                                              "submit": [Function],
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "syncErrors": Object {},
+                                              "syncWarnings": Object {},
+                                              "touch": [Function],
+                                              "touchOnBlur": true,
+                                              "touchOnChange": false,
+                                              "triggerSubmit": undefined,
+                                              "unregister": [Function],
+                                              "unregisterField": [Function],
+                                              "untouch": [Function],
+                                              "updateSyncErrors": [Function],
+                                              "updateSyncWarnings": [Function],
+                                              "valid": true,
+                                              "validExceptSubmit": true,
+                                              "validate": [Function],
+                                              "values": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "warning": undefined,
+                                            }
+                                          }
+                                          asyncValidating={false}
+                                          component={[Function]}
+                                          dirty={true}
+                                          dispatch={[Function]}
+                                          label="Last Name"
+                                          name="surname"
+                                          normalize={[Function]}
+                                          placeholder="e. g. Smith"
+                                          pristine={false}
+                                          props={
+                                            Object {
+                                              "isAdvancedSearch": true,
+                                            }
+                                          }
+                                          type="text"
+                                          value="fafaf"
+                                        >
+                                          <ValidatedInputFormGroup
+                                            input={
+                                              Object {
+                                                "name": "surname",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onDragStart": [Function],
+                                                "onDrop": [Function],
+                                                "onFocus": [Function],
+                                                "value": "fafaf",
+                                              }
+                                            }
+                                            isAdvancedSearch={true}
+                                            label="Last Name"
+                                            meta={
+                                              Object {
+                                                "active": false,
+                                                "asyncValidating": false,
+                                                "autofilled": false,
+                                                "dirty": true,
+                                                "dispatch": [Function],
+                                                "error": undefined,
+                                                "form": "advancedPatientSearchForm",
+                                                "initial": undefined,
+                                                "invalid": false,
+                                                "pristine": false,
+                                                "submitFailed": false,
+                                                "submitting": false,
+                                                "touched": false,
+                                                "valid": true,
+                                                "visited": false,
+                                                "warning": undefined,
+                                              }
+                                            }
+                                            placeholder="e. g. Smith"
+                                            type="text"
+                                          >
+                                            <div
+                                              className="form-group"
+                                            >
+                                              <label
+                                                className="control-label"
+                                              >
+                                                Last Name
+                                              </label>
+                                              <div
+                                                className="input-holder"
+                                              >
+                                                <input
+                                                  className="form-control input-sm"
+                                                  name="surname"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onDragStart={[Function]}
+                                                  onDrop={[Function]}
+                                                  onFocus={[Function]}
+                                                  placeholder="e. g. Smith"
+                                                  type="text"
+                                                  value="fafaf"
+                                                />
+                                              </div>
+                                            </div>
+                                          </ValidatedInputFormGroup>
+                                        </ConnectedField>
+                                      </Connect(ConnectedField)>
+                                    </Field>
+                                  </div>
+                                  <div
+                                    className="col-xs-12 col-sm-6"
+                                  >
+                                    <Field
+                                      component={[Function]}
+                                      label="First Name"
+                                      name="forename"
+                                      placeholder="e.g. John"
+                                      props={
+                                        Object {
+                                          "isAdvancedSearch": true,
+                                        }
+                                      }
+                                      type="text"
+                                    >
+                                      <Connect(ConnectedField)
+                                        _reduxForm={
+                                          Object {
+                                            "anyTouched": false,
+                                            "array": Object {
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeAll": [Function],
+                                              "shift": [Function],
+                                              "splice": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                            },
+                                            "arrayInsert": [Function],
+                                            "arrayMove": [Function],
+                                            "arrayPop": [Function],
+                                            "arrayPush": [Function],
+                                            "arrayRemove": [Function],
+                                            "arrayRemoveAll": [Function],
+                                            "arrayShift": [Function],
+                                            "arraySplice": [Function],
+                                            "arraySwap": [Function],
+                                            "arrayUnshift": [Function],
+                                            "asyncErrors": undefined,
+                                            "asyncValidate": [Function],
+                                            "asyncValidating": false,
+                                            "autofill": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "clearAsyncError": [Function],
+                                            "clearSubmit": [Function],
+                                            "clearSubmitErrors": [Function],
+                                            "destroy": [Function],
+                                            "destroyOnUnmount": true,
+                                            "dirty": true,
+                                            "dispatch": [Function],
+                                            "enableReinitialize": false,
+                                            "error": undefined,
+                                            "focus": [Function],
+                                            "forceUnregisterOnUnmount": false,
+                                            "form": "advancedPatientSearchForm",
+                                            "formValues": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "getFormState": [Function],
+                                            "getValues": [Function],
+                                            "initialValues": undefined,
+                                            "initialize": [Function],
+                                            "initialized": false,
+                                            "invalid": false,
+                                            "keepDirtyOnReinitialize": false,
+                                            "persistentSubmitErrors": false,
+                                            "pristine": false,
+                                            "pure": true,
+                                            "register": [Function],
+                                            "registerField": [Function],
+                                            "registerInnerOnSubmit": [Function],
+                                            "registeredFields": undefined,
+                                            "reset": [Function],
+                                            "sectionPrefix": undefined,
+                                            "setSubmitFailed": [Function],
+                                            "setSubmitSucceeded": [Function],
+                                            "shouldAsyncValidate": [Function],
+                                            "shouldValidate": [Function],
+                                            "startAsyncValidation": [Function],
+                                            "startSubmit": [Function],
+                                            "stopAsyncValidation": [Function],
+                                            "stopSubmit": [Function],
+                                            "submit": [Function],
+                                            "submitFailed": false,
+                                            "submitSucceeded": false,
+                                            "submitting": false,
+                                            "syncErrors": Object {},
+                                            "syncWarnings": Object {},
+                                            "touch": [Function],
+                                            "touchOnBlur": true,
+                                            "touchOnChange": false,
+                                            "triggerSubmit": undefined,
+                                            "unregister": [Function],
+                                            "unregisterField": [Function],
+                                            "untouch": [Function],
+                                            "updateSyncErrors": [Function],
+                                            "updateSyncWarnings": [Function],
+                                            "valid": true,
+                                            "validExceptSubmit": true,
+                                            "validate": [Function],
+                                            "values": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "warning": undefined,
+                                          }
+                                        }
+                                        component={[Function]}
+                                        label="First Name"
+                                        name="forename"
+                                        normalize={[Function]}
+                                        placeholder="e.g. John"
+                                        props={
+                                          Object {
+                                            "isAdvancedSearch": true,
+                                          }
+                                        }
+                                        type="text"
+                                      >
+                                        <ConnectedField
+                                          _reduxForm={
+                                            Object {
+                                              "anyTouched": false,
+                                              "array": Object {
+                                                "insert": [Function],
+                                                "move": [Function],
+                                                "pop": [Function],
+                                                "push": [Function],
+                                                "remove": [Function],
+                                                "removeAll": [Function],
+                                                "shift": [Function],
+                                                "splice": [Function],
+                                                "swap": [Function],
+                                                "unshift": [Function],
+                                              },
+                                              "arrayInsert": [Function],
+                                              "arrayMove": [Function],
+                                              "arrayPop": [Function],
+                                              "arrayPush": [Function],
+                                              "arrayRemove": [Function],
+                                              "arrayRemoveAll": [Function],
+                                              "arrayShift": [Function],
+                                              "arraySplice": [Function],
+                                              "arraySwap": [Function],
+                                              "arrayUnshift": [Function],
+                                              "asyncErrors": undefined,
+                                              "asyncValidate": [Function],
+                                              "asyncValidating": false,
+                                              "autofill": [Function],
+                                              "blur": [Function],
+                                              "change": [Function],
+                                              "clearAsyncError": [Function],
+                                              "clearSubmit": [Function],
+                                              "clearSubmitErrors": [Function],
+                                              "destroy": [Function],
+                                              "destroyOnUnmount": true,
+                                              "dirty": true,
+                                              "dispatch": [Function],
+                                              "enableReinitialize": false,
+                                              "error": undefined,
+                                              "focus": [Function],
+                                              "forceUnregisterOnUnmount": false,
+                                              "form": "advancedPatientSearchForm",
+                                              "formValues": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "getFormState": [Function],
+                                              "getValues": [Function],
+                                              "initialValues": undefined,
+                                              "initialize": [Function],
+                                              "initialized": false,
+                                              "invalid": false,
+                                              "keepDirtyOnReinitialize": false,
+                                              "persistentSubmitErrors": false,
+                                              "pristine": false,
+                                              "pure": true,
+                                              "register": [Function],
+                                              "registerField": [Function],
+                                              "registerInnerOnSubmit": [Function],
+                                              "registeredFields": undefined,
+                                              "reset": [Function],
+                                              "sectionPrefix": undefined,
+                                              "setSubmitFailed": [Function],
+                                              "setSubmitSucceeded": [Function],
+                                              "shouldAsyncValidate": [Function],
+                                              "shouldValidate": [Function],
+                                              "startAsyncValidation": [Function],
+                                              "startSubmit": [Function],
+                                              "stopAsyncValidation": [Function],
+                                              "stopSubmit": [Function],
+                                              "submit": [Function],
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "syncErrors": Object {},
+                                              "syncWarnings": Object {},
+                                              "touch": [Function],
+                                              "touchOnBlur": true,
+                                              "touchOnChange": false,
+                                              "triggerSubmit": undefined,
+                                              "unregister": [Function],
+                                              "unregisterField": [Function],
+                                              "untouch": [Function],
+                                              "updateSyncErrors": [Function],
+                                              "updateSyncWarnings": [Function],
+                                              "valid": true,
+                                              "validExceptSubmit": true,
+                                              "validate": [Function],
+                                              "values": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "warning": undefined,
+                                            }
+                                          }
+                                          asyncValidating={false}
+                                          component={[Function]}
+                                          dirty={true}
+                                          dispatch={[Function]}
+                                          label="First Name"
+                                          name="forename"
+                                          normalize={[Function]}
+                                          placeholder="e.g. John"
+                                          pristine={false}
+                                          props={
+                                            Object {
+                                              "isAdvancedSearch": true,
+                                            }
+                                          }
+                                          type="text"
+                                          value="afafafafafa"
+                                        >
+                                          <ValidatedInputFormGroup
+                                            input={
+                                              Object {
+                                                "name": "forename",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onDragStart": [Function],
+                                                "onDrop": [Function],
+                                                "onFocus": [Function],
+                                                "value": "afafafafafa",
+                                              }
+                                            }
+                                            isAdvancedSearch={true}
+                                            label="First Name"
+                                            meta={
+                                              Object {
+                                                "active": false,
+                                                "asyncValidating": false,
+                                                "autofilled": false,
+                                                "dirty": true,
+                                                "dispatch": [Function],
+                                                "error": undefined,
+                                                "form": "advancedPatientSearchForm",
+                                                "initial": undefined,
+                                                "invalid": false,
+                                                "pristine": false,
+                                                "submitFailed": false,
+                                                "submitting": false,
+                                                "touched": false,
+                                                "valid": true,
+                                                "visited": false,
+                                                "warning": undefined,
+                                              }
+                                            }
+                                            placeholder="e.g. John"
+                                            type="text"
+                                          >
+                                            <div
+                                              className="form-group"
+                                            >
+                                              <label
+                                                className="control-label"
+                                              >
+                                                First Name
+                                              </label>
+                                              <div
+                                                className="input-holder"
+                                              >
+                                                <input
+                                                  className="form-control input-sm"
+                                                  name="forename"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onDragStart={[Function]}
+                                                  onDrop={[Function]}
+                                                  onFocus={[Function]}
+                                                  placeholder="e.g. John"
+                                                  type="text"
+                                                  value="afafafafafa"
+                                                />
+                                              </div>
+                                            </div>
+                                          </ValidatedInputFormGroup>
+                                        </ConnectedField>
+                                      </Connect(ConnectedField)>
+                                    </Field>
+                                  </div>
+                                </div>
+                                <div
+                                  className="row"
+                                >
+                                  <div
+                                    className="col-xs-12 col-sm-4"
+                                  >
+                                    <Field
+                                      component={[Function]}
+                                      label="Select Age Params"
+                                      name="selectAgeField"
+                                      options={
+                                        Array [
+                                          Object {
+                                            "title": "Date of Birth",
+                                            "value": "birthday",
+                                          },
+                                          Object {
+                                            "title": "Age Range",
+                                            "value": "range",
+                                          },
+                                        ]
+                                      }
+                                      props={
+                                        Object {
+                                          "isAdvancedSearch": true,
+                                        }
+                                      }
+                                    >
+                                      <Connect(ConnectedField)
+                                        _reduxForm={
+                                          Object {
+                                            "anyTouched": false,
+                                            "array": Object {
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeAll": [Function],
+                                              "shift": [Function],
+                                              "splice": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                            },
+                                            "arrayInsert": [Function],
+                                            "arrayMove": [Function],
+                                            "arrayPop": [Function],
+                                            "arrayPush": [Function],
+                                            "arrayRemove": [Function],
+                                            "arrayRemoveAll": [Function],
+                                            "arrayShift": [Function],
+                                            "arraySplice": [Function],
+                                            "arraySwap": [Function],
+                                            "arrayUnshift": [Function],
+                                            "asyncErrors": undefined,
+                                            "asyncValidate": [Function],
+                                            "asyncValidating": false,
+                                            "autofill": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "clearAsyncError": [Function],
+                                            "clearSubmit": [Function],
+                                            "clearSubmitErrors": [Function],
+                                            "destroy": [Function],
+                                            "destroyOnUnmount": true,
+                                            "dirty": true,
+                                            "dispatch": [Function],
+                                            "enableReinitialize": false,
+                                            "error": undefined,
+                                            "focus": [Function],
+                                            "forceUnregisterOnUnmount": false,
+                                            "form": "advancedPatientSearchForm",
+                                            "formValues": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "getFormState": [Function],
+                                            "getValues": [Function],
+                                            "initialValues": undefined,
+                                            "initialize": [Function],
+                                            "initialized": false,
+                                            "invalid": false,
+                                            "keepDirtyOnReinitialize": false,
+                                            "persistentSubmitErrors": false,
+                                            "pristine": false,
+                                            "pure": true,
+                                            "register": [Function],
+                                            "registerField": [Function],
+                                            "registerInnerOnSubmit": [Function],
+                                            "registeredFields": undefined,
+                                            "reset": [Function],
+                                            "sectionPrefix": undefined,
+                                            "setSubmitFailed": [Function],
+                                            "setSubmitSucceeded": [Function],
+                                            "shouldAsyncValidate": [Function],
+                                            "shouldValidate": [Function],
+                                            "startAsyncValidation": [Function],
+                                            "startSubmit": [Function],
+                                            "stopAsyncValidation": [Function],
+                                            "stopSubmit": [Function],
+                                            "submit": [Function],
+                                            "submitFailed": false,
+                                            "submitSucceeded": false,
+                                            "submitting": false,
+                                            "syncErrors": Object {},
+                                            "syncWarnings": Object {},
+                                            "touch": [Function],
+                                            "touchOnBlur": true,
+                                            "touchOnChange": false,
+                                            "triggerSubmit": undefined,
+                                            "unregister": [Function],
+                                            "unregisterField": [Function],
+                                            "untouch": [Function],
+                                            "updateSyncErrors": [Function],
+                                            "updateSyncWarnings": [Function],
+                                            "valid": true,
+                                            "validExceptSubmit": true,
+                                            "validate": [Function],
+                                            "values": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "warning": undefined,
+                                          }
+                                        }
+                                        component={[Function]}
+                                        label="Select Age Params"
+                                        name="selectAgeField"
+                                        normalize={[Function]}
+                                        options={
+                                          Array [
+                                            Object {
+                                              "title": "Date of Birth",
+                                              "value": "birthday",
+                                            },
+                                            Object {
+                                              "title": "Age Range",
+                                              "value": "range",
+                                            },
+                                          ]
+                                        }
+                                        props={
+                                          Object {
+                                            "isAdvancedSearch": true,
+                                          }
+                                        }
+                                      >
+                                        <ConnectedField
+                                          _reduxForm={
+                                            Object {
+                                              "anyTouched": false,
+                                              "array": Object {
+                                                "insert": [Function],
+                                                "move": [Function],
+                                                "pop": [Function],
+                                                "push": [Function],
+                                                "remove": [Function],
+                                                "removeAll": [Function],
+                                                "shift": [Function],
+                                                "splice": [Function],
+                                                "swap": [Function],
+                                                "unshift": [Function],
+                                              },
+                                              "arrayInsert": [Function],
+                                              "arrayMove": [Function],
+                                              "arrayPop": [Function],
+                                              "arrayPush": [Function],
+                                              "arrayRemove": [Function],
+                                              "arrayRemoveAll": [Function],
+                                              "arrayShift": [Function],
+                                              "arraySplice": [Function],
+                                              "arraySwap": [Function],
+                                              "arrayUnshift": [Function],
+                                              "asyncErrors": undefined,
+                                              "asyncValidate": [Function],
+                                              "asyncValidating": false,
+                                              "autofill": [Function],
+                                              "blur": [Function],
+                                              "change": [Function],
+                                              "clearAsyncError": [Function],
+                                              "clearSubmit": [Function],
+                                              "clearSubmitErrors": [Function],
+                                              "destroy": [Function],
+                                              "destroyOnUnmount": true,
+                                              "dirty": true,
+                                              "dispatch": [Function],
+                                              "enableReinitialize": false,
+                                              "error": undefined,
+                                              "focus": [Function],
+                                              "forceUnregisterOnUnmount": false,
+                                              "form": "advancedPatientSearchForm",
+                                              "formValues": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "getFormState": [Function],
+                                              "getValues": [Function],
+                                              "initialValues": undefined,
+                                              "initialize": [Function],
+                                              "initialized": false,
+                                              "invalid": false,
+                                              "keepDirtyOnReinitialize": false,
+                                              "persistentSubmitErrors": false,
+                                              "pristine": false,
+                                              "pure": true,
+                                              "register": [Function],
+                                              "registerField": [Function],
+                                              "registerInnerOnSubmit": [Function],
+                                              "registeredFields": undefined,
+                                              "reset": [Function],
+                                              "sectionPrefix": undefined,
+                                              "setSubmitFailed": [Function],
+                                              "setSubmitSucceeded": [Function],
+                                              "shouldAsyncValidate": [Function],
+                                              "shouldValidate": [Function],
+                                              "startAsyncValidation": [Function],
+                                              "startSubmit": [Function],
+                                              "stopAsyncValidation": [Function],
+                                              "stopSubmit": [Function],
+                                              "submit": [Function],
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "syncErrors": Object {},
+                                              "syncWarnings": Object {},
+                                              "touch": [Function],
+                                              "touchOnBlur": true,
+                                              "touchOnChange": false,
+                                              "triggerSubmit": undefined,
+                                              "unregister": [Function],
+                                              "unregisterField": [Function],
+                                              "untouch": [Function],
+                                              "updateSyncErrors": [Function],
+                                              "updateSyncWarnings": [Function],
+                                              "valid": true,
+                                              "validExceptSubmit": true,
+                                              "validate": [Function],
+                                              "values": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "warning": undefined,
+                                            }
+                                          }
+                                          asyncValidating={false}
+                                          component={[Function]}
+                                          dirty={true}
+                                          dispatch={[Function]}
+                                          label="Select Age Params"
+                                          name="selectAgeField"
+                                          normalize={[Function]}
+                                          options={
+                                            Array [
+                                              Object {
+                                                "title": "Date of Birth",
+                                                "value": "birthday",
+                                              },
+                                              Object {
+                                                "title": "Age Range",
+                                                "value": "range",
+                                              },
+                                            ]
+                                          }
+                                          pristine={false}
+                                          props={
+                                            Object {
+                                              "isAdvancedSearch": true,
+                                            }
+                                          }
+                                          value="birthday"
+                                        >
+                                          <SelectFormGroup
+                                            input={
+                                              Object {
+                                                "name": "selectAgeField",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onDragStart": [Function],
+                                                "onDrop": [Function],
+                                                "onFocus": [Function],
+                                                "value": "birthday",
+                                              }
+                                            }
+                                            isAdvancedSearch={true}
+                                            label="Select Age Params"
+                                            meta={
+                                              Object {
+                                                "active": false,
+                                                "asyncValidating": false,
+                                                "autofilled": false,
+                                                "dirty": true,
+                                                "dispatch": [Function],
+                                                "error": undefined,
+                                                "form": "advancedPatientSearchForm",
+                                                "initial": undefined,
+                                                "invalid": false,
+                                                "pristine": false,
+                                                "submitFailed": false,
+                                                "submitting": false,
+                                                "touched": false,
+                                                "valid": true,
+                                                "visited": false,
+                                                "warning": undefined,
+                                              }
+                                            }
+                                            options={
+                                              Array [
+                                                Object {
+                                                  "title": "Date of Birth",
+                                                  "value": "birthday",
+                                                },
+                                                Object {
+                                                  "title": "Age Range",
+                                                  "value": "range",
+                                                },
+                                              ]
+                                            }
+                                          >
+                                            <div
+                                              className="form-group"
+                                            >
+                                              <label
+                                                className="control-label"
+                                                htmlFor=""
+                                              >
+                                                Select Age Params
+                                              </label>
+                                              <select
+                                                className="form-control input-sm"
+                                                id=""
+                                                name="selectAgeField"
+                                                onBlur={[Function]}
+                                                onChange={[Function]}
+                                                onDragStart={[Function]}
+                                                onDrop={[Function]}
+                                                onFocus={[Function]}
+                                                value="birthday"
+                                              >
+                                                <option />
+                                                <option
+                                                  key="__SelectFormGroupOption__1"
+                                                  value="birthday"
+                                                >
+                                                  Date of Birth
+                                                </option>
+                                                <option
+                                                  key="__SelectFormGroupOption__2"
+                                                  value="range"
+                                                >
+                                                  Age Range
+                                                </option>
+                                              </select>
+                                            </div>
+                                          </SelectFormGroup>
+                                        </ConnectedField>
+                                      </Connect(ConnectedField)>
+                                    </Field>
+                                  </div>
+                                </div>
+                                <div
+                                  className="row"
+                                >
+                                  <div
+                                    className="col-xs-12 col-sm-6"
+                                  >
+                                    <Field
+                                      component={[Function]}
+                                      id="dateOfBirth"
+                                      label="Date of Birth"
+                                      name="dateOfBirth"
+                                      placeholder="03/08/1970"
+                                      props={
+                                        Object {
+                                          "format": "MM/DD/YYYY",
+                                        }
+                                      }
+                                    >
+                                      <Connect(ConnectedField)
+                                        _reduxForm={
+                                          Object {
+                                            "anyTouched": false,
+                                            "array": Object {
+                                              "insert": [Function],
+                                              "move": [Function],
+                                              "pop": [Function],
+                                              "push": [Function],
+                                              "remove": [Function],
+                                              "removeAll": [Function],
+                                              "shift": [Function],
+                                              "splice": [Function],
+                                              "swap": [Function],
+                                              "unshift": [Function],
+                                            },
+                                            "arrayInsert": [Function],
+                                            "arrayMove": [Function],
+                                            "arrayPop": [Function],
+                                            "arrayPush": [Function],
+                                            "arrayRemove": [Function],
+                                            "arrayRemoveAll": [Function],
+                                            "arrayShift": [Function],
+                                            "arraySplice": [Function],
+                                            "arraySwap": [Function],
+                                            "arrayUnshift": [Function],
+                                            "asyncErrors": undefined,
+                                            "asyncValidate": [Function],
+                                            "asyncValidating": false,
+                                            "autofill": [Function],
+                                            "blur": [Function],
+                                            "change": [Function],
+                                            "clearAsyncError": [Function],
+                                            "clearSubmit": [Function],
+                                            "clearSubmitErrors": [Function],
+                                            "destroy": [Function],
+                                            "destroyOnUnmount": true,
+                                            "dirty": true,
+                                            "dispatch": [Function],
+                                            "enableReinitialize": false,
+                                            "error": undefined,
+                                            "focus": [Function],
+                                            "forceUnregisterOnUnmount": false,
+                                            "form": "advancedPatientSearchForm",
+                                            "formValues": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "getFormState": [Function],
+                                            "getValues": [Function],
+                                            "initialValues": undefined,
+                                            "initialize": [Function],
+                                            "initialized": false,
+                                            "invalid": false,
+                                            "keepDirtyOnReinitialize": false,
+                                            "persistentSubmitErrors": false,
+                                            "pristine": false,
+                                            "pure": true,
+                                            "register": [Function],
+                                            "registerField": [Function],
+                                            "registerInnerOnSubmit": [Function],
+                                            "registeredFields": undefined,
+                                            "reset": [Function],
+                                            "sectionPrefix": undefined,
+                                            "setSubmitFailed": [Function],
+                                            "setSubmitSucceeded": [Function],
+                                            "shouldAsyncValidate": [Function],
+                                            "shouldValidate": [Function],
+                                            "startAsyncValidation": [Function],
+                                            "startSubmit": [Function],
+                                            "stopAsyncValidation": [Function],
+                                            "stopSubmit": [Function],
+                                            "submit": [Function],
+                                            "submitFailed": false,
+                                            "submitSucceeded": false,
+                                            "submitting": false,
+                                            "syncErrors": Object {},
+                                            "syncWarnings": Object {},
+                                            "touch": [Function],
+                                            "touchOnBlur": true,
+                                            "touchOnChange": false,
+                                            "triggerSubmit": undefined,
+                                            "unregister": [Function],
+                                            "unregisterField": [Function],
+                                            "untouch": [Function],
+                                            "updateSyncErrors": [Function],
+                                            "updateSyncWarnings": [Function],
+                                            "valid": true,
+                                            "validExceptSubmit": true,
+                                            "validate": [Function],
+                                            "values": Object {
+                                              "ageRange": Array [
+                                                0,
+                                                100,
+                                              ],
+                                              "dateOfBirth": "28/09/1937",
+                                              "forename": "afafafafafa",
+                                              "nhsNumber": "9999999012",
+                                              "selectAgeField": "birthday",
+                                              "sexFemale": true,
+                                              "sexMale": true,
+                                              "surname": "fafaf",
+                                            },
+                                            "warning": undefined,
+                                          }
+                                        }
+                                        component={[Function]}
+                                        id="dateOfBirth"
+                                        label="Date of Birth"
+                                        name="dateOfBirth"
+                                        normalize={[Function]}
+                                        placeholder="03/08/1970"
+                                        props={
+                                          Object {
+                                            "format": "MM/DD/YYYY",
+                                          }
+                                        }
+                                      >
+                                        <ConnectedField
+                                          _reduxForm={
+                                            Object {
+                                              "anyTouched": false,
+                                              "array": Object {
+                                                "insert": [Function],
+                                                "move": [Function],
+                                                "pop": [Function],
+                                                "push": [Function],
+                                                "remove": [Function],
+                                                "removeAll": [Function],
+                                                "shift": [Function],
+                                                "splice": [Function],
+                                                "swap": [Function],
+                                                "unshift": [Function],
+                                              },
+                                              "arrayInsert": [Function],
+                                              "arrayMove": [Function],
+                                              "arrayPop": [Function],
+                                              "arrayPush": [Function],
+                                              "arrayRemove": [Function],
+                                              "arrayRemoveAll": [Function],
+                                              "arrayShift": [Function],
+                                              "arraySplice": [Function],
+                                              "arraySwap": [Function],
+                                              "arrayUnshift": [Function],
+                                              "asyncErrors": undefined,
+                                              "asyncValidate": [Function],
+                                              "asyncValidating": false,
+                                              "autofill": [Function],
+                                              "blur": [Function],
+                                              "change": [Function],
+                                              "clearAsyncError": [Function],
+                                              "clearSubmit": [Function],
+                                              "clearSubmitErrors": [Function],
+                                              "destroy": [Function],
+                                              "destroyOnUnmount": true,
+                                              "dirty": true,
+                                              "dispatch": [Function],
+                                              "enableReinitialize": false,
+                                              "error": undefined,
+                                              "focus": [Function],
+                                              "forceUnregisterOnUnmount": false,
+                                              "form": "advancedPatientSearchForm",
+                                              "formValues": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "getFormState": [Function],
+                                              "getValues": [Function],
+                                              "initialValues": undefined,
+                                              "initialize": [Function],
+                                              "initialized": false,
+                                              "invalid": false,
+                                              "keepDirtyOnReinitialize": false,
+                                              "persistentSubmitErrors": false,
+                                              "pristine": false,
+                                              "pure": true,
+                                              "register": [Function],
+                                              "registerField": [Function],
+                                              "registerInnerOnSubmit": [Function],
+                                              "registeredFields": undefined,
+                                              "reset": [Function],
+                                              "sectionPrefix": undefined,
+                                              "setSubmitFailed": [Function],
+                                              "setSubmitSucceeded": [Function],
+                                              "shouldAsyncValidate": [Function],
+                                              "shouldValidate": [Function],
+                                              "startAsyncValidation": [Function],
+                                              "startSubmit": [Function],
+                                              "stopAsyncValidation": [Function],
+                                              "stopSubmit": [Function],
+                                              "submit": [Function],
+                                              "submitFailed": false,
+                                              "submitSucceeded": false,
+                                              "submitting": false,
+                                              "syncErrors": Object {},
+                                              "syncWarnings": Object {},
+                                              "touch": [Function],
+                                              "touchOnBlur": true,
+                                              "touchOnChange": false,
+                                              "triggerSubmit": undefined,
+                                              "unregister": [Function],
+                                              "unregisterField": [Function],
+                                              "untouch": [Function],
+                                              "updateSyncErrors": [Function],
+                                              "updateSyncWarnings": [Function],
+                                              "valid": true,
+                                              "validExceptSubmit": true,
+                                              "validate": [Function],
+                                              "values": Object {
+                                                "ageRange": Array [
+                                                  0,
+                                                  100,
+                                                ],
+                                                "dateOfBirth": "28/09/1937",
+                                                "forename": "afafafafafa",
+                                                "nhsNumber": "9999999012",
+                                                "selectAgeField": "birthday",
+                                                "sexFemale": true,
+                                                "sexMale": true,
+                                                "surname": "fafaf",
+                                              },
+                                              "warning": undefined,
+                                            }
+                                          }
+                                          asyncValidating={false}
+                                          component={[Function]}
+                                          dirty={true}
+                                          dispatch={[Function]}
+                                          id="dateOfBirth"
+                                          label="Date of Birth"
+                                          name="dateOfBirth"
+                                          normalize={[Function]}
+                                          placeholder="03/08/1970"
+                                          pristine={false}
+                                          props={
+                                            Object {
+                                              "format": "MM/DD/YYYY",
+                                            }
+                                          }
+                                          value="28/09/1937"
+                                        >
+                                          <DateInput
+                                            format="MM/DD/YYYY"
+                                            id="dateOfBirth"
+                                            input={
+                                              Object {
+                                                "name": "dateOfBirth",
+                                                "onBlur": [Function],
+                                                "onChange": [Function],
+                                                "onDragStart": [Function],
+                                                "onDrop": [Function],
+                                                "onFocus": [Function],
+                                                "value": "28/09/1937",
+                                              }
+                                            }
+                                            label="Date of Birth"
+                                            meta={
+                                              Object {
+                                                "active": false,
+                                                "asyncValidating": false,
+                                                "autofilled": false,
+                                                "dirty": true,
+                                                "dispatch": [Function],
+                                                "error": undefined,
+                                                "form": "advancedPatientSearchForm",
+                                                "initial": undefined,
+                                                "invalid": false,
+                                                "pristine": false,
+                                                "submitFailed": false,
+                                                "submitting": false,
+                                                "touched": false,
+                                                "valid": true,
+                                                "visited": false,
+                                                "warning": undefined,
+                                              }
+                                            }
+                                            placeholder="03/08/1970"
+                                          >
+                                            <div
+                                              className="form-group form-group-sm"
+                                            >
+                                              <label
+                                                className="control-label"
+                                                htmlFor="dateOfBirth"
+                                              >
+                                                Date of Birth
+                                              </label>
+                                              <div
+                                                className="inner-addon addon-left"
+                                              >
+                                                <div
+                                                  className="addon"
+                                                >
+                                                  <i
+                                                    className="fa fa-calendar"
+                                                  />
+                                                </div>
+                                                <t
+                                                  allowSameDay={false}
+                                                  className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+                                                  dateFormat="L"
+                                                  dateFormatCalendar="MMMM YYYY"
+                                                  disabled={false}
+                                                  disabledKeyboardNavigation={false}
+                                                  dropdownMode="select"
+                                                  monthsShown={1}
+                                                  name="dateOfBirth"
+                                                  onBlur={[Function]}
+                                                  onChange={[Function]}
+                                                  onClickOutside={[Function]}
+                                                  onDragStart={[Function]}
+                                                  onDrop={[Function]}
+                                                  onFocus={[Function]}
+                                                  onKeyDown={[Function]}
+                                                  onMonthChange={[Function]}
+                                                  onSelect={[Function]}
+                                                  peekNextMonth={true}
+                                                  placeholderText="03/08/1970"
+                                                  readOnly={true}
+                                                  selected={null}
+                                                  shouldCloseOnSelect={true}
+                                                  showMonthDropdown={true}
+                                                  showTimeSelect={false}
+                                                  showYearDropdown={true}
+                                                  timeIntervals={30}
+                                                  utcOffset={120}
+                                                  value="Invalid date"
+                                                  withPortal={false}
+                                                >
+                                                  <t
+                                                    hidePopper={true}
+                                                    popperComponent={null}
+                                                    popperModifiers={
+                                                      Object {
+                                                        "preventOverflow": Object {
+                                                          "boundariesElement": "viewport",
+                                                          "enabled": true,
+                                                          "escapeWithReference": true,
+                                                        },
+                                                      }
+                                                    }
+                                                    popperPlacement="bottom-start"
+                                                    targetComponent={
+                                                      <div
+                                                        className="react-datepicker__input-container"
+                                                      >
+                                                        <input
+                                                          autoComplete={undefined}
+                                                          autoFocus={undefined}
+                                                          className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+                                                          disabled={false}
+                                                          id={undefined}
+                                                          name="dateOfBirth"
+                                                          onBlur={[Function]}
+                                                          onChange={[Function]}
+                                                          onClick={[Function]}
+                                                          onFocus={[Function]}
+                                                          onKeyDown={[Function]}
+                                                          placeholder="03/08/1970"
+                                                          readOnly={true}
+                                                          required={undefined}
+                                                          tabIndex={undefined}
+                                                          title={undefined}
+                                                          type="text"
+                                                          value="Invalid date"
+                                                        />
+                                                      </div>
+                                                    }
+                                                  >
+                                                    <t
+                                                      tag="div"
+                                                    >
+                                                      <div>
+                                                        <c
+                                                          className="react-datepicker-wrapper"
+                                                        >
+                                                          <div
+                                                            className="react-datepicker-wrapper"
+                                                          >
+                                                            <div
+                                                              className="react-datepicker__input-container"
+                                                            >
+                                                              <input
+                                                                className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+                                                                disabled={false}
+                                                                name="dateOfBirth"
+                                                                onBlur={[Function]}
+                                                                onChange={[Function]}
+                                                                onClick={[Function]}
+                                                                onFocus={[Function]}
+                                                                onKeyDown={[Function]}
+                                                                placeholder="03/08/1970"
+                                                                readOnly={true}
+                                                                type="text"
+                                                                value="Invalid date"
+                                                              />
+                                                            </div>
+                                                          </div>
+                                                        </c>
+                                                      </div>
+                                                    </t>
+                                                  </t>
+                                                </t>
+                                              </div>
+                                            </div>
+                                          </DateInput>
+                                        </ConnectedField>
+                                      </Connect(ConnectedField)>
+                                    </Field>
+                                  </div>
+                                </div>
+                                <div
+                                  className="row"
+                                >
+                                  <div
+                                    className="col-xs-12 col-sm-6"
+                                  >
+                                    <div
+                                      className="form-group"
+                                    >
+                                      <label
+                                        className="control-label"
+                                        htmlFor="gender"
+                                      >
+                                        Gender
+                                      </label>
+                                      <div
+                                        className="input-holder"
+                                      >
+                                        <div
+                                          className="wrap-fcustominps-inline"
+                                        >
+                                          <Field
+                                            component={[Function]}
+                                            id="sexMale"
+                                            label="Male"
+                                            name="sexMale"
+                                            type="checkbox"
+                                          >
+                                            <Connect(ConnectedField)
+                                              _reduxForm={
+                                                Object {
+                                                  "anyTouched": false,
+                                                  "array": Object {
+                                                    "insert": [Function],
+                                                    "move": [Function],
+                                                    "pop": [Function],
+                                                    "push": [Function],
+                                                    "remove": [Function],
+                                                    "removeAll": [Function],
+                                                    "shift": [Function],
+                                                    "splice": [Function],
+                                                    "swap": [Function],
+                                                    "unshift": [Function],
+                                                  },
+                                                  "arrayInsert": [Function],
+                                                  "arrayMove": [Function],
+                                                  "arrayPop": [Function],
+                                                  "arrayPush": [Function],
+                                                  "arrayRemove": [Function],
+                                                  "arrayRemoveAll": [Function],
+                                                  "arrayShift": [Function],
+                                                  "arraySplice": [Function],
+                                                  "arraySwap": [Function],
+                                                  "arrayUnshift": [Function],
+                                                  "asyncErrors": undefined,
+                                                  "asyncValidate": [Function],
+                                                  "asyncValidating": false,
+                                                  "autofill": [Function],
+                                                  "blur": [Function],
+                                                  "change": [Function],
+                                                  "clearAsyncError": [Function],
+                                                  "clearSubmit": [Function],
+                                                  "clearSubmitErrors": [Function],
+                                                  "destroy": [Function],
+                                                  "destroyOnUnmount": true,
+                                                  "dirty": true,
+                                                  "dispatch": [Function],
+                                                  "enableReinitialize": false,
+                                                  "error": undefined,
+                                                  "focus": [Function],
+                                                  "forceUnregisterOnUnmount": false,
+                                                  "form": "advancedPatientSearchForm",
+                                                  "formValues": Object {
+                                                    "ageRange": Array [
+                                                      0,
+                                                      100,
+                                                    ],
+                                                    "dateOfBirth": "28/09/1937",
+                                                    "forename": "afafafafafa",
+                                                    "nhsNumber": "9999999012",
+                                                    "selectAgeField": "birthday",
+                                                    "sexFemale": true,
+                                                    "sexMale": true,
+                                                    "surname": "fafaf",
+                                                  },
+                                                  "getFormState": [Function],
+                                                  "getValues": [Function],
+                                                  "initialValues": undefined,
+                                                  "initialize": [Function],
+                                                  "initialized": false,
+                                                  "invalid": false,
+                                                  "keepDirtyOnReinitialize": false,
+                                                  "persistentSubmitErrors": false,
+                                                  "pristine": false,
+                                                  "pure": true,
+                                                  "register": [Function],
+                                                  "registerField": [Function],
+                                                  "registerInnerOnSubmit": [Function],
+                                                  "registeredFields": undefined,
+                                                  "reset": [Function],
+                                                  "sectionPrefix": undefined,
+                                                  "setSubmitFailed": [Function],
+                                                  "setSubmitSucceeded": [Function],
+                                                  "shouldAsyncValidate": [Function],
+                                                  "shouldValidate": [Function],
+                                                  "startAsyncValidation": [Function],
+                                                  "startSubmit": [Function],
+                                                  "stopAsyncValidation": [Function],
+                                                  "stopSubmit": [Function],
+                                                  "submit": [Function],
+                                                  "submitFailed": false,
+                                                  "submitSucceeded": false,
+                                                  "submitting": false,
+                                                  "syncErrors": Object {},
+                                                  "syncWarnings": Object {},
+                                                  "touch": [Function],
+                                                  "touchOnBlur": true,
+                                                  "touchOnChange": false,
+                                                  "triggerSubmit": undefined,
+                                                  "unregister": [Function],
+                                                  "unregisterField": [Function],
+                                                  "untouch": [Function],
+                                                  "updateSyncErrors": [Function],
+                                                  "updateSyncWarnings": [Function],
+                                                  "valid": true,
+                                                  "validExceptSubmit": true,
+                                                  "validate": [Function],
+                                                  "values": Object {
+                                                    "ageRange": Array [
+                                                      0,
+                                                      100,
+                                                    ],
+                                                    "dateOfBirth": "28/09/1937",
+                                                    "forename": "afafafafafa",
+                                                    "nhsNumber": "9999999012",
+                                                    "selectAgeField": "birthday",
+                                                    "sexFemale": true,
+                                                    "sexMale": true,
+                                                    "surname": "fafaf",
+                                                  },
+                                                  "warning": undefined,
+                                                }
+                                              }
+                                              component={[Function]}
+                                              id="sexMale"
+                                              label="Male"
+                                              name="sexMale"
+                                              normalize={[Function]}
+                                              type="checkbox"
+                                            >
+                                              <ConnectedField
+                                                _reduxForm={
+                                                  Object {
+                                                    "anyTouched": false,
+                                                    "array": Object {
+                                                      "insert": [Function],
+                                                      "move": [Function],
+                                                      "pop": [Function],
+                                                      "push": [Function],
+                                                      "remove": [Function],
+                                                      "removeAll": [Function],
+                                                      "shift": [Function],
+                                                      "splice": [Function],
+                                                      "swap": [Function],
+                                                      "unshift": [Function],
+                                                    },
+                                                    "arrayInsert": [Function],
+                                                    "arrayMove": [Function],
+                                                    "arrayPop": [Function],
+                                                    "arrayPush": [Function],
+                                                    "arrayRemove": [Function],
+                                                    "arrayRemoveAll": [Function],
+                                                    "arrayShift": [Function],
+                                                    "arraySplice": [Function],
+                                                    "arraySwap": [Function],
+                                                    "arrayUnshift": [Function],
+                                                    "asyncErrors": undefined,
+                                                    "asyncValidate": [Function],
+                                                    "asyncValidating": false,
+                                                    "autofill": [Function],
+                                                    "blur": [Function],
+                                                    "change": [Function],
+                                                    "clearAsyncError": [Function],
+                                                    "clearSubmit": [Function],
+                                                    "clearSubmitErrors": [Function],
+                                                    "destroy": [Function],
+                                                    "destroyOnUnmount": true,
+                                                    "dirty": true,
+                                                    "dispatch": [Function],
+                                                    "enableReinitialize": false,
+                                                    "error": undefined,
+                                                    "focus": [Function],
+                                                    "forceUnregisterOnUnmount": false,
+                                                    "form": "advancedPatientSearchForm",
+                                                    "formValues": Object {
+                                                      "ageRange": Array [
+                                                        0,
+                                                        100,
+                                                      ],
+                                                      "dateOfBirth": "28/09/1937",
+                                                      "forename": "afafafafafa",
+                                                      "nhsNumber": "9999999012",
+                                                      "selectAgeField": "birthday",
+                                                      "sexFemale": true,
+                                                      "sexMale": true,
+                                                      "surname": "fafaf",
+                                                    },
+                                                    "getFormState": [Function],
+                                                    "getValues": [Function],
+                                                    "initialValues": undefined,
+                                                    "initialize": [Function],
+                                                    "initialized": false,
+                                                    "invalid": false,
+                                                    "keepDirtyOnReinitialize": false,
+                                                    "persistentSubmitErrors": false,
+                                                    "pristine": false,
+                                                    "pure": true,
+                                                    "register": [Function],
+                                                    "registerField": [Function],
+                                                    "registerInnerOnSubmit": [Function],
+                                                    "registeredFields": undefined,
+                                                    "reset": [Function],
+                                                    "sectionPrefix": undefined,
+                                                    "setSubmitFailed": [Function],
+                                                    "setSubmitSucceeded": [Function],
+                                                    "shouldAsyncValidate": [Function],
+                                                    "shouldValidate": [Function],
+                                                    "startAsyncValidation": [Function],
+                                                    "startSubmit": [Function],
+                                                    "stopAsyncValidation": [Function],
+                                                    "stopSubmit": [Function],
+                                                    "submit": [Function],
+                                                    "submitFailed": false,
+                                                    "submitSucceeded": false,
+                                                    "submitting": false,
+                                                    "syncErrors": Object {},
+                                                    "syncWarnings": Object {},
+                                                    "touch": [Function],
+                                                    "touchOnBlur": true,
+                                                    "touchOnChange": false,
+                                                    "triggerSubmit": undefined,
+                                                    "unregister": [Function],
+                                                    "unregisterField": [Function],
+                                                    "untouch": [Function],
+                                                    "updateSyncErrors": [Function],
+                                                    "updateSyncWarnings": [Function],
+                                                    "valid": true,
+                                                    "validExceptSubmit": true,
+                                                    "validate": [Function],
+                                                    "values": Object {
+                                                      "ageRange": Array [
+                                                        0,
+                                                        100,
+                                                      ],
+                                                      "dateOfBirth": "28/09/1937",
+                                                      "forename": "afafafafafa",
+                                                      "nhsNumber": "9999999012",
+                                                      "selectAgeField": "birthday",
+                                                      "sexFemale": true,
+                                                      "sexMale": true,
+                                                      "surname": "fafaf",
+                                                    },
+                                                    "warning": undefined,
+                                                  }
+                                                }
+                                                asyncValidating={false}
+                                                component={[Function]}
+                                                dirty={true}
+                                                dispatch={[Function]}
+                                                id="sexMale"
+                                                label="Male"
+                                                name="sexMale"
+                                                normalize={[Function]}
+                                                pristine={false}
+                                                type="checkbox"
+                                                value={true}
+                                              >
+                                                <CustomInputCheckbox
+                                                  id="sexMale"
+                                                  input={
+                                                    Object {
+                                                      "checked": true,
+                                                      "name": "sexMale",
+                                                      "onBlur": [Function],
+                                                      "onChange": [Function],
+                                                      "onDragStart": [Function],
+                                                      "onDrop": [Function],
+                                                      "onFocus": [Function],
+                                                      "value": true,
+                                                    }
+                                                  }
+                                                  label="Male"
+                                                  meta={
+                                                    Object {
+                                                      "active": false,
+                                                      "asyncValidating": false,
+                                                      "autofilled": false,
+                                                      "dirty": true,
+                                                      "dispatch": [Function],
+                                                      "error": undefined,
+                                                      "form": "advancedPatientSearchForm",
+                                                      "initial": undefined,
+                                                      "invalid": false,
+                                                      "pristine": false,
+                                                      "submitFailed": false,
+                                                      "submitting": false,
+                                                      "touched": false,
+                                                      "valid": true,
+                                                      "visited": false,
+                                                      "warning": undefined,
+                                                    }
+                                                  }
+                                                  type="checkbox"
+                                                >
+                                                  <div
+                                                    className="wrap-fcustominp"
+                                                  >
+                                                    <div
+                                                      className="fcustominp"
+                                                    >
+                                                      <input
+                                                        checked={true}
+                                                        id="sexMale"
+                                                        name="sexMale"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onDragStart={[Function]}
+                                                        onDrop={[Function]}
+                                                        onFocus={[Function]}
+                                                        type="checkbox"
+                                                        value={true}
+                                                      />
+                                                      <label
+                                                        htmlFor="sexMale"
+                                                      />
+                                                    </div>
+                                                    <label
+                                                      className="fcustominp-label"
+                                                      htmlFor="sexMale"
+                                                    >
+                                                      Male
+                                                    </label>
+                                                  </div>
+                                                </CustomInputCheckbox>
+                                              </ConnectedField>
+                                            </Connect(ConnectedField)>
+                                          </Field>
+                                          <Field
+                                            component={[Function]}
+                                            id="sexFemale"
+                                            label="Female"
+                                            name="sexFemale"
+                                            type="checkbox"
+                                          >
+                                            <Connect(ConnectedField)
+                                              _reduxForm={
+                                                Object {
+                                                  "anyTouched": false,
+                                                  "array": Object {
+                                                    "insert": [Function],
+                                                    "move": [Function],
+                                                    "pop": [Function],
+                                                    "push": [Function],
+                                                    "remove": [Function],
+                                                    "removeAll": [Function],
+                                                    "shift": [Function],
+                                                    "splice": [Function],
+                                                    "swap": [Function],
+                                                    "unshift": [Function],
+                                                  },
+                                                  "arrayInsert": [Function],
+                                                  "arrayMove": [Function],
+                                                  "arrayPop": [Function],
+                                                  "arrayPush": [Function],
+                                                  "arrayRemove": [Function],
+                                                  "arrayRemoveAll": [Function],
+                                                  "arrayShift": [Function],
+                                                  "arraySplice": [Function],
+                                                  "arraySwap": [Function],
+                                                  "arrayUnshift": [Function],
+                                                  "asyncErrors": undefined,
+                                                  "asyncValidate": [Function],
+                                                  "asyncValidating": false,
+                                                  "autofill": [Function],
+                                                  "blur": [Function],
+                                                  "change": [Function],
+                                                  "clearAsyncError": [Function],
+                                                  "clearSubmit": [Function],
+                                                  "clearSubmitErrors": [Function],
+                                                  "destroy": [Function],
+                                                  "destroyOnUnmount": true,
+                                                  "dirty": true,
+                                                  "dispatch": [Function],
+                                                  "enableReinitialize": false,
+                                                  "error": undefined,
+                                                  "focus": [Function],
+                                                  "forceUnregisterOnUnmount": false,
+                                                  "form": "advancedPatientSearchForm",
+                                                  "formValues": Object {
+                                                    "ageRange": Array [
+                                                      0,
+                                                      100,
+                                                    ],
+                                                    "dateOfBirth": "28/09/1937",
+                                                    "forename": "afafafafafa",
+                                                    "nhsNumber": "9999999012",
+                                                    "selectAgeField": "birthday",
+                                                    "sexFemale": true,
+                                                    "sexMale": true,
+                                                    "surname": "fafaf",
+                                                  },
+                                                  "getFormState": [Function],
+                                                  "getValues": [Function],
+                                                  "initialValues": undefined,
+                                                  "initialize": [Function],
+                                                  "initialized": false,
+                                                  "invalid": false,
+                                                  "keepDirtyOnReinitialize": false,
+                                                  "persistentSubmitErrors": false,
+                                                  "pristine": false,
+                                                  "pure": true,
+                                                  "register": [Function],
+                                                  "registerField": [Function],
+                                                  "registerInnerOnSubmit": [Function],
+                                                  "registeredFields": undefined,
+                                                  "reset": [Function],
+                                                  "sectionPrefix": undefined,
+                                                  "setSubmitFailed": [Function],
+                                                  "setSubmitSucceeded": [Function],
+                                                  "shouldAsyncValidate": [Function],
+                                                  "shouldValidate": [Function],
+                                                  "startAsyncValidation": [Function],
+                                                  "startSubmit": [Function],
+                                                  "stopAsyncValidation": [Function],
+                                                  "stopSubmit": [Function],
+                                                  "submit": [Function],
+                                                  "submitFailed": false,
+                                                  "submitSucceeded": false,
+                                                  "submitting": false,
+                                                  "syncErrors": Object {},
+                                                  "syncWarnings": Object {},
+                                                  "touch": [Function],
+                                                  "touchOnBlur": true,
+                                                  "touchOnChange": false,
+                                                  "triggerSubmit": undefined,
+                                                  "unregister": [Function],
+                                                  "unregisterField": [Function],
+                                                  "untouch": [Function],
+                                                  "updateSyncErrors": [Function],
+                                                  "updateSyncWarnings": [Function],
+                                                  "valid": true,
+                                                  "validExceptSubmit": true,
+                                                  "validate": [Function],
+                                                  "values": Object {
+                                                    "ageRange": Array [
+                                                      0,
+                                                      100,
+                                                    ],
+                                                    "dateOfBirth": "28/09/1937",
+                                                    "forename": "afafafafafa",
+                                                    "nhsNumber": "9999999012",
+                                                    "selectAgeField": "birthday",
+                                                    "sexFemale": true,
+                                                    "sexMale": true,
+                                                    "surname": "fafaf",
+                                                  },
+                                                  "warning": undefined,
+                                                }
+                                              }
+                                              component={[Function]}
+                                              id="sexFemale"
+                                              label="Female"
+                                              name="sexFemale"
+                                              normalize={[Function]}
+                                              type="checkbox"
+                                            >
+                                              <ConnectedField
+                                                _reduxForm={
+                                                  Object {
+                                                    "anyTouched": false,
+                                                    "array": Object {
+                                                      "insert": [Function],
+                                                      "move": [Function],
+                                                      "pop": [Function],
+                                                      "push": [Function],
+                                                      "remove": [Function],
+                                                      "removeAll": [Function],
+                                                      "shift": [Function],
+                                                      "splice": [Function],
+                                                      "swap": [Function],
+                                                      "unshift": [Function],
+                                                    },
+                                                    "arrayInsert": [Function],
+                                                    "arrayMove": [Function],
+                                                    "arrayPop": [Function],
+                                                    "arrayPush": [Function],
+                                                    "arrayRemove": [Function],
+                                                    "arrayRemoveAll": [Function],
+                                                    "arrayShift": [Function],
+                                                    "arraySplice": [Function],
+                                                    "arraySwap": [Function],
+                                                    "arrayUnshift": [Function],
+                                                    "asyncErrors": undefined,
+                                                    "asyncValidate": [Function],
+                                                    "asyncValidating": false,
+                                                    "autofill": [Function],
+                                                    "blur": [Function],
+                                                    "change": [Function],
+                                                    "clearAsyncError": [Function],
+                                                    "clearSubmit": [Function],
+                                                    "clearSubmitErrors": [Function],
+                                                    "destroy": [Function],
+                                                    "destroyOnUnmount": true,
+                                                    "dirty": true,
+                                                    "dispatch": [Function],
+                                                    "enableReinitialize": false,
+                                                    "error": undefined,
+                                                    "focus": [Function],
+                                                    "forceUnregisterOnUnmount": false,
+                                                    "form": "advancedPatientSearchForm",
+                                                    "formValues": Object {
+                                                      "ageRange": Array [
+                                                        0,
+                                                        100,
+                                                      ],
+                                                      "dateOfBirth": "28/09/1937",
+                                                      "forename": "afafafafafa",
+                                                      "nhsNumber": "9999999012",
+                                                      "selectAgeField": "birthday",
+                                                      "sexFemale": true,
+                                                      "sexMale": true,
+                                                      "surname": "fafaf",
+                                                    },
+                                                    "getFormState": [Function],
+                                                    "getValues": [Function],
+                                                    "initialValues": undefined,
+                                                    "initialize": [Function],
+                                                    "initialized": false,
+                                                    "invalid": false,
+                                                    "keepDirtyOnReinitialize": false,
+                                                    "persistentSubmitErrors": false,
+                                                    "pristine": false,
+                                                    "pure": true,
+                                                    "register": [Function],
+                                                    "registerField": [Function],
+                                                    "registerInnerOnSubmit": [Function],
+                                                    "registeredFields": undefined,
+                                                    "reset": [Function],
+                                                    "sectionPrefix": undefined,
+                                                    "setSubmitFailed": [Function],
+                                                    "setSubmitSucceeded": [Function],
+                                                    "shouldAsyncValidate": [Function],
+                                                    "shouldValidate": [Function],
+                                                    "startAsyncValidation": [Function],
+                                                    "startSubmit": [Function],
+                                                    "stopAsyncValidation": [Function],
+                                                    "stopSubmit": [Function],
+                                                    "submit": [Function],
+                                                    "submitFailed": false,
+                                                    "submitSucceeded": false,
+                                                    "submitting": false,
+                                                    "syncErrors": Object {},
+                                                    "syncWarnings": Object {},
+                                                    "touch": [Function],
+                                                    "touchOnBlur": true,
+                                                    "touchOnChange": false,
+                                                    "triggerSubmit": undefined,
+                                                    "unregister": [Function],
+                                                    "unregisterField": [Function],
+                                                    "untouch": [Function],
+                                                    "updateSyncErrors": [Function],
+                                                    "updateSyncWarnings": [Function],
+                                                    "valid": true,
+                                                    "validExceptSubmit": true,
+                                                    "validate": [Function],
+                                                    "values": Object {
+                                                      "ageRange": Array [
+                                                        0,
+                                                        100,
+                                                      ],
+                                                      "dateOfBirth": "28/09/1937",
+                                                      "forename": "afafafafafa",
+                                                      "nhsNumber": "9999999012",
+                                                      "selectAgeField": "birthday",
+                                                      "sexFemale": true,
+                                                      "sexMale": true,
+                                                      "surname": "fafaf",
+                                                    },
+                                                    "warning": undefined,
+                                                  }
+                                                }
+                                                asyncValidating={false}
+                                                component={[Function]}
+                                                dirty={true}
+                                                dispatch={[Function]}
+                                                id="sexFemale"
+                                                label="Female"
+                                                name="sexFemale"
+                                                normalize={[Function]}
+                                                pristine={false}
+                                                type="checkbox"
+                                                value={true}
+                                              >
+                                                <CustomInputCheckbox
+                                                  id="sexFemale"
+                                                  input={
+                                                    Object {
+                                                      "checked": true,
+                                                      "name": "sexFemale",
+                                                      "onBlur": [Function],
+                                                      "onChange": [Function],
+                                                      "onDragStart": [Function],
+                                                      "onDrop": [Function],
+                                                      "onFocus": [Function],
+                                                      "value": true,
+                                                    }
+                                                  }
+                                                  label="Female"
+                                                  meta={
+                                                    Object {
+                                                      "active": false,
+                                                      "asyncValidating": false,
+                                                      "autofilled": false,
+                                                      "dirty": true,
+                                                      "dispatch": [Function],
+                                                      "error": undefined,
+                                                      "form": "advancedPatientSearchForm",
+                                                      "initial": undefined,
+                                                      "invalid": false,
+                                                      "pristine": false,
+                                                      "submitFailed": false,
+                                                      "submitting": false,
+                                                      "touched": false,
+                                                      "valid": true,
+                                                      "visited": false,
+                                                      "warning": undefined,
+                                                    }
+                                                  }
+                                                  type="checkbox"
+                                                >
+                                                  <div
+                                                    className="wrap-fcustominp"
+                                                  >
+                                                    <div
+                                                      className="fcustominp"
+                                                    >
+                                                      <input
+                                                        checked={true}
+                                                        id="sexFemale"
+                                                        name="sexFemale"
+                                                        onBlur={[Function]}
+                                                        onChange={[Function]}
+                                                        onDragStart={[Function]}
+                                                        onDrop={[Function]}
+                                                        onFocus={[Function]}
+                                                        type="checkbox"
+                                                        value={true}
+                                                      />
+                                                      <label
+                                                        htmlFor="sexFemale"
+                                                      />
+                                                    </div>
+                                                    <label
+                                                      className="fcustominp-label"
+                                                      htmlFor="sexFemale"
+                                                    >
+                                                      Female
+                                                    </label>
+                                                  </div>
+                                                </CustomInputCheckbox>
+                                              </ConnectedField>
+                                            </Connect(ConnectedField)>
+                                          </Field>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </form>
+                          </AdvancedPatientSearchForm>
+                        </Form(AdvancedPatientSearchForm)>
+                      </Connect(Form(AdvancedPatientSearchForm))>
+                    </ReduxForm>
+                  </div>
+                  <div
+                    className="panel-control"
+                  >
+                    <div
+                      className="wrap-control-group hide-indent-bottom"
+                    >
+                      <div
+                        className="control-group with-indent right"
+                      >
+                        <button
+                          className="btn btn-danger btn-icon-normal"
+                        >
+                          <i
+                            className="btn-icon fa fa-times"
+                          />
+                           
+                          <span
+                            className="btn-text"
+                          >
+                            Close
+                          </span>
+                        </button>
+                        <button
+                          className="btn btn-success btn-icon-normal"
+                          disabled={false}
+                          onClick={[Function]}
+                        >
+                          <i
+                            className="btn-icon fa fa-search"
+                          />
+                          <span
+                            className="btn-text"
+                          >
+                            Search
+                          </span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </AdvancedPatientSearch>
+      </Connect(AdvancedPatientSearch)>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;
+
 exports[`Component <AdvancedPatientSearch /> should renders with Data except nhs number in store correctly 1`] = `
 <div
   className="dropdown-menu dropdown-menu-search dropdown-menu-right without-shadow"
