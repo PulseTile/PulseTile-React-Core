@@ -105,24 +105,5 @@ exports[`Component <PatientsListHeader /> should renders correctly 3`] = `
   <h3
     className="panel-title"
   />
-  <div
-    className="panel-filter"
-  >
-    <div
-      className="inner-addon addon-left"
-    >
-      <div
-        className="addon"
-      >
-        <i
-          className="fa fa-filter"
-        />
-      </div>
-      <input
-        className="form-control"
-        placeholder="Filter..."
-      />
-    </div>
-  </div>
 </div>
 `;

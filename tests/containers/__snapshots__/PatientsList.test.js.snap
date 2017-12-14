@@ -7,20 +7,28 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
         "dateOfBirth": -363657600000,
-        "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "12-Dec-2017",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "12-Dec-2017",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "12-Dec-2017",
-        "vitalsDateConvert": "12-Dec-2017",
+      },
+      Object {
+        "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+        "dateOfBirth": -363657600000,
+        "department": "Primary Care",
+        "gender": "Male",
+        "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+        "gpName": "Joseph May N.",
+        "id": "9999999006",
+        "name": "Ezra Gordon",
+        "nhsNumber": "9999999006",
+        "pasNo": "595941",
+        "phone": "070 6691 5178",
       },
     ]
   }
@@ -31,18 +39,36 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         "dateOfBirth": -363657600000,
         "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "13-Dec-2017",
+        "diagnosesDateConvert": "14-Dec-2017",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "13-Dec-2017",
+        "ordersDateConvert": "14-Dec-2017",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "13-Dec-2017",
-        "vitalsDateConvert": "13-Dec-2017",
+        "resultsDateConvert": "14-Dec-2017",
+        "vitalsDateConvert": "14-Dec-2017",
+      },
+      Object {
+        "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+        "dateOfBirth": -363657600000,
+        "dateOfBirthConvert": "24-Jun-1958",
+        "department": "Primary Care",
+        "diagnosesDateConvert": "14-Dec-2017",
+        "gender": "Male",
+        "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+        "gpName": "Joseph May N.",
+        "id": "9999999006",
+        "name": "Ezra Gordon",
+        "nhsNumber": "9999999006",
+        "ordersDateConvert": "14-Dec-2017",
+        "pasNo": "595941",
+        "phone": "070 6691 5178",
+        "resultsDateConvert": "14-Dec-2017",
+        "vitalsDateConvert": "14-Dec-2017",
       },
     ]
   }
@@ -61,7 +87,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
       },
     }
   }
-  patientsPerPageAmount={10}
+  patientsPerPageAmount={1}
 >
   <div
     className="patients-list"
@@ -99,7 +125,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
             className="control-group right"
           >
             <div
-              className="dropdown"
+              className="dropdown open"
             >
               <PTButton
                 className="btn btn-success btn-inverse btn-dropdown-toggle open"
@@ -114,6 +140,796 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   />
                 </button>
               </PTButton>
+              <lifecycle(PatientsInfoPanel)
+                onColumnsSelected={[Function]}
+                selectedColumns={
+                  Object {
+                    "address": true,
+                    "dateOfBirth": true,
+                    "diagnosesCount": false,
+                    "diagnosesDate": false,
+                    "gender": true,
+                    "id": true,
+                    "name": true,
+                    "ordersCount": true,
+                    "ordersDate": true,
+                    "resultsCount": true,
+                    "resultsDate": true,
+                    "viewPatientNavigation": true,
+                    "vitalsCount": false,
+                    "vitalsDate": false,
+                  }
+                }
+                toggleVisibility={[Function]}
+              >
+                <PatientsInfoPanel
+                  onColumnsSelected={[Function]}
+                  selectedColumns={
+                    Object {
+                      "address": true,
+                      "dateOfBirth": true,
+                      "diagnosesCount": false,
+                      "diagnosesDate": false,
+                      "gender": true,
+                      "id": true,
+                      "name": true,
+                      "ordersCount": true,
+                      "ordersDate": true,
+                      "resultsCount": true,
+                      "resultsDate": true,
+                      "viewPatientNavigation": true,
+                      "vitalsCount": false,
+                      "vitalsDate": false,
+                    }
+                  }
+                  toggleVisibility={[Function]}
+                >
+                  <div
+                    className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-summary dropdown-menu-patients"
+                  >
+                    <div
+                      className="form-group-wrapper"
+                    >
+                      <div>
+                        <div
+                          className="heading"
+                        >
+                          PATIENT INFO
+                        </div>
+                        <div
+                          className="form-group"
+                        >
+                          <Row
+                            bsClass="row"
+                            componentClass="div"
+                          >
+                            <div
+                              className="row"
+                            >
+                              <PTCustomCheckbox
+                                disabled={true}
+                                isChecked={true}
+                                name="name"
+                                title="Name"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state disabled"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="name"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="name"
+                                        >
+                                          Name
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="address"
+                                onChange={[Function]}
+                                title="Address"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="address"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="address"
+                                        >
+                                          Address
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                disabled={true}
+                                isChecked={true}
+                                name="dateOfBirth"
+                                title="Born"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state disabled"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="dateOfBirth"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="dateOfBirth"
+                                        >
+                                          Born
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                disabled={true}
+                                isChecked={true}
+                                name="gender"
+                                title="Gender"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state disabled"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="gender"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="gender"
+                                        >
+                                          Gender
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="id"
+                                onChange={[Function]}
+                                title="NHS No."
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="id"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="id"
+                                        >
+                                          NHS No.
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <Col
+                                bsClass="col"
+                                componentClass="div"
+                                sm={4}
+                                xs={6}
+                              >
+                                <div
+                                  className="col-sm-4 col-xs-6"
+                                >
+                                  <PTButton
+                                    className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                    onClick={[Function]}
+                                  >
+                                    <button
+                                      className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="btn-text"
+                                      >
+                                        Select All
+                                      </span>
+                                    </button>
+                                  </PTButton>
+                                </div>
+                              </Col>
+                            </div>
+                          </Row>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          className="heading"
+                        >
+                          DATE / TIME
+                        </div>
+                        <div
+                          className="form-group"
+                        >
+                          <Row
+                            bsClass="row"
+                            componentClass="div"
+                          >
+                            <div
+                              className="row"
+                            >
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="ordersDate"
+                                onChange={[Function]}
+                                title="Orders"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="ordersDate"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="ordersDate"
+                                        >
+                                          Orders
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="resultsDate"
+                                onChange={[Function]}
+                                title="Results"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="resultsDate"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="resultsDate"
+                                        >
+                                          Results
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="vitalsDate"
+                                onChange={[Function]}
+                                title="Vitals"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="vitalsDate"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="vitalsDate"
+                                        >
+                                          Vitals
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="diagnosesDate"
+                                onChange={[Function]}
+                                title="Diagnosis"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="diagnosesDate"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="diagnosesDate"
+                                        >
+                                          Diagnosis
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <Col
+                                bsClass="col"
+                                componentClass="div"
+                                sm={4}
+                                xs={6}
+                              >
+                                <div
+                                  className="col-sm-4 col-xs-6"
+                                >
+                                  <PTButton
+                                    className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                    onClick={[Function]}
+                                  >
+                                    <button
+                                      className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="btn-text"
+                                      >
+                                        Select All
+                                      </span>
+                                    </button>
+                                  </PTButton>
+                                </div>
+                              </Col>
+                            </div>
+                          </Row>
+                        </div>
+                      </div>
+                      <div>
+                        <div
+                          className="heading"
+                        >
+                          COUNT
+                        </div>
+                        <div
+                          className="form-group"
+                        >
+                          <Row
+                            bsClass="row"
+                            componentClass="div"
+                          >
+                            <div
+                              className="row"
+                            >
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="ordersCount"
+                                onChange={[Function]}
+                                title="Orders"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="ordersCount"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="ordersCount"
+                                        >
+                                          Orders
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={true}
+                                name="resultsCount"
+                                onChange={[Function]}
+                                title="Results"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={true}
+                                            name="resultsCount"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="resultsCount"
+                                        >
+                                          Results
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="vitalsCount"
+                                onChange={[Function]}
+                                title="Vitals"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="vitalsCount"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="vitalsCount"
+                                        >
+                                          Vitals
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="diagnosesCount"
+                                onChange={[Function]}
+                                title="Diagnosis"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="diagnosesCount"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="diagnosesCount"
+                                        >
+                                          Diagnosis
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <Col
+                                bsClass="col"
+                                componentClass="div"
+                                sm={4}
+                                xs={6}
+                              >
+                                <div
+                                  className="col-sm-4 col-xs-6"
+                                >
+                                  <PTButton
+                                    className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                    onClick={[Function]}
+                                  >
+                                    <button
+                                      className="btn btn-success btn-inverse btn-bold btn-smaller"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="btn-text"
+                                      >
+                                        Select All
+                                      </span>
+                                    </button>
+                                  </PTButton>
+                                </div>
+                              </Col>
+                            </div>
+                          </Row>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </PatientsInfoPanel>
+              </lifecycle(PatientsInfoPanel)>
             </div>
             <PTButton
               className="btn btn-success btn-inverse btn-filter"
@@ -134,6 +950,26 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
           >
             test
           </h3>
+          <div
+            className="panel-filter"
+          >
+            <div
+              className="inner-addon addon-left"
+            >
+              <div
+                className="addon"
+              >
+                <i
+                  className="fa fa-filter"
+                />
+              </div>
+              <input
+                className="form-control"
+                onChange={[Function]}
+                placeholder="Filter..."
+              />
+            </div>
+          </div>
         </div>
       </PatientsListHeader>
       <div
@@ -143,7 +979,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
           className="wrap-patients-table"
         >
           <SortableTablePatients
-            columnNameSortBy="name"
+            columnNameSortBy="address"
             data={
               Array [
                 Object {
@@ -151,17 +987,17 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   "dateOfBirth": -363657600000,
                   "dateOfBirthConvert": "24-Jun-1958",
                   "department": "Primary Care",
-                  "diagnosesDateConvert": "13-Dec-2017",
+                  "diagnosesDateConvert": "14-Dec-2017",
                   "gender": "Male",
                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                   "gpName": "Joseph May N.",
                   "id": "9999999006",
                   "name": "Ezra Gordon",
                   "nhsNumber": "9999999006",
-                  "ordersDateConvert": "13-Dec-2017",
+                  "ordersDateConvert": "14-Dec-2017",
                   "pasNo": "595941",
                   "phone": "070 6691 5178",
-                  "resultsDateConvert": "13-Dec-2017",
+                  "resultsDateConvert": "14-Dec-2017",
                   "viewPatientNavigation": <ViewPatientDropdown
                     onPatientViewClick={[Function]}
                     onSetOpenedDropdownID={[Function]}
@@ -172,22 +1008,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 "dateOfBirth": -363657600000,
                                 "dateOfBirthConvert": "24-Jun-1958",
                                 "department": "Primary Care",
-                                "diagnosesDateConvert": "13-Dec-2017",
+                                "diagnosesDateConvert": "14-Dec-2017",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
                                 "id": "9999999006",
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
-                                "ordersDateConvert": "13-Dec-2017",
+                                "ordersDateConvert": "14-Dec-2017",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
-                                "resultsDateConvert": "13-Dec-2017",
-                                "vitalsDateConvert": "13-Dec-2017",
+                                "resultsDateConvert": "14-Dec-2017",
+                                "vitalsDateConvert": "14-Dec-2017",
                               }
                     }
               />,
-                  "vitalsDateConvert": "13-Dec-2017",
+                  "vitalsDateConvert": "14-Dec-2017",
                 },
               ]
             }
@@ -265,20 +1101,28 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 Object {
                   "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                   "dateOfBirth": -363657600000,
-                  "dateOfBirthConvert": "24-Jun-1958",
                   "department": "Primary Care",
-                  "diagnosesDateConvert": "12-Dec-2017",
                   "gender": "Male",
                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                   "gpName": "Joseph May N.",
                   "id": "9999999006",
                   "name": "Ezra Gordon",
                   "nhsNumber": "9999999006",
-                  "ordersDateConvert": "12-Dec-2017",
                   "pasNo": "595941",
                   "phone": "070 6691 5178",
-                  "resultsDateConvert": "12-Dec-2017",
-                  "vitalsDateConvert": "12-Dec-2017",
+                },
+                Object {
+                  "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                  "dateOfBirth": -363657600000,
+                  "department": "Primary Care",
+                  "gender": "Male",
+                  "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                  "gpName": "Joseph May N.",
+                  "id": "9999999006",
+                  "name": "Ezra Gordon",
+                  "nhsNumber": "9999999006",
+                  "pasNo": "595941",
+                  "phone": "070 6691 5178",
                 },
               ]
             }
@@ -291,7 +1135,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersName__1"
+                    key="__colHeadersName__83"
                     style={
                       Object {
                         "width": 150,
@@ -301,7 +1145,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </colgroup>
                 <thead>
                   <SortableTableHeaderRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -316,14 +1160,14 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__16"
+                        key="__SortableTableHeaderCell__98"
                         name="name"
                         onClick={[Function]}
-                        sortingOrder="asc"
+                        sortingOrder={null}
                         title="Name"
                       >
                         <th
-                          className="sorted asc"
+                          className=""
                           name="name"
                           onClick={[Function]}
                         >
@@ -338,7 +1182,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </thead>
                 <tbody>
                   <SortableTableHoveredRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -407,7 +1251,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__2"
+                    key="__SortableTableRow__84"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -416,20 +1260,28 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         Object {
                           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                           "dateOfBirth": -363657600000,
-                          "dateOfBirthConvert": "24-Jun-1958",
                           "department": "Primary Care",
-                          "diagnosesDateConvert": "12-Dec-2017",
                           "gender": "Male",
                           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                           "gpName": "Joseph May N.",
                           "id": "9999999006",
                           "name": "Ezra Gordon",
                           "nhsNumber": "9999999006",
-                          "ordersDateConvert": "12-Dec-2017",
                           "pasNo": "595941",
                           "phone": "070 6691 5178",
-                          "resultsDateConvert": "12-Dec-2017",
-                          "vitalsDateConvert": "12-Dec-2017",
+                        },
+                        Object {
+                          "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                          "dateOfBirth": -363657600000,
+                          "department": "Primary Care",
+                          "gender": "Male",
+                          "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                          "gpName": "Joseph May N.",
+                          "id": "9999999006",
+                          "name": "Ezra Gordon",
+                          "nhsNumber": "9999999006",
+                          "pasNo": "595941",
+                          "phone": "070 6691 5178",
                         },
                       ]
                     }
@@ -453,10 +1305,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       onMouseLeave={[Function]}
                     >
                       <td
-                        className="sorted"
+                        className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__17"
+                        key="__SortableTableHoveredRow__99"
                         name="name"
                         onClick={[Function]}
                       >
@@ -466,7 +1318,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__18"
+                        key="__SortableTableHoveredRow__100"
                         name="id"
                         onClick={[Function]}
                       >
@@ -481,7 +1333,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeaders__3"
+                    key="__colHeaders__85"
                     style={
                       Object {
                         "width": 150,
@@ -489,7 +1341,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__4"
+                    key="__colHeaders__86"
                     style={
                       Object {
                         "width": 300,
@@ -497,7 +1349,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__5"
+                    key="__colHeaders__87"
                     style={
                       Object {
                         "width": 105,
@@ -505,7 +1357,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__6"
+                    key="__colHeaders__88"
                     style={
                       Object {
                         "width": 90,
@@ -513,7 +1365,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__7"
+                    key="__colHeaders__89"
                     style={
                       Object {
                         "width": 115,
@@ -521,7 +1373,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__8"
+                    key="__colHeaders__90"
                     style={
                       Object {
                         "width": 110,
@@ -529,7 +1381,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__9"
+                    key="__colHeaders__91"
                     style={
                       Object {
                         "width": 100,
@@ -537,7 +1389,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__10"
+                    key="__colHeaders__92"
                     style={
                       Object {
                         "width": 110,
@@ -545,7 +1397,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__11"
+                    key="__colHeaders__93"
                     style={
                       Object {
                         "width": 100,
@@ -553,7 +1405,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__12"
+                    key="__colHeaders__94"
                     style={
                       Object {
                         "width": 90,
@@ -563,7 +1415,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </colgroup>
                 <thead>
                   <SortableTableHeaderRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -635,14 +1487,14 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__19"
+                        key="__SortableTableHeaderCell__101"
                         name="name"
                         onClick={[Function]}
-                        sortingOrder="asc"
+                        sortingOrder={null}
                         title="Name"
                       >
                         <th
-                          className="sorted asc"
+                          className=""
                           name="name"
                           onClick={[Function]}
                         >
@@ -653,14 +1505,14 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__20"
+                        key="__SortableTableHeaderCell__102"
                         name="address"
                         onClick={[Function]}
-                        sortingOrder={null}
+                        sortingOrder="asc"
                         title="Address"
                       >
                         <th
-                          className=""
+                          className="sorted asc"
                           name="address"
                           onClick={[Function]}
                         >
@@ -671,7 +1523,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__21"
+                        key="__SortableTableHeaderCell__103"
                         name="dateOfBirth"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -689,7 +1541,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__22"
+                        key="__SortableTableHeaderCell__104"
                         name="gender"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -707,7 +1559,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__23"
+                        key="__SortableTableHeaderCell__105"
                         name="id"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -726,7 +1578,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__24"
+                        key="__SortableTableHeaderCell__106"
                         name="ordersDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -754,7 +1606,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__25"
+                        key="__SortableTableHeaderCell__107"
                         name="ordersCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -776,7 +1628,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__26"
+                        key="__SortableTableHeaderCell__108"
                         name="resultsDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -804,7 +1656,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__27"
+                        key="__SortableTableHeaderCell__109"
                         name="resultsCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -826,7 +1678,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__28"
+                        key="__SortableTableHeaderCell__110"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -847,7 +1699,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </thead>
                 <tbody>
                   <SortableTableHoveredRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -916,7 +1768,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__13"
+                    key="__SortableTableRow__95"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -925,20 +1777,28 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         Object {
                           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                           "dateOfBirth": -363657600000,
-                          "dateOfBirthConvert": "24-Jun-1958",
                           "department": "Primary Care",
-                          "diagnosesDateConvert": "12-Dec-2017",
                           "gender": "Male",
                           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                           "gpName": "Joseph May N.",
                           "id": "9999999006",
                           "name": "Ezra Gordon",
                           "nhsNumber": "9999999006",
-                          "ordersDateConvert": "12-Dec-2017",
                           "pasNo": "595941",
                           "phone": "070 6691 5178",
-                          "resultsDateConvert": "12-Dec-2017",
-                          "vitalsDateConvert": "12-Dec-2017",
+                        },
+                        Object {
+                          "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                          "dateOfBirth": -363657600000,
+                          "department": "Primary Care",
+                          "gender": "Male",
+                          "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                          "gpName": "Joseph May N.",
+                          "id": "9999999006",
+                          "name": "Ezra Gordon",
+                          "nhsNumber": "9999999006",
+                          "pasNo": "595941",
+                          "phone": "070 6691 5178",
                         },
                       ]
                     }
@@ -992,18 +1852,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "13-Dec-2017",
+                                        "diagnosesDateConvert": "14-Dec-2017",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "13-Dec-2017",
+                                        "ordersDateConvert": "14-Dec-2017",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "13-Dec-2017",
-                                        "vitalsDateConvert": "13-Dec-2017",
+                                        "resultsDateConvert": "14-Dec-2017",
+                                        "vitalsDateConvert": "14-Dec-2017",
                                       }
                             }
                       />,
@@ -1018,20 +1878,20 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       onMouseLeave={[Function]}
                     >
                       <td
-                        className="sorted"
+                        className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__29"
+                        key="__SortableTableHoveredRow__111"
                         name="name"
                         onClick={[Function]}
                       >
                         Ezra Gordon
                       </td>
                       <td
-                        className=""
+                        className="sorted"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__30"
+                        key="__SortableTableHoveredRow__112"
                         name="address"
                         onClick={[Function]}
                       >
@@ -1041,7 +1901,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Born"
-                        key="__SortableTableHoveredRow__31"
+                        key="__SortableTableHoveredRow__113"
                         name="dateOfBirth"
                         onClick={[Function]}
                       >
@@ -1051,7 +1911,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Gender"
-                        key="__SortableTableHoveredRow__32"
+                        key="__SortableTableHoveredRow__114"
                         name="gender"
                         onClick={[Function]}
                       >
@@ -1061,7 +1921,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="NHS No."
-                        key="__SortableTableHoveredRow__33"
+                        key="__SortableTableHoveredRow__115"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1071,7 +1931,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders"
-                        key="__SortableTableHoveredRow__34"
+                        key="__SortableTableHoveredRow__116"
                         name="ordersDate"
                         onClick={[Function]}
                       >
@@ -1081,7 +1941,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders "
-                        key="__SortableTableHoveredRow__35"
+                        key="__SortableTableHoveredRow__117"
                         name="ordersCount"
                         onClick={[Function]}
                       >
@@ -1091,7 +1951,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results"
-                        key="__SortableTableHoveredRow__36"
+                        key="__SortableTableHoveredRow__118"
                         name="resultsDate"
                         onClick={[Function]}
                       >
@@ -1101,7 +1961,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results "
-                        key="__SortableTableHoveredRow__37"
+                        key="__SortableTableHoveredRow__119"
                         name="resultsCount"
                         onClick={[Function]}
                       >
@@ -1111,7 +1971,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th=""
-                        key="__SortableTableHoveredRow__38"
+                        key="__SortableTableHoveredRow__120"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -1125,18 +1985,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "13-Dec-2017",
+                              "diagnosesDateConvert": "14-Dec-2017",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "13-Dec-2017",
+                              "ordersDateConvert": "14-Dec-2017",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "13-Dec-2017",
-                              "vitalsDateConvert": "13-Dec-2017",
+                              "resultsDateConvert": "14-Dec-2017",
+                              "vitalsDateConvert": "14-Dec-2017",
                             }
                           }
                         >
@@ -1172,7 +2032,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersView__14"
+                    key="__colHeadersView__96"
                     style={
                       Object {
                         "width": 90,
@@ -1182,7 +2042,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </colgroup>
                 <thead>
                   <SortableTableHeaderRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -1199,7 +2059,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     <tr>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__39"
+                        key="__SortableTableHeaderCell__121"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1220,7 +2080,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </thead>
                 <tbody>
                   <SortableTableHoveredRow
-                    columnNameSortBy="name"
+                    columnNameSortBy="address"
                     headers={
                       Array [
                         Object {
@@ -1289,7 +2149,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__15"
+                    key="__SortableTableRow__97"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1298,20 +2158,28 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         Object {
                           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                           "dateOfBirth": -363657600000,
-                          "dateOfBirthConvert": "24-Jun-1958",
                           "department": "Primary Care",
-                          "diagnosesDateConvert": "12-Dec-2017",
                           "gender": "Male",
                           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                           "gpName": "Joseph May N.",
                           "id": "9999999006",
                           "name": "Ezra Gordon",
                           "nhsNumber": "9999999006",
-                          "ordersDateConvert": "12-Dec-2017",
                           "pasNo": "595941",
                           "phone": "070 6691 5178",
-                          "resultsDateConvert": "12-Dec-2017",
-                          "vitalsDateConvert": "12-Dec-2017",
+                        },
+                        Object {
+                          "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                          "dateOfBirth": -363657600000,
+                          "department": "Primary Care",
+                          "gender": "Male",
+                          "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                          "gpName": "Joseph May N.",
+                          "id": "9999999006",
+                          "name": "Ezra Gordon",
+                          "nhsNumber": "9999999006",
+                          "pasNo": "595941",
+                          "phone": "070 6691 5178",
                         },
                       ]
                     }
@@ -1329,18 +2197,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "13-Dec-2017",
+                                        "diagnosesDateConvert": "14-Dec-2017",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "13-Dec-2017",
+                                        "ordersDateConvert": "14-Dec-2017",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "13-Dec-2017",
-                                        "vitalsDateConvert": "13-Dec-2017",
+                                        "resultsDateConvert": "14-Dec-2017",
+                                        "vitalsDateConvert": "14-Dec-2017",
                                       }
                             }
                       />,
@@ -1358,7 +2226,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__40"
+                        key="__SortableTableHoveredRow__122"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -1372,18 +2240,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "13-Dec-2017",
+                              "diagnosesDateConvert": "14-Dec-2017",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "13-Dec-2017",
+                              "ordersDateConvert": "14-Dec-2017",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "13-Dec-2017",
-                              "vitalsDateConvert": "13-Dec-2017",
+                              "resultsDateConvert": "14-Dec-2017",
+                              "vitalsDateConvert": "14-Dec-2017",
                             }
                           }
                         >
@@ -1416,6 +2284,70 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               </table>
             </div>
           </SortableTablePatients>
+        </div>
+        <div
+          className="control-group with-indent center"
+        >
+          <PaginationBlock
+            entriesPerPage={1}
+            offset={0}
+            setOffset={[Function]}
+            totalEntriesAmount={2}
+          >
+            <ul
+              className="pagination-block"
+            >
+              <li
+                className="pagination-item arrow disabled"
+              >
+                <a
+                  className="pagination-link"
+                >
+                  «
+                </a>
+              </li>
+              <li
+                className="pagination-item arrow short-show disabled"
+              >
+                <a
+                  className="pagination-link pp"
+                >
+                  ‹
+                </a>
+              </li>
+              <li
+                className="pagination-item short-show active"
+                key="__PaginationBlock__li__123"
+              >
+                <a
+                  className="pagination-link"
+                  onClick={[Function]}
+                >
+                  1
+                </a>
+              </li>
+              <li
+                className="pagination-item arrow short-show"
+              >
+                <a
+                  className="pagination-link nn"
+                  onClick={[Function]}
+                >
+                  ›
+                </a>
+              </li>
+              <li
+                className="pagination-item arrow"
+              >
+                <a
+                  className="pagination-link"
+                  onClick={[Function]}
+                >
+                  »
+                </a>
+              </li>
+            </ul>
+          </PaginationBlock>
         </div>
       </div>
     </div>
