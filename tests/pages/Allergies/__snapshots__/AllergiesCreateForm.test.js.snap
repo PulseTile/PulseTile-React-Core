@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <AllergiesCreateForm /> should renders with props correctly when isSubmit false 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="allergiesCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            id="cause"
+            label="Cause"
+            name="cause"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Cause Code"
+            name="causeCode"
+            props={
+              Object {
+                "className": "form-control-static",
+                "isSubmit": false,
+              }
+            }
+          />
+        </Col>
+      </Row>
+      <Field
+        component={[Function]}
+        id="reaction"
+        label="Reaction"
+        name="reaction"
+        props={
+          Object {
+            "isSubmit": false,
+          }
+        }
+      />
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Terminology"
+            name="causeTerminology"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Terminology Code"
+            name="terminologyCode"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </Col>
+      </Row>
+      <Field
+        component={[Function]}
+        id="author"
+        label="Author"
+        name="author"
+        props={
+          Object {
+            "disabled": true,
+          }
+        }
+      />
+      <Field
+        component={[Function]}
+        id="currentDate"
+        label="Date"
+        name="currentDate"
+        props={
+          Object {
+            "disabled": true,
+            "format": "DD-MMM-YYYY",
+            "value": 1483228800000,
+          }
+        }
+      />
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <AllergiesCreateForm /> should renders with props correctly when isSubmit true 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="allergiesCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            id="cause"
+            label="Cause"
+            name="cause"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Cause Code"
+            name="causeCode"
+            props={
+              Object {
+                "className": "form-control-static",
+                "isSubmit": true,
+              }
+            }
+          />
+        </Col>
+      </Row>
+      <Field
+        component={[Function]}
+        id="reaction"
+        label="Reaction"
+        name="reaction"
+        props={
+          Object {
+            "isSubmit": true,
+          }
+        }
+      />
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Terminology"
+            name="causeTerminology"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+        >
+          <Field
+            component={[Function]}
+            label="Terminology Code"
+            name="terminologyCode"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </Col>
+      </Row>
+      <Field
+        component={[Function]}
+        id="author"
+        label="Author"
+        name="author"
+        props={
+          Object {
+            "disabled": true,
+          }
+        }
+      />
+      <Field
+        component={[Function]}
+        id="currentDate"
+        label="Date"
+        name="currentDate"
+        props={
+          Object {
+            "disabled": true,
+            "format": "DD-MMM-YYYY",
+            "value": 1483228800000,
+          }
+        }
+      />
+    </div>
+  </form>
+</div>
+`;
