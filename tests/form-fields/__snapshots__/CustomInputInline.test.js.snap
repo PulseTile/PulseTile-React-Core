@@ -47,6 +47,8 @@ exports[`Component <CustomInputInline /> should renders without label prop corre
   </div>
   <label
     htmlFor="test-id"
-  />
+  >
+    Test label
+  </label>
 </div>
 `;

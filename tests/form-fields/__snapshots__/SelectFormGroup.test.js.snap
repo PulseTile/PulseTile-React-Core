@@ -646,3 +646,24 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
   </select>
 </div>
 `;
+
+exports[`Component <SelectFormGroup /> should renders without options correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <select
+    className="form-control input-sm"
+    id="test-id"
+    name="test-name"
+    value=""
+  >
+    <option />
+  </select>
+</div>
+`;

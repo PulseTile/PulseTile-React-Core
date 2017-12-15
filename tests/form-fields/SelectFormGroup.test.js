@@ -235,4 +235,26 @@ describe('Component <SelectFormGroup />', () => {
     expect(tree).toMatchSnapshot();
 
   });
+
+  it('should renders without options correctly', () => {
+    let tree;
+    const component = shallow(
+      <SelectFormGroup
+        id={testProps.id}
+        label={testProps.label}
+        input={testProps.input}
+        options={[]}
+        meta={{
+          dirty: true,
+          touched: true,
+          error: false
+        }}
+        isSubmit={true}
+      />);
+
+    tree = toJson(component);
+    expect(tree).toMatchSnapshot();
+
+    expect(component.find('option')).toHaveLength(1);
+  });
 });

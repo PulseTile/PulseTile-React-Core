@@ -57,7 +57,6 @@ describe('Component <ConfirmationModal />', () => {
     expect(component.find('.panel')).toHaveLength(1);
     expect(component.find('.panel-title')).toHaveLength(1);
     expect(component.find('.panel-title').text()).toEqual(testProps.title);
-    expect(component.find('.panel-title').text()).toEqual(testProps.title);
     expect(component.find('.some-content')).toHaveLength(1);
     expect(component.find('.some-content').text()).toEqual('Lorem ipsum');
     expect(component.find('button')).toHaveLength(2);

@@ -43,13 +43,13 @@ describe('Component <CustomInputInline />', () => {
         <CustomInputInline
           id={id}
           type={typeRadio}
+          label={label}
           input={input}
         />);
 
     expect(component.find('input')).toHaveLength(1);
     expect(component.find('input').prop('type')).toEqual(typeRadio);
     expect(component.instance().props['type']).toEqual(typeRadio);
-    expect(component.instance().props['label']).toEqual(undefined);
     expect(component.find('.fcustominp + label').prop('className')).toEqual(undefined);
 
     const tree = toJson(component);
