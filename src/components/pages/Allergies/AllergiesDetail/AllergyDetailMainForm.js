@@ -40,14 +40,14 @@ export default class AllergyDetailMainForm extends PureComponent {
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
-                  props={isSubmit}
+                  props={{ isSubmit }}
                 />
                 <Field
                   label={valuesLabels.REACTION}
                   name={valuesNames.REACTION}
                   id={valuesNames.REACTION}
                   component={ValidatedTextareaFormGroup}
-                  props={isSubmit}
+                  props={{ isSubmit }}
                 />
               </div>
             </div>

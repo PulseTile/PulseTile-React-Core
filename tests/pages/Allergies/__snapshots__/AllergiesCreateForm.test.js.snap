@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <AllergiesCreateForm /> should renders with props correctly when isSubmit false 1`] = `
+exports[`Component <AllergiesCreateForm /> should renders correctly when form is submitted 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -27,7 +27,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
             name="cause"
             props={
               Object {
-                "isSubmit": false,
+                "isSubmit": true,
               }
             }
           />
@@ -44,7 +44,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
             props={
               Object {
                 "className": "form-control-static",
-                "isSubmit": false,
+                "isSubmit": true,
               }
             }
           />
@@ -57,7 +57,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
         name="reaction"
         props={
           Object {
-            "isSubmit": false,
+            "isSubmit": true,
           }
         }
       />
@@ -127,7 +127,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
 </div>
 `;
 
-exports[`Component <AllergiesCreateForm /> should renders with props correctly when isSubmit true 1`] = `
+exports[`Component <AllergiesCreateForm /> should renders with props correctly 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -154,7 +154,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
             name="cause"
             props={
               Object {
-                "isSubmit": true,
+                "isSubmit": false,
               }
             }
           />
@@ -171,7 +171,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
             props={
               Object {
                 "className": "form-control-static",
-                "isSubmit": true,
+                "isSubmit": false,
               }
             }
           />
@@ -184,7 +184,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly w
         name="reaction"
         props={
           Object {
-            "isSubmit": true,
+            "isSubmit": false,
           }
         }
       />

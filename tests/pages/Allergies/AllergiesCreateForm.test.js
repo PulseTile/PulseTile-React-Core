@@ -10,24 +10,25 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const mockStore = configureStore();
 const store = mockStore({});
-
 const DATE_TO_USE = new Date('2017');
-const FORM_NAME = 'allergiesCreateForm';
-const testDate = DATE_TO_USE.getTime();
+const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
 global.Date = jest.fn(() => DATE_TO_USE);
+
+const FORM_NAME = 'allergiesCreateForm';
+const DATE_FORMAT = 'DD-MMM-YYYY';
 
 const testProps = {
   isSubmit: false,
 };
 
 describe('Component <AllergiesCreateForm />', () => {
-  it('should renders with props correctly when isSubmit false', () => {
+  it('should renders with props correctly', () => {
     const component = shallow(
       <AllergiesCreateForm
         store={store}
         isSubmit={testProps.isSubmit}
       />).dive().dive().dive();
-    expect(DATE_TO_USE.getTime()).toEqual(testDate);
+
     expect(component.find('Field')).toHaveLength(7);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
@@ -60,13 +61,13 @@ describe('Component <AllergiesCreateForm />', () => {
     expect(component.find('Field').at(6).props().name).toEqual(valuesNames.DATE);
     expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.DATE);
     expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
-    expect(component.find('Field').at(6).props().props.value).toEqual(testDate);
-    expect(component.find('Field').at(6).props().props.format).toEqual('DD-MMM-YYYY');
+    expect(component.find('Field').at(6).props().props.value).toEqual(DATE_TO_USE_TIME);
+    expect(component.find('Field').at(6).props().props.format).toEqual(DATE_FORMAT);
 
     expect(component).toMatchSnapshot();
   });
 
-  it('should renders with props correctly when isSubmit true', () => {
+  it('should renders correctly when form is submitted', () => {
     const component = shallow(
       <AllergiesCreateForm
         store={store}
