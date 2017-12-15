@@ -10,17 +10,17 @@ Enzyme.configure({ adapter: new Adapter() });
 
 const propsForAllergiePanel = {
   detail: {
-    cause: '1111',
-    causeCode: '1111',
-    causeTerminology: '1239085',
-    terminologyCode: '1111',
-    reaction: '1111',
-    author: 'Dr Tony Shannon',
-    dateCreated: 1507020019000,
-    source: 'ethercis',
-    sourceId: '7ae34463-0770-4a36-bbde-4869bb6a0f05',
-    originalComposition: '',
-    originalSource: '',
+    [valuesNames.CAUSE]: '1111',
+    [valuesNames.CAUSECODE]: '1111',
+    [valuesNames.TERMINOLOGY]: '1239085',
+    [valuesNames.TERMINOLOGYCODE]: '1111',
+    [valuesNames.REACTION]: '1111',
+    [valuesNames.AUTHOR]: 'Dr Tony Shannon',
+    [valuesNames.DATE_CREATED]: 1507020019000,
+    [valuesNames.SOURCE]: 'ethercis',
+    [valuesNames.SOURCE_ID]: '7ae34463-0770-4a36-bbde-4869bb6a0f05',
+    [valuesNames.ORIGINAL_COMPOSITION]: '',
+    [valuesNames.ORIGINAL_SOURCE]: '',
   },
 };
 
@@ -33,7 +33,7 @@ describe('Component <AllergiesDetail />', () => {
     const component = shallow(<AllergiesDetail />);
 
     // Testing component when detail filled object, expandedPanel is all, and panel not edited
-    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: 'all', editedPanel: { allergiePanel: false } });
+    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: 'all', editedPanel: { [ALLERGIE_PANEL]: false } });
     expect(component.props().className).toEqual('section-detail');
     expect(component.find('PluginDetailPanel')).toHaveLength(2);
 
@@ -75,7 +75,7 @@ describe('Component <AllergiesDetail />', () => {
     const component = shallow(
       <AllergiesDetail />);
     // Testing component when detail empty object, expandedPanel is allergiePanel
-    component.setProps({ detail: {}, expandedPanel: ALLERGIE_PANEL, editedPanel: { allergiePanel: false } });
+    component.setProps({ detail: {}, expandedPanel: ALLERGIE_PANEL, editedPanel: { [ALLERGIE_PANEL]: false } });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
     expect(component.find('PluginDetailPanel').props().name).toEqual(ALLERGIE_PANEL);
     expect(component).toMatchSnapshot();
@@ -87,7 +87,7 @@ describe('Component <AllergiesDetail />', () => {
     expect(component).toMatchSnapshot();
 
     // Testing component when detail filled object, expandedPanel is all, and panel is edited
-    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: ALLERGIE_PANEL, editedPanel: { allergiePanel: true } });
+    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: ALLERGIE_PANEL, editedPanel: { [ALLERGIE_PANEL]: true } });
     expect(component.find('ReduxForm')).toHaveLength(1);
     expect(component.find('PluginDetailPanel').props().name).toEqual(ALLERGIE_PANEL);
     expect(component).toMatchSnapshot();

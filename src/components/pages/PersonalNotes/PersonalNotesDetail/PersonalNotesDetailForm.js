@@ -11,7 +11,7 @@ import { validateForm } from '../forms.validation';
   form: 'personalNotesPanelFormSelector',
   validate: validateForm,
 })
-export default class ClinicalNotesDetailForm extends PureComponent {
+export default class PersonalNotesDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));

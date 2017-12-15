@@ -8,6 +8,8 @@ export const valuesNames = {
   AUTHOR: 'author',
   DATE: 'currentDate',
   DATE_CREATED: 'dateCreated',
+  ORIGINAL_COMPOSITION: 'originalComposition',
+  ORIGINAL_SOURCE: 'originalSource',
 
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
