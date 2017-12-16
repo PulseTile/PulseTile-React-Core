@@ -8,7 +8,7 @@ import { getDDMMMYYYY } from '../../../src/utils/time-helpers.utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const propsForAllergiePanel = {
+const propsForDiagnosisPanel = {
   detail: {
     [valuesNames.PROBLEM]: '1.0',
     [valuesNames.DATE_OF_ONSET]: 1511568000000,
@@ -23,15 +23,15 @@ const propsForAllergiePanel = {
 };
 
 const DIAGNOSES_PANEL = 'diagnosesPanel';
-const CONVERT_DATE_CREATED = getDDMMMYYYY(propsForAllergiePanel.detail[valuesNames.DATE_CREATED]);
-const CONVERT_DATE_OF_ONSET = getDDMMMYYYY(propsForAllergiePanel.detail[valuesNames.DATE_OF_ONSET]);
+const CONVERT_DATE_CREATED = getDDMMMYYYY(propsForDiagnosisPanel.detail[valuesNames.DATE_CREATED]);
+const CONVERT_DATE_OF_ONSET = getDDMMMYYYY(propsForDiagnosisPanel.detail[valuesNames.DATE_OF_ONSET]);
 
 describe('Component <ProblemsDiagnosisDetail />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(<ProblemsDiagnosisDetail />);
 
     // Testing component when detail filled object, expandedPanel is all, and panel not edited
-    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: 'all', editedPanel: { [DIAGNOSES_PANEL]: false } });
+    component.setProps({ detail: propsForDiagnosisPanel.detail, expandedPanel: 'all', editedPanel: { [DIAGNOSES_PANEL]: false } });
     expect(component.props().className).toEqual('section-detail');
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
 
@@ -52,14 +52,14 @@ describe('Component <ProblemsDiagnosisDetail />', () => {
     expect(component.find('.control-label').at(6).text()).toEqual(valuesLabels.DATE);
     expect(component.find('.control-label').at(7).text()).toEqual(valuesLabels.SOURCE);
 
-    expect(component.find('.form-control-static').at(0).text()).toEqual(propsForAllergiePanel.detail[valuesNames.PROBLEM]);
+    expect(component.find('.form-control-static').at(0).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.PROBLEM]);
     expect(component.find('.form-control-static').at(1).text()).toEqual(CONVERT_DATE_OF_ONSET);
-    expect(component.find('.form-control-static').at(2).text()).toEqual(propsForAllergiePanel.detail[valuesNames.DESCRIPTION]);
-    expect(component.find('.form-control-static').at(3).text()).toEqual(propsForAllergiePanel.detail[valuesNames.TERMINOLOGY]);
-    expect(component.find('.form-control-static').at(4).text()).toEqual(propsForAllergiePanel.detail[valuesNames.CODE]);
-    expect(component.find('.form-control-static').at(5).text()).toEqual(propsForAllergiePanel.detail[valuesNames.AUTHOR]);
+    expect(component.find('.form-control-static').at(2).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.DESCRIPTION]);
+    expect(component.find('.form-control-static').at(3).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.TERMINOLOGY]);
+    expect(component.find('.form-control-static').at(4).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.CODE]);
+    expect(component.find('.form-control-static').at(5).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.AUTHOR]);
     expect(component.find('.form-control-static').at(6).text()).toEqual(CONVERT_DATE_CREATED);
-    expect(component.find('.form-control-static').at(7).text()).toEqual(propsForAllergiePanel.detail[valuesNames.SOURCE]);
+    expect(component.find('.form-control-static').at(7).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.SOURCE]);
 
     expect(component).toMatchSnapshot();
   });
@@ -74,7 +74,7 @@ describe('Component <ProblemsDiagnosisDetail />', () => {
     expect(component).toMatchSnapshot();
 
     // Testing component when detail filled object, expandedPanel is all, and panel is edited
-    component.setProps({ detail: propsForAllergiePanel.detail, expandedPanel: DIAGNOSES_PANEL, editedPanel: { [DIAGNOSES_PANEL]: true } });
+    component.setProps({ detail: propsForDiagnosisPanel.detail, expandedPanel: DIAGNOSES_PANEL, editedPanel: { [DIAGNOSES_PANEL]: true } });
     expect(component.find('ReduxForm')).toHaveLength(1);
     expect(component.find('PluginDetailPanel').props().name).toEqual(DIAGNOSES_PANEL);
     expect(component).toMatchSnapshot();

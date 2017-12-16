@@ -6,7 +6,6 @@ import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
 const CONTACT_PANEL = 'contactPanel';
-const META_PANEL = 'metaPanel';
 
 export default class ContactsDetail extends PureComponent {
   render() {
@@ -126,42 +125,6 @@ export default class ContactsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
-            onExpand={onExpand}
-            name={META_PANEL}
-            title="Metadata"
-            isOpen={openedPanel === META_PANEL}
-            onShow={onShow}
-            currentPanel={currentPanel}
-            onEdit={onEdit}
-            editedPanel={editedPanel}
-            onCancel={onCancel}
-            onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
-            isBtnShowPanel
-            isShowControlPanel={false}
-          >
-            <div className="panel-body-inner">
-              <div className="form">
-                <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.REALATIONSHIP_CODE}</label>
-                        <div className="form-control-static">{detail[valuesNames.REALATIONSHIP_CODE]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.REALATIONSHIP_TERMINOLOGY}</label>
-                        <div className="form-control-static">{detail[valuesNames.REALATIONSHIP_TERMINOLOGY]}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </PluginDetailPanel> : null}
         </div>
       </div>
     )
