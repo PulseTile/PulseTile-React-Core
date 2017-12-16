@@ -75,7 +75,7 @@ describe('Component <AllergiesDetail />', () => {
     const component = shallow(
       <AllergiesDetail />);
     // Testing component when detail empty object, expandedPanel is allergiePanel
-    component.setProps({ detail: {}, expandedPanel: ALLERGIE_PANEL, editedPanel: { [ALLERGIE_PANEL]: false } });
+    component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1507020019000 }, expandedPanel: ALLERGIE_PANEL, editedPanel: { [ALLERGIE_PANEL]: false } });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
     expect(component.find('PluginDetailPanel').props().name).toEqual(ALLERGIE_PANEL);
     expect(component).toMatchSnapshot();
