@@ -1,10 +1,10 @@
 module.exports = {
-  roots:['<rootDir>/tests'],
+  roots: ['<rootDir>/tests'],
   verbose: true,
   modulePaths: [
     '__stubs__',
   ],
-  testEnvironment: "jsdom",
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
     '^[./a-zA-Z0-9$_-]+\\.png$': '<rootDir>/RelativeImageStub.js',
@@ -41,5 +41,5 @@ module.exports = {
   collectCoverage: true,
   bail: true,
   snapshotSerializers: ['enzyme-to-json/serializer'],
-  "notify": true,
+  'notify': true,
 };
