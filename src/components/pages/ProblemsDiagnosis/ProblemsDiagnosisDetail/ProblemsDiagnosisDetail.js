@@ -10,8 +10,8 @@ const DIAGNOSES_PANEL = 'diagnosesPanel';
 export default class ProblemsDiagnosisDetail extends PureComponent {
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, diagnosisPanelFormValues, isSubmit } = this.props;
-		let { detail } = this.props;
-		detail = detail || {};
+    let { detail } = this.props;
+    detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
     const dateOfOnset = getDDMMMYYYY(detail[valuesNames.DATE_OF_ONSET]);
     return (
