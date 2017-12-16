@@ -29,6 +29,11 @@ $colored-buttons: (
 );
 
 /**
+  * COLORS for base configuration
+  */
+  $body-bg: #fff;
+
+/**
   * COLORS for header
   */
 
@@ -62,6 +67,14 @@ $colored-buttons: (
     color-hover: #ffffff,
     border: #000000,
     border-hover: #000000
+  );
+
+/**
+  * COLORS for footer
+  */
+  $footer: (
+    bg: #eee,
+    color: #757584
   );
 
 body.themePurple {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, navigateTo, goToState, state }) => {
+const SimpleDashboardPanel = ({ title, items, goToState, state, isPreview, srcPrevirew }) => {
   return (<div className="dashboard-item">
     <div className="board">
       <div className="board-header">
@@ -12,6 +12,10 @@ const SimpleDashboardPanel = ({ title, items, navigateTo, goToState, state }) =>
         <h3 className="board-title">{ title }</h3>
       </div>
       <div className="board-body">
+        {isPreview
+          ? <div className="board-preview" style={{ backgroundImage: `url(${srcPrevirew})` }} ></div>
+          : null
+        }
         <ul className="board-list">
           {items.map(item =>
             <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>

@@ -18,7 +18,8 @@ const setThemeOnBody = (theme) => {
       themeName = 'themeGray';
       break;
     default:
-      themeName = 'themeDefault';
+      // themeName = 'themeDefault';
+      themeName = 'themeLeedsPHR';
   }
 
   window.document.getElementsByTagName('body')[0].classList.add(themeName);

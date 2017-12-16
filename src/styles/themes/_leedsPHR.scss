@@ -1,0 +1,99 @@
+$dodger-blue: #3596f4;
+$lucky-point: #18276d;
+$white: #ffffff;
+
+$base-color: $dodger-blue;
+$auxiliary-color: $lucky-point;
+
+$table-color: lighten($base-color, 40%);
+$colored-table: (
+    background: $white,
+    header-background: #e0e0e0,
+    row-odd-background: $white,
+    row-background-hover: $auxiliary-color,
+    selected-background: $auxiliary-color,
+    sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+);
+
+$text-color: #303030;
+$text-on-base-color: #ffffff;
+
+$colored-buttons: (
+    default: #ffffff,
+    primary: #337AB7,
+    success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    info: #31b0d5,
+    warning: #F0AD4E,
+    danger: #DA534F
+);
+
+
+/**
+  * COLORS for base configuration
+  */
+$body-bg: #eee;
+
+/**
+  * COLORS for header
+  */
+
+$header-bg: $white;
+$header-btn: (
+    bg: $dodger-blue,
+    color: $text-on-base-color,
+    bg-hover: $lucky-point,
+    color-hover: $text-on-base-color,
+    bg-active: $lucky-point,
+    color-active: $text-on-base-color
+);
+$header-toolbar: (
+    bg: $lucky-point,
+    color: $text-on-base-color,
+);
+
+/**
+  * COLORS for search
+  */
+  $search-btn: (
+      bg: $base-color,
+      color: $text-on-base-color,
+      bg-hover: $auxiliary-color,
+      color-hover: $text-on-base-color
+  );
+  $search-btn-toggle: (
+      bg: $dodger-blue,
+      color: $text-on-base-color,
+      bg-hover: $auxiliary-color,
+      color-hover: $text-on-base-color,
+      border: $base-color,
+      border-hover: $auxiliary-color
+  );
+
+/**
+  * COLORS for footer
+  */
+  $footer: (
+      bg: $white,
+      color: #5c5c5c
+  );
+
+/**
+  * COLORS for footer
+  */
+$board: (
+  border: #c9c8c8,
+  radius: 4px,
+  header-bg: $base-color,
+  header-color: $text-on-base-color,
+  preview-ratio: 50%,
+  item-bg: $white,
+  item-color: $text-color,
+  item-bg-hover: $auxiliary-color,
+  item-color-hover: $white,
+
+);
+body.themeLeedsPHR {
+  @import 'theme-source/index';
+  @import 'theme-leedsPHR/index';
+}

@@ -50,6 +50,11 @@
   );
 
 /**
+  * COLORS for base configuration
+  */
+  $body-bg: #fff;
+
+/**
   * COLORS for header
   */
   $header-bg: #ffffff;
@@ -83,5 +88,13 @@
     color-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
     border: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
     border-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%)
+  );
+
+/**
+  * COLORS for footer
+  */
+  $footer: (
+    bg: #eee,
+    color: #757584
   );
 

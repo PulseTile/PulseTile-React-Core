@@ -14,6 +14,11 @@ import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible } from '../../../plugins.config';
 
+import imgAllergies from '../../../assets/images/patients-summary/allergies.jpg'
+import imgProblems from '../../../assets/images/patients-summary/problems.jpg'
+import imgContacts from '../../../assets/images/patients-summary/contacts.jpg'
+import imgMedications from '../../../assets/images/patients-summary/medications.jpg'
+
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
 
 @connect(patientSummarySelector, mapDispatchToProps)
@@ -68,10 +73,38 @@ export default class PatientsSummary extends PureComponent {
               />
               <div className="panel-body">
                 <div className="dashboard">
-                  {(selectedCategory.problems && dashboardVisible.problems) ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} state="diagnoses" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.contacts && dashboardVisible.contacts) ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} state="contacts" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.allergies && dashboardVisible.allergies) ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.medications && dashboardVisible.medications) ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} state="medications" goToState={this.handleGoToState} /> : null}
+                  {(selectedCategory.problems && dashboardVisible.problems)
+                    ? <SimpleDashboardPanel
+                        title="Problems" items={problems}
+                        navigateTo={console.log} state="diagnoses"
+                        goToState={this.handleGoToState}
+                        srcPrevirew={imgProblems} isPreview
+                      />
+                    : null}
+                  {(selectedCategory.contacts && dashboardVisible.contacts)
+                    ? <SimpleDashboardPanel
+                        title="Contacts" items={contacts}
+                        navigateTo={console.log} state="contacts"
+                        goToState={this.handleGoToState}
+                        srcPrevirew={imgContacts} isPreview
+                      />
+                    : null}
+                  {(selectedCategory.allergies && dashboardVisible.allergies)
+                    ? <SimpleDashboardPanel
+                        title="Allergies" items={allergies}
+                        navigateTo={console.log} state="allergies"
+                        goToState={this.handleGoToState}
+                        srcPrevirew={imgAllergies} isPreview
+                      />
+                    : null}
+                  {(selectedCategory.medications && dashboardVisible.medications)
+                    ? <SimpleDashboardPanel
+                        title="Medications" items={medications}
+                        navigateTo={console.log} state="medications"
+                        goToState={this.handleGoToState}
+                        srcPrevirew={imgMedications} isPreview
+                      />
+                    : null}
                 </div>
               </div>
             </div>
