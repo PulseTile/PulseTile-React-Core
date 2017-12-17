@@ -5,15 +5,48 @@ $white: #ffffff;
 $base-color: $dodger-blue;
 $auxiliary-color: $lucky-point;
 
-$table-color: lighten($base-color, 40%);
+$table-color: #e0e0e0;
 $colored-table: (
     background: $white,
-    header-background: #e0e0e0,
+    header-background: $table-color,
     row-odd-background: $white,
     row-background-hover: $auxiliary-color,
     selected-background: $auxiliary-color,
     sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
     sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+);
+
+$table-color: lighten($base-color, 40%);;
+$table-text: #5c5c5c;
+$colored-table: (
+  bg: #ffffff,
+  color: $table-text,
+
+  header-bg: #e0e0e0,
+  header-color: #333,
+  header-highlighted-bg: darken(#e0e0e0, 10%),
+  header-highlighted-color: #333,
+
+  row-bg: #ffffff,
+  row-odd-bg: #ffffff,
+  row-hover-bg: $auxiliary-color,
+  row-odd-hover-bg: $auxiliary-color,
+  row-color: $table-text,
+  row-odd-color: $table-text,
+  row-hover-color: #fff,
+  row-odd-hover-color: #fff,
+
+  row-sorted-bg: lighten(#e0e0e0, 7%),
+  row-sorted-odd-bg: lighten(#e0e0e0, 7%),
+  row-sorted-hover-bg: $auxiliary-color,
+  row-sorted-odd-hover-bg: $auxiliary-color,
+  row-sorted-color: $table-text,
+  row-sorted-odd-color: $table-text,
+  row-sorted-hover-color: #fff,
+  row-sorted-odd-hover-color: #fff,
+
+  row-highlighted-bg: #b4b4b4,
+  row-highlighted-color: #ffffff,
 );
 
 $text-color: #303030;
@@ -22,7 +55,7 @@ $text-on-base-color: #ffffff;
 $colored-buttons: (
     default: #ffffff,
     primary: #337AB7,
-    success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    success: #017A41,
     info: #31b0d5,
     warning: #F0AD4E,
     danger: #DA534F
@@ -74,12 +107,13 @@ $header-toolbar: (
   * COLORS for footer
   */
   $footer: (
-      bg: $white,
-      color: #5c5c5c
+    bg: #eee,
+    color: #757584
   );
+  //$footer: ( bg: $white, color: #5c5c5c);
 
 /**
-  * COLORS for footer
+  * COLORS for dashboard
   */
 $board: (
   border: #c9c8c8,
@@ -88,10 +122,10 @@ $board: (
   header-color: $text-on-base-color,
   preview-ratio: 50%,
   item-bg: $white,
+  item-odd-bg: $white,
   item-color: $text-color,
   item-bg-hover: $auxiliary-color,
   item-color-hover: $white,
-
 );
 body.themeLeedsPHR {
   @import 'theme-source/index';

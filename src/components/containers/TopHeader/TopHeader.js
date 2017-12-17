@@ -10,7 +10,7 @@ import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import headerLogo from '../../../assets/images/logo-leedsPHR.png';
+// import headerLogo from '../../../assets/images/logo-leedsPHR.png';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -44,9 +44,9 @@ class TopHeader extends PureComponent {
         <MainLogo
           patientsInfo={patientsInfo}
           userAccount={userAccount}
-          logo={headerLogo}
+          // logo={headerLogo}
         />
-        <UserPanel isSearch={false}/>
+        <UserPanel isQuestions={false}/>
         { children ? <div className="navbar-space-right">
           { children }
         </div> : null }

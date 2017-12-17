@@ -33,16 +33,19 @@
 }
 
 .board {
-  border: 1px solid #B4B5B4;
-  color: map-get($colored-table, 'text');
+  border: 1px solid map-get($board, 'border');
+  color: map-get($board, 'item-color');
+  border-radius: map-get($board, 'radius');
   width: 100%;
+  overflow: hidden;
   @include respond-to(xs) {
     border-left: 0;
     border-right: 0;
   }
 }
 .board-header {
-  background-color: map-get($colored-table, 'header-background');
+  background-color: map-get($board, 'header-bg');
+  color: map-get($board, 'header-color');
   padding: 5px;
   @include clearfix;
 }
@@ -52,16 +55,28 @@
   line-height: 34px;
   margin: 0;
   padding: 0 5px;
+  color: map-get($board, 'header-color');
   @include text-truncate;
+}
+.board-body {
+  background: map-get($board, 'item-bg');
+}
+.board-preview {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-bottom: map-get($board, 'preview-ratio');
+  background-size: cover;
+  background-position: center;
 }
 .board-list {
   @include list-reset;
 }
 .board-list-item {
-  background: map-get($colored-table, 'row-odd-background');
+  background: map-get($board, 'item-odd-bg');
   min-height: 40px;
   &:nth-of-type(even) {
-    background:  map-get($colored-table, 'background');
+    background: map-get($board, 'item-bg');
   }
 }
 .board-list-link {
@@ -70,10 +85,12 @@
   font-size: 14px;
   line-height: 20px;
   padding: 10px;
+  color: map-get($board, 'item-color');
   @include text-truncate;
 }
 .is-not-touch-device .board-list-link:hover {
-  background: map-get($colored-table, 'row-background-hover');
+  background: map-get($board, 'item-bg-hover');
+  color: map-get($board, 'item-color-hover');
 }
 
 .btn-board-more { width: 43px; }

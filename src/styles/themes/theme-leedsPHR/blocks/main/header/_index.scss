@@ -1,0 +1,7 @@
+$header-height: 54px;
+
+.header .navbar {
+  background: $header-bg;
+}
+
+@import 'header-buttons';

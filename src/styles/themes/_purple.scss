@@ -5,15 +5,37 @@ $base-color: $purple;
 
 $auxiliary-color: lighten($base-color, 20%);
 
-$table-color: lighten($base-color, 40%);
+$table-color: lighten($base-color, 40%);;
+$table-text: #333;
 $colored-table: (
-  background: #F3F3F3,
-  header-background: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
-  row-odd-background: #FDFDFD,
-  row-background-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
-  selected-background: $table-color,
-  sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
-  sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+  bg: #F3F3F3,
+  color: $table-text,
+
+  header-bg: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+  header-color: $table-text,
+  header-highlighted-bg: $table-color,
+  header-highlighted-color: $table-text,
+
+  row-bg: #F3F3F3,
+  row-odd-bg: #FDFDFD,
+  row-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  row-odd-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  row-color: $table-text,
+  row-odd-color: $table-text,
+  row-hover-color: $table-text,
+  row-odd-hover-color: $table-text,
+
+  row-sorted-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  row-sorted-odd-bg: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176),
+  row-sorted-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  row-sorted-odd-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  row-sorted-color: $table-text,
+  row-sorted-odd-color: $table-text,
+  row-sorted-hover-color: $table-text,
+  row-sorted-odd-hover-color: $table-text,
+
+  row-highlighted-bg: #b4b4b4,
+  row-highlighted-color: #ffffff,
 );
 
 $text-color: #303030;
@@ -75,6 +97,22 @@ $colored-buttons: (
   $footer: (
     bg: #eee,
     color: #757584
+  );
+
+/**
+  * COLORS for dashboard
+  */
+  $board: (
+    border: #B4B5B4,
+    radius: 0,
+    header-bg: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+    header-color: #333,
+    preview-ratio: 50%,
+    item-bg: #F3F3F3,
+    item-odd-bg: #FDFDFD,
+    item-color: #333,
+    item-bg-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    item-color-hover: #333,
   );
 
 body.themePurple {

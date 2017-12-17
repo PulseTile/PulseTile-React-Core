@@ -66,10 +66,11 @@ export default class PatientsSummary extends PureComponent {
       return (<section className="page-wrapper">
         <Row>
           <Col xs={12}>
-            <div className="panel panel-primary">
+            <div className="panel panel-primary panel-dashboard">
               <PatientsSummaryListHeader
                 onCategorySelected={this.handleCategorySelected}
                 selectedCategory={selectedCategory}
+                title={'Home'}
               />
               <div className="panel-body">
                 <div className="dashboard">

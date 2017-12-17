@@ -1,0 +1,70 @@
+.panel {
+  &.panel-default {
+    border-color: $base-color;
+  }
+  &.panel-secondary {
+    border-color: #D8D8D8;
+  }
+  &.panel-subaccordion {
+    background: #ffffff;
+  }
+  &.panel-small {
+    background: #ffffff;
+    border-color: #D8D8D8;
+  }
+}
+.panel-expand-item + .panel-expand-item {
+  border-top-color: #D8D8D8;
+}
+@include respond-from(md) {
+  .full-panel {
+    .panel-expand-wrapper {
+      &:after {
+        background: #D8D8D8;
+      }
+    }
+    .panel-expand-row + .panel-expand-row{
+      border-top-color: #D8D8D8;
+    }
+  }
+}
+
+@import 'group';
+@import 'heading';
+@import 'body';
+@import 'control';
+@import 'filter';
+
+
+.panel-dashboard {
+  .panel-heading {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin-bottom: 16px;
+    .panel-title {
+      line-height: 20px;
+      color: #555555;
+    }
+    .btn.btn-inverse.btn-success {
+      border: 0 !important;
+      min-height: 0 !important;
+      height: 20px !important;
+      padding: 0;
+      font-size: 21px;
+      width: auto;
+      min-width: auto;
+      color: #555555 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      &:hover { color: #555555 !important; }
+      &:active, &:focus {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      &:after {display: none;}
+    }
+
+    .dropdown-menu { margin-top: 5px; }
+  }
+}
