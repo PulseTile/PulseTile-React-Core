@@ -1,0 +1,771 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Referrals /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ReferralsDetail
+          currentPanel="referralsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "dateCreated": 1511283530000,
+              "dateOfReferral": 1511283530634,
+              "referralCareFlow": "Service request sent",
+              "referralFrom": "Tony Shannon1",
+              "referralOutcome": "",
+              "referralReason": "Deteriorating vision",
+              "referralRef": "",
+              "referralServiceName": "Referral To",
+              "referralState": "planned",
+              "referralStateCode": 526,
+              "referralStateDate": 1511283530634,
+              "referralSummary": "Long-standing impaired visual acuity - getting much worse",
+              "referralTo": "Ripplefields Optometry service",
+              "referralType": "Referral To",
+              "source": "ethercis",
+              "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="referralsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="referralsCreate"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with referralPanel and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ReferralsDetail
+          currentPanel="referralsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "dateCreated": 1511283530000,
+              "dateOfReferral": 1511283530634,
+              "referralCareFlow": "Service request sent",
+              "referralFrom": "Tony Shannon1",
+              "referralOutcome": "",
+              "referralReason": "Deteriorating vision",
+              "referralRef": "",
+              "referralServiceName": "Referral To",
+              "referralState": "planned",
+              "referralStateCode": 526,
+              "referralStateDate": 1511283530634,
+              "referralSummary": "Long-standing impaired visual acuity - getting much worse",
+              "referralTo": "Ripplefields Optometry service",
+              "referralType": "Referral To",
+              "source": "ethercis",
+              "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="referralsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="referralPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with referralPanel and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ReferralsDetail
+          currentPanel="referralsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "dateCreated": 1511283530000,
+              "dateOfReferral": 1511283530634,
+              "referralCareFlow": "Service request sent",
+              "referralFrom": "Tony Shannon1",
+              "referralOutcome": "",
+              "referralReason": "Deteriorating vision",
+              "referralRef": "",
+              "referralServiceName": "Referral To",
+              "referralState": "planned",
+              "referralStateCode": 526,
+              "referralStateDate": 1511283530634,
+              "referralSummary": "Long-standing impaired visual acuity - getting much worse",
+              "referralTo": "Ripplefields Optometry service",
+              "referralType": "Referral To",
+              "source": "ethercis",
+              "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="referralPanel"
+          isSubmit={false}
+          name="referralsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="referralPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with referralPanel and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with referralsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="referralsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="referralsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="referralsCreate"
+          title="Create Referral"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Referrals /> should renders correctly with referralsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="referralsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="referralsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Referrals"
+          />
+          <PluginMainPanel
+            columnNameSortBy="dateOfReferral"
+            emptyDataMessage="No referrals"
+            headers={
+              Array [
+                Object {
+                  "key": "dateOfReferral",
+                  "title": "Date of Referral",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "referralFrom",
+                  "title": "Referral From",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "referralTo",
+                  "title": "Referral To",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="94133578-f505-4e76-b4ed-762462508801"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="referrals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="referralsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="referralsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="referralsCreate"
+          title="Create Referral"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
