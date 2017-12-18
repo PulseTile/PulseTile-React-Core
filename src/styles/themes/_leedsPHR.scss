@@ -107,10 +107,9 @@ $header-toolbar: (
   * COLORS for footer
   */
   $footer: (
-    bg: #eee,
-    color: #757584
+    bg: $white,
+    color: #5c5c5c
   );
-  //$footer: ( bg: $white, color: #5c5c5c);
 
 /**
   * COLORS for dashboard
