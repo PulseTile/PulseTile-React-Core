@@ -85,6 +85,7 @@ export default class Procedures extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
