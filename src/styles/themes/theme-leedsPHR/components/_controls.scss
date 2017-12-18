@@ -1,4 +1,4 @@
-$control-indent: 5px;
+$control-indent: 6px;
 
 .wrap-control-group {
   @include clearfix;
@@ -8,26 +8,15 @@ $control-indent: 5px;
   margin-right: -$control-indent;
   & > * { margin-right: $control-indent; }
   &.right {
-    float: right;
     margin-left: $control-indent;
   }
   &.left {
-    float: left;
     margin-left: -$control-indent;
     margin-right: $control-indent;
     & > * {
       margin-left: $control-indent;
       margin-right: 0;
     }
-  }
-  &.left,
-  &.right {
-    & > * { float: left; }
-  }
-  &.center {
-    font-size: 0;
-    text-align: center;
-    & > * { display: inline-block; }
   }
   &.with-indent > * { margin-bottom: $control-indent; }
   &.without-side-indent {
@@ -36,18 +25,6 @@ $control-indent: 5px;
     & > * {
       margin-left: 0;
       margin-right: 0;
-    }
-  }
-  .control-separate {
-    background: #ccc;
-    display: inline-block;
-    height: 34px;
-    vertical-align: top;
-    width: 1px;
-    &.control-separate-sm { height: 30px; }
-    &.control-separate-smaller { 
-      height: 26px; 
-      margin-top: 2px;
     }
   }
 }

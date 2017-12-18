@@ -1,30 +1,38 @@
 .panel {
-  &.panel-default {
-    border-color: $base-color;
-  }
-  &.panel-secondary {
-    border-color: #D8D8D8;
-  }
-  &.panel-subaccordion {
-    background: #ffffff;
-  }
-  &.panel-small {
-    background: #ffffff;
-    border-color: #D8D8D8;
+  @each $label, $panel in $panels {
+    &.#{$label} {
+      background:    map-get($panel, 'bg');
+      border-color:  map-get($panel, 'border-color');
+      border-width:  map-get($panel, 'border-width');
+      border-radius: map-get($panel, 'border-radius');
+    }
   }
 }
-.panel-expand-item + .panel-expand-item {
-  border-top-color: #D8D8D8;
+@each $label, $panel in $panels {
+  .#{$label} {
+    .panel-expand-row + .panel-expand-row{
+      border: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
+    .panel-expand-item + .panel-expand-item {
+      border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
+  }
 }
+
 @include respond-from(md) {
   .full-panel {
-    .panel-expand-wrapper {
-      &:after {
-        background: #D8D8D8;
+    @each $label, $panel in $panels {
+      &.#{$label} {
+        .panel-expand-wrapper:after {background: map-get($panel, 'border-color');}
       }
     }
-    .panel-expand-row + .panel-expand-row{
-      border-top-color: #D8D8D8;
+    @each $label, $panel in $panels {
+      &.#{$label} {
+        .panel-expand-row + .panel-expand-row{
+          border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+        }
+        .panel-expand-item + .panel-expand-item { border-top: none; }
+      }
     }
   }
 }
@@ -33,4 +41,3 @@
 @import 'heading';
 @import 'body';
 @import 'control';
-@import 'filter';

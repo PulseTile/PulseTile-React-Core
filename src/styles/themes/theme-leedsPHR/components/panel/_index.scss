@@ -1,40 +1,30 @@
 .panel {
-  &.panel-default {
-    border-color: $base-color;
+  @each $label, $panel in $panels {
+    &.#{$label} {
+      box-shadow: 0 1px 1px rgba(#000, 0.21);
+    }
   }
-  &.panel-secondary {
-    border-color: #D8D8D8;
-  }
-  &.panel-subaccordion {
-    background: #ffffff;
-  }
-  &.panel-small {
-    background: #ffffff;
-    border-color: #D8D8D8;
-  }
+  &.panel-primary,
+  &.panel-subaccordion{ box-shadow: none };
 }
-.panel-expand-item + .panel-expand-item {
-  border-top-color: #D8D8D8;
-}
-@include respond-from(md) {
-  .full-panel {
-    .panel-expand-wrapper {
-      &:after {
-        background: #D8D8D8;
+
+.panel {
+  .panel-heading {
+    .btn.btn-inverse.btn-success {
+      border: 0 !important;
+      color: #fff !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      &:hover { color: #fff !important; }
+      &:active, &:focus {
+        background: transparent !important;
+        box-shadow: none !important;
       }
     }
-    .panel-expand-row + .panel-expand-row{
-      border-top-color: #D8D8D8;
-    }
   }
 }
 
-@import 'group';
-@import 'heading';
-@import 'body';
-@import 'control';
-@import 'filter';
-
+.panel-primary .panel-heading { margin-bottom: 0; }
 
 .panel-dashboard {
   .panel-heading {
@@ -68,3 +58,7 @@
     .dropdown-menu { margin-top: 5px; }
   }
 }
+
+
+.panel-control { padding: 21px 17px 23px 13px; }
+.panel-body-inner { padding: 14px 17px 14px 13px; }

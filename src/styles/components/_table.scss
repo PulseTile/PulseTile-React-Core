@@ -150,12 +150,12 @@ td[ng-click] { cursor: pointer; }
 
 .table-bordered {
   border-collapse: separate;
-  border: 1px solid #B4B5B4;
+  border: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
   thead tr th,
   tbody tr td {
     border: none;
     @include respond-from(xs) {
-      border-left: 1px solid #B4B5B4;
+      border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
       &:first-child { border: none; }
     }
   }
@@ -163,7 +163,7 @@ td[ng-click] { cursor: pointer; }
 .table-schedule {
   thead tr th,
   tbody tr td {
-    border-left: 1px solid #B4B5B4;
+    border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
     &:first-child { border: none; }
   }
 }

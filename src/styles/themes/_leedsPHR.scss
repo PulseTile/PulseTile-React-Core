@@ -5,22 +5,13 @@ $white: #ffffff;
 $base-color: $dodger-blue;
 $auxiliary-color: $lucky-point;
 
-$table-color: #e0e0e0;
-$colored-table: (
-    background: $white,
-    header-background: $table-color,
-    row-odd-background: $white,
-    row-background-hover: $auxiliary-color,
-    selected-background: $auxiliary-color,
-    sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
-    sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
-);
-
 $table-color: lighten($base-color, 40%);;
 $table-text: #5c5c5c;
 $colored-table: (
   bg: #ffffff,
   color: $table-text,
+  border-color: #d4d2d2,
+  border-width: 1px,
 
   header-bg: #e0e0e0,
   header-color: #333,
@@ -114,18 +105,97 @@ $header-toolbar: (
 /**
   * COLORS for dashboard
   */
-$board: (
-  border: #c9c8c8,
-  radius: 4px,
-  header-bg: $base-color,
-  header-color: $text-on-base-color,
-  preview-ratio: 50%,
-  item-bg: $white,
-  item-odd-bg: $white,
-  item-color: $text-color,
-  item-bg-hover: $auxiliary-color,
-  item-color-hover: $white,
-);
+  $board: (
+    border: #c9c8c8,
+    radius: 4px,
+    header-bg: $base-color,
+    header-color: $text-on-base-color,
+    preview-ratio: 50%,
+    item-bg: $white,
+    item-odd-bg: $white,
+    item-color: $text-color,
+    item-bg-hover: $auxiliary-color,
+    item-color-hover: $white,
+  );
+
+/**
+  * COLORS for panels
+  */
+  $panel-border-color: #d4d2d2;
+  $panel-heading-bg: $base-color;
+  $panel-heading-color: $text-on-base-color;
+  $panel-control-bg: transparent;
+  $panels: (
+    panel-default: (
+      bg: #fff,
+      heading-bg: $base-color,
+      heading-color: $text-on-base-color,
+      border-color: $base-color,
+      border-width: 2px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-primary: (
+      bg: transparent,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 3px,
+      control-bg: transparent
+    ),
+    panel-secondary: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-subaccordion: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-small: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    )
+  );
+
+/**
+  * COLORS for forms
+  */
+  $forms: (
+    bg: #fff,
+    color: #555555,
+    disabled-bg: #ebebeb,
+    disabled-color: #5c5c5c,
+    readonly-bg: #fff,
+    readonly-color: #555,
+
+    border-color: #c5c4c4,
+    border-error-color: #a94442,
+    border-success-color: #2b542c,
+    border-width: 1px,
+    border-radius: 4px,
+    addon-color: #222,
+    label-color: #333,
+    label-control-color: #333,
+    label-required-color: #a32d44,
+    control-static-color: #333,
+  );
+
 body.themeLeedsPHR {
   @import 'theme-source/index';
   @import 'theme-leedsPHR/index';

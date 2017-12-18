@@ -31,6 +31,8 @@
   $colored-table: (
     bg: #F3F3F3,
     color: $table-text,
+    border-color: #B4B5B4,
+    border-width: 1px,
 
     header-bg: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
     header-color: $table-text,
@@ -134,4 +136,83 @@
     item-color: #333,
     item-bg-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
     item-color-hover: #333,
+  );
+
+/**
+  * COLORS for panels
+  */
+  $panel-border-color: #D8D8D8;
+  $panel-heading-bg: #E8E8E8;
+  $panel-control-bg: #F3F3F3;
+  $panel-heading-color: $text-color;
+  $panels: (
+    panel-default: (
+      bg: #fff,
+      heading-bg: $base-color,
+      heading-color: $text-on-base-color,
+      border-color: $base-color,
+      border-width: 2px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-primary: (
+      bg: transparent,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 0,
+      control-bg: transparent
+    ),
+    panel-secondary: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-subaccordion: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-small: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    )
+  );
+
+
+/**
+  * COLORS for forms
+  */
+  $forms: (
+    bg: #fff,
+    color: #555555,
+    disabled-bg: #eeeeee,
+    disabled-color: #555555,
+    readonly-bg: #fff,
+    readonly-color: #555555,
+
+    border-color: #c3c3c3,
+    border-error-color: #a94442,
+    border-success-color: #2b542c,
+    border-width: 1px,
+    border-radius: 2px,
+    addon-color: #303030,
+    label-color: #a9a9a9,
+    label-control-color: #949494,
+    label-required-color: #a32d44,
+    control-static-color: #000000,
   );
