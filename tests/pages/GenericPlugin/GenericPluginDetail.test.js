@@ -41,7 +41,7 @@ describe('Component <GenericPluginDetail />', () => {
     expect(component.find('.control-label').at(0).text()).toEqual(valuesLabels.TYPE);
     expect(component.find('.control-label').at(1).text()).toEqual(valuesLabels.NOTE);
     expect(component.find('.control-label').at(2).text()).toEqual(valuesLabels.AUTHOR);
-    expect(component.find('.control-label').at(3).text()).toEqual(valuesLabels.DATEgitg);
+    expect(component.find('.control-label').at(3).text()).toEqual(valuesLabels.DATE);
     expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.SOURCE);
 
     expect(component.find('.form-control-static').at(0).text()).toEqual(propsForGenericPluginPanel.detail[valuesNames.TYPE]);
