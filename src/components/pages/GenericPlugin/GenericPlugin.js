@@ -81,6 +81,7 @@ export default class GenericPlugin extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)

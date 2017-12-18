@@ -10,9 +10,9 @@ const GENERIC_PLUGIN_PANEL = 'genericPluginsPanel';
 export default class GenericPluginDetail extends PureComponent {
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, genericPluginFormValues, isSubmit } = this.props;
-		let { detail } = this.props;
-		detail = detail || {};
-		const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
+    let { detail } = this.props;
+    detail = detail || {};
+    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
