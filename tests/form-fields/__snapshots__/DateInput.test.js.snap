@@ -48,7 +48,7 @@ exports[`Component <DateInput /> should renders with all props correctly 1`] = `
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -104,7 +104,7 @@ exports[`Component <DateInput /> should renders with different state of validati
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -160,7 +160,7 @@ exports[`Component <DateInput /> should renders with different state of validati
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -221,7 +221,7 @@ exports[`Component <DateInput /> should renders with different state of validati
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -282,7 +282,7 @@ exports[`Component <DateInput /> should renders with different state of validati
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -343,7 +343,7 @@ exports[`Component <DateInput /> should renders with different state of validati
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
@@ -399,7 +399,7 @@ exports[`Component <DateInput /> should renders with/without the given date 1`] 
       showYearDropdown={true}
       timeFormat="HH:mm"
       timeIntervals={5}
-      utcOffset={120}
+      utcOffset={180}
       value="11-Dec-2017"
       withPortal={false}
     />
