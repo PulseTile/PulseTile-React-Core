@@ -5,6 +5,7 @@ export const patientsSummaryConfig = [
   { key: 'contacts', title: 'Contacts' },
   { key: 'allergies', title: 'Allergies' },
   { key: 'medications', title: 'Medications' },
+  { key: 'vaccinations', title: 'Vaccinations' },
 ];
 
 export const defaultCategorySelected = {
@@ -12,4 +13,11 @@ export const defaultCategorySelected = {
   contacts: true,
   allergies: true,
   medications: true,
+  vaccinations: true,
+};
+
+export const defaultViewOfBoardsSelected = {
+  full: true,
+  preview: false,
+  list: false
 };

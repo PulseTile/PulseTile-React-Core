@@ -31,21 +31,22 @@ import Orders from './components/pages/Orders/Orders';
 import MDTs from './components/pages/MDTs/MDTs';
 
 export const sidebarConfig = [
-  { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
+  // { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
+  { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Home', isVisible: true },
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
-  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
+  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: false },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
-  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
-  { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
-  { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
-  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
-  { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
-  { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
-  { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
+  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: false },
+  { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: false },
+  { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: false },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: false },
+  { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: false },
+  { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: false },
+  { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: false },
 ];
 
 export const dashboardVisible = {
@@ -53,6 +54,7 @@ export const dashboardVisible = {
   contacts: true,
   allergies: true,
   medications: true,
+  vaccinations: true,
 };
 
 export const pluginsEpicConfig = [

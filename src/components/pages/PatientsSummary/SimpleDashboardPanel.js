@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, goToState, state, isPreview, srcPrevirew }) => {
+const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew }) => {
   return (<div className="dashboard-item">
     <div className="board">
       <div className="board-header">
@@ -12,16 +12,18 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isPreview, srcPr
         <h3 className="board-title">{ title }</h3>
       </div>
       <div className="board-body">
-        {isPreview
+        {isHasPreview
           ? <div className="board-preview" style={{ backgroundImage: `url(${srcPrevirew})` }} ></div>
           : null
         }
-        <ul className="board-list">
-          {items.map(item =>
-            <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
-              {item.sourceId ? <span className="board-list-link" >{item.text}</span> : null}
-            </li>)}
-        </ul>
+        {isHasList
+          ? <ul className="board-list">
+              {items.map(item =>
+                <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
+                  {item.sourceId ? <span className="board-list-link" >{item.text}</span> : null}
+                </li>)}
+            </ul>
+          : null}
       </div>
     </div>
   </div>)
