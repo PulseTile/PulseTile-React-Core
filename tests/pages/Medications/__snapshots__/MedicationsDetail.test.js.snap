@@ -1,0 +1,1177 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <MedicationsDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="medicationPanel"
+      title="Medication"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Timing
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="wrap-control-group"
+                  >
+                    <div
+                      className="control-group left"
+                    >
+                      <button
+                        className="btn btn-primary btn-inverse"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="btn-text"
+                        >
+                          Prescription
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Directions
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    19-Dec-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </MedicationsDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="prescriptionPanel"
+      title="Prescription (1)"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="panel-body-section"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="panel-body-section"
+          >
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Dose Timing
+              </label>
+              <div
+                className="form-control-static"
+              >
+                2X each morning
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="wrap-control-group"
+              >
+                <div
+                  className="control-group left"
+                >
+                  <PTButton
+                    className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon fa fa-table"
+                    />
+                    <span
+                      className="btn-text"
+                    >
+                       Hourly Schedule
+                    </span>
+                  </PTButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 3`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="warningsPanel"
+      title="Warnings (2)"
+    >
+      <div
+        className="panel-expand-wrapper"
+      >
+        <div
+          className="panel-expand-row"
+        >
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner highlighter-wrapper"
+            >
+              <span
+                className="highlighter-warning ng-scope"
+              />
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Warning #1
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Interaction found between 
+                    <a>
+                      Furosemide
+                    </a>
+                     and 
+                    <a>
+                      Latanoprost
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Effects
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Anticonvulsant effect antagonised
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner highlighter-wrapper"
+            >
+              <span
+                className="highlighter-danger ng-scope"
+              />
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Warning #2
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Interaction found between 
+                    <a>
+                      Furosemide
+                    </a>
+                     and 
+                    <a>
+                      Digoxin
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Effects
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    May increase anticoagulant effect
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 4`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="changeHistoryPanel"
+      title="Change History (1)"
+    >
+      <div
+        className="panel-expand-wrapper"
+      >
+        <div
+          className="panel-expand-row"
+        >
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner"
+            >
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Change #1 Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    11-Oct-2016 11:45
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Changes
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Dose: 
+                    <em>
+                      60mg
+                    </em>
+                      
+                    <span
+                      className="next-separate"
+                    >
+                      <i
+                        className="fa fa-caret-right"
+                      />
+                    </span>
+                      40-20mg
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 5`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": true,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="medicationPanel"
+      title="Edit Medication"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "",
+            "dateCreated": 1507020019000,
+            "doseAmount": "test",
+            "doseDirections": "test",
+            "doseTiming": "test",
+            "medicationCode": "",
+            "medicationTerminology": "",
+            "name": "test",
+            "route": "test",
+            "source": "marand",
+            "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+            "startDate": 1507020019000,
+            "startTime": null,
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders correctly with different state of props 6`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "prescriptionPanel": true,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="prescriptionPanel"
+      title="Edit Prescription (1)"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "",
+            "dateCreated": 1507020019000,
+            "doseAmount": "test",
+            "doseDirections": "test",
+            "doseTiming": "test",
+            "medicationCode": "",
+            "medicationTerminology": "",
+            "name": "test",
+            "route": "test",
+            "source": "marand",
+            "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+            "startDate": 1507020019000,
+            "startTime": null,
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <MedicationsDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="medicationPanel"
+      onShow={[Function]}
+      title="Medication"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Timing
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="wrap-control-group"
+                  >
+                    <div
+                      className="control-group left"
+                    >
+                      <button
+                        className="btn btn-primary btn-inverse"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="btn-text"
+                        >
+                          Prescription
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Directions
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </MedicationsDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="prescriptionPanel"
+      onShow={[Function]}
+      title="Prescription (1)"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="panel-body-section"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="panel-body-section"
+          >
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Dose Timing
+              </label>
+              <div
+                className="form-control-static"
+              >
+                2X each morning
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <div
+                className="wrap-control-group"
+              >
+                <div
+                  className="control-group left"
+                >
+                  <PTButton
+                    className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon fa fa-table"
+                    />
+                    <span
+                      className="btn-text"
+                    >
+                       Hourly Schedule
+                    </span>
+                  </PTButton>
+                </div>
+              </div>
+              <div
+                className="schedule-block ng-scope"
+              >
+                <div
+                  className="panel panel-small panel-table"
+                >
+                  <div
+                    className="panel-heading"
+                  >
+                    <h3
+                      className="panel-title"
+                    >
+                      27-Nov-2016
+                    </h3>
+                  </div>
+                  <div
+                    className="panel-body"
+                  >
+                    <div
+                      className="wrap-table-scrollX"
+                    >
+                      <table
+                        className="table table-striped table-bordered table-fixedcol table-schedule"
+                      >
+                        <thead>
+                          <tr>
+                            <th>
+                              09:00
+                            </th>
+                            <th>
+                              10:00
+                            </th>
+                            <th
+                              className="selected"
+                            >
+                              11:00
+                            </th>
+                            <th>
+                              12:00
+                            </th>
+                            <th>
+                              13:00
+                            </th>
+                            <th>
+                              14:00
+                            </th>
+                            <th>
+                              15:00
+                            </th>
+                            <th
+                              className="selected"
+                            >
+                              16:00
+                            </th>
+                            <th>
+                              17:00
+                            </th>
+                            <th>
+                              18:00
+                            </th>
+                            <th>
+                              19:00
+                            </th>
+                            <th>
+                              20:00
+                            </th>
+                            <th
+                              className="selected"
+                            >
+                              21:00
+                            </th>
+                            <th>
+                              22:00
+                            </th>
+                            <th>
+                              23:00
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td />
+                            <td />
+                            <td
+                              className="selected"
+                            >
+                              2X
+                            </td>
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                            <td
+                              className="selected"
+                            >
+                              2X
+                            </td>
+                            <td />
+                            <td />
+                            <td />
+                            <td />
+                            <td
+                              className="selected"
+                            >
+                              2X
+                            </td>
+                            <td />
+                            <td />
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="warningsPanel"
+      onShow={[Function]}
+      title="Warnings (2)"
+    >
+      <div
+        className="panel-expand-wrapper"
+      >
+        <div
+          className="panel-expand-row"
+        >
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner highlighter-wrapper"
+            >
+              <span
+                className="highlighter-warning ng-scope"
+              />
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Warning #1
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Interaction found between 
+                    <a>
+                      Furosemide
+                    </a>
+                     and 
+                    <a>
+                      Latanoprost
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Effects
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Anticonvulsant effect antagonised
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner highlighter-wrapper"
+            >
+              <span
+                className="highlighter-danger ng-scope"
+              />
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Warning #2
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Interaction found between 
+                    <a>
+                      Furosemide
+                    </a>
+                     and 
+                    <a>
+                      Digoxin
+                    </a>
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Effects
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    May increase anticoagulant effect
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="changeHistoryPanel"
+      onShow={[Function]}
+      title="Change History (1)"
+    >
+      <div
+        className="panel-expand-wrapper"
+      >
+        <div
+          className="panel-expand-row"
+        >
+          <div
+            className="panel-expand-item"
+          >
+            <div
+              className="panel-body-inner"
+            >
+              <div
+                className="form"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Change #1 Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    11-Oct-2016 11:45
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Changes
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Dose: 
+                    <em>
+                      60mg
+                    </em>
+                      
+                    <span
+                      className="next-separate"
+                    >
+                      <i
+                        className="fa fa-caret-right"
+                      />
+                    </span>
+                      40-20mg
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

@@ -1,0 +1,2125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MedicationsPrescriptionForm /> should renders correctly when isOpenHourlySchedule false 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="prescriptionForm"
+  >
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Amount"
+            name="doseAmount"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row-expand"
+    >
+      <div
+        className="col-expand-left"
+      />
+      <div
+        className="col-expand-right"
+      />
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Interval
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalMorning"
+                  label="Morning"
+                  name="doseInterval"
+                  type="radio"
+                  value="morning"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalEvening"
+                  label="Evening"
+                  name="doseInterval"
+                  type="radio"
+                  value="evening"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalSpecific"
+                  label="Specific"
+                  name="doseInterval"
+                  type="radio"
+                  value="specific"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Quantity
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity1x"
+                  label="1X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="1x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity2x"
+                  label="2X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="2x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity3x"
+                  label="3X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="3x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity4x"
+                  label="4X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="4x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantityOther"
+                  label="Other"
+                  name="doseQuantity"
+                  type="radio"
+                  value="other"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+        >
+          Dose Timing:
+        </label>
+        <div
+          className="non-edit-value"
+        >
+          <button
+            className="btn btn-danger btn-sm btn-icon-normal btn-square"
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+          </button>
+          <span
+            className="ng-binding"
+          >
+             2X each morning 
+          </span>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-table"
+              />
+              <span
+                className="btn-text"
+              >
+                 Hourly Schedule
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <MedicationsPrescriptionForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="prescriptionForm"
+  >
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Amount"
+            name="doseAmount"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row-expand"
+    >
+      <div
+        className="col-expand-left"
+      />
+      <div
+        className="col-expand-right"
+      />
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Interval
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalMorning"
+                  label="Morning"
+                  name="doseInterval"
+                  type="radio"
+                  value="morning"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalEvening"
+                  label="Evening"
+                  name="doseInterval"
+                  type="radio"
+                  value="evening"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalSpecific"
+                  label="Specific"
+                  name="doseInterval"
+                  type="radio"
+                  value="specific"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Quantity
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity1x"
+                  label="1X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="1x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity2x"
+                  label="2X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="2x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity3x"
+                  label="3X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="3x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity4x"
+                  label="4X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="4x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantityOther"
+                  label="Other"
+                  name="doseQuantity"
+                  type="radio"
+                  value="other"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+        >
+          Dose Timing:
+        </label>
+        <div
+          className="non-edit-value"
+        >
+          <button
+            className="btn btn-danger btn-sm btn-icon-normal btn-square"
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+          </button>
+          <span
+            className="ng-binding"
+          >
+             2X each morning 
+          </span>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-table"
+              />
+              <span
+                className="btn-text"
+              >
+                 Hourly Schedule
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          className="schedule-block ng-scope"
+        >
+          <div
+            className="panel panel-small panel-table"
+          >
+            <div
+              className="panel-heading"
+            >
+              <h3
+                className="panel-title"
+              >
+                27-Nov-2016
+              </h3>
+            </div>
+            <div
+              className="panel-body"
+            >
+              <div
+                className="wrap-table-scrollX"
+              >
+                <table
+                  className="table table-striped table-bordered table-fixedcol table-schedule"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        09:00
+                      </th>
+                      <th>
+                        10:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        11:00
+                      </th>
+                      <th>
+                        12:00
+                      </th>
+                      <th>
+                        13:00
+                      </th>
+                      <th>
+                        14:00
+                      </th>
+                      <th>
+                        15:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        16:00
+                      </th>
+                      <th>
+                        17:00
+                      </th>
+                      <th>
+                        18:00
+                      </th>
+                      <th>
+                        19:00
+                      </th>
+                      <th>
+                        20:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        21:00
+                      </th>
+                      <th>
+                        22:00
+                      </th>
+                      <th>
+                        23:00
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <MedicationsPrescriptionForm /> should renders with props correctly 2`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="prescriptionForm"
+  >
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Amount"
+            name="doseAmount"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row-expand"
+    >
+      <div
+        className="col-expand-left"
+      />
+      <div
+        className="col-expand-right"
+      />
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Interval
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalMorning"
+                  label="Morning"
+                  name="doseInterval"
+                  type="radio"
+                  value="morning"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalEvening"
+                  label="Evening"
+                  name="doseInterval"
+                  type="radio"
+                  value="evening"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalSpecific"
+                  label="Specific"
+                  name="doseInterval"
+                  type="radio"
+                  value="specific"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Quantity
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity1x"
+                  label="1X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="1x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity2x"
+                  label="2X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="2x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity3x"
+                  label="3X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="3x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity4x"
+                  label="4X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="4x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantityOther"
+                  label="Other"
+                  name="doseQuantity"
+                  type="radio"
+                  value="other"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  component={[Function]}
+                  id="start"
+                  label="Start"
+                  name="start"
+                  props={
+                    Object {
+                      "format": "DD-MMM-YYYY",
+                      "isSubmit": false,
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label hidden-sm"
+                  />
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      className="fcustominp-label"
+                      component={[Function]}
+                      id="finishCancelled"
+                      label="Until Cancelled"
+                      name="finishCancelled"
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-icon-normal"
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-plus"
+              />
+              <span
+                className="btn-text"
+              >
+                 Add Dosage
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+        >
+          Dose Timing:
+        </label>
+        <div
+          className="non-edit-value"
+        >
+          <button
+            className="btn btn-danger btn-sm btn-icon-normal btn-square"
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+          </button>
+          <span
+            className="ng-binding"
+          >
+             2X each morning 
+          </span>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-table"
+              />
+              <span
+                className="btn-text"
+              >
+                 Hourly Schedule
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          className="schedule-block ng-scope"
+        >
+          <div
+            className="panel panel-small panel-table"
+          >
+            <div
+              className="panel-heading"
+            >
+              <h3
+                className="panel-title"
+              >
+                27-Nov-2016
+              </h3>
+            </div>
+            <div
+              className="panel-body"
+            >
+              <div
+                className="wrap-table-scrollX"
+              >
+                <table
+                  className="table table-striped table-bordered table-fixedcol table-schedule"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        09:00
+                      </th>
+                      <th>
+                        10:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        11:00
+                      </th>
+                      <th>
+                        12:00
+                      </th>
+                      <th>
+                        13:00
+                      </th>
+                      <th>
+                        14:00
+                      </th>
+                      <th>
+                        15:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        16:00
+                      </th>
+                      <th>
+                        17:00
+                      </th>
+                      <th>
+                        18:00
+                      </th>
+                      <th>
+                        19:00
+                      </th>
+                      <th>
+                        20:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        21:00
+                      </th>
+                      <th>
+                        22:00
+                      </th>
+                      <th>
+                        23:00
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <MedicationsPrescriptionForm /> should renders with props correctly 3`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="prescriptionForm"
+  >
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Amount"
+            name="doseAmount"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row-expand"
+    >
+      <div
+        className="col-expand-left"
+      />
+      <div
+        className="col-expand-right"
+      />
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Interval
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalMorning"
+                  label="Morning"
+                  name="doseInterval"
+                  type="radio"
+                  value="morning"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalEvening"
+                  label="Evening"
+                  name="doseInterval"
+                  type="radio"
+                  value="evening"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalSpecific"
+                  label="Specific"
+                  name="doseInterval"
+                  type="radio"
+                  value="specific"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Quantity
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity1x"
+                  label="1X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="1x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity2x"
+                  label="2X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="2x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity3x"
+                  label="3X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="3x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity4x"
+                  label="4X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="4x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantityOther"
+                  label="Other"
+                  name="doseQuantity"
+                  type="radio"
+                  value="other"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  component={[Function]}
+                  id="start"
+                  label="Start"
+                  name="start"
+                  props={
+                    Object {
+                      "format": "DD-MMM-YYYY",
+                      "isSubmit": false,
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label hidden-sm"
+                  />
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      className="fcustominp-label"
+                      component={[Function]}
+                      id="finishCancelled"
+                      label="Until Cancelled"
+                      name="finishCancelled"
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  component={[Function]}
+                  id="pFinishDateTime"
+                  label="Finish"
+                  name="pFinishDateTime"
+                  props={
+                    Object {
+                      "format": "DD-MMM-YYYY",
+                      "isSubmit": false,
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+        >
+          Dose Timing:
+        </label>
+        <div
+          className="non-edit-value"
+        >
+          <button
+            className="btn btn-danger btn-sm btn-icon-normal btn-square"
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+          </button>
+          <span
+            className="ng-binding"
+          >
+             2X each morning 
+          </span>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-table"
+              />
+              <span
+                className="btn-text"
+              >
+                 Hourly Schedule
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          className="schedule-block ng-scope"
+        >
+          <div
+            className="panel panel-small panel-table"
+          >
+            <div
+              className="panel-heading"
+            >
+              <h3
+                className="panel-title"
+              >
+                27-Nov-2016
+              </h3>
+            </div>
+            <div
+              className="panel-body"
+            >
+              <div
+                className="wrap-table-scrollX"
+              >
+                <table
+                  className="table table-striped table-bordered table-fixedcol table-schedule"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        09:00
+                      </th>
+                      <th>
+                        10:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        11:00
+                      </th>
+                      <th>
+                        12:00
+                      </th>
+                      <th>
+                        13:00
+                      </th>
+                      <th>
+                        14:00
+                      </th>
+                      <th>
+                        15:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        16:00
+                      </th>
+                      <th>
+                        17:00
+                      </th>
+                      <th>
+                        18:00
+                      </th>
+                      <th>
+                        19:00
+                      </th>
+                      <th>
+                        20:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        21:00
+                      </th>
+                      <th>
+                        22:00
+                      </th>
+                      <th>
+                        23:00
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <MedicationsPrescriptionForm /> should renders with props correctly 4`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="prescriptionForm"
+  >
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Amount"
+            name="doseAmount"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="row-expand"
+    >
+      <div
+        className="col-expand-left"
+      />
+      <div
+        className="col-expand-right"
+      />
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Interval
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalMorning"
+                  label="Morning"
+                  name="doseInterval"
+                  type="radio"
+                  value="morning"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalEvening"
+                  label="Evening"
+                  name="doseInterval"
+                  type="radio"
+                  value="evening"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseIntervalSpecific"
+                  label="Specific"
+                  name="doseInterval"
+                  type="radio"
+                  value="specific"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="form-group"
+          >
+            <label
+              className="control-label"
+            >
+              Dose Quantity
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="wrap-fcustominps-inline"
+              >
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity1x"
+                  label="1X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="1x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity2x"
+                  label="2X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="2x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity3x"
+                  label="3X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="3x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantity4x"
+                  label="4X"
+                  name="doseQuantity"
+                  type="radio"
+                  value="4x"
+                />
+                <Field
+                  className="fcustominp-label"
+                  component={[Function]}
+                  id="doseQuantityOther"
+                  label="Other"
+                  name="doseQuantity"
+                  type="radio"
+                  value="other"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  component={[Function]}
+                  id="start"
+                  label="Start"
+                  name="start"
+                  props={
+                    Object {
+                      "format": "DD-MMM-YYYY",
+                      "isSubmit": false,
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label hidden-sm"
+                  />
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      className="fcustominp-label"
+                      component={[Function]}
+                      id="finishCancelled"
+                      label="Until Cancelled"
+                      name="finishCancelled"
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  component={[Function]}
+                  id="pFinishDateTime"
+                  label="Finish"
+                  name="pFinishDateTime"
+                  props={
+                    Object {
+                      "format": "DD-MMM-YYYY",
+                      "isSubmit": false,
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-section"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+        >
+          Dose Timing:
+        </label>
+        <div
+          className="non-edit-value"
+        >
+          <button
+            className="btn btn-danger btn-sm btn-icon-normal btn-square"
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+          </button>
+          <span
+            className="ng-binding"
+          >
+             2X each morning 
+          </span>
+        </div>
+      </div>
+      <div
+        className="form-group"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group left"
+          >
+            <button
+              className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
+              onClick={[Function]}
+              type="button"
+            >
+              <i
+                className="btn-icon fa fa-table"
+              />
+              <span
+                className="btn-text"
+              >
+                 Hourly Schedule
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          className="schedule-block ng-scope"
+        >
+          <div
+            className="panel panel-small panel-table"
+          >
+            <div
+              className="panel-heading"
+            >
+              <h3
+                className="panel-title"
+              >
+                27-Nov-2016
+              </h3>
+            </div>
+            <div
+              className="panel-body"
+            >
+              <div
+                className="wrap-table-scrollX"
+              >
+                <table
+                  className="table table-striped table-bordered table-fixedcol table-schedule"
+                >
+                  <thead>
+                    <tr>
+                      <th>
+                        09:00
+                      </th>
+                      <th>
+                        10:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        11:00
+                      </th>
+                      <th>
+                        12:00
+                      </th>
+                      <th>
+                        13:00
+                      </th>
+                      <th>
+                        14:00
+                      </th>
+                      <th>
+                        15:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        16:00
+                      </th>
+                      <th>
+                        17:00
+                      </th>
+                      <th>
+                        18:00
+                      </th>
+                      <th>
+                        19:00
+                      </th>
+                      <th>
+                        20:00
+                      </th>
+                      <th
+                        className="selected"
+                      >
+                        21:00
+                      </th>
+                      <th>
+                        22:00
+                      </th>
+                      <th>
+                        23:00
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                      <td />
+                      <td />
+                      <td
+                        className="selected"
+                      >
+                        2X
+                      </td>
+                      <td />
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

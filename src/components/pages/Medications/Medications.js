@@ -88,6 +88,7 @@ export default class Medications extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -136,7 +137,7 @@ export default class Medications extends PureComponent {
     }))
   };
 
- handleContactDetailCancel = (name) => {
+ handleMedicationsDetailCancel = (name) => {
    this.setState(prevState => ({
      editedPanel: {
        ...prevState.editedPanel,
@@ -268,6 +269,7 @@ export default class Medications extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
+    /* istanbul ignore next */
     if (allMedications !== undefined) {
       if (allMedications[0]) {
         allMedications[0].warning = true;
@@ -329,7 +331,7 @@ export default class Medications extends PureComponent {
               detail={medicationDetail}
               onEdit={this.handleEdit}
               editedPanel={editedPanel}
-              onCancel={this.handleContactDetailCancel}
+              onCancel={this.handleMedicationsDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               medicationsDetailFormValues={medicationsDetailFormState.values}
               prescriptionPanelFormValues={prescriptionPanelFormState.values}
