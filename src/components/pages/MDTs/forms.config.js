@@ -7,7 +7,7 @@ export const valuesNames = {
   DATE_OF_MEETING: 'dateOfMeeting',
   DATE_CREATED: 'dateCreated',
   AUTHOR: 'author',
-
+  TIME_OF_MEETING: 'timeOfMeeting',
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
 };

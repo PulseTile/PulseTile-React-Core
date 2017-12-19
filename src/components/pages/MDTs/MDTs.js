@@ -81,6 +81,7 @@ export default class MDTs extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, isDetailPanelVisible: false })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)

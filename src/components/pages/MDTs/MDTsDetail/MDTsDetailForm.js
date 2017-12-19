@@ -24,13 +24,12 @@ export default class MDTsDetailForm extends PureComponent {
       [valuesNames.NOTES]: value[valuesNames.NOTES],
       [valuesNames.DATE_OF_REQUEST]: value[valuesNames.DATE_OF_REQUEST],
       [valuesNames.DATE_OF_MEETING]: value[valuesNames.DATE_OF_MEETING],
-      // [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
   }
   render() {
-    const { detail, isSubmit } = this.props;
+    const { isSubmit } = this.props;
     return (
       <div className="panel-body-inner">
         <form name="mdtsPanelForm" className="form">

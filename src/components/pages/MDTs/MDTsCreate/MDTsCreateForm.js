@@ -18,8 +18,6 @@ export default class MDTsCreateForm extends PureComponent {
   }
   render() {
     const {isSubmit} = this.props;
-    // const date = new Date();
-    // const dateCreated = date.getTime();
     return (
       <div className="panel-body-inner">
         <form name="mdtCreateForm" className="form">
