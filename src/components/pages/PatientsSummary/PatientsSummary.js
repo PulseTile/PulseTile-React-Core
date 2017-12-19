@@ -72,7 +72,6 @@ export default class PatientsSummary extends PureComponent {
       const { allergies, contacts, problems, medications, vaccinations } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible } = this.state;
 
-      console.log(selectedViewOfBoards);
       return (<section className="page-wrapper">
         <Row>
           <Col xs={12}>
