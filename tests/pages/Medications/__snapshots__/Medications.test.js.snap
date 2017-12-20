@@ -32,6 +32,28 @@ exports[`Component <Medications /> should renders correctly and testing another 
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -70,10 +92,32 @@ exports[`Component <Medications /> should renders correctly and testing another 
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -114,6 +158,28 @@ exports[`Component <Medications /> should renders correctly and testing context 
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -152,10 +218,32 @@ exports[`Component <Medications /> should renders correctly and testing context 
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -203,7 +291,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
 </section>
 `;
 
-exports[`Component <Medications /> should renders correctly with empty store 1`] = `
+exports[`Component <Medications /> should renders correctly with all store is empty 1`] = `
 <section
   className="page-wrapper"
 >
@@ -276,6 +364,131 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
             sortingOrder="asc"
             table="medications"
             totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -316,6 +529,28 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -354,10 +589,32 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -398,6 +655,28 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -436,10 +715,32 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -504,6 +805,28 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -542,10 +865,32 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -610,6 +955,28 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           <PluginMainPanel
             columnNameSortBy="name"
             emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             headers={
               Array [
                 Object {
@@ -648,10 +1015,32 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                  "warning": true,
+                },
+                Object {
+                  "danger": true,
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
             setOffset={[Function]}
             sortingOrder="asc"
             table="medications"
-            totalEntriesAmount={0}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>

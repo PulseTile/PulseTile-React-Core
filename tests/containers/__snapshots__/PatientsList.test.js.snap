@@ -39,36 +39,44 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         "dateOfBirth": -363657600000,
         "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "19-Dec-2017",
+        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+        "diagnosesDateConvert": "01-Jan-1970",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "19-Dec-2017",
+        "ordersDate": "1970-01-01T00:00:00-05:00",
+        "ordersDateConvert": "01-Jan-1970",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "19-Dec-2017",
-        "vitalsDateConvert": "19-Dec-2017",
+        "resultsDate": "1970-01-01T00:00:00-05:00",
+        "resultsDateConvert": "01-Jan-1970",
+        "vitalsDate": "1970-01-01T00:00:00-05:00",
+        "vitalsDateConvert": "01-Jan-1970",
       },
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
         "dateOfBirth": -363657600000,
         "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "19-Dec-2017",
+        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+        "diagnosesDateConvert": "01-Jan-1970",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "19-Dec-2017",
+        "ordersDate": "1970-01-01T00:00:00-05:00",
+        "ordersDateConvert": "01-Jan-1970",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "19-Dec-2017",
-        "vitalsDateConvert": "19-Dec-2017",
+        "resultsDate": "1970-01-01T00:00:00-05:00",
+        "resultsDateConvert": "01-Jan-1970",
+        "vitalsDate": "1970-01-01T00:00:00-05:00",
+        "vitalsDateConvert": "01-Jan-1970",
       },
     ]
   }
@@ -987,17 +995,20 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   "dateOfBirth": -363657600000,
                   "dateOfBirthConvert": "24-Jun-1958",
                   "department": "Primary Care",
-                  "diagnosesDateConvert": "19-Dec-2017",
+                  "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                  "diagnosesDateConvert": "01-Jan-1970",
                   "gender": "Male",
                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                   "gpName": "Joseph May N.",
                   "id": "9999999006",
                   "name": "Ezra Gordon",
                   "nhsNumber": "9999999006",
-                  "ordersDateConvert": "19-Dec-2017",
+                  "ordersDate": "1970-01-01T00:00:00-05:00",
+                  "ordersDateConvert": "01-Jan-1970",
                   "pasNo": "595941",
                   "phone": "070 6691 5178",
-                  "resultsDateConvert": "19-Dec-2017",
+                  "resultsDate": "1970-01-01T00:00:00-05:00",
+                  "resultsDateConvert": "01-Jan-1970",
                   "viewPatientNavigation": <ViewPatientDropdown
                     onPatientViewClick={[Function]}
                     onSetOpenedDropdownID={[Function]}
@@ -1008,22 +1019,27 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 "dateOfBirth": -363657600000,
                                 "dateOfBirthConvert": "24-Jun-1958",
                                 "department": "Primary Care",
-                                "diagnosesDateConvert": "19-Dec-2017",
+                                "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                "diagnosesDateConvert": "01-Jan-1970",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
                                 "id": "9999999006",
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
-                                "ordersDateConvert": "19-Dec-2017",
+                                "ordersDate": "1970-01-01T00:00:00-05:00",
+                                "ordersDateConvert": "01-Jan-1970",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
-                                "resultsDateConvert": "19-Dec-2017",
-                                "vitalsDateConvert": "19-Dec-2017",
+                                "resultsDate": "1970-01-01T00:00:00-05:00",
+                                "resultsDateConvert": "01-Jan-1970",
+                                "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                "vitalsDateConvert": "01-Jan-1970",
                               }
                     }
               />,
-                  "vitalsDateConvert": "19-Dec-2017",
+                  "vitalsDate": "1970-01-01T00:00:00-05:00",
+                  "vitalsDateConvert": "01-Jan-1970",
                 },
               ]
             }
@@ -1826,7 +1842,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         },
                         Object {
                           "name": "ordersDate",
-                          "value": "-",
+                          "value": "01-Jan-1970",
                         },
                         Object {
                           "name": "ordersCount",
@@ -1834,7 +1850,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         },
                         Object {
                           "name": "resultsDate",
-                          "value": "-",
+                          "value": "01-Jan-1970",
                         },
                         Object {
                           "name": "resultsCount",
@@ -1852,18 +1868,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "19-Dec-2017",
+                                        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                        "diagnosesDateConvert": "01-Jan-1970",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "19-Dec-2017",
+                                        "ordersDate": "1970-01-01T00:00:00-05:00",
+                                        "ordersDateConvert": "01-Jan-1970",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "19-Dec-2017",
-                                        "vitalsDateConvert": "19-Dec-2017",
+                                        "resultsDate": "1970-01-01T00:00:00-05:00",
+                                        "resultsDateConvert": "01-Jan-1970",
+                                        "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                        "vitalsDateConvert": "01-Jan-1970",
                                       }
                             }
                       />,
@@ -1935,7 +1955,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         name="ordersDate"
                         onClick={[Function]}
                       >
-                        -
+                        01-Jan-1970
                       </td>
                       <td
                         className="text-center"
@@ -1955,7 +1975,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         name="resultsDate"
                         onClick={[Function]}
                       >
-                        -
+                        01-Jan-1970
                       </td>
                       <td
                         className="text-center"
@@ -1985,18 +2005,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "19-Dec-2017",
+                              "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                              "diagnosesDateConvert": "01-Jan-1970",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "19-Dec-2017",
+                              "ordersDate": "1970-01-01T00:00:00-05:00",
+                              "ordersDateConvert": "01-Jan-1970",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "19-Dec-2017",
-                              "vitalsDateConvert": "19-Dec-2017",
+                              "resultsDate": "1970-01-01T00:00:00-05:00",
+                              "resultsDateConvert": "01-Jan-1970",
+                              "vitalsDate": "1970-01-01T00:00:00-05:00",
+                              "vitalsDateConvert": "01-Jan-1970",
                             }
                           }
                         >
@@ -2197,18 +2221,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "19-Dec-2017",
+                                        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                        "diagnosesDateConvert": "01-Jan-1970",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "19-Dec-2017",
+                                        "ordersDate": "1970-01-01T00:00:00-05:00",
+                                        "ordersDateConvert": "01-Jan-1970",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "19-Dec-2017",
-                                        "vitalsDateConvert": "19-Dec-2017",
+                                        "resultsDate": "1970-01-01T00:00:00-05:00",
+                                        "resultsDateConvert": "01-Jan-1970",
+                                        "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                        "vitalsDateConvert": "01-Jan-1970",
                                       }
                             }
                       />,
@@ -2240,18 +2268,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "19-Dec-2017",
+                              "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                              "diagnosesDateConvert": "01-Jan-1970",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "19-Dec-2017",
+                              "ordersDate": "1970-01-01T00:00:00-05:00",
+                              "ordersDateConvert": "01-Jan-1970",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "19-Dec-2017",
-                              "vitalsDateConvert": "19-Dec-2017",
+                              "resultsDate": "1970-01-01T00:00:00-05:00",
+                              "resultsDateConvert": "01-Jan-1970",
+                              "vitalsDate": "1970-01-01T00:00:00-05:00",
+                              "vitalsDateConvert": "01-Jan-1970",
                             }
                           }
                         >

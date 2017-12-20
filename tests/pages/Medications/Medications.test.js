@@ -16,7 +16,7 @@ const sourceId = 'acb0eaf2-d1df-4c7a-9382-619b31935f2b';
 const mockStore = configureStore();
 const storeResource = {
   patientsMedications: {
-    '9999999024': [
+    '9999999000': [
       {
         [valuesNames.NAME]: 'name',
         [valuesNames.DOSE_AMOUNT]: 'test',
@@ -93,6 +93,16 @@ const storeWithDetail = mockStore(Object.assign({
     },
   },
 }, storeResource));
+const allStoreEmpty = mockStore({
+  patientsMedications: {
+    '9999999001': [
+      {},
+    ],
+  },
+  medicationsDetail: {
+    '9999999001': {},
+  },
+});
 
 // configure context for various tests
 const generateNewContext = (oldContext, pathname) => {
@@ -284,10 +294,10 @@ describe('Component <Medications />', () => {
     expect(component.state().nameShouldInclude).toEqual('');
 
     // Testing component handleHeaderCellClick methods
-    expect(component.state().columnNameSortBy).toEqual('name');
+    expect(component.state().columnNameSortBy).toEqual(valuesNames.NAME);
     expect(component.state().sortingOrder).toEqual('asc');
-    component.instance().handleHeaderCellClick({}, { name: 'doseAmmount', sortingOrder: 'desc' });
-    expect(component.state().columnNameSortBy).toEqual('doseAmmount');
+    component.instance().handleHeaderCellClick({}, { name: valuesNames.DOSE_AMOUNT, sortingOrder: 'desc' });
+    expect(component.state().columnNameSortBy).toEqual('doseAmount');
     expect(component.state().sortingOrder).toEqual('desc');
 
     // Testing component handleSetOffset methods
@@ -344,6 +354,20 @@ describe('Component <Medications />', () => {
     const component = shallow(
       <Medications
         store={storeEmpty}
+        match={match}
+      />, { context }).dive().dive().dive()
+      .dive()
+      .dive()
+      .dive()
+      .dive();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly with all store is empty', () => {
+    const component = shallow(
+      <Medications
+        store={allStoreEmpty}
         match={match}
       />, { context }).dive().dive().dive()
       .dive()

@@ -152,7 +152,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   >
-                    19-Dec-2017
+                    13-Nov-2017
                   </div>
                 </div>
               </div>
@@ -518,19 +518,19 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
       <ReduxForm
         detail={
           Object {
-            "author": "",
-            "dateCreated": 1507020019000,
-            "doseAmount": "test",
+            "author": "bob.smith@gmail.com",
+            "dateCreated": 1510588832000,
+            "doseAmount": "50",
             "doseDirections": "test",
-            "doseTiming": "test",
-            "medicationCode": "",
-            "medicationTerminology": "",
+            "doseTiming": "50",
+            "medicationCode": 123456789,
+            "medicationTerminology": "external",
             "name": "test",
             "route": "test",
             "source": "marand",
             "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-            "startDate": 1507020019000,
-            "startTime": null,
+            "startDate": 1510653645000,
+            "startTime": 36045000,
           }
         }
       />
@@ -561,19 +561,19 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
       <ReduxForm
         detail={
           Object {
-            "author": "",
-            "dateCreated": 1507020019000,
-            "doseAmount": "test",
+            "author": "bob.smith@gmail.com",
+            "dateCreated": 1510588832000,
+            "doseAmount": "50",
             "doseDirections": "test",
-            "doseTiming": "test",
-            "medicationCode": "",
-            "medicationTerminology": "",
+            "doseTiming": "50",
+            "medicationCode": 123456789,
+            "medicationTerminology": "external",
             "name": "test",
             "route": "test",
             "source": "marand",
             "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-            "startDate": 1507020019000,
-            "startTime": null,
+            "startDate": 1510653645000,
+            "startTime": 36045000,
           }
         }
       />
@@ -646,7 +646,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <div
                     className="form-control-static"
                   >
-                    test
+                    50
                   </div>
                 </div>
               </div>
@@ -668,7 +668,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <div
                     className="form-control-static"
                   >
-                    test
+                    50
                   </div>
                 </div>
                 <div
@@ -726,7 +726,9 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   </label>
                   <div
                     className="form-control-static"
-                  />
+                  >
+                    bob.smith@gmail.com
+                  </div>
                 </div>
               </div>
               <div
@@ -743,7 +745,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <div
                     className="form-control-static"
                   >
-                    03-Oct-2017
+                    13-Nov-2017
                   </div>
                 </div>
               </div>
@@ -809,7 +811,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <div
                     className="form-control-static"
                   >
-                    test
+                    50
                   </div>
                 </div>
               </div>

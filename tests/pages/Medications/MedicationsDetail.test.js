@@ -11,16 +11,16 @@ Enzyme.configure({ adapter: new Adapter() });
 const propsForMedicationsPanel = {
   detail: {
     [valuesNames.NAME]: 'test',
-    [valuesNames.DOSE_AMOUNT]: 'test',
+    [valuesNames.DOSE_AMOUNT]: '50',
     [valuesNames.DOSE_DIRECTIONS]: 'test',
-    [valuesNames.DOSE_TIMING]: 'test',
+    [valuesNames.DOSE_TIMING]: '50',
     [valuesNames.ROUTE]: 'test',
-    [valuesNames.START_DATE]: 1507020019000,
-    [valuesNames.START_TIME]: null,
-    [valuesNames.MEDICATION_CODE]: '',
-    [valuesNames.MEDICATION_TERMINOLOGY]: '',
-    [valuesNames.AUTHOR]: '',
-    [valuesNames.DATE_CREATED]: 1507020019000,
+    [valuesNames.START_DATE]: 1510653645000,
+    [valuesNames.START_TIME]: 36045000,
+    [valuesNames.MEDICATION_CODE]: 123456789,
+    [valuesNames.MEDICATION_TERMINOLOGY]: 'external',
+    [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
+    [valuesNames.DATE_CREATED]: 1510588832000,
     [valuesNames.SOURCE]: 'marand',
     [valuesNames.SOURCE_ID]: 'a7007401-837f-471c-8f73-cbb53c0eb1a1',
   },
@@ -143,28 +143,28 @@ describe('Component <MedicationsDetail />', () => {
     const component = shallow(
       <MedicationsDetail />);
     // Testing component when detail empty object, expandedPanel is medicationPanel
-    component.setProps({ detail: {}, expandedPanel: MEDICATION_PANEL, editedPanel: { [MEDICATION_PANEL]: false } });
+    component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1510588832000 }, expandedPanel: MEDICATION_PANEL, editedPanel: { [MEDICATION_PANEL]: false } });
     expect(component.find('PluginDetailPanel')).toHaveLength(0);
     expect(component.find('MedicationsDetailPanel')).toHaveLength(1);
     expect(component.find('MedicationsDetailPanel').props().name).toEqual(MEDICATION_PANEL);
     expect(component).toMatchSnapshot();
 
     // Testing component when detail empty object, expandedPanel is prescriptionPanel
-    component.setProps({ detail: {}, expandedPanel: PRESCRIPTION_PANEL });
+    component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1510588832000 }, expandedPanel: PRESCRIPTION_PANEL });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
     expect(component.find('MedicationsDetailPanel')).toHaveLength(0);
     expect(component.find('PluginDetailPanel').props().name).toEqual(PRESCRIPTION_PANEL);
     expect(component).toMatchSnapshot();
 
     // Testing component when detail empty object, expandedPanel is warningsPanel
-    component.setProps({ detail: {}, expandedPanel: WARNINGS_PANEL });
+    component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1510588832000 }, expandedPanel: WARNINGS_PANEL });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
     expect(component.find('MedicationsDetailPanel')).toHaveLength(0);
     expect(component.find('PluginDetailPanel').props().name).toEqual(WARNINGS_PANEL);
     expect(component).toMatchSnapshot();
 
     // Testing component when detail empty object, expandedPanel is changeHistoryPanel
-    component.setProps({ detail: {}, expandedPanel: CHANGE_HISTORY_PANEL });
+    component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1510588832000 }, expandedPanel: CHANGE_HISTORY_PANEL });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
     expect(component.find('MedicationsDetailPanel')).toHaveLength(0);
     expect(component.find('PluginDetailPanel').props().name).toEqual(CHANGE_HISTORY_PANEL);

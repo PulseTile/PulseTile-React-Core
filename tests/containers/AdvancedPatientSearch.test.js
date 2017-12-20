@@ -8,6 +8,9 @@ import { StaticRouter } from 'react-router'
 import AdvancedPatientSearch from '../../src/components/containers/AdvancedPatientSearch/AdvancedPatientSearch';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+Date.now = jest.fn(() => new Date(Date.UTC(2017, 7, 9, 8)).valueOf())
+
 const mockStore = configureStore();
 const storeResource = {
   form: {

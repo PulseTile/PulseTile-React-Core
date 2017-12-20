@@ -19,6 +19,10 @@ const allPatientsWithCounts = [
     nhsNumber: '9999999006',
     pasNo: '595941',
     phone: '070 6691 5178',
+    diagnosesDate: '1970-01-01T00:00:00-05:00',
+    ordersDate: '1970-01-01T00:00:00-05:00',
+    resultsDate: '1970-01-01T00:00:00-05:00',
+    vitalsDate: '1970-01-01T00:00:00-05:00',
   },
   {
     id: '9999999006',
@@ -32,6 +36,10 @@ const allPatientsWithCounts = [
     nhsNumber: '9999999006',
     pasNo: '595941',
     phone: '070 6691 5178',
+    diagnosesDate: '1970-01-01T00:00:00-05:00',
+    ordersDate: '1970-01-01T00:00:00-05:00',
+    resultsDate: '1970-01-01T00:00:00-05:00',
+    vitalsDate: '1970-01-01T00:00:00-05:00',
   },
 ];
 const allPatients = [
