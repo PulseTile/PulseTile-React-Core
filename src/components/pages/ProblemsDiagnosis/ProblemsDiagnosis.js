@@ -189,7 +189,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
     sendData[valuesNames.DATE_OF_ONSET] = moment(formValues[valuesNames.DATE_OF_ONSET]).format('YYYY-MM-DD');
 
-    if (formName === 'edit') {
+    if (formName === 'create') {
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
       sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
     }
