@@ -28,11 +28,11 @@ export default class EventsListHeader extends PureComponent {
     document.removeEventListener('click', this.handleClick, false);
   }
 
-  toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible, isFilterOpen: !prevState.isFilterOpen }),
+  toggleFilterInputVisibility = /* istanbul ignore next */ () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible, isFilterOpen: !prevState.isFilterOpen }),
     () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
   );
 
-  handleClick = (e) => {
+  handleClick = /* istanbul ignore next */ (e) => {
     if (!this.node.contains(e.target)) {
       this.setState({ openedPanel: '' });
     }
