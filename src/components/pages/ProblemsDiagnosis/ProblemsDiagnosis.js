@@ -189,9 +189,13 @@ export default class ProblemsDiagnosis extends PureComponent {
     sendData[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
     sendData[valuesNames.CODE] = defaultFormValues[valuesNames.CODE];
 
+    if (formName === 'create') {
+      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+      sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
+    }
+
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE] = 'ethercis';
-      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
       sendData[valuesNames.SOURCE_ID] = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
