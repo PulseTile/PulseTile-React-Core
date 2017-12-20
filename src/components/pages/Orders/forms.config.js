@@ -4,7 +4,10 @@ export const valuesNames = {
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
   AUTHOR: 'author',
-  SELECTABLE: 'selectable'
+  SELECTABLE: 'selectable',
+  DATE: 'dateCreated',
+  CODE: 'code',
+  TERMINOLOGY: 'terminology',
 };
 
 export const valuesLabels = {
