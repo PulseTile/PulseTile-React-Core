@@ -11,6 +11,7 @@ import moment from 'moment';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
+import { defaultFormValues } from './ProblemsDiagnosisCreate/default-values.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailRequest } from './ducks/fetch-patient-diagnoses-detail.duck';
@@ -184,17 +185,13 @@ export default class ProblemsDiagnosis extends PureComponent {
     sendData.userId = userId;
     sendData[valuesNames.PROBLEM] = formValues[valuesNames.PROBLEM];
     sendData[valuesNames.DESCRIPTION] = formValues[valuesNames.DESCRIPTION];
-    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
-    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
     sendData[valuesNames.DATE_OF_ONSET] = moment(formValues[valuesNames.DATE_OF_ONSET]).format('YYYY-MM-DD');
-
-    if (formName === 'edit') {
-      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
-      sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
-    }
+    sendData[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
+    sendData[valuesNames.CODE] = defaultFormValues[valuesNames.CODE];
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE] = 'ethercis';
+      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
       sendData[valuesNames.SOURCE_ID] = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 

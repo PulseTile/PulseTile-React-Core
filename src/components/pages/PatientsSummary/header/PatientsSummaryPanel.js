@@ -14,6 +14,7 @@ export default class PatientsSummaryPanel extends PureComponent {
       onCategorySelected: PropTypes.func.isRequired,
       onViewOfBoardsSelected: PropTypes.func.isRequired,
       selectedCategory: PropTypes.objectOf(PropTypes.bool).isRequired,
+      selectedViewOfBoards: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
@@ -33,10 +34,12 @@ export default class PatientsSummaryPanel extends PureComponent {
     });
 
     toggleRadio = key => this.setState((prevState) => {
-      prevState.selectedViewOptions.full = false;
-      prevState.selectedViewOptions.preview = false;
-      prevState.selectedViewOptions.list = false;
-      return _.set(['selectedViewOptions', key], true)(prevState);
+      const selectedViewOptions = Object.assign({}, prevState.selectedViewOptions);
+      selectedViewOptions.full = false;
+      selectedViewOptions.preview = false;
+      selectedViewOptions.list = false;
+      selectedViewOptions[key] = true;
+      return { 'selectedViewOptions': selectedViewOptions };
     });
 
     render() {

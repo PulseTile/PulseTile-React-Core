@@ -33,10 +33,6 @@ export default class PatientsSummary extends PureComponent {
       vaccinations: PropTypes.array.isRequired,
     };
 
-    // static defaultProps = {
-    //   vaccinations: []
-    // };
-
     static contextTypes = {
       router: PropTypes.shape({
         history: PropTypes.object,
@@ -87,7 +83,7 @@ export default class PatientsSummary extends PureComponent {
                 <div className="dashboard">
                   {(selectedCategory.problems && dashboardVisible.problems)
                     ? <SimpleDashboardPanel
-                        title="Problems" items={problems}
+                        title="Problems / Diagnosis" items={problems}
                         navigateTo={console.log} state="diagnoses"
                         goToState={this.handleGoToState}
                         srcPrevirew={imgProblems}

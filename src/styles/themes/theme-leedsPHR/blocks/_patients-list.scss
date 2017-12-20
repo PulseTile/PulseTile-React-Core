@@ -10,3 +10,9 @@
     }
   }
 }
+.wrap-patients-table .table {
+  thead tr th,
+  tbody tr td {
+    @include respond-from(xs) { min-height: 42px; height: 42px }
+  }
+}

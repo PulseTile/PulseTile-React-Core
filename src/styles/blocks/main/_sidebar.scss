@@ -118,7 +118,9 @@
   color: $text-on-base-color;
 }
 
-.btn-toggle-sidebar-open {
+.btn-toggle-sidebar-open,
+.btn-toggle-sidebar-open:focus,
+.btn-toggle-sidebar-open:hover {
   background: $text-on-base-color;
   color: $base-color;
 }

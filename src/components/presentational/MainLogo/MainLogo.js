@@ -11,11 +11,13 @@ export default class MainLogo extends PureComponent {
           <div className="logo-icon">
             {userAccount.role === 'IDCR'
               ? <Link to={'/'}>
-                <img className={classNames(`img ${logo ? '' : 'logo-img'}`)} alt="logo" src={logo ? logo : patientsInfo.logoB64} />
+                {logo  ? <img className="img" alt="logo" src={logo} /> : null}
+                <img className={classNames(`img logo-img ${logo ? 'hidden' : ''}`)} alt="logo" src={patientsInfo.logoB64} />
               </Link>
               : userAccount.role === 'PHR'
                 ? <Link to={`/patients/${userAccount.nhsNumber}/patients-summary`}>
-                  <img className={classNames(`img ${logo ? '' : 'logo-img'}`)} alt="logo" src={logo ? logo : patientsInfo.logoB64} />
+                  {logo  ? <img className="img" alt="logo" src={logo} /> : null}
+                  <img className={classNames(`img logo-img ${logo ? 'hidden' : ''}`)} alt="logo" src={patientsInfo.logoB64} />
                 </Link> : null }
           </div>
         </div>

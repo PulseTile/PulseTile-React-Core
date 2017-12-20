@@ -108,7 +108,7 @@
     border: none;
     @include respond-from(xs) {
       border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
-      &:first-child { border: none; }
+      &:first-child { border-left: none; }
     }
   }
 }
@@ -116,7 +116,7 @@
   thead tr th,
   tbody tr td {
     border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
-    &:first-child { border: none; }
+    &:first-child { border-left: none; }
   }
 }
 
