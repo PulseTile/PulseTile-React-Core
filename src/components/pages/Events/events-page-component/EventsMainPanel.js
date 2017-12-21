@@ -31,7 +31,7 @@ export default class EventsMainPanel extends PureComponent {
     openedPanel: '',
     activeCreate: '',
     rangeForm: null,
-    rangeTo: null
+    rangeTo: null,
   };
 
   componentWillMount() {
@@ -49,7 +49,7 @@ export default class EventsMainPanel extends PureComponent {
     document.removeEventListener('click', this.handleClick, false);
   }
 
-  handleClick = (e) => {
+  handleClick = /* istanbul ignore next */ (e) => {
     if (!this.node.contains(e.target)) {
       this.setState({ openedPanel: '' });
     }
@@ -67,7 +67,7 @@ export default class EventsMainPanel extends PureComponent {
   changeRange = (value) => {
     const { onRangeChange } = this.props;
 
-    this.setState({ rangeForm: value[0], rangeTo: value[1] })
+    this.setState({ rangeForm: value[0], rangeTo: value[1] });
     onRangeChange(value);
   };
 
@@ -88,26 +88,26 @@ export default class EventsMainPanel extends PureComponent {
         {isTimelinesOpen ? <div className="wrap-rzslider">
           {(minValueRange !== 0 && maxValueRange !== 0)
             ? <div>
-                <div className="rzslider-tooltip rzslider-tooltip--left">
-                  <div className="rzslider-tooltip-content">
-                    <div className="rzslider-tooltip-inner">From: {moment(this.state.rangeForm || minValueRange).format('DD MMM YYYY')}</div>
-                  </div>
+              <div className="rzslider-tooltip rzslider-tooltip--left">
+                <div className="rzslider-tooltip-content">
+                  <div className="rzslider-tooltip-inner">From: {moment(this.state.rangeForm || minValueRange).format('DD MMM YYYY')}</div>
                 </div>
-                <div className="rzslider-tooltip rzslider-tooltip--right">
-                  <div className="rzslider-tooltip-content">
-                    <div className="rzslider-tooltip-inner">To: {moment(this.state.rangeTo || maxValueRange).format('DD MMM YYYY')}</div>
-                  </div>
+              </div>
+              <div className="rzslider-tooltip rzslider-tooltip--right">
+                <div className="rzslider-tooltip-content">
+                  <div className="rzslider-tooltip-inner">To: {moment(this.state.rangeTo || maxValueRange).format('DD MMM YYYY')}</div>
                 </div>
-                <div className="wrap-rzslider-events"><Range
-                  min={min}
-                  max={max}
-                  defaultValue={[min, max]}
-                  marks={marks}
-                  tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
-                  tipProps={{ visible: true, defaultVisible: true }}
-                  onChange={this.changeRange}
-                  /></div>
-            </div>: null }
+              </div>
+              <div className="wrap-rzslider-events"><Range
+                min={min}
+                max={max}
+                defaultValue={[min, max]}
+                marks={marks}
+                tipFormatter={value => `${moment(value).format('DD MMMM YYYY')}`}
+                tipProps={{ visible: true, defaultVisible: true }}
+                onChange={this.changeRange}
+              /></div>
+            </div> : null }
         </div> : null}
         {activeView === 'table' ? <SortableTable
           headers={headers}
