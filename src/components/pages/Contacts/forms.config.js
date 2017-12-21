@@ -33,20 +33,27 @@ export const valuesLabels = {
 };
 
 export const relationshipOptions = [
-  { title: 'Husband', value: 'Husband' },
-  { title: 'Wife', value: 'Wife' },
-  { title: 'Father', value: 'Father' },
-  { title: 'Alone', value: 'Alone' },
-  { title: 'Mother', value: 'Mother' },
-  { title: 'Daughter', value: 'Daughter' },
-  { title: 'Son', value: 'Son' },
-  { title: 'Brother', value: 'Brother' },
-  { title: 'Sister', value: 'Sister' },
-  { title: 'Friend', value: 'Friend' },
-  { title: 'Family friend', value: 'Family friend' },
-  { title: 'Neighbour', value: 'Neighbour' },
-  { title: 'District Nurse', value: 'District Nurse' },
-  { title: 'Primary Care Worker', value: 'Primary Care Worker' },
-  { title: 'Allocated social worker', value: 'Allocated social worker' },
-  { title: 'Care C-ordinator', value: 'Care C-ordinator' },
+  { value: 'Husband', title: 'Husband' },
+  { value: 'Wife', title: 'Wife' },
+  { value: 'Father', title: 'Father' },
+  { value: 'Alone', title: 'Alone' },
+  { value: 'Mother', title: 'Mother' },
+  { value: 'Daughter', title: 'Daughter' },
+  { value: 'Son', title: 'Son' },
+  { value: 'Brother', title: 'Brother' },
+  { value: 'Sister', title: 'Sister' },
+  { value: 'Friend', title: 'Friend' },
+  { value: 'Family friend', title: 'Family friend' },
+  { value: 'Neighbour', title: 'Neighbour' },
+  { value: 'District Nurse', title: 'District Nurse' },
+  { value: 'Primary Care Worker', title: 'Primary Care Worker' },
+  { value: 'Allocated social worker', title: 'Allocated social worker' },
+  { value: 'Care C-ordinator', title: 'Care C-ordinator' },
+];
+
+export const relationshipTypeOptions = [
+  { value: 'at0036', title: 'Informal carer' },
+  { value: 'at0037', title: 'Main informal carer' },
+  { value: 'at0038', title: 'Formal care worker' },
+  { value: 'at0039', title: 'Key formal care worker' },
 ];

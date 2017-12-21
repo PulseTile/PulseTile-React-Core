@@ -83,6 +83,7 @@ export default class Referrals extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -198,6 +199,7 @@ export default class Referrals extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = referralDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE, valuesNames.DATE_CREATED);
     return sendData;
   };
 
@@ -205,25 +207,21 @@ export default class Referrals extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, isSecondPanel: false })
   };
 
-  handleShow = (name) => {
-    this.setState({ openedPanel: name })
-  };
-
   formToShowCollection = (collection) => {
-    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE,
       keyTo: `${valuesNames.DATE}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
-      collection: collection,
+      collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [`${valuesNames.DATE}Convert`, valuesNames.FROM, valuesNames.TO, valuesNames.SOURCE]
+      filterKeys: [`${valuesNames.DATE}Convert`, valuesNames.FROM, valuesNames.TO, valuesNames.SOURCE],
     });
   };
 

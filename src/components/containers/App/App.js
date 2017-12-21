@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import LoadingBar from 'react-redux-loading-bar'
 
@@ -11,7 +11,7 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 import '../../../styles/main.scss';
 
 const App = (props) => {
-  const isTouchDevice = ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
+  const isTouchDevice = (props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
 
   return (<div className="page">
     <LoadingBar className="loading-bar" />

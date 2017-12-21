@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
+import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
 import { patientsSummaryConfig, defaultCategorySelected } from '../../../config/patients-summary.config';
@@ -33,7 +34,19 @@ export default class PatientsSummary extends PureComponent {
 
     state = {
       selectedCategory: defaultCategorySelected,
+      isDisclaimerModalVisible: false
     };
+
+    componentWillMount() {
+      const isShowDisclaimerOfRedirect = localStorage.getItem('isShowDisclaimerOfRedirect');
+      localStorage.removeItem('isShowDisclaimerOfRedirect');
+
+      if (isShowDisclaimerOfRedirect) {
+        this.setState({isDisclaimerModalVisible: true});
+      }
+    }
+
+    closeDisclaimer = () => this.setState({isDisclaimerModalVisible: false});
 
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
 
@@ -43,7 +56,7 @@ export default class PatientsSummary extends PureComponent {
 
     render() {
       const { allergies, contacts, problems, medications } = this.props;
-      const { selectedCategory } = this.state;
+      const { selectedCategory, isDisclaimerModalVisible } = this.state;
 
       return (<section className="page-wrapper">
         <Row>
@@ -64,6 +77,15 @@ export default class PatientsSummary extends PureComponent {
             </div>
           </Col>
         </Row>
+        {isDisclaimerModalVisible && <ConfirmationModal
+          title={'Notification'}
+          isShow={true}
+          onOk={onClose}
+          onHide={onClose}
+          isShowOkButton
+        >
+          <span>You was redirected to your home page because you are logged in as a PHR user.</span>
+        </ConfirmationModal>}
       </section>)
     }
 }

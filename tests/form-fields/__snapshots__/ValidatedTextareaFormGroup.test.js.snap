@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with all props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with different state of validation 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with different state of validation 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with different state of validation 3`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with different state of validation 4`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with different state of validation 5`] = `
+<div
+  className="form-group has-success"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with error message correctly 1`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    Error
+  </span>
+</div>
+`;
+
+exports[`Component <ValidatedTextareaFormGroup /> should renders with error message correctly 2`] = `
+<div
+  className="form-group has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-id"
+  >
+    Test label
+  </label>
+  <div
+    className="input-holder"
+  >
+    <textarea
+      className="form-control textarea-big input-sm"
+      id="test-id"
+      name="test-name"
+      value=""
+    />
+  </div>
+  <span
+    className="required-label"
+  >
+    Error
+  </span>
+</div>
+`;

@@ -22,15 +22,17 @@ export default class PatientsInfoPanel extends PureComponent {
   };
 
   componentDidUpdate(prevProps, prevState) {
+    /* istanbul ignore next */
     if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onColumnsSelected(this.state.selected)
   }
 
-  toggleCheckbox = key => this.setState((prevState) => {
+  toggleCheckbox = /* istanbul ignore next */ key => this.setState((prevState) => {
     const newValue = !_.get(['selected', key])(prevState);
     return _.set(['selected', key], newValue)(prevState);
   });
 
   toggleMultipleCheckboxes = keys => () => {
+    /* istanbul ignore next */
     const nextCheckedValues = keys.map(_.flow(_.pick(keys), _.every(_.eq(true)))(this.state.selected) ? _.stubFalse : _.stubTrue);
     this.setState(prevState => _.merge(prevState, { selected: _.zipObject(keys, nextCheckedValues) }));
   };

@@ -6,14 +6,14 @@ import PTButton from '../../ui-elements/PTButton/PTButton';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 export default class BasicPatientSearch extends PureComponent {
-    state = {
-      searchString: '',
-    };
-
     static contextTypes = {
       router: PropTypes.shape({
         history: PropTypes.object,
       }),
+    };
+
+    state = {
+      searchString: '',
     };
 
     handleSearchStringChange = event => this.setState({ searchString: event.target.value });
@@ -23,6 +23,7 @@ export default class BasicPatientSearch extends PureComponent {
     handleSearchClick = (e) => {
       e.preventDefault();
       const { searchString } = this.state;
+      /* istanbul ignore next */
       if (searchString) {
         const queryParams = {
           orderType: 'ASC',

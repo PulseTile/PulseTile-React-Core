@@ -98,6 +98,7 @@ export default class Events extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isDetailPanelVisible: false, eventsType: 'initEventsType', expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -209,6 +210,7 @@ export default class Events extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = eventDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_TIME);
     return sendData;
   };
 
@@ -254,6 +256,7 @@ export default class Events extends PureComponent {
     this.setDefaultRangeValues();
   };
 
+  /* istanbul ignore next */
   onRangeChange(value) {
     this.setState({ valueEventsRange: value })
   }

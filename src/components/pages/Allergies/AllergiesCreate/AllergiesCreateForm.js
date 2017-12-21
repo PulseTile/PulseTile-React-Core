@@ -55,11 +55,10 @@ export default class AllergiesCreateForm extends PureComponent {
             <Row>
               <Col md={6}>
                 <Field
-                  label={valuesLabels.TERMINOLOGY}
                   name={valuesNames.TERMINOLOGY}
-                  id={valuesNames.TERMINOLOGY}
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
+                  label={valuesLabels.TERMINOLOGY}
+                  component={StaticFormField}
+                  props={{ className: 'form-control-static' }}
                 />
               </Col>
               <Col md={6}>

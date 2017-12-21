@@ -81,6 +81,7 @@ export default class ClinicalNotes extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -194,6 +195,7 @@ export default class ClinicalNotes extends PureComponent {
       sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE);
     return sendData;
   };
 

@@ -1,0 +1,408 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <DateInput /> should renders with all props correctly 1`] = `
+<div
+  className="form-group form-group-sm"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with different state of validation 1`] = `
+<div
+  className="form-group form-group-sm"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with different state of validation 2`] = `
+<div
+  className="form-group form-group-sm has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+    <span
+      className="help-block animate-fade"
+    >
+      Error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with different state of validation 3`] = `
+<div
+  className="form-group form-group-sm has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+    <span
+      className="help-block animate-fade"
+    >
+      Error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with different state of validation 4`] = `
+<div
+  className="form-group form-group-sm has-error"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+    <span
+      className="help-block animate-fade"
+    >
+      Error
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with different state of validation 5`] = `
+<div
+  className="form-group form-group-sm has-success"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <DateInput /> should renders with/without the given date 1`] = `
+<div
+  className="form-group form-group-sm"
+>
+  <label
+    className="control-label"
+    htmlFor="test-name"
+  >
+    Test label
+  </label>
+  <div
+    className="inner-addon addon-left"
+  >
+    <div
+      className="addon"
+    >
+      <i
+        className="fa fa-calendar"
+      />
+    </div>
+    <t
+      allowSameDay={false}
+      className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
+      dateFormat="L"
+      dateFormatCalendar="MMMM YYYY"
+      disabled={false}
+      disabledKeyboardNavigation={false}
+      dropdownMode="select"
+      minDate={2017-12-11T16:58:57.424Z}
+      monthsShown={1}
+      name="test-name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClickOutside={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMonthChange={[Function]}
+      onSelect={[Function]}
+      peekNextMonth={true}
+      placeholderText="Test placeholder"
+      readOnly={true}
+      selected={"2017-12-11T16:58:57.424Z"}
+      shouldCloseOnSelect={true}
+      showMonthDropdown={true}
+      showTimeSelect={false}
+      showYearDropdown={true}
+      timeFormat="HH:mm"
+      timeIntervals={5}
+      utcOffset={180}
+      value="11-Dec-2017"
+      withPortal={false}
+    />
+  </div>
+</div>
+`;

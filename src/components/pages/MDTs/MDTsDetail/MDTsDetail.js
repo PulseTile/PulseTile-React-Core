@@ -10,8 +10,8 @@ const MDTS_PANEL = 'mdtsPanel';
 export default class MDTsDetail extends PureComponent {
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, mdtFormValues, isSubmit } = this.props;
-		let { detail } = this.props;
-		detail = detail || {};
+    let { detail } = this.props;
+    detail = detail || {};
     const dateOfRequest = getDDMMMYYYY(detail[valuesNames.DATE_OF_REQUEST]);
     const dateOfMeeting = getDDMMMYYYY(detail[valuesNames.DATE_OF_MEETING]);
 
@@ -42,8 +42,8 @@ export default class MDTsDetail extends PureComponent {
                           {!detail[valuesNames.TEAM]
                             ? <span>{valuesLabels.TEAM_NOT}</span>
                             : <ul className="list-reset">
-                                <li>{detail[valuesNames.TEAM]}</li>
-                              </ul>
+                              <li>{detail[valuesNames.TEAM]}</li>
+                            </ul>
                           }
                         </div>
                       </div>
@@ -55,8 +55,8 @@ export default class MDTsDetail extends PureComponent {
                           {!detail[valuesNames.DATE_OF_REQUEST]
                             ? <span>{valuesLabels.DATE_OF_REQUEST_NOT}</span>
                             : <ul className="list-reset">
-                                <li>{dateOfRequest}</li>
-                              </ul>
+                              <li>{dateOfRequest}</li>
+                            </ul>
                           }
                         </div>
                       </div>
@@ -70,8 +70,8 @@ export default class MDTsDetail extends PureComponent {
                         {!detail[valuesNames.DATE_OF_MEETING]
                           ? <span>{valuesLabels.DATE_OF_MEETING_NOT}</span>
                           : <ul className="list-reset">
-                              <li>{dateOfMeeting}</li>
-                            </ul>
+                            <li>{dateOfMeeting}</li>
+                          </ul>
                         }
                       </div>
                     </div>
@@ -95,8 +95,8 @@ export default class MDTsDetail extends PureComponent {
                         {!detail[valuesNames.QUESTION]
                           ? <span>{valuesLabels.QUESTION_NOT}</span>
                           : <ul className="list-reset">
-                              <li>{detail[valuesNames.QUESTION]}</li>
-                            </ul>
+                            <li>{detail[valuesNames.QUESTION]}</li>
+                          </ul>
                         }
                       </div>
                     </div>

@@ -10,10 +10,10 @@ const PTCustomCheckbox = ({ title, name, isChecked, disabled = false, onChange }
     <div className="wrap-fcustominp">
       <div className={classNames('fcustominp-state', { disabled })} onClick={toggleCheckbox} >
         <div className="fcustominp">
-          <input type="checkbox" name={name} checked={isChecked} onChange={toggleCheckbox} />
-          <label htmlFor="patients-table-info-name" />
+          <input type="checkbox" id={`dashboard-${name}`} name={`dashboard-${name}`} checked={isChecked} onChange={toggleCheckbox} />
+          <label htmlFor={`dashboard-${name}`} />
         </div>
-        <label htmlFor={name} className="fcustominp-label">{title}</label>
+        <label htmlFor={`dashboard-${name}`} className="fcustominp-label">{title}</label>
       </div>
     </div>
   </Col>

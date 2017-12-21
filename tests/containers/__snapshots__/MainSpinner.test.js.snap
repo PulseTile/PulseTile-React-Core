@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MainSpinner /> should renders with props correctly 1`] = `
+<MainSpinner>
+  <div
+    className="main-spinner"
+  >
+    <div
+      className="lds-css ng-scope"
+    >
+      <div
+        className="lds-dual-ring"
+      >
+        <div />
+        <div />
+      </div>
+    </div>
+  </div>
+</MainSpinner>
+`;

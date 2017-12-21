@@ -21,6 +21,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     this.state.prescriptionFormValue = nextProps.formValues;
   }

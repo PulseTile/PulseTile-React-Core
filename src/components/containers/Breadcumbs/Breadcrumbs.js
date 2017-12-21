@@ -62,7 +62,6 @@ class Breadcrumbs extends PureComponent {
     const breadcrumbItems = breadcrumbs.map((breadcrumb, index) =>
       <span key={_.uniqueId('__BreadcrumbsBlock__')}>
         { index !== lastItemBreadcrumbsIndex && <Link to={breadcrumb.state} className="breadcrumb-link">{breadcrumb.title}</Link> }
-        { (index !== lastItemBreadcrumbsIndex && breadcrumbs.lenght === 1) && <span className="breadcrumb-link">{breadcrumb.title}</span> }
         { index !== lastItemBreadcrumbsIndex && <span className="breadcrumb-separate" /> }
         { index === lastItemBreadcrumbsIndex && <span className="breadcrumb-link active">{breadcrumb.title}</span> }
       </span>

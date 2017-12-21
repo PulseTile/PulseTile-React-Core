@@ -7,7 +7,7 @@ import { compose, lifecycle } from 'recompose';
 import _ from 'lodash/fp';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
-import toolbarSelector from './selectors';
+import { toolbarSelector, routerSelector } from './selectors';
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
@@ -17,7 +17,7 @@ import { fetchPatientSummaryRequest } from '../../../../ducks/fetch-patient-summ
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility, fetchPatientSummaryRequest }, dispatch) });
 
-@connect(toolbarSelector, mapDispatchToProps)
+@compose(connect(toolbarSelector, mapDispatchToProps), connect(routerSelector))
 @compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchPatientSummaryOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
@@ -31,25 +31,20 @@ class HeaderToolbar extends PureComponent {
     userId: PropTypes.string.isRequired,
   };
 
-  static contextTypes = {
-    router: PropTypes.shape({
-      history: PropTypes.object,
-    }),
-  };
-
   getState = hash => _.getOr(null, [hash])(mainPagesTitles);
 
-  toggleSidebarVisibility = () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
+  toggleSidebarVisibility = /* istanbul ignore next */ () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
 
   render() {
-    const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId } = this.props;
+    const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId, router } = this.props;
 
     let breadcrumbs = null;
-    const routingComponents = (this.context.router.route.location.pathname.split('?')[0]).split('/');
+    const routingComponents = (router.location.hash.split('?')[0]).split('/');
     let routerHash;
     do {
       routerHash = routingComponents.pop();
       breadcrumbs = this.getState(routerHash);
+      /* istanbul ignore next */
       if (breadcrumbs) break
     } while (routingComponents.length);
 

@@ -81,6 +81,7 @@ export default class MDTs extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MDTS_PANEL, isDetailPanelVisible: false })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -197,6 +198,7 @@ export default class MDTs extends PureComponent {
       sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_REQUEST, valuesNames.DATE_OF_MEETING, valuesNames.DATE_CREATED);
     return sendData;
   };
 

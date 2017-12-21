@@ -22,12 +22,15 @@ export default class ViewPatientDropdown extends PureComponent {
       const isOpen = patient.id === openedDropdownID;
       return (
         <div className={classNames('patient-buttons dropdown', { open: isOpen })} onClick={e => e.stopPropagation()}>
-          <button className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle"
-                  aria-haspopup="true"
-                  aria-expanded={isOpen}
-                  onClick={() => {onSetOpenedDropdownID(isOpen ? null : patient.id)}} />
+          <button
+            className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            onClick={() => { onSetOpenedDropdownID(isOpen ? null : patient.id) }}
+          />
           { isOpen &&
           <ViewPatientDropdownOptions
+            className="patients-dropdown-options"
             handlePatientViewClick={this.handlePatientViewClick}
           /> }
           <div className="wrap-overflow">

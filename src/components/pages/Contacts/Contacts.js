@@ -12,6 +12,8 @@ import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
+import { defaultFormValues } from './ContactsCreate/default-values.config';
+
 import { fetchPatientContactsRequest } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contacts-create.duck';
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
@@ -84,6 +86,7 @@ export default class Contacts extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -187,9 +190,8 @@ export default class Contacts extends PureComponent {
    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
    sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
    sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
-   sendData[valuesNames.REALATIONSHIP_TYPE] = formValues[valuesNames.REALATIONSHIP_TYPE];
    sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
-   sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = formValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
+   sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
    sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
@@ -200,6 +202,7 @@ export default class Contacts extends PureComponent {
      sendData[valuesNames.SOURCE_ID] = contactDetail[valuesNames.SOURCE_ID];
    }
 
+   operationsOnCollection.propsToString(sendData, valuesNames.DATE_SUBMITTED);
    return sendData;
  };
 
@@ -231,6 +234,7 @@ export default class Contacts extends PureComponent {
     const isPanelMain = (expandedPanel === CONTACTS_MAIN);
     const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
+    /* istanbul ignore next */
     const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
       key: valuesNames.NEXT_OF_KIN,
       fn: el => (el || false),

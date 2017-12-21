@@ -99,7 +99,7 @@ class UserProfile extends PureComponent {
               <div className="panel-group accordion">
                 {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && !editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
-                  title="Application preferences"
+                  title="Application Preferences"
                   isOpen={openedPanel === APPLICATION_PREFERENCES}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}
@@ -152,7 +152,7 @@ class UserProfile extends PureComponent {
                 </PersonalInformationPanel> : null }
                 {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
-                  title="Application preferences"
+                  title="Application Preferences"
                   isOpen={openedPanel === APPLICATION_PREFERENCES}
                   onShow={this.handleShow}
                   onExpand={this.handleExpand}

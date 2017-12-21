@@ -1,0 +1,499 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SortableTable /> should renders with props correctly 1`] = `
+<SortableTable
+  columnNameSortBy="cause"
+  data={
+    Array [
+      Object {
+        "cause": 3123123123,
+        "reaction": 123123,
+        "source": "ethercis",
+        "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+      },
+      Object {
+        "cause": 123,
+        "reaction": 123,
+        "source": "test",
+        "sourceId": "test",
+      },
+    ]
+  }
+  emptyDataMessage="No allergies"
+  headers={
+    Array [
+      Object {
+        "key": "cause",
+        "title": "Cause",
+        "width": "25%",
+      },
+      Object {
+        "key": "reaction",
+        "title": "Reaction",
+        "width": "65%",
+      },
+      Object {
+        "display": "none",
+        "key": "sourceId",
+        "title": "Source ID",
+        "width": "0",
+      },
+    ]
+  }
+  resourceData={
+    Array [
+      Object {
+        "cause": 3123123123,
+        "reaction": 123123,
+        "source": "ethercis",
+        "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+      },
+      Object {
+        "cause": 123,
+        "reaction": 123,
+        "source": "test",
+        "sourceId": "test",
+      },
+    ]
+  }
+  sortingOrder="asc"
+  table=""
+>
+  <table
+    className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table "
+  >
+    <colgroup>
+      <col
+        key="__colHeaders__1"
+        style={
+          Object {
+            "width": "25%",
+          }
+        }
+      />
+      <col
+        key="__colHeaders__2"
+        style={
+          Object {
+            "width": "65%",
+          }
+        }
+      />
+      <col
+        key="__colHeaders__3"
+        style={
+          Object {
+            "display": "none",
+            "width": "0",
+          }
+        }
+      />
+    </colgroup>
+    <thead>
+      <SortableTableHeaderRow
+        columnNameSortBy="cause"
+        headers={
+          Array [
+            Object {
+              "key": "cause",
+              "title": "Cause",
+              "width": "25%",
+            },
+            Object {
+              "key": "reaction",
+              "title": "Reaction",
+              "width": "65%",
+            },
+            Object {
+              "display": "none",
+              "key": "sourceId",
+              "title": "Source ID",
+              "width": "0",
+            },
+          ]
+        }
+        sortingOrder="asc"
+      >
+        <tr>
+          <SortableTableHeaderCell
+            key="__SortableTableHeaderCell__6"
+            name="cause"
+            onClick={[Function]}
+            sortingOrder="asc"
+            title="Cause"
+          >
+            <th
+              className="sorted asc"
+              name="cause"
+              onClick={[Function]}
+            >
+              <span>
+                Cause
+              </span>
+               
+            </th>
+          </SortableTableHeaderCell>
+          <SortableTableHeaderCell
+            key="__SortableTableHeaderCell__7"
+            name="reaction"
+            onClick={[Function]}
+            sortingOrder={null}
+            title="Reaction"
+          >
+            <th
+              className=""
+              name="reaction"
+              onClick={[Function]}
+            >
+              <span>
+                Reaction
+              </span>
+               
+            </th>
+          </SortableTableHeaderCell>
+          <SortableTableHeaderCell
+            key="__SortableTableHeaderCell__8"
+            name="sourceId"
+            onClick={[Function]}
+            sortingOrder={null}
+            title="Source ID"
+          >
+            <th
+              className=""
+              name="sourceId"
+              onClick={[Function]}
+            >
+              <span>
+                Source ID
+              </span>
+               
+            </th>
+          </SortableTableHeaderCell>
+        </tr>
+      </SortableTableHeaderRow>
+    </thead>
+    <tbody>
+      <SortableTableRow
+        columnNameSortBy="cause"
+        headers={
+          Array [
+            Object {
+              "key": "cause",
+              "title": "Cause",
+              "width": "25%",
+            },
+            Object {
+              "key": "reaction",
+              "title": "Reaction",
+              "width": "65%",
+            },
+            Object {
+              "display": "none",
+              "key": "sourceId",
+              "title": "Source ID",
+              "width": "0",
+            },
+          ]
+        }
+        index={0}
+        key="__SortableTableRow__4"
+        resourceData={
+          Array [
+            Object {
+              "cause": 3123123123,
+              "reaction": 123123,
+              "source": "ethercis",
+              "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+            },
+            Object {
+              "cause": 123,
+              "reaction": 123,
+              "source": "test",
+              "sourceId": "test",
+            },
+          ]
+        }
+        rowData={
+          Array [
+            Object {
+              "name": "cause",
+              "value": 3123123123,
+            },
+            Object {
+              "name": "reaction",
+              "value": 123123,
+            },
+            Object {
+              "name": "sourceId",
+              "value": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+            },
+          ]
+        }
+        table=""
+      >
+        <tr
+          className=""
+        >
+          <td
+            className="sorted"
+            data-table-hover={true}
+            data-th="Cause"
+            key="__SortableTableRow__9"
+            name="cause"
+            onClick={[Function]}
+          >
+            3123123123
+          </td>
+          <td
+            className=""
+            data-table-hover={true}
+            data-th="Reaction"
+            key="__SortableTableRow__10"
+            name="reaction"
+            onClick={[Function]}
+          >
+            123123
+          </td>
+          <td
+            className=""
+            data-table-hover={true}
+            data-th="Source ID"
+            key="__SortableTableRow__11"
+            name="sourceId"
+            onClick={[Function]}
+          >
+            c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4
+          </td>
+        </tr>
+      </SortableTableRow>
+      <SortableTableRow
+        columnNameSortBy="cause"
+        headers={
+          Array [
+            Object {
+              "key": "cause",
+              "title": "Cause",
+              "width": "25%",
+            },
+            Object {
+              "key": "reaction",
+              "title": "Reaction",
+              "width": "65%",
+            },
+            Object {
+              "display": "none",
+              "key": "sourceId",
+              "title": "Source ID",
+              "width": "0",
+            },
+          ]
+        }
+        index={1}
+        key="__SortableTableRow__5"
+        resourceData={
+          Array [
+            Object {
+              "cause": 3123123123,
+              "reaction": 123123,
+              "source": "ethercis",
+              "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+            },
+            Object {
+              "cause": 123,
+              "reaction": 123,
+              "source": "test",
+              "sourceId": "test",
+            },
+          ]
+        }
+        rowData={
+          Array [
+            Object {
+              "name": "cause",
+              "value": 123,
+            },
+            Object {
+              "name": "reaction",
+              "value": 123,
+            },
+            Object {
+              "name": "sourceId",
+              "value": "test",
+            },
+          ]
+        }
+        table=""
+      >
+        <tr
+          className=""
+        >
+          <td
+            className="sorted"
+            data-table-hover={true}
+            data-th="Cause"
+            key="__SortableTableRow__12"
+            name="cause"
+            onClick={[Function]}
+          >
+            123
+          </td>
+          <td
+            className=""
+            data-table-hover={true}
+            data-th="Reaction"
+            key="__SortableTableRow__13"
+            name="reaction"
+            onClick={[Function]}
+          >
+            123
+          </td>
+          <td
+            className=""
+            data-table-hover={true}
+            data-th="Source ID"
+            key="__SortableTableRow__14"
+            name="sourceId"
+            onClick={[Function]}
+          >
+            test
+          </td>
+        </tr>
+      </SortableTableRow>
+    </tbody>
+  </table>
+</SortableTable>
+`;
+
+exports[`Component <SortableTable /> should renders with props correctly when the resourceData is empty array 1`] = `
+<table
+  className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table "
+>
+  <colgroup>
+    <col
+      key="__colHeaders__18"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__19"
+      style={
+        Object {
+          "width": "65%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__20"
+      style={
+        Object {
+          "display": "none",
+          "width": "0",
+        }
+      }
+    />
+  </colgroup>
+  <thead>
+    <SortableTableHeaderRow
+      columnNameSortBy="cause"
+      headers={
+        Array [
+          Object {
+            "key": "cause",
+            "title": "Cause",
+            "width": "25%",
+          },
+          Object {
+            "key": "reaction",
+            "title": "Reaction",
+            "width": "65%",
+          },
+          Object {
+            "display": "none",
+            "key": "sourceId",
+            "title": "Source ID",
+            "width": "0",
+          },
+        ]
+      }
+      sortingOrder="asc"
+    />
+  </thead>
+  <tbody>
+    <SortableTableEmptyDataRow
+      amountCollumns={2}
+      emptyDataMessage="No allergies"
+      isLoading={false}
+    />
+  </tbody>
+</table>
+`;
+
+exports[`Component <SortableTable /> should renders with props correctly when the resourceData is undefined 1`] = `
+<table
+  className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table "
+>
+  <colgroup>
+    <col
+      key="__colHeaders__15"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__16"
+      style={
+        Object {
+          "width": "65%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__17"
+      style={
+        Object {
+          "display": "none",
+          "width": "0",
+        }
+      }
+    />
+  </colgroup>
+  <thead>
+    <SortableTableHeaderRow
+      columnNameSortBy="cause"
+      headers={
+        Array [
+          Object {
+            "key": "cause",
+            "title": "Cause",
+            "width": "25%",
+          },
+          Object {
+            "key": "reaction",
+            "title": "Reaction",
+            "width": "65%",
+          },
+          Object {
+            "display": "none",
+            "key": "sourceId",
+            "title": "Source ID",
+            "width": "0",
+          },
+        ]
+      }
+      sortingOrder="asc"
+    />
+  </thead>
+  <tbody>
+    <SortableTableEmptyDataRow
+      amountCollumns={2}
+      emptyDataMessage="No allergies"
+      isLoading={true}
+    />
+  </tbody>
+</table>
+`;

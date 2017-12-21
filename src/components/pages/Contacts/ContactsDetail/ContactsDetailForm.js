@@ -7,7 +7,7 @@ import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFo
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
+import { valuesNames, valuesLabels, relationshipOptions, relationshipTypeOptions } from '../forms.config';
 
 @reduxForm({
   form: 'contactsDetailFormSelector',
@@ -24,11 +24,19 @@ export default class ContactsDetailForm extends PureComponent {
       [valuesNames.NAME]: value[valuesNames.NAME],
       [valuesNames.REALATIONSHIP]: value[valuesNames.REALATIONSHIP],
       [valuesNames.NEXT_OF_KIN]: value[valuesNames.NEXT_OF_KIN],
-      [valuesNames.REALATIONSHIP_TYPE]: value[valuesNames.REALATIONSHIP_TYPE],
+      [valuesNames.REALATIONSHIP_CODE]: value[valuesNames.REALATIONSHIP_CODE],
       [valuesNames.CONTACT_INFORMATION]: value[valuesNames.CONTACT_INFORMATION],
-      [valuesNames.NOTES]: [valuesNames.NOTES],
+      [valuesNames.NOTES]: value[valuesNames.NOTES],
       [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
+
+    if (!defaultFormValues[valuesNames.REALATIONSHIP_CODE]) {
+      relationshipTypeOptions.forEach((el) => {
+        if (el.title === value[valuesNames.REALATIONSHIP_TYPE]) {
+          defaultFormValues[valuesNames.REALATIONSHIP_CODE] = el.value;
+        }
+      });
+    }
 
     return defaultFormValues;
   }
@@ -79,10 +87,10 @@ export default class ContactsDetailForm extends PureComponent {
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.REALATIONSHIP_TYPE}
-                  name={valuesNames.REALATIONSHIP_TYPE}
-                  id={valuesNames.REALATIONSHIP_TYPE}
-                  type="text"
-                  component={ValidatedInput}
+                  name={valuesNames.REALATIONSHIP_CODE}
+                  id={valuesNames.REALATIONSHIP_CODE}
+                  options={relationshipTypeOptions}
+                  component={SelectFormGroup}
                   props={{ isSubmit }}
                 />
               </div>

@@ -1,0 +1,599 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <TopHeader /> should renders with props correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter
+    basename=""
+    context={
+      Object {
+        "router": Object {
+          "history": Object {
+            "goBack": [Function],
+            "test": "test",
+          },
+        },
+      }
+    }
+    location="someLocation"
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "someLocation",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <Connect(Connect(TopHeader))
+        openedPanel="userAccountPanel"
+      >
+        <Connect(TopHeader)
+          actions={
+            Object {
+              "push": [Function],
+            }
+          }
+          openedPanel="userAccountPanel"
+          router={
+            Object {
+              "location": Object {
+                "hash": "#/profile",
+                "pathname": "/",
+                "search": "",
+              },
+            }
+          }
+          userAccount={
+            Object {
+              "role": "IDCR",
+            }
+          }
+        >
+          <TopHeader
+            actions={
+              Object {
+                "push": [Function],
+              }
+            }
+            openedPanel="userAccountPanel"
+            patientsInfo={
+              Object {
+                "browserTitle": "PulseTile",
+                "logoB64": "testLogo",
+                "themeColor": "green",
+                "title": "PulseTile",
+              }
+            }
+            router={
+              Object {
+                "location": Object {
+                  "hash": "#/profile",
+                  "pathname": "/",
+                  "search": "",
+                },
+              }
+            }
+            userAccount={
+              Object {
+                "role": "IDCR",
+              }
+            }
+          >
+            <div
+              className="navbar"
+            >
+              <PTButton
+                className="btn-header btn-header-prev"
+                onClick={[Function]}
+              >
+                <button
+                  className="btn-header btn-header-prev"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fa fa-arrow-left"
+                  />
+                </button>
+              </PTButton>
+              <MainLogo
+                patientsInfo={
+                  Object {
+                    "browserTitle": "PulseTile",
+                    "logoB64": "testLogo",
+                    "themeColor": "green",
+                    "title": "PulseTile",
+                  }
+                }
+                userAccount={
+                  Object {
+                    "role": "IDCR",
+                  }
+                }
+              >
+                <div
+                  className="wrap-logo"
+                >
+                  <div
+                    className="logo"
+                  >
+                    <div
+                      className="logo-icon"
+                    >
+                      <Link
+                        replace={false}
+                        to="/"
+                      >
+                        <a
+                          href="/"
+                          onClick={[Function]}
+                        >
+                          <img
+                            alt="logo"
+                            className="img"
+                            src="testLogo"
+                          />
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </MainLogo>
+              <UserPanel>
+                <ul
+                  className="user-panel"
+                  role="tablist"
+                >
+                  <UserPanelItem
+                    className="user-panel-item visible-xs"
+                  >
+                    <li
+                      className="user-panel-item visible-xs"
+                    >
+                      <PTButton
+                        className="btn-header"
+                      >
+                        <button
+                          className="btn-header"
+                        >
+                          <i
+                            className="fa fa-search"
+                          />
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                  <UserPanelItem
+                    className="user-panel-item dropdown"
+                  >
+                    <li
+                      className="user-panel-item dropdown"
+                    >
+                      <NotificationContent>
+                        <div
+                          className="notifications-drop dropdown-menu dropdown-menu-right"
+                          id="tab-notifications"
+                        >
+                          <div
+                            className="notifications-header"
+                          >
+                            Notifications (2)
+                          </div>
+                          <div
+                            className="notifications-body"
+                          >
+                            <ul
+                              className="notifications-list"
+                            >
+                              <li
+                                className="notifications-list-item"
+                              >
+                                <div
+                                  className="notification-info"
+                                >
+                                  Information from Liquid Logic (Social Care) is currently unavailable.
+                                </div>
+                                <div
+                                  className="notification-time"
+                                >
+                                  <em>
+                                    10 minutes ago
+                                  </em>
+                                </div>
+                              </li>
+                              <li
+                                className="notifications-list-item"
+                              >
+                                <div
+                                  className="notification-info"
+                                >
+                                  Information from Liquid Logic (Social Care) is currently unavailable.
+                                </div>
+                                <div
+                                  className="notification-time"
+                                >
+                                  <em>
+                                    15 minutes ago
+                                  </em>
+                                </div>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </NotificationContent>
+                      <PTButton
+                        className="btn-header btn-notification"
+                        onClick={[Function]}
+                      >
+                        <button
+                          className="btn-header btn-notification"
+                          onClick={[Function]}
+                        >
+                          <div>
+                            <i
+                              className="fa fa-bell-o"
+                            />
+                            <span
+                              className="count"
+                            >
+                              2
+                            </span>
+                          </div>
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                  <UserPanelItem
+                    className="user-panel-item dropdown"
+                  >
+                    <li
+                      className="user-panel-item dropdown"
+                    >
+                      <Connect(lifecycle(UserAccountPanel))
+                        onClick={[Function]}
+                      >
+                        <lifecycle(UserAccountPanel)
+                          actions={
+                            Object {
+                              "logoutStart": [Function],
+                            }
+                          }
+                          onClick={[Function]}
+                          user={
+                            Object {
+                              "role": "IDCR",
+                            }
+                          }
+                        >
+                          <UserAccountPanel
+                            actions={
+                              Object {
+                                "logoutStart": [Function],
+                              }
+                            }
+                            onClick={[Function]}
+                            user={
+                              Object {
+                                "role": "IDCR",
+                              }
+                            }
+                          >
+                            <div
+                              className="dropdown-user dropdown-menu-right dropdown-menu"
+                            >
+                              <div
+                                className="user-profile-image"
+                                onClick={[Function]}
+                              >
+                                <div
+                                  className="img"
+                                >
+                                  <img
+                                    alt=""
+                                    src="user.jpg"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                className="user-profile-info"
+                              >
+                                <div
+                                  className="name"
+                                  onClick={[Function]}
+                                >
+                                   
+                                </div>
+                                <div
+                                  className="specification"
+                                >
+                                  <div
+                                    className="item"
+                                  >
+                                    <em>
+                                      IDCR
+                                    </em>
+                                  </div>
+                                  <div
+                                    className="item"
+                                  />
+                                  <div
+                                    className="item gray"
+                                  >
+                                    <em>
+                                      10/05/2099
+                                    </em>
+                                  </div>
+                                  <div
+                                    className="item"
+                                  >
+                                    <em>
+                                      About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
+                                    </em>
+                                  </div>
+                                </div>
+                                <PTButton
+                                  className="btn btn-success btn-block btn-signout"
+                                >
+                                  <button
+                                    className="btn btn-success btn-block btn-signout"
+                                  >
+                                    <div
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="brn-text"
+                                      >
+                                        Sign Out
+                                      </span>
+                                       
+                                      <i
+                                        className="btn-icon fa fa-sign-out"
+                                      />
+                                    </div>
+                                  </button>
+                                </PTButton>
+                              </div>
+                            </div>
+                          </UserAccountPanel>
+                        </lifecycle(UserAccountPanel)>
+                      </Connect(lifecycle(UserAccountPanel))>
+                      <PTButton
+                        className="btn-header btn-user"
+                        onClick={[Function]}
+                      >
+                        <button
+                          className="btn-header btn-user"
+                          onClick={[Function]}
+                        >
+                          <i
+                            className="fa fa-user"
+                          />
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                </ul>
+              </UserPanel>
+              <NavSearch
+                userAccount={
+                  Object {
+                    "role": "IDCR",
+                  }
+                }
+              >
+                <div
+                  className="wrap-search wrap-header-search"
+                >
+                  <div
+                    className="header-search"
+                  >
+                    <div
+                      className="control-group left control-search-select dropdown"
+                    >
+                      <div>
+                        <SearchContent
+                          ADVANCED_SEARCH="advancedSearch"
+                          BASIC_SEARCH="basicSearch"
+                          SEARCH_CONTENT="searchContent"
+                          onSelect={[Function]}
+                          selected="basicSearch"
+                        >
+                          <div
+                            className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size"
+                          >
+                            <div
+                              className="heading"
+                            >
+                              Search Options
+                            </div>
+                            <div
+                              className="dropdown-menu-wrap-list"
+                            >
+                              <div
+                                className="dropdown-menu-list"
+                              >
+                                <div
+                                  className="dropdown-menu-item active"
+                                  onClick={[Function]}
+                                >
+                                  <span
+                                    className="dropdown-menu-item-text"
+                                  >
+                                    Patient Search - Basic
+                                  </span>
+                                </div>
+                                <div
+                                  className="dropdown-menu-item"
+                                  onClick={[Function]}
+                                >
+                                  <span
+                                    className="dropdown-menu-item-text"
+                                  >
+                                    Patient Search - Advanced
+                                  </span>
+                                </div>
+                                <div
+                                  className="dropdown-menu-item"
+                                >
+                                  <span
+                                    className="dropdown-menu-item-text"
+                                  >
+                                    Clinical Query
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </SearchContent>
+                        <PTButton
+                          className="btn btn-dropdown-toggle btn-search-toggle"
+                          onClick={[Function]}
+                        >
+                          <button
+                            className="btn btn-dropdown-toggle btn-search-toggle"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="btn-icon fa fa-bars"
+                            />
+                          </button>
+                        </PTButton>
+                      </div>
+                    </div>
+                    <BasicPatientSearch>
+                      <div>
+                        <PTButton
+                          className="btn btn-search"
+                          onClick={[Function]}
+                        >
+                          <button
+                            className="btn btn-search"
+                            onClick={[Function]}
+                          >
+                            <i
+                              className="btn-icon fa fa-search"
+                            />
+                          </button>
+                        </PTButton>
+                        <div
+                          className="wrap-search-holder"
+                        >
+                          <div
+                            className="search-holder"
+                          >
+                            <form
+                              onSubmit={[Function]}
+                            >
+                              <input
+                                className="form-control"
+                                onChange={[Function]}
+                                placeholder="Search"
+                                type="text"
+                                value=""
+                              />
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </BasicPatientSearch>
+                  </div>
+                </div>
+              </NavSearch>
+            </div>
+          </TopHeader>
+        </Connect(TopHeader)>
+      </Connect(Connect(TopHeader))>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;
+
+exports[`Component <TopHeader /> should renders with props correctly when we are on the ROOT page 1`] = `
+<div
+  className="navbar"
+>
+  <MainLogo
+    patientsInfo={
+      Object {
+        "browserTitle": "PulseTile",
+        "logoB64": "testLogo",
+        "themeColor": "green",
+        "title": "PulseTile",
+      }
+    }
+    userAccount={
+      Object {
+        "role": "IDCR",
+      }
+    }
+  />
+  <UserPanel />
+  <NavSearch
+    userAccount={
+      Object {
+        "role": "IDCR",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Component <TopHeader /> should renders with props correctly when we are on the page Profile 1`] = `
+<div
+  className="navbar"
+>
+  <PTButton
+    className="btn-header btn-header-prev"
+    onClick={[Function]}
+  >
+    <i
+      className="fa fa-arrow-left"
+    />
+  </PTButton>
+  <MainLogo
+    patientsInfo={
+      Object {
+        "browserTitle": "PulseTile",
+        "logoB64": "testLogo",
+        "themeColor": "green",
+        "title": "PulseTile",
+      }
+    }
+    userAccount={
+      Object {
+        "role": "IDCR",
+      }
+    }
+  />
+  <UserPanel />
+  <NavSearch
+    userAccount={
+      Object {
+        "role": "IDCR",
+      }
+    }
+  />
+</div>
+`;

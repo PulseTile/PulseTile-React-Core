@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <OrdersDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "ordersPanel": false,
+        }
+      }
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="ordersPanel"
+      title="Orders"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Order Name
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      Cardiac-ECG
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Author
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      Dr John Smith
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="col-expand-right"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      05-Apr-2016
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Source
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      ethercis
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

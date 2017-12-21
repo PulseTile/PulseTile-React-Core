@@ -83,6 +83,7 @@ export default class Orders extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ORDERS_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -120,17 +121,6 @@ export default class Orders extends PureComponent {
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ORDERS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
     actions.fetchListOrdersRequest();
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}/create`);
-  };
-
-  handleOrdersDetailCancel = (name) => {
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-      isSubmit: false,
-      isLoading: true,
-    }))
   };
 
   handleCreateCancel = () => {
@@ -244,7 +234,6 @@ export default class Orders extends PureComponent {
               currentPanel={ORDERS_DETAIL}
               detail={orderDetail}
               editedPanel={editedPanel}
-              onCancel={this.handleOrdersDetailCancel}
               isSubmit={isSubmit}
             />
           </Col> : null}

@@ -20,9 +20,9 @@ export default class CustomInputCheckbox extends PureComponent {
               id={id || ''}
               {...input}
             />
-            <label htmlFor={input.name} />
+            <label htmlFor={id || ''} />
           </div>
-          {label ? <label htmlFor={input.name} className="fcustominp-label">{label}</label> : null}
+          {label ? <label htmlFor={id || ''} className="fcustominp-label">{label}</label> : null}
         </div>
       )
     }

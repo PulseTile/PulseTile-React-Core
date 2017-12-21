@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientAccessDisclaimerModal /> should renders mount correctly 1`] = `
+<PatientAccessDisclaimerModal
+  history={
+    Object {
+      "push": [Function],
+    }
+  }
+>
+  <ConfirmationModal
+    iconsClasses={
+      Object {
+        "cancel": "fa-ban",
+      }
+    }
+    isShowCancelButton={true}
+    isShowOkButton={true}
+    onOk={[Function]}
+    textCancelButton="Decline"
+    textOkButton="Agree"
+    title="Patient Access Disclaimer"
+  >
+    <Modal
+      animation={true}
+      autoFocus={true}
+      backdrop={true}
+      bsClass="modal"
+      dialogComponentClass={[Function]}
+      enforceFocus={true}
+      keyboard={true}
+      manager={
+        ModalManager {
+          "add": [Function],
+          "containers": Array [],
+          "data": Array [],
+          "handleContainerOverflow": true,
+          "hideSiblingNodes": true,
+          "isTopModal": [Function],
+          "modals": Array [],
+          "remove": [Function],
+        }
+      }
+      onHide={[Function]}
+      renderBackdrop={[Function]}
+      restoreFocus={true}
+      show={false}
+    >
+      <Modal
+        autoFocus={true}
+        backdrop={true}
+        backdropClassName="modal-backdrop"
+        backdropTransitionTimeout={150}
+        containerClassName="modal-open"
+        dialogTransitionTimeout={300}
+        enforceFocus={true}
+        keyboard={true}
+        manager={
+          ModalManager {
+            "add": [Function],
+            "containers": Array [],
+            "data": Array [],
+            "handleContainerOverflow": true,
+            "hideSiblingNodes": true,
+            "isTopModal": [Function],
+            "modals": Array [],
+            "remove": [Function],
+          }
+        }
+        onEntering={[Function]}
+        onExited={[Function]}
+        onHide={[Function]}
+        renderBackdrop={[Function]}
+        restoreFocus={true}
+        show={false}
+        transition={[Function]}
+      />
+    </Modal>
+  </ConfirmationModal>
+</PatientAccessDisclaimerModal>
+`;

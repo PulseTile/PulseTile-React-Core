@@ -82,6 +82,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -188,7 +189,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
     sendData[valuesNames.DATE_OF_ONSET] = moment(formValues[valuesNames.DATE_OF_ONSET]).format('YYYY-MM-DD');
 
-    if (formName === 'edit') {
+    if (formName === 'create') {
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
       sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
     }
@@ -198,6 +199,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       sendData[valuesNames.SOURCE_ID] = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_ONSET);
     return sendData;
   };
 

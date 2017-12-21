@@ -45,7 +45,7 @@ export default class PatientsList extends PureComponent {
       selectedColumns: defaultColumnsSelected,
       patientPath: '',
       isDisclaimerModalVisible: false,
-      openedDropdownID: null
+      openedDropdownID: null,
     };
 
     /* utils */
@@ -66,11 +66,11 @@ export default class PatientsList extends PureComponent {
       document.removeEventListener('click', this.handleNoDropdownClick, false);
     }
 
-    handleNoDropdownClick = (e) => {
+    handleNoDropdownClick = /* istanbul ignore next */ (e) => {
       const el = e.target;
       if (!((el.classList && el.classList.contains('patient-buttons')) ||
             (el.parentNode && el.parentNode.classList && el.parentNode.classList.contains('patient-buttons'))
-          )) {
+      )) {
         this.onSetOpenedDropdownID(null);
       }
     };
@@ -90,9 +90,9 @@ export default class PatientsList extends PureComponent {
 
     handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
-    handleColumnsSelected = selectedColumns => this.setState({ selectedColumns });
+    handleColumnsSelected = /* istanbul ignore next */ selectedColumns => this.setState({ selectedColumns });
 
-    handlePatientViewClick = (userId, candidatePluginName) => {
+    handlePatientViewClick = /* istanbul ignore next */ (userId, candidatePluginName) => {
       //TODO move to util function, some conjunction & disjunction magic at 12 am
       const validPluginName = (_.includes(clientUrls.ORDERS, candidatePluginName) && clientUrls.ORDERS)
         || (_.includes(clientUrls.RESULTS, candidatePluginName) && clientUrls.RESULTS)
@@ -104,29 +104,32 @@ export default class PatientsList extends PureComponent {
       this.setState({ patientPath: path, isDisclaimerModalVisible: true });
     };
 
-    toggleDisclaimerModalVisible = () => this.setState(prevState => ({ isDisclaimerModalVisible: !prevState.isDisclaimerModalVisible }));
+    toggleDisclaimerModalVisible = /* istanbul ignore next */ () => this.setState(prevState => ({ isDisclaimerModalVisible: !prevState.isDisclaimerModalVisible }));
 
     formToShowCollection = (collection) => {
-      const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+      const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
       collection = operationsOnCollection.modificate(collection, [
-        { fn: getDDMMMYYYY, keyFrom: 'dateOfBirth',   keyTo: 'dateOfBirthConvert' },
+        { fn: getDDMMMYYYY, keyFrom: 'dateOfBirth', keyTo: 'dateOfBirthConvert' },
         { fn: getDDMMMYYYY, keyFrom: 'diagnosesDate', keyTo: 'diagnosesDateConvert' },
-        { fn: getDDMMMYYYY, keyFrom: 'ordersDate',    keyTo: 'ordersDateConvert' },
-        { fn: getDDMMMYYYY, keyFrom: 'resultsDate',   keyTo: 'resultsDateConvert' },
-        { fn: getDDMMMYYYY, keyFrom: 'vitalsDate',    keyTo: 'vitalsDateConvert' },
+        { fn: getDDMMMYYYY, keyFrom: 'ordersDate', keyTo: 'ordersDateConvert' },
+        { fn: getDDMMMYYYY, keyFrom: 'resultsDate', keyTo: 'resultsDateConvert' },
+        { fn: getDDMMMYYYY, keyFrom: 'vitalsDate', keyTo: 'vitalsDateConvert' },
       ]);
 
       return operationsOnCollection.filterAndSort({
-        collection: collection,
+        collection,
         filterBy: nameShouldInclude,
         sortingByKey: columnNameSortBy,
         sortingByOrder: sortingOrder,
         filterKeys: [
           'name', 'address', 'dateOfBirthConvert', 'gender', 'id',
           'diagnosesCount', 'ordersCount', 'resultsCount', 'vitalsCount',
-          'diagnosesDateConvert', 'ordersDateConvert', 'resultsDateConvert', 'vitalsDateConvert'
-        ]
+          'diagnosesDateConvert', 'ordersDateConvert', 'resultsDateConvert', 'vitalsDateConvert',
+        ],
+        modeSorting: {
+          number: ['dateOfBirth'],
+        },
       });
     };
 
