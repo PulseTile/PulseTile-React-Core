@@ -4,7 +4,7 @@ export const valuesNames = {
   TAKEN: 'sampleTaken',
   CONCLUSION: 'conclusion',
   AUTHOR: 'author',
-  DATE: 'currentDate',
+  DATE: 'dateCreated',
 
   TR: 'testResults',
   TR_RESULT: 'result',

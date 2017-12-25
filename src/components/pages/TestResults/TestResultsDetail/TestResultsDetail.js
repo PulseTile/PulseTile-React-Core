@@ -135,10 +135,10 @@ export default class TestResultsDetail extends PureComponent {
           >
             <div className="panel-expand-wrapper">
               {listOfResults && listOfResults.length
-                ? listOfResults.map((results) => (
-                    <div className="panel-expand-row">
-                      {results.map((item) => (
-                        <div className="panel-expand-item" >
+                ? listOfResults.map((results, i) => (
+                    <div className="panel-expand-row" key={`row-${i}`}>
+                      {results.map((item, i) => (
+                        <div className="panel-expand-item" key={`row-${i}`}>
                           <div className="panel-body-inner">
                             <div className="form">
                               <div className="form-group-wrapper">
