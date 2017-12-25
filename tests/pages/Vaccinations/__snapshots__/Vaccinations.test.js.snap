@@ -1,0 +1,716 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Vaccinations /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VaccinationDetail
+          currentPanel="vaccinationsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "comment": "twest",
+              "dateCreated": 1511434248000,
+              "series": "1",
+              "source": "ethercis",
+              "sourceId": "b9ececa8-4e84-4229-8ee3-1fa0bc8519a2",
+              "vaccinationDateTime": 1510437600000,
+              "vaccinationName": "1",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="vaccinationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vaccinationsCreate"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with vaccinationsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="vaccinationsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="vaccinationsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vaccinationsCreate"
+          title="Create Vaccination"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with vaccinationsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="vaccinationsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="vaccinationsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vaccinationsCreate"
+          title="Create Vaccination"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with vaccinationsPanel and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="vaccinationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vaccinationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vaccinations"
+          />
+          <PluginMainPanel
+            columnNameSortBy="vaccinationName"
+            emptyDataMessage="No vaccinations"
+            headers={
+              Array [
+                Object {
+                  "key": "vaccinationName",
+                  "title": "Name",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vaccinations"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VaccinationDetail
+          currentPanel="vaccinationsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "comment": "twest",
+              "dateCreated": 1511434248000,
+              "series": "1",
+              "source": "ethercis",
+              "sourceId": "b9ececa8-4e84-4229-8ee3-1fa0bc8519a2",
+              "vaccinationDateTime": 1510437600000,
+              "vaccinationName": "1",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="vaccinationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vaccinationsPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with vaccinationsPanel and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VaccinationDetail
+          currentPanel="vaccinationsDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "comment": "twest",
+              "dateCreated": 1511434248000,
+              "series": "1",
+              "source": "ethercis",
+              "sourceId": "b9ececa8-4e84-4229-8ee3-1fa0bc8519a2",
+              "vaccinationDateTime": 1510437600000,
+              "vaccinationName": "1",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="vaccinationsPanel"
+          isSubmit={false}
+          name="vaccinationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vaccinationsPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vaccinations /> should renders correctly with vaccinationsPanel and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;
