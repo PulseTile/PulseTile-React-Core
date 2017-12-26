@@ -100,7 +100,7 @@ export default class DrawingsDetail extends PureComponent {
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">{valuesLabels.SOURCE}</label>
+                        <label className="control-label">{valuesLabels.DATE_CREATED}</label>
                         <div className="form-control-static">{dateCreated}</div>
                       </div>
                     </div>

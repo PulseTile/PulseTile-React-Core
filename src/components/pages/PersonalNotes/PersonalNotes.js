@@ -81,6 +81,7 @@ export default class PersonalNotes extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
