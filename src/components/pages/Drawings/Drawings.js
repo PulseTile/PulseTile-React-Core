@@ -143,8 +143,11 @@ export default class Drawings extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
-      isLoading: true,
+      isLoading: false,
     }))
+    if (name === DRAWING_PANEL) {
+      this.setState({ isLoading: true })
+    }
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
@@ -196,7 +199,7 @@ export default class Drawings extends PureComponent {
     }
 
     if (!_.isEmpty(drawingsDetailFormState)) {
-      sendData[valuesNames.DRAWING] = drawingDetail.drawingBase64;
+      sendData[valuesNames.DRAWING] = drawingDetail[valuesNames.DRAWING];
       sendData[valuesNames.SOURCE_ID] = drawingDetail[valuesNames.SOURCE_ID];
     }
 

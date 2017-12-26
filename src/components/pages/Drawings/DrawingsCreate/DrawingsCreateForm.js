@@ -49,9 +49,9 @@ export default class DrawingsCreateForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.DATE}
-                  name={valuesNames.DATE}
-                  id={valuesNames.DATE}
+                  label={valuesLabels.DATE_CREATED}
+                  name={valuesNames.DATE_CREATED}
+                  id={valuesNames.DATE_CREATED}
                   component={DateInput}
                   props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />
