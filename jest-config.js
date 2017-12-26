@@ -22,8 +22,7 @@ module.exports = {
     '**/src/components/containers/**.{js,jsx}',
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
-
-
+    '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
     '!**/src/components/**{forms.validation.js}',
