@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsLists /> should renders correctly 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PTPanel
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients By Settings
+          </h3>
+        }
+      >
+        <PatientsChart
+          backgroundColor="rgba(36, 161, 116,0.3)"
+          borderColor="rgba(36, 161, 116,1)"
+          isChartsDataReceived={false}
+          labels={
+            Array [
+              Object {
+                "name": "Community Care",
+                "predicate": [Function],
+                "prefix": "department",
+                "prefixLabel": "Setting",
+              },
+              Object {
+                "name": "Hospital",
+                "predicate": [Function],
+                "prefix": "department",
+                "prefixLabel": "Setting",
+              },
+              Object {
+                "name": "Mental Health",
+                "predicate": [Function],
+                "prefix": "department",
+                "prefixLabel": "Setting",
+              },
+              Object {
+                "name": "Neighbourhood",
+                "predicate": [Function],
+                "prefix": "department",
+                "prefixLabel": "Setting",
+              },
+              Object {
+                "name": "Primary Care",
+                "predicate": [Function],
+                "prefix": "department",
+                "prefixLabel": "Setting",
+              },
+            ]
+          }
+          onBarClick={[Function]}
+          patients={
+            Array [
+              Array [],
+              Array [],
+              Array [],
+              Array [],
+              Array [],
+            ]
+          }
+          subTitle="This is a brief description of patients by setting."
+          title="Patients By Setting"
+        />
+      </PTPanel>
+      <PTPanel
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients By Age
+          </h3>
+        }
+      >
+        <PatientsChart
+          backgroundColor="rgba(126, 41, 205,0.3)"
+          borderColor="rgba(126, 41, 205,1)"
+          isChartsDataReceived={false}
+          labels={
+            Array [
+              Object {
+                "from": 19,
+                "name": "19-30",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 30,
+              },
+              Object {
+                "from": 31,
+                "name": "31-60",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 60,
+              },
+              Object {
+                "from": 61,
+                "name": "61-80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 80,
+              },
+              Object {
+                "from": 81,
+                "name": ">80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 999,
+              },
+            ]
+          }
+          onBarClick={[Function]}
+          patients={
+            Array [
+              Array [],
+              Array [],
+              Array [],
+              Array [],
+            ]
+          }
+          subTitle="This is a brief description of patients by age."
+          title="Patients By Age"
+        />
+      </PTPanel>
+    </Col>
+  </Row>
+</section>
+`;

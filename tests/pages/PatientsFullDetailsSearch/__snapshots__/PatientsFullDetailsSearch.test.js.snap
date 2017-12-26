@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsLists /> should renders correctly 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PatientsList
+        actions={
+          Object {
+            "fetchAdvancedPatientSearchRequest": [Function],
+            "fetchBasicPatientSearchRequest": [Function],
+            "fetchPatientCountsRequest": [Function],
+          }
+        }
+        allPatients={Array []}
+        allPatientsWithCounts={Array []}
+        location={
+          Object {
+            "pathname": "/patients",
+            "search": "?ageRange=61-80",
+          }
+        }
+        match={
+          Object {
+            "params": Object {},
+          }
+        }
+        panelTitle="undefined undefined"
+        patientsPerPageAmount={10}
+        store={
+          Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+        storeSubscription={
+          Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          }
+        }
+      />
+    </Col>
+  </Row>
+</section>
+`;
