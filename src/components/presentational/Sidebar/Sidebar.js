@@ -84,6 +84,7 @@ export default class Sidebar extends PureComponent {
 
   hideSidebarOnMobile = () => {
     const { actions } = this.props;
+		/* istanbul ignore next */
     if (window.innerWidth < 768) {
       /* istanbul ignore next */
       actions.setSidebarVisibility(false);

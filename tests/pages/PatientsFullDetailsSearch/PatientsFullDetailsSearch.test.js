@@ -33,7 +33,7 @@ const context = {
   },
 };
 
-describe('Component <PatientsLists />', () => {
+describe('Component <PatientsFullDetailsSearch />', () => {
   it('should renders correctly', () => {
     const component = shallow(
       <PatientsFullDetailsSearch

@@ -27,7 +27,7 @@ const context = {
   },
 };
 
-describe('Component <PatientsLists />', () => {
+describe('Component <SystemDashboard />', () => {
   it('should renders correctly', () => {
     const component = shallow(
       <SystemDashboard

@@ -15,7 +15,8 @@ import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duc
 import { setLogo } from '../../../ducks/set-logo.duck';
 import { setTitle } from '../../../ducks/set-title.duck';
 import { setTheme } from '../../../ducks/set-theme.duck';
-import themes from './theme-config'
+import { valuesSettingsFormLabels, valuesPersonalFormLabels, valuesContactFormLabels } from './forms/values-names.config';
+import themes from './theme-config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
@@ -89,13 +90,13 @@ class UserProfile extends PureComponent {
     const { formState, patientsInfo } = this.props;
 
 
-    const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
+		const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
         <Row>
           <Col xs={12}>
-            <div className="section-main ng-scope">
+            <div className="section-main">
               <div className="panel-group accordion">
                 {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && !editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
                   name={APPLICATION_PREFERENCES}
@@ -115,22 +116,19 @@ class UserProfile extends PureComponent {
                             <Row>
                               <div className="col-md-11">
                                 <div className="form-group">
-                                  <label className="control-label">Application
-                                                      Title</label>
-                                  <div className="form-control-static">{patientsInfo.title} </div>
+                                  <label className="control-label">{valuesSettingsFormLabels.APP_TITLE}</label>
+                                  <div className="form-control-static">{patientsInfo.title}</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Application
-                                                      Logo File</label>
+                                  <label className="control-label">{valuesSettingsFormLabels.LOGO_PATH}</label>
                                   <div className="form-control-static">
                                     <img src={patientsInfo.logoB64} alt="Logo Example" />
                                   </div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Application
-                                                      Theme</label>
+                                  <label className="control-label">{valuesSettingsFormLabels.SELECT_THEME_ONE}</label>
                                   <div className="palette-color">
                                     <span className="palette-color-icon" style={{ background: theme.baseColor }}></span>
                                     <span className="palette-color-name">{theme.name}</span>
@@ -138,9 +136,8 @@ class UserProfile extends PureComponent {
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Browser
-                                                      Window Title</label>
-                                  <div className="form-control-static"> {patientsInfo.browserTitle} </div>
+                                  <label className="control-label">{valuesSettingsFormLabels.BROWSER_TITLE}</label>
+                                  <div className="form-control-static">{patientsInfo.browserTitle}</div>
                                 </div>
                               </div>
                             </Row>
@@ -166,6 +163,7 @@ class UserProfile extends PureComponent {
                     patientsInfo={patientsInfo}
                   />
                 </PersonalInformationPanel> : null }
+
                 {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && !editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
                   name={PERSONAL_INFORMATION}
                   title="Personal Information"
@@ -184,17 +182,17 @@ class UserProfile extends PureComponent {
                             <Row>
                               <Col md={11}>
                                 <div className="form-group">
-                                  <label className="control-label">First Name</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.FIRST_NAME}</label>
                                   <div className="form-control-static">Bob</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Last Name</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.LAST_NAME}</label>
                                   <div className="form-control-static">Smith</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">NHS No</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.NHS_NUMBER}</label>
                                   <div className="form-control-static" />
                                 </div>
                               </Col>
@@ -204,17 +202,17 @@ class UserProfile extends PureComponent {
                             <Row>
                               <div className="col-md-11 col-md-offset-1">
                                 <div className="form-group">
-                                  <label className="control-label">Date of Birth</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.DATE_OF_BIRTH}</label>
                                   <div className="form-control-static ng-binding">10-Sep-2017</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Gender</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.SELECT_GENDER}</label>
                                   <div className="form-control-static ng-binding">Female</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Doctor</label>
+                                  <label className="control-label">{valuesPersonalFormLabels.DOCTOR}</label>
                                   <div className="form-control-static ng-binding">Dr Emma Huston</div>
                                 </div>
                               </div>
@@ -238,6 +236,7 @@ class UserProfile extends PureComponent {
                 >
                   <PersonalForm />
                 </PersonalInformationPanel> : null }
+
                 {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && !editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
                   name={CONTACT_INFORMATION}
                   title="Contact Information"
@@ -256,27 +255,27 @@ class UserProfile extends PureComponent {
                             <div className="row">
                               <div className="col-md-11">
                                 <div className="form-group">
-                                  <label className="control-label">Address</label>
+                                  <label className="control-label">{valuesContactFormLabels.ADDRESS}</label>
                                   <div className="form-control-static ng-binding">6801 Tellus Street</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">City</label>
+                                  <label className="control-label">{valuesContactFormLabels.CITY}</label>
                                   <div className="form-control-static ng-binding">Westmorland</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">State</label>
+                                  <label className="control-label">{valuesContactFormLabels.STATE}</label>
                                   <div className="form-control-static ng-binding">Westmorland</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Postal Code</label>
+                                  <label className="control-label">{valuesContactFormLabels.POSTAL_CODE}</label>
                                   <div className="form-control-static ng-binding">Box 306</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Country</label>
+                                  <label className="control-label">{valuesContactFormLabels.SELECT_COUNTRY}</label>
                                   <div className="form-control-static ng-binding">USA</div>
                                 </div>
                               </div>
@@ -286,12 +285,12 @@ class UserProfile extends PureComponent {
                             <div className="row">
                               <div className="col-md-11 col-md-offset-1">
                                 <div className="form-group">
-                                  <label className="control-label">Phone Number</label>
+                                  <label className="control-label">{valuesContactFormLabels.PHONE}</label>
                                   <div className="form-control-static ng-binding">07624 647524</div>
                                 </div>
 
                                 <div className="form-group">
-                                  <label className="control-label">Email</label>
+                                  <label className="control-label">{valuesContactFormLabels.EMAIL}</label>
                                   <div className="form-control-static">bob.smith@gmail.com</div>
                                 </div>
                               </div>
@@ -315,6 +314,7 @@ class UserProfile extends PureComponent {
                 >
                   <ContactForm />
                 </PersonalInformationPanel> : null }
+
                 {expandedPanel === 'changeHistory' || expandedPanel === 'all' ? <PersonalInformationPanel
                   name={CHANGE_HISTORY}
                   title="Change History"
@@ -325,7 +325,7 @@ class UserProfile extends PureComponent {
                   editedPanel={editedPanel}
                   onCancel={this.handleCancel}
                 >
-                  <div className="panel-body-inner ng-scope">
+                  <div className="panel-body-inner">
                     <div className="form">
                       <div className="form-group-wrapper">
                         <div className="form-group">
@@ -339,7 +339,7 @@ class UserProfile extends PureComponent {
                       </div>
                     </div>
                   </div>
-                  <div className="panel-body-inner ng-scope">
+                  <div className="panel-body-inner">
                     <div className="form">
                       <div className="form-group-wrapper">
                         <div className="form-group">

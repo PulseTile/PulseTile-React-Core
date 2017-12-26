@@ -38,7 +38,7 @@ export default class PersonalInformationPanel extends PureComponent {
           </div>
           <div className="panel-body">
             {children}
-            {(name !== 'changeHistory' && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control ng-scope">
+            {(name !== 'changeHistory' && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control">
               <div className="wrap-control-group">
                 <div className="control-group right">
                   <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
@@ -47,7 +47,7 @@ export default class PersonalInformationPanel extends PureComponent {
                 </div>
               </div>
             </div> : null }
-            {(name !== 'changeHistory' && editedPanel[name]) && <div className="panel-control ng-scope">
+            {(name !== 'changeHistory' && editedPanel[name]) && <div className="panel-control">
               <div className="wrap-control-group">
                 <div className="control-group right">
                   <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>

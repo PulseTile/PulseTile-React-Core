@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PatientsLists /> should renders correctly 1`] = `
+exports[`Component <PatientsFullDetailsSearch /> should renders correctly 1`] = `
 <section
   className="page-wrapper"
 >

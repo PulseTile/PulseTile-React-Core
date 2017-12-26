@@ -56,7 +56,7 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should be with transitions', () => {
+  it('should work methods', () => {
     let offset = 0;
     const setOffset = (page) => {
       offset = page;
@@ -119,5 +119,23 @@ describe('Component <PaginationBlock />', () => {
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
+
+	it('should work all methods of component', () => {
+		const offset = 30;
+		const totalEntriesAmount = 29;
+		const paginationBlock = shallow(
+      <PaginationBlock
+        offset={offset}
+        entriesPerPage={entriesPerPage}
+        totalEntriesAmount={totalEntriesAmount}
+        setOffset={handleSetOffset}
+      />);
+
+		paginationBlock.instance().setPage(101)();
+		paginationBlock.instance().setPage(0)();
+	});
 });
+
+
+
 
