@@ -49,3 +49,17 @@ exports[`Component <MainLogo /> should renders when the role of the patient 1`] 
   </div>
 </div>
 `;
+
+exports[`Component <MainLogo /> should renders without role 1`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    />
+  </div>
+</div>
+`;

@@ -8,13 +8,8 @@ import FileInput from '../../../form-fields/FileInput';
 import { optionsForThemesField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
 import { validateAppSettingsForm } from './validation';
-import { valuesSettingsForm } from './values-names.config';
+import { valuesSettingsForm, valuesSettingsFormLabels } from './values-names.config';
 import { setTheme } from '../../../../ducks/set-theme.duck';
-
-const setThemeHook = dispatch => (theme) => {
-  dispatch(setTheme(theme));
-  return theme;
-};
 
 @reduxForm({
   form: 'appSettingsFormSelector',
@@ -42,6 +37,11 @@ export default class AppSettingsForm extends PureComponent {
     return defaultFormValues;
   };
 
+	setThemeHook = dispatch => (theme) => {
+		dispatch(setTheme(theme));
+		return theme;
+	};
+
   render() {
     const { dispatch } = this.props;
 
@@ -54,28 +54,28 @@ export default class AppSettingsForm extends PureComponent {
                 <Row>
                   <Col md={11}>
                     <Field
-                      label="Application Title"
+                      label={valuesSettingsFormLabels.APP_TITLE}
                       name={valuesSettingsForm.APP_TITLE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="Application Logo File"
+                      label={valuesSettingsFormLabels.LOGO_PATH}
                       name={valuesSettingsForm.LOGO_PATH}
                       component={FileInput}
                       id={valuesSettingsForm.LOGO_PATH}
                     />
                     <Field
-                      label="Application Themes"
+                      label={valuesSettingsFormLabels.SELECT_THEME}
                       name={valuesSettingsForm.SELECT_THEME}
                       component={Select}
                       options={optionsForThemesField}
                       //here we're using normalize hook for dispatching action to set app theme
-                      normalize={setThemeHook(dispatch)}
+                      normalize={this.setThemeHook(dispatch)}
                     />
                     <Field
-                      label="Browser Window title"
+                      label={valuesSettingsFormLabels.BROWSER_TITLE}
                       name={valuesSettingsForm.BROWSER_TITLE}
                       type="text"
                       placeholder=""

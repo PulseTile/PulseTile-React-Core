@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ContactForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="contactForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={11}
+            >
+              <Field
+                component={[Function]}
+                label="Address"
+                name="address"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="City"
+                name="city"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="State"
+                name="state"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="Postal Code"
+                name="postalCode"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="Country"
+                name="country"
+                options={
+                  Array [
+                    Object {
+                      "title": "USA",
+                      "value": "usa",
+                    },
+                    Object {
+                      "title": "Country 1",
+                      "value": "country1",
+                    },
+                    Object {
+                      "title": "Country 2",
+                      "value": "country2",
+                    },
+                    Object {
+                      "title": "Country 3",
+                      "value": "country3",
+                    },
+                    Object {
+                      "title": "Country 4",
+                      "value": "country4",
+                    },
+                    Object {
+                      "title": "Country 5",
+                      "value": "country5",
+                    },
+                  ]
+                }
+                placeholder=""
+              />
+            </Col>
+          </Row>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={11}
+              mdOffset={1}
+            >
+              <Field
+                component={[Function]}
+                label="Phone Number"
+                name="phone"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="Email"
+                name="email"
+                placeholder=""
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  </form>
+</div>
+`;

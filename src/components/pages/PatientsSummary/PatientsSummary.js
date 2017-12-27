@@ -80,8 +80,8 @@ export default class PatientsSummary extends PureComponent {
         {isDisclaimerModalVisible && <ConfirmationModal
           title={'Notification'}
           isShow={true}
-          onOk={onClose}
-          onHide={onClose}
+          onOk={this.closeDisclaimer}
+          onHide={this.closeDisclaimer}
           isShowOkButton
         >
           <span>You was redirected to your home page because you are logged in as a PHR user.</span>

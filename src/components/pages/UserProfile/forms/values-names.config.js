@@ -4,6 +4,14 @@ const valuesSettingsForm = {
   SELECT_THEME: 'themeColor',
   BROWSER_TITLE: 'browserTitle',
 };
+const valuesSettingsFormLabels = {
+	APP_TITLE: 'Application Title',
+	LOGO_PATH: 'Application Logo File',
+	SELECT_THEME: 'Application Themes',
+	SELECT_THEME_ONE: 'Application Theme',
+	BROWSER_TITLE: 'Browser Window title',
+};
+
 
 const valuesPersonalForm = {
   FIRST_NAME: 'firstname',
@@ -13,6 +21,15 @@ const valuesPersonalForm = {
   SELECT_GENDER: 'gender',
   DOCTOR: 'doctor',
 };
+const valuesPersonalFormLabels = {
+	FIRST_NAME: 'First Name',
+	LAST_NAME: 'Last Name',
+	NHS_NUMBER: 'NHS No',
+	DATE_OF_BIRTH: 'Date of Birth',
+	SELECT_GENDER: 'Gender',
+	DOCTOR: 'Doctor',
+};
+
 
 const valuesContactForm = {
   ADDRESS: 'address',
@@ -23,5 +40,14 @@ const valuesContactForm = {
   PHONE: 'phone',
   EMAIL: 'email',
 };
+const valuesContactFormLabels = {
+	ADDRESS: 'Address',
+	CITY: 'City',
+	STATE: 'State',
+	POSTAL_CODE: 'Postal Code',
+	SELECT_COUNTRY: 'Country',
+	PHONE: 'Phone Number',
+	EMAIL: 'Email',
+};
 
-export { valuesSettingsForm, valuesPersonalForm, valuesContactForm }
+export { valuesSettingsForm, valuesSettingsFormLabels, valuesPersonalForm, valuesPersonalFormLabels, valuesContactForm, valuesContactFormLabels }

@@ -1,9 +1,9 @@
 module.exports = {
   roots: ['<rootDir>/tests'],
-  verbose: true,
-  modulePaths: [
-    '__stubs__',
-  ],
+	verbose: true,
+	modulePaths: [
+		'__stubs__',
+	],
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, navigateTo, goToState, state }) => {
+const SimpleDashboardPanel = ({ title, items, goToState, state }) => {
   return (<div className="dashboard-item">
     <div className="board">
       <div className="board-header">
