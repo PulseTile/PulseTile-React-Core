@@ -17,6 +17,7 @@
     padding: 10px 4px 10px 5px;
     vertical-align: middle;
     word-wrap: break-word;
+    line-height: 20px;
     @include respond-from(sm) {
       padding: 10px 4px 10px 10px;
     }
@@ -69,7 +70,7 @@
 }
 .wrap-table-scrollX {
   max-width: initial;
-  overflow-x: scroll; 
+  overflow-x: scroll;
   width: 100%;
   .table { width: 1px; }
 }
@@ -94,8 +95,10 @@
   background-color: map-get($colored-table, 'background');
   tbody {
     tr {
-      &[ng-click]:hover td,
-      &:hover td[ng-click] {
+      &:hover td[data-table-hover] {
+        background-color: map-get($colored-table, 'row-background-hover');
+      }
+      &.hovered td[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
     }
@@ -165,7 +168,7 @@ td[ng-click] { cursor: pointer; }
           display: block;
           overflow: hidden;
         }
-        &:before {
+        &[data-th]:before {
           content: attr(data-th)": ";
           display: block;
           float: left;

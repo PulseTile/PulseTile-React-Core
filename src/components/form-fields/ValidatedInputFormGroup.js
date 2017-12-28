@@ -5,17 +5,17 @@ import CustomInputCheckbox from './CustomInputCheckbox';
 
 export default class ValidatedInputFormGroup extends PureComponent {
     static propTypes = {
-			label: PropTypes.string.isRequired,
-			labelCheckbox: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      labelCheckbox: PropTypes.string,
       placeholder: PropTypes.string,
       input: PropTypes.object.isRequired,
       meta: PropTypes.shape({
         active: PropTypes.bool,
-        error: PropTypes.string,
+        error: PropTypes.any,
       }).isRequired,
     };
 
-    state={
+    state = {
       isChanged: false,
     };
 
@@ -26,16 +26,16 @@ export default class ValidatedInputFormGroup extends PureComponent {
     }
 
     render() {
-      const { label, labelCheckbox, placeholder, input, type, meta: { error, touched }, id, disabled, isSubmit, isNotValidate } = this.props;
+      const { label, labelCheckbox, placeholder, input, type, meta: { error, touched }, id, disabled, isSubmit, isNotValidate, isAdvancedSearch } = this.props;
       const { isChanged } = this.state;
       const showError = ((touched || isChanged || isSubmit) && error);
 
       return (
         <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
-          <label htmlFor={input.name} className="control-label">{label}</label>
+          <label htmlFor={id} className="control-label">{label}</label>
           <div className="input-holder">
-						{
-							type === 'checkbox' ? <CustomInputCheckbox
+            {
+              type === 'checkbox' ? <CustomInputCheckbox
                 labelCheckbox={labelCheckbox}
                 name={name}
                 id={id}
@@ -47,13 +47,13 @@ export default class ValidatedInputFormGroup extends PureComponent {
                 id={id}
                 type={type}
                 disabled={disabled}
-								{...input}
+                {...input}
               />
-						}
+            }
           </div>
-          {showError && <span className="required-label">{error}</span>}
+          {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+          {(showError && !isNotValidate && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
         </div>
-			)
-
+      )
     }
 }

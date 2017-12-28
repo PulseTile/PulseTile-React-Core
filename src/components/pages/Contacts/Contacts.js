@@ -12,6 +12,8 @@ import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
+import { defaultFormValues } from './ContactsCreate/default-values.config';
+
 import { fetchPatientContactsRequest } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contacts-create.duck';
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
@@ -19,7 +21,7 @@ import { fetchPatientContactsDetailEditRequest } from './ducks/fetch-patient-con
 import { fetchPatientContactsOnMount, fetchPatientContactsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientContactsSelector, contactsDetailFormStateSelector, contactsCreateFormStateSelector, metaPanelFormStateSelector, patientContactsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
@@ -54,7 +56,7 @@ export default class Contacts extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: CONTACT_PANEL,
-    columnNameSortBy: 'name',
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -66,14 +68,28 @@ export default class Contacts extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    }
+
+    /* istanbul ignore next */
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
  handleExpand = (name, currentPanel) => {
@@ -94,43 +110,18 @@ export default class Contacts extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailContactsClick = (id, name, sourceId) => {
+  handleDetailContactsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientContactsDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}`);
-  };
-
-  filterAndSortContacts = (contacts) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByRelationshipPredicate = _.flow(_.get('relationship'), _.toLower, _.includes(nameShouldInclude));
-    const filterByNextOfKinPredicate = _.flow(_.get('nextOfKin'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(contacts);
-    const filterByRelationship = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByRelationshipPredicate))(contacts);
-    const filterByNextOfKin = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNextOfKinPredicate))(contacts);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(contacts);
-
-    const filteredAndSortedContacts = [filterByName, filterByRelationship, filterByNextOfKin, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedContacts)
   };
 
  handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`);
   };
 
@@ -151,24 +142,21 @@ export default class Contacts extends PureComponent {
        [name]: false,
      },
      isSubmit: false,
+     isLoading: true,
    }))
  };
 
  handleSaveSettingsDetailForm = (formValues, name) => {
-   const { actions, contactDetail, userId, contactsDetailFormState } = this.props;
-   const sourceId = contactDetail.sourceId;
+   const { actions, contactsDetailFormState } = this.props;
    if (checkIsValidateForm(contactsDetailFormState)) {
      actions.fetchPatientContactsDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-     setTimeout(() => {
-       actions.fetchPatientContactsRequest({ userId });
-       actions.fetchPatientContactsDetailRequest({ userId, sourceId });
-     }, 1000);
      this.setState(prevState => ({
        editedPanel: {
          ...prevState.editedPanel,
          [name]: false,
        },
        isSubmit: false,
+       isLoading: true,
      }))
    } else {
      this.setState({ isSubmit: true });
@@ -177,7 +165,7 @@ export default class Contacts extends PureComponent {
 
  handleCreateCancel = () => {
    const { userId } = this.props;
-   this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false });
+   this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
  };
 
@@ -186,10 +174,9 @@ export default class Contacts extends PureComponent {
 
    if (checkIsValidateForm(contactsCreateFormState)) {
      actions.fetchPatientContactsCreateRequest(this.formValuesToString(formValues, 'create'));
-     setTimeout(() => actions.fetchPatientContactsRequest({ userId }), 1000);
      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}`);
      this.hideCreateForm();
-     this.setState({ isSubmit: false });
+     this.setState({ isSubmit: false, isLoading: true });
    } else {
      this.setState({ isSubmit: true });
    }
@@ -203,19 +190,19 @@ export default class Contacts extends PureComponent {
    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
    sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
    sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
-   sendData[valuesNames.REALATIONSHIP_TYPE] = formValues[valuesNames.REALATIONSHIP_TYPE];
    sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
-   sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = formValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
+   sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
    sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-   sendData.dateSubmitted = new Date();
-   sendData.source = 'ethercis';
+   sendData[valuesNames.DATE_SUBMITTED] = new Date();
+   sendData[valuesNames.SOURCE] = 'ethercis';
 
    if (formName === 'edit') {
-     sendData.sourceId = contactDetail.sourceId;
+     sendData[valuesNames.SOURCE_ID] = contactDetail[valuesNames.SOURCE_ID];
    }
 
+   operationsOnCollection.propsToString(sendData, valuesNames.DATE_SUBMITTED);
    return sendData;
  };
 
@@ -223,104 +210,116 @@ export default class Contacts extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false })
   };
 
- handleShow = (name) => {
-   this.setState({ openedPanel: name })
- };
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
+  };
 
- fixContactsItems = contacts => contacts.map((el) => {
-   el.nextOfKin = el.nextOfKin || false;
-   return el;
- });
+  formToShowCollection = (collection) => {
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
- render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-   const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail, contactsPerPageAmount } = this.props;
+    return operationsOnCollection.filterAndSort({
+      collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, valuesNames.REALATIONSHIP, valuesNames.NEXT_OF_KIN, valuesNames.SOURCE],
+    });
+  };
 
-   const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
-   const isPanelMain = (expandedPanel === CONTACTS_MAIN);
-   const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail } = this.props;
 
-   let fixedAllContacts;
+    const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
+    const isPanelMain = (expandedPanel === CONTACTS_MAIN);
+    const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
-   if (allContacts) {
-     fixedAllContacts = this.fixContactsItems(allContacts);
-   }
+    /* istanbul ignore next */
+    const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
+      key: valuesNames.NEXT_OF_KIN,
+      fn: el => (el || false),
+    }]);
+    const filteredContacts = this.formToShowCollection(fixedAllContacts);
 
-   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-   const filteredContacts = this.filterAndSortContacts(fixedAllContacts);
+    let sourceId;
+    if (!_.isEmpty(contactDetail)) {
+      sourceId = contactDetail[valuesNames.SOURCE_ID];
+    }
 
-   return (<section className="page-wrapper">
-     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-       <Row>
-         {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-           <div className="panel panel-primary">
-             <PluginListHeader
-               onFilterChange={this.handleFilterChange}
-               panelTitle="Contacts"
-               isBtnExpandVisible={isBtnExpandVisible}
-               isBtnTableVisible={false}
-               name={CONTACTS_MAIN}
-               onExpand={this.handleExpand}
-               currentPanel={CONTACTS_MAIN}
-             />
-             <PluginMainPanel
-               headers={columnsToShowConfig}
-               resourceData={fixedAllContacts}
-               emptyDataMessage="No contacts"
-               onHeaderCellClick={this.handleHeaderCellClick}
-               onCellClick={this.handleDetailContactsClick}
-               columnNameSortBy={columnNameSortBy}
-               sortingOrder={sortingOrder}
-               table="contacts"
-
-               filteredData={filteredContacts}
-               totalEntriesAmount={_.size(fixedAllContacts)}
-               offset={offset}
-               setOffset={this.handleSetOffset}
-               isBtnCreateVisible={isBtnCreateVisible}
-               onCreate={this.handleCreate}
-             />
-           </div>
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <ContactsDetail
-             onExpand={this.handleExpand}
-             name={CONTACTS_DETAIL}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={CONTACTS_DETAIL}
-             detail={contactDetail}
-             onEdit={this.handleEdit}
-             editedPanel={editedPanel}
-             onCancel={this.handleContactDetailCancel}
-             onSaveSettings={this.handleSaveSettingsDetailForm}
-             contactsDetailFormValues={contactsDetailFormState.values}
-             metaPanelFormValues={metaPanelFormState.values}
-             isSubmit={isSubmit}
-           />
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <PluginCreate
-             title="Create Contact"
-             onExpand={this.handleExpand}
-             name={CONTACTS_CREATE}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={CONTACTS_CREATE}
-             onSaveSettings={this.handleSaveSettingsCreateForm}
-             formValues={contactsCreateFormState.values}
-             onCancel={this.handleCreateCancel}
-             isCreatePanelVisible={isCreatePanelVisible}
-             componentForm={
-               <ContactsCreateForm isSubmit={isSubmit} />
-             }
-           />
-         </Col> : null}
-       </Row>
-     </div>
-   </section>)
- }
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+            <div className="panel panel-primary">
+              <PluginListHeader
+                onFilterChange={this.handleFilterChange}
+                panelTitle="Contacts"
+                isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
+                name={CONTACTS_MAIN}
+                onExpand={this.handleExpand}
+                currentPanel={CONTACTS_MAIN}
+              />
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={fixedAllContacts}
+                emptyDataMessage="No contacts"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailContactsClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="contacts"
+                filteredData={filteredContacts}
+                totalEntriesAmount={_.size(filteredContacts)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
+              />
+            </div>
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <ContactsDetail
+              onExpand={this.handleExpand}
+              name={CONTACTS_DETAIL}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={CONTACTS_DETAIL}
+              detail={contactDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleContactDetailCancel}
+              onSaveSettings={this.handleSaveSettingsDetailForm}
+              contactsDetailFormValues={contactsDetailFormState.values}
+              metaPanelFormValues={metaPanelFormState.values}
+              isSubmit={isSubmit}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              title="Create Contact"
+              onExpand={this.handleExpand}
+              name={CONTACTS_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={CONTACTS_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={contactsCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ContactsCreateForm isSubmit={isSubmit} />
+              }
+            />
+          </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }

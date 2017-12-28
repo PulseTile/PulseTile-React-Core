@@ -17,12 +17,12 @@ import { fetchPatientPersonalNotesRequest } from './ducks/fetch-patient-personal
 import { fetchPatientPersonalNotesDetailRequest } from './ducks/fetch-patient-personal-notes-detail.duck';
 import { fetchPatientPersonalNotesDetailEditRequest } from './ducks/fetch-patient-personal-notes-detail-edit.duck';
 import { fetchPatientPersonalNotesCreateRequest } from './ducks/fetch-patient-personal-notes-create.duck';
-import { fetchPatientPersonalNotesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientPersonalNotesOnMount, fetchPatientPersonalNotesDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientPersonalNotesSelector, patientPersonalNotesDetailSelector, personalNotePanelFormSelector, personalCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import PersonalNotesDetail from './PersonalNotesDetail/PersonalNotesDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
 const PERSONAL_NOTES_MAIN = 'personalNotesMain';
 const PERSONAL_NOTES_DETAIL = 'personalNotesDetail';
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientPersonalNotesDetailSelector, mapDispatchToProps)
 @connect(personalNotePanelFormSelector)
 @connect(personalCreateFormStateSelector)
-@compose(lifecycle(fetchPatientPersonalNotesOnMount))
+@compose(lifecycle(fetchPatientPersonalNotesOnMount), lifecycle(fetchPatientPersonalNotesDetailOnMount))
 export default class PersonalNotes extends PureComponent {
   static propTypes = {
     allPersonalNotes: PropTypes.arrayOf(PropTypes.object),
@@ -51,7 +51,7 @@ export default class PersonalNotes extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: PERSONAL_NOTES_PANEL,
-    columnNameSortBy: 'noteType',
+    columnNameSortBy: valuesNames.TYPE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -63,14 +63,28 @@ export default class PersonalNotes extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PERSONAL_NOTES_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    }
+
+    /* istanbul ignore next */
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -91,51 +105,18 @@ export default class PersonalNotes extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailPersonalNotesClick = (id, name, sourceId) => {
+  handleDetailPersonalNotesClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, editedPanel: {}, expandedPanel: 'all' });
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientPersonalNotesDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/${sourceId}`);
-  };
-
-  filterAndSortPersonalNotes = (personalNotes) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByPersonalNotesTypePredicate = _.flow(_.get('noteType'), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('dateCreated'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (personalNotes !== undefined) {
-      personalNotes.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
-      });
-    }
-
-    const filterByPersonalNotesType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByPersonalNotesTypePredicate))(personalNotes);
-    const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(personalNotes);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(personalNotes);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(personalNotes);
-
-    const filteredAndSortedPersonalNotes = [filterByPersonalNotesType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === 'dateCreated') {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedPersonalNotes)
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PERSONAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PERSONAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}/create`);
   };
 
@@ -156,24 +137,21 @@ export default class PersonalNotes extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, personalNoteFormState, userId, personalNoteDetail } = this.props;
-    const sourceId = personalNoteDetail.sourceId;
+    const { actions, personalNoteFormState } = this.props;
     if (checkIsValidateForm(personalNoteFormState)) {
       actions.fetchPatientPersonalNotesDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientPersonalNotesDetailRequest({ userId, sourceId });
-        actions.fetchPatientPersonalNotesRequest({ userId });
-      }, 2000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -182,7 +160,7 @@ export default class PersonalNotes extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}`);
   };
 
@@ -190,9 +168,9 @@ export default class PersonalNotes extends PureComponent {
     const { actions, userId, personalCreateFormState } = this.props;
     if (checkIsValidateForm(personalCreateFormState)) {
       actions.fetchPatientPersonalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientPersonalNotesRequest({userId}), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PERSONAL_NOTES}`);
       this.hideCreateForm();
+      this.setState({ isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -201,22 +179,25 @@ export default class PersonalNotes extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, personalNoteDetail } = this.props;
     const sendData = {};
+    const currentDate = new Date();
 
     sendData.userId = userId;
-    sendData[valuesNames.NOTE_TYPE] = formValues[valuesNames.NOTE_TYPE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
     sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData.sourceId = personalNoteDetail.sourceId;
-      sendData.source = personalNoteDetail.source;
+      sendData[valuesNames.SOURCE_ID] = personalNoteDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = personalNoteDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
-      sendData.source = formValues[valuesNames.SOURCE];
+      sendData[valuesNames.DATE] = currentDate.getTime();
+      sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE);
     return sendData;
   };
 
@@ -224,8 +205,26 @@ export default class PersonalNotes extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PERSONAL_NOTES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
+  formToShowCollection = (collection) => {
+    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE,
+      keyTo: `${valuesNames.DATE}Convert`,
+      fn: getDDMMMYYYY,
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE}Convert`, valuesNames.SOURCE],
+    });
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allPersonalNotes, personalNoteDetail, personalNoteFormState, personalCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === PERSONAL_NOTES_DETAIL || expandedPanel === PERSONAL_NOTES_PANEL);
@@ -234,7 +233,12 @@ export default class PersonalNotes extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredPersonalNotes = this.filterAndSortPersonalNotes(allPersonalNotes);
+    const filteredPersonalNotes = this.formToShowCollection(allPersonalNotes);
+
+    let sourceId;
+    if (!_.isEmpty(personalNoteDetail)) {
+      sourceId = personalNoteDetail[valuesNames.SOURCE_ID];
+    }
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -259,11 +263,13 @@ export default class PersonalNotes extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="personalNotes"
                 filteredData={filteredPersonalNotes}
-                totalEntriesAmount={_.size(allPersonalNotes)}
+                totalEntriesAmount={_.size(filteredPersonalNotes)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null }

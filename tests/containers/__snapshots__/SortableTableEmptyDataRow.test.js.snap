@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SortableTableEmptyDataRow /> should renders correctly 1`] = `
+<tr>
+  <td
+    colSpan={10}
+  >
+    <span
+      className="label label-default"
+    >
+      Loading...
+    </span>
+  </td>
+</tr>
+`;
+
+exports[`Component <SortableTableEmptyDataRow /> should renders correctly 2`] = `
+<tr>
+  <td
+    colSpan={10}
+  >
+    <span
+      className="label label-default"
+    >
+      no messages
+    </span>
+  </td>
+</tr>
+`;

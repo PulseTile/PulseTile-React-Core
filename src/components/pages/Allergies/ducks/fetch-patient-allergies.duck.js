@@ -32,20 +32,20 @@ export const fetchPatientAllergiesEpic = (action$, store) =>
 export const fetchPatientAllergiesUpdateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_ALLERGIES_UPDATE_REQUEST)
     .mergeMap(({ payload }) =>
-			ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/allergies`, {
-				headers: { Cookie: store.getState().credentials.cookie },
-			})
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/allergies`, {
+        headers: { Cookie: store.getState().credentials.cookie },
+      })
         .flatMap((response) => {
           const userId = payload.userId;
           const sourceId = payload.sourceId;
-
           return [
-            fetchPatientAllergiesSuccess({ userId, allergies: response}),
-						fetchPatientAllergiesDetailRequest({ userId, sourceId })
-          ];
+            fetchPatientAllergiesSuccess({ userId, allergies: response }),
+            fetchPatientAllergiesDetailRequest({ userId, sourceId }),
+          ]
         })
         .catch(error => Observable.of(fetchPatientAllergiesFailure(error)))
     );
+
 export default function reducer(patientsAllergies = {}, action) {
   switch (action.type) {
     case FETCH_PATIENT_ALLERGIES_SUCCESS:

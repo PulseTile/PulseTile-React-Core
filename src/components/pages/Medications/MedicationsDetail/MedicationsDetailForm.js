@@ -22,14 +22,14 @@ export default class MedicationsDetailForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.NAME]: value.name,
-      [valuesNames.DOSE_AMOUNT]: value.doseAmount,
-      [valuesNames.DOSE_TIMING]: value.doseTiming,
-      [valuesNames.DOSE_DIRECTIONS]: value.doseDirections,
-      [valuesNames.MEDICATION_CODE]: value.medicationCode,
-      [valuesNames.MEDICATION_TERMINOLOGY]: value.medicationTerminology,
-      [valuesNames.ROUTE]: value.route,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.NAME]: value[valuesNames.NAME],
+      [valuesNames.DOSE_AMOUNT]: value[valuesNames.DOSE_AMOUNT],
+      [valuesNames.DOSE_TIMING]: value[valuesNames.DOSE_TIMING],
+      [valuesNames.DOSE_DIRECTIONS]: value[valuesNames.DOSE_DIRECTIONS],
+      [valuesNames.MEDICATION_CODE]: value[valuesNames.MEDICATION_CODE],
+      [valuesNames.MEDICATION_TERMINOLOGY]: value[valuesNames.MEDICATION_TERMINOLOGY],
+      [valuesNames.ROUTE]: value[valuesNames.ROUTE],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -120,11 +120,11 @@ export default class MedicationsDetailForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.START_DATE}
-                  name={valuesNames.START_DATE}
-                  id={valuesNames.START_DATE}
+                  label={valuesLabels.DATE_CREATED}
+                  name={valuesNames.DATE_CREATED}
+                  id={valuesNames.DATE_CREATED}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.startDate, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

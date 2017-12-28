@@ -1,0 +1,301 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VaccinationCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="vaccinationsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="vaccinationName"
+            label="Vaccination Name"
+            name="vaccinationName"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="vaccinationDateTime"
+                label="Vaccination Date"
+                name="vaccinationDateTime"
+                props={
+                  Object {
+                    "format": "DD-MMM-YYYY",
+                    "isSubmit": true,
+                  }
+                }
+              />
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="source"
+                label="Vaccination Source"
+                name="source"
+                props={
+                  Object {
+                    "className": "non-edit-value ng-binding",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="series"
+            label="Series Number"
+            name="series"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="comment"
+            label="Comment"
+            name="comment"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <VaccinationCreateForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="vaccinationsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="vaccinationName"
+            label="Vaccination Name"
+            name="vaccinationName"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="vaccinationDateTime"
+                label="Vaccination Date"
+                name="vaccinationDateTime"
+                props={
+                  Object {
+                    "format": "DD-MMM-YYYY",
+                    "isSubmit": false,
+                  }
+                }
+              />
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="source"
+                label="Vaccination Source"
+                name="source"
+                props={
+                  Object {
+                    "className": "non-edit-value ng-binding",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="series"
+            label="Series Number"
+            name="series"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="comment"
+            label="Comment"
+            name="comment"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

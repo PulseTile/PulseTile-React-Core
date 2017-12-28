@@ -13,10 +13,12 @@ export const valuesNames = {
   START_DATE: 'startDate',
   DATE_CREATED: 'dateCreated',
   START_TIME: 'startTime',
-  SOURCEID: 'sourceId',
   ISIMPORT: 'isImport',
   CURRENT_DATE: 'start',
   FINISH_DATE: 'pFinishDateTime',
+
+  SOURCE: 'source',
+  SOURCE_ID: 'sourceId',
 };
 
 export const valuesLabels = {
@@ -32,6 +34,9 @@ export const valuesLabels = {
   CURRENT_DATE: 'Start',
   FINISH_CANCELLED: 'Until Cancelled',
   FINISH_DATE: 'Finish',
+
+  SOURCE: 'Source',
+  SOURCE_ID: 'Source ID',
 };
 
 export const routeOptions = [

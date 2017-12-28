@@ -22,7 +22,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import GenericPluginDetail from './GenericPluginDetail/GenericPluginDetail';
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
 const GENERIC_PLUGIN_MAIN = 'genericPluginsMain';
 const GENERIC_PLUGIN_DETAIL = 'genericPluginsDetail';
@@ -51,7 +51,7 @@ export default class GenericPlugin extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: GENERIC_PLUGIN_PANEL,
-    columnNameSortBy: 'type',
+    columnNameSortBy: valuesNames.TYPE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -63,14 +63,28 @@ export default class GenericPlugin extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: GENERIC_PLUGIN_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    }
+
+    /* istanbul ignore next */
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -91,50 +105,18 @@ export default class GenericPlugin extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailGenericPluginClick = (id, name, sourceId) => {
+  handleDetailGenericPluginClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, editedPanel: {}, expandedPanel: 'all' });
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientGenericPluginDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}/${sourceId}`);
-  };
-
-  filterAndSortGenericPlugin = (genericPlugins) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-    const filterByGenericPluginTypePredicate = _.flow(_.get('type'), _.toLower, _.includes(nameShouldInclude));
-    const filterByAuthorPredicate = _.flow(_.get('author'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get(''), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    if (genericPlugins !== undefined) {
-      genericPlugins.map((item) => {
-        item.dateCreated = getDDMMMYYYY(item.dateCreated);
-      });
-    }
-
-    const filterByGenericPluginType = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByGenericPluginTypePredicate))(genericPlugins);
-    const filterByAuthor = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByAuthorPredicate))(genericPlugins);
-    const filterByDate = _.flow(_.sortBy([item => new Date(item[columnNameSortBy]).getTime()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(genericPlugins);
-    const filterBySource = _.flow(_.sortBy([columnNameSortBy]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(genericPlugins);
-
-    const filteredAndSortedGenericPlugin = [filterByGenericPluginType, filterByAuthor, filterByDate, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    if (columnNameSortBy === 'dateCreated') {
-      return filterByDate
-    }
-    return _.head(filteredAndSortedGenericPlugin)
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: GENERIC_PLUGIN_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: GENERIC_PLUGIN_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}/create`);
   };
 
@@ -155,24 +137,21 @@ export default class GenericPlugin extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, genericPluginFormState, userId, genericPluginDetail } = this.props;
-    const sourceId = genericPluginDetail.sourceId;
+    const { actions, genericPluginFormState } = this.props;
     if (checkIsValidateForm(genericPluginFormState)) {
       actions.fetchPatientGenericPluginDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientGenericPluginRequest({ userId });
-        actions.fetchPatientGenericPluginDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -181,7 +160,7 @@ export default class GenericPlugin extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}`);
   };
 
@@ -189,9 +168,9 @@ export default class GenericPlugin extends PureComponent {
     const { actions, userId, genericPluginCreateFormState } = this.props;
     if (checkIsValidateForm(genericPluginCreateFormState)) {
       actions.fetchPatientGenericPluginCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientGenericPluginRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.GENERIC_PLUGIN}`);
       this.hideCreateForm();
+      this.setState({ isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -202,20 +181,21 @@ export default class GenericPlugin extends PureComponent {
     const sendData = {};
 
     sendData.userId = userId;
-    sendData[valuesNames.GENERIC_PLUGIN_TYPE] = formValues[valuesNames.GENERIC_PLUGIN_TYPE];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
     sendData[valuesNames.NOTE] = formValues[valuesNames.NOTE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
 
     if (formName === 'edit') {
       sendData[valuesNames.DATE] = formValues[valuesNames.DATE];
-      sendData.sourceId = genericPluginDetail.sourceId;
-      sendData.source = genericPluginDetail.source;
+      sendData[valuesNames.SOURCE_ID] = genericPluginDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = genericPluginDetail[valuesNames.SOURCE];
     }
 
     if (formName === 'create') {
-      sendData.source = formValues[valuesNames.SOURCE];
+      sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     }
 
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE);
     return sendData;
   };
 
@@ -223,8 +203,26 @@ export default class GenericPlugin extends PureComponent {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: GENERIC_PLUGIN_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
   };
 
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
+
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_CREATED,
+      keyTo: `${valuesNames.DATE_CREATED}Convert`,
+      fn: getDDMMMYYYY
+    }]);
+
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.TYPE, valuesNames.AUTHOR, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
+    });
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allGenericPlugin, genericPluginDetail, genericPluginFormState, genericPluginCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === GENERIC_PLUGIN_DETAIL || expandedPanel === GENERIC_PLUGIN_PANEL);
@@ -233,7 +231,12 @@ export default class GenericPlugin extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-    const filteredGenericPlugin = this.filterAndSortGenericPlugin(allGenericPlugin);
+    const filteredGenericPlugin = this.formToShowCollection(allGenericPlugin);
+
+    let sourceId;
+    if (!_.isEmpty(genericPluginDetail)) {
+      sourceId = genericPluginDetail[valuesNames.SOURCE_ID];
+    }
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -259,11 +262,13 @@ export default class GenericPlugin extends PureComponent {
                 sortingOrder={sortingOrder}
                 table="genericPlugins"
                 filteredData={filteredGenericPlugin}
-                totalEntriesAmount={_.size(allGenericPlugin)}
+                totalEntriesAmount={_.size(filteredGenericPlugin)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
                 isBtnCreateVisible={isBtnCreateVisible}
                 onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
               />
             </div>
           </Col> : null }

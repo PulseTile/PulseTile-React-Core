@@ -135,6 +135,9 @@
   .control-search-select {
     position: relative;
     z-index: 2;
+    .dropdown-menu-search-select {
+      margin-left: 5px;
+    }
   }
 }
 
@@ -166,7 +169,8 @@
     padding-top: 4px;
   }
   .wrap-rzslider-search {
-    padding: 0 3px;
+    padding: 0 7px;
+    height: 31px;
     .mc-rz-slider.rzslider {
       margin: 12px 0 20px;
       .rz-bubble { display: none; }

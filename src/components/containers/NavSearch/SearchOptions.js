@@ -1,14 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
-const SearchContent = ({ onSelect, BASIC_SEARCH, ADVANCED_SEARCH }) =>
+const SearchContent = ({ onSelect, selected, BASIC_SEARCH, ADVANCED_SEARCH, SEARCH_CONTENT }) =>
   <div className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size">
     <div className="heading">Search Options</div>
     <div className="dropdown-menu-wrap-list">
       <div className="dropdown-menu-list">
-        <div className="dropdown-menu-item" onClick={() => onSelect(BASIC_SEARCH)} ><span className="dropdown-menu-item-text">Patient Search - Basic</span></div>
-        <div className="dropdown-menu-item" onClick={() => onSelect(ADVANCED_SEARCH)}><span className="dropdown-menu-item-text">Patient Search - Advanced</span></div>
-        <div className="dropdown-menu-item"><span className="dropdown-menu-item-text">Clinical Query</span></div>
+        <div
+          className={classNames('dropdown-menu-item', { 'active': selected === BASIC_SEARCH })}
+          onClick={() => onSelect(BASIC_SEARCH)}
+        ><span className="dropdown-menu-item-text">Patient Search - Basic</span></div>
+        <div
+          className={classNames('dropdown-menu-item', { 'active': selected === ADVANCED_SEARCH })}
+          onClick={() => onSelect(ADVANCED_SEARCH)}
+        ><span className="dropdown-menu-item-text">Patient Search - Advanced</span></div>
+        <div className={classNames('dropdown-menu-item', { 'active': selected === SEARCH_CONTENT })}><span className="dropdown-menu-item-text">Clinical Query</span></div>
       </div>
     </div>
   </div>

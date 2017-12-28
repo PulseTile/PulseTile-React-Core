@@ -4,6 +4,7 @@ import _ from 'lodash/fp';
 import PTButton from '../ui-elements/PTButton/PTButton';
 import SortableTable from '../containers/SortableTable/SortableTable';
 import PaginationBlock from '../presentational/PaginationBlock/PaginationBlock';
+import Spinner from '../ui-elements/Spinner/Spinner'
 
 export default class PluginMainPanel extends PureComponent {
   static defaultProps = {
@@ -21,7 +22,7 @@ export default class PluginMainPanel extends PureComponent {
   shouldHavePagination = list => _.size(list) > this.props.listPerPageAmount;
 
   render() {
-    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, table, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount } = this.props;
+    const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id } = this.props;
     const listOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredData);
     return (
       <div className="panel-body">
@@ -34,7 +35,9 @@ export default class PluginMainPanel extends PureComponent {
           onCellClick={onCellClick}
           columnNameSortBy={columnNameSortBy}
           sortingOrder={sortingOrder}
+          id={id}
         />
+        {isLoading ? <Spinner /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">
             {this.shouldHavePagination(filteredData) &&

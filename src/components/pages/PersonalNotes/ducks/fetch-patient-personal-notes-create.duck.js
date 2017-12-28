@@ -3,14 +3,15 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { fetchPatientPersonalNotesRequest } from './fetch-patient-personal-notes.duck'
 
 export const FETCH_PATIENT_PERSONAL_NOTES_CREATE_REQUEST = 'FETCH_PATIENT_PERSONAL_NOTES_CREATE_REQUEST';
 export const FETCH_PATIENT_PERSONAL_NOTES_CREATE_SUCCESS = 'FETCH_PATIENT_PERSONAL_NOTES_CREATE_SUCCESS';
-export const FFETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE = 'FFETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE';
+export const FETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE = 'FETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE';
 
 export const fetchPatientPersonalNotesCreateRequest = createAction(FETCH_PATIENT_PERSONAL_NOTES_CREATE_REQUEST);
 export const fetchPatientPersonalNotesCreateSuccess = createAction(FETCH_PATIENT_PERSONAL_NOTES_CREATE_SUCCESS);
-export const fetchPatientPersonalNotesCreateFailure = createAction(FFETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE);
+export const fetchPatientPersonalNotesCreateFailure = createAction(FETCH_PATIENT_PERSONAL_NOTES_CREATE_FAILURE);
 
 export const fetchPatientPersonalNotesCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_PERSONAL_NOTES_CREATE_REQUEST)
@@ -19,7 +20,14 @@ export const fetchPatientPersonalNotesCreateEpic = (action$, store) =>
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
-        .map(({ response }) => fetchPatientPersonalNotesCreateSuccess(response))
+        .flatMap(({ response }) => {
+          const userId = payload.userId;
+
+          return [
+            fetchPatientPersonalNotesCreateSuccess(response),
+            fetchPatientPersonalNotesRequest({ userId }),
+          ];
+        })
         .catch(error => Observable.of(fetchPatientPersonalNotesCreateFailure(error)))
     );
 

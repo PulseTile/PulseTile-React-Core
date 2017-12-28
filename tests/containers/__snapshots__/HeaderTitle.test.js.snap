@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <HeaderTitle /> should renders correctly 1`] = `
+<div
+  class="wrap-header-title"
+>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="header-title"
+    >
+      System Dashboard
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <HeaderTitle /> should renders correctly on the user profile page 1`] = `
+<div
+  class="wrap-header-title"
+>
+  <div
+    class="container-fluid"
+  >
+    <div
+      class="header-title"
+    >
+      Personal Information
+    </div>
+  </div>
+</div>
+`;

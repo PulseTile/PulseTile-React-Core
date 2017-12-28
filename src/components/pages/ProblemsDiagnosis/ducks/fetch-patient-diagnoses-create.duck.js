@@ -3,14 +3,15 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { fetchPatientDiagnosesRequest } from './fetch-patient-diagnoses.duck'
 
 export const FETCH_PATIENT_DIAGNOSES_CREATE_REQUEST = 'FETCH_PATIENT_DIAGNOSES_CREATE_REQUEST';
 export const FETCH_PATIENT_DIAGNOSES_CREATE_SUCCESS = 'FETCH_PATIENT_DIAGNOSES_CREATE_SUCCESS';
-export const FFETCH_PATIENT_DIAGNOSES_CREATE_FAILURE = 'FFETCH_PATIENT_DIAGNOSES_CREATE_FAILURE';
+export const FETCH_PATIENT_DIAGNOSES_CREATE_FAILURE = 'FETCH_PATIENT_DIAGNOSES_CREATE_FAILURE';
 
 export const fetchPatientDiagnosesCreateRequest = createAction(FETCH_PATIENT_DIAGNOSES_CREATE_REQUEST);
 export const fetchPatientDiagnosesCreateSuccess = createAction(FETCH_PATIENT_DIAGNOSES_CREATE_SUCCESS);
-export const fetchPatientDiagnosesCreateFailure = createAction(FFETCH_PATIENT_DIAGNOSES_CREATE_FAILURE);
+export const fetchPatientDiagnosesCreateFailure = createAction(FETCH_PATIENT_DIAGNOSES_CREATE_FAILURE);
 
 export const fetchPatientDiagnosesCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_DIAGNOSES_CREATE_REQUEST)
@@ -19,7 +20,14 @@ export const fetchPatientDiagnosesCreateEpic = (action$, store) =>
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
-        .map(({ response }) => fetchPatientDiagnosesCreateSuccess(response))
+        .flatMap(({ response }) => {
+          const userId = payload.userId;
+
+          return [
+            fetchPatientDiagnosesCreateSuccess(response),
+            fetchPatientDiagnosesRequest({ userId }),
+          ];
+        })
         .catch(error => Observable.of(fetchPatientDiagnosesCreateFailure(error)))
     );
 

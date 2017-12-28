@@ -1,4 +1,8 @@
-.table thead tr th, 
+.patients-list {
+  padding-bottom: 50px;
+}
+.patientsList .patient-control .patient-buttons { display: none; }
+.table thead tr th,
 .table tbody tr td {
   &.patient-control {
     &:before { display: none; }
@@ -31,7 +35,7 @@
     &:after {
       margin-right: 1px;
       right: 50%;
-      transform: translate(50%, -50%);
+      transform: translate(50%, -50%)!important;
     }
   }
   &.dropdown.open {

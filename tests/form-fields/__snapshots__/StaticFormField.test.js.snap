@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <StaticFormField /> should renders with all props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+  >
+    Test label
+  </label>
+  <div
+    className="test-class-name"
+    name="test-name"
+    value="Input Value"
+  >
+    Input Value
+  </div>
+</div>
+`;

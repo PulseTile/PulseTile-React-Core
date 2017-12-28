@@ -1,7 +1,10 @@
 {
   "presets": [
     "es2017",
-    "react"
+    "react",
+    "react-es2015",
+    "es2015",
+    "es2015-ie"
   ],
   "plugins": [
     "transform-decorators-legacy",

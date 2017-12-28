@@ -21,14 +21,15 @@ export default class MedicationsPrescriptionForm extends PureComponent {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     this.state.prescriptionFormValue = nextProps.formValues;
   }
   defaultValuesForm(value) {
     const date = new Date();
     const defaultFormValues = {
-      [valuesNames.NAME]: value.name,
-      [valuesNames.DOSE_AMOUNT]: value.doseAmount,
+      [valuesNames.NAME]: value[valuesNames.NAME],
+      [valuesNames.DOSE_AMOUNT]: value[valuesNames.DOSE_AMOUNT],
       [valuesNames.DOSE_INTERVAL]: '',
       [valuesNames.DOSE_QUANTITY]: '',
       [valuesNames.CURRENT_DATE]: date.getTime(),

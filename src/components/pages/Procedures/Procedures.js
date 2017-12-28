@@ -19,15 +19,16 @@ import { fetchPatientProceduresDetailEditRequest } from './ducks/fetch-patient-p
 import { fetchPatientProceduresOnMount, fetchPatientProceduresDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientProceduresSelector, proceduresDetailFormStateSelector, proceduresCreateFormStateSelector, metaPanelFormStateSelector, patientProceduresDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { checkIsValidateForm } from '../../../utils/plugin-helpers.utils';
+import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import ProceduresDetail from './ProceduresDetail/ProceduresDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ProceduresCreateForm from './ProceduresCreate/ProceduresCreateForm'
+import { getDDMMMYYYY, getHHmm } from '../../../utils/time-helpers.utils';
 
 const PROCEDURES_MAIN = 'proceduresMain';
 const PROCEDURES_DETAIL = 'proceduresDetail';
 const PROCEDURES_CREATE = 'proceduresCreate';
-const CONTACT_PANEL = 'procedurePanel';
+const PROCEDURE_PANEL = 'procedurePanel';
 const META_PANEL = 'metaPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientProceduresRequest, fetchPatientProceduresCreateRequest, fetchPatientProceduresDetailRequest, fetchPatientProceduresDetailEditRequest }, dispatch) });
@@ -53,8 +54,8 @@ export default class Procedures extends PureComponent {
   state = {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
-    openedPanel: CONTACT_PANEL,
-    columnNameSortBy: 'name',
+    openedPanel: PROCEDURE_PANEL,
+    columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -66,14 +67,28 @@ export default class Procedures extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
+    isLoading: true,
   };
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
+
+    //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/create`) {
+      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isDetailPanelVisible: false })
+    }
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`) {
+      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    }
+
+    /* istanbul ignore next */
+    setTimeout(() => {
+      this.setState({ isLoading: false })
+    }, 500)
   }
 
   handleExpand = (name, currentPanel) => {
@@ -84,9 +99,9 @@ export default class Procedures extends PureComponent {
         this.setState({ expandedPanel: 'all' });
       }
     } else if (this.state.expandedPanel === 'all') {
-     this.setState({ expandedPanel: name, openedPanel: name });
+      this.setState({ expandedPanel: name, openedPanel: name });
     } else {
-     this.setState({ expandedPanel: 'all' });
+      this.setState({ expandedPanel: 'all' });
     }
   };
 
@@ -94,43 +109,18 @@ export default class Procedures extends PureComponent {
 
   handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-  handleDetailProceduresClick = (id, name, sourceId) => {
+  handleDetailProceduresClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, editedPanel: {} })
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientProceduresDetailRequest({ userId, sourceId });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/${sourceId}`);
-  };
-
-  filterAndSortProcedures = (procedures) => {
-    const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
-
-    const filterByNamePredicate = _.flow(_.get('name'), _.toLower, _.includes(nameShouldInclude));
-    const filterByDatePredicate = _.flow(_.get('date'), _.toLower, _.includes(nameShouldInclude));
-    const filterByTimePredicate = _.flow(_.get('time'), _.toLower, _.includes(nameShouldInclude));
-    const filterBySourcePredicate = _.flow(_.get('source'), _.toLower, _.includes(nameShouldInclude));
-
-    const reverseIfDescOrder = _.cond([
-      [_.isEqual('desc'), () => _.reverse],
-      [_.stubTrue, () => v => v],
-    ])(sortingOrder);
-
-    const filterByName = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByNamePredicate))(procedures);
-    const filterByDate = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByDatePredicate))(procedures);
-    const filterByTime = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterByTimePredicate))(procedures);
-    const filterBySource = _.flow(_.sortBy([item => item[columnNameSortBy].toString().toLowerCase()]), reverseIfDescOrder, _.filter(filterBySourcePredicate))(procedures);
-
-    const filteredAndSortedProcedures = [filterByName, filterByDate, filterByTime, filterBySource].filter((item) => {
-      return _.size(item) !== 0;
-    });
-
-    return _.head(filteredAndSortedProcedures)
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false })
+    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: PROCEDURES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}/create`);
   };
 
@@ -151,24 +141,21 @@ export default class Procedures extends PureComponent {
         [name]: false,
       },
       isSubmit: false,
+      isLoading: true,
     }))
   };
 
   handleSaveSettingsDetailForm = (formValues, name) => {
-    const { actions, procedureDetail, userId, proceduresDetailFormState } = this.props;
-    const sourceId = procedureDetail.sourceId;
+    const { actions, proceduresDetailFormState } = this.props;
     if (checkIsValidateForm(proceduresDetailFormState)) {
       actions.fetchPatientProceduresDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-      setTimeout(() => {
-        actions.fetchPatientProceduresRequest({ userId });
-        actions.fetchPatientProceduresDetailRequest({ userId, sourceId });
-      }, 1000);
       this.setState(prevState => ({
         editedPanel: {
           ...prevState.editedPanel,
           [name]: false,
         },
         isSubmit: false,
+        isLoading: true,
       }))
     } else {
       this.setState({ isSubmit: true });
@@ -177,7 +164,7 @@ export default class Procedures extends PureComponent {
 
   handleCreateCancel = () => {
     const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false });
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`);
   };
 
@@ -186,10 +173,9 @@ export default class Procedures extends PureComponent {
 
     if (checkIsValidateForm(proceduresCreateFormState)) {
       actions.fetchPatientProceduresCreateRequest(this.formValuesToString(formValues, 'create'));
-      setTimeout(() => actions.fetchPatientProceduresRequest({ userId }), 1000);
       this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.PROCEDURES}`);
       this.hideCreateForm();
-      this.setState({ isSubmit: false });
+      this.setState({ isSubmit: false, isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
@@ -198,114 +184,161 @@ export default class Procedures extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, procedureDetail } = this.props;
     const sendData = {};
+    const currentDate = new Date();
+    const currentTime = currentDate - new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
 
     sendData.userId = userId;
-    // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
-    // sendData[valuesNames.CONTACT_INFORMATION] = formValues[valuesNames.CONTACT_INFORMATION];
-    // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData.dateSubmitted = new Date();
-    sendData.source = 'ethercis';
+
+    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.DATE_OF_PROCEDURE] = formValues[valuesNames.DATE_OF_PROCEDURE];
+    sendData[valuesNames.PERFORMER] = formValues[valuesNames.PERFORMER];
+    sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+    sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
+    sendData[valuesNames.CODE] = formValues[valuesNames.CODE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    sendData[valuesNames.PROCEDURE_NAME] = formValues[valuesNames.NAME];
+    sendData[valuesNames.TIME] = currentTime;
+
+    sendData[valuesNames.DATE] = currentDate;
+    sendData[valuesNames.SOURCE] = 'ethercis';
 
     if (formName === 'edit') {
-      sendData.sourceId = procedureDetail.sourceId;
+      sendData[valuesNames.SOURCE_ID] = procedureDetail[valuesNames.SOURCE_ID];
+
+      sendData[valuesNames.STATUS] = procedureDetail[valuesNames.STATUS];
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = procedureDetail[valuesNames.ORIGINAL_COMPOSITION];
+      sendData[valuesNames.ORIGINAL_SOURCE] = procedureDetail[valuesNames.ORIGINAL_SOURCE];
     }
 
+    if (formName === 'create') {
+      sendData[valuesNames.STATUS] = '';
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = '';
+      sendData[valuesNames.ORIGINAL_SOURCE] = '';
+    }
+
+    operationsOnCollection.propsToString(sendData, valuesNames.DATE_OF_PROCEDURE, valuesNames.TIME, valuesNames.DATE);
     return sendData;
   };
 
   hideCreateForm = () => {
-    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isSecondPanel: false })
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROCEDURE_PANEL, isSecondPanel: false })
   };
 
   handleShow = (name) => {
     this.setState({ openedPanel: name })
   };
 
- render() {
-   const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit } = this.state;
-   const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
+  formToShowCollection = (collection) => {
+    const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
-   const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
-   const isPanelMain = (expandedPanel === PROCEDURES_MAIN);
-   const isPanelCreate = (expandedPanel === PROCEDURES_CREATE);
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_OF_PROCEDURE,
+      keyTo: `${valuesNames.DATE_OF_PROCEDURE}Convert`,
+      fn: getDDMMMYYYY
+    }, {
+      keyFrom: valuesNames.TIME,
+      keyTo: `${valuesNames.TIME}Convert`,
+      fn: getHHmm
+    }]);
 
-   const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    return operationsOnCollection.filterAndSort({
+      collection: collection,
+      filterBy: nameShouldInclude,
+      sortingByKey: columnNameSortBy,
+      sortingByOrder: sortingOrder,
+      filterKeys: [valuesNames.NAME, `${valuesNames.DATE_OF_PROCEDURE}Convert`, `${valuesNames.TIME}Convert`, valuesNames.SOURCE]
+    });
+  };
 
-   const filteredProcedures = this.filterAndSortProcedures(allProcedures);
+  render() {
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { allProcedures, proceduresDetailFormState, proceduresCreateFormState, metaPanelFormState, procedureDetail, proceduresPerPageAmount } = this.props;
 
-   return (<section className="page-wrapper">
-     <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-       <Row>
-         {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-           <div className="panel panel-primary">
-             <PluginListHeader
-               onFilterChange={this.handleFilterChange}
-               panelTitle="Procedures"
-               isBtnExpandVisible={isBtnExpandVisible}
-               isBtnTableVisible={false}
-               name={PROCEDURES_MAIN}
-               onExpand={this.handleExpand}
-               currentPanel={PROCEDURES_MAIN}
-             />
-             <PluginMainPanel
-               headers={columnsToShowConfig}
-               resourceData={allProcedures}
-               emptyDataMessage="No procedures"
-               onHeaderCellClick={this.handleHeaderCellClick}
-               onCellClick={this.handleDetailProceduresClick}
-               columnNameSortBy={columnNameSortBy}
-               sortingOrder={sortingOrder}
-               table="procedures"
+    const isPanelDetails = (expandedPanel === PROCEDURES_DETAIL || expandedPanel === PROCEDURE_PANEL || expandedPanel === META_PANEL);
+    const isPanelMain = (expandedPanel === PROCEDURES_MAIN);
+    const isPanelCreate = (expandedPanel === PROCEDURES_CREATE);
 
-               filteredData={filteredProcedures}
-               totalEntriesAmount={_.size(allProcedures)}
-               offset={offset}
-               setOffset={this.handleSetOffset}
-               isBtnCreateVisible={isBtnCreateVisible}
-               onCreate={this.handleCreate}
-             />
-           </div>
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <ProceduresDetail
-             onExpand={this.handleExpand}
-             name={PROCEDURES_DETAIL}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={PROCEDURES_DETAIL}
-             detail={procedureDetail}
-             onEdit={this.handleEdit}
-             editedPanel={editedPanel}
-             onCancel={this.handleProcedureDetailCancel}
-             onSaveSettings={this.handleSaveSettingsDetailForm}
-             proceduresDetailFormValues={proceduresDetailFormState.values}
-             metaPanelFormValues={metaPanelFormState.values}
-             isSubmit={isSubmit}
-           />
-         </Col> : null}
-         {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-           <PluginCreate
-             title="Create Procedure"
-             onExpand={this.handleExpand}
-             name={PROCEDURES_CREATE}
-             openedPanel={openedPanel}
-             onShow={this.handleShow}
-             expandedPanel={expandedPanel}
-             currentPanel={PROCEDURES_CREATE}
-             onSaveSettings={this.handleSaveSettingsCreateForm}
-             formValues={proceduresCreateFormState.values}
-             onCancel={this.handleCreateCancel}
-             isCreatePanelVisible={isCreatePanelVisible}
-             componentForm={
-               <ProceduresCreateForm isSubmit={isSubmit} />
-             }
-           />
-         </Col> : null}
-       </Row>
-     </div>
-   </section>)
- }
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+
+    const filteredProcedures = this.formToShowCollection(allProcedures);
+
+    let sourceId;
+    if (!_.isEmpty(procedureDetail)) {
+      sourceId = procedureDetail.sourceId;
+    }
+
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+            <div className="panel panel-primary">
+              <PluginListHeader
+                onFilterChange={this.handleFilterChange}
+                panelTitle="Procedures"
+                isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
+                name={PROCEDURES_MAIN}
+                onExpand={this.handleExpand}
+                currentPanel={PROCEDURES_MAIN}
+              />
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allProcedures}
+                emptyDataMessage="No procedures"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailProceduresClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="procedures"
+                filteredData={filteredProcedures}
+                totalEntriesAmount={_.size(filteredProcedures)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
+              />
+            </div>
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <ProceduresDetail
+              onExpand={this.handleExpand}
+              name={PROCEDURES_DETAIL}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={PROCEDURES_DETAIL}
+              detail={procedureDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleProcedureDetailCancel}
+              onSaveSettings={this.handleSaveSettingsDetailForm}
+              proceduresDetailFormValues={proceduresDetailFormState.values}
+              metaPanelFormValues={metaPanelFormState.values}
+              isSubmit={isSubmit}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              title="Create Procedure"
+              onExpand={this.handleExpand}
+              name={PROCEDURES_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={PROCEDURES_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={proceduresCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ProceduresCreateForm isSubmit={isSubmit} />
+              }
+            />
+          </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }

@@ -1,0 +1,224 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SortableTableRow /> should renders mount with prop rowDataWarning correctly 1`] = `
+<SortableTableRow
+  columnNameSortBy="name"
+  headers={
+    Array [
+      Object {
+        "key": "name",
+        "title": "Name",
+        "width": "150",
+      },
+      Object {
+        "key": "address",
+        "title": "Address",
+        "width": "300",
+      },
+      Object {
+        "key": "test",
+        "title": "Test",
+        "width": "145",
+      },
+      Object {
+        "key": "id",
+        "title": "NHS No.",
+        "width": "115",
+      },
+      Object {
+        "key": "viewPatientNavigation",
+        "title": "",
+        "width": "90",
+      },
+    ]
+  }
+  hoveredRowIndex={1}
+  index={0}
+  onCellClick={[Function]}
+  resourceData={
+    Array [
+      Object {
+        "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+        "dateOfBirth": -363657600000,
+        "department": "Primary Care",
+        "gender": "Male",
+        "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+        "gpName": "Joseph May N.",
+        "id": "9999999006",
+        "name": "Ezra Gordon",
+        "nhsNumber": "9999999006",
+        "pasNo": "595941",
+        "phone": "070 6691 5178",
+        "warning": true,
+      },
+      Object {
+        "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+        "danger": true,
+        "dateOfBirth": -363657600000,
+        "department": "Primary Care",
+        "gender": "Male",
+        "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+        "gpName": "Joseph May N.",
+        "id": "9999999006",
+        "name": "test",
+        "nhsNumber": "9999999006",
+        "pasNo": "595941",
+        "phone": "070 6691 5178",
+      },
+    ]
+  }
+  rowData={
+    Array [
+      Object {
+        "name": "name",
+        "value": "Ezra Gordon",
+      },
+      Object {
+        "name": "address",
+        "value": "26, High Street, Limerick, LK",
+      },
+      Object {
+        "name": "dateOfBirth",
+        "value": "19-Feb-1938",
+      },
+      Object {
+        "name": "id",
+        "value": "9999999024",
+      },
+      Object {
+        "name": "viewPatientNavigation",
+        "value": "test",
+      },
+    ]
+  }
+  table="patientsList"
+>
+  <tr
+    className="info"
+  >
+    <td
+      className="highlighter-wrapper sorted"
+      data-table-hover={true}
+      data-th="Name"
+      key="__SortableTableRow__1"
+      name="name"
+      onClick={[Function]}
+    >
+      <span>
+        <span
+          className="highlighter-warning"
+        />
+        <span>
+           
+          Ezra Gordon
+        </span>
+      </span>
+    </td>
+    <td
+      className=""
+      data-table-hover={true}
+      data-th="Address"
+      key="__SortableTableRow__2"
+      name="address"
+      onClick={[Function]}
+    >
+      26, High Street, Limerick, LK
+    </td>
+    <td
+      className=""
+      data-table-hover={true}
+      data-th="Test"
+      key="__SortableTableRow__3"
+      name="dateOfBirth"
+      onClick={[Function]}
+    >
+      19-Feb-1938
+    </td>
+    <td
+      className=""
+      data-table-hover={true}
+      data-th="NHS No."
+      key="__SortableTableRow__4"
+      name="id"
+      onClick={[Function]}
+    >
+      9999999024
+    </td>
+    <td
+      className=""
+      data-table-hover={true}
+      data-th=""
+      key="__SortableTableRow__5"
+      name="viewPatientNavigation"
+      onClick={[Function]}
+    >
+      test
+    </td>
+  </tr>
+</SortableTableRow>
+`;
+
+exports[`Component <SortableTableRow /> should renders shallow with prop rowDataDanger correctly 1`] = `
+<tr
+  className="info"
+>
+  <td
+    className="highlighter-wrapper sorted"
+    data-table-hover={true}
+    data-th="Name"
+    key="__SortableTableRow__6"
+    name="name"
+    onClick={[Function]}
+  >
+    <span>
+      <span
+        className="highlighter-danger"
+      />
+      <span>
+         
+        test
+      </span>
+    </span>
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableRow__7"
+    name="address"
+    onClick={[Function]}
+  >
+    26, High Street, Limerick, LK
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="Test"
+    key="__SortableTableRow__8"
+    name="dateOfBirth"
+    onClick={[Function]}
+  >
+    19-Feb-1938
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th="NHS No."
+    key="__SortableTableRow__9"
+    name="id"
+    onClick={[Function]}
+  >
+    9999999024
+  </td>
+  <td
+    className=""
+    data-table-hover={true}
+    data-th=""
+    key="__SortableTableRow__10"
+    name="viewPatientNavigation"
+    onClick={[Function]}
+  >
+    test
+  </td>
+</tr>
+`;

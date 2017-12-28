@@ -18,9 +18,9 @@ export default class ClinicalNotesDetailForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.CLINICAL_NOTES_TYPE]: value.clinicalNotesType,
-      [valuesNames.NOTE]: value.note,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.TYPE]: value[valuesNames.TYPE],
+      [valuesNames.NOTE]: value[valuesNames.NOTE],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -34,9 +34,9 @@ export default class ClinicalNotesDetailForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.CLINICAL_NOTES_TYPE}
-                  name={valuesNames.CLINICAL_NOTES_TYPE}
-                  id={valuesNames.CLINICAL_NOTES_TYPE}
+                  label={valuesLabels.TYPE}
+                  name={valuesNames.TYPE}
+                  id={valuesNames.TYPE}
                   type="text"
                   placeholder=""
                   component={ValidatedInput}
@@ -67,7 +67,7 @@ export default class ClinicalNotesDetailForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY' }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY' }}
                 />
               </div>
             </div>

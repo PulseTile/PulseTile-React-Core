@@ -12,11 +12,11 @@ export default class DateInput extends PureComponent {
       placeholder: PropTypes.string,
       meta: PropTypes.shape({
         active: PropTypes.bool,
-        error: PropTypes.bool,
+        error: PropTypes.any,
       }).isRequired,
     };
 
-    state={
+    state = {
       isChanged: false,
     };
 
@@ -27,7 +27,7 @@ export default class DateInput extends PureComponent {
     }
 
     render() {
-      const { label, placeholder, input, meta: { error, touched }, disabled, value, format, isSubmit } = this.props;
+      const { id, label, placeholder, input, meta: { error, touched }, disabled, value, format, isSubmit, showTimeSelect, timeFormat, minDate, timeIntervals } = this.props;
       const { isChanged } = this.state;
       const showError = ((touched || isChanged || isSubmit) && error);
       if (value !== undefined) {
@@ -35,20 +35,26 @@ export default class DateInput extends PureComponent {
       }
       return (
         <div className={classNames('form-group form-group-sm', { 'has-error': showError }, { 'has-success': isChanged && !error })}>
-          <label htmlFor={input.name} className="control-label">{label}</label>
+          <label htmlFor={id} className="control-label">{label}</label>
           <div className="inner-addon addon-left">
             <div className="addon">
               <i className="fa fa-calendar" />
             </div>
             <DatePicker
+              readOnly={!disabled}
               className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
               selected={input.value ? moment(input.value) : moment()}
               placeholderText={placeholder}
               disabled={disabled}
+              showTimeSelect={showTimeSelect}
+              timeFormat={timeFormat}
+              timeIntervals={timeIntervals}
+              minDate={minDate}
               peekNextMonth
               showMonthDropdown
               showYearDropdown
               dropdownMode="select"
+              id={id}
               {...input}
               value={input.value ? moment(input.value).format(format) : ''}
             />

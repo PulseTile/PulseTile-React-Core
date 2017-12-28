@@ -6,9 +6,8 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import StaticFormField from '../../../form-fields/StaticFormField';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions } from '../forms.config';
+import { valuesNames, valuesLabels, relationshipOptions, relationshipTypeOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
@@ -22,7 +21,6 @@ export default class ContactsCreateForm extends PureComponent {
   }
   render() {
     const { isSubmit } = this.props;
-    const isNotValidate = true;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
@@ -71,36 +69,12 @@ export default class ContactsCreateForm extends PureComponent {
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.REALATIONSHIP_TYPE}
-                  name={valuesNames.REALATIONSHIP_TYPE}
-                  id={valuesNames.REALATIONSHIP_TYPE}
-                  type="text"
-                  component={ValidatedInput}
+                  name={valuesNames.REALATIONSHIP_CODE}
+                  id={valuesNames.REALATIONSHIP_CODE}
+                  options={relationshipTypeOptions}
+                  component={SelectFormGroup}
                   props={{ isSubmit }}
                 />
-              </div>
-            </div>
-
-            <div className="row-expand">
-              <div className="col-expand-left">
-                <Row>
-                  <Col md={6} xs={12}>
-                    <Field
-                      name={valuesNames.REALATIONSHIP_TERMINOLOGY}
-                      label={valuesLabels.REALATIONSHIP_TERMINOLOGY}
-                      component={StaticFormField}
-                      props={{ className: 'form-control-static', isSubmit }}
-                    />
-                  </Col>
-                  <Col md={6} xs={12}>
-                    <Field
-                      name={valuesNames.REALATIONSHIP_CODE}
-                      label={valuesLabels.REALATIONSHIP_CODE}
-                      component={StaticFormField}
-                      props={{ className: 'form-control-static', isSubmit }}
-                    />
-                  </Col>
-                </Row>
-
               </div>
             </div>
 

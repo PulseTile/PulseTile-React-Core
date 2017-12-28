@@ -50,6 +50,12 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
+export const fetchListOrdersOnMount = ({
+  componentDidMount() {
+    this.props.actions.fetchListOrdersRequest()
+  },
+});
+
 export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
@@ -59,8 +65,10 @@ export const fetchPatientDiagnosesOnMount = (generateFetchListOnMount('fetchPati
 export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiagnosesDetailRequest'));
 
 export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
+export const fetchPatientClinicalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesDetailRequest'));
 
 export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
+export const fetchPatientPersonalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesDetailRequest'));
 
 export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
 
@@ -75,3 +83,20 @@ export const fetchPatientMedicationsDetailOnMount = (generateFetchDetailOnMount(
 
 export const fetchPatientProceduresOnMount = (generateFetchListOnMount('fetchPatientProceduresRequest'));
 export const fetchPatientProceduresDetailOnMount = (generateFetchDetailOnMount('fetchPatientProceduresDetailRequest'));
+
+export const fetchPatientEventsOnMount = (generateFetchListOnMount('fetchPatientEventsRequest'));
+export const fetchPatientEventsDetailOnMount = (generateFetchDetailOnMount('fetchPatientEventsDetailRequest'));
+
+export const fetchPatientTestResultsOnMount = (generateFetchListOnMount('fetchPatientTestResultsRequest'));
+
+export const fetchPatientReferralsOnMount = (generateFetchListOnMount('fetchPatientReferralsRequest'));
+export const fetchPatientReferralsDetailOnMount = (generateFetchDetailOnMount('fetchPatientReferralsDetailRequest'));
+
+export const fetchPatientOrdersOnMount = (generateFetchListOnMount('fetchPatientOrdersRequest'));
+export const fetchPatientOrdersDetailOnMount = (generateFetchDetailOnMount('fetchPatientOrdersDetailRequest'));
+
+export const fetchPatientMDTsOnMount = (generateFetchListOnMount('fetchPatientMDTsRequest'));
+export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchPatientMDTsDetailRequest'));
+
+export const fetchPatientDrawingsOnMount = (generateFetchListOnMount('fetchPatientDrawingsRequest'));
+export const fetchPatientDrawingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDrawingsDetailRequest'));

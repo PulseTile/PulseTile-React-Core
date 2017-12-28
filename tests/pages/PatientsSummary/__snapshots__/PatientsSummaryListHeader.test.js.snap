@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsSummaryListHeader /> should renders with all props correctly 1`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group left"
+  >
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-cog"
+        />
+      </PTButton>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Patient Summary
+  </h3>
+</div>
+`;
+
+exports[`Component <PatientsSummaryListHeader /> should renders with all props correctly 2`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group left"
+  >
+    <div
+      className="dropdown open"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-cog"
+        />
+      </PTButton>
+      <lifecycle(PatientsSummaryPanel)
+        onCategorySelected={[Function]}
+        selectedCategory={
+          Object {
+            "allergies": true,
+            "contacts": true,
+            "medications": true,
+            "problems": true,
+          }
+        }
+        toggleVisibility={[Function]}
+      />
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Patient Summary
+  </h3>
+</div>
+`;

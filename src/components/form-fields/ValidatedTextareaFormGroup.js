@@ -8,11 +8,11 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
     input: PropTypes.object.isRequired,
     meta: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.string,
+      error: PropTypes.any,
     }).isRequired,
   };
 
-  state={
+  state = {
     isChanged: false,
   };
 
@@ -23,21 +23,22 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
   }
 
   render() {
-    const { label, input, meta: { error, touched }, id, isSubmit } = this.props;
+    const { label, input, meta: { error, touched }, id, isSubmit, isAdvancedSearch } = this.props;
     const { isChanged } = this.state;
     const showError = ((touched || isChanged || isSubmit) && error);
 
     return (
       <div className={classNames('form-group', { 'has-error': showError }, { 'has-success': isChanged && !error })}>
-        <label htmlFor={input.name} className="control-label">{label}</label>
+        <label htmlFor={id} className="control-label">{label}</label>
         <div className="input-holder">
           <textarea
-            className="form-control textarea-big input-sm ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched"
+            className="form-control textarea-big input-sm"
             id={id}
             {...input}
           />
         </div>
-        {showError && <span className="required-label">{error}</span>}
+        {(showError && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+        {(showError && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
       </div>
     )
   }

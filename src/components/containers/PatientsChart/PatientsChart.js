@@ -4,6 +4,7 @@ import _ from 'lodash/fp';
 
 import { Bar } from 'react-chartjs-2';
 
+/* istanbul ignore next */
 const handleBarClick = ({ onBarClick }) => (chartElements) => {
   const label = _.get('[0]_model.label', chartElements);
   if (label && _.isFunction(onBarClick)) onBarClick(label);
@@ -46,6 +47,7 @@ const PatientsChart = props => <div className="chart-block">
           yPadding: 10,
           callbacks: {
             label(tooltipItem) {
+              /* istanbul ignore next */
               return `  Patients : ${tooltipItem.yLabel}`;
             },
           },

@@ -9,7 +9,7 @@ export default class FileInput extends PureComponent {
     input: PropTypes.object.isRequired,
     meta: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.bool,
+      error: PropTypes.any,
     }).isRequired,
     id: PropTypes.string.isRequired,
   };
@@ -38,10 +38,11 @@ export default class FileInput extends PureComponent {
                 <input
                   className="form-control input-sm"
                   type="file"
+                  accept="image/jpeg,image/png,image/gif"
                   id={id}
                   onChange={this.onChange}
                 />
-                <label htmlFor={name} className="btn btn-success btn-inverse btn-normal-icon">
+                <label htmlFor={id} className="btn btn-success btn-inverse btn-normal-icon">
                   <i className="fa fa-plus"/>
                   <span> Upload logo </span>
                 </label>

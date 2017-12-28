@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 
 export default class CustomInputCheckbox extends PureComponent {
     static propTypes = {
@@ -18,12 +17,12 @@ export default class CustomInputCheckbox extends PureComponent {
             <input
               type="checkbox"
               checked={input.value}
-              id={id ? id : ''}
-							{...input}
+              id={id || ''}
+              {...input}
             />
-            <label htmlFor={input.name} />
+            <label htmlFor={id || ''} />
           </div>
-          {label ? <label htmlFor={name} className="fcustominp-label">{label}</label> : null}
+          {label ? <label htmlFor={id || ''} className="fcustominp-label">{label}</label> : null}
         </div>
       )
     }

@@ -5,9 +5,12 @@ export const valuesNames = {
   TERMINOLOGY: 'terminology',
   CODE: 'code',
   AUTHOR: 'author',
-  SOURCEID: 'sourceId',
   ISIMPORT: 'isImport',
   DATE: 'date',
+  DATE_CREATED: 'dateCreated',
+
+  SOURCE: 'source',
+  SOURCE_ID: 'sourceId',
 };
 
 export const valuesLabels = {
@@ -19,4 +22,7 @@ export const valuesLabels = {
   CODE: 'Terminology Code',
   AUTHOR: 'Author',
   DATE: 'Date',
+
+  SOURCE: 'Source',
+  SOURCE_ID: 'Source ID',
 };

@@ -19,12 +19,12 @@ export default class ProblemsDiagnosisDetailForm extends PureComponent {
   }
   defaultValuesForm(value) {
     const defaultFormValues = {
-      [valuesNames.PROBLEM]: value.problem,
-      [valuesNames.DATE_OF_ONSET]: value.dateOfOnset,
-      [valuesNames.DESCRIPTION]: value.description,
-      [valuesNames.TERMINOLOGY]: value.terminology,
-      [valuesNames.CODE]: value.code,
-      [valuesNames.AUTHOR]: value.author,
+      [valuesNames.PROBLEM]: value[valuesNames.PROBLEM],
+      [valuesNames.DATE_OF_ONSET]: value[valuesNames.DATE_OF_ONSET],
+      [valuesNames.DESCRIPTION]: value[valuesNames.DESCRIPTION],
+      [valuesNames.TERMINOLOGY]: value[valuesNames.TERMINOLOGY],
+      [valuesNames.CODE]: value[valuesNames.CODE],
+      [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
     };
 
     return defaultFormValues;
@@ -77,13 +77,12 @@ export default class ProblemsDiagnosisDetailForm extends PureComponent {
               </div>
             </div>
             <div className="row-expand">
-              <div className="col-expand-left">
+              <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.TERMINOLOGY}
                   name={valuesNames.TERMINOLOGY}
-                  id={valuesNames.TERMINOLOGY}
-                  component={ValidatedInput}
-                  props={{ isSubmit }}
+                  label={valuesLabels.TERMINOLOGY}
+                  component={StaticFormField}
+                  props={{ className: 'non-edit-value', isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
@@ -111,7 +110,7 @@ export default class ProblemsDiagnosisDetailForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail.dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
                 />
               </div>
             </div>

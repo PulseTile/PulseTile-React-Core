@@ -4,7 +4,7 @@
 .wrapper {
   padding-bottom: 15px;
   @include respond-from(sm) {
-    padding-bottom: 56px;
+    padding-bottom: 71px;
   }
 }
 .footer {
@@ -32,7 +32,7 @@
 }
 .footer-povered-text {
   display: inline-block;
-  margin-right: 5px;
+  margin-right: 8px;
 }
 .footer-logo { display: inline-block; }
 .footer-logo-img {

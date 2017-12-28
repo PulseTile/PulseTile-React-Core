@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
+<div>
+  <div
+    className="wrap-header-toolbar"
+  >
+    <div
+      className="container-fluid"
+    >
+      <div
+        className="header-toolbar"
+      >
+        <button
+          aria-expanded="false"
+          className="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
+          data-target="#sidebar-nav"
+          data-toggle="collapse"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-bars"
+          />
+          <span
+            className="btn-text"
+          >
+            Menu
+          </span>
+        </button>
+        <div
+          className="wrap-patient-info"
+        >
+          <div
+            className="patient-info-caption"
+          >
+            <div
+              className="patient-info-caption-btn btn-dropdown-toggle"
+            />
+            <div
+              className="patient-info-caption-text text-truncate"
+            >
+              Ivor Cox
+            </div>
+          </div>
+          <div
+            className="patient-info"
+          >
+            <div
+              className="patient-info-group-2"
+            >
+              <div
+                className="column-1"
+              >
+                <div
+                  className="patient-info-item"
+                >
+                  <span
+                    className="key"
+                  >
+                    D.O.B.
+                  </span>
+                   
+                  06-Jun-1944
+                </div>
+                <div
+                  className="patient-info-item"
+                >
+                  <span
+                    className="key"
+                  >
+                    Phone:
+                  </span>
+                   
+                  (011981) 32362
+                </div>
+              </div>
+              <div
+                className="column-2"
+              >
+                <div
+                  className="patient-info-item"
+                >
+                  <span
+                    className="key"
+                  >
+                    Gender:
+                  </span>
+                   
+                  Male
+                </div>
+                <div
+                  className="patient-info-item"
+                >
+                  <span
+                    className="key"
+                  >
+                    NHS No.
+                  </span>
+                   
+                  <span>
+                    999 999 9000
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div
+              className="patient-info-group-1"
+            >
+              <div
+                className="patient-info-item significant hidden-xs"
+              >
+                Ivor Cox
+              </div>
+              <div
+                className="patient-info-item"
+              >
+                <span
+                  className="key"
+                >
+                  Doctor:
+                </span>
+                 
+                Goff Carolyn D.
+              </div>
+            </div>
+            <div
+              className="patient-info-item"
+            >
+              <span
+                className="key"
+              >
+                Address:
+              </span>
+               
+              Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Connect(Connect(Sidebar))
+    activeLink="procedures"
+    userId="9999999000"
+  />
+</div>
+`;

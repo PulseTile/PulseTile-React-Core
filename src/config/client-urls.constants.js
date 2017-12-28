@@ -5,18 +5,23 @@ export const clientUrls = {
   PATIENTS_FULL_DETAILS: '/patients-full-details',
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
-  ORDERS: 'orders',
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
-	ALLERGIES: 'allergies',
-	CONTACTS: 'contacts',
-	CLINICAL_NOTES: 'clinicalNotes',
+  ALLERGIES: 'allergies',
+  CONTACTS: 'contacts',
+  CLINICAL_NOTES: 'clinicalNotes',
   PERSONAL_NOTES: 'personalNotes',
   VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
   PROCEDURES: 'procedures',
+  EVENTS: 'events',
+  TEST_RESULTS: 'results',
+  REFERRALS: 'referrals',
+  ORDERS: 'orders',
+  MDTS: 'mdt',
+  DRAWINGS: 'drawings',
 };
 
 const pluginsPages = {
@@ -74,11 +79,47 @@ const pluginsPages = {
       state: '/procedures',
     }],
   },
+  'events': {
+    breadcrumbs: [{
+      title: 'Events',
+      state: '/events',
+    }],
+  },
+  'results': {
+    breadcrumbs: [{
+      title: 'Test Results',
+      state: '/results',
+    }],
+  },
+  'referrals': {
+    breadcrumbs: [{
+      title: 'Referrals',
+      state: '/referrals',
+    }],
+  },
+  'orders': {
+    breadcrumbs: [{
+      title: 'Orders',
+      state: '/orders',
+    }],
+  },
+  'mdt': {
+    breadcrumbs: [{
+      title: 'MDT',
+      state: '/mdt',
+    }],
+  },
+  'drawings': {
+    breadcrumbs: [{
+      title: 'Drawings',
+      state: '/drawings',
+    }],
+  },
 };
 
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
-  for (let nameOfPage in pluginsPages) {
+  for (const nameOfPage in pluginsPages) {
     const breadcrumbs = breadcrumbsBefore.concat(pluginsPages[nameOfPage].breadcrumbs);
     list[nameOfPage] = { breadcrumbs };
   }

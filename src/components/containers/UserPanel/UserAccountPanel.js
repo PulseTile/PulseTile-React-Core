@@ -58,8 +58,7 @@ export default class UserAccountPanel extends PureComponent {
           </div>
           <PTButton className="btn btn-success btn-block btn-signout">
             <div onClick={actions.logoutStart}>
-              <span className="brn-text">Sign Out</span>
-              <i className="btn-icon fa fa-sign-out" />
+              <span className="brn-text">Sign Out</span> <i className="btn-icon fa fa-sign-out" />
             </div>
           </PTButton>
         </div>

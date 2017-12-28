@@ -10,28 +10,28 @@ export default class ViewPatientDropdown extends PureComponent {
         id: PropTypes.string,
       }).isRequired,
       onPatientViewClick: PropTypes.func.isRequired,
+      onSetOpenedDropdownID: PropTypes.func.isRequired,
     };
-
-    state = {
-      isDropdownOptionsVisible: false,
-    };
-
-    togglePatientOptionsVisibility = () => this.setState(prevState => ({ isDropdownOptionsVisible: !prevState.isDropdownOptionsVisible }));
 
     handlePatientViewClick = (destination) => {
-      this.togglePatientOptionsVisibility();
       this.props.onPatientViewClick(this.props.patient.id, destination);
     };
 
     render() {
-      const { isDropdownOptionsVisible } = this.state;
+      const { patient, openedDropdownID, onSetOpenedDropdownID } = this.props;
+      const isOpen = patient.id === openedDropdownID;
       return (
-        <div className={classNames('patient-buttons dropdown', { open: isDropdownOptionsVisible })} onClick={e => e.stopPropagation()}>
-          <button className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle" aria-haspopup="true" aria-expanded={isDropdownOptionsVisible} onClick={this.togglePatientOptionsVisibility} />
-          { isDropdownOptionsVisible &&
+        <div className={classNames('patient-buttons dropdown', { open: isOpen })} onClick={e => e.stopPropagation()}>
+          <button
+            className="btn btn-success btn-inverse btn-sm btn-dropdown-toggle dropdown-toggle"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            onClick={() => { onSetOpenedDropdownID(isOpen ? null : patient.id) }}
+          />
+          { isOpen &&
           <ViewPatientDropdownOptions
+            className="patients-dropdown-options"
             handlePatientViewClick={this.handlePatientViewClick}
-            toggleVisibility={this.togglePatientOptionsVisibility}
           /> }
           <div className="wrap-overflow">
             <button

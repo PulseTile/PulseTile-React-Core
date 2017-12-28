@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
-import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import AllergyDetailMainForm from './AllergyDetailMainForm'
-import AllergyDetailMetaForm from './AllergyDetailMetaForm'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
+import AllergyDetailMainForm from './AllergyDetailMainForm';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 
 const ALLERGIE_PANEL = 'allergiePanel';
@@ -16,7 +16,7 @@ export default class AllergiesDetail extends PureComponent {
     const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues, isSubmit } = this.props;
 		let { detail } = this.props;
 		detail = detail || {};
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
@@ -42,28 +42,28 @@ export default class AllergiesDetail extends PureComponent {
                       <Row>
                         <div className="col-md-11">
                           <div className="form-group">
-                            <label className="control-label">Cause</label>
-                            <div className="form-control-static">{detail.cause}</div>
+                            <label className="control-label">{valuesLabels.CAUSE}</label>
+                            <div className="form-control-static">{detail[valuesNames.CAUSE]}</div>
                           </div>
 
                           <div className="form-group">
-                            <label className="control-label">Reaction</label>
-                            <div className="form-control-static">{detail.reaction}</div>
+                            <label className="control-label">{valuesLabels.REACTION}</label>
+                            <div className="form-control-static">{detail[valuesNames.REACTION]}</div>
                           </div>
 
                           <div className="form-group">
-                            <label className="control-label">Author</label>
-                            <div className="form-control-static">{detail.author}</div>
+                            <label className="control-label">{valuesLabels.AUTHOR}</label>
+                            <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
                           </div>
 
                           <div className="form-group">
-                            <label className="control-label">Date</label>
+                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
                             <div className="form-control-static">{dateCreated}</div>
                           </div>
 
                           <div className="form-group">
-                            <label className="control-label">Source</label>
-                            <div className="form-control-static">{detail.source}</div>
+                            <label className="control-label">{valuesLabels.SOURCE}</label>
+                            <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
                           </div>
                         </div>
                       </Row>
@@ -104,6 +104,7 @@ export default class AllergiesDetail extends PureComponent {
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
             formValues={metaPanelFormValues}
+            isShowControlPanel={false}
             isBtnShowPanel
           >
             <div className="panel-body-inner">
@@ -114,13 +115,13 @@ export default class AllergiesDetail extends PureComponent {
                       <Row>
                         <div className="col-md-11">
                           <div className="form-group">
-                            <label className="control-label">Cause Code</label>
-                            <div className="form-control-static">{detail.causeCode}</div>
+                            <label className="control-label">{valuesLabels.CAUSECODE}</label>
+                            <div className="form-control-static">{detail[valuesNames.CAUSECODE]}</div>
                           </div>
 
                           <div className="form-group">
-                            <label className="control-label">Terminology</label>
-                            <div className="form-control-static">{detail.causeTerminology}</div>
+                            <label className="control-label">{valuesLabels.TERMINOLOGY}</label>
+                            <div className="form-control-static">{detail[valuesNames.TERMINOLOGY]}</div>
                           </div>
                         </div>
                       </Row>
@@ -130,25 +131,6 @@ export default class AllergiesDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') && editedPanel[META_PANEL] ? <PluginDetailPanel
-            onExpand={onExpand}
-            name={META_PANEL}
-            title="Metadata"
-            isOpen={openedPanel === META_PANEL}
-            onShow={onShow}
-            currentPanel={currentPanel}
-            onEdit={onEdit}
-            editedPanel={editedPanel}
-            onCancel={onCancel}
-            onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
-            isBtnShowPanel
-          >
-            <AllergyDetailMetaForm
-              detail={detail}
-              isSubmit={isSubmit}
-            />
-          </PluginDetailPanel> : null }
         </div>
       </div>
     )

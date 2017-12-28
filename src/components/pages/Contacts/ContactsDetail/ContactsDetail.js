@@ -3,16 +3,16 @@ import React, { PureComponent } from 'react';
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import ContactsDetailForm from './ContactsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels } from '../forms.config';
 
 const CONTACT_PANEL = 'contactPanel';
-const META_PANEL = 'metaPanel';
 
 export default class ContactsDetail extends PureComponent {
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, contactsDetailFormValues, metaPanelFormValues, isSubmit } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const dateCreated = getDDMMMYYYY(detail.dateCreated);
+    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
@@ -37,14 +37,14 @@ export default class ContactsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Name</label>
-                        <div className="form-control-static">{detail.name}</div>
+                        <label className="control-label">{valuesLabels.NAME}</label>
+                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Relationship</label>
-                        <div className="form-control-static">{detail.relationship}</div>
+                        <label className="control-label">{valuesLabels.REALATIONSHIP}</label>
+                        <div className="form-control-static">{detail[valuesNames.REALATIONSHIP]}</div>
                       </div>
                     </div>
                   </div>
@@ -52,18 +52,18 @@ export default class ContactsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Relationship Type</label>
-                        <div className="form-control-static">{detail.relationshipType}</div>
+                        <label className="control-label">{valuesLabels.REALATIONSHIP_TYPE}</label>
+                        <div className="form-control-static">{detail[valuesNames.REALATIONSHIP_TYPE]}</div>
                       </div>
                       <div className="form-group">
-                        <label className="control-label">Contact Information</label>
-                        <div className="form-control-static">{detail.contactInformation}</div>
+                        <label className="control-label">{valuesLabels.CONTACT_INFORMATION}</label>
+                        <div className="form-control-static">{detail[valuesNames.CONTACT_INFORMATION]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Next of Kin</label>
-                        <div className="form-control-static">{detail.nextOfKin ? 'Yes' : 'No'}</div>
+                        <label className="control-label">{valuesLabels.NEXT_OF_KIN}</label>
+                        <div className="form-control-static">{detail[valuesNames.NEXT_OF_KIN] ? 'Yes' : 'No'}</div>
                       </div>
                     </div>
                   </div>
@@ -71,8 +71,8 @@ export default class ContactsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Note</label>
-                        <div className="form-control-static">{detail.notes}</div>
+                        <label className="control-label">{valuesLabels.NOTES}</label>
+                        <div className="form-control-static">{detail[valuesNames.NOTES]}</div>
                       </div>
                     </div>
                   </div>
@@ -80,13 +80,13 @@ export default class ContactsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Author</label>
-                        <div className="form-control-static">{detail.author}</div>
+                        <label className="control-label">{valuesLabels.AUTHOR}</label>
+                        <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">
                       <div className="form-group">
-                        <label className="control-label">Date</label>
+                        <label className="control-label">{valuesLabels.DATE}</label>
                         <div className="form-control-static">{dateCreated}</div>
                       </div>
                     </div>
@@ -95,8 +95,8 @@ export default class ContactsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">Source</label>
-                        <div className="form-control-static">{detail.source}</div>
+                        <label className="control-label">{valuesLabels.SOURCE}</label>
+                        <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
                       </div>
                     </div>
                   </div>
@@ -125,42 +125,6 @@ export default class ContactsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === META_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
-            onExpand={onExpand}
-            name={META_PANEL}
-            title="Metadata"
-            isOpen={openedPanel === META_PANEL}
-            onShow={onShow}
-            currentPanel={currentPanel}
-            onEdit={onEdit}
-            editedPanel={editedPanel}
-            onCancel={onCancel}
-            onSaveSettings={onSaveSettings}
-            formValues={metaPanelFormValues}
-            isBtnShowPanel
-            isShowControlPanel={false}
-          >
-            <div className="panel-body-inner">
-              <div className="form">
-                <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">Relationship Code</label>
-                        <div className="form-control-static">{detail.relationshipCode}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">Relationship Terminology</label>
-                        <div className="form-control-static">{detail.relationshipTerminology}</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </PluginDetailPanel> : null}
         </div>
       </div>
     )

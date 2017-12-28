@@ -20,6 +20,7 @@ export default class Sidebar extends PureComponent {
     userId: PropTypes.number,
   };
 
+  /* istanbul ignore next */
   componentWillMount() {
     window.addEventListener('resize', () => {
       this.setPositionForSidebar()
@@ -30,22 +31,28 @@ export default class Sidebar extends PureComponent {
     window.addEventListener('orientationchange', () => {
       this.setPositionForSidebar()
     });
+    if (_.isEmpty(this.props.patientsSummaries)) {
+      this.hideSidebarOnMobile();
+    }
   }
 
+  /* istanbul ignore next */
   componentDidMount() {
     this.setPositionForSidebar();
   }
 
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     if (nextProps.patientsSummaries.length !== 0) {
       this.setPositionForSidebar();
     }
   }
 
+  /* istanbul ignore next */
   setPositionForSidebar() {
     const page = document;
-    const headerHeight = page.getElementsByClassName('header')[0].offsetHeight;
-    const footerHeight = page.getElementsByClassName('footer')[0].offsetHeight;
+    const headerHeight = page.getElementsByClassName('header')[0] ? page.getElementsByClassName('header')[0].offsetHeight : 0;
+    const footerHeight = page.getElementsByClassName('footer')[0] ? page.getElementsByClassName('footer')[0].offsetHeight : 0;
     const sidebar = page.getElementsByClassName('sidebar')[0];
     const sidebarUnderlay = page.getElementsByClassName('sidebar-underlay')[0];
 
@@ -68,10 +75,19 @@ export default class Sidebar extends PureComponent {
     }
   }
 
-  toggleSidebarVisibility = () => {
+  toggleSidebarVisibility = /* istanbul ignore next */ () => {
     const { actions, isSidebarVisible } = this.props;
     if (window.innerWidth < 768) {
       actions.setSidebarVisibility(!isSidebarVisible);
+    }
+  };
+
+  hideSidebarOnMobile = () => {
+    const { actions } = this.props;
+		/* istanbul ignore next */
+    if (window.innerWidth < 768) {
+      /* istanbul ignore next */
+      actions.setSidebarVisibility(false);
     }
   };
 
@@ -84,10 +100,11 @@ export default class Sidebar extends PureComponent {
           <div className="sidebar-nav">
             <div>
               <ul className="sidebar-nav-list">
-                {sidebarConfig.map(item => <li className="sidebar-nav-item">
-                  { (item.isVisible && !_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link> : null }
-                  { (item.isVisible && _.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
-                </li>)}
+                {sidebarConfig.map(item => (item.isVisible ? <li className="sidebar-nav-item">
+                  { (!_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link> : null }
+                  { (_.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
+                </li> : null))
+                }
               </ul>
             </div>
           </div>

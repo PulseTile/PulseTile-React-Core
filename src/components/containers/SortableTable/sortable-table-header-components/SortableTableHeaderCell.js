@@ -8,8 +8,7 @@ const SortableTableHeaderCell = ({ name, title, icon, onClick, sortingOrder }) =
     name={name}
     onClick={e => onClick(e, name)}
   >
-    <span>{title}</span>
-    {icon}
+    <span>{title}</span> {icon}
   </th>
 );
 

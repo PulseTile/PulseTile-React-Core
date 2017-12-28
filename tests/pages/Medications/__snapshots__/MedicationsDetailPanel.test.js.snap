@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MedicationsDetailPanel /> should renders with all props correctly 1`] = `
+<div
+  className="panel panel-secondary open"
+>
+  <PluginDetailHeader
+    currentPanel="TEST_PANEL"
+    isBtnShowPanel={true}
+    name="TEST_PANEL"
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Test Title Panel"
+  />
+  <div
+    className="panel-body"
+  >
+    <SimpleComponent />
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetailPanel /> should renders with all props correctly 2`] = `
+<div
+  className="panel panel-secondary open"
+>
+  <PluginDetailHeader
+    currentPanel="TEST_PANEL"
+    isBtnShowPanel={true}
+    name="AnotherPanel"
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Test Title Panel"
+  />
+  <div
+    className="panel-body"
+  >
+    <SimpleComponent />
+    <div
+      className="panel-control"
+    >
+      <div
+        className="wrap-control-group hide-indent-bottom"
+      >
+        <div
+          className="control-group with-indent left hidden-xs"
+        >
+          <PTButton
+            className="btn btn-danger"
+          >
+            <i
+              className="btn-icon fa fa-close"
+            />
+            <span
+              className="btn-text"
+            >
+               Cancel
+            </span>
+          </PTButton>
+          <PTButton
+            className="btn btn-success btn-pause"
+          >
+            <i
+              className="btn-icon fa fa-pause"
+            />
+            <span
+              className="btn-text"
+            >
+               Suspend
+            </span>
+          </PTButton>
+          <PTButton
+            className="btn btn-success"
+          >
+            <i
+              className="btn-icon fa fa-share"
+            />
+            <span
+              className="btn-text"
+            >
+               Order
+            </span>
+          </PTButton>
+        </div>
+        <div
+          className="control-group with-indent right"
+        >
+          <PTButton
+            className="btn btn-success btn-inverse btn-edit"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-edit"
+            />
+            <span
+              className="btn-text"
+            >
+               Edit
+            </span>
+          </PTButton>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <MedicationsDetailPanel /> should renders with all props correctly 3`] = `
+<div
+  className="panel panel-secondary open"
+>
+  <PluginDetailHeader
+    currentPanel="TEST_PANEL"
+    isBtnShowPanel={true}
+    name="TEST_PANEL"
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Test Title Panel"
+  />
+  <div
+    className="panel-body"
+  >
+    <SimpleComponent />
+    <div
+      className="panel-control ng-scope"
+    >
+      <div
+        className="wrap-control-group"
+      >
+        <div
+          className="control-group right"
+        >
+          <PTButton
+            className="btn btn-danger"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-ban"
+            />
+            <span
+              className="btn-text"
+            >
+               Cancel
+            </span>
+          </PTButton>
+          <PTButton
+            className="btn btn-success"
+            onClick={[Function]}
+          >
+            <i
+              className="btn-icon fa fa-check"
+            />
+            <span
+              className="btn-text"
+            >
+               Complete
+            </span>
+          </PTButton>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

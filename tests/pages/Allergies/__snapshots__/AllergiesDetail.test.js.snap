@@ -1,0 +1,443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <AllergiesDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "allergiePanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="allergiePanel"
+      title="Allergy"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <Row
+              bsClass="row"
+              componentClass="div"
+            >
+              <Col
+                bsClass="col"
+                componentClass="div"
+                md={6}
+                xs={12}
+              >
+                <Row
+                  bsClass="row"
+                  componentClass="div"
+                >
+                  <div
+                    className="col-md-11"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Cause
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Reaction
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Author
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Date
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        03-Oct-2017
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Source
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                  </div>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <AllergiesDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "allergiePanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="metaPanel"
+      title="Metadata"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <Row
+              bsClass="row"
+              componentClass="div"
+            >
+              <Col
+                bsClass="col"
+                componentClass="div"
+                md={6}
+                xs={12}
+              >
+                <Row
+                  bsClass="row"
+                  componentClass="div"
+                >
+                  <div
+                    className="col-md-11"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Cause Code
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Terminology
+                      </label>
+                      <div
+                        className="form-control-static"
+                      />
+                    </div>
+                  </div>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <AllergiesDetail /> should renders correctly with different state of props 3`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "allergiePanel": true,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="allergiePanel"
+      title="Allergy"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "Dr Tony Shannon",
+            "cause": "1111",
+            "causeCode": "1111",
+            "causeTerminology": "1239085",
+            "dateCreated": 1507020019000,
+            "originalComposition": "",
+            "originalSource": "",
+            "reaction": "1111",
+            "source": "ethercis",
+            "sourceId": "7ae34463-0770-4a36-bbde-4869bb6a0f05",
+            "terminologyCode": "1111",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <AllergiesDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "allergiePanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="allergiePanel"
+      title="Allergy"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <Row
+              bsClass="row"
+              componentClass="div"
+            >
+              <Col
+                bsClass="col"
+                componentClass="div"
+                md={6}
+                xs={12}
+              >
+                <Row
+                  bsClass="row"
+                  componentClass="div"
+                >
+                  <div
+                    className="col-md-11"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Cause
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        1111
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Reaction
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        1111
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Author
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        Dr Tony Shannon
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Date
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        03-Oct-2017
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Source
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        ethercis
+                      </div>
+                    </div>
+                  </div>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "allergiePanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="metaPanel"
+      title="Metadata"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <Row
+              bsClass="row"
+              componentClass="div"
+            >
+              <Col
+                bsClass="col"
+                componentClass="div"
+                md={6}
+                xs={12}
+              >
+                <Row
+                  bsClass="row"
+                  componentClass="div"
+                >
+                  <div
+                    className="col-md-11"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Cause Code
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        1111
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Terminology
+                      </label>
+                      <div
+                        className="form-control-static"
+                      >
+                        1239085
+                      </div>
+                    </div>
+                  </div>
+                </Row>
+              </Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
