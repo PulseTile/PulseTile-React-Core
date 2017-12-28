@@ -21,7 +21,8 @@ export const clientUrls = {
   REFERRALS: 'referrals',
   ORDERS: 'orders',
   MDTS: 'mdt',
-  DRAWINGS: 'drawings',
+	DRAWINGS: 'drawings',
+	DOCUMENTS: 'documents',
 };
 
 const pluginsPages = {
@@ -115,6 +116,12 @@ const pluginsPages = {
       state: '/drawings',
     }],
   },
+	'documents': {
+		breadcrumbs: [{
+			title: 'Documents',
+			state: '/documents',
+		}],
+	},
 };
 
 
