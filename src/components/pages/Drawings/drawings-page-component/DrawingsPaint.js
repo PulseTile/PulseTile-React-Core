@@ -65,14 +65,15 @@ export default class DrawingsPaint extends PureComponent {
     if (!fabric.Canvas.supports('toDataURL')) {
       console.log('This browser doesn\'t provide means to serialize canvas to an image');
     } else {
-      image64 = this.state.canvas.toDataURL('image/jpeg', 1.0);
+      image64 = this.state.canvas.toDataURL({ format: 'jpeg', quality: 0.1 });
     }
     onChangeImageCanvas(image64);
   };
 
   initCanvasDrawing = () => {
     const { canvasId } = this.state;
-    this.setState({ canvasEl: document.getElementById(canvasId), canvas: new fabric.Canvas(canvasId, canvasSettings) });
+    const canvas = window._canvas = new fabric.Canvas(canvasId, canvasSettings);
+    this.setState({ canvasEl: document.getElementById(canvasId), canvas });
     setTimeout(() => {
       this.subscribeToCanvasEvents();
       this.setCanvasSize();
