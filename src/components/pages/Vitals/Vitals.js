@@ -24,6 +24,7 @@ import VitalsDetail from './VitalsDetail/VitalsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import VitalsCreateForm from './VitalsCreate/VitalsCreateForm'
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { serviceVitalsSigns } from './viltals-helpers.utils';
 
 const VITALS_MAIN = 'vitalsMain';
 const VITALS_DETAIL = 'vitalsDetail';
@@ -221,8 +222,20 @@ export default class Vitals extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [`${valuesNames.DATE_CREATED}Convert`, valuesNames.FROM, valuesNames.TO, valuesNames.SOURCE],
+      filterKeys: [`${valuesNames.DATE_CREATED}Convert`, valuesNames.ID, valuesNames.NEWS_SCORE, valuesNames.SOURCE],
+      modeSorting: {
+        number: [valuesNames.ID, valuesNames.NEWS_SCORE],
+      },
     });
+  };
+
+  modificateVitals = (allVitals) => {
+    let vitals;
+    if (!_.isEmpty(allVitals)) {
+      allVitals.map((item, index) => item[valuesNames.ID] = index + 1);
+      vitals = serviceVitalsSigns.modificateVitalsArr(allVitals);
+    }
+    return vitals
   };
 
   render() {
@@ -234,11 +247,7 @@ export default class Vitals extends PureComponent {
     const isPanelCreate = (expandedPanel === VITALS_CREATE);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-
-    if (!_.isEmpty(allVitals)) {
-      allVitals.map((item, index) => item[valuesNames.ID] = index + 1);
-    }
-    const filteredVitals = this.formToShowCollection(allVitals);
+    const filteredVitals = this.formToShowCollection(this.modificateVitals(allVitals));
 
     let sourceId;
     if (!_.isEmpty(vitalDetail)) {

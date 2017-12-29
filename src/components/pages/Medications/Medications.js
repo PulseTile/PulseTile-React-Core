@@ -272,10 +272,18 @@ export default class Medications extends PureComponent {
     /* istanbul ignore next */
     if (allMedications !== undefined) {
       if (allMedications[0]) {
-        allMedications[0].warning = true;
+        allMedications[0].highlighters = [];
+        allMedications[0].highlighters.push({
+          name: 'name',
+          status: 'warning',
+        });
       }
       if (allMedications[1]) {
-        allMedications[1].danger = true;
+        allMedications[1].highlighters = [];
+        allMedications[1].highlighters.push({
+          name: 'name',
+          status: 'danger',
+        });
       }
     }
 

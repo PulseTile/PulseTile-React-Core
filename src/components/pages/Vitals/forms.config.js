@@ -3,6 +3,7 @@ export const valuesNames = {
   DATE_CREATED: 'dateCreated',
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
+  NEWS_SCORE: 'newsScore',
 };
 
 export const valuesLabels = {
