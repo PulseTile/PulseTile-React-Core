@@ -39,36 +39,44 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         "dateOfBirth": -363657600000,
         "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "15-Dec-2017",
+        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+        "diagnosesDateConvert": "01-Jan-1970",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "15-Dec-2017",
+        "ordersDate": "1970-01-01T00:00:00-05:00",
+        "ordersDateConvert": "01-Jan-1970",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "15-Dec-2017",
-        "vitalsDateConvert": "15-Dec-2017",
+        "resultsDate": "1970-01-01T00:00:00-05:00",
+        "resultsDateConvert": "01-Jan-1970",
+        "vitalsDate": "1970-01-01T00:00:00-05:00",
+        "vitalsDateConvert": "01-Jan-1970",
       },
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
         "dateOfBirth": -363657600000,
         "dateOfBirthConvert": "24-Jun-1958",
         "department": "Primary Care",
-        "diagnosesDateConvert": "15-Dec-2017",
+        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+        "diagnosesDateConvert": "01-Jan-1970",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
-        "ordersDateConvert": "15-Dec-2017",
+        "ordersDate": "1970-01-01T00:00:00-05:00",
+        "ordersDateConvert": "01-Jan-1970",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "resultsDateConvert": "15-Dec-2017",
-        "vitalsDateConvert": "15-Dec-2017",
+        "resultsDate": "1970-01-01T00:00:00-05:00",
+        "resultsDateConvert": "01-Jan-1970",
+        "vitalsDate": "1970-01-01T00:00:00-05:00",
+        "vitalsDateConvert": "01-Jan-1970",
       },
     ]
   }
@@ -987,17 +995,20 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   "dateOfBirth": -363657600000,
                   "dateOfBirthConvert": "24-Jun-1958",
                   "department": "Primary Care",
-                  "diagnosesDateConvert": "15-Dec-2017",
+                  "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                  "diagnosesDateConvert": "01-Jan-1970",
                   "gender": "Male",
                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                   "gpName": "Joseph May N.",
                   "id": "9999999006",
                   "name": "Ezra Gordon",
                   "nhsNumber": "9999999006",
-                  "ordersDateConvert": "15-Dec-2017",
+                  "ordersDate": "1970-01-01T00:00:00-05:00",
+                  "ordersDateConvert": "01-Jan-1970",
                   "pasNo": "595941",
                   "phone": "070 6691 5178",
-                  "resultsDateConvert": "15-Dec-2017",
+                  "resultsDate": "1970-01-01T00:00:00-05:00",
+                  "resultsDateConvert": "01-Jan-1970",
                   "viewPatientNavigation": <ViewPatientDropdown
                     onPatientViewClick={[Function]}
                     onSetOpenedDropdownID={[Function]}
@@ -1008,22 +1019,27 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 "dateOfBirth": -363657600000,
                                 "dateOfBirthConvert": "24-Jun-1958",
                                 "department": "Primary Care",
-                                "diagnosesDateConvert": "15-Dec-2017",
+                                "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                "diagnosesDateConvert": "01-Jan-1970",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
                                 "id": "9999999006",
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
-                                "ordersDateConvert": "15-Dec-2017",
+                                "ordersDate": "1970-01-01T00:00:00-05:00",
+                                "ordersDateConvert": "01-Jan-1970",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
-                                "resultsDateConvert": "15-Dec-2017",
-                                "vitalsDateConvert": "15-Dec-2017",
+                                "resultsDate": "1970-01-01T00:00:00-05:00",
+                                "resultsDateConvert": "01-Jan-1970",
+                                "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                "vitalsDateConvert": "01-Jan-1970",
                               }
                     }
               />,
-                  "vitalsDateConvert": "15-Dec-2017",
+                  "vitalsDate": "1970-01-01T00:00:00-05:00",
+                  "vitalsDateConvert": "01-Jan-1970",
                 },
               ]
             }
@@ -1135,7 +1151,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersName__83"
+                    key="__colHeadersName__82"
                     style={
                       Object {
                         "width": 150,
@@ -1160,7 +1176,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__98"
+                        key="__SortableTableHeaderCell__97"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1251,7 +1267,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__84"
+                    key="__SortableTableRow__83"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1308,7 +1324,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__99"
+                        key="__SortableTableHoveredRow__98"
                         name="name"
                         onClick={[Function]}
                       >
@@ -1318,7 +1334,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__100"
+                        key="__SortableTableHoveredRow__99"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1333,7 +1349,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeaders__85"
+                    key="__colHeaders__84"
                     style={
                       Object {
                         "width": 150,
@@ -1341,7 +1357,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__86"
+                    key="__colHeaders__85"
                     style={
                       Object {
                         "width": 300,
@@ -1349,7 +1365,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__87"
+                    key="__colHeaders__86"
                     style={
                       Object {
                         "width": 105,
@@ -1357,7 +1373,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__88"
+                    key="__colHeaders__87"
                     style={
                       Object {
                         "width": 90,
@@ -1365,7 +1381,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__89"
+                    key="__colHeaders__88"
                     style={
                       Object {
                         "width": 115,
@@ -1373,10 +1389,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__90"
+                    key="__colHeaders__89"
                     style={
                       Object {
                         "width": 110,
+                      }
+                    }
+                  />
+                  <col
+                    key="__colHeaders__90"
+                    style={
+                      Object {
+                        "width": 100,
                       }
                     }
                   />
@@ -1384,7 +1408,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     key="__colHeaders__91"
                     style={
                       Object {
-                        "width": 100,
+                        "width": 110,
                       }
                     }
                   />
@@ -1392,20 +1416,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     key="__colHeaders__92"
                     style={
                       Object {
-                        "width": 110,
-                      }
-                    }
-                  />
-                  <col
-                    key="__colHeaders__93"
-                    style={
-                      Object {
                         "width": 100,
                       }
                     }
                   />
                   <col
-                    key="__colHeaders__94"
+                    key="__colHeaders__93"
                     style={
                       Object {
                         "width": 90,
@@ -1487,7 +1503,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__101"
+                        key="__SortableTableHeaderCell__100"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1505,7 +1521,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__102"
+                        key="__SortableTableHeaderCell__101"
                         name="address"
                         onClick={[Function]}
                         sortingOrder="asc"
@@ -1523,7 +1539,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__103"
+                        key="__SortableTableHeaderCell__102"
                         name="dateOfBirth"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1541,7 +1557,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__104"
+                        key="__SortableTableHeaderCell__103"
                         name="gender"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1559,7 +1575,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__105"
+                        key="__SortableTableHeaderCell__104"
                         name="id"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1578,7 +1594,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__106"
+                        key="__SortableTableHeaderCell__105"
                         name="ordersDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1606,7 +1622,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__107"
+                        key="__SortableTableHeaderCell__106"
                         name="ordersCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1628,7 +1644,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__108"
+                        key="__SortableTableHeaderCell__107"
                         name="resultsDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1656,7 +1672,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__109"
+                        key="__SortableTableHeaderCell__108"
                         name="resultsCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1678,7 +1694,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__110"
+                        key="__SortableTableHeaderCell__109"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1768,7 +1784,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__95"
+                    key="__SortableTableRow__94"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1826,7 +1842,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         },
                         Object {
                           "name": "ordersDate",
-                          "value": "-",
+                          "value": "01-Jan-1970",
                         },
                         Object {
                           "name": "ordersCount",
@@ -1834,7 +1850,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         },
                         Object {
                           "name": "resultsDate",
-                          "value": "-",
+                          "value": "01-Jan-1970",
                         },
                         Object {
                           "name": "resultsCount",
@@ -1852,18 +1868,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "15-Dec-2017",
+                                        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                        "diagnosesDateConvert": "01-Jan-1970",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "15-Dec-2017",
+                                        "ordersDate": "1970-01-01T00:00:00-05:00",
+                                        "ordersDateConvert": "01-Jan-1970",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "15-Dec-2017",
-                                        "vitalsDateConvert": "15-Dec-2017",
+                                        "resultsDate": "1970-01-01T00:00:00-05:00",
+                                        "resultsDateConvert": "01-Jan-1970",
+                                        "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                        "vitalsDateConvert": "01-Jan-1970",
                                       }
                             }
                       />,
@@ -1881,7 +1901,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__111"
+                        key="__SortableTableHoveredRow__110"
                         name="name"
                         onClick={[Function]}
                       >
@@ -1891,7 +1911,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="sorted"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__112"
+                        key="__SortableTableHoveredRow__111"
                         name="address"
                         onClick={[Function]}
                       >
@@ -1901,7 +1921,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Born"
-                        key="__SortableTableHoveredRow__113"
+                        key="__SortableTableHoveredRow__112"
                         name="dateOfBirth"
                         onClick={[Function]}
                       >
@@ -1911,7 +1931,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Gender"
-                        key="__SortableTableHoveredRow__114"
+                        key="__SortableTableHoveredRow__113"
                         name="gender"
                         onClick={[Function]}
                       >
@@ -1921,7 +1941,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="NHS No."
-                        key="__SortableTableHoveredRow__115"
+                        key="__SortableTableHoveredRow__114"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1931,17 +1951,17 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders"
-                        key="__SortableTableHoveredRow__116"
+                        key="__SortableTableHoveredRow__115"
                         name="ordersDate"
                         onClick={[Function]}
                       >
-                        -
+                        01-Jan-1970
                       </td>
                       <td
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders "
-                        key="__SortableTableHoveredRow__117"
+                        key="__SortableTableHoveredRow__116"
                         name="ordersCount"
                         onClick={[Function]}
                       >
@@ -1951,17 +1971,17 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results"
-                        key="__SortableTableHoveredRow__118"
+                        key="__SortableTableHoveredRow__117"
                         name="resultsDate"
                         onClick={[Function]}
                       >
-                        -
+                        01-Jan-1970
                       </td>
                       <td
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results "
-                        key="__SortableTableHoveredRow__119"
+                        key="__SortableTableHoveredRow__118"
                         name="resultsCount"
                         onClick={[Function]}
                       >
@@ -1971,7 +1991,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th=""
-                        key="__SortableTableHoveredRow__120"
+                        key="__SortableTableHoveredRow__119"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -1985,18 +2005,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "15-Dec-2017",
+                              "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                              "diagnosesDateConvert": "01-Jan-1970",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "15-Dec-2017",
+                              "ordersDate": "1970-01-01T00:00:00-05:00",
+                              "ordersDateConvert": "01-Jan-1970",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "15-Dec-2017",
-                              "vitalsDateConvert": "15-Dec-2017",
+                              "resultsDate": "1970-01-01T00:00:00-05:00",
+                              "resultsDateConvert": "01-Jan-1970",
+                              "vitalsDate": "1970-01-01T00:00:00-05:00",
+                              "vitalsDateConvert": "01-Jan-1970",
                             }
                           }
                         >
@@ -2032,7 +2056,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersView__96"
+                    key="__colHeadersView__95"
                     style={
                       Object {
                         "width": 90,
@@ -2059,7 +2083,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     <tr>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__121"
+                        key="__SortableTableHeaderCell__120"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -2149,7 +2173,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__97"
+                    key="__SortableTableRow__96"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -2197,18 +2221,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                         "dateOfBirth": -363657600000,
                                         "dateOfBirthConvert": "24-Jun-1958",
                                         "department": "Primary Care",
-                                        "diagnosesDateConvert": "15-Dec-2017",
+                                        "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                                        "diagnosesDateConvert": "01-Jan-1970",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
                                         "id": "9999999006",
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
-                                        "ordersDateConvert": "15-Dec-2017",
+                                        "ordersDate": "1970-01-01T00:00:00-05:00",
+                                        "ordersDateConvert": "01-Jan-1970",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
-                                        "resultsDateConvert": "15-Dec-2017",
-                                        "vitalsDateConvert": "15-Dec-2017",
+                                        "resultsDate": "1970-01-01T00:00:00-05:00",
+                                        "resultsDateConvert": "01-Jan-1970",
+                                        "vitalsDate": "1970-01-01T00:00:00-05:00",
+                                        "vitalsDateConvert": "01-Jan-1970",
                                       }
                             }
                       />,
@@ -2226,7 +2254,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__122"
+                        key="__SortableTableHoveredRow__121"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -2240,18 +2268,22 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               "dateOfBirth": -363657600000,
                               "dateOfBirthConvert": "24-Jun-1958",
                               "department": "Primary Care",
-                              "diagnosesDateConvert": "15-Dec-2017",
+                              "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                              "diagnosesDateConvert": "01-Jan-1970",
                               "gender": "Male",
                               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                               "gpName": "Joseph May N.",
                               "id": "9999999006",
                               "name": "Ezra Gordon",
                               "nhsNumber": "9999999006",
-                              "ordersDateConvert": "15-Dec-2017",
+                              "ordersDate": "1970-01-01T00:00:00-05:00",
+                              "ordersDateConvert": "01-Jan-1970",
                               "pasNo": "595941",
                               "phone": "070 6691 5178",
-                              "resultsDateConvert": "15-Dec-2017",
-                              "vitalsDateConvert": "15-Dec-2017",
+                              "resultsDate": "1970-01-01T00:00:00-05:00",
+                              "resultsDateConvert": "01-Jan-1970",
+                              "vitalsDate": "1970-01-01T00:00:00-05:00",
+                              "vitalsDateConvert": "01-Jan-1970",
                             }
                           }
                         >
@@ -2317,7 +2349,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               </li>
               <li
                 className="pagination-item short-show active"
-                key="__PaginationBlock__li__123"
+                key="__PaginationBlock__li__41"
               >
                 <a
                   className="pagination-link"

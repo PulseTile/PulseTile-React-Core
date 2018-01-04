@@ -18,7 +18,6 @@ export default class PatientsSummaryPanel extends PureComponent {
     };
 
     state = {
-      isPatientSummaryPanelVisible: false,
       selected: this.props.selectedCategory,
       selectedViewOptions: this.props.selectedViewOfBoards
     };

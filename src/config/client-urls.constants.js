@@ -5,7 +5,6 @@ export const clientUrls = {
   PATIENTS_FULL_DETAILS: '/patients-full-details',
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
-  ORDERS: 'orders',
   RESULTS: 'results',
   VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
@@ -22,6 +21,7 @@ export const clientUrls = {
   REFERRALS: 'referrals',
   ORDERS: 'orders',
   MDTS: 'mdt',
+  DRAWINGS: 'drawings',
 };
 
 const pluginsPages = {
@@ -107,6 +107,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'MDT',
       state: '/mdt',
+    }],
+  },
+  'drawings': {
+    breadcrumbs: [{
+      title: 'Drawings',
+      state: '/drawings',
     }],
   },
 };

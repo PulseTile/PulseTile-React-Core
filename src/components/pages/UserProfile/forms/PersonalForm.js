@@ -7,7 +7,7 @@ import DateInput from '../../../form-fields/DateInput';
 import { optionsForGenderField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
 import { validatePersonalForm } from './validation';
-import { valuesPersonalForm } from './values-names.config';
+import { valuesPersonalForm, valuesPersonalFormLabels } from './values-names.config';
 import { defaultPersonalFormValues } from './default-values.config';
 
 @reduxForm({
@@ -29,21 +29,21 @@ export default class PersonalForm extends PureComponent {
                 <Row>
                   <Col md={11}>
                     <Field
-                      label="First Name"
+                      label={valuesPersonalFormLabels.FIRST_NAME}
                       name={valuesPersonalForm.FIRST_NAME}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="Last Name"
+                      label={valuesPersonalFormLabels.LAST_NAME}
                       name={valuesPersonalForm.LAST_NAME}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="NHS No"
+                      label={valuesPersonalFormLabels.NHS_NUMBER}
                       name={valuesPersonalForm.NHS_NUMBER}
                       type="text"
                       placeholder=""
@@ -56,7 +56,7 @@ export default class PersonalForm extends PureComponent {
                 <Row>
                   <Col md={11} mdOffset={1}>
                     <Field
-                      label="Date of Birth"
+                      label={valuesPersonalFormLabels.DATE_OF_BIRTH}
                       name={valuesPersonalForm.DATE_OF_BIRTH}
                       type="text"
                       placeholder=""
@@ -64,14 +64,14 @@ export default class PersonalForm extends PureComponent {
                       props={{ format: 'DD-MMM-YYYY' }}
                     />
                     <Field
-                      label="Gender"
+                      label={valuesPersonalFormLabels.SELECT_GENDER}
                       name={valuesPersonalForm.SELECT_GENDER}
                       placeholder=""
                       component={Select}
                       options={optionsForGenderField}
                     />
                     <Field
-                      label="Doctor"
+                      label={valuesPersonalFormLabels.DOCTOR}
                       name={valuesPersonalForm.DOCTOR}
                       type="text"
                       placeholder=""

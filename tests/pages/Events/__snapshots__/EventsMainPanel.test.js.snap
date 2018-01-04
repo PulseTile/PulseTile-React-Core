@@ -1,0 +1,3746 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 2`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <Spinner />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 3`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown open"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 4`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 5`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 6`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  >
+    <div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--left"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            From: 
+            09 Sep 2001
+          </div>
+        </div>
+      </div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--right"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            To: 
+            18 May 2033
+          </div>
+        </div>
+      </div>
+      <div
+        className="wrap-rzslider-events"
+      >
+        <ComponentEnhancer(Range)
+          activeDotStyle={Object {}}
+          allowCross={true}
+          className=""
+          count={1}
+          defaultValue={
+            Array [
+              1511286303450,
+              1512047880000,
+            ]
+          }
+          disabled={false}
+          dotStyle={Object {}}
+          dots={false}
+          handle={[Function]}
+          handleStyle={
+            Array [
+              Object {},
+            ]
+          }
+          included={true}
+          marks={
+            Object {
+              "1511286303450": "21-Nov-2017",
+              "1511324382277": Object {
+                "label": "",
+              },
+              "1511362461104": Object {
+                "label": "",
+              },
+              "1511400539931": Object {
+                "label": "",
+              },
+              "1511438618758": Object {
+                "label": "",
+              },
+              "1511476697585": Object {
+                "label": "",
+              },
+              "1511514776412": Object {
+                "label": "",
+              },
+              "1511552855239": Object {
+                "label": "",
+              },
+              "1511590934066": Object {
+                "label": "",
+              },
+              "1511629012893": Object {
+                "label": "",
+              },
+              "1511667091720": Object {
+                "label": "26-Nov-2017",
+              },
+              "1511705170547": Object {
+                "label": "",
+              },
+              "1511743249374": Object {
+                "label": "",
+              },
+              "1511781328201": Object {
+                "label": "",
+              },
+              "1511819407028": Object {
+                "label": "",
+              },
+              "1511857485855": Object {
+                "label": "",
+              },
+              "1511895564682": Object {
+                "label": "",
+              },
+              "1511933643509": Object {
+                "label": "",
+              },
+              "1511971722336": Object {
+                "label": "",
+              },
+              "1512009801163": Object {
+                "label": "",
+              },
+              "1512047880000": "30-Nov-2017",
+            }
+          }
+          max={1512047880000}
+          min={1511286303450}
+          onAfterChange={[Function]}
+          onBeforeChange={[Function]}
+          onChange={[Function]}
+          prefixCls="rc-slider"
+          pushable={false}
+          railStyle={Object {}}
+          step={1}
+          tipFormatter={[Function]}
+          tipProps={
+            Object {
+              "defaultVisible": true,
+              "visible": true,
+            }
+          }
+          trackStyle={
+            Array [
+              Object {},
+            ]
+          }
+          vertical={false}
+        />
+      </div>
+    </div>
+  </div>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 7`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  >
+    <div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--left"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            From: 
+            09 Sep 2001
+          </div>
+        </div>
+      </div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--right"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            To: 
+            18 May 2033
+          </div>
+        </div>
+      </div>
+      <div
+        className="wrap-rzslider-events"
+      >
+        <ComponentEnhancer(Range)
+          activeDotStyle={Object {}}
+          allowCross={true}
+          className=""
+          count={1}
+          defaultValue={
+            Array [
+              1511286303450,
+              1512047880000,
+            ]
+          }
+          disabled={false}
+          dotStyle={Object {}}
+          dots={false}
+          handle={[Function]}
+          handleStyle={
+            Array [
+              Object {},
+            ]
+          }
+          included={true}
+          marks={
+            Object {
+              "1511286303450": "21-Nov-2017",
+              "1511324382277": Object {
+                "label": "",
+              },
+              "1511362461104": Object {
+                "label": "",
+              },
+              "1511400539931": Object {
+                "label": "",
+              },
+              "1511438618758": Object {
+                "label": "",
+              },
+              "1511476697585": Object {
+                "label": "",
+              },
+              "1511514776412": Object {
+                "label": "",
+              },
+              "1511552855239": Object {
+                "label": "",
+              },
+              "1511590934066": Object {
+                "label": "",
+              },
+              "1511629012893": Object {
+                "label": "",
+              },
+              "1511667091720": Object {
+                "label": "26-Nov-2017",
+              },
+              "1511705170547": Object {
+                "label": "",
+              },
+              "1511743249374": Object {
+                "label": "",
+              },
+              "1511781328201": Object {
+                "label": "",
+              },
+              "1511819407028": Object {
+                "label": "",
+              },
+              "1511857485855": Object {
+                "label": "",
+              },
+              "1511895564682": Object {
+                "label": "",
+              },
+              "1511933643509": Object {
+                "label": "",
+              },
+              "1511971722336": Object {
+                "label": "",
+              },
+              "1512009801163": Object {
+                "label": "",
+              },
+              "1512047880000": "30-Nov-2017",
+            }
+          }
+          max={1512047880000}
+          min={1511286303450}
+          onAfterChange={[Function]}
+          onBeforeChange={[Function]}
+          onChange={[Function]}
+          prefixCls="rc-slider"
+          pushable={false}
+          railStyle={Object {}}
+          step={1}
+          tipFormatter={[Function]}
+          tipProps={
+            Object {
+              "defaultVisible": true,
+              "visible": true,
+            }
+          }
+          trackStyle={
+            Array [
+              Object {},
+            ]
+          }
+          vertical={false}
+        />
+      </div>
+    </div>
+  </div>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 8`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  >
+    <div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--left"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            From: 
+            09 Sep 2001
+          </div>
+        </div>
+      </div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--right"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            To: 
+            18 May 2033
+          </div>
+        </div>
+      </div>
+      <div
+        className="wrap-rzslider-events"
+      >
+        <ComponentEnhancer(Range)
+          activeDotStyle={Object {}}
+          allowCross={true}
+          className=""
+          count={1}
+          defaultValue={
+            Array [
+              1511286303450,
+              1512047880000,
+            ]
+          }
+          disabled={false}
+          dotStyle={Object {}}
+          dots={false}
+          handle={[Function]}
+          handleStyle={
+            Array [
+              Object {},
+            ]
+          }
+          included={true}
+          marks={
+            Object {
+              "1511286303450": "21-Nov-2017",
+              "1511324382277": Object {
+                "label": "",
+              },
+              "1511362461104": Object {
+                "label": "",
+              },
+              "1511400539931": Object {
+                "label": "",
+              },
+              "1511438618758": Object {
+                "label": "",
+              },
+              "1511476697585": Object {
+                "label": "",
+              },
+              "1511514776412": Object {
+                "label": "",
+              },
+              "1511552855239": Object {
+                "label": "",
+              },
+              "1511590934066": Object {
+                "label": "",
+              },
+              "1511629012893": Object {
+                "label": "",
+              },
+              "1511667091720": Object {
+                "label": "26-Nov-2017",
+              },
+              "1511705170547": Object {
+                "label": "",
+              },
+              "1511743249374": Object {
+                "label": "",
+              },
+              "1511781328201": Object {
+                "label": "",
+              },
+              "1511819407028": Object {
+                "label": "",
+              },
+              "1511857485855": Object {
+                "label": "",
+              },
+              "1511895564682": Object {
+                "label": "",
+              },
+              "1511933643509": Object {
+                "label": "",
+              },
+              "1511971722336": Object {
+                "label": "",
+              },
+              "1512009801163": Object {
+                "label": "",
+              },
+              "1512047880000": "30-Nov-2017",
+            }
+          }
+          max={1512047880000}
+          min={1511286303450}
+          onAfterChange={[Function]}
+          onBeforeChange={[Function]}
+          onChange={[Function]}
+          prefixCls="rc-slider"
+          pushable={false}
+          railStyle={Object {}}
+          step={1}
+          tipFormatter={[Function]}
+          tipProps={
+            Object {
+              "defaultVisible": true,
+              "visible": true,
+            }
+          }
+          trackStyle={
+            Array [
+              Object {},
+            ]
+          }
+          vertical={false}
+        />
+      </div>
+    </div>
+  </div>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 9`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  >
+    <div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--left"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            From: 
+            14 Jul 2017
+          </div>
+        </div>
+      </div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--right"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            To: 
+            15 Nov 2023
+          </div>
+        </div>
+      </div>
+      <div
+        className="wrap-rzslider-events"
+      >
+        <ComponentEnhancer(Range)
+          activeDotStyle={Object {}}
+          allowCross={true}
+          className=""
+          count={1}
+          defaultValue={
+            Array [
+              1511286303450,
+              1512047880000,
+            ]
+          }
+          disabled={false}
+          dotStyle={Object {}}
+          dots={false}
+          handle={[Function]}
+          handleStyle={
+            Array [
+              Object {},
+            ]
+          }
+          included={true}
+          marks={
+            Object {
+              "1511286303450": "21-Nov-2017",
+              "1511324382277": Object {
+                "label": "",
+              },
+              "1511362461104": Object {
+                "label": "",
+              },
+              "1511400539931": Object {
+                "label": "",
+              },
+              "1511438618758": Object {
+                "label": "",
+              },
+              "1511476697585": Object {
+                "label": "",
+              },
+              "1511514776412": Object {
+                "label": "",
+              },
+              "1511552855239": Object {
+                "label": "",
+              },
+              "1511590934066": Object {
+                "label": "",
+              },
+              "1511629012893": Object {
+                "label": "",
+              },
+              "1511667091720": Object {
+                "label": "26-Nov-2017",
+              },
+              "1511705170547": Object {
+                "label": "",
+              },
+              "1511743249374": Object {
+                "label": "",
+              },
+              "1511781328201": Object {
+                "label": "",
+              },
+              "1511819407028": Object {
+                "label": "",
+              },
+              "1511857485855": Object {
+                "label": "",
+              },
+              "1511895564682": Object {
+                "label": "",
+              },
+              "1511933643509": Object {
+                "label": "",
+              },
+              "1511971722336": Object {
+                "label": "",
+              },
+              "1512009801163": Object {
+                "label": "",
+              },
+              "1512047880000": "30-Nov-2017",
+            }
+          }
+          max={1512047880000}
+          min={1511286303450}
+          onAfterChange={[Function]}
+          onBeforeChange={[Function]}
+          onChange={[Function]}
+          prefixCls="rc-slider"
+          pushable={false}
+          railStyle={Object {}}
+          step={1}
+          tipFormatter={[Function]}
+          tipProps={
+            Object {
+              "defaultVisible": true,
+              "visible": true,
+            }
+          }
+          trackStyle={
+            Array [
+              Object {},
+            ]
+          }
+          vertical={false}
+        />
+      </div>
+    </div>
+  </div>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item active"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly 10`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  >
+    <div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--left"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            From: 
+            14 Jul 2017
+          </div>
+        </div>
+      </div>
+      <div
+        className="rzslider-tooltip rzslider-tooltip--right"
+      >
+        <div
+          className="rzslider-tooltip-content"
+        >
+          <div
+            className="rzslider-tooltip-inner"
+          >
+            To: 
+            15 Nov 2023
+          </div>
+        </div>
+      </div>
+      <div
+        className="wrap-rzslider-events"
+      >
+        <ComponentEnhancer(Range)
+          activeDotStyle={Object {}}
+          allowCross={true}
+          className=""
+          count={1}
+          defaultValue={
+            Array [
+              1511286303450,
+              1512047880000,
+            ]
+          }
+          disabled={false}
+          dotStyle={Object {}}
+          dots={false}
+          handle={[Function]}
+          handleStyle={
+            Array [
+              Object {},
+            ]
+          }
+          included={true}
+          marks={
+            Object {
+              "1511286303450": "21-Nov-2017",
+              "1511324382277": Object {
+                "label": "",
+              },
+              "1511362461104": Object {
+                "label": "",
+              },
+              "1511400539931": Object {
+                "label": "",
+              },
+              "1511438618758": Object {
+                "label": "",
+              },
+              "1511476697585": Object {
+                "label": "",
+              },
+              "1511514776412": Object {
+                "label": "",
+              },
+              "1511552855239": Object {
+                "label": "",
+              },
+              "1511590934066": Object {
+                "label": "",
+              },
+              "1511629012893": Object {
+                "label": "",
+              },
+              "1511667091720": Object {
+                "label": "26-Nov-2017",
+              },
+              "1511705170547": Object {
+                "label": "",
+              },
+              "1511743249374": Object {
+                "label": "",
+              },
+              "1511781328201": Object {
+                "label": "",
+              },
+              "1511819407028": Object {
+                "label": "",
+              },
+              "1511857485855": Object {
+                "label": "",
+              },
+              "1511895564682": Object {
+                "label": "",
+              },
+              "1511933643509": Object {
+                "label": "",
+              },
+              "1511971722336": Object {
+                "label": "",
+              },
+              "1512009801163": Object {
+                "label": "",
+              },
+              "1512047880000": "30-Nov-2017",
+            }
+          }
+          max={1512047880000}
+          min={1511286303450}
+          onAfterChange={[Function]}
+          onBeforeChange={[Function]}
+          onChange={[Function]}
+          prefixCls="rc-slider"
+          pushable={false}
+          railStyle={Object {}}
+          step={1}
+          tipFormatter={[Function]}
+          tipProps={
+            Object {
+              "defaultVisible": true,
+              "visible": true,
+            }
+          }
+          trackStyle={
+            Array [
+              Object {},
+            ]
+          }
+          vertical={false}
+        />
+      </div>
+    </div>
+  </div>
+  <SortableTable
+    columnNameSortBy="name"
+    data={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    emptyDataMessage="No events"
+    headers={
+      Array [
+        Object {
+          "key": "name",
+          "title": "Event Name",
+          "width": "50%",
+        },
+        Object {
+          "key": "type",
+          "title": "Event Type",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "dateCreated": 1511286303000,
+          "dateTime": 1511286303450,
+          "dateTimeConvert": "21-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+        Object {
+          "dateCreated": 1511356742000,
+          "dateTime": 1512047880000,
+          "dateTimeConvert": "30-Nov-2017",
+          "description": 1,
+          "name": 1,
+          "sideDateInTimeline": "right",
+          "source": "ethercis",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "type": "",
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item active"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly mount testing 1`] = `
+<EventsMainPanel
+  activeView="table"
+  columnNameSortBy="name"
+  emptyDataMessage="No events"
+  eventsTimeline={
+    Object {
+      "1452549600000": Array [
+        Object {
+          "dateCreated": 1454669420000,
+          "dateTime": 1452595820958,
+          "dateTimeConvert": "12-Jan-2016",
+          "description": "Complications following surgery",
+          "name": "Transfer from ward to ICU",
+          "sideDateInTimeline": "left",
+          "source": "ethercis",
+          "sourceId": "1aa74f42-ff10-4fa8-8d21-7242e425d9bb",
+          "type": "Transfer",
+        },
+      ],
+    }
+  }
+  eventsType="initEventsType"
+  filteredData={
+    Array [
+      Object {
+        "dateCreated": 1511286303000,
+        "dateTime": 1511286303450,
+        "dateTimeConvert": "21-Nov-2017",
+        "description": 1,
+        "name": 1,
+        "sideDateInTimeline": "right",
+        "source": "ethercis",
+        "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+        "type": "",
+      },
+      Object {
+        "dateCreated": 1511356742000,
+        "dateTime": 1512047880000,
+        "dateTimeConvert": "30-Nov-2017",
+        "description": 1,
+        "name": 1,
+        "sideDateInTimeline": "right",
+        "source": "ethercis",
+        "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+        "type": "",
+      },
+    ]
+  }
+  headers={
+    Array [
+      Object {
+        "key": "name",
+        "title": "Event Name",
+        "width": "50%",
+      },
+      Object {
+        "key": "type",
+        "title": "Event Type",
+        "width": "25%",
+      },
+    ]
+  }
+  id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+  isBtnCreateVisible={true}
+  isLoading={false}
+  isTimelinesOpen={true}
+  listPerPageAmount={10}
+  maxValueRange={2000000000000}
+  minValueRange={1000000000000}
+  offset={0}
+  onCellClick={[Function]}
+  onCreate={[Function]}
+  onHeaderCellClick={[Function]}
+  onRangeChange={[Function]}
+  resourceData={
+    Array [
+      Object {
+        "dateCreated": 1511286303000,
+        "dateTime": 1511286303450,
+        "dateTimeConvert": "21-Nov-2017",
+        "description": 1,
+        "name": 1,
+        "sideDateInTimeline": "right",
+        "source": "ethercis",
+        "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+        "type": "",
+      },
+      Object {
+        "dateCreated": 1511356742000,
+        "dateTime": 1512047880000,
+        "dateTimeConvert": "30-Nov-2017",
+        "description": 1,
+        "name": 1,
+        "sideDateInTimeline": "right",
+        "source": "ethercis",
+        "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+        "type": "",
+      },
+    ]
+  }
+  setOffset={[Function]}
+  sortingOrder="asc"
+  table="events"
+  totalEntriesAmount={116}
+>
+  <div
+    className="panel-body"
+  >
+    <div
+      className="wrap-rzslider"
+    >
+      <div>
+        <div
+          className="rzslider-tooltip rzslider-tooltip--left"
+        >
+          <div
+            className="rzslider-tooltip-content"
+          >
+            <div
+              className="rzslider-tooltip-inner"
+            >
+              From: 
+              09 Sep 2001
+            </div>
+          </div>
+        </div>
+        <div
+          className="rzslider-tooltip rzslider-tooltip--right"
+        >
+          <div
+            className="rzslider-tooltip-content"
+          >
+            <div
+              className="rzslider-tooltip-inner"
+            >
+              To: 
+              18 May 2033
+            </div>
+          </div>
+        </div>
+        <div
+          className="wrap-rzslider-events"
+        >
+          <ComponentEnhancer(Range)
+            activeDotStyle={Object {}}
+            allowCross={true}
+            className=""
+            count={1}
+            defaultValue={
+              Array [
+                1511286303450,
+                1512047880000,
+              ]
+            }
+            disabled={false}
+            dotStyle={Object {}}
+            dots={false}
+            handle={[Function]}
+            handleStyle={
+              Array [
+                Object {},
+              ]
+            }
+            included={true}
+            marks={
+              Object {
+                "1511286303450": "21-Nov-2017",
+                "1511324382277": Object {
+                  "label": "",
+                },
+                "1511362461104": Object {
+                  "label": "",
+                },
+                "1511400539931": Object {
+                  "label": "",
+                },
+                "1511438618758": Object {
+                  "label": "",
+                },
+                "1511476697585": Object {
+                  "label": "",
+                },
+                "1511514776412": Object {
+                  "label": "",
+                },
+                "1511552855239": Object {
+                  "label": "",
+                },
+                "1511590934066": Object {
+                  "label": "",
+                },
+                "1511629012893": Object {
+                  "label": "",
+                },
+                "1511667091720": Object {
+                  "label": "26-Nov-2017",
+                },
+                "1511705170547": Object {
+                  "label": "",
+                },
+                "1511743249374": Object {
+                  "label": "",
+                },
+                "1511781328201": Object {
+                  "label": "",
+                },
+                "1511819407028": Object {
+                  "label": "",
+                },
+                "1511857485855": Object {
+                  "label": "",
+                },
+                "1511895564682": Object {
+                  "label": "",
+                },
+                "1511933643509": Object {
+                  "label": "",
+                },
+                "1511971722336": Object {
+                  "label": "",
+                },
+                "1512009801163": Object {
+                  "label": "",
+                },
+                "1512047880000": "30-Nov-2017",
+              }
+            }
+            max={1512047880000}
+            min={1511286303450}
+            onAfterChange={[Function]}
+            onBeforeChange={[Function]}
+            onChange={[Function]}
+            prefixCls="rc-slider"
+            pushable={false}
+            railStyle={Object {}}
+            step={1}
+            tipFormatter={[Function]}
+            tipProps={
+              Object {
+                "defaultVisible": true,
+                "visible": true,
+              }
+            }
+            trackStyle={
+              Array [
+                Object {},
+              ]
+            }
+            vertical={false}
+          >
+            <div
+              className="rc-slider rc-slider-with-marks"
+              onBlur={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMouseDown={[Function]}
+              onTouchStart={[Function]}
+            >
+              <div
+                className="rc-slider-rail"
+                style={Object {}}
+              />
+              <Track
+                className="rc-slider-track rc-slider-track-1"
+                included={true}
+                key="1"
+                length={100}
+                offset={0}
+                style={Object {}}
+                vertical={false}
+              >
+                <div
+                  className="rc-slider-track rc-slider-track-1"
+                  style={
+                    Object {
+                      "left": "0%",
+                      "visibility": "visible",
+                      "width": "100%",
+                    }
+                  }
+                />
+              </Track>
+              <Steps
+                activeDotStyle={Object {}}
+                dotStyle={Object {}}
+                dots={false}
+                included={true}
+                lowerBound={1511286303450}
+                marks={
+                  Object {
+                    "1511286303450": "21-Nov-2017",
+                    "1511324382277": Object {
+                      "label": "",
+                    },
+                    "1511362461104": Object {
+                      "label": "",
+                    },
+                    "1511400539931": Object {
+                      "label": "",
+                    },
+                    "1511438618758": Object {
+                      "label": "",
+                    },
+                    "1511476697585": Object {
+                      "label": "",
+                    },
+                    "1511514776412": Object {
+                      "label": "",
+                    },
+                    "1511552855239": Object {
+                      "label": "",
+                    },
+                    "1511590934066": Object {
+                      "label": "",
+                    },
+                    "1511629012893": Object {
+                      "label": "",
+                    },
+                    "1511667091720": Object {
+                      "label": "26-Nov-2017",
+                    },
+                    "1511705170547": Object {
+                      "label": "",
+                    },
+                    "1511743249374": Object {
+                      "label": "",
+                    },
+                    "1511781328201": Object {
+                      "label": "",
+                    },
+                    "1511819407028": Object {
+                      "label": "",
+                    },
+                    "1511857485855": Object {
+                      "label": "",
+                    },
+                    "1511895564682": Object {
+                      "label": "",
+                    },
+                    "1511933643509": Object {
+                      "label": "",
+                    },
+                    "1511971722336": Object {
+                      "label": "",
+                    },
+                    "1512009801163": Object {
+                      "label": "",
+                    },
+                    "1512047880000": "30-Nov-2017",
+                  }
+                }
+                max={1512047880000}
+                min={1511286303450}
+                prefixCls="rc-slider"
+                step={1}
+                upperBound={1512047880000}
+                vertical={false}
+              >
+                <div
+                  className="rc-slider-step"
+                >
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511286303450"
+                    style={
+                      Object {
+                        "left": "0%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1512047880000"
+                    style={
+                      Object {
+                        "left": "100%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511324382277"
+                    style={
+                      Object {
+                        "left": "4.999999934346718%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511362461104"
+                    style={
+                      Object {
+                        "left": "9.999999868693436%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511400539931"
+                    style={
+                      Object {
+                        "left": "14.999999803040154%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511438618758"
+                    style={
+                      Object {
+                        "left": "19.999999737386872%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511476697585"
+                    style={
+                      Object {
+                        "left": "24.99999967173359%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511514776412"
+                    style={
+                      Object {
+                        "left": "29.99999960608031%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511552855239"
+                    style={
+                      Object {
+                        "left": "34.99999954042703%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511590934066"
+                    style={
+                      Object {
+                        "left": "39.999999474773745%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511629012893"
+                    style={
+                      Object {
+                        "left": "44.99999940912046%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511667091720"
+                    style={
+                      Object {
+                        "left": "49.99999934346718%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511705170547"
+                    style={
+                      Object {
+                        "left": "54.99999927781389%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511743249374"
+                    style={
+                      Object {
+                        "left": "59.99999921216062%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511781328201"
+                    style={
+                      Object {
+                        "left": "64.99999914650734%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511819407028"
+                    style={
+                      Object {
+                        "left": "69.99999908085405%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511857485855"
+                    style={
+                      Object {
+                        "left": "74.99999901520077%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511895564682"
+                    style={
+                      Object {
+                        "left": "79.99999894954749%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511933643509"
+                    style={
+                      Object {
+                        "left": "84.99999888389421%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1511971722336"
+                    style={
+                      Object {
+                        "left": "89.99999881824093%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-dot rc-slider-dot-active"
+                    key="1512009801163"
+                    style={
+                      Object {
+                        "left": "94.99999875258764%",
+                      }
+                    }
+                  />
+                </div>
+              </Steps>
+              <Handle
+                className="rc-slider-handle rc-slider-handle-1"
+                disabled={false}
+                key="0"
+                max={1512047880000}
+                min={1511286303450}
+                offset={0}
+                style={Object {}}
+                value={1511286303450}
+                vertical={false}
+              >
+                <div
+                  aria-disabled={false}
+                  aria-valuemax={1512047880000}
+                  aria-valuemin={1511286303450}
+                  aria-valuenow={1511286303450}
+                  className="rc-slider-handle rc-slider-handle-1"
+                  role="slider"
+                  style={
+                    Object {
+                      "left": "0%",
+                    }
+                  }
+                  tabIndex="0"
+                />
+              </Handle>
+              <Handle
+                className="rc-slider-handle rc-slider-handle-2"
+                disabled={false}
+                key="1"
+                max={1512047880000}
+                min={1511286303450}
+                offset={100}
+                value={1512047880000}
+                vertical={false}
+              >
+                <div
+                  aria-disabled={false}
+                  aria-valuemax={1512047880000}
+                  aria-valuemin={1511286303450}
+                  aria-valuenow={1512047880000}
+                  className="rc-slider-handle rc-slider-handle-2"
+                  role="slider"
+                  style={
+                    Object {
+                      "left": "100%",
+                    }
+                  }
+                  tabIndex="0"
+                />
+              </Handle>
+              <Marks
+                className="rc-slider-mark"
+                included={true}
+                lowerBound={1511286303450}
+                marks={
+                  Object {
+                    "1511286303450": "21-Nov-2017",
+                    "1511324382277": Object {
+                      "label": "",
+                    },
+                    "1511362461104": Object {
+                      "label": "",
+                    },
+                    "1511400539931": Object {
+                      "label": "",
+                    },
+                    "1511438618758": Object {
+                      "label": "",
+                    },
+                    "1511476697585": Object {
+                      "label": "",
+                    },
+                    "1511514776412": Object {
+                      "label": "",
+                    },
+                    "1511552855239": Object {
+                      "label": "",
+                    },
+                    "1511590934066": Object {
+                      "label": "",
+                    },
+                    "1511629012893": Object {
+                      "label": "",
+                    },
+                    "1511667091720": Object {
+                      "label": "26-Nov-2017",
+                    },
+                    "1511705170547": Object {
+                      "label": "",
+                    },
+                    "1511743249374": Object {
+                      "label": "",
+                    },
+                    "1511781328201": Object {
+                      "label": "",
+                    },
+                    "1511819407028": Object {
+                      "label": "",
+                    },
+                    "1511857485855": Object {
+                      "label": "",
+                    },
+                    "1511895564682": Object {
+                      "label": "",
+                    },
+                    "1511933643509": Object {
+                      "label": "",
+                    },
+                    "1511971722336": Object {
+                      "label": "",
+                    },
+                    "1512009801163": Object {
+                      "label": "",
+                    },
+                    "1512047880000": "30-Nov-2017",
+                  }
+                }
+                max={1512047880000}
+                min={1511286303450}
+                upperBound={1512047880000}
+                vertical={false}
+              >
+                <div
+                  className="rc-slider-mark"
+                >
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511286303450"
+                    style={
+                      Object {
+                        "left": "0%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  >
+                    21-Nov-2017
+                  </span>
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511324382277"
+                    style={
+                      Object {
+                        "left": "4.999999934346718%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511362461104"
+                    style={
+                      Object {
+                        "left": "9.999999868693436%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511400539931"
+                    style={
+                      Object {
+                        "left": "14.999999803040154%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511438618758"
+                    style={
+                      Object {
+                        "left": "19.999999737386872%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511476697585"
+                    style={
+                      Object {
+                        "left": "24.99999967173359%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511514776412"
+                    style={
+                      Object {
+                        "left": "29.99999960608031%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511552855239"
+                    style={
+                      Object {
+                        "left": "34.99999954042703%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511590934066"
+                    style={
+                      Object {
+                        "left": "39.999999474773745%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511629012893"
+                    style={
+                      Object {
+                        "left": "44.99999940912046%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511667091720"
+                    style={
+                      Object {
+                        "left": "49.99999934346718%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  >
+                    26-Nov-2017
+                  </span>
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511705170547"
+                    style={
+                      Object {
+                        "left": "54.99999927781389%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511743249374"
+                    style={
+                      Object {
+                        "left": "59.99999921216062%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511781328201"
+                    style={
+                      Object {
+                        "left": "64.99999914650734%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511819407028"
+                    style={
+                      Object {
+                        "left": "69.99999908085405%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511857485855"
+                    style={
+                      Object {
+                        "left": "74.99999901520077%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511895564682"
+                    style={
+                      Object {
+                        "left": "79.99999894954749%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511933643509"
+                    style={
+                      Object {
+                        "left": "84.99999888389421%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1511971722336"
+                    style={
+                      Object {
+                        "left": "89.99999881824093%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1512009801163"
+                    style={
+                      Object {
+                        "left": "94.99999875258764%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  />
+                  <span
+                    className="rc-slider-mark-text rc-slider-mark-text-active"
+                    key="1512047880000"
+                    style={
+                      Object {
+                        "left": "100%",
+                        "marginLeft": "-2.25%",
+                        "width": "4.5%",
+                      }
+                    }
+                  >
+                    30-Nov-2017
+                  </span>
+                </div>
+              </Marks>
+            </div>
+          </ComponentEnhancer(Range)>
+        </div>
+      </div>
+    </div>
+    <SortableTable
+      columnNameSortBy="name"
+      data={
+        Array [
+          Object {
+            "dateCreated": 1511286303000,
+            "dateTime": 1511286303450,
+            "dateTimeConvert": "21-Nov-2017",
+            "description": 1,
+            "name": 1,
+            "sideDateInTimeline": "right",
+            "source": "ethercis",
+            "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+            "type": "",
+          },
+          Object {
+            "dateCreated": 1511356742000,
+            "dateTime": 1512047880000,
+            "dateTimeConvert": "30-Nov-2017",
+            "description": 1,
+            "name": 1,
+            "sideDateInTimeline": "right",
+            "source": "ethercis",
+            "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+            "type": "",
+          },
+        ]
+      }
+      emptyDataMessage="No events"
+      headers={
+        Array [
+          Object {
+            "key": "name",
+            "title": "Event Name",
+            "width": "50%",
+          },
+          Object {
+            "key": "type",
+            "title": "Event Type",
+            "width": "25%",
+          },
+        ]
+      }
+      id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+      onCellClick={[Function]}
+      onHeaderCellClick={[Function]}
+      resourceData={
+        Array [
+          Object {
+            "dateCreated": 1511286303000,
+            "dateTime": 1511286303450,
+            "dateTimeConvert": "21-Nov-2017",
+            "description": 1,
+            "name": 1,
+            "sideDateInTimeline": "right",
+            "source": "ethercis",
+            "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+            "type": "",
+          },
+          Object {
+            "dateCreated": 1511356742000,
+            "dateTime": 1512047880000,
+            "dateTimeConvert": "30-Nov-2017",
+            "description": 1,
+            "name": 1,
+            "sideDateInTimeline": "right",
+            "source": "ethercis",
+            "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+            "type": "",
+          },
+        ]
+      }
+      sortingOrder="asc"
+      table=""
+    >
+      <table
+        className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table "
+      >
+        <colgroup>
+          <col
+            key="__colHeaders__1"
+            style={
+              Object {
+                "width": "50%",
+              }
+            }
+          />
+          <col
+            key="__colHeaders__2"
+            style={
+              Object {
+                "width": "25%",
+              }
+            }
+          />
+        </colgroup>
+        <thead>
+          <SortableTableHeaderRow
+            columnNameSortBy="name"
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Event Name",
+                  "width": "50%",
+                },
+                Object {
+                  "key": "type",
+                  "title": "Event Type",
+                  "width": "25%",
+                },
+              ]
+            }
+            onHeaderCellClick={[Function]}
+            sortingOrder="asc"
+          >
+            <tr>
+              <SortableTableHeaderCell
+                key="__SortableTableHeaderCell__5"
+                name="name"
+                onClick={[Function]}
+                sortingOrder="asc"
+                title="Event Name"
+              >
+                <th
+                  className="sorted asc"
+                  name="name"
+                  onClick={[Function]}
+                >
+                  <span>
+                    Event Name
+                  </span>
+                   
+                </th>
+              </SortableTableHeaderCell>
+              <SortableTableHeaderCell
+                key="__SortableTableHeaderCell__6"
+                name="type"
+                onClick={[Function]}
+                sortingOrder={null}
+                title="Event Type"
+              >
+                <th
+                  className=""
+                  name="type"
+                  onClick={[Function]}
+                >
+                  <span>
+                    Event Type
+                  </span>
+                   
+                </th>
+              </SortableTableHeaderCell>
+            </tr>
+          </SortableTableHeaderRow>
+        </thead>
+        <tbody>
+          <SortableTableRow
+            columnNameSortBy="name"
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Event Name",
+                  "width": "50%",
+                },
+                Object {
+                  "key": "type",
+                  "title": "Event Type",
+                  "width": "25%",
+                },
+              ]
+            }
+            id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+            index={0}
+            key="__SortableTableRow__3"
+            onCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1511286303000,
+                  "dateTime": 1511286303450,
+                  "dateTimeConvert": "21-Nov-2017",
+                  "description": 1,
+                  "name": 1,
+                  "sideDateInTimeline": "right",
+                  "source": "ethercis",
+                  "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+                  "type": "",
+                },
+                Object {
+                  "dateCreated": 1511356742000,
+                  "dateTime": 1512047880000,
+                  "dateTimeConvert": "30-Nov-2017",
+                  "description": 1,
+                  "name": 1,
+                  "sideDateInTimeline": "right",
+                  "source": "ethercis",
+                  "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+                  "type": "",
+                },
+              ]
+            }
+            rowData={
+              Array [
+                Object {
+                  "name": "name",
+                  "value": 1,
+                },
+                Object {
+                  "name": "type",
+                  "value": "",
+                },
+              ]
+            }
+            table=""
+          >
+            <tr
+              className=""
+            >
+              <td
+                className="sorted"
+                data-table-hover={true}
+                data-th="Event Name"
+                key="__SortableTableRow__7"
+                name="name"
+                onClick={[Function]}
+              >
+                1
+              </td>
+              <td
+                className=""
+                data-table-hover={true}
+                data-th="Event Type"
+                key="__SortableTableRow__8"
+                name="type"
+                onClick={[Function]}
+              />
+            </tr>
+          </SortableTableRow>
+          <SortableTableRow
+            columnNameSortBy="name"
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Event Name",
+                  "width": "50%",
+                },
+                Object {
+                  "key": "type",
+                  "title": "Event Type",
+                  "width": "25%",
+                },
+              ]
+            }
+            id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+            index={1}
+            key="__SortableTableRow__4"
+            onCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1511286303000,
+                  "dateTime": 1511286303450,
+                  "dateTimeConvert": "21-Nov-2017",
+                  "description": 1,
+                  "name": 1,
+                  "sideDateInTimeline": "right",
+                  "source": "ethercis",
+                  "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+                  "type": "",
+                },
+                Object {
+                  "dateCreated": 1511356742000,
+                  "dateTime": 1512047880000,
+                  "dateTimeConvert": "30-Nov-2017",
+                  "description": 1,
+                  "name": 1,
+                  "sideDateInTimeline": "right",
+                  "source": "ethercis",
+                  "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+                  "type": "",
+                },
+              ]
+            }
+            rowData={
+              Array [
+                Object {
+                  "name": "name",
+                  "value": 1,
+                },
+                Object {
+                  "name": "type",
+                  "value": "",
+                },
+              ]
+            }
+            table=""
+          >
+            <tr
+              className=""
+            >
+              <td
+                className="sorted"
+                data-table-hover={true}
+                data-th="Event Name"
+                key="__SortableTableRow__9"
+                name="name"
+                onClick={[Function]}
+              >
+                1
+              </td>
+              <td
+                className=""
+                data-table-hover={true}
+                data-th="Event Type"
+                key="__SortableTableRow__10"
+                name="type"
+                onClick={[Function]}
+              />
+            </tr>
+          </SortableTableRow>
+        </tbody>
+      </table>
+    </SortableTable>
+    <div
+      className="panel-control"
+    >
+      <div
+        className="wrap-control-group"
+      >
+        <div
+          className="control-group with-indent right"
+        >
+          <div
+            className="dropdown"
+          >
+            <PTButton
+              className="btn btn-success btn-dropdown-toggle btn-table"
+              onClick={[Function]}
+            >
+              <button
+                className="btn btn-success btn-dropdown-toggle btn-table"
+                onClick={[Function]}
+              >
+                <span
+                  className="btn-text"
+                >
+                  Create
+                </span>
+              </button>
+            </PTButton>
+            <div
+              className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+            >
+              <div
+                className="dropdown-menu-wrap-list"
+              >
+                <div
+                  className="dropdown-menu-list"
+                >
+                  <div
+                    className="dropdown-menu-item"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                    >
+                      Appointment
+                    </span>
+                  </div>
+                  <div
+                    className="dropdown-menu-item"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                    >
+                      Admission
+                    </span>
+                  </div>
+                  <div
+                    className="dropdown-menu-item"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                    >
+                      Transfer
+                    </span>
+                  </div>
+                  <div
+                    className="dropdown-menu-item"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                    >
+                      Discharge
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</EventsMainPanel>
+`;
+
+exports[`Component <EventsMainPanel /> should renders with all props correctly when activeView is timeline 1`] = `
+<div
+  className="panel-body"
+>
+  <div
+    className="wrap-rzslider"
+  />
+  <EventsTimelines />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <div
+          className="dropdown"
+        >
+          <PTButton
+            className="btn btn-success btn-dropdown-toggle btn-table"
+            onClick={[Function]}
+          >
+            <span
+              className="btn-text"
+            >
+              Create
+            </span>
+          </PTButton>
+          <div
+            className="dropdown-menu dropdown-menu-top-right dropdown-menu-small-size"
+          >
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Appointment
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Admission
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Transfer
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                  onClick={[Function]}
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Discharge
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

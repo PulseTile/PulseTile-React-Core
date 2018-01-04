@@ -86,6 +86,7 @@ export default class Contacts extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CONTACT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -233,6 +234,7 @@ export default class Contacts extends PureComponent {
     const isPanelMain = (expandedPanel === CONTACTS_MAIN);
     const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
+    /* istanbul ignore next */
     const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
       key: valuesNames.NEXT_OF_KIN,
       fn: el => (el || false),

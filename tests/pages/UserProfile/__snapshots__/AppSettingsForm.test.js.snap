@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <AppSettingsForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="appSettingsForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={11}
+            >
+              <Field
+                component={[Function]}
+                label="Application Title"
+                name="title"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                id="logoB64"
+                label="Application Logo File"
+                name="logoB64"
+              />
+              <Field
+                component={[Function]}
+                label="Application Themes"
+                name="themeColor"
+                normalize={[Function]}
+                options={
+                  Array [
+                    Object {
+                      "title": "Green Theme",
+                      "value": "green",
+                    },
+                    Object {
+                      "title": "Purple Theme",
+                      "value": "purple",
+                    },
+                    Object {
+                      "title": "Gray Theme",
+                      "value": "gray",
+                    },
+                  ]
+                }
+              />
+              <Field
+                component={[Function]}
+                label="Browser Window title"
+                name="browserTitle"
+                placeholder=""
+                type="text"
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  </form>
+</div>
+`;

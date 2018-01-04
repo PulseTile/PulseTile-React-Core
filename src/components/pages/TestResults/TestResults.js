@@ -73,6 +73,7 @@ export default class TestResults extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TEST_RESULT_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
+    /* istanbul ignore next */
     setTimeout(() => {
       this.setState({ isLoading: false })
     }, 500)
@@ -105,11 +106,7 @@ export default class TestResults extends PureComponent {
 
   handleSetOffset = offset => this.setState({ offset });
 
-  handleCreate = () => {
-    const { userId } = this.props;
-    this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: TEST_RESULTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/create`);
-  };
+  handleCreate = () => {};
 
   handleEdit = (name) => {
     this.setState(prevState => ({

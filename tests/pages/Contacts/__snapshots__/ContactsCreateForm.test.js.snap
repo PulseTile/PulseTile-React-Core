@@ -1,0 +1,531 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ContactsCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="contactsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Field
+                component={[Function]}
+                id="relationship"
+                label="Relationship"
+                name="relationship"
+                options={
+                  Array [
+                    Object {
+                      "title": "Husband",
+                      "value": "Husband",
+                    },
+                    Object {
+                      "title": "Wife",
+                      "value": "Wife",
+                    },
+                    Object {
+                      "title": "Father",
+                      "value": "Father",
+                    },
+                    Object {
+                      "title": "Alone",
+                      "value": "Alone",
+                    },
+                    Object {
+                      "title": "Mother",
+                      "value": "Mother",
+                    },
+                    Object {
+                      "title": "Daughter",
+                      "value": "Daughter",
+                    },
+                    Object {
+                      "title": "Son",
+                      "value": "Son",
+                    },
+                    Object {
+                      "title": "Brother",
+                      "value": "Brother",
+                    },
+                    Object {
+                      "title": "Sister",
+                      "value": "Sister",
+                    },
+                    Object {
+                      "title": "Friend",
+                      "value": "Friend",
+                    },
+                    Object {
+                      "title": "Family friend",
+                      "value": "Family friend",
+                    },
+                    Object {
+                      "title": "Neighbour",
+                      "value": "Neighbour",
+                    },
+                    Object {
+                      "title": "District Nurse",
+                      "value": "District Nurse",
+                    },
+                    Object {
+                      "title": "Primary Care Worker",
+                      "value": "Primary Care Worker",
+                    },
+                    Object {
+                      "title": "Allocated social worker",
+                      "value": "Allocated social worker",
+                    },
+                    Object {
+                      "title": "Care C-ordinator",
+                      "value": "Care C-ordinator",
+                    },
+                  ]
+                }
+                props={
+                  Object {
+                    "isSubmit": true,
+                  }
+                }
+              />
+            </Col>
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Field
+                component={[Function]}
+                id="nextOfKin"
+                label="Next of Kin"
+                name="nextOfKin"
+                props={
+                  Object {
+                    "isSubmit": true,
+                  }
+                }
+                type="checkbox"
+              />
+            </Col>
+          </Row>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="relationshipCode"
+            label="Relationship Type"
+            name="relationshipCode"
+            options={
+              Array [
+                Object {
+                  "title": "Informal carer",
+                  "value": "at0036",
+                },
+                Object {
+                  "title": "Main informal carer",
+                  "value": "at0037",
+                },
+                Object {
+                  "title": "Formal care worker",
+                  "value": "at0038",
+                },
+                Object {
+                  "title": "Key formal care worker",
+                  "value": "at0039",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="contactInformation"
+            label="Contact Information"
+            name="contactInformation"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="currentDate"
+            label="Date"
+            name="currentDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <ContactsCreateForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="contactsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Field
+                component={[Function]}
+                id="relationship"
+                label="Relationship"
+                name="relationship"
+                options={
+                  Array [
+                    Object {
+                      "title": "Husband",
+                      "value": "Husband",
+                    },
+                    Object {
+                      "title": "Wife",
+                      "value": "Wife",
+                    },
+                    Object {
+                      "title": "Father",
+                      "value": "Father",
+                    },
+                    Object {
+                      "title": "Alone",
+                      "value": "Alone",
+                    },
+                    Object {
+                      "title": "Mother",
+                      "value": "Mother",
+                    },
+                    Object {
+                      "title": "Daughter",
+                      "value": "Daughter",
+                    },
+                    Object {
+                      "title": "Son",
+                      "value": "Son",
+                    },
+                    Object {
+                      "title": "Brother",
+                      "value": "Brother",
+                    },
+                    Object {
+                      "title": "Sister",
+                      "value": "Sister",
+                    },
+                    Object {
+                      "title": "Friend",
+                      "value": "Friend",
+                    },
+                    Object {
+                      "title": "Family friend",
+                      "value": "Family friend",
+                    },
+                    Object {
+                      "title": "Neighbour",
+                      "value": "Neighbour",
+                    },
+                    Object {
+                      "title": "District Nurse",
+                      "value": "District Nurse",
+                    },
+                    Object {
+                      "title": "Primary Care Worker",
+                      "value": "Primary Care Worker",
+                    },
+                    Object {
+                      "title": "Allocated social worker",
+                      "value": "Allocated social worker",
+                    },
+                    Object {
+                      "title": "Care C-ordinator",
+                      "value": "Care C-ordinator",
+                    },
+                  ]
+                }
+                props={
+                  Object {
+                    "isSubmit": false,
+                  }
+                }
+              />
+            </Col>
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Field
+                component={[Function]}
+                id="nextOfKin"
+                label="Next of Kin"
+                name="nextOfKin"
+                props={
+                  Object {
+                    "isSubmit": false,
+                  }
+                }
+                type="checkbox"
+              />
+            </Col>
+          </Row>
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="relationshipCode"
+            label="Relationship Type"
+            name="relationshipCode"
+            options={
+              Array [
+                Object {
+                  "title": "Informal carer",
+                  "value": "at0036",
+                },
+                Object {
+                  "title": "Main informal carer",
+                  "value": "at0037",
+                },
+                Object {
+                  "title": "Formal care worker",
+                  "value": "at0038",
+                },
+                Object {
+                  "title": "Key formal care worker",
+                  "value": "at0039",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="contactInformation"
+            label="Contact Information"
+            name="contactInformation"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="currentDate"
+            label="Date"
+            name="currentDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

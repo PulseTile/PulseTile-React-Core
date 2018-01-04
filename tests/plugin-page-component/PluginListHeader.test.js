@@ -1,7 +1,8 @@
 import React from 'react';
-import {configure, shallow, mount} from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
+
 configure({ adapter: new Adapter() });
 
 import PluginListHeader from '../../src/components/plugin-page-component/PluginListHeader';
@@ -18,15 +19,15 @@ describe('Component <PluginListHeader />', () => {
   it('should renders with all props correctly', () => {
     let tree;
     const component = shallow(
-        <PluginListHeader
-          onExpand={testProps.onExpand}
-          onFilterChange={testProps.onFilterChange}
-          name={testProps.name}
-          currentPanel={testProps.currentPanel}
-          panelTitle={testProps.panelTitle}
-          isBtnExpandVisible={true}
-          isBtnTableVisible={true}
-        />);
+      <PluginListHeader
+        onExpand={testProps.onExpand}
+        onFilterChange={testProps.onFilterChange}
+        name={testProps.name}
+        currentPanel={testProps.currentPanel}
+        panelTitle={testProps.panelTitle}
+        isBtnExpandVisible
+        isBtnTableVisible
+      />);
 
     expect(component.find('.control-group').children()).toHaveLength(3);
     expect(component.find('PTButton')).toHaveLength(3);
@@ -39,13 +40,13 @@ describe('Component <PluginListHeader />', () => {
     expect(tree).toMatchSnapshot();
 
     expect(component.state('isFilterInputVisible')).toEqual(false);
-    expect(component.instance().props['onExpand']).toEqual(testProps.onExpand);
-    expect(component.instance().props['onFilterChange']).toEqual(testProps.onFilterChange);
-    expect(component.instance().props['name']).toEqual(testProps.name);
-    expect(component.instance().props['currentPanel']).toEqual(testProps.currentPanel);
-    expect(component.instance().props['panelTitle']).toEqual(testProps.panelTitle);
-    expect(component.instance().props['isBtnExpandVisible']).toEqual(true);
-    expect(component.instance().props['isBtnTableVisible']).toEqual(true);
+    expect(component.instance().props.onExpand).toEqual(testProps.onExpand);
+    expect(component.instance().props.onFilterChange).toEqual(testProps.onFilterChange);
+    expect(component.instance().props.name).toEqual(testProps.name);
+    expect(component.instance().props.currentPanel).toEqual(testProps.currentPanel);
+    expect(component.instance().props.panelTitle).toEqual(testProps.panelTitle);
+    expect(component.instance().props.isBtnExpandVisible).toEqual(true);
+    expect(component.instance().props.isBtnTableVisible).toEqual(true);
 
     component.find('.btn-expand-panel').at(0).simulate('click');
   });
@@ -69,8 +70,8 @@ describe('Component <PluginListHeader />', () => {
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
-    expect(component.instance().props['isBtnExpandVisible']).toEqual(false);
-    expect(component.instance().props['isBtnTableVisible']).toEqual(false);
+    expect(component.instance().props.isBtnExpandVisible).toEqual(false);
+    expect(component.instance().props.isBtnTableVisible).toEqual(false);
   });
 
   it('should renders correctly when filter button was pressed', () => {

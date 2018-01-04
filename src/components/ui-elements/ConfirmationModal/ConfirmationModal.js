@@ -38,7 +38,7 @@ export default class ConfirmationModal extends PureComponent {
                         { iconsClasses && iconsClasses.cancel
                             ? <i className={classNames(`btn-icon fa ${iconsClasses.cancel}`)} />
                             : null }
-                        <span className="btn-text">{ textCancelButton }</span>
+                        <span className="btn-text"> { textCancelButton }</span>
                       </button>
                     : null }
                   { isShowOkButton
@@ -46,7 +46,7 @@ export default class ConfirmationModal extends PureComponent {
                         { iconsClasses && iconsClasses.ok
                           ? <i className={classNames(`btn-icon fa ${iconsClasses.ok}`)} />
                           : null }
-                        <span className="btn-text">{ textOkButton }</span>
+                        <span className="btn-text"> { textOkButton }</span>
                       </button>
                     : null }
                 </div>

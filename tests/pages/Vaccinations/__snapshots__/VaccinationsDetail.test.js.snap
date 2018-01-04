@@ -1,0 +1,248 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VaccinationDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "vaccinationsPanel": true,
+        }
+      }
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vaccinationsPanel"
+      title="Edit Vaccination"
+    >
+      <ReduxForm
+        detail={Object {}}
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <VaccinationDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "vaccinationsPanel": true,
+        }
+      }
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vaccinationsPanel"
+      title="Edit Vaccination"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "Dr Tony Shannon",
+            "comment": "twest",
+            "dateCreated": 1511434248000,
+            "series": "1",
+            "source": "ethercis",
+            "sourceId": "b9ececa8-4e84-4229-8ee3-1fa0bc8519a2",
+            "vaccinationDateTime": 1510437600000,
+            "vaccinationName": "1",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <VaccinationDetail /> should renders with all props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel="currentPanel"
+      editedPanel="editedPanel"
+      formValues={Object {}}
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vaccinationsPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      title="Vaccination"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Vaccination Name
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="col-expand-right"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Vaccination Date
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      12-Nov-2017
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Series Number
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      1
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="col-expand-right"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Vaccination Source
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      ethercis
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Comment
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      twest
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Author
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      Dr Tony Shannon
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="col-expand-right"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      23-Nov-2017
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

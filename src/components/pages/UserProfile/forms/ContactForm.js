@@ -6,7 +6,7 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import { optionsForCountryField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
 import { validateContactForm } from './validation';
-import { valuesContactForm } from './values-names.config';
+import { valuesContactForm, valuesContactFormLabels } from './values-names.config';
 import { defaultContactFormValues } from './default-values.config';
 
 @reduxForm({
@@ -21,42 +21,42 @@ export default class ContactForm extends PureComponent {
   render() {
     return (
       <div className="panel-body-inner">
-        <form name="personalForm" className="form">
+        <form name="contactForm" className="form">
           <div className="form-group-wrapper">
             <Row>
               <Col xs={12} md={6}>
                 <Row>
                   <Col md={11}>
                     <Field
-                      label="Address"
+                      label={valuesContactFormLabels.ADDRESS}
                       name={valuesContactForm.ADDRESS}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="City"
+                      label={valuesContactFormLabels.CITY}
                       name={valuesContactForm.CITY}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="State"
+                      label={valuesContactFormLabels.STATE}
                       name={valuesContactForm.STATE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="Postal Code"
+                      label={valuesContactFormLabels.POSTAL_CODE}
                       name={valuesContactForm.POSTAL_CODE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="Country"
+                      label={valuesContactFormLabels.SELECT_COUNTRY}
                       name={valuesContactForm.SELECT_COUNTRY}
                       placeholder=""
                       component={Select}
@@ -69,14 +69,14 @@ export default class ContactForm extends PureComponent {
                 <Row>
                   <Col md={11} mdOffset={1}>
                     <Field
-                      label="Phone Number"
+                      label={valuesContactFormLabels.PHONE}
                       name={valuesContactForm.PHONE}
                       type="text"
                       placeholder=""
                       component={ValidatedInput}
                     />
                     <Field
-                      label="Email"
+                      label={valuesContactFormLabels.EMAIL}
                       name={valuesContactForm.EMAIL}
                       placeholder=""
                       component={ValidatedInput}

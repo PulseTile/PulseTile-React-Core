@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PersonalForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="personalForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={11}
+            >
+              <Field
+                component={[Function]}
+                label="First Name"
+                name="firstname"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="Last Name"
+                name="lastname"
+                placeholder=""
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="NHS No"
+                name="nhs"
+                placeholder=""
+                type="text"
+              />
+            </Col>
+          </Row>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={11}
+              mdOffset={1}
+            >
+              <Field
+                component={[Function]}
+                label="Date of Birth"
+                name="birthday"
+                placeholder=""
+                props={
+                  Object {
+                    "format": "DD-MMM-YYYY",
+                  }
+                }
+                type="text"
+              />
+              <Field
+                component={[Function]}
+                label="Gender"
+                name="gender"
+                options={
+                  Array [
+                    Object {
+                      "title": "Female",
+                      "value": "female",
+                    },
+                    Object {
+                      "title": "Male",
+                      "value": "male",
+                    },
+                  ]
+                }
+                placeholder=""
+              />
+              <Field
+                component={[Function]}
+                label="Doctor"
+                name="doctor"
+                placeholder=""
+                type="text"
+              />
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    </div>
+  </form>
+</div>
+`;

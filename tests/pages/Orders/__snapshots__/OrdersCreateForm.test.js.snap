@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <OrdersCreateForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form orderForm"
+    name="orderForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Field
+        component={[Function]}
+        name="selectable"
+        props={
+          Object {
+            "cancelAll": [Function],
+            "cancelItem": [Function],
+            "chooseAll": [Function],
+            "chooseItem": [Function],
+            "chosenOrders": Array [],
+            "idSelectedLeft": null,
+            "idSelectedRight": null,
+            "isFirstPage": true,
+            "listOrders": Array [
+              Object {
+                "code": "order1",
+                "text": "Xray Chest X-ray",
+              },
+              Object {
+                "code": "order2",
+                "text": "Radiology-CT Head",
+              },
+              Object {
+                "code": "order3",
+                "text": "Cardiac-ECG",
+              },
+              Object {
+                "code": "order4",
+                "text": "Physio-crutches",
+              },
+            ],
+            "pageOne": [Function],
+            "pageTwo": [Function],
+            "setSelectedLeft": [Function],
+            "setSelectedRight": [Function],
+            "toggleSelectedItem": [Function],
+          }
+        }
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
