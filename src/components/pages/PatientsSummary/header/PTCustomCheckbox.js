@@ -13,7 +13,7 @@ export default class PTCustomCheckbox extends PureComponent {
 	};
 
 	toggleCheckbox = () => {
-	  const { disabled = false, onChange } = this.props;
+	  const { disabled = false, name, onChange } = this.props;
 		return !disabled && onChange(name);
   };
 
