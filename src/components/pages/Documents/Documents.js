@@ -14,7 +14,7 @@ import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientDocumentsRequest } from './ducks/fetch-patient-documents.duck';
 import { fetchPatientDocumentsDetailRequest } from './ducks/fetch-patient-documents-detail.duck';
-import { fetchPatientDocumentsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import {fetchPatientDocumentsOnMount, fetchPatientDocumentsDetailOnMount} from '../../../utils/HOCs/fetch-patients.utils';
 import { patientDocumentsSelector, patientDocumentsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
@@ -29,7 +29,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 
 @connect(patientDocumentsSelector, mapDispatchToProps)
 @connect(patientDocumentsDetailSelector, mapDispatchToProps)
-@compose(lifecycle(fetchPatientDocumentsOnMount))
+@compose(lifecycle(fetchPatientDocumentsOnMount), lifecycle(fetchPatientDocumentsDetailOnMount))
 export default class Documents extends PureComponent {
   static propTypes = {
     allDocuments: PropTypes.arrayOf(PropTypes.object),
@@ -137,8 +137,8 @@ export default class Documents extends PureComponent {
     const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
     collection = operationsOnCollection.modificate(collection, [{
-      keyFrom: valuesNames.DATE,
-      keyTo: `${valuesNames.DATE}Convert`,
+      keyFrom: valuesNames.DATE_CREATED,
+      keyTo: `${valuesNames.DATE_CREATED}Convert`,
       fn: getDDMMMYYYY
     }]);
 
@@ -147,7 +147,7 @@ export default class Documents extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.TYPE, `${valuesNames.DATE}Convert`, valuesNames.SOURCE]
+      filterKeys: [valuesNames.TYPE, `${valuesNames.DATE_CREATED}Convert`, valuesNames.SOURCE]
     });
   };
 
@@ -216,6 +216,7 @@ export default class Documents extends PureComponent {
                 onCancel={this.handleDocumentDetailCancel}
                 onSaveSettings={this.handleSaveSettingsDetailForm}
                 isSubmit={isSubmit}
+                documentsList={allDocuments}
               />
             </Col> : null}
         </Row>

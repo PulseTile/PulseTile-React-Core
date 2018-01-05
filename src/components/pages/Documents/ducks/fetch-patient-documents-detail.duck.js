@@ -16,7 +16,8 @@ export const fetchPatientDocumentsDetailFailure = createAction(FETCH_PATIENT_DOC
 export const fetchPatientDocumentsDetailEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_DOCUMENTS_DETAIL_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/labresults/${payload.sourceId}`, {
+
+      ajax.getJSON(`/api/documents/patient/${payload.userId}/${payload.sourceId}`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(response => fetchPatientDocumentsDetailSuccess({
