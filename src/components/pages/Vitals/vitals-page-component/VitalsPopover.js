@@ -1,14 +1,45 @@
 import React, { PureComponent } from 'react';
 
 import rangeVital from '../../../../assets/images/range-vital.jpg';
+import { hasClass } from '../../../../utils/plugin-helpers.utils';
 
 const POPOVER_WIDTH = 266;
 
 export default class VitalsPopover extends PureComponent {
-  state = {
-    placement: '',
-  };
-    togglePopover = (ev) => {
+    state = {
+      placement: '',
+    };
+
+    componentWillMount() {
+      window.addEventListener('resize', () => {
+        this.popover.classList.remove('in');
+      });
+      document.addEventListener('click', this.handleClick, false);
+    }
+
+    componentWillUnmount() {
+      document.removeEventListener('click', this.handleClick, false);
+    }
+
+    handleClick = (event) => {
+      const currentPopoverWrap = event.target.closest('.popover-wrap');
+
+      let isOpenPopover = false;
+      let currentPopover;
+
+      if (currentPopoverWrap) {
+        currentPopover = currentPopoverWrap.querySelector('.popover');
+        isOpenPopover = hasClass(currentPopover, 'in')
+      }
+
+      this.popover.classList.remove('in');
+
+      if (isOpenPopover) {
+        currentPopover.classList.add('in');
+      }
+    };
+
+    togglePopover = () => {
       let { placement } = this.state;
       const popover = this.popover;
       const popoverWrap = document.getElementById('popover-wrap');
@@ -17,7 +48,6 @@ export default class VitalsPopover extends PureComponent {
       const freePlaceRight = pageWidth - (offsetPopoverWrapLeft + popover.offsetWidth);
       const freePlaceLeft = offsetPopoverWrapLeft;
 
-      debugger
       if (freePlaceRight > POPOVER_WIDTH) {
         placement = 'right';
       } else if (freePlaceLeft > POPOVER_WIDTH) {
@@ -29,6 +59,7 @@ export default class VitalsPopover extends PureComponent {
       popover.classList.add(placement);
       popover.classList.toggle('in');
     };
+
     render() {
       const { title, popoverLabels, vitalStatusesType, detailValue, vitalsAddon } = this.props;
       return (

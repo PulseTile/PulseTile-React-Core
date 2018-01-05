@@ -77,7 +77,7 @@ export default class Vitals extends PureComponent {
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VITALS}/${sourceId}` && sourceId !== undefined) {
+    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VITALS}/${sourceId}` && sourceId !== undefined && !_.isEmpty(nextProps.vitalDetail)) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VITALS}/create`) {
@@ -323,6 +323,7 @@ export default class Vitals extends PureComponent {
   };
 
   setVitalStatuses = (vitalDetail) => {
+    vitalDetail = serviceVitalsSigns.convertVitalCharacteristics(vitalDetail);
     const vitalStatuses = serviceVitalsSigns.setVitalStatuses(vitalDetail);
     this.setState({ vitalStatuses });
   };
