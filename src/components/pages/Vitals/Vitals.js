@@ -7,8 +7,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
-import PluginListHeader from '../../plugin-page-component/PluginListHeader';
-import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import VitalsListHeader from './vitals-page-component/VitalsListHeader';
+import VitalsMainPanel from './vitals-page-component/VitalsMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
@@ -67,9 +67,12 @@ export default class Vitals extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    activeView: 'tableNews',
+    isChartOpen: false,
+    vitalStatuses: {},
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -82,6 +85,10 @@ export default class Vitals extends PureComponent {
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VITALS}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VITAL_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+    }
+
+    if (!_.isEmpty(nextProps.vitalDetail)) {
+      this.setVitalStatuses(nextProps.vitalDetail)
     }
 
     /* istanbul ignore next */
@@ -238,8 +245,90 @@ export default class Vitals extends PureComponent {
     return vitals
   };
 
+  toggleViewVisibility = (currentView) => {
+    this.setState({ activeView: currentView });
+    if (currentView === 'chartNews') {
+      this.setState({ isChartOpen: true });
+    } else {
+      this.setState({ isChartOpen: false });
+    }
+  };
+
+  chartLoad = (vitals) => {
+    let tempDate;
+    let lastDate = '';
+    const dataChart = {
+      labels: [],
+    };
+    const datasetsData = {
+      diastolicBP: [],
+      systolicBP: [],
+      temperature: [],
+      heartRate: [],
+      respirationRate: [],
+      oxygenSaturation: [],
+    };
+
+    if (!_.isEmpty(vitals)) {
+      for (let i = 0; i < vitals.length; i++) {
+        tempDate = this.formatDate(new Date(+vitals[i].dateCreated));
+
+        if (lastDate === tempDate.date) {
+          dataChart.labels.push(tempDate.time);
+        } else {
+          lastDate = tempDate.date;
+          dataChart.labels.push(`${tempDate.date} ${tempDate.time}`);
+        }
+
+        datasetsData.diastolicBP.push(vitals[i].diastolicBP);
+        datasetsData.systolicBP.push(vitals[i].systolicBP);
+        datasetsData.temperature.push(vitals[i].temperature);
+        datasetsData.heartRate.push(vitals[i].heartRate);
+        datasetsData.respirationRate.push(vitals[i].respirationRate);
+        datasetsData.oxygenSaturation.push(vitals[i].oxygenSaturation);
+      }
+    }
+
+    dataChart.datasetsData = datasetsData;
+
+    return dataChart;
+  };
+
+  formatDate = (date) => {
+    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+    let dd = date.getDate();
+    if (dd < 10) dd = `0${dd}`;
+
+    const mm = month[date.getMonth()];
+
+    let yy = date.getFullYear() % 100;
+    if (yy < 10) yy = `0${yy}`;
+
+    let hh = date.getHours();
+    if (hh < 10) hh = `0${hh}`;
+
+    let min = date.getMinutes();
+    if (min < 10) min = `0${min}`;
+
+    return {
+      date: `${dd}-${mm}-${yy}`,
+      time: `${hh}:${min}`,
+    };
+  };
+
+  getHighlighterClass = (vitalName) => {
+    const { vitalStatuses } = this.state;
+    return serviceVitalsSigns.getHighlighterClass(vitalStatuses[vitalName]);
+  };
+
+  setVitalStatuses = (vitalDetail) => {
+    const vitalStatuses = serviceVitalsSigns.setVitalStatuses(vitalDetail);
+    this.setState({ vitalStatuses });
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses } = this.state;
     const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
@@ -248,6 +337,7 @@ export default class Vitals extends PureComponent {
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
     const filteredVitals = this.formToShowCollection(this.modificateVitals(allVitals));
+    const popoverLabels = serviceVitalsSigns.getLabels();
 
     let sourceId;
     if (!_.isEmpty(vitalDetail)) {
@@ -259,7 +349,7 @@ export default class Vitals extends PureComponent {
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
             <div className="panel panel-primary">
-              <PluginListHeader
+              <VitalsListHeader
                 onFilterChange={this.handleFilterChange}
                 panelTitle="Vitals - News"
                 isBtnExpandVisible={isBtnExpandVisible}
@@ -267,8 +357,11 @@ export default class Vitals extends PureComponent {
                 name={VITALS_MAIN}
                 onExpand={this.handleExpand}
                 currentPanel={VITALS_MAIN}
+                activeView={activeView}
+                toggleViewVisibility={this.toggleViewVisibility}
+                isChartOpen={isChartOpen}
               />
-              <PluginMainPanel
+              <VitalsMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allVitals}
                 emptyDataMessage="No vitals"
@@ -285,6 +378,8 @@ export default class Vitals extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                activeView={activeView}
+                chartLoad={this.chartLoad}
               />
             </div>
           </Col> : null}
@@ -303,6 +398,9 @@ export default class Vitals extends PureComponent {
               onSaveSettings={this.handleSaveSettingsDetailForm}
               vitalsDetailFormValues={vitalsDetailFormState.values}
               isSubmit={isSubmit}
+              getHighlighterClass={this.getHighlighterClass}
+              vitalStatuses={vitalStatuses}
+              popoverLabels={popoverLabels}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
