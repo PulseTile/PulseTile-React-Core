@@ -19,60 +19,48 @@ export default class DocumentsDetailDisharge extends PureComponent {
     return (
       <div className="form">
         <div className="row-expand">
-          { detail[valuesNames.NAME] ?
-            <div className="col-expand-left">
-              <div className="form-group">
-                <label className="control-label">{valuesLabels.NAME}</label>
-                <div className="form-control-static">{detail[valuesNames.NAME]}</div>
-              </div>
+          <div className="col-expand-left">
+            <div className="form-group">
+              <label className="control-label">{valuesLabels.NAME}</label>
+              <div className="form-control-static">{detail[valuesNames.NAME]}</div>
             </div>
-            : null
-          }
-          { detail[valuesNames.DATE] ?
-            <div className={classNames({'col-expand-left': !detail[valuesNames.NAME], 'col-expand-right': detail[valuesNames.NAME]})}>
-              <div className="form-group">
-                <label className="control-label">{valuesLabels.DATE}</label>
-                <div className="form-control-static">{date}</div>
-              </div>
+          </div>
+          <div className={classNames({'col-expand-left': !detail[valuesNames.NAME], 'col-expand-right': detail[valuesNames.NAME]})}>
+            <div className="form-group">
+              <label className="control-label">{valuesLabels.DATE}</label>
+              <div className="form-control-static">{date}</div>
             </div>
-            : null
-          }
+          </div>
         </div>
 
         <div className="row-expand">
-          { detail[valuesNames.AUTHOR] ?
-            <div className="col-expand-left">
-              <div className="form-group">
-                <label className="control-label">{valuesLabels.AUTHOR}</label>
-                <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
-              </div>
+          <div className="col-expand-left">
+            <div className="form-group">
+              <label className="control-label">{valuesLabels.AUTHOR}</label>
+              <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
             </div>
-            : null
-          }
+          </div>
         </div>
 
-        { detail[valuesNames.FACILITY] ?
-          <div className="form-group-section-list">
-            <div className="form-group-section-list-heading">
-              <label className="control-label">{valuesLabels.TITLE_FACILITY}</label>
-            </div>
-            <div className="form-group-section">
-              <div className="form-group-section-body">
-                <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.FACILITY}</label>
-                        <div className="form-control-static">{detail[valuesNames.FACILITY]}</div>
-                      </div>
+        <div className="form-group-section-list">
+          <div className="form-group-section-list-heading">
+            <label className="control-label">{valuesLabels.TITLE_FACILITY}</label>
+          </div>
+          <div className="form-group-section">
+            <div className="form-group-section-body">
+              <div className="form-group-wrapper">
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.FACILITY}</label>
+                      <div className="form-control-static">{detail[valuesNames.FACILITY]}</div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          : null
-        }
+        </div>
 
         <div className="form-group-section-list">
           <div className="form-group-section-list-heading">
@@ -199,16 +187,16 @@ export default class DocumentsDetailDisharge extends PureComponent {
             <div className="form-group-section-list-heading">
               <label className="control-label">{valuesLabels.TITLE_DIAGNOSIS}</label>
             </div>
-            {detail[valuesNames.DIAGNOSIS].map((diagnosisItem, index) => {
+            {detail[valuesNames.DIAGNOSIS].map((item, index) => {
               return (<div className="form-group-section form-group-section-bordered form-group-section-primary accordion" key={index}>
                 <div className="form-group-section-heading">
                   <div className="control-group without-side-indent right">
-                    {/*<button className="btn btn-primary" ng-click="importToCreate('diagnoses', diagnosisItem)"><span className="btn-text">Import Data</span></button>*/}
+                    {/*<button className="btn btn-primary" ng-click="importToCreate('diagnoses', item)"><span className="btn-text">Import Data</span></button>*/}
                     <button className="btn btn-primary"><span className="btn-text">Import Data</span></button>
                     {/*<button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle" ng-click="toggleSubAccordion()"><i className="btn-icon fa fa-chevron-up"></i></button>*/}
                     <button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"><i className="btn-icon fa fa-chevron-up" /></button>
                   </div>
-                  <h3 className="panel-title">{valuesLabels.DG_PROBLEM}: {diagnosisItem.problem}</h3>
+                  <h3 className="panel-title">{valuesLabels.DG_PROBLEM}: {item[valuesNames.DG_PROBLEM]}</h3>
                 </div>
                 <div className="form-group-section-body">
                   <div className="form-group-wrapper">
@@ -216,13 +204,13 @@ export default class DocumentsDetailDisharge extends PureComponent {
                       <div className="col-expand-left">
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.DG_PROBLEM}</label>
-                          <div className="form-control-static">{diagnosisItem[valuesNames.DG_PROBLEM]}</div>
+                          <div className="form-control-static">{item[valuesNames.DG_PROBLEM]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.DG_DESCR}</label>
-                          <div className="form-control-static">{diagnosisItem[valuesNames.DG_DESCR]}</div>
+                          <div className="form-control-static">{item[valuesNames.DG_DESCR]}</div>
                         </div>
                       </div>
                     </div>
@@ -230,13 +218,13 @@ export default class DocumentsDetailDisharge extends PureComponent {
                       <div className="col-expand-left">
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.DG_TERMINOLOGY}</label>
-                          <div className="form-control-static">{diagnosisItem[valuesNames.DG_TERMINOLOGY]}</div>
+                          <div className="form-control-static">{item[valuesNames.DG_TERMINOLOGY]}</div>
                         </div>
                       </div>
                       <div className="col-expand-right">
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.DG_TERMINOLOGY_CODE}</label>
-                          <div className="form-control-static">{diagnosisItem[valuesNames.DG_TERMINOLOGY_CODE]}</div>
+                          <div className="form-control-static">{item[valuesNames.DG_TERMINOLOGY_CODE]}</div>
                         </div>
                       </div>
                     </div>
