@@ -267,6 +267,7 @@ export default class Vitals extends PureComponent {
       heartRate: [],
       respirationRate: [],
       oxygenSaturation: [],
+      sourceId: [],
     };
 
     if (!_.isEmpty(vitals)) {
@@ -286,6 +287,7 @@ export default class Vitals extends PureComponent {
         datasetsData.heartRate.push(vitals[i].heartRate);
         datasetsData.respirationRate.push(vitals[i].respirationRate);
         datasetsData.oxygenSaturation.push(vitals[i].oxygenSaturation);
+        datasetsData.sourceId.push(vitals[i].sourceId);
       }
     }
 

@@ -45,6 +45,7 @@ export default class VitalsMainPanel extends PureComponent {
         {activeView === 'chartNews' ?
           <VitalsChart
             dataChart={dataChart}
+            onCellClick={onCellClick}
           /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">

@@ -3,9 +3,9 @@ import React, { PureComponent } from 'react';
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import VitalsDetailForm from './VitalsDetailForm'
 import VitalsPopover from '../vitals-page-component/VitalsPopover'
-import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-import { valuesNames, valuesLabels } from '../forms.config';
 import Switch from '../../../form-fields/Switch';
+import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesNames, valuesLabels, valuesAddons } from '../forms.config';
 
 const VITAL_PANEL = 'vitalPanel';
 
@@ -14,7 +14,6 @@ export default class VitalsDetail extends PureComponent {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, vitalsDetailFormValues, isSubmit, vitalStatuses, getHighlighterClass, popoverLabels } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const dateOfVital = getDDMMMYYYY(detail[valuesNames.DATE]);
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
@@ -41,27 +40,27 @@ export default class VitalsDetail extends PureComponent {
                       <div className="row">
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('respirationRate')}`} />
-                            <label className="vitals-label">Respiration Rate</label>
+                            <span className={`${getHighlighterClass(valuesNames.RESPIRATION_RATE)}`} />
+                            <label className="vitals-label">{valuesLabels.RESPIRATION_RATE}</label>
                             <VitalsPopover
-                              title="Respiration Rate"
-                              popoverLabels={popoverLabels.respirationRate}
-                              vitalStatusesType={vitalStatuses.respirationRate.type}
-                              detailValue={detail.respirationRate}
-                              vitalsAddon="resps/min"
+                              title={valuesLabels.RESPIRATION_RATE}
+                              popoverLabels={popoverLabels[valuesNames.RESPIRATION_RATE]}
+                              vitalStatusesType={vitalStatuses[valuesNames.RESPIRATION_RATE].type}
+                              detailValue={detail[valuesNames.RESPIRATION_RATE]}
+                              vitalsAddon={valuesAddons.RESPIRATION_RATE}
                             />
                           </div>
                         </div>
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('oxygenSaturation')}`} />
-                            <label className="vitals-label">Oxygen Saturation</label>
+                            <span className={`${getHighlighterClass(valuesNames.OXYGEN_SATURATION)}`} />
+                            <label className="vitals-label">{valuesLabels.OXYGEN_SATURATION}</label>
                             <VitalsPopover
-                              title="Oxygen Saturation"
-                              popoverLabels={popoverLabels.oxygenSaturation}
-                              vitalStatusesType={vitalStatuses.oxygenSaturation.type}
-                              detailValue={detail.oxygenSaturation}
-                              vitalsAddon="%"
+                              title={valuesLabels.OXYGEN_SATURATION}
+                              popoverLabels={popoverLabels[valuesNames.OXYGEN_SATURATION]}
+                              vitalStatusesType={vitalStatuses[valuesNames.OXYGEN_SATURATION].type}
+                              detailValue={detail[valuesNames.OXYGEN_SATURATION]}
+                              vitalsAddon={valuesAddons.OXYGEN_SATURATION}
                             />
                           </div>
                         </div>
@@ -69,32 +68,28 @@ export default class VitalsDetail extends PureComponent {
                       <div className="row">
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('oxygenSupplemental')}`} />
-                            <label className="vitals-label">Any Supplemental Oxygen</label>
+                            <span className={`${getHighlighterClass(valuesNames.OXYGEN_SUPPLEMENTAL)}`} />
+                            <label className="vitals-label">{valuesLabels.OXYGEN_SUPPLEMENTAL}</label>
                             <div className="input-holder">
                               <Switch
-                                className="switch"
                                 type="checkbox"
-                                name="oxygenSupplemental"
+                                name={valuesNames.OXYGEN_SUPPLEMENTAL}
                                 disabled
-                                value={detail.oxygenSupplemental}
-                              >
-                                <span className="text text-check-true">Yes</span>
-                                <span className="text text-check-false">No</span>
-                              </Switch>
+                                value={detail[valuesNames.OXYGEN_SUPPLEMENTAL]}
+                              />
                             </div>
                           </div>
                         </div>
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('heartRate')}`} />
-                            <label className="vitals-label">Heart Rate</label>
+                            <span className={`${getHighlighterClass(valuesNames.HEART_RATE)}`} />
+                            <label className="vitals-label">{valuesLabels.HEART_RATE}</label>
                             <VitalsPopover
-                              title="Heart Rate"
-                              popoverLabels={popoverLabels.heartRate}
-                              vitalStatusesType={vitalStatuses.heartRate.type}
-                              detailValue={detail.heartRate}
-                              vitalsAddon="bpm"
+                              title={valuesLabels.HEART_RATE}
+                              popoverLabels={popoverLabels[valuesNames.HEART_RATE]}
+                              vitalStatusesType={vitalStatuses[valuesNames.HEART_RATE].type}
+                              detailValue={detail[valuesNames.HEART_RATE]}
+                              vitalsAddon={valuesAddons.HEART_RATE}
                             />
                           </div>
                         </div>
@@ -104,24 +99,24 @@ export default class VitalsDetail extends PureComponent {
                       <div className="row">
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('systolicBP')}`} />
-                            <label className="vitals-label">Systolic BP</label>
+                            <span className={`${getHighlighterClass(valuesNames.SYSTOLIC_BP)}`} />
+                            <label className="vitals-label">{valuesLabels.SYSTOLIC_BP}</label>
                             <VitalsPopover
-                              title="Systolic BP"
-                              popoverLabels={popoverLabels.systolicBP}
-                              vitalStatusesType={vitalStatuses.systolicBP.type}
-                              detailValue={detail.systolicBP}
-                              vitalsAddon="mmHg"
+                              title={valuesLabels.SYSTOLIC_BP}
+                              popoverLabels={popoverLabels[valuesNames.SYSTOLIC_BP]}
+                              vitalStatusesType={vitalStatuses[valuesNames.SYSTOLIC_BP].type}
+                              detailValue={detail[valuesNames.SYSTOLIC_BP]}
+                              vitalsAddon={valuesAddons.SYSTOLIC_BP}
                             />
                           </div>
                         </div>
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
                             <span className="highlighter-not-vital" />
-                            <label className="vitals-label">Diastolic BP</label>
+                            <label className="vitals-label">{valuesLabels.DIASTOLIC_BP}</label>
                             <div className="input-group vitals-holder">
-                              <div className="form-control input-sm">{detail.diastolicBP}</div>
-                              <span className="vitals-addon">mmHg</span>
+                              <div className="form-control input-sm">{detail[valuesNames.DIASTOLIC_BP]}</div>
+                              <span className="vitals-addon">{valuesAddons.DIASTOLIC_BP}</span>
                             </div>
                           </div>
                         </div>
@@ -129,40 +124,60 @@ export default class VitalsDetail extends PureComponent {
                       <div className="row">
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('levelOfConsciousness')}`} />
-                            <label htmlFor="levelOfConsciousness" className="vitals-label">Level of Consciousness</label>
+                            <span className={`${getHighlighterClass(valuesNames.LEVEL_OF_CONSCIOUSNESS)}`} />
+                            <label htmlFor={valuesNames.LEVEL_OF_CONSCIOUSNESS} className="vitals-label">{valuesLabels.LEVEL_OF_CONSCIOUSNESS}</label>
                             <div className="input-holder">
                               <div className="switch-group">
-                                <label className="switch">
-                                  <input id="levelOfConsciousnessA" type="radio" name="levelOfConsciousness" value="Alert" disabled />
-                                  <div className="slider disabled"><span className="text">A</span></div>
-                                </label>
-                                <label className="switch">
-                                  <input id="levelOfConsciousnessV" type="radio" name="levelOfConsciousness" value="Verbal" disabled />
-                                  <div className="slider disabled"><span className="text">V</span></div>
-                                </label>
-                                <label className="switch">
-                                  <input id="levelOfConsciousnessP" type="radio" name="levelOfConsciousness" value="Pain" disabled />
-                                  <div className="slider disabled"><span className="text">P</span></div>
-                                </label>
-                                <label className="switch">
-                                  <input id="levelOfConsciousnessU" type="radio" name="levelOfConsciousness" value="Unresponsive" disabled />
-                                  <div className="slider disabled"><span className="text">U</span></div>
-                                </label>
+                                <Switch
+                                  type="radio"
+                                  name={valuesNames.LEVEL_OF_CONSCIOUSNESS}
+                                  disabled
+                                  value="Alert"
+                                  transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
+                                  text="A"
+                                  id="levelOfConsciousnessA"
+                                />
+                                <Switch
+                                  type="radio"
+                                  name={valuesNames.LEVEL_OF_CONSCIOUSNESS}
+                                  disabled
+                                  value="Verbal"
+                                  transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
+                                  text="V"
+                                  id="levelOfConsciousnessV"
+                                />
+                                <Switch
+                                  type="radio"
+                                  name={valuesNames.LEVEL_OF_CONSCIOUSNESS}
+                                  disabled
+                                  value="Pain"
+                                  transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
+                                  text="P"
+                                  id="levelOfConsciousnessP"
+                                />
+                                <Switch
+                                  type="radio"
+                                  name={valuesNames.LEVEL_OF_CONSCIOUSNESS}
+                                  disabled
+                                  value="Unresponsive"
+                                  transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
+                                  text="U"
+                                  id="levelOfConsciousnessU"
+                                />
                               </div>
                             </div>
                           </div>
                         </div>
                         <div className="col-xs-12 col-md-6">
                           <div className="vitals-group highlighter-wrapper">
-                            <span className={`${getHighlighterClass('temperature')}`} />
-                            <label className="vitals-label">Temperature</label>
+                            <span className={`${getHighlighterClass(valuesNames.TEMPERATURE)}`} />
+                            <label className="vitals-label">{valuesLabels.TEMPERATURE}</label>
                             <VitalsPopover
-                              title="Temperature"
-                              popoverLabels={popoverLabels.temperature}
-                              vitalStatusesType={vitalStatuses.temperature.type}
-                              detailValue={detail.temperature}
-                              vitalsAddon="c"
+                              title={valuesLabels.TEMPERATURE}
+                              popoverLabels={popoverLabels[valuesNames.TEMPERATURE]}
+                              vitalStatusesType={vitalStatuses[valuesNames.TEMPERATURE].type}
+                              detailValue={detail[valuesNames.TEMPERATURE]}
+                              vitalsAddon={valuesAddons.TEMPERATURE}
                             />
                           </div>
                         </div>
@@ -172,11 +187,29 @@ export default class VitalsDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="vitals-group highlighter-wrapper">
-                        <span className={`${getHighlighterClass('newsScore')}`} />
-                        <label className="vitals-label">NEWS Score</label>
-                        <div className={`input-holder vitals-holder ${vitalStatuses.newsScore.type}`}>
-                          <div className="form-control input-sm">{detail.newsScore}</div>
+                        <span className={`${getHighlighterClass(valuesNames.NEWS_SCORE)}`} />
+                        <label className="vitals-label">{valuesLabels.NEWS_SCORE}</label>
+                        <div className={`input-holder vitals-holder ${vitalStatuses[valuesNames.NEWS_SCORE].type}`}>
+                          <div className="form-control input-sm">{detail[valuesNames.NEWS_SCORE]}</div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="panel-body-inner">
+                <div className="form-group-wrapper">
+                  <div className="row-expand">
+                    <div className="col-expand-left">
+                      <div className="form-group">
+                        <label className="control-label">{valuesLabels.AUTHOR}</label>
+                        <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                      </div>
+                    </div>
+                    <div className="col-expand-right">
+                      <div className="form-group">
+                        <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                        <div className="form-control-static">{dateCreated}</div>
                       </div>
                     </div>
                   </div>
@@ -201,6 +234,9 @@ export default class VitalsDetail extends PureComponent {
             <VitalsDetailForm
               detail={detail}
               isSubmit={isSubmit}
+              vitalStatuses={vitalStatuses}
+              getHighlighterClass={getHighlighterClass}
+              popoverLabels={popoverLabels}
             />
           </PluginDetailPanel> : null }
         </div>

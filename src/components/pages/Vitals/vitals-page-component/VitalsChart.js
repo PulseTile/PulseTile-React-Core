@@ -1,6 +1,12 @@
 import React from 'react';
+import _ from 'lodash/fp';
 
 import { Line } from 'react-chartjs-2';
+
+const handleLineClick = ({ onCellClick, dataChart }) => (chartElements) => {
+  const index = _.get('[0]_index', chartElements);
+  if (index) onCellClick(dataChart.datasetsData.sourceId[index]);
+};
 
 const VitalsChart = props => <div className="chart-block">
   <div className="wrap-chart chart-vitals bordered">
@@ -54,6 +60,7 @@ const VitalsChart = props => <div className="chart-block">
           },
         ],
       }}
+      onElementsClick={handleLineClick(props)}
       width={600}
       height={441}
       options={{
