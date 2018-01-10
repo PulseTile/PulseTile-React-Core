@@ -70,6 +70,7 @@ export default class Vitals extends PureComponent {
     activeView: 'tableNews',
     isChartOpen: false,
     vitalStatuses: {},
+    vitalDetailConvert: {},
   };
 
   componentWillReceiveProps(nextProps) {
@@ -195,18 +196,25 @@ export default class Vitals extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     const { userId, vitalDetail } = this.props;
+    const { vitalDetailConvert } = this.state;
     const sendData = {};
-    const currentDate = new Date();
+    const currentDate = new Date().getTime();
 
     sendData.userId = userId;
 
-    sendData[valuesNames.FROM] = formValues[valuesNames.FROM];
-    sendData[valuesNames.TO] = formValues[valuesNames.TO];
-    sendData[valuesNames.DATE] = new Date(formValues[valuesNames.DATE]);
-    sendData[valuesNames.REASON] = formValues[valuesNames.REASON];
-    sendData[valuesNames.SUMMARY] = formValues[valuesNames.SUMMARY];
-    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData[valuesNames.DATE_CREATED] = currentDate;
+    sendData[valuesNames.RESPIRATION_RATE] = vitalDetailConvert[valuesNames.RESPIRATION_RATE];
+    sendData[valuesNames.OXYGEN_SATURATION] = vitalDetailConvert[valuesNames.OXYGEN_SATURATION];
+    sendData[valuesNames.OXYGEN_SUPPLEMENTAL] = vitalDetailConvert[valuesNames.OXYGEN_SUPPLEMENTAL];
+    sendData[valuesNames.HEART_RATE] = vitalDetailConvert[valuesNames.HEART_RATE];
+    sendData[valuesNames.SYSTOLIC_BP] = vitalDetailConvert[valuesNames.SYSTOLIC_BP];
+    sendData[valuesNames.DIASTOLIC_BP] = vitalDetailConvert[valuesNames.DIASTOLIC_BP];
+    sendData[valuesNames.LEVEL_OF_CONSCIOUSNESS] = vitalDetailConvert[valuesNames.LEVEL_OF_CONSCIOUSNESS];
+    sendData[valuesNames.TEMPERATURE] = vitalDetailConvert[valuesNames.TEMPERATURE];
+    sendData[valuesNames.NEWS_SCORE] = vitalDetailConvert[valuesNames.NEWS_SCORE];
+
+    sendData[valuesNames.AUTHOR] = vitalDetail[valuesNames.AUTHOR];
+    sendData[valuesNames.DATE] = currentDate;
+    sendData[valuesNames.DATE_CREATED] = new Date(vitalDetail[valuesNames.DATE_CREATED]).getTime();
     sendData[valuesNames.SOURCE] = 'ethercis';
 
     if (formName === 'edit') {
@@ -330,14 +338,18 @@ export default class Vitals extends PureComponent {
     return serviceVitalsSigns.getHighlighterClass(vitalStatuses[vitalName]);
   };
 
-  setVitalStatuses = (vitalDetail) => {
-    vitalDetail = serviceVitalsSigns.convertVitalCharacteristics(vitalDetail);
+  setVitalStatuses = (vital) => {
+    const vitalDetail = serviceVitalsSigns.convertVitalCharacteristics(vital);
     const vitalStatuses = serviceVitalsSigns.setVitalStatuses(vitalDetail);
-    this.setState({ vitalStatuses });
+
+    vitalDetail.newsScore = serviceVitalsSigns.countNewsScore(vitalStatuses);
+    vitalStatuses.newsScore = serviceVitalsSigns.getStatusOnValue(vitalDetail.newsScore, 'newsScore');
+
+    this.setState({ vitalDetailConvert: vitalDetail, vitalStatuses });
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert } = this.state;
     const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
@@ -400,7 +412,7 @@ export default class Vitals extends PureComponent {
               onShow={this.handleShow}
               expandedPanel={expandedPanel}
               currentPanel={VITALS_DETAIL}
-              detail={vitalDetail}
+              detail={vitalDetailConvert}
               onEdit={this.handleEdit}
               editedPanel={editedPanel}
               onCancel={this.handleVitalDetailCancel}

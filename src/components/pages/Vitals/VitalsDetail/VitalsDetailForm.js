@@ -220,16 +220,13 @@ export default class VitalsDetailForm extends PureComponent {
               </div>
               <div className="row-expand">
                 <div className="col-expand-left">
-                  <Field
-                    label={valuesLabels.NEWS_SCORE}
-                    name={valuesNames.NEWS_SCORE}
-                    id={valuesNames.NEWS_SCORE}
-                    component={VitalsInput}
-                    props={{ isSubmit, disabled: true }}
-                    getHighlighterClass={getHighlighterClass}
-                    vitalStatuses={vitalStatuses}
-                    withoutPopover
-                  />
+                  <div className="vitals-group highlighter-wrapper">
+                    <span className={`${getHighlighterClass(valuesNames.NEWS_SCORE)}`} />
+                    <label className="vitals-label">{valuesLabels.NEWS_SCORE}</label>
+                    <div className={`input-holder vitals-holder ${vitalStatuses[valuesNames.NEWS_SCORE].type}`}>
+                      <input className="form-control input-sm" id={valuesNames.NEWS_SCORE} name={valuesNames.NEWS_SCORE} type="text" value={detail[valuesNames.NEWS_SCORE]} disabled />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

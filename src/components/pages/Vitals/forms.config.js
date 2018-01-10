@@ -10,6 +10,7 @@ export const valuesNames = {
   NEWS_SCORE: 'newsScore',
   AUTHOR: 'author',
   DATE_CREATED: 'dateCreated',
+  DATE: 'dateCreate',
 
   ID: 'id',
   SOURCE: 'source',

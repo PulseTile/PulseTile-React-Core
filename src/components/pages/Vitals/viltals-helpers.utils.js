@@ -353,6 +353,7 @@ export const serviceVitalsSigns = {
 
   convertVitalCharacteristics: (vital) => {
     return {
+      ...vital,
       respirationRate: +vital.respirationRate,
       diastolicBP: +vital.diastolicBP,
       oxygenSaturation: +vital.oxygenSaturation,
@@ -360,7 +361,6 @@ export const serviceVitalsSigns = {
       systolicBP: +vital.systolicBP,
       heartRate: +vital.heartRate,
       oxygenSupplemental: vital.oxygenSupplemental === 'true' || vital.oxygenSupplemental === true,
-      ...vital,
     };
   },
 

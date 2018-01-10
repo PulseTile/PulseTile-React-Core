@@ -14,7 +14,9 @@ export default class VitalsPopover extends PureComponent {
 
     componentWillMount() {
       window.addEventListener('resize', () => {
-        this.popover.classList.remove('in');
+        if (!_.isEmpty(this.popover)) {
+          this.popover.classList.remove('in');
+        }
       });
       document.addEventListener('click', this.handleClick, false);
     }
