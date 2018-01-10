@@ -16,7 +16,7 @@ import { fetchPatientGenericPluginRequest } from './ducks/fetch-patient-generic-
 import { fetchPatientGenericPluginDetailRequest } from './ducks/fetch-patient-generic-plugin-detail.duck';
 import { fetchPatientGenericPluginDetailEditRequest } from './ducks/fetch-patient-generic-plugin-detail-edit.duck';
 import { fetchPatientGenericPluginCreateRequest } from './ducks/fetch-patient-generic-plugin-create.duck';
-import { fetchPatientGenericPluginOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientGenericPluginOnMount, fetchPatientGenericPluginDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientGenericPluginSelector, patientGenericPluginDetailSelector, genericPluginDetailFormSelector, genericPluginCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import GenericPluginDetail from './GenericPluginDetail/GenericPluginDetail';
@@ -35,7 +35,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientGenericPluginDetailSelector, mapDispatchToProps)
 @connect(genericPluginDetailFormSelector)
 @connect(genericPluginCreateFormStateSelector)
-@compose(lifecycle(fetchPatientGenericPluginOnMount))
+@compose(lifecycle(fetchPatientGenericPluginOnMount), lifecycle(fetchPatientGenericPluginDetailOnMount))
 export default class GenericPlugin extends PureComponent {
   static propTypes = {
     allGenericPlugin: PropTypes.arrayOf(PropTypes.object),

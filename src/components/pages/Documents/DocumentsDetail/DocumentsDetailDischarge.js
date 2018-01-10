@@ -1,53 +1,55 @@
 import React, { PureComponent } from 'react';
+import FormSectionList from '../../../form-fields/FormSectionList';
+import FormSection from '../../../form-fields/FormSection';
 
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import classNames from "classnames";
 
-export default class DocumentsDetailDisharge extends PureComponent {
+const DIAGNOSIS_TYPE = 'diagnosis';
+
+export default class DocumentsDetailDischarge extends PureComponent {
 
   render() {
-    let { detail } = this.props;
+    let { detail, importHandler } = this.props;
     detail = detail || {};
 
-    console.log('detail', detail);
-
     const date = getDDMMMYYYY(detail[valuesNames.DATE]);
-    const dishargingDate = getDDMMMYYYY(detail[valuesNames.PI_DISHARGING_DATE]);
+    const dischargingDate = getDDMMMYYYY(detail[valuesNames.PI_DISCHARGING_DATE]);
     const addmissionDate = getDDMMMYYYY(detail[valuesNames.PI_ADMISSION_DATE]);
 
     return (
       <div className="form">
-        <div className="row-expand">
-          <div className="col-expand-left">
-            <div className="form-group">
-              <label className="control-label">{valuesLabels.NAME}</label>
-              <div className="form-control-static">{detail[valuesNames.NAME]}</div>
+        <div className="form-group-wrapper">
+          <div className="row-expand">
+            {detail[valuesNames.NAME] ?
+              <div className="col-expand-left">
+                <div className="form-group">
+                  <label className="control-label">{valuesLabels.NAME}</label>
+                  <div className="form-control-static">{detail[valuesNames.NAME]}</div>
+                </div>
+              </div>
+              : null
+            }
+            <div className={classNames({'col-expand-left': !detail[valuesNames.NAME], 'col-expand-right': detail[valuesNames.NAME]})}>
+              <div className="form-group">
+                <label className="control-label">{valuesLabels.DATE}</label>
+                <div className="form-control-static">{date}</div>
+              </div>
             </div>
           </div>
-          <div className={classNames({'col-expand-left': !detail[valuesNames.NAME], 'col-expand-right': detail[valuesNames.NAME]})}>
-            <div className="form-group">
-              <label className="control-label">{valuesLabels.DATE}</label>
-              <div className="form-control-static">{date}</div>
-            </div>
-          </div>
-        </div>
 
-        <div className="row-expand">
-          <div className="col-expand-left">
-            <div className="form-group">
-              <label className="control-label">{valuesLabels.AUTHOR}</label>
-              <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+          <div className="row-expand">
+            <div className="col-expand-left">
+              <div className="form-group">
+                <label className="control-label">{valuesLabels.AUTHOR}</label>
+                <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="form-group-section-list">
-          <div className="form-group-section-list-heading">
-            <label className="control-label">{valuesLabels.TITLE_FACILITY}</label>
-          </div>
-          <div className="form-group-section">
-            <div className="form-group-section-body">
+          <FormSectionList title={valuesLabels.TITLE_FACILITY}>
+            <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
                   <div className="col-expand-left">
@@ -58,16 +60,11 @@ export default class DocumentsDetailDisharge extends PureComponent {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </FormSection>
+          </FormSectionList>
 
-        <div className="form-group-section-list">
-          <div className="form-group-section-list-heading">
-            <label className="control-label">{valuesLabels.TITLE_PATIENT_INDENTIFIER}</label>
-          </div>
-          <div className="form-group-section">
-            <div className="form-group-section-body">
+          <FormSectionList title={valuesLabels.TITLE_PATIENT_INDENTIFIER}>
+            <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
                   { detail[valuesNames.PI_MRNTYPE] ?
@@ -133,11 +130,11 @@ export default class DocumentsDetailDisharge extends PureComponent {
                     </div>
                     : null
                   }
-                  { detail[valuesNames.PI_DISHARGING] ?
+                  { detail[valuesNames.PI_DISCHARGING] ?
                     <div className={classNames({'col-expand-left': !detail[valuesNames.PI_SOURCE], 'col-expand-right': detail[valuesNames.PI_SOURCE]})}>
                       <div className="form-group">
-                        <label className="control-label">{valuesLabels.PI_DISHARGING}</label>
-                        <div className="form-control-static">{detail[valuesNames.PI_DISHARGING]}</div>
+                        <label className="control-label">{valuesLabels.PI_DISCHARGING}</label>
+                        <div className="form-control-static">{detail[valuesNames.PI_DISCHARGING]}</div>
                       </div>
                     </div>
                     : null
@@ -145,11 +142,11 @@ export default class DocumentsDetailDisharge extends PureComponent {
                 </div>
 
                 <div className="row-expand">
-                  { detail[valuesNames.PI_DISHARGING_DATE] ?
+                  { detail[valuesNames.PI_DISCHARGING_DATE] ?
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">{valuesLabels.PI_DISHARGING_DATE}</label>
-                        <div className="form-control-static">{dishargingDate}</div>
+                        <label className="control-label">{valuesLabels.PI_DISCHARGING_DATE}</label>
+                        <div className="form-control-static">{dischargingDate}</div>
                       </div>
                     </div>
                     : null
@@ -177,28 +174,21 @@ export default class DocumentsDetailDisharge extends PureComponent {
                   }
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </FormSection>
+          </FormSectionList>
 
-
-        { detail[valuesNames.DIAGNOSIS] ?
-          <div className="form-group-section-list">
-            <div className="form-group-section-list-heading">
-              <label className="control-label">{valuesLabels.TITLE_DIAGNOSIS}</label>
-            </div>
-            {detail[valuesNames.DIAGNOSIS].map((item, index) => {
-              return (<div className="form-group-section form-group-section-bordered form-group-section-primary accordion" key={index}>
-                <div className="form-group-section-heading">
-                  <div className="control-group without-side-indent right">
-                    {/*<button className="btn btn-primary" ng-click="importToCreate('diagnoses', item)"><span className="btn-text">Import Data</span></button>*/}
-                    <button className="btn btn-primary"><span className="btn-text">Import Data</span></button>
-                    {/*<button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle" ng-click="toggleSubAccordion()"><i className="btn-icon fa fa-chevron-up"></i></button>*/}
-                    <button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"><i className="btn-icon fa fa-chevron-up" /></button>
-                  </div>
-                  <h3 className="panel-title">{valuesLabels.DG_PROBLEM}: {item[valuesNames.DG_PROBLEM]}</h3>
-                </div>
-                <div className="form-group-section-body">
+          { detail[valuesNames.DIAGNOSIS] ?
+            <FormSectionList title={valuesLabels.TITLE_DIAGNOSIS}>
+              {detail[valuesNames.DIAGNOSIS].map((item, index) => {
+                return (<FormSection
+                  key={index}
+                  title={`${valuesLabels.DG_PROBLEM}: ${item[valuesNames.DG_PROBLEM]}`}
+                  isImportBtn
+                  isAccordion
+                  isBordered
+                  onImportClick={importHandler(DIAGNOSIS_TYPE, item)}
+                  theme='primary'
+                >
                   <div className="form-group-wrapper">
                     <div className="row-expand">
                       <div className="col-expand-left">
@@ -229,17 +219,12 @@ export default class DocumentsDetailDisharge extends PureComponent {
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>)
-            })}
-          </div>
-          : null
-        }
-
-
-
-
-
+                </FormSection>)
+              })}
+            </FormSectionList>
+            : null
+          }
+        </div>
       </div>
     )
   }

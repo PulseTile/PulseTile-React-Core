@@ -10,7 +10,7 @@ import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 export default class SortableTable extends PureComponent {
   static propTypes = {
     headers: PropTypes.arrayOf(PropTypes.object).isRequired,
-    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    // data: PropTypes.arrayOf(PropTypes.object).isRequired,
     onHeaderCellClick: PropTypes.func.isRequired,
     onCellClick: PropTypes.func.isRequired,
     sortingOrder: PropTypes.oneOf(['asc', 'desc']).isRequired,
@@ -20,6 +20,7 @@ export default class SortableTable extends PureComponent {
 
   static defaultProps = {
     table: '',
+    data: [],
   };
 
   getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
@@ -54,9 +55,9 @@ export default class SortableTable extends PureComponent {
         <colgroup>
           {headers.map((item) => {
             if (item.display) {
-              return (<col style={{ width: item.width, display: item.display }} key={_.uniqueId('__colHeaders__')}></col>)
+              return (<col style={{ width: item.width, display: item.display }} key={_.uniqueId('__colHeaders__')} />)
             }
-            return (<col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')}></col>)
+            return (<col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')} />)
           })}
         </colgroup>
         <thead>

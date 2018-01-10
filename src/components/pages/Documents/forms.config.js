@@ -1,12 +1,12 @@
 export const valuesNames = {
   DATE: 'documentDate',
   AUTHOR: 'author_name',
+  TYPE: 'documentType',
 
   FACILITY: 'facility',
   FACILITY_PROVIDER_ID: 'providerContact_id',
 
   // Disharge
-	TYPE: 'documentType',
 	DATE_CREATED: 'dateCreated',
   NAME: 'documentName',
 
@@ -16,8 +16,8 @@ export const valuesNames = {
   PI_NAME : 'responsibleProfessional_name',
   PI_ID_TYPE: 'responsibleProfessional_idType',
   PI_SOURCE: 'source',
-  PI_DISHARGING: 'dischargingOrganisation',
-  PI_DISHARGING_DATE: 'dateTimeOfDischarge',
+  PI_DISCHARGING: 'dischargingOrganisation',
+  PI_DISCHARGING_DATE: 'dateTimeOfDischarge',
   PI_CLINICAL: 'clinicalSynopsis',
   PI_ADMISSION_DATE: 'dateOfAdmission',
 
@@ -114,13 +114,13 @@ export const valuesNames = {
 export const valuesLabels = {
   DATE: 'Document Date',
   AUTHOR: 'Author',
+  TYPE: 'Name',
 
   TITLE_FACILITY: 'Facility',
   FACILITY: 'Name',
   FACILITY_PROVIDER_ID: 'Provide ID',
 
-  // Disharge
-	TYPE: 'Name',
+  // Discharge
   DATE_CREATED: 'Date',
   NAME: 'Document Name',
 
@@ -131,8 +131,8 @@ export const valuesLabels = {
   PI_NAME : 'Responsible Professional',
   PI_ID_TYPE: 'Responsible Professional Type',
   PI_SOURCE: 'From',
-  PI_DISHARGING: 'Discharging Organisation',
-  PI_DISHARGING_DATE: 'Discharging Date',
+  PI_DISCHARGING: 'Discharging Organisation',
+  PI_DISCHARGING_DATE: 'Discharging Date',
   PI_CLINICAL: 'Clinical Synopsis',
   PI_ADMISSION_DATE: 'Date of Admission',
 

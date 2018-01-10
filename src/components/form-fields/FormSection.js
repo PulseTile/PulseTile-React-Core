@@ -1,46 +1,72 @@
 import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from "prop-types";
 // import _ from 'lodash/fp';
 
 export default class FormSecrion extends PureComponent {
-  // static propTypes = {
-  //   label: PropTypes.string.isRequired,
-  //   input: PropTypes.object.isRequired,
-  //   meta: PropTypes.shape({
-  //     active: PropTypes.bool,
-  //     error: PropTypes.any,
-  //   }).isRequired,
-  //   id: PropTypes.string.isRequired,
-  // };
-  // getTheme() {
-  //   const { isBordered, theme, children } = this.props;
-  // }
+  static defaultProps = {
+    isBordered: false,
+    isAccordion: false,
+    isImportBtn: false,
+  };
+
+  state = {
+    isOpenAccordion: false
+  };
+
+  componentWillMount() {
+    const { isOpenAccordion } = this.props;
+    this.setState({ isOpenAccordion: !!isOpenAccordion });
+  }
+
+  toggleAccordion = () => {
+    this.setState({ isOpenAccordion: !this.state.isOpenAccordion });
+  };
 
   render() {
-    const { title, isImportBtn, isAccordion, isBordered, theme, children } = this.props;
-
-    // const theme = this.getTheme();
+    const { title, isImportBtn, onImportClick, isAccordion, isBordered, theme, children } = this.props;
+    const { isOpenAccordion } = this.state;
 
     return (
-      <div className={classNames('form-group-section', { theme: theme }, { 'form-group-section-bordered': isBordered }, { 'accordion': isAccordion })}>
+      <div className={
+        classNames(`form-group-section form-group-section-${theme}`,
+                  {'form-group-section-bordered': isBordered ,
+                  'accordion': isAccordion,
+                  'open': isOpenAccordion })
+      }>
+        { (title || isAccordion || isImportBtn) ?
+          <div className="form-group-section-heading">
+            { (isAccordion || isImportBtn) ?
+              <div className="control-group without-side-indent right">
+                {isImportBtn ?
+                  <button
+                    onClick={onImportClick}
+                    className={`btn btn-${theme}`}><span className="btn-text">Import Data</span></button>
+                  : null
+                }
+                { isAccordion ?
+                  <button
+                    onClick={this.toggleAccordion}
+                    className={`btn btn-${theme} btn-inverse btn-square btn-form-group-section-toggle`}>
+                    <i className="btn-icon fa fa-chevron-up" />
+                  </button>
+                  : null
+                }
+              </div>
+              : null
+            }
+            { title ? <h3 className="panel-title">{title}</h3> : null }
+          </div>
+          : null
+        }
+
+
         <div className="form-group-section-body">
           {children}
         </div>
       </div>
-    //   <div className="form-group-section form-group-section-bordered form-group-section-primary accordion" key={index}>
-    //   <div className="form-group-section-heading">
-    //   <div className="control-group without-side-indent right">
-    //   {/*<button className="btn btn-primary" ng-click="importToCreate('medications', medicationItem)"><span className="btn-text">Import Data</span></button>*/}
-    // <button className="btn btn-primary"><span className="btn-text">Import Data</span></button>
-    // {/*<button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle" ng-click="toggleSubAccordion()"><i className="btn-icon fa fa-chevron-up"></i></button>*/}
-    // <button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"><i className="btn-icon fa fa-chevron-up"></i></button>
-    // </div>
-    // <h3 className="panel-title"></h3>
-    // </div>
-    // <div className="form-group-section-body">
-    //
-    // </div>
+
     )
   }
 }

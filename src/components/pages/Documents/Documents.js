@@ -216,7 +216,6 @@ export default class Documents extends PureComponent {
                 onCancel={this.handleDocumentDetailCancel}
                 onSaveSettings={this.handleSaveSettingsDetailForm}
                 isSubmit={isSubmit}
-                documentsList={allDocuments}
               />
             </Col> : null}
         </Row>

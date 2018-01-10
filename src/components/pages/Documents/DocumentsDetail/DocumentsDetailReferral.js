@@ -4,15 +4,15 @@ import FormSection from '../../../form-fields/FormSection';
 
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
-import classNames from "classnames";
+
+const ALLERGIES_TYPE = 'allergies';
+const MEDICATIONS_TYPE = 'medications';
 
 export default class DocumentsDetailReferral extends PureComponent {
 
   render() {
-    let { detail } = this.props;
+    let { detail, importHandler } = this.props;
     detail = detail || {};
-
-    console.log('detail', detail);
 
     const date = getDDMMMYYYY(detail[valuesNames.DATE]);
     const referralDate = getDDMMMYYYY(detail[valuesNames.REFERRAL_DATE]);
@@ -20,7 +20,6 @@ export default class DocumentsDetailReferral extends PureComponent {
     return (
       <div className="form">
         <div className="form-group-wrapper">
-
           <div className="row-expand">
             <div className="col-expand-left">
               <div className="form-group">
@@ -45,7 +44,7 @@ export default class DocumentsDetailReferral extends PureComponent {
             </div>
           </div>
 
-          <FormSectionList title={valuesLabels.TITLE_FACILITY} >
+          <FormSectionList title={valuesLabels.TITLE_FACILITY}>
             <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
@@ -66,7 +65,7 @@ export default class DocumentsDetailReferral extends PureComponent {
             </FormSection>
           </FormSectionList>
 
-          <FormSectionList title={valuesLabels.TITLE_REFERRAL} >
+          <FormSectionList title={valuesLabels.TITLE_REFERRAL}>
             <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
@@ -142,7 +141,7 @@ export default class DocumentsDetailReferral extends PureComponent {
             </FormSection>
           </FormSectionList>
 
-          <FormSectionList title={valuesLabels.TITLE_PROVIDER} >
+          <FormSectionList title={valuesLabels.TITLE_PROVIDER}>
             <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
@@ -187,7 +186,7 @@ export default class DocumentsDetailReferral extends PureComponent {
             </FormSection>
           </FormSectionList>
 
-          <FormSectionList title={valuesLabels.TITLE_STATUS} >
+          <FormSectionList title={valuesLabels.TITLE_STATUS}>
             <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
@@ -217,7 +216,7 @@ export default class DocumentsDetailReferral extends PureComponent {
             </FormSection>
           </FormSectionList>
 
-          <FormSectionList title={valuesLabels.TITLE_SYNOPSIS} >
+          <FormSectionList title={valuesLabels.TITLE_SYNOPSIS}>
             <FormSection>
               <div className="form-group-wrapper">
                 <div className="row-expand">
@@ -253,9 +252,8 @@ export default class DocumentsDetailReferral extends PureComponent {
             </FormSection>
           </FormSectionList>
 
-
           {detail[valuesNames.PAST_I_HYPERTENSION] ?
-            <FormSectionList title={valuesLabels.TITLE_PAST_ILLNESS} >
+            <FormSectionList title={valuesLabels.TITLE_PAST_ILLNESS}>
               <FormSection>
                 <div className="form-group-wrapper">
                   <div className="row-expand">
@@ -280,7 +278,7 @@ export default class DocumentsDetailReferral extends PureComponent {
           }
 
           {detail[valuesNames.SP_CONCLUSION] ?
-            <FormSectionList title={valuesLabels.TITLE_SURGICAL_PROCEDURES} >
+            <FormSectionList title={valuesLabels.TITLE_SURGICAL_PROCEDURES}>
               <FormSection>
                 <div className="form-group-wrapper">
                   <div className="row-expand">
@@ -305,14 +303,16 @@ export default class DocumentsDetailReferral extends PureComponent {
           }
 
           {detail[valuesNames.MEDICATIONS] ?
-            <FormSectionList title={valuesLabels.TITLE_MEDICATIONS} >
+            <FormSectionList title={valuesLabels.TITLE_MEDICATIONS}>
               <div>
                 {detail[valuesNames.MEDICATIONS].map((item, index) => {
                   return (<FormSection
+                      key={index}
                       title={`${valuesLabels.M_NAME}: ${item[valuesNames.M_NAME]}`}
                       isImportBtn
                       isAccordion
                       isBordered
+                      onImportClick={importHandler(MEDICATIONS_TYPE, item)}
                       theme='primary'
                     >
                       <div className="form-group-wrapper">
@@ -419,7 +419,6 @@ export default class DocumentsDetailReferral extends PureComponent {
             : null
           }
 
-
           <div className="row-expand">
             <div className="col-expand-left">
               <div className="form-group">
@@ -430,90 +429,87 @@ export default class DocumentsDetailReferral extends PureComponent {
           </div>
 
           {detail[valuesNames.ALLERGIES] ?
-            <div className="form-group-section-list">
-              <div className="form-group-section-heading">
-                <label className="control-label">{valuesLabels.TITLE_ALLERGIES}</label>
-              </div>
+            <FormSectionList title={valuesLabels.TITLE_ALLERGIES}>
               {detail[valuesNames.ALLERGIES].map((item, index) => {
-                return (<div className="form-group-section form-group-section-bordered form-group-section-primary accordion" key={index}>
-                    <div className="form-group-section-heading">
-                      <div className="control-group without-side-indent right">
-                        {/*<button className="btn btn-primary" ng-click="importToCreate('allergies', allergiesItem)"><span className="btn-text">Import Data</span></button>*/}
-                        <button className="btn btn-primary"><span className="btn-text">Import Data</span></button>
-                        {/*<button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle" ng-click="toggleSubAccordion()"><i className="btn-icon fa fa-chevron-up"></i></button>*/}
-                        <button className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"><i className="btn-icon fa fa-chevron-up"></i></button>
+                return (
+                  <FormSection
+                    key={index}
+                    title={`${valuesLabels.M_NAME}: ${item[valuesNames.M_NAME]}`}
+                    isImportBtn
+                    isAccordion
+                    isBordered
+                    onImportClick={importHandler(ALLERGIES_TYPE, item)}
+                    theme='primary'
+                  >
+                    <div className="form-group-wrapper">
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_NAME}</label>
+                            <div className="form-control-static">{item[valuesNames.A_NAME]}</div>
+                          </div>
+                        </div>
                       </div>
-                      <h3 className="panel-title">{valuesLabels.A_NAME}: {item[valuesNames.A_NAME]}</h3>
-                    </div>
-                    <div className="form-group-section-body">
-                      <div className="form-group-wrapper">
-                        <div className="row-expand">
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_NAME}</label>
-                              <div className="form-control-static">{item[valuesNames.A_NAME]}</div>
-                            </div>
+
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_STATUS}</label>
+                            <div className="form-control-static">{item[valuesNames.A_STATUS]}</div>
                           </div>
                         </div>
-
-                        <div className="row-expand">
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_STATUS}</label>
-                              <div className="form-control-static">{item[valuesNames.A_STATUS]}</div>
-                            </div>
-                          </div>
-                          <div className="col-expand-right">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_TAKEN}</label>
-                              <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.A_TAKEN])}</div>
-                            </div>
+                        <div className="col-expand-right">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_TAKEN}</label>
+                            <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.A_TAKEN])}</div>
                           </div>
                         </div>
+                      </div>
 
-                        <div className="row-expand">
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_TERMINOLOGY}</label>
-                              <div className="form-control-static">{item[valuesNames.A_TERMINOLOGY]}</div>
-                            </div>
-                          </div>
-                          <div className="col-expand-right">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_TERMINOLOGY_CODE}</label>
-                              <div className="form-control-static">{item[valuesNames.A_TERMINOLOGY_CODE]}</div>
-                            </div>
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_TERMINOLOGY}</label>
+                            <div className="form-control-static">{item[valuesNames.A_TERMINOLOGY]}</div>
                           </div>
                         </div>
-
-                        <div className="row-expand">
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_AUTHOR}</label>
-                              <div className="form-control-static">{item[valuesNames.A_AUTHOR]}</div>
-                            </div>
-                          </div>
-                          <div className="col-expand-right">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_DATE_CREATED}</label>
-                              <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.DATE_CREATED])}</div>
-                            </div>
+                        <div className="col-expand-right">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_TERMINOLOGY_CODE}</label>
+                            <div className="form-control-static">{item[valuesNames.A_TERMINOLOGY_CODE]}</div>
                           </div>
                         </div>
+                      </div>
 
-                        <div className="row-expand">
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.A_SOURCE}</label>
-                              <div className="form-control-static">{item[valuesNames.A_SOURCE]}</div>
-                            </div>
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_AUTHOR}</label>
+                            <div className="form-control-static">{item[valuesNames.A_AUTHOR]}</div>
+                          </div>
+                        </div>
+                        <div className="col-expand-right">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_DATE_CREATED}</label>
+                            <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.DATE_CREATED])}</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.A_SOURCE}</label>
+                            <div className="form-control-static">{item[valuesNames.A_SOURCE]}</div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>)
+                  </FormSection>
+
+                )
               })}
-            </div>
+            </FormSectionList>
             : null
           }
 
@@ -541,106 +537,101 @@ export default class DocumentsDetailReferral extends PureComponent {
             </div>
           </div>
 
-          <div className="form-group-section-list">
-            <div className="form-group-section-heading">
-              <label className="control-label">{valuesLabels.TITLE_VITALS}</label>
-            </div>
-            <div className="form-group-section">
-              <div className="form-group-section-body">
-                <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_SBP}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_SBP]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_SBPU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_SBPU]}</div>
-                      </div>
+          <FormSectionList title={valuesLabels.TITLE_VITALS}>
+            <FormSection>
+              <div className="form-group-wrapper">
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_SBP}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_SBP]}</div>
                     </div>
                   </div>
-
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_DBP}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_DBP]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_DBPU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_DBPU]}</div>
-                      </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_SBPU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_SBPU]}</div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_P}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_P]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_PU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_PU]}</div>
-                      </div>
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_DBP}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_DBP]}</div>
                     </div>
                   </div>
-
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_H}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_H]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_HU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_HU]}</div>
-                      </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_DBPU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_DBPU]}</div>
                     </div>
                   </div>
+                </div>
 
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_W}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_W]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_WU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_WU]}</div>
-                      </div>
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_P}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_P]}</div>
                     </div>
                   </div>
-
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_BM}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_BM]}</div>
-                      </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_PU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_PU]}</div>
                     </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.V_BMU}</label>
-                        <div className="form-control-static">{detail[valuesNames.V_BMU]}</div>
-                      </div>
+                  </div>
+                </div>
+
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_H}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_H]}</div>
+                    </div>
+                  </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_HU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_HU]}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_W}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_W]}</div>
+                    </div>
+                  </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_WU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_WU]}</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="row-expand">
+                  <div className="col-expand-left">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_BM}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_BM]}</div>
+                    </div>
+                  </div>
+                  <div className="col-expand-right">
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.V_BMU}</label>
+                      <div className="form-control-static">{detail[valuesNames.V_BMU]}</div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </FormSection>
+          </FormSectionList>
 
           <div className="row-expand">
             <div className="col-expand-left">
@@ -667,9 +658,6 @@ export default class DocumentsDetailReferral extends PureComponent {
             </div>
           </div>
         </div>
-
-
-
 
       </div>
     )

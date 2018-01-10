@@ -14,7 +14,7 @@ import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientTestResultsRequest } from './ducks/fetch-patient-test-results.duck';
 import { fetchPatientTestResultsDetailRequest } from './ducks/fetch-patient-test-results-detail.duck';
-import { fetchPatientTestResultsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientTestResultsOnMount, fetchPatientTestResultsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientTestResultsSelector, patientTestResultsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 
 @connect(patientTestResultsSelector, mapDispatchToProps)
 @connect(patientTestResultsDetailSelector, mapDispatchToProps)
-@compose(lifecycle(fetchPatientTestResultsOnMount))
+@compose(lifecycle(fetchPatientTestResultsOnMount), lifecycle(fetchPatientTestResultsDetailOnMount))
 export default class TestResults extends PureComponent {
   static propTypes = {
     allTestResults: PropTypes.arrayOf(PropTypes.object),
