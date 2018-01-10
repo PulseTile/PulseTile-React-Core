@@ -352,15 +352,16 @@ export const serviceVitalsSigns = {
   },
 
   convertVitalCharacteristics: (vital) => {
-    vital.respirationRate = +vital.respirationRate;
-    vital.diastolicBP = +vital.diastolicBP;
-    vital.oxygenSaturation = +vital.oxygenSaturation;
-    vital.temperature = +vital.temperature;
-    vital.systolicBP = +vital.systolicBP;
-    vital.heartRate = +vital.heartRate;
-    vital.oxygenSupplemental = vital.oxygenSupplemental === 'true' || vital.oxygenSupplemental === true;
-
-    return vital;
+    return {
+      respirationRate: +vital.respirationRate,
+      diastolicBP: +vital.diastolicBP,
+      oxygenSaturation: +vital.oxygenSaturation,
+      temperature: +vital.temperature,
+      systolicBP: +vital.systolicBP,
+      heartRate: +vital.heartRate,
+      oxygenSupplemental: vital.oxygenSupplemental === 'true' || vital.oxygenSupplemental === true,
+      ...vital,
+    };
   },
 
   countNewsScore: (statuses) => {

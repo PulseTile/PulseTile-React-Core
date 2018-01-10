@@ -90,4 +90,6 @@ export const operationsOnCollection = {
   },
 };
 
-export const hasClass = (element, cls) => (` ${element.className} `).indexOf(` ${cls} `) > -1;
+export const hasClass = (element, cls) => {
+  if (element !== null) return (` ${element.className} `).indexOf(` ${cls} `) > -1;
+};

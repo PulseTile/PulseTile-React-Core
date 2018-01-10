@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 export default class Switch extends PureComponent {
   render() {
-    const { type, name, disabled, value, id, text, transitionValue } = this.props;
+    const { type, name, disabled, value, id, text, transitionValue, editOrCreate, input } = this.props;
     let checked;
     if (type === 'checkbox') {
       checked = value;
@@ -11,15 +11,22 @@ export default class Switch extends PureComponent {
     }
     return (
       <label className="switch">
-        <input
-          type={type}
-          name={name}
-          disabled={disabled}
-          value={value}
-          checked={checked}
-          id={id}
-
-        />
+        { editOrCreate ?
+          <input
+            type={type}
+            name={name}
+            checked={input.value}
+            id={id}
+            {...input}
+          /> :
+          <input
+            type={type}
+            name={name}
+            disabled={disabled}
+            value={value}
+            checked={checked}
+            id={id}
+          /> }
         <div className={`slider ${disabled ? 'disabled' : ''}`}>
           { type === 'checkbox' ?
             <div>

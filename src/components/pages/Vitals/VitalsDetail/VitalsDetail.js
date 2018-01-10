@@ -22,7 +22,7 @@ export default class VitalsDetail extends PureComponent {
           {(expandedPanel === VITAL_PANEL || expandedPanel === 'all') && !editedPanel[VITAL_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={VITAL_PANEL}
-            title="Vital"
+            title="Vitals"
             onShow={onShow}
             isOpen={openedPanel === VITAL_PANEL}
             currentPanel={currentPanel}
@@ -48,6 +48,7 @@ export default class VitalsDetail extends PureComponent {
                               vitalStatusesType={vitalStatuses[valuesNames.RESPIRATION_RATE].type}
                               detailValue={detail[valuesNames.RESPIRATION_RATE]}
                               vitalsAddon={valuesAddons.RESPIRATION_RATE}
+                              id={valuesNames.RESPIRATION_RATE}
                             />
                           </div>
                         </div>
@@ -61,6 +62,7 @@ export default class VitalsDetail extends PureComponent {
                               vitalStatusesType={vitalStatuses[valuesNames.OXYGEN_SATURATION].type}
                               detailValue={detail[valuesNames.OXYGEN_SATURATION]}
                               vitalsAddon={valuesAddons.OXYGEN_SATURATION}
+                              id={valuesNames.OXYGEN_SATURATION}
                             />
                           </div>
                         </div>
@@ -90,6 +92,7 @@ export default class VitalsDetail extends PureComponent {
                               vitalStatusesType={vitalStatuses[valuesNames.HEART_RATE].type}
                               detailValue={detail[valuesNames.HEART_RATE]}
                               vitalsAddon={valuesAddons.HEART_RATE}
+                              id={valuesNames.HEART_RATE}
                             />
                           </div>
                         </div>
@@ -107,6 +110,7 @@ export default class VitalsDetail extends PureComponent {
                               vitalStatusesType={vitalStatuses[valuesNames.SYSTOLIC_BP].type}
                               detailValue={detail[valuesNames.SYSTOLIC_BP]}
                               vitalsAddon={valuesAddons.SYSTOLIC_BP}
+                              id={valuesNames.SYSTOLIC_BP}
                             />
                           </div>
                         </div>
@@ -178,6 +182,7 @@ export default class VitalsDetail extends PureComponent {
                               vitalStatusesType={vitalStatuses[valuesNames.TEMPERATURE].type}
                               detailValue={detail[valuesNames.TEMPERATURE]}
                               vitalsAddon={valuesAddons.TEMPERATURE}
+                              id={valuesNames.TEMPERATURE}
                             />
                           </div>
                         </div>
@@ -221,7 +226,7 @@ export default class VitalsDetail extends PureComponent {
           {(expandedPanel === VITAL_PANEL || expandedPanel === 'all') && editedPanel[VITAL_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={VITAL_PANEL}
-            title="Edit Vital"
+            title="Edit Vitals"
             onShow={onShow}
             isOpen={openedPanel === VITAL_PANEL}
             currentPanel={currentPanel}

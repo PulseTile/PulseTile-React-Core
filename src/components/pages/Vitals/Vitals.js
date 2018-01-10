@@ -88,7 +88,13 @@ export default class Vitals extends PureComponent {
     }
 
     if (!_.isEmpty(nextProps.vitalDetail)) {
-      this.setVitalStatuses(nextProps.vitalDetail)
+      if (!_.isEmpty(nextProps.vitalsDetailFormState.values)) {
+        this.setVitalStatuses(nextProps.vitalsDetailFormState.values)
+      } else if (!_.isEmpty(nextProps.vitalsCreateFormState.values)) {
+        this.setVitalStatuses(nextProps.vitalsCreateFormState.values)
+      } else {
+        this.setVitalStatuses(nextProps.vitalDetail)
+      }
     }
 
     /* istanbul ignore next */
