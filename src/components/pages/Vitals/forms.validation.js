@@ -15,6 +15,7 @@ const validateForm = (values) => {
   errors[valuesNames.SYSTOLIC_BP] = validateHelpers(values, valuesNames.SYSTOLIC_BP, 'You must enter a correct value.');
   errors[valuesNames.DIASTOLIC_BP] = validateHelpers(values, valuesNames.DIASTOLIC_BP, 'You must enter a correct value.');
   errors[valuesNames.TEMPERATURE] = validateHelpers(values, valuesNames.TEMPERATURE, 'You must enter a correct value.');
+  errors[valuesNames.LEVEL_OF_CONSCIOUSNESS] = !values[valuesNames.LEVEL_OF_CONSCIOUSNESS] ? 'You must enter a value.' : null;
   errors[valuesNames.AUTHOR] = !values[valuesNames.AUTHOR] ? 'You must enter a correct value.' : null;
 
   return errors;
