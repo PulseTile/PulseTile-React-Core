@@ -70,31 +70,34 @@ export default class VitalsPopover extends PureComponent {
     };
 
     render() {
-      const { title, popoverLabels, vitalStatusesType, detailValue, vitalsAddon, isInput, placeholder, input, id, type, disabled } = this.props;
+      const { title, popoverLabels, vitalStatusesType, detailValue, vitalsAddon, isInput, placeholder, input, id, type, disabled, showError, isNotValidate, error } = this.props;
       return (
-        <div className={`input-group vitals-holder popover-wrap ${vitalStatusesType}`} id={`popover-wrap-${id}`}>
-          { !isInput ? <div className="form-control input-sm">{detailValue}</div>
-            : <input
-              className="form-control input-sm"
-              placeholder={placeholder}
-              id={id}
-              type={type}
-              disabled={disabled}
-              {...input}
-            /> }
-          <span className={classNames('vitals-addon', { 'popover-toggle': !_.isEmpty(popoverLabels) })} onClick={this.togglePopover}>{vitalsAddon}</span>
-          {!_.isEmpty(popoverLabels) ? <div className="popover vitals-popover fade" ref={(el) => { this.popover = el; }}>
-            <div className="arrow" />
-            <div className="popover-inner">
-              <h3 className="popover-title">{title}</h3>
-              <div className="popover-content">
-                <div className="range-vital-labels">
-                  { popoverLabels.map(label => <div className={`range-vital-label place-${label.place}`}>{label.text}</div>)}
-                  <img src={rangeVital} alt="" />
+        <div>
+          <div className={`input-group vitals-holder popover-wrap ${vitalStatusesType}`} id={`popover-wrap-${id}`}>
+            { !isInput ? <div className="form-control input-sm">{detailValue}</div>
+              : <input
+                className="form-control input-sm"
+                placeholder={placeholder}
+                id={id}
+                type={type}
+                disabled={disabled}
+                {...input}
+              /> }
+            <span className={classNames('vitals-addon', { 'popover-toggle': !_.isEmpty(popoverLabels) })} onClick={this.togglePopover}>{vitalsAddon}</span>
+            {!_.isEmpty(popoverLabels) ? <div className="popover vitals-popover fade" ref={(el) => { this.popover = el; }}>
+              <div className="arrow" />
+              <div className="popover-inner">
+                <h3 className="popover-title">{title}</h3>
+                <div className="popover-content">
+                  <div className="range-vital-labels">
+                    { popoverLabels.map(label => <div className={`range-vital-label place-${label.place}`}>{label.text}</div>)}
+                    <img src={rangeVital} alt="" />
+                  </div>
                 </div>
               </div>
-            </div>
-          </div> : null}
+            </div> : null}
+          </div>
+          {(showError && !isNotValidate) ? <span className="help-block animate-fade">{error}</span> : null}
         </div>
       )
     }

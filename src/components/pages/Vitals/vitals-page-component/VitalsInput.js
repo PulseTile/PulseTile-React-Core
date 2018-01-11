@@ -47,6 +47,9 @@ export default class VitalsInput extends PureComponent {
           type={type}
           disabled={disabled}
           input={input}
+          error={error}
+          showError={showError}
+          isNotValidate={isNotValidate}
         /> :
           <div className={`input-holder vitals-holder ${vitalStatuses[input.name].type}`}>
             <input

@@ -215,7 +215,7 @@ export default class Vitals extends PureComponent {
     sendData[valuesNames.AUTHOR] = vitalDetail[valuesNames.AUTHOR];
     sendData[valuesNames.DATE] = currentDate;
     sendData[valuesNames.DATE_CREATED] = new Date(vitalDetail[valuesNames.DATE_CREATED]).getTime();
-    sendData[valuesNames.SOURCE] = 'ethercis';
+    sendData[valuesNames.SOURCE] = vitalDetail[valuesNames.SOURCE];
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = vitalDetail[valuesNames.SOURCE_ID];
