@@ -353,7 +353,7 @@ export default class Vitals extends PureComponent {
     };
 
     render() {
-      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert } = this.state;
+      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert, nameShouldInclude } = this.state;
       const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
 
       const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
@@ -385,6 +385,7 @@ export default class Vitals extends PureComponent {
                   activeView={activeView}
                   toggleViewVisibility={this.toggleViewVisibility}
                   isChartOpen={isChartOpen}
+                  nameShouldInclude={nameShouldInclude}
                 />
                 <VitalsMainPanel
                   headers={columnsToShowConfig}

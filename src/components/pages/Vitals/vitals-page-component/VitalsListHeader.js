@@ -50,7 +50,7 @@ export default class VitalsListHeader extends PureComponent {
 
   render() {
     const { isFilterInputVisible, openedPanel } = this.state;
-    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility, isChartOpen } = this.props;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility, isChartOpen, nameShouldInclude } = this.props;
 
     return (
       <div className="panel-heading" ref={node => this.node = node}>
@@ -94,7 +94,7 @@ export default class VitalsListHeader extends PureComponent {
             <div className="addon">
               <i className="fa fa-filter" />
             </div>
-            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} onClick={() => this.handleClickFilterFocus()} autoFocus />
+            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} onClick={() => this.handleClickFilterFocus()} value={nameShouldInclude} autoFocus />
           </div>
         </div> : null}
       </div>
