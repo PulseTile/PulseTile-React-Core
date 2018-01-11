@@ -88,7 +88,7 @@ export default class Vitals extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VITAL_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
-    if (!_.isEmpty(nextProps.vitalDetail)) {
+    if (!_.isEmpty(nextProps.vitalDetail) || !_.isEmpty(nextProps.vitalsCreateFormState)) {
       if (!_.isEmpty(nextProps.vitalsDetailFormState.values)) {
         this.setVitalStatuses(nextProps.vitalsDetailFormState.values)
       } else if (!_.isEmpty(nextProps.vitalsCreateFormState.values)) {
@@ -212,13 +212,17 @@ export default class Vitals extends PureComponent {
     sendData[valuesNames.TEMPERATURE] = vitalDetailConvert[valuesNames.TEMPERATURE];
     sendData[valuesNames.NEWS_SCORE] = vitalDetailConvert[valuesNames.NEWS_SCORE];
 
-    sendData[valuesNames.AUTHOR] = vitalDetail[valuesNames.AUTHOR];
     sendData[valuesNames.DATE] = currentDate;
-    sendData[valuesNames.DATE_CREATED] = new Date(vitalDetail[valuesNames.DATE_CREATED]).getTime();
-    sendData[valuesNames.SOURCE] = vitalDetail[valuesNames.SOURCE];
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = vitalDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE] = vitalDetail[valuesNames.SOURCE];
+      sendData[valuesNames.AUTHOR] = vitalDetail[valuesNames.AUTHOR];
+      sendData[valuesNames.DATE_CREATED] = new Date(vitalDetail[valuesNames.DATE_CREATED]).getTime();
+    }
+
+    if (formName === 'create') {
+      sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
     }
 
     operationsOnCollection.propsToString(sendData, valuesNames.DATE, valuesNames.DATE_CREATED);
@@ -338,112 +342,119 @@ export default class Vitals extends PureComponent {
     return serviceVitalsSigns.getHighlighterClass(vitalStatuses[vitalName]);
   };
 
-  setVitalStatuses = (vital) => {
-    const vitalDetail = serviceVitalsSigns.convertVitalCharacteristics(vital);
-    const vitalStatuses = serviceVitalsSigns.setVitalStatuses(vitalDetail);
+    setVitalStatuses = (vital) => {
+      const vitalDetail = serviceVitalsSigns.convertVitalCharacteristics(vital);
+      const vitalStatuses = serviceVitalsSigns.setVitalStatuses(vitalDetail);
 
-    vitalDetail.newsScore = serviceVitalsSigns.countNewsScore(vitalStatuses);
-    vitalStatuses.newsScore = serviceVitalsSigns.getStatusOnValue(vitalDetail.newsScore, 'newsScore');
+      vitalDetail.newsScore = serviceVitalsSigns.countNewsScore(vitalStatuses);
+      vitalStatuses.newsScore = serviceVitalsSigns.getStatusOnValue(vitalDetail.newsScore, 'newsScore');
 
-    this.setState({ vitalDetailConvert: vitalDetail, vitalStatuses });
-  };
+      this.setState({ vitalDetailConvert: vitalDetail, vitalStatuses });
+    };
 
-  render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert } = this.state;
-    const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
+    render() {
+      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert } = this.state;
+      const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
 
-    const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
-    const isPanelMain = (expandedPanel === VITALS_MAIN);
-    const isPanelCreate = (expandedPanel === VITALS_CREATE);
+      const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
+      const isPanelMain = (expandedPanel === VITALS_MAIN);
+      const isPanelCreate = (expandedPanel === VITALS_CREATE);
 
-    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-    const filteredVitals = this.formToShowCollection(this.modificateVitals(allVitals));
-    const popoverLabels = serviceVitalsSigns.getLabels();
+      const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+      const filteredVitals = this.formToShowCollection(this.modificateVitals(allVitals));
+      const popoverLabels = serviceVitalsSigns.getLabels();
 
-    let sourceId;
-    if (!_.isEmpty(vitalDetail)) {
-      sourceId = vitalDetail.sourceId;
-    }
+      let sourceId;
+      if (!_.isEmpty(vitalDetail)) {
+        sourceId = vitalDetail.sourceId;
+      }
 
-    return (<section className="page-wrapper">
-      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-        <Row>
-          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-            <div className="panel panel-primary">
-              <VitalsListHeader
-                onFilterChange={this.handleFilterChange}
-                panelTitle="Vitals - News"
-                isBtnExpandVisible={isBtnExpandVisible}
-                isBtnTableVisible={false}
-                name={VITALS_MAIN}
+      return (<section className="page-wrapper">
+        <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+          <Row>
+            {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+              <div className="panel panel-primary">
+                <VitalsListHeader
+                  onFilterChange={this.handleFilterChange}
+                  panelTitle="Vitals - News"
+                  isBtnExpandVisible={isBtnExpandVisible}
+                  isBtnTableVisible={false}
+                  name={VITALS_MAIN}
+                  onExpand={this.handleExpand}
+                  currentPanel={VITALS_MAIN}
+                  activeView={activeView}
+                  toggleViewVisibility={this.toggleViewVisibility}
+                  isChartOpen={isChartOpen}
+                />
+                <VitalsMainPanel
+                  headers={columnsToShowConfig}
+                  resourceData={allVitals}
+                  emptyDataMessage="No vitals"
+                  onHeaderCellClick={this.handleHeaderCellClick}
+                  onCellClick={this.handleDetailVitalsClick}
+                  columnNameSortBy={columnNameSortBy}
+                  sortingOrder={sortingOrder}
+                  table="vitals"
+                  filteredData={filteredVitals}
+                  totalEntriesAmount={_.size(filteredVitals)}
+                  offset={offset}
+                  setOffset={this.handleSetOffset}
+                  isBtnCreateVisible={isBtnCreateVisible}
+                  onCreate={this.handleCreate}
+                  id={sourceId}
+                  isLoading={isLoading}
+                  activeView={activeView}
+                  chartLoad={this.chartLoad}
+                />
+              </div>
+            </Col> : null}
+            {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+              <VitalsDetail
                 onExpand={this.handleExpand}
-                currentPanel={VITALS_MAIN}
-                activeView={activeView}
-                toggleViewVisibility={this.toggleViewVisibility}
-                isChartOpen={isChartOpen}
+                name={VITALS_DETAIL}
+                openedPanel={openedPanel}
+                onShow={this.handleShow}
+                expandedPanel={expandedPanel}
+                currentPanel={VITALS_DETAIL}
+                detail={vitalDetailConvert}
+                onEdit={this.handleEdit}
+                editedPanel={editedPanel}
+                onCancel={this.handleVitalDetailCancel}
+                onSaveSettings={this.handleSaveSettingsDetailForm}
+                vitalsDetailFormValues={vitalsDetailFormState.values}
+                isSubmit={isSubmit}
+                getHighlighterClass={this.getHighlighterClass}
+                vitalStatuses={vitalStatuses}
+                popoverLabels={popoverLabels}
               />
-              <VitalsMainPanel
-                headers={columnsToShowConfig}
-                resourceData={allVitals}
-                emptyDataMessage="No vitals"
-                onHeaderCellClick={this.handleHeaderCellClick}
-                onCellClick={this.handleDetailVitalsClick}
-                columnNameSortBy={columnNameSortBy}
-                sortingOrder={sortingOrder}
-                table="vitals"
-                filteredData={filteredVitals}
-                totalEntriesAmount={_.size(filteredVitals)}
-                offset={offset}
-                setOffset={this.handleSetOffset}
-                isBtnCreateVisible={isBtnCreateVisible}
-                onCreate={this.handleCreate}
-                id={sourceId}
-                isLoading={isLoading}
-                activeView={activeView}
-                chartLoad={this.chartLoad}
+            </Col> : null}
+            {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+              <PluginCreate
+                title="Create Vitals"
+                onExpand={this.handleExpand}
+                name={VITALS_CREATE}
+                openedPanel={openedPanel}
+                onShow={this.handleShow}
+                expandedPanel={expandedPanel}
+                currentPanel={VITALS_CREATE}
+                onSaveSettings={this.handleSaveSettingsCreateForm}
+                formValues={vitalsCreateFormState.values}
+                onCancel={this.handleCreateCancel}
+                isCreatePanelVisible={isCreatePanelVisible}
+                componentForm={
+                  <VitalsCreateForm
+                    detail={vitalDetailConvert}
+                    isSubmit={isSubmit}
+                    vitalStatuses={vitalStatuses}
+                    getHighlighterClass={this.getHighlighterClass}
+                    popoverLabels={popoverLabels}
+                    formValues={vitalsCreateFormState.syncErrors}
+                  />
+                }
               />
-            </div>
-          </Col> : null}
-          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <VitalsDetail
-              onExpand={this.handleExpand}
-              name={VITALS_DETAIL}
-              openedPanel={openedPanel}
-              onShow={this.handleShow}
-              expandedPanel={expandedPanel}
-              currentPanel={VITALS_DETAIL}
-              detail={vitalDetailConvert}
-              onEdit={this.handleEdit}
-              editedPanel={editedPanel}
-              onCancel={this.handleVitalDetailCancel}
-              onSaveSettings={this.handleSaveSettingsDetailForm}
-              vitalsDetailFormValues={vitalsDetailFormState.values}
-              isSubmit={isSubmit}
-              getHighlighterClass={this.getHighlighterClass}
-              vitalStatuses={vitalStatuses}
-              popoverLabels={popoverLabels}
-            />
-          </Col> : null}
-          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <PluginCreate
-              title="Create Vital"
-              onExpand={this.handleExpand}
-              name={VITALS_CREATE}
-              openedPanel={openedPanel}
-              onShow={this.handleShow}
-              expandedPanel={expandedPanel}
-              currentPanel={VITALS_CREATE}
-              onSaveSettings={this.handleSaveSettingsCreateForm}
-              formValues={vitalsCreateFormState.values}
-              onCancel={this.handleCreateCancel}
-              isCreatePanelVisible={isCreatePanelVisible}
-              componentForm={
-                <VitalsCreateForm isSubmit={isSubmit} />
-              }
-            />
-          </Col> : null}
-        </Row>
-      </div>
-    </section>)
-  }
+            </Col> : null}
+          </Row>
+        </div>
+      </section>)
+    }
 }
