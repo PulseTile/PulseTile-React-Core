@@ -5,16 +5,25 @@ import DocumentsDetailDischarge from './DocumentsDetailDischarge';
 import DocumentsDetailReferral from './DocumentsDetailReferral';
 import ConfirmationModal from '../../../ui-elements/ConfirmationModal/ConfirmationModal';
 import {valuesLabels, valuesNames} from '../forms.config';
+import PropTypes from "prop-types";
+import {clientUrls} from "../../../../config/client-urls.constants";
 
 const DOCUMENT_PANEL = 'documentPanel';
 const DOCUMENT_TYPE_DISCHARGE = 'discharge';
 const DOCUMENT_TYPE_REFERRAL = 'referral';
 
 export default class DocumentsDetail extends PureComponent {
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.object,
+    }),
+    history: PropTypes.object,
+  };
 
   state = {
     isOpenModal: false,
-    typeImportData: ''
+    typeImportData: '',
+    importData: null
   };
 
   getTypeOfDocument = () => {
@@ -33,7 +42,6 @@ export default class DocumentsDetail extends PureComponent {
       }
     }
 
-    console.log('typeOfDocument', typeOfDocument);
     return typeOfDocument;
   };
 
@@ -43,22 +51,34 @@ export default class DocumentsDetail extends PureComponent {
 
   importHandler = (typeImportData, importData) => () => {
     this.openModal();
-    this.setState({typeImportData});
-    console.log('data for import', importData);
+    this.setState({typeImportData, importData});
   };
 
   onOkModal = () => {
+    const { userId } = this.props;
+    const { typeImportData, importData } = this.state;
+
     this.closeModal();
+
+    importData.isImport = true;
+    importData.originalSource = location.href;
+    importData.originalComposition = this.getTypeOfDocument();
+
+    this.context.router.history.push({
+      pathname: `${clientUrls.PATIENTS}/${userId}/${typeImportData}/create`,
+      state: { importData }
+    });
   };
 
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, testResultsDetailFormValues } = this.props;
     let { detail } = this.props;
     const { isOpenModal } = this.state;
-    const typeOfDocument = this.getTypeOfDocument();
+    // const typeOfDocument = this.getTypeOfDocument();
+    const typeOfDocument = DOCUMENT_TYPE_REFERRAL;
     detail = detail || {};
 
-    const detail3 = {
+    detail = {
       source: 'source',
       author_name: 'author_name',
       facility: 'facility',
@@ -121,7 +141,15 @@ export default class DocumentsDetail extends PureComponent {
       }],
       medication_anticoagulation_use: 'medication_anticoagulation_use',
       allergies: [{
-        testName: 'testName',
+        cause: 'testName',
+        status: 'status',
+        sampleTaken: 1515493787482,
+        conclusion: 'conclusion',
+        author: 'author',
+        dateCreated: 1515493787482,
+        source: 'source',
+      }, {
+        cause: 'testName',
         status: 'status',
         sampleTaken: 1515493787482,
         conclusion: 'conclusion',

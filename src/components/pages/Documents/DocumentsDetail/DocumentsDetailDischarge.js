@@ -6,7 +6,7 @@ import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import classNames from "classnames";
 
-const DIAGNOSIS_TYPE = 'diagnosis';
+const DIAGNOSIS_TYPE = 'diagnoses';
 
 export default class DocumentsDetailDischarge extends PureComponent {
 

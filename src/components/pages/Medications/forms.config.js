@@ -13,9 +13,13 @@ export const valuesNames = {
   START_DATE: 'startDate',
   DATE_CREATED: 'dateCreated',
   START_TIME: 'startTime',
-  ISIMPORT: 'isImport',
   CURRENT_DATE: 'start',
   FINISH_DATE: 'pFinishDateTime',
+
+  IMPORT: 'originalSource',
+  ISIMPORT: 'isImport',
+  ORIGINAL_SOURCE: 'originalSource',
+  ORIGINAL_COMPOSITION: 'originalComposition',
 
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
@@ -34,6 +38,8 @@ export const valuesLabels = {
   CURRENT_DATE: 'Start',
   FINISH_CANCELLED: 'Until Cancelled',
   FINISH_DATE: 'Finish',
+
+  IMPORT: 'Import URL',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

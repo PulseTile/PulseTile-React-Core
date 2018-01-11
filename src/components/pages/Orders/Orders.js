@@ -111,7 +111,7 @@ export default class Orders extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ORDERS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientOrdersDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -120,19 +120,19 @@ export default class Orders extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ORDERS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
     actions.fetchListOrdersRequest();
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}/create`);
   };
 
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ORDERS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId, ordersCreateFormState } = this.props;
     actions.fetchPatientOrdersCreateRequest(this.formValuesToString(formValues, 'create'));
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ORDERS}`);
     this.hideCreateForm();
     this.setState({ isLoading: true });
   };

@@ -78,7 +78,7 @@ export const valuesNames = {
   M_USE: 'medication_anticoagulation_use',
 
   ALLERGIES: 'allergies',
-  A_NAME: 'testName',
+  A_NAME: 'cause',
   A_STATUS: 'status',
   A_TAKEN: 'sampleTaken',
   A_TERMINOLOGY: 'conclusion',

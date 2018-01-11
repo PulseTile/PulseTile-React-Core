@@ -99,7 +99,7 @@ export default class Documents extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, openedPanel: DOCUMENT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientDocumentsDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DOCUMENTS}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DOCUMENTS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -153,7 +153,7 @@ export default class Documents extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, editedPanel, offset, isSubmit, isLoading } = this.state;
-    const { allDocuments, documentDetail } = this.props;
+    const { allDocuments, documentDetail, userId } = this.props;
 
     const isPanelDetails = (expandedPanel === DOCUMENTS_DETAIL || expandedPanel === DOCUMENT_PANEL);
     const isPanelMain = (expandedPanel === DOCUMENTS_MAIN);
@@ -216,6 +216,7 @@ export default class Documents extends PureComponent {
                 onCancel={this.handleDocumentDetailCancel}
                 onSaveSettings={this.handleSaveSettingsDetailForm}
                 isSubmit={isSubmit}
+                userId={userId}
               />
             </Col> : null}
         </Row>

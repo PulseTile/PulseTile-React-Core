@@ -434,7 +434,7 @@ export default class DocumentsDetailReferral extends PureComponent {
                 return (
                   <FormSection
                     key={index}
-                    title={`${valuesLabels.M_NAME}: ${item[valuesNames.M_NAME]}`}
+                    title={`${valuesLabels.A_NAME}: ${item[valuesNames.A_NAME]}`}
                     isImportBtn
                     isAccordion
                     isBordered

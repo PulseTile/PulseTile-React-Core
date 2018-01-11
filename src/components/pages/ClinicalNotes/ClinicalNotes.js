@@ -109,7 +109,7 @@ export default class ClinicalNotes extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientClinicalNotesDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -117,7 +117,7 @@ export default class ClinicalNotes extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CLINICAL_NOTES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}/create`);
   };
 
   handleEdit = (name) => {
@@ -161,14 +161,14 @@ export default class ClinicalNotes extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: CLINICAL_NOTES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId, clinicalCreateFormState } = this.props;
     if (checkIsValidateForm(clinicalCreateFormState)) {
       actions.fetchPatientClinicalNotesCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
+      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_NOTES}`);
       this.hideCreateForm();
       this.setState({ isLoading: true });
     } else {

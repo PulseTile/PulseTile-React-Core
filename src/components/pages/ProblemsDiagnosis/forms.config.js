@@ -5,9 +5,13 @@ export const valuesNames = {
   TERMINOLOGY: 'terminology',
   CODE: 'code',
   AUTHOR: 'author',
-  ISIMPORT: 'isImport',
   DATE: 'date',
   DATE_CREATED: 'dateCreated',
+
+  IMPORT: 'originalSource',
+  ISIMPORT: 'isImport',
+  ORIGINAL_SOURCE: 'originalSource',
+  ORIGINAL_COMPOSITION: 'originalComposition',
 
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
@@ -22,6 +26,7 @@ export const valuesLabels = {
   CODE: 'Terminology Code',
   AUTHOR: 'Author',
   DATE: 'Date',
+  IMPORT: 'Import URL',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

@@ -8,20 +8,48 @@ import StaticFormField from '../../../form-fields/StaticFormField';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
+import PropTypes from "prop-types";
 
 @reduxForm({
   form: 'diagnosesCreateFormSelector',
   validate: validateForm,
 })
 export default class ProblemsDiagnosisCreateForm extends PureComponent {
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.object,
+    }),
+    history: PropTypes.object,
+  };
+
+  state = {
+    isImport: false
+  };
+
   componentDidMount() {
-    this.props.initialize(defaultFormValues);
+    const historyState = this.context.router.history.location.state;
+
+    if (historyState && historyState.importData) {
+      const dataToInitialize = {
+        ...defaultFormValues,
+        ...historyState.importData
+      };
+      this.props.initialize(dataToInitialize);
+      this.setState({isImport: true})
+
+    } else {
+      this.props.initialize(defaultFormValues);
+    }
   }
+
   render() {
     const {isSubmit} = this.props;
+    const {isImport} = this.state;
+
     const isNotValidate = true;
     const date = new Date();
     const dateCreated = date.getTime();
+
     return (
       <div className="panel-body-inner">
         <form name="diagnosesCreateForm" className="form">
@@ -86,6 +114,16 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
                 />
               </div>
             </div>
+            {isImport ?
+              <Field
+                label={valuesLabels.IMPORT}
+                name={valuesNames.IMPORT}
+                id={valuesNames.IMPORT}
+                component={ValidatedInput}
+                props={{ disabled: true, isSubmit }}
+              />
+              : null
+            }
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field

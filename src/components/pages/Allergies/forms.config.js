@@ -1,15 +1,17 @@
 export const valuesNames = {
   CAUSE: 'cause',
   REACTION: 'reaction',
-  ISIMPORT: 'isImport',
   CAUSECODE: 'causeCode',
   TERMINOLOGY: 'causeTerminology',
   TERMINOLOGYCODE: 'terminologyCode',
   AUTHOR: 'author',
   DATE: 'currentDate',
   DATE_CREATED: 'dateCreated',
-  ORIGINAL_COMPOSITION: 'originalComposition',
+
+  IMPORT: 'originalSource',
+  ISIMPORT: 'isImport',
   ORIGINAL_SOURCE: 'originalSource',
+  ORIGINAL_COMPOSITION: 'originalComposition',
 
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
@@ -24,6 +26,7 @@ export const valuesLabels = {
   AUTHOR: 'Author',
   DATE: 'Date',
   DATE_CREATED: 'Date',
+  IMPORT: 'Import URL',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',
