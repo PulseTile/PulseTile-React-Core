@@ -5,11 +5,11 @@ const valuesSettingsForm = {
   BROWSER_TITLE: 'browserTitle',
 };
 const valuesSettingsFormLabels = {
-	APP_TITLE: 'Application Title',
-	LOGO_PATH: 'Application Logo File',
-	SELECT_THEME: 'Application Themes',
-	SELECT_THEME_ONE: 'Application Theme',
-	BROWSER_TITLE: 'Browser Window title',
+  APP_TITLE: 'Application Title',
+  LOGO_PATH: 'Application Logo File',
+  SELECT_THEME: 'Application Themes',
+  SELECT_THEME_ONE: 'Application Theme',
+  BROWSER_TITLE: 'Browser Window title',
 };
 
 
@@ -22,12 +22,12 @@ const valuesPersonalForm = {
   DOCTOR: 'doctor',
 };
 const valuesPersonalFormLabels = {
-	FIRST_NAME: 'First Name',
-	LAST_NAME: 'Last Name',
-	NHS_NUMBER: 'NHS No',
-	DATE_OF_BIRTH: 'Date of Birth',
-	SELECT_GENDER: 'Gender',
-	DOCTOR: 'Doctor',
+  FIRST_NAME: 'First Name',
+  LAST_NAME: 'Last Name',
+  NHS_NUMBER: 'NHS No',
+  DATE_OF_BIRTH: 'Date of Birth',
+  SELECT_GENDER: 'Gender',
+  DOCTOR: 'Doctor',
 };
 
 
@@ -41,13 +41,13 @@ const valuesContactForm = {
   EMAIL: 'email',
 };
 const valuesContactFormLabels = {
-	ADDRESS: 'Address',
-	CITY: 'City',
-	STATE: 'State',
-	POSTAL_CODE: 'Postal Code',
-	SELECT_COUNTRY: 'Country',
-	PHONE: 'Phone Number',
-	EMAIL: 'Email',
+  ADDRESS: 'Address',
+  CITY: 'City',
+  STATE: 'State',
+  POSTAL_CODE: 'Postal Code',
+  SELECT_COUNTRY: 'Country',
+  PHONE: 'Phone Number',
+  EMAIL: 'Email',
 };
 
 export { valuesSettingsForm, valuesSettingsFormLabels, valuesPersonalForm, valuesPersonalFormLabels, valuesContactForm, valuesContactFormLabels }
