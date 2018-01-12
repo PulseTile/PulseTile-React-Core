@@ -116,7 +116,7 @@ export default class Medications extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {}, expandedPanel: 'all', isOpenHourlySchedule: true, isLoading: true })
     actions.fetchPatientMedicationsDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -124,7 +124,7 @@ export default class Medications extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: MEDICATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`);
   };
 
   handleEdit = (name) => {
@@ -179,7 +179,7 @@ export default class Medications extends PureComponent {
  handleCreateCancel = () => {
    const { userId } = this.props;
    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-   this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
+   this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
  };
 
  handleSaveSettingsCreateForm = (formValues) => {
@@ -187,7 +187,7 @@ export default class Medications extends PureComponent {
 
    if (checkIsValidateForm(medicationsCreateFormState)) {
      actions.fetchPatientMedicationsCreateRequest(this.formValuesToString(formValues, 'create'));
-     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
+     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
      this.hideCreateForm();
      this.setState({ isSubmit: false, isLoading: true });
    } else {
@@ -221,7 +221,14 @@ export default class Medications extends PureComponent {
 
     if (formName === 'create') {
       sendData[valuesNames.SOURCE_ID] = '';
-      sendData[valuesNames.ISIMPORT] = false;
+      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+
+      // add data about source from documentations
+      if (sendData[valuesNames.ISIMPORT]) {
+        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
+        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+      }
     }
 
     operationsOnCollection.propsToString(sendData, valuesNames.DOSE_TIMING, valuesNames.START_DATE, valuesNames.START_TIME, valuesNames.DATE_CREATED);
@@ -240,6 +247,10 @@ export default class Medications extends PureComponent {
   };
 
   toggleHourlySchedule = () => this.setState(prevState => ({ isOpenHourlySchedule: !prevState.isOpenHourlySchedule }));
+
+  goBack = () => {
+    this.context.router.history.goBack();
+  };
 
   formToShowCollection = (collection) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
@@ -272,10 +283,18 @@ export default class Medications extends PureComponent {
     /* istanbul ignore next */
     if (allMedications !== undefined) {
       if (allMedications[0]) {
-        allMedications[0].warning = true;
+        allMedications[0].highlighters = [];
+        allMedications[0].highlighters.push({
+          name: 'name',
+          status: 'warning',
+        });
       }
       if (allMedications[1]) {
-        allMedications[1].danger = true;
+        allMedications[1].highlighters = [];
+        allMedications[1].highlighters.push({
+          name: 'name',
+          status: 'danger',
+        });
       }
     }
 
@@ -285,6 +304,9 @@ export default class Medications extends PureComponent {
     if (!_.isEmpty(medicationDetail)) {
       sourceId = medicationDetail[valuesNames.SOURCE_ID];
     }
+
+    const historyState = this.context.router.history.location.state;
+    const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -353,6 +375,8 @@ export default class Medications extends PureComponent {
               formValues={medicationsCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isImport={isImportFromDocuments}
+              onGoBack={this.goBack}
               componentForm={
                 <MedicationsCreateForm isSubmit={isSubmit} />
               }

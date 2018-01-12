@@ -110,7 +110,7 @@ export default class Allergies extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -118,7 +118,7 @@ export default class Allergies extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`);
   };
 
   handleEdit = (name) => {
@@ -175,19 +175,23 @@ export default class Allergies extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId, allergiesCreateFormState } = this.props;
     if (checkIsValidateForm(allergiesCreateFormState)) {
       actions.fetchPatientAllergiesCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
+      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`);
       this.hideCreateForm();
       this.setState({ isLoading: true });
     } else {
       this.setState({ isSubmit: true });
     }
+  };
+
+  goBack = () => {
+    this.context.router.history.goBack();
   };
 
   formValuesToString = (formValues, formName) => {
@@ -208,6 +212,13 @@ export default class Allergies extends PureComponent {
     if (formName === 'create') {
       sendData[valuesNames.SOURCE_ID] = '';
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+
+      // add data about source from documentations
+      if (sendData[valuesNames.ISIMPORT]) {
+        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
+        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+      }
     }
 
     operationsOnCollection.propsToString(sendData);
@@ -251,6 +262,9 @@ export default class Allergies extends PureComponent {
     if (!_.isEmpty(allergieDetail)) {
       sourceId = allergieDetail[valuesNames.SOURCE_ID];
     }
+
+    const historyState = this.context.router.history.location.state;
+    const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -315,6 +329,8 @@ export default class Allergies extends PureComponent {
               formValues={allergiesCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isImport={isImportFromDocuments}
+              onGoBack={this.goBack}
               componentForm={
                 <AllergiesCreateForm isSubmit={isSubmit} />
               }

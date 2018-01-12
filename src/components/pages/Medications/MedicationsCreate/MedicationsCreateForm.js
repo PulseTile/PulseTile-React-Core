@@ -10,17 +10,44 @@ import { validateMedicationsCreateForm } from '../forms.validation';
 import { valuesNames, valuesLabels, routeOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import PropTypes from "prop-types";
 
 @reduxForm({
   form: 'medicationsCreateFormSelector',
   validate: validateMedicationsCreateForm,
 })
 export default class MedicationsCreateForm extends PureComponent {
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.object,
+    }),
+    history: PropTypes.object,
+  };
+
+  state = {
+    isImport: false
+  };
+
   componentDidMount() {
-    this.props.initialize(defaultFormValues);
+    const historyState = this.context.router.history.location.state;
+
+    if (historyState && historyState.importData) {
+      const dataToInitialize = {
+        ...defaultFormValues,
+        ...historyState.importData
+      };
+      this.props.initialize(dataToInitialize);
+      this.setState({isImport: true})
+
+    } else {
+      this.props.initialize(defaultFormValues);
+    }
   }
+
   render() {
     const { isSubmit } = this.props;
+    const {isImport} = this.state;
+
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
@@ -97,6 +124,16 @@ export default class MedicationsCreateForm extends PureComponent {
                 />
               </div>
             </div>
+            {isImport ?
+              <Field
+                label={valuesLabels.IMPORT}
+                name={valuesNames.IMPORT}
+                id={valuesNames.IMPORT}
+                component={ValidatedInput}
+                props={{ disabled: true, isSubmit }}
+              />
+              : null
+            }
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field

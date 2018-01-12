@@ -230,6 +230,21 @@ exports[`Component <Header /> should renders correctly 1`] = `
     />
     <Route
       component={[Function]}
+      exact={true}
+      path="/patients/:userId/vitals"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/patients/:userId/vitals/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/patients/:userId/vitals/:sourceId"
+    />
+    <Route
+      component={[Function]}
       path="/"
     />
   </Switch>

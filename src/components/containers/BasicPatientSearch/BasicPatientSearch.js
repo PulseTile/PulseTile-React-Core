@@ -33,7 +33,7 @@ export default class BasicPatientSearch extends PureComponent {
         };
         const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
 
-        this.context.router.history.replace(patientsFullDetailsUrl);
+        this.context.router.history.push(patientsFullDetailsUrl);
       }
     };
 

@@ -17,21 +17,16 @@ export default class SortableTableRow extends PureComponent {
   };
 
   render() {
-    const { rowData, headers, onCellClick, columnNameSortBy, resourceData, id } = this.props;
-    const userId = _.flow(_.find({ name: 'id' }), _.get('value'))(rowData);
+    const { rowData, headers, onCellClick, columnNameSortBy, id } = this.props;
     const sourceId = _.flow(_.find({ name: 'sourceId' }), _.get('value'))(rowData);
 
-    const warningNameField = _.flow(_.find({ warning: true }), _.get('name'))(resourceData);
-    const dangerNameField = _.flow(_.find({ danger: true }), _.get('name'))(resourceData);
-
     const rowDataItem = rowData.map((rowItem, index) => {
-      if ((rowItem.value === warningNameField || rowItem.value === dangerNameField) && rowItem.name === 'name') {
+      if (rowItem.highlighter) {
         return (
           <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy })}>
             <span>
-              { rowItem.value === warningNameField ? <span className="highlighter-warning"></span> : null }
-              { rowItem.value === dangerNameField ? <span className="highlighter-danger"></span> : null }
-              <span > { rowItem.value }</span>
+              <span className={`highlighter-${rowItem.highlighter}`} />
+              <span>{ rowItem.value }</span>
             </span>
           </td>
         )

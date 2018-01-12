@@ -60,7 +60,7 @@ export default class Sidebar extends PureComponent {
     const sidebarUnderlay = page.getElementsByClassName('sidebar-underlay')[0];
 
     if (sidebar !== undefined) {
-      const scrollPageTop = document.documentElement.scrollTop;
+      const scrollPageTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
       let sidebarTop = headerHeight - scrollPageTop;
 
       sidebarTop = sidebarTop > 0 ? sidebarTop : 0;

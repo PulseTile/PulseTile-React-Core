@@ -11,7 +11,7 @@ export const checkIsValidateForm = (formState) => {
 
 export const operationsOnCollection = {
   modsSorting: {
-    NUMBER: 'number'
+    NUMBER: 'number',
   },
 
   modificate: (collection, options) => {
@@ -35,7 +35,7 @@ export const operationsOnCollection = {
     let str = '';
 
     filterKeys.forEach((key) => {
-      str += item[key] ? item[key].toString().toLowerCase() + ' ' : '';
+      str += item[key] ? `${item[key].toString().toLowerCase()} ` : '';
     });
 
     return str.indexOf(filterBy.toLowerCase() || '') !== -1;
@@ -47,12 +47,10 @@ export const operationsOnCollection = {
       [_.stubTrue, () => v => v],
     ])(sortingByOrder);
 
-    return _.flow(_.sortBy([item => {
-
+    return _.flow(_.sortBy([(item) => {
       if (modeSorting) {
         if (modeSorting[operationsOnCollection.modsSorting.NUMBER] &&
             modeSorting[operationsOnCollection.modsSorting.NUMBER].indexOf(sortingByKey) !== -1) {
-
           if (!_.isNaN(+item[sortingByKey])) {
             return +item[sortingByKey];
           }
@@ -64,7 +62,7 @@ export const operationsOnCollection = {
   },
 
   filterAndSort: (options) => {
-    const {filterBy, sortingByKey, sortingByOrder, filterKeys, modeSorting} = options;
+    const { filterBy, sortingByKey, sortingByOrder, filterKeys, modeSorting } = options;
     let collection = options.collection;
 
     if (collection) {
@@ -82,13 +80,16 @@ export const operationsOnCollection = {
   },
 
   propsToString: (obj, ...ignoreKeys) => {
-    for (let key in obj) {
+    for (const key in obj) {
       if (obj.hasOwnProperty(key) &&
           ignoreKeys.indexOf(key) === -1 &&
           _.isNumber(obj[key])) {
-
         obj[key] = obj[key].toString();
       }
     }
-  }
+  },
+};
+
+export const hasClass = (element, cls) => {
+  if (element !== null) return (` ${element.className} `).indexOf(` ${cls} `) > -1;
 };

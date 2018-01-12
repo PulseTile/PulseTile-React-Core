@@ -6,7 +6,6 @@ export const clientUrls = {
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
   RESULTS: 'results',
-  VITALS: 'vitals',
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
@@ -22,6 +21,8 @@ export const clientUrls = {
   ORDERS: 'orders',
   MDTS: 'mdt',
   DRAWINGS: 'drawings',
+  VITALS: 'vitals',
+	DOCUMENTS: 'documents',
 };
 
 const pluginsPages = {
@@ -115,6 +116,18 @@ const pluginsPages = {
       state: '/drawings',
     }],
   },
+  'vitals': {
+    breadcrumbs: [{
+      title: 'Vitals - NEWS',
+      state: '/vitals',
+    }],
+  },
+	'documents': {
+		breadcrumbs: [{
+			title: 'Documents',
+			state: '/documents',
+		}],
+	},
 };
 
 

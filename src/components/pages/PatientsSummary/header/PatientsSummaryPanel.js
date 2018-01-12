@@ -7,6 +7,7 @@ import { Col } from 'react-bootstrap';
 
 import PTCustomInput from './PTCustomInput';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
+import { patientsSummaryConfig } from '../patients-summary.config';
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -50,21 +51,20 @@ export default class PatientsSummaryPanel extends PureComponent {
             <div className="heading">SHOW</div>
             <div className="form-group">
               <Row>
-                <Col xs={6} sm={4}>
-                  <PTCustomInput type="checkbox" title="Problems" id="problems" name="problems" isChecked={selected.problems} onChange={this.toggleCheckbox} />
-                </Col>
-                <Col xs={6} sm={4}>
-                  <PTCustomInput type="checkbox" title="Contacts" id="contacts" name="contacts" isChecked={selected.contacts} onChange={this.toggleCheckbox} />
-                </Col>
-                <Col xs={6} sm={4}>
-                  <PTCustomInput type="checkbox" title="Allergies" id="allergies" name="allergies" isChecked={selected.allergies} onChange={this.toggleCheckbox} />
-                </Col>
-                <Col xs={6} sm={4}>
-                  <PTCustomInput type="checkbox" title="Medications" id="medications" name="medications" isChecked={selected.medications} onChange={this.toggleCheckbox} />
-                </Col>
-                <Col xs={6} sm={4}>
-                  <PTCustomInput type="checkbox" title="Vaccinations" id="vaccinations" name="vaccinations" isChecked={selected.vaccinations} onChange={this.toggleCheckbox} />
-                </Col>
+                {patientsSummaryConfig.map((item, index) => {
+                  return (<Col xs={6} sm={4}>
+                      <PTCustomCheckbox
+                      key={index}
+                      title={item.title}
+                      name={item.nameCheckboxes}
+                      isChecked={selected[item.key]}
+                      onChange={this.toggleCheckbox}
+                    />
+                  </Col>)
+                })}
+                {/*<Col xs={6} sm={4}>*/}
+                  {/*<PTCustomInput type="checkbox" title="Vaccinations" id="vaccinations" name="vaccinations" isChecked={selected.vaccinations} onChange={this.toggleCheckbox} />*/}
+                {/*</Col>*/}
               </Row>
             </div>
 

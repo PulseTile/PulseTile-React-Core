@@ -71,6 +71,7 @@ export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetch
 export const fetchPatientPersonalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesDetailRequest'));
 
 export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
+export const fetchPatientGenericPluginDetailOnMount = (generateFetchDetailOnMount('fetchPatientGenericPluginDetailRequest'));
 
 export const fetchPatientContactsOnMount = (generateFetchListOnMount('fetchPatientContactsRequest'));
 export const fetchPatientContactsDetailOnMount = (generateFetchDetailOnMount('fetchPatientContactsDetailRequest'));
@@ -88,6 +89,7 @@ export const fetchPatientEventsOnMount = (generateFetchListOnMount('fetchPatient
 export const fetchPatientEventsDetailOnMount = (generateFetchDetailOnMount('fetchPatientEventsDetailRequest'));
 
 export const fetchPatientTestResultsOnMount = (generateFetchListOnMount('fetchPatientTestResultsRequest'));
+export const fetchPatientTestResultsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTestResultsDetailRequest'));
 
 export const fetchPatientReferralsOnMount = (generateFetchListOnMount('fetchPatientReferralsRequest'));
 export const fetchPatientReferralsDetailOnMount = (generateFetchDetailOnMount('fetchPatientReferralsDetailRequest'));
@@ -100,3 +102,9 @@ export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchP
 
 export const fetchPatientDrawingsOnMount = (generateFetchListOnMount('fetchPatientDrawingsRequest'));
 export const fetchPatientDrawingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDrawingsDetailRequest'));
+
+export const fetchPatientVitalsOnMount = (generateFetchListOnMount('fetchPatientVitalsRequest'));
+export const fetchPatientVitalsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVitalsDetailRequest'));
+
+export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPatientDocumentsRequest'));
+export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));

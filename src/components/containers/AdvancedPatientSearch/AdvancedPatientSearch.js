@@ -111,7 +111,7 @@ export default class AdvancedPatientSearch extends PureComponent {
       const patientsFullDetailsUrl = `${clientUrls.PATIENTS_FULL_DETAILS}?${qs.stringify(queryParams)}`;
 
       this.hideForm();
-      this.context.router.history.replace(patientsFullDetailsUrl);
+      this.context.router.history.push(patientsFullDetailsUrl);
     };
 
     render() {

@@ -15,6 +15,8 @@ import { referralsEpic, referralsReducer } from './components/pages/Referrals/in
 import { ordersEpic, ordersReducer } from './components/pages/Orders/index'
 import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index'
 import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index'
+import { documentsEpic, documentsReducer } from './components/pages/Documents/index'
+import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -31,6 +33,8 @@ import Referrals from './components/pages/Referrals/Referrals';
 import Orders from './components/pages/Orders/Orders';
 import MDTs from './components/pages/MDTs/MDTs';
 import Drawings from './components/pages/Drawings/Drawings';
+import Vitals from './components/pages/Vitals/Vitals';
+import Documents from './components/pages/Documents/Documents';
 
 export const sidebarConfig = [
   // { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -50,14 +54,15 @@ export const sidebarConfig = [
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: false },
   { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: false },
   { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: false },
+	{ key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: false },
+  { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: false },
 ];
 
 export const dashboardVisible = {
-  problems: true,
-  contacts: true,
-  allergies: true,
-  medications: true,
-  vaccinations: true,
+  // you can disable or enable the PatientsSummary boards here
+  // for this you must to write key of board and give its false value
+  // path: src\components\pages\PatientsSummary\patients-summary.config.js
+  // e.g. (problems: false, contacts: true)
 };
 
 export const pluginsEpicConfig = [
@@ -76,6 +81,8 @@ export const pluginsEpicConfig = [
   ordersEpic,
   mdtsEpic,
   drawingsEpic,
+  vitalsEpic,
+	documentsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -94,6 +101,8 @@ export const pluginsReducerConfig = [
   ordersReducer,
   mdtsReducer,
   drawingsReducer,
+  vitalsReducer,
+	documentsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -156,4 +165,10 @@ export const routersPluginConfig = [
   { key: 'drawingsCreate', component: Drawings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DRAWINGS}/create` },
   { key: 'drawingsDetail', component: Drawings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DRAWINGS}/:sourceId` },
 
+  { key: 'vitals', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}` },
+  { key: 'vitalsCreate', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/create` },
+  { key: 'vitalsDetail', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/:sourceId` },
+
+	{ key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
+	{ key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
 ];

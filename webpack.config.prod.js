@@ -70,7 +70,6 @@ const config = {
 };
 
 if (ENV_PRODUCTION_OPTIMIZATION) {
-  console.log(123);
   // for optimizing of code
   config.devtool = 'cheap-module-source-map';
   config.plugins.push(
