@@ -13,7 +13,10 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
       </div>
       <div className="board-body">
         {isHasPreview
-          ? <div className="board-preview" style={{ backgroundImage: `url(${srcPrevirew})` }} ></div>
+          ? <div
+            className="board-preview"
+            style={{ backgroundImage: `url(${srcPrevirew})` }}
+            onClick={() => goToState(state)} />
           : null
         }
         {isHasList

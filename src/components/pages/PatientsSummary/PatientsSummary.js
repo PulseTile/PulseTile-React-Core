@@ -9,16 +9,10 @@ import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import { patientsSummaryConfig, defaultViewOfBoardsSelected } from '../../../config/patients-summary.config';
+import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible } from '../../../plugins.config';
-
-import imgAllergies from '../../../assets/images/patients-summary/allergies.jpg';
-import imgProblems from '../../../assets/images/patients-summary/problems.jpg';
-import imgContacts from '../../../assets/images/patients-summary/contacts.jpg';
-import imgMedications from '../../../assets/images/patients-summary/medications.jpg';
-import imgVaccinations from '../../../assets/images/patients-summary/vaccinations.jpg';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
 
@@ -79,6 +73,8 @@ export default class PatientsSummary extends PureComponent {
     render() {
       const { boards } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible } = this.state;
+      const isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
+      const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
 
       return (<section className="page-wrapper">
         <Row>
@@ -102,22 +98,12 @@ export default class PatientsSummary extends PureComponent {
                         navigateTo={console.log}
                         state={item.state}
                         goToState={this.handleGoToState}
-                        srcPrevirew={imgProblems}
-                        isHasPreview={selectedViewOfBoards.full || selectedViewOfBoards.preview}
-                        isHasList={selectedViewOfBoards.full || selectedViewOfBoards.list}
+                        srcPrevirew={item.imgPreview}
+                        isHasPreview={isHasPreview}
+                        isHasList={isHasList}
                       />
                       : null)
                   })}
-                  {/*{(selectedCategory.vaccinations && dashboardVisible.vaccinations)*/}
-                    {/*? <SimpleDashboardPanel*/}
-                      {/*title="Vaccinations" items={vaccinations}*/}
-                      {/*navigateTo={console.log} state="vaccinations"*/}
-                      {/*goToState={this.handleGoToState}*/}
-                      {/*srcPrevirew={imgVaccinations}*/}
-                      {/*isHasPreview={selectedViewOfBoards.full || selectedViewOfBoards.preview}*/}
-                      {/*isHasList={selectedViewOfBoards.full || selectedViewOfBoards.list}*/}
-                    {/*/>*/}
-                    {/*: null}*/}
                 </div>
               </div>
             </div>

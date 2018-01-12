@@ -1,36 +1,43 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 
-const PTCustomCheckbox = ({ type, title, id, name, isChecked, disabled = false, onChange, value }) => {
-  const toggleCheckbox = () => !disabled && onChange(value || name);
+export default class PTCustomInput extends PureComponent {
+  static propTypes = {
+    type: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    isChecked: PropTypes.bool.isRequired,
+    onChange: PropTypes.func,
+    disabled: PropTypes.bool,
+  };
 
-  return <div className="wrap-fcustominp">
-      <div className={classNames('fcustominp-state', { disabled })} onClick={toggleCheckbox} >
-        <div className="fcustominp">
-          <input type={type}
-                 id={`dashboard-${id}`}
-                 name={`dashboard-${name}`}
-                 checked={isChecked}
-                 onChange={toggleCheckbox}
-                 value={value ? value : ''}
-          />
-          <label htmlFor={`dashboard-${id}`} />
+  toggleInput = () => {
+    const { onChange } = this.props;
+    return !disabled && onChange(value || name);
+  };
+
+  render() {
+    const { type, title, id, name, isChecked, disabled = false, value } = this.props;
+
+    return (
+      <div className="wrap-fcustominp">
+        <div className={classNames('fcustominp-state', { disabled })} onClick={this.toggleInput} >
+          <div className="fcustominp">
+            <input type={type}
+                   id={`dashboard-${id}`}
+                   name={`dashboard-${name}`}
+                   checked={isChecked}
+                   onChange={this.toggleInput}
+                   value={value ? value : ''}
+            />
+            <label htmlFor={`dashboard-${id}`} />
+          </div>
+          <label htmlFor={`dashboard-${id}`} className="fcustominp-label">{title}</label>
         </div>
-        <label htmlFor={`dashboard-${id}`} className="fcustominp-label">{title}</label>
       </div>
-    </div>
-}
-
-PTCustomCheckbox.propTypes = {
-  type: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  isChecked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
+    )
+  }
 };
-
-export default PTCustomCheckbox

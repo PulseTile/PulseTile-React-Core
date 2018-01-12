@@ -53,18 +53,17 @@ export default class PatientsSummaryPanel extends PureComponent {
               <Row>
                 {patientsSummaryConfig.map((item, index) => {
                   return (<Col xs={6} sm={4}>
-                      <PTCustomCheckbox
+                      <PTCustomInput
                       key={index}
-                      title={item.title}
+                      type="checkbox"
+                      title={item.titleCheckboxes}
+                      id={item.nameCheckboxes}
                       name={item.nameCheckboxes}
                       isChecked={selected[item.key]}
                       onChange={this.toggleCheckbox}
                     />
                   </Col>)
                 })}
-                {/*<Col xs={6} sm={4}>*/}
-                  {/*<PTCustomInput type="checkbox" title="Vaccinations" id="vaccinations" name="vaccinations" isChecked={selected.vaccinations} onChange={this.toggleCheckbox} />*/}
-                {/*</Col>*/}
               </Row>
             </div>
 

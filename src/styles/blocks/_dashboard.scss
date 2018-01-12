@@ -68,6 +68,7 @@
   padding-bottom: map-get($board, 'preview-ratio');
   background-size: cover;
   background-position: center;
+  cursor: pointer;
 }
 .board-list {
   @include list-reset;
