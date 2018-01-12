@@ -10,6 +10,7 @@ import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { defaultFormValues } from './ProblemsDiagnosisCreate/default-values.config'
 import { valuesNames } from './forms.config';
@@ -25,6 +26,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm'
+import imgBanner from '../../../assets/images/banners/problems.jpg';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -258,6 +260,15 @@ export default class ProblemsDiagnosis extends PureComponent {
     const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title='Problems / Diagnoses'
+          subTitle='Short blurb containing a few words to describe this section'
+          img={imgBanner}
+          toRight
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

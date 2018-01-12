@@ -111,9 +111,9 @@ label:focus,
 
 .page-wrapper {
   background-color: transparent;
-  padding: 10px 0;
+  padding: map-get($page-wrapper-padding, 'small-tb') map-get($page-wrapper-padding, 'small-rl');
   @include respond-from(xs) {
-    padding: $indent-wrapper-big;
+    padding: map-get($page-wrapper-padding, 'main-tb') map-get($page-wrapper-padding, 'main-rl');
   }
 }
 

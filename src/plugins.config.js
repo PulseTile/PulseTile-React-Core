@@ -68,6 +68,8 @@ export const dashboardVisible = {
   // e.g. (problems: false, contacts: true)
 };
 
+export const isShowPluginBanners = true;
+
 export const pluginsEpicConfig = [
   allergiesEpic,
   diagnosesEpic,
