@@ -22,7 +22,8 @@ export const clientUrls = {
   MDTS: 'mdt',
   DRAWINGS: 'drawings',
   VITALS: 'vitals',
-	DOCUMENTS: 'documents',
+  DOCUMENTS: 'documents',
+  TOP_THREE_THINGS: 'topThreeThings',
 };
 
 const pluginsPages = {
@@ -122,12 +123,18 @@ const pluginsPages = {
       state: '/vitals',
     }],
   },
-	'documents': {
-		breadcrumbs: [{
-			title: 'Documents',
-			state: '/documents',
-		}],
-	},
+  'documents': {
+    breadcrumbs: [{
+      title: 'Documents',
+      state: '/documents',
+    }],
+  },
+  'topThreeThings': {
+    breadcrumbs: [{
+      title: 'Top 3 Things',
+      state: '/topThreeThings',
+    }],
+  },
 };
 
 
