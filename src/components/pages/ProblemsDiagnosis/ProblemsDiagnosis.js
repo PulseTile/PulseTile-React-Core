@@ -110,7 +110,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -118,7 +118,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
   };
 
   handleEdit = (name) => {
@@ -162,7 +162,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -170,7 +170,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     if (checkIsValidateForm(diagnosisCreateFormState)) {
       actions.fetchPatientDiagnosesCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
       this.setState({ isSubmit: false, isLoading: true });
       this.hideCreateForm();
     } else {
@@ -192,6 +192,13 @@ export default class ProblemsDiagnosis extends PureComponent {
     if (formName === 'create') {
       sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
       sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
+
+      // add data about source from documentations
+      if (sendData[valuesNames.ISIMPORT]) {
+        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
+        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+      }
     }
 
     if (formName === 'edit') {
@@ -205,6 +212,10 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, expandedPanel: 'all', isBtnExpandVisible: false })
+  };
+
+  goBack = () => {
+    this.context.router.history.goBack();
   };
 
   formToShowCollection = (collection) => {
@@ -241,6 +252,9 @@ export default class ProblemsDiagnosis extends PureComponent {
     if (!_.isEmpty(diagnosisDetail)) {
       sourceId = diagnosisDetail[valuesNames.SOURCE_ID];
     }
+
+    const historyState = this.context.router.history.location.state;
+    const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
@@ -305,6 +319,8 @@ export default class ProblemsDiagnosis extends PureComponent {
               formValues={diagnosisCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isImport={isImportFromDocuments}
+              onGoBack={this.goBack}
               componentForm={
                 <ProblemsDiagnosisCreateForm isSubmit={isSubmit} />
               }

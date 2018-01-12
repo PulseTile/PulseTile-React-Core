@@ -17,7 +17,10 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSideb
 export default class Sidebar extends PureComponent {
   static propTypes = {
     activeLink: PropTypes.string,
-    userId: PropTypes.number,
+    userId: PropTypes.oneOfType([
+			PropTypes.string,
+			PropTypes.number
+		]),
   };
 
   /* istanbul ignore next */
@@ -57,7 +60,7 @@ export default class Sidebar extends PureComponent {
     const sidebarUnderlay = page.getElementsByClassName('sidebar-underlay')[0];
 
     if (sidebar !== undefined) {
-      const scrollPageTop = document.documentElement.scrollTop;
+      const scrollPageTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
       let sidebarTop = headerHeight - scrollPageTop;
 
       sidebarTop = sidebarTop > 0 ? sidebarTop : 0;
@@ -100,7 +103,7 @@ export default class Sidebar extends PureComponent {
           <div className="sidebar-nav">
             <div>
               <ul className="sidebar-nav-list">
-                {sidebarConfig.map(item => (item.isVisible ? <li className="sidebar-nav-item">
+                {sidebarConfig.map((item, index) => (item.isVisible ? <li className="sidebar-nav-item" key={index}>
                   { (!_.isEmpty(item.pathToTransition)) ? <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link> : null }
                   { (_.isEmpty(item.pathToTransition)) ? <a className={classNames('sidebar-nav-link', { active: activeLink === item.key })}>{item.name}</a> : null }
                 </li> : null))

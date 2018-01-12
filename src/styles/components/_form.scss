@@ -47,6 +47,7 @@ label.control-label {
   line-height: 18px;
   min-height: 18px;
   padding: 0;
+  &--item { margin-bottom: 5px; }
   em { color: #959595; }
   a {
     color: #000000;

@@ -10,6 +10,7 @@ import { createEpicMiddleware } from 'redux-observable'
 import { Provider } from 'react-redux'
 import { loadingBarMiddleware } from 'react-redux-loading-bar'
 
+import './polyfills';
 import App from './components/containers/App/App'
 import rootReducer from './root.reducer'
 import rootEpic from './root.epic'

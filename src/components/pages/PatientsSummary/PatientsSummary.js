@@ -51,7 +51,7 @@ export default class PatientsSummary extends PureComponent {
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
 
     handleGoToState = (state) => {
-      this.context.router.history.replace(state);
+      this.context.router.history.push(state);
     };
 
     render() {

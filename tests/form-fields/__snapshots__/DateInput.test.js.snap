@@ -6,7 +6,6 @@ exports[`Component <DateInput /> should renders with all props correctly 1`] = `
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -62,7 +61,6 @@ exports[`Component <DateInput /> should renders with different state of validati
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -118,7 +116,6 @@ exports[`Component <DateInput /> should renders with different state of validati
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -179,7 +176,6 @@ exports[`Component <DateInput /> should renders with different state of validati
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -240,7 +236,6 @@ exports[`Component <DateInput /> should renders with different state of validati
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -301,7 +296,6 @@ exports[`Component <DateInput /> should renders with different state of validati
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>
@@ -357,7 +351,6 @@ exports[`Component <DateInput /> should renders with/without the given date 1`] 
 >
   <label
     className="control-label"
-    htmlFor="test-name"
   >
     Test label
   </label>

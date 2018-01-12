@@ -4,12 +4,13 @@ import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import _ from 'lodash/fp';
+import moment from 'moment';
 
 import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
 import PersonalForm from './forms/PersonalForm';
 import ContactForm from './forms/ContactForm';
-import { formStateSelector, patientInfoSelector } from './selectors';
+import { formStateSelector, patientInfoSelector, userAccountSelector } from './selectors';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
 import { setLogo } from '../../../ducks/set-logo.duck';
@@ -26,6 +27,7 @@ const CHANGE_HISTORY = 'changeHistory';
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme }, dispatch) });
 
 @connect(formStateSelector)
+@connect(userAccountSelector)
 @connect(patientInfoSelector, mapDispatchToProps)
 class UserProfile extends PureComponent {
   state = {
@@ -87,10 +89,12 @@ class UserProfile extends PureComponent {
 
   render() {
     const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
-    const { formState, patientsInfo } = this.props;
+    const { formState, patientsInfo, user } = this.props;
 
-
-		const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
+    const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
+    const currentDate = (new Date()).getTime();
+    const CONVERT_CURRENT_DATE = moment(currentDate).format('DD-MMM-YYYY');
+    const CONVERT_CURRENT_DATE_WITH_TIME = moment(currentDate).format('YYYY-MM-DD HH:mm');
 
     return (<section className="page-wrapper">
       <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
@@ -183,17 +187,19 @@ class UserProfile extends PureComponent {
                               <Col md={11}>
                                 <div className="form-group">
                                   <label className="control-label">{valuesPersonalFormLabels.FIRST_NAME}</label>
-                                  <div className="form-control-static">Bob</div>
+                                  <div className="form-control-static">{user.given_name}</div>
                                 </div>
 
                                 <div className="form-group">
                                   <label className="control-label">{valuesPersonalFormLabels.LAST_NAME}</label>
-                                  <div className="form-control-static">Smith</div>
+                                  <div className="form-control-static">{user.family_name}</div>
                                 </div>
 
                                 <div className="form-group">
                                   <label className="control-label">{valuesPersonalFormLabels.NHS_NUMBER}</label>
-                                  <div className="form-control-static" />
+                                  {user.role === 'IDCR'
+                                    ? <div className="form-control-static" />
+                                    : <div className="form-control-static">{user.nhsNumber}</div> }
                                 </div>
                               </Col>
                             </Row>
@@ -203,7 +209,7 @@ class UserProfile extends PureComponent {
                               <div className="col-md-11 col-md-offset-1">
                                 <div className="form-group">
                                   <label className="control-label">{valuesPersonalFormLabels.DATE_OF_BIRTH}</label>
-                                  <div className="form-control-static ng-binding">10-Sep-2017</div>
+                                  <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE}</div>
                                 </div>
 
                                 <div className="form-group">
@@ -291,7 +297,7 @@ class UserProfile extends PureComponent {
 
                                 <div className="form-group">
                                   <label className="control-label">{valuesContactFormLabels.EMAIL}</label>
-                                  <div className="form-control-static">bob.smith@gmail.com</div>
+                                  <div className="form-control-static">{user.email}</div>
                                 </div>
                               </div>
                             </div>
@@ -330,11 +336,11 @@ class UserProfile extends PureComponent {
                       <div className="form-group-wrapper">
                         <div className="form-group">
                           <label className="control-label ng-binding">Change #1 Date</label>
-                          <div className="form-control-static ng-binding">2017-09-10 21:44</div>
+                          <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE_WITH_TIME}</div>
                         </div>
                         <div className="form-group">
                           <label className="control-label">Changes</label>
-                          <div className="form-control-static ng-binding">Last Name: <em className="ng-binding">White</em> <span className="next-separate"><i className="fa fa-caret-right"></i></span> Blackwell</div>
+                          <div className="form-control-static ng-binding">Last Name: <em className="ng-binding">White</em> <span className="next-separate"><i className="fa fa-caret-right" /></span> Blackwell</div>
                         </div>
                       </div>
                     </div>
@@ -344,11 +350,11 @@ class UserProfile extends PureComponent {
                       <div className="form-group-wrapper">
                         <div className="form-group">
                           <label className="control-label ng-binding">Change #2 Date</label>
-                          <div className="form-control-static ng-binding">2017-09-10 21:44</div>
+                          <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE_WITH_TIME}</div>
                         </div>
                         <div className="form-group">
                           <label className="control-label">Changes</label>
-                          <div className="form-control-static ng-binding">Address: <em className="ng-binding">Flower Street</em> <span className="next-separate"><i className="fa fa-caret-right"></i></span> 6801 Tellus Street</div>
+                          <div className="form-control-static ng-binding">Address: <em className="ng-binding">Flower Street</em> <span className="next-separate"><i className="fa fa-caret-right" /></span> 6801 Tellus Street</div>
                         </div>
                       </div>
                     </div>

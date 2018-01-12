@@ -2105,6 +2105,7 @@ exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data
                                                   disabled={false}
                                                   disabledKeyboardNavigation={false}
                                                   dropdownMode="select"
+                                                  id="dateOfBirth"
                                                   monthsShown={1}
                                                   name="dateOfBirth"
                                                   onBlur={[Function]}
@@ -2151,7 +2152,7 @@ exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data
                                                           autoFocus={undefined}
                                                           className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
                                                           disabled={false}
-                                                          id={undefined}
+                                                          id="dateOfBirth"
                                                           name="dateOfBirth"
                                                           onBlur={[Function]}
                                                           onChange={[Function]}
@@ -2185,6 +2186,7 @@ exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data
                                                               <input
                                                                 className="form-control popupinputs ng-pristine ng-isolate-scope ng-empty ng-valid ng-valid-required ng-valid-date ng-touched"
                                                                 disabled={false}
+                                                                id="dateOfBirth"
                                                                 name="dateOfBirth"
                                                                 onBlur={[Function]}
                                                                 onChange={[Function]}
