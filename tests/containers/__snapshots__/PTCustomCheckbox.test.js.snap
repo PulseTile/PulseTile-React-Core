@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PTCustomCheckbox /> should renders correctly 1`] = `
+<PTCustomCheckbox
+  isChecked={true}
+  name="testName"
+  onChange={[Function]}
+  title="test title"
+>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    sm={4}
+    xs={6}
+  >
+    <div
+      className="col-sm-4 col-xs-6"
+    >
+      <div
+        className="wrap-fcustominp"
+      >
+        <div
+          className="fcustominp-state"
+          onClick={[Function]}
+        >
+          <div
+            className="fcustominp"
+          >
+            <input
+              checked={true}
+              name="testName"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="patients-table-info-name"
+            />
+          </div>
+          <label
+            className="fcustominp-label"
+            htmlFor="testName"
+          >
+            test title
+          </label>
+        </div>
+      </div>
+    </div>
+  </Col>
+</PTCustomCheckbox>
+`;
+
+exports[`Component <PTCustomCheckbox /> should renders correctly 2`] = `
+<PTCustomCheckbox
+  isChecked={true}
+  name="testName"
+  onChange={[Function]}
+  title="test title"
+>
+  <Col
+    bsClass="col"
+    componentClass="div"
+    sm={4}
+    xs={6}
+  >
+    <div
+      className="col-sm-4 col-xs-6"
+    >
+      <div
+        className="wrap-fcustominp"
+      >
+        <div
+          className="fcustominp-state"
+          onClick={[Function]}
+        >
+          <div
+            className="fcustominp"
+          >
+            <input
+              checked={true}
+              name="testName"
+              onChange={[Function]}
+              type="checkbox"
+            />
+            <label
+              htmlFor="patients-table-info-name"
+            />
+          </div>
+          <label
+            className="fcustominp-label"
+            htmlFor="testName"
+          >
+            test title
+          </label>
+        </div>
+      </div>
+    </div>
+  </Col>
+</PTCustomCheckbox>
+`;

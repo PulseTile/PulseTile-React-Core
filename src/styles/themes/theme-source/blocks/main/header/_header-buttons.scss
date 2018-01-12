@@ -1,0 +1,13 @@
+.btn-header {
+  background: map-get($header-btn, 'bg');
+  color: map-get($header-btn, 'color');
+  .count {
+    background-color: map-get($header-btn, 'color');
+    color:  map-get($header-btn, 'bg');
+  }
+}  
+.btn-header:hover { color: map-get($header-btn, 'color'); }
+.is-not-touch-device .btn-header:hover { 
+  background: map-get($header-btn, 'bg-hover'); 
+  color: map-get($header-btn, 'color-hover');
+}

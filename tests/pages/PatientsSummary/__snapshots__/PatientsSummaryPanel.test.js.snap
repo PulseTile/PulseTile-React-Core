@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsSummaryPanel /> should renders with all props correctly 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-panel dropdown-menu-summary"
+>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="heading"
+    >
+      SHOW
+    </div>
+    <div
+      className="form-group"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <PTCustomCheckbox
+          isChecked={true}
+          name="problems"
+          onChange={[Function]}
+          title="Problems"
+        />
+        <PTCustomCheckbox
+          isChecked={true}
+          name="contacts"
+          onChange={[Function]}
+          title="Contacts"
+        />
+        <PTCustomCheckbox
+          isChecked={true}
+          name="allergies"
+          onChange={[Function]}
+          title="Allergies"
+        />
+        <PTCustomCheckbox
+          isChecked={true}
+          name="medications"
+          onChange={[Function]}
+          title="Medications"
+        />
+      </Row>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PTButton /> should renders with children element correctly 1`] = `
+<button
+  anotherProps="anotherProps"
+  className="test-button"
+  testProps="testProps"
+>
+  <i
+    className="btn-icon fa fa-angle-left"
+  />
+  <span
+    className="btn-text"
+  >
+    test text
+  </span>
+</button>
+`;
+
+exports[`Component <PTButton /> should renders with props correctly 1`] = `
+<button
+  className="test-button"
+  testProps="testProps"
+>
+  test button
+</button>
+`;

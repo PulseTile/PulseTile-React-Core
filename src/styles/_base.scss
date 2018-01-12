@@ -1,0 +1,227 @@
+  html {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: $font-family-main;
+  min-width: $min-width; 
+}
+
+
+*,
+*:before,
+*:after { box-sizing: border-box; }
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+textarea { resize: vertical; }
+
+a,
+a:hover,
+a:focus {
+  color: $text-color;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.is-not-touch-device a:hover {
+  color: $auxiliary-color;
+  text-decoration: none;
+}
+
+.list-reset { @include list-reset; }
+
+textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active {
+  outline:0px !important;
+}
+
+.wrap-overflow { overflow: hidden; }
+
+.without-shadow { box-shadow: none !important; }
+
+.wrap-icon {
+  font-size: 0;
+  i, span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  i { margin-right: 3px; }
+}
+
+.clearfix {
+  @include clearfix;
+}
+
+.text-truncate {
+  @include text-truncate;
+}
+
+#app-root {
+  height: 100%;
+}
+
+.page {
+  height: 100%;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+  margin-left: 0;
+}
+@include respond-from(sm) {
+  .showSidebar.main,
+  .showSidebar .sidebar + .main {
+    margin-left: 185px;
+  }
+}
+
+#page-wrapper {
+  min-height: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  background-color: transparent;
+  padding: 10px 0;
+  @include respond-from(xs) {
+    padding: $indent-wrapper-big;
+  }
+}
+
+body {
+  .footer, .wrapper {
+    transition: opacity 1s ease, visibility 1s ease;
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-spinner { 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease, background 1s ease,;
+  }
+  &.loading {
+    .footer, .wrapper {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .main-spinner {
+      display: block;
+      position: fixed;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      z-index: 9999;
+      background: #fff;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes lds-dual-ring_reverse {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+}
+.lds-css {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: block !important;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+.lds-dual-ring {
+  position: relative;
+}
+.lds-dual-ring div {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 40px;
+  left: 40px;
+  border-radius: 50%;
+  border: 10px solid #000;
+  border-color: #f0641f transparent #f0641f transparent;
+  -webkit-animation: lds-dual-ring 1s linear infinite;
+  animation: lds-dual-ring 1s linear infinite;
+}
+.lds-dual-ring div:nth-child(2) {
+  width: 96px;
+  height: 96px;
+  top: 52px;
+  left: 52px;
+  border-color: transparent #cacaca transparent #cacaca;
+  -webkit-animation: lds-dual-ring_reverse 1s linear infinite;
+  animation: lds-dual-ring_reverse 1s linear infinite;
+}
+.lds-double-ring {
+  width: 200px !important;
+  height: 200px !important;
+  -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+  transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}

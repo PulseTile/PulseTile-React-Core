@@ -1,0 +1,342 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FileInput /> should renders with all props correctly 1`] = `
+<div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FileInput /> should renders with different state of validation 1`] = `
+<div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-control-static"
+    >
+      <img
+        alt="Logo Example"
+        src="image.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FileInput /> should renders with different state of validation 2`] = `
+<div>
+  <div
+    className="form-group has-error"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+    <span
+      className="required-label"
+    >
+      Error
+    </span>
+  </div>
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-control-static"
+    >
+      <img
+        alt="Logo Example"
+        src="image.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FileInput /> should renders with different state of validation 3`] = `
+<div>
+  <div
+    className="form-group has-success"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-control-static"
+    >
+      <img
+        alt="Logo Example"
+        src="image.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FileInput /> should renders with image correctly 1`] = `
+<div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-control-static"
+    >
+      <img
+        alt="Logo Example"
+        src="image.jpg"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FileInput /> testing onChange functionality 1`] = `
+<div>
+  <div
+    className="form-group"
+  >
+    <label
+      className="control-label"
+      htmlFor="applicationLogo"
+    >
+      Test label
+    </label>
+    <div
+      className="input-holder"
+    >
+      <div
+        className="wrap-fcustomfile"
+      >
+        <div
+          className="fcustomfile-control"
+        >
+          <input
+            accept="image/jpeg,image/png,image/gif"
+            className="form-control input-sm"
+            id="test-id"
+            onChange={[Function]}
+            type="file"
+          />
+          <label
+            className="btn btn-success btn-inverse btn-normal-icon"
+            htmlFor="test-id"
+          >
+            <i
+              className="fa fa-plus"
+            />
+            <span>
+               Upload logo 
+            </span>
+          </label>
+        </div>
+        <div
+          className="fcustomfile-text"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

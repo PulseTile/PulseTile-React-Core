@@ -1,0 +1,46 @@
+/**
+  * FOOTER
+  */
+.wrapper {
+  padding-bottom: 15px;
+  @include respond-from(sm) {
+    padding-bottom: 71px;
+  }
+}
+.footer {
+  background-color: #EEEEEE;
+  color: #757584;
+  font-size: 10px;
+  line-height: 29px;
+  min-width: $min-width;
+  padding: 13px 0 14px;
+  width: 100%;
+  @include respond-from(xs) {
+    font-size: 12px;
+  }
+  @include respond-from(sm) {
+    bottom: 0;
+    height: 56px;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+.footer-povered {
+  float: right;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.footer-povered-text {
+  display: inline-block;
+  margin-right: 8px;
+}
+.footer-logo { display: inline-block; }
+.footer-logo-img {
+  display: inline-block;
+  height: 29px;
+}
+.footer-text {
+  float: left;
+  margin: 0;
+  margin-right: 10px;
+}

@@ -1,0 +1,69 @@
+$purple: #59056e;
+$purple-light: #6a1e7c;
+
+$base-color: $purple;
+
+$auxiliary-color: lighten($base-color, 20%);
+
+$table-color: lighten($base-color, 40%);
+$colored-table: (
+  background: #F3F3F3,
+  header-background: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+  row-odd-background: #FDFDFD,
+  row-background-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  selected-background: $table-color,
+  sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+);
+
+$text-color: #303030;
+$text-on-base-color: #ffffff;
+
+$colored-buttons: (
+  default: #ffffff,
+  primary: #337AB7,
+  success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+  info: #31b0d5,
+  warning: #F0AD4E,
+  danger: #DA534F
+);
+
+/**
+  * COLORS for header
+  */
+
+  $header-bg: $purple;
+  $header-btn: (
+    bg: $purple,
+    color: $text-on-base-color,
+    bg-hover: $purple-light,
+    color-hover: $text-on-base-color,
+    bg-active: $purple-light,
+    color-active: $text-on-base-color
+  );
+  $header-toolbar: (
+    bg: $purple-light,
+    color: $text-on-base-color,
+  );
+
+/**
+  * COLORS for search
+  */
+  $search-btn: (
+    bg: #000000,
+    color: #ffffff,
+    bg-hover: #000000,
+    color-hover: #ffffff
+  );
+  $search-btn-toggle: (
+    bg: #000000,
+    color: #ffffff,
+    bg-hover: #000000,
+    color-hover: #ffffff,
+    border: #000000,
+    border-hover: #000000
+  );
+
+body.themePurple {
+  @import 'theme-source/index';
+}

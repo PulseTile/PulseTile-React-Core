@@ -1,0 +1,276 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
+<div>
+  <div
+    class="sidebar-underlay showSidebar"
+  >
+    
+  </div>
+  <div
+    class="sidebar showSidebar"
+    role="navigation"
+  >
+    <div
+      class="sidebar-nav"
+    >
+      <div>
+        <ul
+          class="sidebar-nav-list"
+        >
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link active"
+              href="/patients/9999999000/patients-summary"
+            >
+              Patient Summary
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/diagnoses"
+            >
+              Problems / Diagnosis
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/medications"
+            >
+              Medications
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/allergies"
+            >
+              Allergies
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/contacts"
+            >
+              Contacts
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/clinicalNotes"
+            >
+              Clinical Notes
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/vaccinations"
+            >
+              Vaccinations
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/personalNotes"
+            >
+              Personal Notes
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/results"
+            >
+              Test Results
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/procedures"
+            >
+              Procedures
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/events"
+            >
+              Events
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/referrals"
+            >
+              Referrals
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/mdt"
+            >
+              MDT
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/orders"
+            >
+              Orders
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/drawings"
+            >
+              Drawings
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/vitals"
+            >
+              Vitals - News
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Sidebar /> should renders with props correctly 1`] = `
+<Connect(Sidebar)
+  actions={
+    Object {
+      "setSidebarVisibility": [Function],
+    }
+  }
+  activeLink="patients-summary"
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  testUnnecessaryProp="test"
+  userId={9999999000}
+/>
+`;
+
+exports[`Component <Sidebar /> should renders with props correctly 2`] = `
+<Connect(Sidebar)
+  actions={
+    Object {
+      "setSidebarVisibility": [Function],
+    }
+  }
+  activeLink="allergies"
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  testUnnecessaryProp="test"
+  userId={9999999024}
+/>
+`;

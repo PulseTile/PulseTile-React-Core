@@ -1,0 +1,745 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ClinicalNotes /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ClinicalNotesDetail
+          currentPanel="clinicalNotesDetail"
+          detail={
+            Object {
+              "author": "bob.smith@gmail.com",
+              "clinicalNotesType": "11",
+              "dateCreated": 1510224834000,
+              "note": "11",
+              "source": "ethercis",
+              "sourceId": "d6b4d397-779c-4a4e-b5eb-2084fb11876f",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="clinicalNotesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="clinicalNotesCreate"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotesDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="clinicalNotesCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="clinicalNotesCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="clinicalNotesCreate"
+          title="Create Clinical Note"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotesDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="clinicalNotesCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          name="clinicalNotesCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="clinicalNotesCreate"
+          title="Create Clinical Note"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotesPanel and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ClinicalNotesDetail
+          currentPanel="clinicalNotesDetail"
+          detail={
+            Object {
+              "author": "bob.smith@gmail.com",
+              "clinicalNotesType": "11",
+              "dateCreated": 1510224834000,
+              "note": "11",
+              "source": "ethercis",
+              "sourceId": "d6b4d397-779c-4a4e-b5eb-2084fb11876f",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="clinicalNotesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="clinicalNotesPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotesPanel and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ClinicalNotesDetail
+          currentPanel="clinicalNotesDetail"
+          detail={
+            Object {
+              "author": "bob.smith@gmail.com",
+              "clinicalNotesType": "11",
+              "dateCreated": 1510224834000,
+              "note": "11",
+              "source": "ethercis",
+              "sourceId": "d6b4d397-779c-4a4e-b5eb-2084fb11876f",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="clinicalNotesPanel"
+          isSubmit={false}
+          name="clinicalNotesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="clinicalNotesPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotesPanel and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalNotes /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalNotesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={true}
+            name="clinicalNotesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Notes"
+          />
+          <PluginMainPanel
+            columnNameSortBy="clinicalNotesType"
+            emptyDataMessage="No clinical notes"
+            headers={
+              Array [
+                Object {
+                  "key": "clinicalNotesType",
+                  "title": "Type",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalNotes"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;

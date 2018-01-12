@@ -1,0 +1,8 @@
+.user-panel {
+  float: right;
+  @include list-reset;
+  @include respond-from(sm) {
+    float: none;
+    order: 4;
+  }
+}

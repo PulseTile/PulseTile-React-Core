@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PTPanel /> should renders with props correctly 1`] = `
+<div
+  className="col-md-6 col-xs-12"
+>
+  <div
+    className="mainPagePanel panel panel-secondary"
+    id={undefined}
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title panel-title"
+      >
+        <i
+          className="fa fa-bar-chart"
+        />
+         Test 
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div>
+          test children element
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ConfirmationModal /> should renders with all props correctly 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={true}
+>
+  <div
+    className="panel panel-secondary without-margin"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Test modal title
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <span
+          className="some-content"
+        >
+          Lorem ipsum
+        </span>
+      </div>
+      <div
+        className="panel-control"
+      >
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <button
+              className="btn btn-danger btn-icon-normal"
+              onClick={[Function]}
+            >
+              <i
+                className="btn-icon fa fa-ban"
+              />
+              <span
+                className="btn-text"
+              >
+                 
+                Cancel text
+              </span>
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={[Function]}
+            >
+              <i
+                className="btn-icon fa fa-check"
+              />
+              <span
+                className="btn-text"
+              >
+                 
+                Ok text
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Modal>
+`;
+
+exports[`Component <ConfirmationModal /> should renders without icons and buttons correctly 1`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={true}
+>
+  <div
+    className="panel panel-secondary without-margin"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Test modal title
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <span
+          className="some-content"
+        >
+          Lorem ipsum
+        </span>
+      </div>
+      <div
+        className="panel-control"
+      >
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <button
+              className="btn btn-danger btn-icon-normal"
+              onClick={[Function]}
+            >
+              <span
+                className="btn-text"
+              >
+                 
+                Cancel text
+              </span>
+            </button>
+            <button
+              className="btn btn-success"
+              onClick={[Function]}
+            >
+              <span
+                className="btn-text"
+              >
+                 
+                Ok text
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Modal>
+`;
+
+exports[`Component <ConfirmationModal /> should renders without icons and buttons correctly 2`] = `
+<Modal
+  animation={true}
+  autoFocus={true}
+  backdrop={true}
+  bsClass="modal"
+  dialogComponentClass={[Function]}
+  enforceFocus={true}
+  keyboard={true}
+  manager={
+    ModalManager {
+      "add": [Function],
+      "containers": Array [],
+      "data": Array [],
+      "handleContainerOverflow": true,
+      "hideSiblingNodes": true,
+      "isTopModal": [Function],
+      "modals": Array [],
+      "remove": [Function],
+    }
+  }
+  onHide={[Function]}
+  renderBackdrop={[Function]}
+  restoreFocus={true}
+  show={true}
+>
+  <div
+    className="panel panel-secondary without-margin"
+  >
+    <div
+      className="panel-heading"
+    >
+      <h3
+        className="panel-title"
+      >
+        Test modal title
+      </h3>
+    </div>
+    <div
+      className="panel-body"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <span
+          className="some-content"
+        >
+          Lorem ipsum
+        </span>
+      </div>
+      <div
+        className="panel-control"
+      >
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</Modal>
+`;

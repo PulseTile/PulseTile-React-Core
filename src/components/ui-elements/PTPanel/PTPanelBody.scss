@@ -1,0 +1,31 @@
+@import '../../../styles/abstracts/colors';
+
+.panel-secondary .panel-body {
+  background: #fff;
+  border-radius: 0;
+  padding: 0;
+}
+
+.panel-body-inner {
+  padding: 14px 10px;
+
+  & + .panel-body-inner {
+    border-top: 1px solid $panel-border-color;
+  }
+
+  .panel-body-section + .panel-body-section {
+    border-top: 1px solid $panel-border-color;
+    margin-top: 4px;
+    padding-top: 24px;
+  }
+
+  .panel-subaccordion {
+    margin: 0 -10px;
+
+    .panel-body-inner { padding-left: 25px; }
+  }
+
+  .panel-body-inner-table {
+    margin: 0 -10px;
+  }
+}

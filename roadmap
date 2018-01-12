@@ -1,0 +1,24 @@
+# Roadmap
+## React version 
+Block 1 Done
+
+Block 2
+Week 1: Problems-Diagnosis heading / Clinical notes heading / Spinner http://prntscr.com/h2qgfv | 24.10.2017 - 30.10.2017 |
+Week 2: Contacts heading / Vaccinations heading / Generic Plugin / Code optimization | 31.10.2017 - 06.11.2017 |
+Week 3: Medications heading / Personal Notes heading / Procedures heading | 07.11.2017 - 13.11.2017 |
+Week 4: Test results heading / Referrals heading / "Loading" on loading patient headings | 14.11.2017 - 20.11.2017|
+Week 5: Events heading (without WebRTC functionality, only edit, create +Timeline) | 21.11.2017 - 27.11.2017 |
+Week 6-7: Final testing and completion of bug fixes | 28.11.2017 - 13.12.2017 |
+
+Block 3: Tests, Documentation
+Week 8: Unit & EndOfEnd testing; 
+Week 9: Documentation updates;
+
+Block 4: Headings - complex
+Week 10: MDT heading / Clinical statements heading;
+Week 11: Images heading / Documents heading;
+Week 12: Documents heading continuation / Drawing heading; 
+Week 13: Transfer of Care heading;
+Week 14: Clinical querying & WebRTC
+
+

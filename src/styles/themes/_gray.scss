@@ -1,0 +1,69 @@
+$gray: #645a54;
+
+$base-color: $gray;
+$text-color: #53555a;
+
+$auxiliary-color: lighten($base-color, 20%);
+
+$table-color: lighten($base-color, 40%);
+$colored-table: (
+  background: #F3F3F3,
+  header-background: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+  row-odd-background: #FDFDFD,
+  row-background-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  selected-background: $table-color,
+  sorted-background: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+  sorted-background-odd: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176)
+);
+
+$text-color: #303030;
+$text-on-base-color: #ffffff;
+
+$colored-buttons: (
+  default: #ffffff,
+  primary: #337AB7,
+  success: #46484e,
+  info: #31b0d5,
+  warning: #F0AD4E,
+  danger: #DA534F
+);
+
+/**
+  * COLORS for header
+  */
+
+  $header-bg: #534741;
+  $header-btn: (
+    bg: $header-bg,
+    color: $text-on-base-color,
+    bg-hover: $gray,
+    color-hover: $text-on-base-color,
+    bg-active: $gray,
+    color-active: $text-on-base-color
+  );
+  $header-toolbar: (
+    bg: $gray,
+    color: $text-on-base-color,
+  );
+
+/**
+  * COLORS for search
+  */
+  $search-btn: (
+    bg: #000000,
+    color: #ffffff,
+    bg-hover: #000000,
+    color-hover: #ffffff
+  );
+  $search-btn-toggle: (
+    bg: #000000,
+    color: #ffffff,
+    bg-hover: #000000,
+    color-hover: #ffffff,
+    border: #000000,
+    border-hover: #000000
+  );
+
+body.themeGray {
+  @import 'theme-source/index';
+}

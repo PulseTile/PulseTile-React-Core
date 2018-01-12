@@ -1,0 +1,60 @@
+.btn-header {
+  background: map-get($header-btn, 'bg');
+  border: none;
+  color: map-get($header-btn, 'color');
+  display: block;
+  font-size: 19px;
+  height: 52px;
+  line-height: 52px;
+  outline: none;
+  position: relative;
+  text-align: center;
+  width: 45px;
+  @include respond-from(xs) {
+    width: 52px;
+  }
+  .count {
+    background-color: map-get($header-btn, 'color');
+    border-radius: 50%;
+    color: map-get($header-btn, 'bg');
+    display: block;
+    font-family: arial;
+    font-size: 10px;
+    font-weight: 400;
+    height: 16px;
+    line-height: 16px;
+    padding: 0;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    top: 9px;
+    width: 16px;
+    @include respond-from(xs) {
+      right: 3px;
+    }
+  }
+}  
+.touch-device .btn-header .count { line-height: 17px; }
+.btn-header:hover { color: map-get($header-btn, 'color'); }
+.is-not-touch-device .btn-header:hover { 
+  background: map-get($header-btn, 'bg-hover');
+  color: map-get($header-btn, 'color-hover'); 
+}
+
+.btn-header-prev {
+  float: left;
+  width: 52px;
+  @include respond-from(sm) {
+    float: none;
+    order: 1;
+  }
+}
+.btn-header.btn-user { font-size: 21px; }
+.btn-notification {
+  font-size: 18px;
+  padding-right: 2px;
+  @include respond-from(xs) {
+    font-size: 19px;
+    padding: 0;
+  }
+}

@@ -1,0 +1,393 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MedicationsCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="medicationsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="doseAmount"
+                label="Dose Amount"
+                name="doseAmount"
+                props={
+                  Object {
+                    "isSubmit": true,
+                  }
+                }
+                type="text"
+              />
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                />
+                <div
+                  className="input-holder"
+                >
+                  <Field
+                    className="fcustominp-label"
+                    component={[Function]}
+                    id="doseAmountVariable"
+                    label="Variable"
+                    name="doseAmountVariable"
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="doseTiming"
+            label="Dose Timing"
+            name="doseTiming"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+          <Field
+            component={[Function]}
+            id="doseDirections"
+            label="Dose Directions"
+            name="doseDirections"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="startDate"
+            label="Date"
+            name="startDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <MedicationsCreateForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="medicationsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="doseAmount"
+                label="Dose Amount"
+                name="doseAmount"
+                props={
+                  Object {
+                    "isSubmit": false,
+                  }
+                }
+                type="text"
+              />
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                />
+                <div
+                  className="input-holder"
+                >
+                  <Field
+                    className="fcustominp-label"
+                    component={[Function]}
+                    id="doseAmountVariable"
+                    label="Variable"
+                    name="doseAmountVariable"
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="doseTiming"
+            label="Dose Timing"
+            name="doseTiming"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+          <Field
+            component={[Function]}
+            id="doseDirections"
+            label="Dose Directions"
+            name="doseDirections"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+          <Field
+            component={[Function]}
+            id="route"
+            label="Route"
+            name="route"
+            options={
+              Array [
+                Object {
+                  "title": "Po Per Oral",
+                  "value": "Po Per Oral",
+                },
+                Object {
+                  "title": "IV Intra Venous",
+                  "value": "IV Intra Venous",
+                },
+                Object {
+                  "title": "IM Intra Muscular",
+                  "value": "IM Intra Muscular",
+                },
+                Object {
+                  "title": "PN Per Nasal",
+                  "value": "PN Per Nasal",
+                },
+                Object {
+                  "title": "PR Per Rectum",
+                  "value": "PR Per Rectum",
+                },
+                Object {
+                  "title": "SL Sub Lingual",
+                  "value": "SL Sub Lingual",
+                },
+                Object {
+                  "title": "SC Sub Cutaneous",
+                  "value": "SC Sub Cutaneous",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+                "placeholder": "-- Route --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="startDate"
+            label="Date"
+            name="startDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
