@@ -17,6 +17,7 @@ import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index'
 import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index'
 import { documentsEpic, documentsReducer } from './components/pages/Documents/index'
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index'
+import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index'
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -35,6 +36,7 @@ import MDTs from './components/pages/MDTs/MDTs';
 import Drawings from './components/pages/Drawings/Drawings';
 import Vitals from './components/pages/Vitals/Vitals';
 import Documents from './components/pages/Documents/Documents';
+import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -52,9 +54,10 @@ export const sidebarConfig = [
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
   { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
-	{ key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
-	{ key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
+  { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
+  { key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
   { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
+  { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: true },
 ];
 
 export const dashboardVisible = {
@@ -81,7 +84,8 @@ export const pluginsEpicConfig = [
   mdtsEpic,
   drawingsEpic,
   vitalsEpic,
-	documentsEpic,
+  documentsEpic,
+  topThreeThingsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -101,7 +105,8 @@ export const pluginsReducerConfig = [
   mdtsReducer,
   drawingsReducer,
   vitalsReducer,
-	documentsReducer,
+  documentsReducer,
+  topThreeThingsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -168,7 +173,10 @@ export const routersPluginConfig = [
   { key: 'vitalsCreate', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/create` },
   { key: 'vitalsDetail', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/:sourceId` },
 
-	{ key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
-	{ key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
+  { key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
+  { key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
+
+  { key: 'topThreeThings', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}` },
+  { key: 'topThreeThingsDetail', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}/:sourceId` },
 
 ];
