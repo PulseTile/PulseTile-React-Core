@@ -10,7 +10,7 @@ import { getArrByTemplate } from '../../../utils/table-helpers/table.utils';
 export default class SortableTable extends PureComponent {
   static propTypes = {
     headers: PropTypes.arrayOf(PropTypes.object).isRequired,
-    // data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
     onHeaderCellClick: PropTypes.func.isRequired,
     onCellClick: PropTypes.func.isRequired,
     sortingOrder: PropTypes.oneOf(['asc', 'desc']).isRequired,
@@ -20,6 +20,7 @@ export default class SortableTable extends PureComponent {
 
   static defaultProps = {
     table: '',
+    data: [],
   };
 
   getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
@@ -46,16 +47,16 @@ export default class SortableTable extends PureComponent {
   };
 
   addHighlighters = (data, rowsData) => {
-     if (!data) return;
-     data.map((item, index) => {
-         if (item.highlighters && item.highlighters.length) {
-             item.highlighters.map((highlighter) => {
-                 const field = _.find({ name: highlighter.name })(rowsData[index]);
-                 field ? field.highlighter = highlighter.status : null;
-               });
-           }
-       });
-   };
+    if (!data) return;
+    data.map((item, index) => {
+      if (item.highlighters && item.highlighters.length) {
+        item.highlighters.map((highlighter) => {
+          const field = _.find({ name: highlighter.name })(rowsData[index]);
+          field ? field.highlighter = highlighter.status : null;
+        });
+      }
+    });
+  };
 
   render() {
     const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table, resourceData, emptyDataMessage } = this.props;
