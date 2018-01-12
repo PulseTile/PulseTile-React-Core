@@ -103,5 +103,8 @@ export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchP
 export const fetchPatientDrawingsOnMount = (generateFetchListOnMount('fetchPatientDrawingsRequest'));
 export const fetchPatientDrawingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDrawingsDetailRequest'));
 
+export const fetchPatientVitalsOnMount = (generateFetchListOnMount('fetchPatientVitalsRequest'));
+export const fetchPatientVitalsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVitalsDetailRequest'));
+
 export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPatientDocumentsRequest'));
 export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));

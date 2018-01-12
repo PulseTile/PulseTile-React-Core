@@ -157,7 +157,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                               <div
                                 className="form-control-static ng-binding"
                               >
-                                10-Sep-2017
+                                01-Jan-2017
                               </div>
                             </div>
                             <div
@@ -383,7 +383,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -437,7 +437,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -730,7 +730,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                               <div
                                 className="form-control-static ng-binding"
                               >
-                                10-Sep-2017
+                                01-Jan-2017
                               </div>
                             </div>
                             <div
@@ -819,7 +819,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -873,7 +873,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -1260,7 +1260,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -1314,7 +1314,566 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Changes
+                      </label>
+                      <div
+                        className="form-control-static ng-binding"
+                      >
+                        Address: 
+                        <em
+                          className="ng-binding"
+                        >
+                          Flower Street
+                        </em>
+                         
+                        <span
+                          className="next-separate"
+                        >
+                          <i
+                            className="fa fa-caret-right"
+                          />
+                        </span>
+                         6801 Tellus Street
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </PersonalInformationPanel>
+          </div>
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <UserProfile /> should renders correctly when the User is PHR 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="section-main"
+        >
+          <div
+            className="panel-group accordion"
+          >
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isOpen={true}
+              name="applicationPreferences"
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              title="Application Preferences"
+            >
+              <div
+                className="panel-body-inner"
+              >
+                <div
+                  className="form"
+                >
+                  <div
+                    className="form-group-wrapper"
+                  >
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        md={6}
+                        xs={12}
+                      >
+                        <Row
+                          bsClass="row"
+                          componentClass="div"
+                        >
+                          <div
+                            className="col-md-11"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Application Title
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                ripple
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Application Logo File
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                <img
+                                  alt="Logo Example"
+                                  src="data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw=="
+                                />
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Application Theme
+                              </label>
+                              <div
+                                className="palette-color"
+                              >
+                                <span
+                                  className="palette-color-icon"
+                                  style={
+                                    Object {
+                                      "background": "#0D672F",
+                                    }
+                                  }
+                                />
+                                <span
+                                  className="palette-color-name"
+                                >
+                                  Green Theme
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Browser Window title
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                PulseTile
+                              </div>
+                            </div>
+                          </div>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </div>
+            </PersonalInformationPanel>
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isOpen={false}
+              name="personalInformation"
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              title="Personal Information"
+            >
+              <div
+                className="panel-body-inner"
+              >
+                <div
+                  className="form"
+                >
+                  <div
+                    className="form-group-wrapper"
+                  >
+                    <Row
+                      bsClass="row"
+                      componentClass="div"
+                    >
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        md={6}
+                        xs={12}
+                      >
+                        <Row
+                          bsClass="row"
+                          componentClass="div"
+                        >
+                          <Col
+                            bsClass="col"
+                            componentClass="div"
+                            md={11}
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                First Name
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                User
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Last Name
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                Test1
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                NHS No
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                9999999000
+                              </div>
+                            </div>
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col
+                        bsClass="col"
+                        componentClass="div"
+                        md={6}
+                        xs={12}
+                      >
+                        <Row
+                          bsClass="row"
+                          componentClass="div"
+                        >
+                          <div
+                            className="col-md-11 col-md-offset-1"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Date of Birth
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                01-Jan-2017
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Gender
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                Female
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Doctor
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                Dr Emma Huston
+                              </div>
+                            </div>
+                          </div>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </div>
+            </PersonalInformationPanel>
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isOpen={false}
+              name="contactInformation"
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              title="Contact Information"
+            >
+              <div
+                className="panel-body-inner"
+              >
+                <div
+                  className="form"
+                >
+                  <div
+                    className="form-group-wrapper"
+                  >
+                    <div
+                      className="row"
+                    >
+                      <div
+                        className="col-xs-12 col-md-6"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-11"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Address
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                6801 Tellus Street
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                City
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                Westmorland
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                State
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                Westmorland
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Postal Code
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                Box 306
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Country
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                USA
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        className="col-xs-12 col-md-6"
+                      >
+                        <div
+                          className="row"
+                        >
+                          <div
+                            className="col-md-11 col-md-offset-1"
+                          >
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Phone Number
+                              </label>
+                              <div
+                                className="form-control-static ng-binding"
+                              >
+                                07624 647524
+                              </div>
+                            </div>
+                            <div
+                              className="form-group"
+                            >
+                              <label
+                                className="control-label"
+                              >
+                                Email
+                              </label>
+                              <div
+                                className="form-control-static"
+                              >
+                                suvenir9502@gmail.com
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </PersonalInformationPanel>
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isOpen={false}
+              name="changeHistory"
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              title="Change History"
+            >
+              <div
+                className="panel-body-inner"
+              >
+                <div
+                  className="form"
+                >
+                  <div
+                    className="form-group-wrapper"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label ng-binding"
+                      >
+                        Change #1 Date
+                      </label>
+                      <div
+                        className="form-control-static ng-binding"
+                      >
+                        2017-01-01 02:00
+                      </div>
+                    </div>
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label"
+                      >
+                        Changes
+                      </label>
+                      <div
+                        className="form-control-static ng-binding"
+                      >
+                        Last Name: 
+                        <em
+                          className="ng-binding"
+                        >
+                          White
+                        </em>
+                         
+                        <span
+                          className="next-separate"
+                        >
+                          <i
+                            className="fa fa-caret-right"
+                          />
+                        </span>
+                         Blackwell
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="panel-body-inner"
+              >
+                <div
+                  className="form"
+                >
+                  <div
+                    className="form-group-wrapper"
+                  >
+                    <div
+                      className="form-group"
+                    >
+                      <label
+                        className="control-label ng-binding"
+                      >
+                        Change #2 Date
+                      </label>
+                      <div
+                        className="form-control-static ng-binding"
+                      >
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -1599,7 +2158,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                               <div
                                 className="form-control-static ng-binding"
                               >
-                                10-Sep-2017
+                                01-Jan-2017
                               </div>
                             </div>
                             <div
@@ -1817,7 +2376,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div
@@ -1871,7 +2430,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-09-10 21:44
+                        2017-01-01 02:00
                       </div>
                     </div>
                     <div

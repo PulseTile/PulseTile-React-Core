@@ -46,9 +46,22 @@ export default class SortableTable extends PureComponent {
     )
   };
 
+  addHighlighters = (data, rowsData) => {
+    if (!data) return;
+    data.map((item, index) => {
+      if (item.highlighters && item.highlighters.length) {
+        item.highlighters.map((highlighter) => {
+          const field = _.find({ name: highlighter.name })(rowsData[index]);
+          field ? field.highlighter = highlighter.status : null;
+        });
+      }
+    });
+  };
+
   render() {
     const { headers, data, onHeaderCellClick, sortingOrder, columnNameSortBy, table, resourceData, emptyDataMessage } = this.props;
     const rowsData = getArrByTemplate(headers, data);
+    this.addHighlighters(data, rowsData);
 
     return (
       <table className={`table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table ${table}`}>
