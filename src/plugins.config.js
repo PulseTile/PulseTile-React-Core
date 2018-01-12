@@ -58,10 +58,10 @@ export const sidebarConfig = [
 ];
 
 export const dashboardVisible = {
-  problems: true,
-  contacts: true,
-  allergies: true,
-  medications: true,
+  // you can disable or enable the PatientsSummary boards here
+  // for this you must to write key of board and give its false value
+  // path: src\components\pages\PatientsSummary\patients-summary.config.js
+  // e.g. (problems: false, contacts: true)
 };
 
 export const pluginsEpicConfig = [
@@ -170,5 +170,4 @@ export const routersPluginConfig = [
 
 	{ key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
 	{ key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
-
 ];

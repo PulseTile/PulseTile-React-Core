@@ -9,7 +9,7 @@ import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import { patientsSummaryConfig, defaultCategorySelected } from '../../../config/patients-summary.config';
+import { patientsSummaryConfig } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible } from '../../../plugins.config';
@@ -20,10 +20,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @lifecycle(fetchPatientSummaryOnMount)
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
-      allergies: PropTypes.array.isRequired,
-      contacts: PropTypes.array.isRequired,
-      problems: PropTypes.array.isRequired,
-      medications: PropTypes.array.isRequired,
+      boards: PropTypes.object.isRequired,
     };
 
     static contextTypes = {
@@ -33,7 +30,7 @@ export default class PatientsSummary extends PureComponent {
     };
 
     state = {
-      selectedCategory: defaultCategorySelected,
+      selectedCategory: [],
       isDisclaimerModalVisible: false
     };
 
@@ -44,7 +41,23 @@ export default class PatientsSummary extends PureComponent {
       if (isShowDisclaimerOfRedirect) {
         this.setState({isDisclaimerModalVisible: true});
       }
+
+      this.setState({selectedCategory: this.getDefaultCategorySelected()});
     }
+
+    getDefaultCategorySelected = () => {
+      const defaultCategorySelected = {};
+
+      patientsSummaryConfig.forEach((item) => {
+        if (dashboardVisible[item.key] !== undefined) {
+          defaultCategorySelected[item.key] = dashboardVisible[item.key];
+        } else {
+          defaultCategorySelected[item.key] = item.isDefaultSelected;
+        }
+      });
+
+      return defaultCategorySelected;
+    };
 
     closeDisclaimer = () => this.setState({isDisclaimerModalVisible: false});
 
@@ -55,7 +68,7 @@ export default class PatientsSummary extends PureComponent {
     };
 
     render() {
-      const { allergies, contacts, problems, medications } = this.props;
+      const { boards } = this.props;
       const { selectedCategory, isDisclaimerModalVisible } = this.state;
 
       return (<section className="page-wrapper">
@@ -68,10 +81,18 @@ export default class PatientsSummary extends PureComponent {
               />
               <div className="panel-body">
                 <div className="dashboard">
-                  {(selectedCategory.problems && dashboardVisible.problems) ? <SimpleDashboardPanel title="Problems" items={problems} navigateTo={console.log} state="diagnoses" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.contacts && dashboardVisible.contacts) ? <SimpleDashboardPanel title="Contacts" items={contacts} navigateTo={console.log} state="contacts" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.allergies && dashboardVisible.allergies) ? <SimpleDashboardPanel title="Allergies" items={allergies} navigateTo={console.log} state="allergies" goToState={this.handleGoToState} /> : null}
-                  {(selectedCategory.medications && dashboardVisible.medications) ? <SimpleDashboardPanel title="Medications" items={medications} navigateTo={console.log} state="medications" goToState={this.handleGoToState} /> : null}
+                  {patientsSummaryConfig.map((item, index) => {
+                    return (selectedCategory[item.key] ?
+                      <SimpleDashboardPanel
+                        key={index}
+                        title={item.title}
+                        items={boards[item.key]}
+                        navigateTo={console.log}
+                        state={item.state}
+                        goToState={this.handleGoToState}
+                      />
+                      : null)
+                  })}
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import { Row } from 'react-bootstrap';
 
 import PTCustomCheckbox from './PTCustomCheckbox';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
+import { patientsSummaryConfig } from '../patients-summary.config';
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -36,10 +37,15 @@ export default class PatientsSummaryPanel extends PureComponent {
             <div className="heading">SHOW</div>
             <div className="form-group">
               <Row>
-                <PTCustomCheckbox title="Problems" name="problems" isChecked={selected.problems} onChange={this.toggleCheckbox} />
-                <PTCustomCheckbox title="Contacts" name="contacts" isChecked={selected.contacts} onChange={this.toggleCheckbox} />
-                <PTCustomCheckbox title="Allergies" name="allergies" isChecked={selected.allergies} onChange={this.toggleCheckbox} />
-                <PTCustomCheckbox title="Medications" name="medications" isChecked={selected.medications} onChange={this.toggleCheckbox} />
+                {patientsSummaryConfig.map((item, index) => {
+                  return (<PTCustomCheckbox
+                    key={index}
+                    title={item.title}
+                    name={item.nameCheckboxes}
+                    isChecked={selected[item.key]}
+                    onChange={this.toggleCheckbox}
+                  />)
+                })}
               </Row>
             </div>
           </div>
