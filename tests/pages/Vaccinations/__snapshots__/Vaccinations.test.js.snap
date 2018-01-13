@@ -430,6 +430,7 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
           currentPanel="vaccinationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="vaccinationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -531,6 +532,7 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
           currentPanel="vaccinationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="vaccinationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

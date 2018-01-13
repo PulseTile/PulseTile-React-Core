@@ -38,16 +38,26 @@ exports[`Component <Medications /> should renders correctly and testing another 
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -98,16 +108,26 @@ exports[`Component <Medications /> should renders correctly and testing another 
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -164,16 +184,26 @@ exports[`Component <Medications /> should renders correctly and testing context 
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -224,16 +254,26 @@ exports[`Component <Medications /> should renders correctly and testing context 
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -410,16 +450,26 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -469,16 +519,26 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -535,16 +595,26 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -595,16 +665,26 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -661,16 +741,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -721,16 +811,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -759,9 +859,11 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           currentPanel="medicationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="medicationsCreate"
@@ -811,16 +913,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -871,16 +983,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -909,9 +1031,11 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           currentPanel="medicationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="medicationsCreate"
@@ -961,16 +1085,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
@@ -1021,16 +1155,26 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
                   "name": "name",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
-                  "warning": true,
                 },
                 Object {
-                  "danger": true,
                   "dateCreated": 1507020019000,
                   "dateCreatedConvert": "03-Oct-2017",
                   "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
                   "name": "name2",
                   "source": "marand",
                   "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",

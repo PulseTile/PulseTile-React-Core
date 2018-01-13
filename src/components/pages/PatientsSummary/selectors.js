@@ -18,7 +18,6 @@ const patientSummarySelector = createSelector(
       });
     }
 
-    console.log('boards', boards);
     return { boards , userId };
   });
 

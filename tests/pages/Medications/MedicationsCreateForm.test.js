@@ -24,13 +24,33 @@ const testProps = {
 
 const CONVERT_START_DATE = getDDMMMYYYY(DATE_TO_USE_TIME);
 
+const userId = '9999999000';
+const context = {
+  router: {
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname: `/patients/${userId}/medications/create`,
+      },
+    },
+    route: {
+      match: {
+        params: {
+          userId,
+        },
+      },
+    },
+  },
+};
+
 describe('Component <MedicationsCreateForm />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
       <MedicationsCreateForm
         store={store}
         isSubmit={testProps.isSubmit}
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
 
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
@@ -90,7 +110,7 @@ describe('Component <MedicationsCreateForm />', () => {
       <MedicationsCreateForm
         store={store}
         isSubmit
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);

@@ -273,9 +273,11 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           currentPanel="allergiesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="allergiesCreate"
@@ -373,9 +375,11 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           currentPanel="allergiesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="allergiesCreate"

@@ -21,24 +21,28 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
       >
         <PTCustomCheckbox
           isChecked={true}
+          key="0"
           name="problems"
           onChange={[Function]}
           title="Problems"
         />
         <PTCustomCheckbox
           isChecked={true}
+          key="1"
           name="contacts"
           onChange={[Function]}
           title="Contacts"
         />
         <PTCustomCheckbox
           isChecked={true}
+          key="2"
           name="allergies"
           onChange={[Function]}
           title="Allergies"
         />
         <PTCustomCheckbox
           isChecked={true}
+          key="3"
           name="medications"
           onChange={[Function]}
           title="Medications"

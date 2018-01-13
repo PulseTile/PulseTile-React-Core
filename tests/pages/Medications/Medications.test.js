@@ -115,6 +115,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/medications`,
@@ -164,11 +165,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailMedicationsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -241,11 +238,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
@@ -271,11 +264,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -318,11 +307,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -338,11 +323,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'medicationPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -355,11 +336,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
@@ -369,11 +346,7 @@ describe('Component <Medications />', () => {
       <Medications
         store={allStoreEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
