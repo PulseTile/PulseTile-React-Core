@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 // import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 // import _ from 'lodash/fp';
 
 export default class FormSecrion extends PureComponent {
@@ -12,7 +12,7 @@ export default class FormSecrion extends PureComponent {
   };
 
   state = {
-    isOpenAccordion: false
+    isOpenAccordion: false,
   };
 
   componentWillMount() {
@@ -31,10 +31,11 @@ export default class FormSecrion extends PureComponent {
     return (
       <div className={
         classNames(`form-group-section form-group-section-${theme}`,
-                  {'form-group-section-bordered': isBordered ,
-                  'accordion': isAccordion,
-                  'open': isOpenAccordion })
-      }>
+          { 'form-group-section-bordered': isBordered,
+            'accordion': isAccordion,
+            'open': isOpenAccordion })
+      }
+      >
         { (title || isAccordion || isImportBtn) ?
           <div className="form-group-section-heading">
             { (isAccordion || isImportBtn) ?
@@ -42,13 +43,15 @@ export default class FormSecrion extends PureComponent {
                 {isImportBtn ?
                   <button
                     onClick={onImportClick}
-                    className={`btn btn-${theme}`}><span className="btn-text">Import Data</span></button>
+                    className={`btn btn-${theme}`}
+                  ><span className="btn-text">Import Data</span></button>
                   : null
                 }
                 { isAccordion ?
                   <button
                     onClick={this.toggleAccordion}
-                    className={`btn btn-${theme} btn-inverse btn-square btn-form-group-section-toggle`}>
+                    className={`btn btn-${theme} btn-inverse btn-square btn-form-group-section-toggle`}
+                  >
                     <i className="btn-icon fa fa-chevron-up" />
                   </button>
                   : null
