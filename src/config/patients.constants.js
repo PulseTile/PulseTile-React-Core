@@ -21,3 +21,7 @@ export const patientsAgeRanges = [
   { name: '61-80', from: 61, to: 80, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(61, 80) },
   { name: '>80', from: 81, to: 999, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(81, 999) },
 ];
+
+const ageRangeForClinicalSearch = [{ name: '11-18', from: 11, to: 18, prefix: AGE_RANGE_PREFIX, prefixLabel: 'Age range', predicate: patientsAgeRangesPredicate(11, 18) }];
+
+export const patientAgeRangesForClinicalSearch = ageRangeForClinicalSearch.concat(patientsAgeRanges);

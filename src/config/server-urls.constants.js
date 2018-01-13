@@ -10,4 +10,5 @@ export const usersUrls = {
   PROFILE_APP_PREFERENCES: '/api/application',
   LIST_ORDERS: '/api/terminology/list/order',
   PICTURES: '/api/pictures',
+  CLINICAL_QUERY_SEARCH: '/api/patients/querySearch',
 };
