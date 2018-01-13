@@ -448,6 +448,7 @@ exports[`Component <PersonalNotes /> should renders correctly with personalNotes
           currentPanel="personalNotesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="personalNotesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -553,6 +554,7 @@ exports[`Component <PersonalNotes /> should renders correctly with personalNotes
           currentPanel="personalNotesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="personalNotesCreate"
           onCancel={[Function]}
           onExpand={[Function]}

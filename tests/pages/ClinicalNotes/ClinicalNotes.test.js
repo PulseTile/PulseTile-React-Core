@@ -91,6 +91,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/clinicalNotes`,
@@ -133,10 +134,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailClinicalNotesClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -195,10 +193,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
@@ -224,10 +219,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -265,10 +257,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -284,10 +273,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'clinicalNotesPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -300,10 +286,7 @@ describe('Component <ClinicalNotes />', () => {
       <ClinicalNotes
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });

@@ -276,9 +276,11 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
           currentPanel="diagnosesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="diagnosesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           openedPanel="diagnosesCreate"
           title="Create Problem and Diagnosis"
@@ -377,9 +379,11 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
           currentPanel="diagnosesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="diagnosesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           openedPanel="diagnosesCreate"
           title="Create Problem and Diagnosis"

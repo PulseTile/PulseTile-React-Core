@@ -44,21 +44,31 @@ exports[`Component <SortableTableRow /> should renders mount with prop rowDataWa
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
+        "highlighters": Array [
+          Object {
+            "name": "address",
+            "status": "warning",
+          },
+        ],
         "id": "9999999006",
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
         "pasNo": "595941",
         "phone": "070 6691 5178",
-        "warning": true,
       },
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
-        "danger": true,
         "dateOfBirth": -363657600000,
         "department": "Primary Care",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
+        "highlighters": Array [
+          Object {
+            "name": "address",
+            "status": "danger",
+          },
+        ],
         "id": "9999999006",
         "name": "test",
         "nhsNumber": "9999999006",
@@ -74,6 +84,7 @@ exports[`Component <SortableTableRow /> should renders mount with prop rowDataWa
         "value": "Ezra Gordon",
       },
       Object {
+        "highlighter": "warning",
         "name": "address",
         "value": "26, High Street, Limerick, LK",
       },
@@ -97,11 +108,21 @@ exports[`Component <SortableTableRow /> should renders mount with prop rowDataWa
     className="info"
   >
     <td
-      className="highlighter-wrapper sorted"
+      className="sorted"
       data-table-hover={true}
       data-th="Name"
       key="__SortableTableRow__1"
       name="name"
+      onClick={[Function]}
+    >
+      Ezra Gordon
+    </td>
+    <td
+      className="highlighter-wrapper"
+      data-table-hover={true}
+      data-th="Address"
+      key="__SortableTableRow__2"
+      name="address"
       onClick={[Function]}
     >
       <span>
@@ -109,20 +130,9 @@ exports[`Component <SortableTableRow /> should renders mount with prop rowDataWa
           className="highlighter-warning"
         />
         <span>
-           
-          Ezra Gordon
+          26, High Street, Limerick, LK
         </span>
       </span>
-    </td>
-    <td
-      className=""
-      data-table-hover={true}
-      data-th="Address"
-      key="__SortableTableRow__2"
-      name="address"
-      onClick={[Function]}
-    >
-      26, High Street, Limerick, LK
     </td>
     <td
       className=""
@@ -163,11 +173,21 @@ exports[`Component <SortableTableRow /> should renders shallow with prop rowData
   className="info"
 >
   <td
-    className="highlighter-wrapper sorted"
+    className="sorted"
     data-table-hover={true}
     data-th="Name"
     key="__SortableTableRow__6"
     name="name"
+    onClick={[Function]}
+  >
+    test
+  </td>
+  <td
+    className="highlighter-wrapper"
+    data-table-hover={true}
+    data-th="Address"
+    key="__SortableTableRow__7"
+    name="address"
     onClick={[Function]}
   >
     <span>
@@ -175,20 +195,9 @@ exports[`Component <SortableTableRow /> should renders shallow with prop rowData
         className="highlighter-danger"
       />
       <span>
-         
-        test
+        26, High Street, Limerick, LK
       </span>
     </span>
-  </td>
-  <td
-    className=""
-    data-table-hover={true}
-    data-th="Address"
-    key="__SortableTableRow__7"
-    name="address"
-    onClick={[Function]}
-  >
-    26, High Street, Limerick, LK
   </td>
   <td
     className=""

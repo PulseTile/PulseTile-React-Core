@@ -113,6 +113,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/events`,
@@ -158,10 +159,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailEventsClick methods
     expect(component.find('EventsListHeader')).toHaveLength(1);
@@ -233,10 +231,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('EventsListHeader')).toHaveLength(1);
     expect(component.find('EventsMainPanel')).toHaveLength(1);
@@ -262,10 +257,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -321,10 +313,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -344,10 +333,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'eventPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -360,10 +346,7 @@ describe('Component <Events />', () => {
       <Events
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
@@ -373,10 +356,7 @@ describe('Component <Events />', () => {
       <Events
         store={allStoreEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component setDefaultRangeValues methods
     component.instance().setDefaultRangeValues();

@@ -31,7 +31,10 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock;
 
 const mockStore = configureStore();
-const store = mockStore();
+const store = mockStore({
+  userId: '9999999000',
+  patientsSummaries: {}
+});
 const match = {
 	params: {},
 };
@@ -42,6 +45,7 @@ const location = {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: '/patients',

@@ -173,6 +173,16 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
+              href="/patients/9999999000/documents"
+            >
+              Documents
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
               href="/patients/9999999000/vitals"
             >
               Vitals - News

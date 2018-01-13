@@ -23,13 +23,33 @@ const testProps = {
   isSubmit: false,
 };
 
+const userId = '9999999000';
+const context = {
+  router: {
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname: `/patients/${userId}/diagnoses/create`,
+      },
+    },
+    route: {
+      match: {
+        params: {
+          userId,
+        },
+      },
+    },
+  },
+};
+
 describe('Component <ProblemsDiagnosisCreateForm />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
       <ProblemsDiagnosisCreateForm
         store={store}
         isSubmit={testProps.isSubmit}
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
 
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
@@ -88,7 +108,7 @@ describe('Component <ProblemsDiagnosisCreateForm />', () => {
       <ProblemsDiagnosisCreateForm
         store={store}
         isSubmit
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);

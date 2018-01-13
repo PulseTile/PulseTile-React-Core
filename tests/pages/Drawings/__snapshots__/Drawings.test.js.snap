@@ -344,6 +344,7 @@ exports[`Component <Drawings /> should renders correctly with drawingsDetail and
           currentPanel="drawingsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="drawingsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

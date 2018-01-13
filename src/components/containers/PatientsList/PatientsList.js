@@ -142,7 +142,6 @@ export default class PatientsList extends PureComponent {
       const filteredPatients = this.formToShowCollection(allPatientsWithCounts);
       const patientsOnFirstPage = _.flow(this.getPatientsOnFirstPage, this.addActionsColumn)(filteredPatients);
 
-      //TODO use <PTPanel/>
       return (
         <div className="patients-list">
           <div className="panel panel-primary">

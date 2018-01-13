@@ -453,6 +453,7 @@ exports[`Component <GenericPlugin /> should renders correctly with genericPlugin
           currentPanel="genericPluginsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="genericPluginsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -559,6 +560,7 @@ exports[`Component <GenericPlugin /> should renders correctly with genericPlugin
           currentPanel="genericPluginsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="genericPluginsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

@@ -76,6 +76,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/results`,
@@ -105,7 +106,7 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     // Testing component handleDetailTestResultsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -170,7 +171,7 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     // Testing component handleFilterChange methods
     expect(component.state().nameShouldInclude).toEqual('');
@@ -206,7 +207,7 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextDetail);
@@ -220,7 +221,7 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
