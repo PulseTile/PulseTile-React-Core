@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/tests'],
+  roots: ['<rootDir>/tests/pages/Allergies'],
 	verbose: true,
 	modulePaths: [
 		'__stubs__',
@@ -16,12 +16,14 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
   },
   collectCoverageFrom: [
-    '**/src/components/presentational/**.{js,jsx}',
-    '**/src/components/form-fields/**.{js,jsx}',
-    '**/src/components/ui-elements/**.{js,jsx}',
-    '**/src/components/containers/**.{js,jsx}',
-    '**/src/components/plugin-page-component/**.{js,jsx}',
-    '**/src/components/pages/**.{js,jsx}',
+    '**/src/components/pages/Allergies/**.{js,jsx}',
+
+    // '**/src/components/presentational/**.{js,jsx}',
+    // '**/src/components/form-fields/**.{js,jsx}',
+    // '**/src/components/ui-elements/**.{js,jsx}',
+    // '**/src/components/containers/**.{js,jsx}',
+    // '**/src/components/plugin-page-component/**.{js,jsx}',
+    // '**/src/components/pages/**.{js,jsx}',
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
