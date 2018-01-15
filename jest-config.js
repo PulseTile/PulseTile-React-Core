@@ -1,9 +1,9 @@
 module.exports = {
   roots: ['<rootDir>/tests'],
-	verbose: true,
-	modulePaths: [
-		'__stubs__',
-	],
+  verbose: true,
+  modulePaths: [
+    '__stubs__',
+  ],
   testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
@@ -22,7 +22,6 @@ module.exports = {
     '**/src/components/containers/**.{js,jsx}',
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
-
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
