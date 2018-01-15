@@ -91,7 +91,7 @@ describe('Component <SortableTablePatients />', () => {
     const sortableTablePatients = shallow(
       <SortableTablePatients
         headers={headers}
-        data={data}
+        data={[]}
         resourceData={[]}
         columnNameSortBy="cause"
         emptyDataMessage="No allergies"

@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react';
-// import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import PropTypes from 'prop-types';
-// import _ from 'lodash/fp';
 
 export default class FormSecrion extends PureComponent {
   static defaultProps = {

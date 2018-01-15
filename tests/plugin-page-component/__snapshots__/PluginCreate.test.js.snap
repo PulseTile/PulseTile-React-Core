@@ -1,5 +1,86 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  />
+</div>
+`;
+
+exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel="TEST_PANEL"
+      editedPanel={Object {}}
+      isOpen={true}
+      isShowControlPanel={true}
+      name="TEST_PANEL"
+      onExpand={[Function]}
+      onShow={[Function]}
+      title="Test Title Panel"
+    >
+      children
+      <div
+        className="panel-control"
+      >
+        <div
+          className="wrap-control-group"
+        >
+          <div
+            className="control-group right"
+          >
+            <PTButton
+              className="btn btn-danger"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-ban"
+              />
+               Cancel
+            </PTButton>
+            <PTButton
+              className="btn btn-success"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-check"
+              />
+               Complete
+            </PTButton>
+          </div>
+          <div
+            className="control-group with-indent left"
+          >
+            <PTButton
+              className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
+              onClick={[Function]}
+            >
+              <i
+                className="btn-icon fa fa-caret-left"
+              />
+               
+              <span
+                className="btn-text"
+              >
+                Back to Documents
+              </span>
+            </PTButton>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
 exports[`Component <PluginCreate /> should renders with all props correctly 1`] = `
 <PluginCreate
   currentPanel="TEST_PANEL"

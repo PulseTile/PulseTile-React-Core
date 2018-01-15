@@ -37,7 +37,32 @@ const data = [
     source: 'test',
     sourceId: 'test',
   },
-]
+];
+const dataWithHighlighters = [
+  {
+    cause: 3123123123,
+    reaction: 123123,
+    source: 'ethercis',
+    sourceId: 'c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4',
+    highlighters: [{
+      name: 'cause',
+      status: 'warning'
+    }, {
+      name: 'nonExistentField',
+      status: 'warning'
+    }]
+  },
+  {
+    cause: 123,
+    reaction: 123,
+    source: 'test',
+    sourceId: 'test',
+    highlighters: [{
+      name: 'cause',
+      status: 'danger'
+    }]
+  },
+];
 const resourceData = [
   {
     cause: 3123123123,
@@ -51,7 +76,7 @@ const resourceData = [
     source: 'test',
     sourceId: 'test',
   },
-]
+];
 
 describe('Component <SortableTable />', () => {
   it('should renders with props correctly', () => {
@@ -64,9 +89,10 @@ describe('Component <SortableTable />', () => {
         emptyDataMessage="No allergies"
         sortingOrder="asc"
         table=""
-      />)
+      />);
     expect(sortableTable).toMatchSnapshot();
   });
+
   it('should renders with props correctly when the resourceData is undefined', () => {
     const sortableTable = shallow(
       <SortableTable
@@ -76,20 +102,35 @@ describe('Component <SortableTable />', () => {
         emptyDataMessage="No allergies"
         sortingOrder="asc"
         table=""
-      />)
+      />);
     expect(sortableTable).toMatchSnapshot();
   });
+
   it('should renders with props correctly when the resourceData is empty array', () => {
     const sortableTable = shallow(
       <SortableTable
         headers={headers}
-        data={data}
+        data={null}
         resourceData={[]}
         columnNameSortBy="cause"
         emptyDataMessage="No allergies"
         sortingOrder="asc"
         table=""
-      />)
+      />);
+    expect(sortableTable).toMatchSnapshot();
+  });
+
+  it('should renders with props correctly with highlighters data', () => {
+    const sortableTable = shallow(
+      <SortableTable
+        headers={headers}
+        data={dataWithHighlighters}
+        resourceData={resourceData}
+        columnNameSortBy="cause"
+        emptyDataMessage="No allergies"
+        sortingOrder="asc"
+        table=""
+      />);
     expect(sortableTable).toMatchSnapshot();
   });
 });

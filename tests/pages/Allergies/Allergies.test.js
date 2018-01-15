@@ -109,6 +109,27 @@ const context = {
 const contextCreate = generateNewContext(context, `/patients/${userId}/allergies/create`);
 const contextDetail = generateNewContext(context, `/patients/${userId}/allergies/${sourceId}`);
 
+const contextImport = {
+  router: {
+    route: { match: { params: { userId } } },
+    history: {
+      push: () => {},
+      replace: () => {},
+      goBack: () => {},
+      location: {
+        pathname: `/patients/${userId}/allergies/create`,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            cause: 'cause',
+          }
+        }
+      },
+    }
+  },
+};
+
 // configuration of forms for testing methods
 const formValuesEdit = {
   [valuesNames.CAUSE]: 112,
@@ -123,6 +144,17 @@ const formValuesCreate = {
   [valuesNames.TERMINOLOGYCODE]: '12393890',
   [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
   [valuesNames.CAUSE]: 'test',
+  [valuesNames.REACTION]: 'test',
+};
+const formValuesImportCreate = {
+  [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
+  [valuesNames.CAUSECODE]: '1239085',
+  [valuesNames.SOURCE_ID]: '',
+  [valuesNames.ISIMPORT]: true,
+  [valuesNames.IMPORT]: 'domen.com/documents/documents_id',
+  [valuesNames.TERMINOLOGYCODE]: '12393890',
+  [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
+  [valuesNames.CAUSE]: 'cause',
   [valuesNames.REACTION]: 'test',
 };
 const match = {
@@ -298,6 +330,19 @@ describe('Component <Allergies />', () => {
         store={storeEmpty}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive().dive();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import"', () => {
+    const component = shallow(
+      <Allergies
+        store={storeEmpty}
+        match={match}
+      />, { context: contextImport }).dive().dive().dive().dive().dive().dive().dive();
+
+    component.instance().goBack();
+    component.instance().handleSaveSettingsCreateForm(formValuesImportCreate);
 
     expect(component).toMatchSnapshot();
   });

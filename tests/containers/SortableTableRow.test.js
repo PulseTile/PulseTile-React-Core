@@ -151,6 +151,7 @@ describe('Component <SortableTableRow />', () => {
       />);
     sortableTableRow.find('.highlighter-wrapper').simulate('click');
     sortableTableRow.find('[name="address"]').simulate('click');
+    sortableTableRow.find('[name="name"]').simulate('click');
     expect(sortableTableRow.find('.highlighter-danger')).toHaveLength(1);
     expect(sortableTableRow.find('.highlighter-warning')).toHaveLength(0);
     expect(sortableTableRow).toMatchSnapshot();
