@@ -18,6 +18,8 @@ export const valuesLabels = {
   GENDER: 'Gender',
   SEARCH_TYPE: 'Search Type',
   QUERY_CONTAINS: 'Search Query',
+  MALE: 'Male',
+  FEMALE: 'Female',
 };
 
 export const optionsForAgeField = [{

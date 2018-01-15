@@ -1385,7 +1385,7 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
   >
     <colgroup>
       <col
-        key="__colHeaders__71"
+        key="__colHeaders__69"
         style={
           Object {
             "width": "25%",
@@ -1393,7 +1393,7 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
         }
       />
       <col
-        key="__colHeaders__72"
+        key="__colHeaders__70"
         style={
           Object {
             "width": "65%",
@@ -1401,7 +1401,7 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
         }
       />
       <col
-        key="__colHeaders__73"
+        key="__colHeaders__71"
         style={
           Object {
             "display": "none",
