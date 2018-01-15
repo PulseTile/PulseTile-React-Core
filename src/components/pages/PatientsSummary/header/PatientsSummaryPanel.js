@@ -52,9 +52,8 @@ export default class PatientsSummaryPanel extends PureComponent {
             <div className="form-group">
               <Row>
                 {patientsSummaryConfig.map((item, index) => {
-                  return (<Col xs={6} sm={4}>
+                  return (<Col xs={6} sm={4} key={index}>
                       <PTCustomInput
-                      key={index}
                       type="checkbox"
                       title={item.titleCheckboxes}
                       id={item.nameCheckboxes}

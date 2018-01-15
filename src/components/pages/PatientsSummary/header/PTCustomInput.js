@@ -15,7 +15,7 @@ export default class PTCustomInput extends PureComponent {
   };
 
   toggleInput = () => {
-    const { onChange } = this.props;
+    const { name, disabled = false, value, onChange } = this.props;
     return !disabled && onChange(value || name);
   };
 

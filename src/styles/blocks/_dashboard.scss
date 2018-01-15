@@ -22,6 +22,9 @@
     padding-right: $gutter-big;
   }
 }
+@media (min-width: 540px) {
+.dashboard-item { width: 50%; }
+}
 @include respond-from(md) {
   .dashboard-item { width: 25%; }
   .showSidebar .dashboard-item { width: 33.333% }
