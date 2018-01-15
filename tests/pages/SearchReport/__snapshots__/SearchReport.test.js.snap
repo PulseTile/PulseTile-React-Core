@@ -1,0 +1,364 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SearchReport /> should renders correctly when store empty 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PTPanel
+        className="col-xs-12"
+        classNameForPanel="false ? 'mainPagePanel': ''"
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients Sorted By Age 
+          </h3>
+        }
+      >
+        <div>
+          There are no results that match your search criteria
+        </div>
+      </PTPanel>
+    </Col>
+  </Row>
+</section>
+`;
+
+exports[`Component <SearchReport /> should renders correctly when store not empty 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PTPanel
+        className="col-xs-12"
+        classNameForPanel="true ? 'mainPagePanel': ''"
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients Sorted By Age (Search Type: allergies, Search Query: contains "1", Age Range: 0-100, Gender: Male)
+          </h3>
+        }
+      >
+        <PatientsChart
+          backgroundColor="rgba(126, 41, 205,0.3)"
+          borderColor="rgba(126, 41, 205,1)"
+          isChartsDataReceived={true}
+          isClinicalQueryChart={true}
+          labels={
+            Array [
+              Object {
+                "from": 11,
+                "name": "11-18",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 18,
+              },
+              Object {
+                "from": 19,
+                "name": "19-30",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 30,
+              },
+              Object {
+                "from": 31,
+                "name": "31-60",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 60,
+              },
+              Object {
+                "from": 61,
+                "name": "61-80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 80,
+              },
+              Object {
+                "from": 81,
+                "name": ">80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 999,
+              },
+            ]
+          }
+          onBarClick={[Function]}
+          patients={
+            Array [
+              Array [],
+              Array [],
+              Array [],
+              Array [
+                Object {
+                  "address": "6948 Et St., Halesowen, Worcestershire, VX27 5DV",
+                  "dateOfBirth": -806976000000,
+                  "department": "Neighbourhood",
+                  "gender": "Male",
+                  "gpAddress": "Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP",
+                  "gpName": "Goff Carolyn D.",
+                  "id": "9999999000",
+                  "name": "Ivor Cox",
+                  "nhsNumber": "9999999000",
+                  "pasNo": 352541,
+                  "phone": "(011981) 32362",
+                },
+              ],
+              Array [],
+            ]
+          }
+          subTitle="Clinical Query: (Search Type: allergies, Search Query: contains \\"1\\", Age Range: 0-100, Gender: Male)"
+          title="Found Patients By Clinical Query"
+        />
+      </PTPanel>
+    </Col>
+  </Row>
+</section>
+`;
+
+exports[`Component <SearchReport /> should renders correctly when store not empty 2`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PTPanel
+        className="col-xs-12"
+        classNameForPanel="true ? 'mainPagePanel': ''"
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients Sorted By Age (Search Type: allergies, Search Query: contains "1", Age Range: 0-100, Gender: Male)
+          </h3>
+        }
+      >
+        <PatientsChart
+          backgroundColor="rgba(126, 41, 205,0.3)"
+          borderColor="rgba(126, 41, 205,1)"
+          isChartsDataReceived={true}
+          isClinicalQueryChart={true}
+          labels={
+            Array [
+              Object {
+                "from": 11,
+                "name": "11-18",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 18,
+              },
+              Object {
+                "from": 19,
+                "name": "19-30",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 30,
+              },
+              Object {
+                "from": 31,
+                "name": "31-60",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 60,
+              },
+              Object {
+                "from": 61,
+                "name": "61-80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 80,
+              },
+              Object {
+                "from": 81,
+                "name": ">80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 999,
+              },
+            ]
+          }
+          onBarClick={[Function]}
+          patients={
+            Array [
+              Array [],
+              Array [],
+              Array [],
+              Array [
+                Object {
+                  "address": "6948 Et St., Halesowen, Worcestershire, VX27 5DV",
+                  "dateOfBirth": -806976000000,
+                  "department": "Neighbourhood",
+                  "gender": "Male",
+                  "gpAddress": "Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP",
+                  "gpName": "Goff Carolyn D.",
+                  "id": "9999999000",
+                  "name": "Ivor Cox",
+                  "nhsNumber": "9999999000",
+                  "pasNo": 352541,
+                  "phone": "(011981) 32362",
+                },
+              ],
+              Array [],
+            ]
+          }
+          subTitle="Clinical Query: (Search Type: allergies, Search Query: contains \\"1\\", Age Range: 0-100, Gender: Male)"
+          title="Found Patients By Clinical Query"
+        />
+      </PTPanel>
+    </Col>
+  </Row>
+</section>
+`;
+
+exports[`Component <SearchReport /> should renders correctly when store not empty 3`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <PTPanel
+        className="col-xs-12"
+        classNameForPanel="true ? 'mainPagePanel': ''"
+        header={
+          <h3
+            className="panel-title"
+          >
+            <i
+              className="fa fa-bar-chart"
+            />
+             Patients Sorted By Age (Search Type: allergies, Search Query: contains "1", Date of Birth: 06-Jun-1944)
+          </h3>
+        }
+      >
+        <PatientsChart
+          backgroundColor="rgba(126, 41, 205,0.3)"
+          borderColor="rgba(126, 41, 205,1)"
+          isChartsDataReceived={true}
+          isClinicalQueryChart={true}
+          labels={
+            Array [
+              Object {
+                "from": 11,
+                "name": "11-18",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 18,
+              },
+              Object {
+                "from": 19,
+                "name": "19-30",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 30,
+              },
+              Object {
+                "from": 31,
+                "name": "31-60",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 60,
+              },
+              Object {
+                "from": 61,
+                "name": "61-80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 80,
+              },
+              Object {
+                "from": 81,
+                "name": ">80",
+                "predicate": [Function],
+                "prefix": "ageRange",
+                "prefixLabel": "Age range",
+                "to": 999,
+              },
+            ]
+          }
+          onBarClick={[Function]}
+          patients={
+            Array [
+              Array [],
+              Array [],
+              Array [],
+              Array [
+                Object {
+                  "address": "6948 Et St., Halesowen, Worcestershire, VX27 5DV",
+                  "dateOfBirth": -806976000000,
+                  "department": "Neighbourhood",
+                  "gender": "Male",
+                  "gpAddress": "Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP",
+                  "gpName": "Goff Carolyn D.",
+                  "id": "9999999000",
+                  "name": "Ivor Cox",
+                  "nhsNumber": "9999999000",
+                  "pasNo": 352541,
+                  "phone": "(011981) 32362",
+                },
+              ],
+              Array [],
+            ]
+          }
+          subTitle="Clinical Query: (Search Type: allergies, Search Query: contains \\"1\\", Date of Birth: 06-Jun-1944)"
+          title="Found Patients By Clinical Query"
+        />
+      </PTPanel>
+    </Col>
+  </Row>
+</section>
+`;
