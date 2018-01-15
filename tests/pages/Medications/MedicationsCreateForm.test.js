@@ -14,6 +14,7 @@ const store = mockStore({});
 const DATE_TO_USE = new Date('2017');
 const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
 global.Date = jest.fn(() => DATE_TO_USE);
+Date.now = jest.fn(() => DATE_TO_USE_TIME);
 
 const FORM_NAME = 'medicationsCreateForm';
 const DATE_FORMAT = 'DD-MMM-YYYY';
@@ -25,22 +26,40 @@ const testProps = {
 const CONVERT_START_DATE = getDDMMMYYYY(DATE_TO_USE_TIME);
 
 const userId = '9999999000';
+const pathname = `/patients/${userId}/medications/create`;
+const route = {
+  match: {
+    params: { userId },
+  },
+};
 const context = {
   router: {
+    route,
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: { pathname },
+    },
+  },
+};
+
+const contextImport = {
+  router: {
+    route,
     history: {
       push: () => {},
       replace: () => {},
       location: {
-        pathname: `/patients/${userId}/medications/create`,
+        pathname,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            name: 'name',
+          }
+        }
       },
-    },
-    route: {
-      match: {
-        params: {
-          userId,
-        },
-      },
-    },
+    }
   },
 };
 
@@ -122,6 +141,20 @@ describe('Component <MedicationsCreateForm />', () => {
     expect(component.find('Field').at(5).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(6).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(7).props().props.isSubmit).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import"', () => {
+    const component = shallow(
+      <MedicationsCreateForm
+        store={store}
+      />, { context: contextImport }).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(9);
+
+    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
 
     expect(component).toMatchSnapshot();
   });

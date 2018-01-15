@@ -497,3 +497,183 @@ exports[`Component <SortableTable /> should renders with props correctly when th
   </tbody>
 </table>
 `;
+
+exports[`Component <SortableTable /> should renders with props correctly with highlighters data 1`] = `
+<table
+  className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table "
+>
+  <colgroup>
+    <col
+      key="__colHeaders__21"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__22"
+      style={
+        Object {
+          "width": "65%",
+        }
+      }
+    />
+    <col
+      key="__colHeaders__23"
+      style={
+        Object {
+          "display": "none",
+          "width": "0",
+        }
+      }
+    />
+  </colgroup>
+  <thead>
+    <SortableTableHeaderRow
+      columnNameSortBy="cause"
+      headers={
+        Array [
+          Object {
+            "key": "cause",
+            "title": "Cause",
+            "width": "25%",
+          },
+          Object {
+            "key": "reaction",
+            "title": "Reaction",
+            "width": "65%",
+          },
+          Object {
+            "display": "none",
+            "key": "sourceId",
+            "title": "Source ID",
+            "width": "0",
+          },
+        ]
+      }
+      sortingOrder="asc"
+    />
+  </thead>
+  <tbody>
+    <SortableTableRow
+      columnNameSortBy="cause"
+      headers={
+        Array [
+          Object {
+            "key": "cause",
+            "title": "Cause",
+            "width": "25%",
+          },
+          Object {
+            "key": "reaction",
+            "title": "Reaction",
+            "width": "65%",
+          },
+          Object {
+            "display": "none",
+            "key": "sourceId",
+            "title": "Source ID",
+            "width": "0",
+          },
+        ]
+      }
+      index={0}
+      key="__SortableTableRow__24"
+      resourceData={
+        Array [
+          Object {
+            "cause": 3123123123,
+            "reaction": 123123,
+            "source": "ethercis",
+            "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+          },
+          Object {
+            "cause": 123,
+            "reaction": 123,
+            "source": "test",
+            "sourceId": "test",
+          },
+        ]
+      }
+      rowData={
+        Array [
+          Object {
+            "highlighter": "warning",
+            "name": "cause",
+            "value": 3123123123,
+          },
+          Object {
+            "name": "reaction",
+            "value": 123123,
+          },
+          Object {
+            "name": "sourceId",
+            "value": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+          },
+        ]
+      }
+      table=""
+    />
+    <SortableTableRow
+      columnNameSortBy="cause"
+      headers={
+        Array [
+          Object {
+            "key": "cause",
+            "title": "Cause",
+            "width": "25%",
+          },
+          Object {
+            "key": "reaction",
+            "title": "Reaction",
+            "width": "65%",
+          },
+          Object {
+            "display": "none",
+            "key": "sourceId",
+            "title": "Source ID",
+            "width": "0",
+          },
+        ]
+      }
+      index={1}
+      key="__SortableTableRow__25"
+      resourceData={
+        Array [
+          Object {
+            "cause": 3123123123,
+            "reaction": 123123,
+            "source": "ethercis",
+            "sourceId": "c2c286c1-2d65-4e8a-857b-1dcf3f0fa4d4",
+          },
+          Object {
+            "cause": 123,
+            "reaction": 123,
+            "source": "test",
+            "sourceId": "test",
+          },
+        ]
+      }
+      rowData={
+        Array [
+          Object {
+            "highlighter": "danger",
+            "name": "cause",
+            "value": 123,
+          },
+          Object {
+            "name": "reaction",
+            "value": 123,
+          },
+          Object {
+            "name": "sourceId",
+            "value": "test",
+          },
+        ]
+      }
+      table=""
+    />
+  </tbody>
+</table>
+`;

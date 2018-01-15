@@ -8,10 +8,6 @@ export default class PluginCreate extends PureComponent {
     isImport: false
   };
 
-  goBack = () => {
-    this.context.router.history.goBack();
-  };
-
   render() {
     const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onSaveSettings, formValues, onCancel, isCreatePanelVisible, componentForm, title}  = this.props;
     const { isImport, onGoBack}  = this.props;

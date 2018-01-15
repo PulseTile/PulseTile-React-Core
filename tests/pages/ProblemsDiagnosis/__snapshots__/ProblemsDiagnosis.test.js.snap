@@ -188,6 +188,83 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing co
 </section>
 `;
 
+exports[`Component <ProblemsDiagnosis /> should renders correctly when data take from Documents how "import" 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
 exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 1`] = `
 <section
   className="page-wrapper"

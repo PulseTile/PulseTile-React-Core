@@ -1381,47 +1381,11 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
 exports[`Component <SortableTablePatients /> should renders shallow with props correctly when the resourceData is empty array 1`] = `
 <div>
   <table
-    className="table table-striped  table-bordered table-sorted table-hover table-fixedcol table-patients-name"
-  >
-    <colgroup>
-      <col
-        key="__colHeadersName__66"
-        style={
-          Object {
-            "width": "25%",
-          }
-        }
-      />
-    </colgroup>
-    <thead>
-      <SortableTableHeaderRow
-        columnNameSortBy="cause"
-        headers={
-          Array [
-            Object {
-              "key": "cause",
-              "title": "Cause",
-              "width": "25%",
-            },
-          ]
-        }
-        sortingOrder="asc"
-      />
-    </thead>
-    <tbody>
-      <SortableTableEmptyDataRow
-        amountCollumns={3}
-        emptyDataMessage="No allergies"
-        isLoading={false}
-      />
-    </tbody>
-  </table>
-  <table
     className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table patientsList"
   >
     <colgroup>
       <col
-        key="__colHeaders__67"
+        key="__colHeaders__66"
         style={
           Object {
             "width": "25%",
@@ -1429,7 +1393,7 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
         }
       />
       <col
-        key="__colHeaders__68"
+        key="__colHeaders__67"
         style={
           Object {
             "width": "65%",
@@ -1437,7 +1401,7 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
         }
       />
       <col
-        key="__colHeaders__69"
+        key="__colHeaders__68"
         style={
           Object {
             "display": "none",
@@ -1461,43 +1425,6 @@ exports[`Component <SortableTablePatients /> should renders shallow with props c
               "title": "Reaction",
               "width": "65%",
             },
-            Object {
-              "display": "none",
-              "key": "sourceId",
-              "title": "Source ID",
-              "width": "0",
-            },
-          ]
-        }
-        sortingOrder="asc"
-      />
-    </thead>
-    <tbody>
-      <SortableTableEmptyDataRow
-        amountCollumns={3}
-        emptyDataMessage="No allergies"
-        isLoading={false}
-      />
-    </tbody>
-  </table>
-  <table
-    className="table table-striped table-bordered table-sorted table-fixedcol table-patients-controls"
-  >
-    <colgroup>
-      <col
-        key="__colHeadersView__70"
-        style={
-          Object {
-            "width": "0",
-          }
-        }
-      />
-    </colgroup>
-    <thead>
-      <SortableTableHeaderRow
-        columnNameSortBy="cause"
-        headers={
-          Array [
             Object {
               "display": "none",
               "key": "sourceId",

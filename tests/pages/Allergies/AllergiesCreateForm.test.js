@@ -26,9 +26,7 @@ const userId = '9999999000';
 const pathname = `/patients/${userId}/allergies/create`;
 const route = {
   match: {
-    params: {
-      userId,
-    },
+    params: { userId },
   },
 };
 
@@ -130,11 +128,11 @@ describe('Component <AllergiesCreateForm />', () => {
       <AllergiesCreateForm
         store={store}
       />, { context: contextImport }).dive().dive().dive();
-    // expect(component.find('Field')).toHaveLength(8);
+    expect(component.find('Field')).toHaveLength(8);
 
-    // expect(component.find('Field').at(0).props().props.isSubmit).toEqual(true);
-    // expect(component.find('Field').at(1).props().props.isSubmit).toEqual(true);
-    // expect(component.find('Field').at(2).props().props.isSubmit).toEqual(true);
+    expect(component.find('Field').at(5).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(5).props().props.disabled).toEqual(true);
 
     expect(component).toMatchSnapshot();
   });

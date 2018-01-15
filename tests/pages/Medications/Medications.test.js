@@ -134,6 +134,28 @@ const context = {
 const contextCreate = generateNewContext(context, `/patients/${userId}/medications/create`);
 const contextDetail = generateNewContext(context, `/patients/${userId}/medications/${sourceId}`);
 
+const contextImport = {
+  router: {
+    route: { match: { params: { userId } } },
+    history: {
+      push: () => {},
+      replace: () => {},
+      goBack: () => {},
+      location: {
+        pathname: `/patients/${userId}/medications/create`,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            name: 'name',
+          }
+        }
+      },
+    }
+  },
+};
+
+
 // configuration of forms for testing methods
 const formValuesEdit = {
   [valuesNames.NAME]: 'test',
@@ -152,6 +174,20 @@ const formValuesCreate = {
   [valuesNames.DOSE_TIMING]: 'test',
   [valuesNames.DOSE_DIRECTIONS]: 'test',
   [valuesNames.ROUTE]: 'IV Intra Venous',
+};
+const formValuesImportCreate = {
+  [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
+  [valuesNames.SOURCE_ID]: '',
+  [valuesNames.MEDICATION_CODE]: 173134014,
+  [valuesNames.MEDICATION_TERMINOLOGY]: 'SNOMED-CT',
+  [valuesNames.NAME]: 'test',
+  [valuesNames.DOSE_AMOUNT]: 'tesr',
+  doseAmountVariable: true,
+  [valuesNames.DOSE_TIMING]: 'test',
+  [valuesNames.DOSE_DIRECTIONS]: 'test',
+  [valuesNames.ROUTE]: 'IV Intra Venous',
+  [valuesNames.ISIMPORT]: true,
+  [valuesNames.IMPORT]: 'domen.com/documents/documents_id',
 };
 const match = {
   params: {
@@ -347,6 +383,19 @@ describe('Component <Medications />', () => {
         store={allStoreEmpty}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive().dive();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import"', () => {
+    const component = shallow(
+      <Medications
+        store={storeEmpty}
+        match={match}
+      />, { context: contextImport }).dive().dive().dive().dive().dive().dive().dive();
+
+    component.instance().goBack();
+    component.instance().handleSaveSettingsCreateForm(formValuesImportCreate);
 
     expect(component).toMatchSnapshot();
   });

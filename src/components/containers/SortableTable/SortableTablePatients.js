@@ -96,7 +96,7 @@ export default class SortableTablePatients extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headersName.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersName__')}></col>)}
+            {headersName.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersName__')} />)}
           </colgroup>
           <thead ref="tableHead">
             <SortableTableHeaderRow
@@ -118,9 +118,9 @@ export default class SortableTablePatients extends PureComponent {
             {/*//TODO inject theme here*/}
             {headers.map((item) => {
               if (item.display) {
-                return (<col style={{ width: item.width, display: item.display }} key={_.uniqueId('__colHeaders__')}></col>)
+                return (<col style={{ width: item.width, display: item.display }} key={_.uniqueId('__colHeaders__')} />)
               }
-              return (<col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')}></col>)
+              return (<col style={{ width: item.width }} key={_.uniqueId('__colHeaders__')} />)
             })}
           </colgroup>
           <thead>
@@ -141,7 +141,7 @@ export default class SortableTablePatients extends PureComponent {
         >
           <colgroup>
             {/*//TODO inject theme here*/}
-            {headersView.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersView__')}></col>)}
+            {headersView.map(item => <col style={{ width: item.width }} key={_.uniqueId('__colHeadersView__')} />)}
           </colgroup>
           <thead>
             <SortableTableHeaderRow
