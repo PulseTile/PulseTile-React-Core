@@ -37,8 +37,6 @@ export default class ClinicalQuerySearch extends PureComponent {
     const isDateOfBirthValid = !_.isEmpty(formValues[valuesNames.DATE_OF_BIRTH]);
     const sendData = {};
 
-    sendData[valuesNames.MIN_VALUE] = formValues[valuesNames.AGE_RANGE][0];
-    sendData[valuesNames.MAX_VALUE] = formValues[valuesNames.AGE_RANGE][1];
     sendData[valuesNames.QUERY_CONTAINS] = formValues[valuesNames.QUERY_CONTAINS];
     sendData[valuesNames.QUERY_TEXT] = formValues[valuesNames.QUERY_TEXT];
     sendData[valuesNames.MALE] = formValues[valuesNames.MALE];
@@ -47,6 +45,9 @@ export default class ClinicalQuerySearch extends PureComponent {
 
     if (isDateOfBirthValid) {
       sendData[valuesNames.DATE_OF_BIRTH] = formValues[valuesNames.DATE_OF_BIRTH];
+    } else {
+      sendData[valuesNames.MIN_VALUE] = formValues[valuesNames.AGE_RANGE][0];
+      sendData[valuesNames.MAX_VALUE] = formValues[valuesNames.AGE_RANGE][1];
     }
 
     return sendData;
@@ -90,13 +91,24 @@ export default class ClinicalQuerySearch extends PureComponent {
   handleSearch = (e) => {
     e.preventDefault();
     const { formValues, formIsValid } = this.props;
+    const sendFormValue = {
+      [valuesNames.QUERY_CONTAINS]: formValues[valuesNames.QUERY_CONTAINS],
+      [valuesNames.SELECT_AGE]: formValues[valuesNames.SELECT_AGE],
+      [valuesNames.FEMALE]: formValues[valuesNames.FEMALE],
+      [valuesNames.MALE]: formValues[valuesNames.MALE],
+      [valuesNames.SEARCH_TYPE]: formValues[valuesNames.SEARCH_TYPE],
+      [valuesNames.QUERY_TEXT]: formValues[valuesNames.QUERY_TEXT],
+    };
 
     if (formIsValid) {
       if (formValues.selectAgeField === 'range') {
-        formValues.dateOfBirth = 0;
+        sendFormValue[valuesNames.AGE_RANGE] = formValues[valuesNames.AGE_RANGE]
+      }
+      if (formValues.selectAgeField === 'birthday') {
+        sendFormValue[valuesNames.DATE_OF_BIRTH] = formValues[valuesNames.DATE_OF_BIRTH]
       }
       const queryParams = {
-        searchString: JSON.stringify(this.formValuesToSearchString(formValues)),
+        searchString: JSON.stringify(this.formValuesToSearchString(sendFormValue)),
         queryType: 'clinicalQuery',
       };
 

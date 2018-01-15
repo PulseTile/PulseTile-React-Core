@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchCli
 
 @connect(patientsSelector, mapDispatchToProps)
 @connect(clinicalQuerySearchSelector)
-@compose(lifecycle(fetchPatientOnSearch))
+@lifecycle(fetchPatientOnSearch)
 class SearchReport extends PureComponent {
   static contextTypes = {
     router: PropTypes.shape({
@@ -70,7 +70,7 @@ class SearchReport extends PureComponent {
       });
     }
 
-    if (params.minValue && params.maxValue) {
+    if ((params.minValue || params.minValue === 0) && params.maxValue) {
       paramsArr.push({
         key: 'Age Range',
         value: `${params.minValue}-${params.maxValue}`,
