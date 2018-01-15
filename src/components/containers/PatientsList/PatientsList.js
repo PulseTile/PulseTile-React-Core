@@ -33,6 +33,12 @@ export default class PatientsList extends PureComponent {
       }).isRequired,
     };
 
+    static contextTypes = {
+      router: PropTypes.shape({
+        history: PropTypes.object,
+      }),
+    };
+
     static defaultProps = {
       patientsPerPageAmount: 10,
     };
@@ -136,10 +142,22 @@ export default class PatientsList extends PureComponent {
     render() {
       const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history } = this.props;
       const { offset, selectedColumns, patientPath, isDisclaimerModalVisible, columnNameSortBy, sortingOrder } = this.state;
+      const { router } = this.context;
 
       const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-      const filteredPatients = this.formToShowCollection(allPatientsWithCounts);
+      let filteredPatients;
+      let titleForPanel;
+      if (!_.isEmpty(router.history.location.state)) {
+        const clinicalSearchData = router.history.location.state.data;
+        const searchResult = router.history.location.state.searchResult;
+        filteredPatients = this.formToShowCollection(clinicalSearchData);
+        titleForPanel = `Patient Info ${searchResult}`
+      } else {
+        filteredPatients = this.formToShowCollection(allPatientsWithCounts);
+        titleForPanel = panelTitle;
+      }
+
       const patientsOnFirstPage = _.flow(this.getPatientsOnFirstPage, this.addActionsColumn)(filteredPatients);
 
       return (
@@ -149,7 +167,7 @@ export default class PatientsList extends PureComponent {
               onFilterChange={this.handleFilterChange}
               onColumnsSelected={this.handleColumnsSelected}
               selectedColumns={selectedColumns}
-              panelTitle={panelTitle}
+              panelTitle={titleForPanel}
             />
             <div className="panel-body">
               <div className="wrap-patients-table">

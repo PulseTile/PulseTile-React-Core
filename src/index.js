@@ -40,6 +40,7 @@ const initialState = {
   patientsCounts: {},
   basicSearchPatient: {},
   advancedSearchPatient: {},
+  clinicalQuerySearch: {},
   patientsSummaries: {},
   isSidebarVisible: false,
   profileAppPreferences: {},

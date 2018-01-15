@@ -120,10 +120,10 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-	it('should work all methods of component', () => {
-		const offset = 30;
-		const totalEntriesAmount = 29;
-		const paginationBlock = shallow(
+  it('should work all methods of component', () => {
+    const offset = 30;
+    const totalEntriesAmount = 29;
+    const paginationBlock = shallow(
       <PaginationBlock
         offset={offset}
         entriesPerPage={entriesPerPage}
@@ -131,11 +131,8 @@ describe('Component <PaginationBlock />', () => {
         setOffset={handleSetOffset}
       />);
 
-		paginationBlock.instance().setPage(101)();
-		paginationBlock.instance().setPage(0)();
-	});
+    paginationBlock.instance().setPage(101)();
+    paginationBlock.instance().setPage(0)();
+  });
 });
-
-
-
 

@@ -1743,7 +1743,6 @@ exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data
                                                 onFocus={[Function]}
                                                 value="birthday"
                                               >
-                                                <option />
                                                 <option
                                                   key="__SelectFormGroupOption__1"
                                                   value="birthday"

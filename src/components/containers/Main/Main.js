@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
 import { sidebarAndUserSelector, mainSelector, initialiseSelector } from './selectors';
-import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary } from '../../pages';
+import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary, SearchReport } from '../../pages';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { routersPluginConfig } from '../../../plugins.config';
 import { redirectAccordingRole } from '../../../utils/redirect-helpers.utils'
@@ -54,6 +54,7 @@ export default class Main extends PureComponent {
             <Route exact path={clientUrls.PATIENTS_FULL_DETAILS} component={PatientsFullDetailsSearch} userAccount={userAccount} />
             <Route exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
+            <Route exact path={clientUrls.SEARCH_REPORT} component={SearchReport} userAccount={userAccount} />
             {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} key={item.key} />)}
           </Switch> : null }
         </main>

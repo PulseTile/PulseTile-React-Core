@@ -41,7 +41,7 @@ export default class SystemDashboard extends PureComponent {
       <section className="page-wrapper">
         <Row>
           <Col xs={12}>
-            <PTPanel header={<h3 className="panel-title"><i className="fa fa-bar-chart" /> Patients By Settings</h3>}>
+            <PTPanel className="col-xs-12 col-md-6" classNameForPanel="mainPagePanel" header={<h3 className="panel-title"><i className="fa fa-bar-chart" /> Patients By Settings</h3>}>
               <PatientsChart
                 title="Patients By Setting"
                 subTitle="This is a brief description of patients by setting."
@@ -53,7 +53,7 @@ export default class SystemDashboard extends PureComponent {
                 isChartsDataReceived={isChartsDataReceived}
               />
             </PTPanel>
-            <PTPanel header={<h3 className="panel-title"><i className="fa fa-bar-chart" /> Patients By Age</h3>}>
+            <PTPanel className="col-xs-12 col-md-6" classNameForPanel="mainPagePanel"  header={<h3 className="panel-title"><i className="fa fa-bar-chart" /> Patients By Age</h3>}>
               <PatientsChart
                 title="Patients By Age"
                 subTitle="This is a brief description of patients by age."

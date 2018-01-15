@@ -14,6 +14,8 @@ exports[`Component <SystemDashboard /> should renders correctly 1`] = `
       xs={12}
     >
       <PTPanel
+        className="col-xs-12 col-md-6"
+        classNameForPanel="mainPagePanel"
         header={
           <h3
             className="panel-title"
@@ -78,6 +80,8 @@ exports[`Component <SystemDashboard /> should renders correctly 1`] = `
         />
       </PTPanel>
       <PTPanel
+        className="col-xs-12 col-md-6"
+        classNameForPanel="mainPagePanel"
         header={
           <h3
             className="panel-title"

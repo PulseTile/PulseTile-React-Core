@@ -1378,6 +1378,75 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
 </SortableTablePatients>
 `;
 
+exports[`Component <SortableTablePatients /> should renders shallow with props correctly when the data is empty array and table not patientsList 1`] = `
+<div>
+  <table
+    className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table patientsList"
+  >
+    <colgroup>
+      <col
+        key="__colHeaders__69"
+        style={
+          Object {
+            "width": "25%",
+          }
+        }
+      />
+      <col
+        key="__colHeaders__70"
+        style={
+          Object {
+            "width": "65%",
+          }
+        }
+      />
+      <col
+        key="__colHeaders__71"
+        style={
+          Object {
+            "display": "none",
+            "width": "0",
+          }
+        }
+      />
+    </colgroup>
+    <thead>
+      <SortableTableHeaderRow
+        columnNameSortBy="cause"
+        headers={
+          Array [
+            Object {
+              "key": "cause",
+              "title": "Cause",
+              "width": "25%",
+            },
+            Object {
+              "key": "reaction",
+              "title": "Reaction",
+              "width": "65%",
+            },
+            Object {
+              "display": "none",
+              "key": "sourceId",
+              "title": "Source ID",
+              "width": "0",
+            },
+          ]
+        }
+        sortingOrder="asc"
+      />
+    </thead>
+    <tbody>
+      <SortableTableEmptyDataRow
+        amountCollumns={3}
+        emptyDataMessage="No allergies"
+        isLoading={false}
+      />
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`Component <SortableTablePatients /> should renders shallow with props correctly when the resourceData is empty array 1`] = `
 <div>
   <table

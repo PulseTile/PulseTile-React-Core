@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
@@ -18,7 +18,7 @@ const history = {
 };
 const context = {
   router: {
-    history: history,
+    history,
     route: {
       match: {
         params: {},
@@ -33,7 +33,7 @@ describe('Component <SystemDashboard />', () => {
       <SystemDashboard
         store={store}
         history={history}
-      />, {context}).dive().dive();
+      />, { context }).dive().dive();
 
     expect(component).toMatchSnapshot();
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { mount } from 'enzyme';
+import Enzyme, { mount, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import PatientsList from '../../src/components/containers/PatientsList/PatientsList';
@@ -81,11 +81,48 @@ const patientsCounts = {
     },
   },
 }
+const context = {
+  router: {
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname: '/patients',
+        state: {
+          data: [
+            {
+              id: '9999999006',
+              address: 'P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW',
+              dateOfBirth: -363657600000,
+              department: 'Primary Care',
+              gender: 'Male',
+              gpAddress: 'Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ',
+              gpName: 'Joseph May N.',
+              name: 'Ezra Gordon',
+              nhsNumber: '9999999006',
+              pasNo: '595941',
+              phone: '070 6691 5178',
+            },
+          ],
+          searchResult: '(Search Type: allergies, Search Query: contains \\"1\\")',
+        },
+      },
+    },
+  },
+};
+const emptyContext = {
+  router: {
+    history: {
+      location: {
+      },
+    },
+  },
+};
 const handleHeaderCellClick = () => console.log('worked handleHeaderCellClick function');
 
 describe('Component <PatientsList />', () => {
   it('should renders with props correctly', () => {
-    const patientsList = mount(
+    const component = mount(
       <PatientsList
         allPatientsWithCounts={allPatientsWithCounts}
         handleHeaderCellClick={handleHeaderCellClick}
@@ -93,25 +130,34 @@ describe('Component <PatientsList />', () => {
         patientsPerPageAmount={1}
         panelTitle="test"
         patientsCounts={patientsCounts}
-      />)
-    patientsList.find('.btn-dropdown-toggle').at(0).simulate('click');
-    patientsList.find('.btn-filter').at(0).simulate('click');
+      />, { context: emptyContext, childContextTypes: { emptyContext: React.PropTypes.object } });
+    component.find('.btn-dropdown-toggle').at(0).simulate('click');
+    component.find('.btn-filter').at(0).simulate('click');
 
-    patientsList.find('.form-control').at(0).simulate('change', { target: { value: 'ezra' } });
-    expect(patientsList.state().nameShouldInclude).toEqual('ezra');
-    patientsList.find('th[name="address"]').simulate('click');
-    expect(patientsList).toMatchSnapshot();
+    component.find('.form-control').at(0).simulate('change', { target: { value: 'ezra' } });
+    expect(component.state().nameShouldInclude).toEqual('ezra');
+    component.find('th[name="address"]').simulate('click');
+    expect(component).toMatchSnapshot();
 
-    expect(patientsList.state().isDisclaimerModalVisible).toEqual(false);
-    patientsList.setState({ isDisclaimerModalVisible: true });
-    expect(patientsList.state().isDisclaimerModalVisible).toEqual(true);
-    patientsList.find('[name="address"]').at(0).simulate('click');
-    patientsList.find('.pagination-link').at(2).simulate('click');
-    patientsList.find('.btn-dropdown-toggle').at(3).simulate('click');
-    patientsList.setProps({ patientsPerPageAmount: 2 });
-    expect(patientsList.props().patientsPerPageAmount).toEqual(2);
+    expect(component.state().isDisclaimerModalVisible).toEqual(false);
+    component.setState({ isDisclaimerModalVisible: true });
+    expect(component.state().isDisclaimerModalVisible).toEqual(true);
+    component.find('[name="address"]').at(0).simulate('click');
+    component.find('.pagination-link').at(2).simulate('click');
+    component.find('.btn-dropdown-toggle').at(3).simulate('click');
+    component.setProps({ patientsPerPageAmount: 2 });
+    expect(component.props().patientsPerPageAmount).toEqual(2);
 
-    patientsList.mount();
-    patientsList.unmount();
+    component.mount();
+    component.unmount();
+  });
+
+  it('should renders with props correctly shallow testing', () => {
+    const component = shallow(
+      <PatientsList />, { context });
+
+    expect(component.find('PatientsListHeader').props().panelTitle).toEqual('Patient Info (Search Type: allergies, Search Query: contains \\"1\\")');
+
+    expect(component).toMatchSnapshot();
   });
 });
