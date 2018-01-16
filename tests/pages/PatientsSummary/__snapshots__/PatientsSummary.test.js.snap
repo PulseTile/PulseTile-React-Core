@@ -37,12 +37,15 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="0"
               navigateTo={[Function]}
               state="diagnoses"
               title="Problems"
@@ -51,12 +54,15 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="1"
               navigateTo={[Function]}
               state="contacts"
               title="Contacts"
@@ -65,12 +71,15 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="2"
               navigateTo={[Function]}
               state="allergies"
               title="Allergies"
@@ -79,12 +88,15 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="3"
               navigateTo={[Function]}
               state="medications"
               title="Medications"
@@ -148,12 +160,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="0"
               navigateTo={[Function]}
               state="diagnoses"
               title="Problems"
@@ -162,12 +177,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="1"
               navigateTo={[Function]}
               state="contacts"
               title="Contacts"
@@ -176,12 +194,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="2"
               navigateTo={[Function]}
               state="allergies"
               title="Allergies"
@@ -190,12 +211,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
                 ]
               }
+              key="3"
               navigateTo={[Function]}
               state="medications"
               title="Medications"

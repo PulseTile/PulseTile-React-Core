@@ -461,6 +461,7 @@ exports[`Component <MDTs /> should renders correctly with mdtsDetail and testing
           currentPanel="mdtsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="mdtsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -568,6 +569,7 @@ exports[`Component <MDTs /> should renders correctly with mdtsDetail and testing
           currentPanel="mdtsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="mdtsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

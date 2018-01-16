@@ -292,6 +292,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           currentPanel="contactsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -398,6 +399,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           currentPanel="contactsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

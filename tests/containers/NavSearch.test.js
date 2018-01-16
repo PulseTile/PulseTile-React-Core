@@ -35,8 +35,13 @@ describe('Component <NavSearch />', () => {
     expect(navSearch).toMatchSnapshot();
     navSearch.find('.btn-danger').simulate('click');
     navSearch.find('.btn-search-toggle').at(0).simulate('click');
+    navSearch.find('.dropdown-menu').find('.heading').simulate('click');
     navSearch.find('.dropdown-menu-item').at(0).simulate('click');
     expect(navSearch).toMatchSnapshot();
+
+    navSearch.find('.dropdown-menu-item').at(2).simulate('click');
+    navSearch.find('.btn-danger').simulate('click');
+
   });
   it('should renders mount correctly', () => {
     const navSearch = mount(
@@ -62,6 +67,16 @@ describe('Component <NavSearch />', () => {
     navSearch.find('.advanced-search').simulate('click');
     navSearch.find('.btn-search-toggle').simulate('click');
     navSearch.find('.btn-search-toggle').simulate('click');
+    expect(navSearch).toMatchSnapshot();
+
+    navSearch.setState({ selected: 'searchContent' });
+    expect(navSearch.state().selected).toEqual('searchContent');
+    expect(navSearch.find('Connect(ClinicalQuerySearch)')).toHaveLength(1);
+    expect(navSearch.find('Connect(AdvancedPatientSearch)')).toHaveLength(0);
+    navSearch.find('.clinical-query-search').simulate('click');
+    navSearch.find('.btn-search-toggle').simulate('click');
+    navSearch.find('.btn-search-toggle').simulate('click');
+
     navSearch.unmount();
     expect(navSearch).toMatchSnapshot();
   });

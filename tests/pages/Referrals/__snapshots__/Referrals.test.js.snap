@@ -652,6 +652,7 @@ exports[`Component <Referrals /> should renders correctly with referralsDetail a
           currentPanel="referralsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="referralsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -757,6 +758,7 @@ exports[`Component <Referrals /> should renders correctly with referralsDetail a
           currentPanel="referralsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="referralsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

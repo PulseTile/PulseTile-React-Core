@@ -19,21 +19,21 @@ const storeResource = {
     '9999999024': [
       {
         [valuesNames.DATE]: 1426997462000,
-        currentDateConvert: "25-Dec-2017",
+        currentDateConvert: '25-Dec-2017',
         [valuesNames.TAKEN]: 1424556662518,
-        sampleTakenConvert: "22-Feb-2015",
-        [valuesNames.SOURCE]: "ethercis",
-        [valuesNames.SOURCE_ID]: "1d27906b-ebc7-4848-9f1b-73187ee4f72e",
-        [valuesNames.NAME]: "Urea, electrolytes and creatinine measurement",
+        sampleTakenConvert: '22-Feb-2015',
+        [valuesNames.SOURCE]: 'ethercis',
+        [valuesNames.SOURCE_ID]: '1d27906b-ebc7-4848-9f1b-73187ee4f72e',
+        [valuesNames.NAME]: 'Urea, electrolytes and creatinine measurement',
       }, {
         [valuesNames.DATE]: 1439953862000,
-        currentDateConvert: "25-Dec-2017",
+        currentDateConvert: '25-Dec-2017',
         [valuesNames.TAKEN]: 1440450662518,
-        sampleTakenConvert: "25-Aug-2015",
-        [valuesNames.SOURCE]: "ethercis",
-        [valuesNames.SOURCE_ID]: "e54ffbfe-969e-4cae-bc5e-4850b298f5a4",
-        [valuesNames.NAME]: "complete blood count",
-      }
+        sampleTakenConvert: '25-Aug-2015',
+        [valuesNames.SOURCE]: 'ethercis',
+        [valuesNames.SOURCE_ID]: 'e54ffbfe-969e-4cae-bc5e-4850b298f5a4',
+        [valuesNames.NAME]: 'complete blood count',
+      },
     ],
   },
 };
@@ -60,7 +60,7 @@ const storeWithDetail = mockStore(Object.assign({
         [valuesNames.TR_RESULT]: 'white blood cell count',
         [valuesNames.TR_UNIT]: '10*9/l',
         [valuesNames.TR_VALUE]: '13.6',
-      }]
+      }],
     },
   },
 }, storeResource));
@@ -76,6 +76,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/results`,
@@ -105,7 +106,8 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     // Testing component handleDetailTestResultsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -139,16 +141,12 @@ describe('Component <TestResults />', () => {
     expect(component.state().openedPanel).toEqual('testResultPanel');
     expect(component.state().expandedPanel).toEqual('all');
 
-    component.setState({expandedPanel: 'metaPanel'})
+    component.setState({ expandedPanel: 'metaPanel' })
     component.instance().handleExpand('testResultsDetail', 'metaPanel');
     expect(component.state().expandedPanel).toEqual('all');
 
     component.instance().handleExpand('testResultsDetail', 'testResultsMain');
     expect(component.state().expandedPanel).toEqual('testResultsDetail');
-
-    // component.setState({ openedPanel: 'testResultPanel', expandedPanel: 'testResultPanel' });
-    // expect(component.find('PluginListHeader')).toHaveLength(0);
-    // expect(component.find('PluginMainPanel')).toHaveLength(0);
 
     expect(component).toMatchSnapshot();
 
@@ -170,7 +168,8 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     // Testing component handleFilterChange methods
     expect(component.state().nameShouldInclude).toEqual('');
@@ -197,7 +196,6 @@ describe('Component <TestResults />', () => {
     expect(component.state().openedPanel).toEqual('metaPanel');
 
 
-
     expect(component).toMatchSnapshot();
   });
 
@@ -206,7 +204,8 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextDetail);
@@ -220,7 +219,8 @@ describe('Component <TestResults />', () => {
       <TestResults
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     expect(component).toMatchSnapshot();
   });

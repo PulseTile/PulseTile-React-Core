@@ -110,6 +110,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/drawings`,
@@ -150,11 +151,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailDrawingsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -222,11 +219,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
@@ -256,11 +249,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -302,11 +291,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -322,11 +307,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'drawing');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -339,11 +320,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
@@ -353,11 +330,7 @@ describe('Component <Drawings />', () => {
       <Drawings
         store={storeWithFormState}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit);
     component.setState({ drawingImage: 'test' });

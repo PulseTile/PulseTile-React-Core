@@ -46,7 +46,10 @@ const resourceData = [
     nhsNumber: '9999999006',
     pasNo: '595941',
     phone: '070 6691 5178',
-    warning: true,
+    highlighters: [{
+      name: 'address',
+      status: 'warning'
+    }],
   },
   {
     address: 'P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW',
@@ -60,7 +63,10 @@ const resourceData = [
     nhsNumber: '9999999006',
     pasNo: '595941',
     phone: '070 6691 5178',
-    danger: true,
+    highlighters: [{
+      name: 'address',
+      status: 'danger'
+    }],
   },
 ];
 const rowDataWarning = [
@@ -71,6 +77,7 @@ const rowDataWarning = [
   {
     name: 'address',
     value: '26, High Street, Limerick, LK',
+    highlighter: 'warning',
   },
   {
     name: 'dateOfBirth',
@@ -93,6 +100,7 @@ const rowDataDanger = [
   {
     name: 'address',
     value: '26, High Street, Limerick, LK',
+    highlighter: 'danger',
   },
   {
     name: 'dateOfBirth',
@@ -128,6 +136,7 @@ describe('Component <SortableTableRow />', () => {
     expect(sortableTableRow.find('.highlighter-danger')).toHaveLength(0);
     expect(sortableTableRow).toMatchSnapshot();
   });
+
   it('should renders shallow with prop rowDataDanger correctly', () => {
     const sortableTableRow = shallow(
       <SortableTableRow
@@ -142,6 +151,7 @@ describe('Component <SortableTableRow />', () => {
       />);
     sortableTableRow.find('.highlighter-wrapper').simulate('click');
     sortableTableRow.find('[name="address"]').simulate('click');
+    sortableTableRow.find('[name="name"]').simulate('click');
     expect(sortableTableRow.find('.highlighter-danger')).toHaveLength(1);
     expect(sortableTableRow.find('.highlighter-warning')).toHaveLength(0);
     expect(sortableTableRow).toMatchSnapshot();

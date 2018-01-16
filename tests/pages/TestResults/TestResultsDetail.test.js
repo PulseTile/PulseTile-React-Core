@@ -1,10 +1,10 @@
 import React from 'react';
-import Enzyme, { shallow} from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
 import TestResultsDetail from '../../../src/components/pages/TestResults/TestResultsDetail/TestResultsDetail';
 import { valuesNames, valuesLabels } from '../../../src/components/pages/TestResults/forms.config';
-import {getDDMMMYYYY} from '../../../src/utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../src/utils/time-helpers.utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -52,7 +52,7 @@ const detail = {
     [valuesNames.TR_RESULT]: 'platelet count',
     [valuesNames.TR_UNIT]: '10*9/l',
     [valuesNames.TR_VALUE]: '587',
-  }]
+  }],
 };
 
 const CONVERT_TAKEN = getDDMMMYYYY(detail[valuesNames.TAKEN]);
@@ -81,18 +81,18 @@ describe('Component <TestResultsDetail />', () => {
     expect(component).toMatchSnapshot();
 
     // Testing component when detail filled object, expandedPanel is all, and panel not edited
-    expect(component.instance().props['detail']).toEqual(detail);
-    expect(component.instance().props['onExpand']).toEqual(testProps.onExpand);
-    expect(component.instance().props['onShow']).toEqual(testProps.onShow);
-    expect(component.instance().props['onEdit']).toEqual(testProps.onEdit);
-    expect(component.instance().props['onCancel']).toEqual(testProps.onCancel);
-    expect(component.instance().props['onSaveSettings']).toEqual(testProps.onSaveSettings);
-    expect(component.instance().props['openedPanel']).toEqual(testProps.openedPanel);
-    expect(component.instance().props['expandedPanel']).toEqual(testProps.expandedPanel);
-    expect(component.instance().props['currentPanel']).toEqual(testProps.currentPanel);
-    expect(component.instance().props['editedPanel']).toEqual(testProps.editedPanel);
-    expect(component.instance().props['testResultsDetailFormValues']).toEqual(testProps.testResultsDetailFormValues);
-    expect(component.instance().props['isSubmit']).toEqual(false);
+    expect(component.instance().props.detail).toEqual(detail);
+    expect(component.instance().props.onExpand).toEqual(testProps.onExpand);
+    expect(component.instance().props.onShow).toEqual(testProps.onShow);
+    expect(component.instance().props.onEdit).toEqual(testProps.onEdit);
+    expect(component.instance().props.onCancel).toEqual(testProps.onCancel);
+    expect(component.instance().props.onSaveSettings).toEqual(testProps.onSaveSettings);
+    expect(component.instance().props.openedPanel).toEqual(testProps.openedPanel);
+    expect(component.instance().props.expandedPanel).toEqual(testProps.expandedPanel);
+    expect(component.instance().props.currentPanel).toEqual(testProps.currentPanel);
+    expect(component.instance().props.editedPanel).toEqual(testProps.editedPanel);
+    expect(component.instance().props.testResultsDetailFormValues).toEqual(testProps.testResultsDetailFormValues);
+    expect(component.instance().props.isSubmit).toEqual(false);
 
     expect(component.find('.section-detail')).toHaveLength(1);
     expect(component.find('.form')).toHaveLength(4);
@@ -133,11 +133,12 @@ describe('Component <TestResultsDetail />', () => {
     expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-row')).toHaveLength(2);
     expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item')).toHaveLength(3);
 
-    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(0).find('.form-group')).toHaveLength(5);
-    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(1).find('.form-group')).toHaveLength(4);
-    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(2).find('.form-group')).toHaveLength(4);
-
-
+    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(0)
+      .find('.form-group')).toHaveLength(5);
+    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(1)
+      .find('.form-group')).toHaveLength(4);
+    expect(component.find('PluginDetailPanel').at(1).find('.panel-expand-item').at(2)
+      .find('.form-group')).toHaveLength(4);
   });
 
   it('should renders correctly with different state of props', () => {
@@ -154,7 +155,7 @@ describe('Component <TestResultsDetail />', () => {
       />
     );
     expect(component).toMatchSnapshot();
-    expect(component.find('PluginDetailPanel').at(1).props().title).toEqual(`Results (0)`);
+    expect(component.find('PluginDetailPanel').at(1).props().title).toEqual('Results (0)');
 
     component.setProps({ expandedPanel: META_PANEL });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);

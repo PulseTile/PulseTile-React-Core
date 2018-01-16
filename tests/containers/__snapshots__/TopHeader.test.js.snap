@@ -456,6 +456,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                 </div>
                                 <div
                                   className="dropdown-menu-item"
+                                  onClick={[Function]}
                                 >
                                   <span
                                     className="dropdown-menu-item-text"

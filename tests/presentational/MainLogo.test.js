@@ -42,17 +42,17 @@ describe('Component <MainLogo />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-	it('should renders without role', () => {
-		const userAccount = { 'role': '', 'nhsNumber': '9999999000' };
-		const tree = renderer
-			.create(
+  it('should renders without role', () => {
+    const userAccount = { 'role': '', 'nhsNumber': '9999999000' };
+    const tree = renderer
+      .create(
         <StaticRouter location="someLocation" context={context}>
           <MainLogo
             patientsInfo={patientsInfo}
             userAccount={userAccount}
           />
         </StaticRouter>)
-			.toJSON();
-		expect(tree).toMatchSnapshot();
-	});
+      .toJSON();
+    expect(tree).toMatchSnapshot();
+  });
 });

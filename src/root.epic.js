@@ -11,6 +11,7 @@ import { fetchPatientCountsEpic } from './ducks/fetch-patient-counts.duck';
 import { fetchUserAccountEpic } from './ducks/fetch-user-account.duck';
 import { fetchBasicPatientSearchEpic } from './ducks/fetch-basic-patient-search.duck';
 import { fetchAdvancedPatientSearchEpic } from './ducks/fetch-advanced-patient-search.duck';
+import { fetchClinicalQuerySearchEpic } from './ducks/fetch-clinical-query-search.duck';
 import { fetchPatientSummaryEpic } from './ducks/fetch-patient-summary.duck';
 import { fetchProfileAppPreferencesEpic } from './ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
@@ -29,6 +30,7 @@ const rootEpic = combineEpics(
   fetchUserAccountEpic,
   fetchBasicPatientSearchEpic,
   fetchAdvancedPatientSearchEpic,
+  fetchClinicalQuerySearchEpic,
   fetchPatientSummaryEpic,
   fetchProfileAppPreferencesEpic,
   fetchPatientsInfoEpic,

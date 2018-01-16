@@ -463,6 +463,7 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
           currentPanel="proceduresCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="proceduresCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -570,6 +571,7 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
           currentPanel="proceduresCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="proceduresCreate"
           onCancel={[Function]}
           onExpand={[Function]}

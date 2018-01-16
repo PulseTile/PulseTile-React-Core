@@ -19,6 +19,7 @@ const location = {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: '/patients',
