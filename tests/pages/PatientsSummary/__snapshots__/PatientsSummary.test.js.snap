@@ -37,7 +37,9 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -52,7 +54,9 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -67,7 +71,9 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -82,7 +88,9 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -152,7 +160,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -167,7 +177,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -182,7 +194,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",
@@ -197,7 +211,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               items={
                 Array [
-                  "Loading ...",
+                  Object {
+                    "text": "Loading ...",
+                  },
                   "",
                   "",
                   "",

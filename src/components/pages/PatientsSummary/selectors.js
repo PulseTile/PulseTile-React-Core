@@ -14,7 +14,7 @@ const patientSummarySelector = createSelector(
       });
     } else {
       patientsSummaryConfig.forEach((board) => {
-        boards[board.key] = [patientsSummaryLoading, '', '', ''];
+        boards[board.key] = [{text: patientsSummaryLoading}, '', '', ''];
       });
     }
 

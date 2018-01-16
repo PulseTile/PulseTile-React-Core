@@ -4,12 +4,13 @@ import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
+import _ from 'lodash/fp';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import { patientsSummaryConfig } from './patients-summary.config';
+import {patientsSummaryConfig, patientsSummaryLoading} from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible } from '../../../plugins.config';
@@ -68,7 +69,7 @@ export default class PatientsSummary extends PureComponent {
     };
 
     render() {
-      const { boards } = this.props;
+      let { boards } = this.props;
       const { selectedCategory, isDisclaimerModalVisible } = this.state;
 
       return (<section className="page-wrapper">

@@ -1,0 +1,238 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <DocumentsDetail /> should renders with different document Type correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel=""
+      editedPanel=""
+      formValues=""
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="documentPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      onShow={[Function]}
+      title="Document Details"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="form-group"
+            >
+              <div
+                className="form-control-static"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <DocumentsDetail /> should renders with different document Type correctly 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel=""
+      editedPanel=""
+      formValues=""
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="documentPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      onShow={[Function]}
+      title="Document Details"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <DocumentsDetailDischarge
+          detail={
+            Object {
+              "documentType": "Discharge Summary",
+            }
+          }
+          importHandler={[Function]}
+        />
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <DocumentsDetail /> should renders with different document Type correctly 3`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel=""
+      editedPanel=""
+      formValues=""
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="documentPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      onShow={[Function]}
+      title="Document Details"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <DocumentsDetailReferral
+          detail={
+            Object {
+              "documentType": "Referral Summary",
+            }
+          }
+          importHandler={[Function]}
+        />
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <DocumentsDetail /> should renders with props and states correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel=""
+      editedPanel=""
+      formValues=""
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="documentPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      onShow={[Function]}
+      title="Document Details"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="form-group"
+            >
+              <div
+                className="form-control-static"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <DocumentsDetail /> should renders with props and states correctly 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel=""
+      editedPanel=""
+      formValues=""
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="documentPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      onShow={[Function]}
+      title="Document Details"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="form-group"
+            >
+              <div
+                className="form-control-static"
+              >
+                No Data
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={true}
+    isShowOkButton={true}
+    onCancel={[Function]}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Decline"
+    textOkButton="Agree"
+    title="Documents Import Access Disclaimer"
+  >
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lobortis elit. Aenean mi nunc, feugiat ut aliquet non, iaculis vel tellus. Donec semper felis placerat, posuere nisi a, suscipit turpis. Integer sit amet lacus pellentesque, vestibulum libero id, sagittis nisi. Phasellus eleifend, neque eget vulputate semper, enim dui dictum neque, non iaculis felis augue at nunc.
+    </span>
+  </ConfirmationModal>
+</div>
+`;
