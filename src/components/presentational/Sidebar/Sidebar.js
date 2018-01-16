@@ -18,9 +18,9 @@ export default class Sidebar extends PureComponent {
   static propTypes = {
     activeLink: PropTypes.string,
     userId: PropTypes.oneOfType([
-			PropTypes.string,
-			PropTypes.number
-		]),
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   };
 
   /* istanbul ignore next */
@@ -87,7 +87,7 @@ export default class Sidebar extends PureComponent {
 
   hideSidebarOnMobile = () => {
     const { actions } = this.props;
-		/* istanbul ignore next */
+    /* istanbul ignore next */
     if (window.innerWidth < 768) {
       /* istanbul ignore next */
       actions.setSidebarVisibility(false);
@@ -98,7 +98,7 @@ export default class Sidebar extends PureComponent {
     const { activeLink, userId } = this.props;
     return (
       <div>
-        <div className="sidebar-underlay showSidebar"></div>
+        <div className="sidebar-underlay showSidebar" />
         <div className="sidebar showSidebar" role="navigation">
           <div className="sidebar-nav">
             <div>

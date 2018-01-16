@@ -99,6 +99,7 @@ exports[`Component <NavSearch /> should renders mount correctly 1`] = `
                         </div>
                         <div
                           className="dropdown-menu-item"
+                          onClick={[Function]}
                         >
                           <span
                             className="dropdown-menu-item-text"
@@ -1536,7 +1537,6 @@ exports[`Component <NavSearch /> should renders mount correctly 1`] = `
                                                       onFocus={[Function]}
                                                       value=""
                                                     >
-                                                      <option />
                                                       <option
                                                         key="__SelectFormGroupOption__1"
                                                         value="birthday"
@@ -3005,6 +3005,7 @@ exports[`Component <NavSearch /> should renders mount correctly 2`] = `
                         </div>
                         <div
                           className="dropdown-menu-item"
+                          onClick={[Function]}
                         >
                           <span
                             className="dropdown-menu-item-text"
@@ -3217,6 +3218,42 @@ exports[`Component <NavSearch /> should renders shallow correctly shallow 1`] = 
     </div>
     <Connect(AdvancedPatientSearch)
       className="advanced-search"
+      onClose={[Function]}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <NavSearch /> should renders shallow correctly shallow 2`] = `
+<div
+  className="wrap-search wrap-header-search"
+>
+  <div
+    className="header-search"
+  >
+    <div
+      className="control-group left control-search-select dropdown"
+    >
+      <div>
+        <SearchContent
+          ADVANCED_SEARCH="advancedSearch"
+          BASIC_SEARCH="basicSearch"
+          SEARCH_CONTENT="searchContent"
+          onSelect={[Function]}
+          selected="searchContent"
+        />
+        <PTButton
+          className="btn btn-dropdown-toggle btn-search-toggle"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-bars"
+          />
+        </PTButton>
+      </div>
+    </div>
+    <Connect(ClinicalQuerySearch)
+      className="clinical-query-search"
       onClose={[Function]}
     />
   </div>

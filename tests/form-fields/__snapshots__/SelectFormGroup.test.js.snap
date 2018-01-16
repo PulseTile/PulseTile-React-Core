@@ -71,7 +71,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__11"
       value={1}
@@ -123,7 +122,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__16"
       value={1}
@@ -180,7 +178,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__21"
       value={1}
@@ -237,7 +234,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__26"
       value={1}
@@ -294,7 +290,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__31"
       value={1}
@@ -346,7 +341,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__36"
       value={1}
@@ -398,7 +392,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__41"
       value={1}
@@ -449,7 +442,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__46"
       value={1}
@@ -505,7 +497,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__51"
       value={1}
@@ -561,7 +552,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__56"
       value={1}
@@ -612,7 +602,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     name="test-name"
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__61"
       value={1}
@@ -663,7 +652,9 @@ exports[`Component <SelectFormGroup /> should renders without options correctly 
     name="test-name"
     value=""
   >
-    <option />
+    <option>
+      placeholder
+    </option>
   </select>
 </div>
 `;
