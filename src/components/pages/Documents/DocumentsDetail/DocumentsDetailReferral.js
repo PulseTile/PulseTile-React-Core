@@ -397,8 +397,8 @@ export default class DocumentsDetailReferral extends PureComponent {
                           </div>
                           <div className="col-expand-right">
                             <div className="form-group">
-                              <label className="control-label">{valuesLabels.DATE}</label>
-                              <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.DATE])}</div>
+                              <label className="control-label">{valuesLabels.M_DATE}</label>
+                              <div className="form-control-static">{getDDMMMYYYY(item[valuesNames.M_DATE])}</div>
                             </div>
                           </div>
                         </div>

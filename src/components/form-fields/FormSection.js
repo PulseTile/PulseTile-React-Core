@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 
-export default class FormSecrion extends PureComponent {
+export default class FormSection extends PureComponent {
   static defaultProps = {
     isBordered: false,
     isAccordion: false,
