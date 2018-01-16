@@ -25,7 +25,7 @@ export default class VitalsPopover extends PureComponent {
       document.removeEventListener('click', this.handleClick, false);
     }
 
-    handleClick = (event) => {
+    handleClick = /* istanbul ignore next */ (event) => {
       if (!_.isEmpty(this.popover)) {
         const currentPopoverWrap = event.target.closest('.popover-wrap');
 
@@ -45,7 +45,7 @@ export default class VitalsPopover extends PureComponent {
       }
     };
 
-    togglePopover = () => {
+    togglePopover = /* istanbul ignore next */ () => {
       let { placement } = this.state;
       const { id } = this.props;
       const popover = this.popover;

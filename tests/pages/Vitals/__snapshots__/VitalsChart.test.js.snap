@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsChart /> should renders with props correctly 1`] = `
+<div
+  className="chart-block"
+>
+  <div
+    className="wrap-chart chart-vitals bordered"
+  >
+    <Line
+      data={
+        Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": "rgba(13, 141, 5, 0.4)",
+              "borderColor": "rgba(13, 141, 5, 1)",
+              "data": Array [
+                94,
+                12,
+                64,
+              ],
+              "label": "Resp",
+              "pointBackgroundColor": "rgba(13, 141, 5, 1)",
+              "pointBorderColor": "rgba(13, 141, 5, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(219, 0, 120, 0.4)",
+              "borderColor": "rgba(219, 0, 120, 1)",
+              "data": Array [
+                74,
+                42,
+                74,
+              ],
+              "label": "SpO2",
+              "pointBackgroundColor": "rgba(219, 0, 120, 1)",
+              "pointBorderColor": "rgba(219, 0, 120, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(70, 124, 174, 0.4)",
+              "borderColor": "rgba(70, 124, 174, 1)",
+              "data": Array [
+                86,
+                92,
+                64,
+              ],
+              "label": "HR",
+              "pointBackgroundColor": "rgba(70, 124, 174, 1)",
+              "pointBorderColor": "rgba(70, 124, 174, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(236, 109, 28, 0.4)",
+              "borderColor": "rgba(236, 109, 28, 1)",
+              "borderJoinStyle": "miter",
+              "data": Array [
+                64,
+                42,
+                34,
+              ],
+              "label": "SBP",
+              "pointBackgroundColor": "rgba(236, 109, 28, 1)",
+              "pointBorderColor": "rgba(236, 109, 28, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(5, 186, 195, 0.4)",
+              "borderColor": "rgba(5, 186, 195, 1)",
+              "data": Array [
+                94,
+                82,
+                64,
+              ],
+              "label": "DBP",
+              "pointBackgroundColor": "rgba(5, 186, 195, 1)",
+              "pointBorderColor": "rgba(5, 186, 195, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(221, 43, 8, 0.4)",
+              "borderColor": "rgba(221, 43, 8, 1)",
+              "data": Array [
+                14,
+                22,
+                34,
+              ],
+              "label": "Temp",
+              "pointBackgroundColor": "rgba(221, 43, 8, 1)",
+              "pointBorderColor": "rgba(221, 43, 8, 1)",
+            },
+          ],
+          "labels": Array [
+            "11-Jan-18 12:49",
+            "12-Jan-18 13:48",
+            "16-Jan-18 16:49",
+          ],
+        }
+      }
+      height={441}
+      onElementsClick={[Function]}
+      options={
+        Object {
+          "capBezierPoints": false,
+          "elements": Object {
+            "line": Object {
+              "borderCapStyle": "butt",
+              "borderDashOffset": 0,
+              "borderJoinStyle": "miter",
+              "fill": false,
+              "lineTension": 0,
+              "pointBorderWidth": 5,
+              "pointHitRadius": 8,
+              "pointHoverBorderWidth": 8,
+              "pointHoverRadius": 1,
+              "pointRadius": 1,
+              "spanGaps": true,
+            },
+          },
+          "layout": Object {
+            "padding": Object {
+              "right": 10,
+            },
+          },
+          "maintainAspectRatio": false,
+          "responsive": true,
+          "scales": Object {
+            "xAxes": Array [
+              Object {
+                "ticks": Object {
+                  "maxRotation": 90,
+                  "minRotation": 90,
+                },
+              },
+            ],
+            "yAxes": Array [
+              Object {
+                "ticks": Object {
+                  "stepSize": 5,
+                },
+              },
+            ],
+          },
+          "tooltips": Object {
+            "bodySpacing": 10,
+            "callbacks": Object {
+              "label": [Function],
+            },
+            "caretSize": 0,
+            "mode": "label",
+            "titleMarginBottom": 15,
+            "xPadding": 10,
+            "yPadding": 10,
+          },
+        }
+      }
+      width={600}
+    />
+  </div>
+</div>
+`;
