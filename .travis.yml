@@ -21,7 +21,7 @@ node_js:
 #  - npm i -g npm@^2.0.0
 
 before_install:
-- export TZ=Africa/Accra
+- export TZ=Etc/GMT+2
 
 install:
   - npm install -g codecov
