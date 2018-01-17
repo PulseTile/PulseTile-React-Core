@@ -11,7 +11,9 @@
     "test": "jest --runInBand --silent --config ./jest-config.js",
     "deploy": "npm run build && bash deploy.sh",
     "lint": "./node_modules/.bin/eslint",
-    "stylelint": "./node_modules/.bin/stylelint '**/*.scss'"
+    "stylelint": "./node_modules/.bin/stylelint '**/*.scss'",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
