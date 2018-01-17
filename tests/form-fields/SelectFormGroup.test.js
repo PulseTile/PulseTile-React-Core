@@ -3,9 +3,9 @@ import { configure, shallow } from 'enzyme'
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
 
-configure({ adapter: new Adapter() });
-
 import SelectFormGroup from '../../src/components/form-fields/SelectFormGroup';
+
+configure({ adapter: new Adapter() });
 
 const testProps = {
   label: 'Test label',
