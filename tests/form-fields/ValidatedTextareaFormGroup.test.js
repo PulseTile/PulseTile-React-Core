@@ -1,14 +1,15 @@
 import React from 'react';
-import {configure, shallow, mount} from 'enzyme'
+import { configure, shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
-configure({ adapter: new Adapter() });
 
 import ValidatedTextareaFormGroup from '../../src/components/form-fields/ValidatedTextareaFormGroup';
 
+configure({ adapter: new Adapter() });
+
 const testProps = {
   label: 'Test label',
-  input: {name: 'test-name', value: ''},
+  input: { name: 'test-name', value: '' },
   meta: {
     active: false,
     error: false,
@@ -19,14 +20,14 @@ const testProps = {
 describe('Component <ValidatedTextareaFormGroup />', () => {
   it('should renders with all props correctly', () => {
     const component = shallow(
-        <ValidatedTextareaFormGroup
-          id={testProps.id}
-          label={testProps.label}
-          input={testProps.input}
-          meta={testProps.meta}
-          isSubmit={true}
-          isAdvancedSearch={false}
-        />);
+      <ValidatedTextareaFormGroup
+        id={testProps.id}
+        label={testProps.label}
+        input={testProps.input}
+        meta={testProps.meta}
+        isSubmit
+        isAdvancedSearch={false}
+      />);
 
     expect(component.find('input')).toHaveLength(0);
     expect(component.find('textarea')).toHaveLength(1);
@@ -36,12 +37,12 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
     expect(component.find('label.control-label').prop('htmlFor')).toEqual(testProps.id);
     expect(component.find('textarea').prop('id')).toEqual(testProps.id);
 
-    expect(component.instance().props['id']).toEqual(testProps.id);
-    expect(component.instance().props['label']).toEqual(testProps.label);
-    expect(component.instance().props['input']).toEqual(testProps.input);
-    expect(component.instance().props['meta']).toEqual(testProps.meta);
-    expect(component.instance().props['isSubmit']).toEqual(true);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(false);
+    expect(component.instance().props.id).toEqual(testProps.id);
+    expect(component.instance().props.label).toEqual(testProps.label);
+    expect(component.instance().props.input).toEqual(testProps.input);
+    expect(component.instance().props.meta).toEqual(testProps.meta);
+    expect(component.instance().props.isSubmit).toEqual(true);
+    expect(component.instance().props.isAdvancedSearch).toEqual(false);
 
     const tree = toJson(component);
     expect(tree).toMatchSnapshot();
@@ -55,7 +56,7 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
         label={testProps.label}
         input={testProps.input}
         meta={testProps.meta}
-        isSubmit={true}
+        isSubmit
         isAdvancedSearch={false}
       />);
 
@@ -70,9 +71,9 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
     component.setProps({
       meta: {
         touched: false,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: true
+      isSubmit: true,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -84,9 +85,9 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
     component.setProps({
       meta: {
         touched: true,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: false
+      isSubmit: false,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -99,9 +100,9 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
       meta: {
         dirty: true,
         touched: false,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: false
+      isSubmit: false,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -115,9 +116,9 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
       meta: {
         dirty: true,
         touched: true,
-        error: false
+        error: false,
       },
-      isSubmit: true
+      isSubmit: true,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(false);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(true);
@@ -136,9 +137,9 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
         meta={{
           dirty: true,
           touched: true,
-          error: 'Error'
+          error: 'Error',
         }}
-        isSubmit={true}
+        isSubmit
       />);
 
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
@@ -146,7 +147,7 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
     // 1 case when isAdvancedSearch === false
     expect(component.find('.required-label')).toHaveLength(0);
     expect(component.find('.help-block')).toHaveLength(1);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(undefined);
+    expect(component.instance().props.isAdvancedSearch).toEqual(undefined);
 
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
@@ -156,7 +157,7 @@ describe('Component <ValidatedTextareaFormGroup />', () => {
 
     expect(component.find('.required-label')).toHaveLength(1);
     expect(component.find('.help-block')).toHaveLength(0);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(true);
+    expect(component.instance().props.isAdvancedSearch).toEqual(true);
 
     tree = toJson(component);
     expect(tree).toMatchSnapshot();

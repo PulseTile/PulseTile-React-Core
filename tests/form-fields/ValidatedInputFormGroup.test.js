@@ -3,9 +3,9 @@ import { configure, shallow, mount } from 'enzyme'
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
 
-configure({ adapter: new Adapter() });
-
 import ValidatedInputFormGroup from '../../src/components/form-fields/ValidatedInputFormGroup';
+
+configure({ adapter: new Adapter() });
 
 const testProps = {
   label: 'Test label',
