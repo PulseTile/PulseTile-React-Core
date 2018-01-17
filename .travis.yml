@@ -20,14 +20,17 @@ node_js:
 #  - sh -e /etc/init.d/xvfb start
 #  - npm i -g npm@^2.0.0
 
+before_install:
+- export TZ=Australia/Canberra
+
 install:
   - npm install -g codecov
   - npm install -g webpack
   - npm install
 
-before_script:
-  - echo 'Ukraine/Kiev' | sudo tee /etc/timezone
-  - sudo dpkg-reconfigure --frontend noninteractive tzdata
+#before_script:
+#  - echo 'Ukraine/Kiev' | sudo tee /etc/timezone
+#  - sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 script:
   - npm run test
