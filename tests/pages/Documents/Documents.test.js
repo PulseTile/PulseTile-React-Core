@@ -20,16 +20,16 @@ const storeResource = {
       {
         [valuesNames.TYPE]: 'Discharge Summary',
         [valuesNames.DATE]: 1426997462000,
-        currentDateConvert: "25-Dec-2017",
-        [valuesNames.SOURCE]: "ethercis",
-        [valuesNames.SOURCE_ID]: "1d27906b-ebc7-4848-9f1b-73187ee4f72e",
+        currentDateConvert: '25-Dec-2017',
+        [valuesNames.SOURCE]: 'ethercis',
+        [valuesNames.SOURCE_ID]: '1d27906b-ebc7-4848-9f1b-73187ee4f72e',
       }, {
         [valuesNames.TYPE]: 'Referral Summary',
         [valuesNames.DATE]: 1439953862000,
-        currentDateConvert: "25-Dec-2017",
-        [valuesNames.SOURCE]: "ethercis",
-        [valuesNames.SOURCE_ID]: "e54ffbfe-969e-4cae-bc5e-4850b298f5a4",
-      }
+        currentDateConvert: '25-Dec-2017',
+        [valuesNames.SOURCE]: 'ethercis',
+        [valuesNames.SOURCE_ID]: 'e54ffbfe-969e-4cae-bc5e-4850b298f5a4',
+      },
     ],
   },
 };
@@ -88,7 +88,8 @@ describe('Component <Documents />', () => {
       <Documents
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     // Testing component handleDetailDocumentsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -146,7 +147,8 @@ describe('Component <Documents />', () => {
       <Documents
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     // Testing component handleFilterChange methods
     expect(component.state().nameShouldInclude).toEqual('');
@@ -175,7 +177,8 @@ describe('Component <Documents />', () => {
       <Documents
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextDetail);
@@ -189,7 +192,8 @@ describe('Component <Documents />', () => {
       <Documents
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive().dive()
+      .dive();
 
     expect(component).toMatchSnapshot();
   });

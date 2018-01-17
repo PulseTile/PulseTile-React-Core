@@ -19,7 +19,7 @@ const storeResource = {
     '9999999000': [
       {
         [valuesNames.AUTHOR]: 'Dr Tony Shannon',
-        [valuesNames.DATE_CREATED]: 1515621600000,
+        [valuesNames.DATE_CREATED]: 1515684602000,
         [valuesNames.NEWS_SCORE]: 3,
         [valuesNames.RESPIRATION_RATE]: '12.0',
         [valuesNames.OXYGEN_SUPPLEMENTAL]: 'true',
@@ -37,7 +37,7 @@ const storeResource = {
       },
       {
         [valuesNames.AUTHOR]: 'Dr Tony Shannon',
-        [valuesNames.DATE_CREATED]: 1515621600100,
+        [valuesNames.DATE_CREATED]: 1515683002100,
         [valuesNames.NEWS_SCORE]: 3,
         [valuesNames.RESPIRATION_RATE]: '12.0',
         [valuesNames.OXYGEN_SUPPLEMENTAL]: 'true',
@@ -55,7 +55,7 @@ const storeResource = {
       },
       {
         [valuesNames.AUTHOR]: 'Dr Tony Shannon',
-        [valuesNames.DATE_CREATED]: 1505682407000,
+        [valuesNames.DATE_CREATED]: 1505792407000,
         [valuesNames.NEWS_SCORE]: 3,
         [valuesNames.RESPIRATION_RATE]: '12.0',
         [valuesNames.OXYGEN_SUPPLEMENTAL]: 'true',
@@ -73,7 +73,7 @@ const storeResource = {
       },
       {
         [valuesNames.AUTHOR]: 'Dr Tony Shannon',
-        [valuesNames.DATE_CREATED]: 1425682407000,
+        [valuesNames.DATE_CREATED]: 1425782407000,
         [valuesNames.NEWS_SCORE]: 3,
         [valuesNames.RESPIRATION_RATE]: '12.0',
         [valuesNames.OXYGEN_SUPPLEMENTAL]: 'true',
