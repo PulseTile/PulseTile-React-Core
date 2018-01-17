@@ -21,7 +21,7 @@ node_js:
 #  - npm i -g npm@^2.0.0
 
 before_install:
-- export TZ=Etc/GMT-3
+- export TZ=Etc/UTC
 
 install:
   - npm install -g codecov

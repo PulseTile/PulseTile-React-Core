@@ -101,7 +101,7 @@ exports[`Component <EventsDetail /> should renders correctly with different stat
                   <div
                     className="form-control-static"
                   >
-                    13-Nov-2017 18:00
+                    13-Nov-2017 16:00
                   </div>
                 </div>
               </div>
@@ -389,7 +389,7 @@ exports[`Component <EventsDetail /> should renders with props correctly 1`] = `
                   <div
                     className="form-control-static"
                   >
-                    22-Nov-2017 10:30
+                    22-Nov-2017 08:30
                   </div>
                 </div>
               </div>

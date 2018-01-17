@@ -383,7 +383,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -437,7 +437,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -819,7 +819,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -873,7 +873,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -1260,7 +1260,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -1314,7 +1314,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -1819,7 +1819,7 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -1873,7 +1873,7 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -2376,7 +2376,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div
@@ -2430,7 +2430,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                       <div
                         className="form-control-static ng-binding"
                       >
-                        2017-01-01 02:00
+                        2017-01-01 00:00
                       </div>
                     </div>
                     <div

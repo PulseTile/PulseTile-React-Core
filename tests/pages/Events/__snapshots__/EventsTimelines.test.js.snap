@@ -86,7 +86,7 @@ exports[`Component <EventsTimelines /> should renders with props correctly mount
                   <div
                     className="timeline-header"
                   >
-                    12-Jan-2016
+                    11-Jan-2016
                   </div>
                   <div
                     className="timeline-date-group"
@@ -217,7 +217,7 @@ exports[`Component <EventsTimelines /> should renders with props correctly shall
             <div
               className="timeline-header"
             >
-              12-Jan-2016
+              11-Jan-2016
             </div>
             <div
               className="timeline-date-group"
