@@ -21,16 +21,12 @@ node_js:
 #  - npm i -g npm@^2.0.0
 
 before_install:
-- export TZ=Australia/Canberra
+- export TZ=Africa/Accra
 
 install:
   - npm install -g codecov
   - npm install -g webpack
   - npm install
-
-#before_script:
-#  - echo 'Ukraine/Kiev' | sudo tee /etc/timezone
-#  - sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 script:
   - npm run test
