@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Switch /> should renders with all props correctly testing checkbox and edit 1`] = `
+<label
+  className="switch"
+>
+  <input
+    checked={true}
+    id="oxygenSupplemental"
+    name="oxygenSupplemental"
+    type="checkbox"
+    value={true}
+  />
+  <div
+    className="slider disabled"
+  >
+    <div>
+      <span
+        className="text text-check-true"
+      >
+        Yes
+      </span>
+      <span
+        className="text text-check-false"
+      >
+        No
+      </span>
+    </div>
+  </div>
+</label>
+`;
+
+exports[`Component <Switch /> should renders with all props correctly testing checkbox and not edit 1`] = `
+<label
+  className="switch"
+>
+  <input
+    checked={true}
+    disabled={true}
+    name="oxygenSupplemental"
+    type="checkbox"
+    value={true}
+  />
+  <div
+    className="slider disabled"
+  >
+    <div>
+      <span
+        className="text text-check-true"
+      >
+        Yes
+      </span>
+      <span
+        className="text text-check-false"
+      >
+        No
+      </span>
+    </div>
+  </div>
+</label>
+`;
+
+exports[`Component <Switch /> should renders with all props correctly testing radio button and not edit 1`] = `
+<label
+  className="switch"
+>
+  <input
+    checked={true}
+    disabled={false}
+    name="oxygenSupplemental"
+    type="radio"
+    value={true}
+  />
+  <div
+    className="slider "
+  >
+    <span
+      className="text"
+    >
+      test text
+    </span>
+  </div>
+</label>
+`;
+
+exports[`Component <Switch /> should renders with all props correctly testing radio button and not edit 2`] = `
+<label
+  className="switch"
+>
+  <input
+    disabled={false}
+    name="oxygenSupplemental"
+    type="radio"
+    value={true}
+  />
+  <div
+    className="slider "
+  >
+    <span
+      className="text"
+    >
+      test text
+    </span>
+  </div>
+</label>
+`;

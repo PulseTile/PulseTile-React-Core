@@ -1,0 +1,998 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "vitalPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vitalPanel"
+      title="Vitals"
+    >
+      <div
+        className="form"
+      >
+        <div
+          className="panel-body-inner"
+        >
+          <div
+            className="vitals-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Respiration Rate
+                      </label>
+                      <VitalsPopover
+                        id="respirationRate"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Respiration Rate"
+                        vitalsAddon="resps/min"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Oxygen Saturation
+                      </label>
+                      <VitalsPopover
+                        id="oxygenSaturation"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Oxygen Saturation"
+                        vitalsAddon="%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Any Supplemental Oxygen
+                      </label>
+                      <div
+                        className="input-holder"
+                      >
+                        <Switch
+                          disabled={true}
+                          name="oxygenSupplemental"
+                          type="checkbox"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Heart Rate
+                      </label>
+                      <VitalsPopover
+                        id="heartRate"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Heart Rate"
+                        vitalStatusesType="success"
+                        vitalsAddon="bpm"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Systolic BP
+                      </label>
+                      <VitalsPopover
+                        id="systolicBP"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Systolic BP"
+                        vitalsAddon="mmHg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="highlighter-not-vital"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Diastolic BP
+                      </label>
+                      <div
+                        className="input-group vitals-holder"
+                      >
+                        <div
+                          className="form-control input-sm"
+                        />
+                        <span
+                          className="vitals-addon"
+                        >
+                          mmHg
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                        htmlFor="levelOfConsciousness"
+                      >
+                        Level of Consciousness
+                      </label>
+                      <div
+                        className="input-holder"
+                      >
+                        <div
+                          className="switch-group"
+                        >
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessA"
+                            name="levelOfConsciousness"
+                            text="A"
+                            type="radio"
+                            value="Alert"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessV"
+                            name="levelOfConsciousness"
+                            text="V"
+                            type="radio"
+                            value="Verbal"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessP"
+                            name="levelOfConsciousness"
+                            text="P"
+                            type="radio"
+                            value="Pain"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessU"
+                            name="levelOfConsciousness"
+                            text="U"
+                            type="radio"
+                            value="Unresponsive"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Temperature
+                      </label>
+                      <VitalsPopover
+                        id="temperature"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Temperature"
+                        vitalsAddon="c"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    NEWS Score
+                  </label>
+                  <div
+                    className="input-holder vitals-holder success"
+                  >
+                    <div
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="panel-body-inner"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    13-Nov-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "vitalPanel": true,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vitalPanel"
+      title="Edit Vitals"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "Dr Tony Shannon",
+            "dateCreated": 1515667784000,
+            "diastolicBP": 94,
+            "heartRate": 86,
+            "levelOfConsciousness": "Alert",
+            "newsScore": 2,
+            "oxygenSaturation": 92,
+            "respirationRate": 20,
+            "source": "ethercis",
+            "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+            "systolicBP": 120,
+            "temperature": 37.6,
+          }
+        }
+        getHighlighterClass={[Function]}
+        popoverLabels={
+          Object {
+            "heartRate": Array [
+              Object {
+                "place": 1,
+                "text": "≤ 40",
+              },
+              Object {
+                "place": 3,
+                "text": "41-50",
+              },
+            ],
+            "levelOfConsciousness": Array [
+              Object {
+                "place": 4,
+                "text": "A",
+              },
+              Object {
+                "place": 7,
+                "text": "V,P or U",
+              },
+            ],
+            "newsScore": Array [
+              Object {
+                "place": 4,
+                "text": "0",
+              },
+              Object {
+                "place": 5,
+                "text": "1-4",
+              },
+            ],
+            "oxygenSaturation": Array [
+              Object {
+                "place": 1,
+                "text": "≤ 40",
+              },
+              Object {
+                "place": 3,
+                "text": "41-50",
+              },
+            ],
+            "oxygenSupplemental": Array [
+              Object {
+                "place": 2,
+                "text": "Yes",
+              },
+              Object {
+                "place": 4,
+                "text": "No",
+              },
+            ],
+            "respirationRate": Array [
+              Object {
+                "place": 1,
+                "text": "≤ 40",
+              },
+              Object {
+                "place": 3,
+                "text": "41-50",
+              },
+            ],
+            "systolicBP": Array [
+              Object {
+                "place": 1,
+                "text": "≤ 40",
+              },
+              Object {
+                "place": 3,
+                "text": "41-50",
+              },
+            ],
+            "temperature": Array [
+              Object {
+                "place": 1,
+                "text": "≤ 40",
+              },
+              Object {
+                "place": 3,
+                "text": "41-50",
+              },
+            ],
+          }
+        }
+        vitalStatuses={
+          Object {
+            "heartRate": Object {
+              "point": 1,
+              "type": "success",
+            },
+            "levelOfConsciousness": Object {
+              "point": 0,
+            },
+            "newsScore": Object {
+              "point": undefined,
+              "type": "success",
+            },
+            "oxygenSaturation": Object {
+              "point": 0,
+            },
+            "oxygenSupplemental": Object {
+              "point": 2,
+              "type": "warning",
+            },
+            "respirationRate": Object {
+              "point": 0,
+            },
+            "systolicBP": Object {
+              "point": 0,
+            },
+            "temperature": Object {
+              "point": 0,
+            },
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "vitalPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="vitalPanel"
+      onShow={[Function]}
+      title="Vitals"
+    >
+      <div
+        className="form"
+      >
+        <div
+          className="panel-body-inner"
+        >
+          <div
+            className="vitals-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Respiration Rate
+                      </label>
+                      <VitalsPopover
+                        detailValue={20}
+                        id="respirationRate"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Respiration Rate"
+                        vitalsAddon="resps/min"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Oxygen Saturation
+                      </label>
+                      <VitalsPopover
+                        detailValue={92}
+                        id="oxygenSaturation"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Oxygen Saturation"
+                        vitalsAddon="%"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Any Supplemental Oxygen
+                      </label>
+                      <div
+                        className="input-holder"
+                      >
+                        <Switch
+                          disabled={true}
+                          name="oxygenSupplemental"
+                          type="checkbox"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Heart Rate
+                      </label>
+                      <VitalsPopover
+                        detailValue={86}
+                        id="heartRate"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Heart Rate"
+                        vitalStatusesType="success"
+                        vitalsAddon="bpm"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Systolic BP
+                      </label>
+                      <VitalsPopover
+                        detailValue={120}
+                        id="systolicBP"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Systolic BP"
+                        vitalsAddon="mmHg"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="highlighter-not-vital"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Diastolic BP
+                      </label>
+                      <div
+                        className="input-group vitals-holder"
+                      >
+                        <div
+                          className="form-control input-sm"
+                        >
+                          94
+                        </div>
+                        <span
+                          className="vitals-addon"
+                        >
+                          mmHg
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="row"
+                >
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                        htmlFor="levelOfConsciousness"
+                      >
+                        Level of Consciousness
+                      </label>
+                      <div
+                        className="input-holder"
+                      >
+                        <div
+                          className="switch-group"
+                        >
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessA"
+                            name="levelOfConsciousness"
+                            text="A"
+                            transitionValue="Alert"
+                            type="radio"
+                            value="Alert"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessV"
+                            name="levelOfConsciousness"
+                            text="V"
+                            transitionValue="Alert"
+                            type="radio"
+                            value="Verbal"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessP"
+                            name="levelOfConsciousness"
+                            text="P"
+                            transitionValue="Alert"
+                            type="radio"
+                            value="Pain"
+                          />
+                          <Switch
+                            disabled={true}
+                            id="levelOfConsciousnessU"
+                            name="levelOfConsciousness"
+                            text="U"
+                            transitionValue="Alert"
+                            type="radio"
+                            value="Unresponsive"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className="col-xs-12 col-md-6"
+                  >
+                    <div
+                      className="vitals-group highlighter-wrapper"
+                    >
+                      <span
+                        className="undefined"
+                      />
+                      <label
+                        className="vitals-label"
+                      >
+                        Temperature
+                      </label>
+                      <VitalsPopover
+                        detailValue={37.6}
+                        id="temperature"
+                        popoverLabels={
+                          Array [
+                            Object {
+                              "place": 1,
+                              "text": "≤ 40",
+                            },
+                            Object {
+                              "place": 3,
+                              "text": "41-50",
+                            },
+                          ]
+                        }
+                        title="Temperature"
+                        vitalsAddon="c"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    NEWS Score
+                  </label>
+                  <div
+                    className="input-holder vitals-holder success"
+                  >
+                    <div
+                      className="form-control input-sm"
+                    >
+                      2
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="panel-body-inner"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Dr Tony Shannon
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    11-Jan-2018
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

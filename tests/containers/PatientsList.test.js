@@ -102,6 +102,10 @@ const context = {
               nhsNumber: '9999999006',
               pasNo: '595941',
               phone: '070 6691 5178',
+              diagnosesDate: '1970-01-01T00:00:00-05:00',
+              ordersDate: '1970-01-01T00:00:00-05:00',
+              resultsDate: '1970-01-01T00:00:00-05:00',
+              vitalsDate: '1970-01-01T00:00:00-05:00',
             },
           ],
           searchResult: '(Search Type: allergies, Search Query: contains \\"1\\")',
@@ -154,7 +158,9 @@ describe('Component <PatientsList />', () => {
 
   it('should renders with props correctly shallow testing', () => {
     const component = shallow(
-      <PatientsList />, { context });
+      <PatientsList
+        allPatientsWithCounts={allPatientsWithCounts}
+      />, { context });
 
     expect(component.find('PatientsListHeader').props().panelTitle).toEqual('Patient Info (Search Type: allergies, Search Query: contains \\"1\\")');
 
