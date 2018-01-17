@@ -25,6 +25,10 @@ install:
   - npm install -g webpack
   - npm install
 
+before_script:
+  - echo 'Ukraine/Kiev' | sudo tee /etc/timezone
+  - sudo dpkg-reconfigure --frontend noninteractive tzdata
+
 script:
   - npm run test
   - npm run build
