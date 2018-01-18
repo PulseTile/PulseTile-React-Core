@@ -8,10 +8,15 @@
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
     "build:optimization": "./node_modules/.bin/cross-env NODE_ENV=production-optimization ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
     "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.dev.js",
-    "test": "jest --runInBand --silent --config ./jest-config.js",
+    "before-test": "node ./tests/configs/timeZoneService.js",
+    "jest": "jest --runInBand --silent --config ./jest-config.js",
+    "after-test": "node ./tests/configs/timeZoneService.js",
+    "test": "npm run before-test && npm run jest && npm run after-test",
     "deploy": "npm run build && bash deploy.sh",
     "lint": "./node_modules/.bin/eslint",
-    "stylelint": "./node_modules/.bin/stylelint '**/*.scss'"
+    "stylelint": "./node_modules/.bin/stylelint '**/*.scss'",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
@@ -61,7 +66,6 @@
     "cross-env": "5.0.5",
     "css-loader": "0.28.7",
     "enzyme": "^3.0.0",
-    "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "^3.2.2",
     "eslint": "4.7.2",
     "eslint-config-airbnb": "15.1.0",
@@ -119,6 +123,7 @@
     "identity-obj-proxy": "^3.0.0",
     "lodash": "4.17.4",
     "moment": "2.18.1",
+    "moment-timezone": "0.5.14",
     "prop-types": "15.6.0",
     "qs": "6.5.1",
     "rc-slider": "8.3.1",

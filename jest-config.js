@@ -1,6 +1,6 @@
 module.exports = {
   roots: ['<rootDir>/tests'],
-  verbose: true,
+  verbose: false,
   modulePaths: [
     '__stubs__',
   ],
