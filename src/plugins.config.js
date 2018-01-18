@@ -10,13 +10,14 @@ import { medicationsEpic, medicationsReducer } from './components/pages/Medicati
 import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
 import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
 import { eventsEpic, eventsReducer } from './components/pages/Events/index'
-import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index'
-import { referralsEpic, referralsReducer } from './components/pages/Referrals/index'
-import { ordersEpic, ordersReducer } from './components/pages/Orders/index'
-import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index'
-import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index'
-import { documentsEpic, documentsReducer } from './components/pages/Documents/index'
-import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index'
+import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index';
+import { referralsEpic, referralsReducer } from './components/pages/Referrals/index';
+import { ordersEpic, ordersReducer } from './components/pages/Orders/index';
+import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index';
+import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index';
+import { documentsEpic, documentsReducer } from './components/pages/Documents/index';
+import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
+import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -35,6 +36,7 @@ import MDTs from './components/pages/MDTs/MDTs';
 import Drawings from './components/pages/Drawings/Drawings';
 import Vitals from './components/pages/Vitals/Vitals';
 import Documents from './components/pages/Documents/Documents';
+import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -42,19 +44,21 @@ export const sidebarConfig = [
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
-  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
-  { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
-  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
-  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
+  { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
   { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
-  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
+  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
+  { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
+  { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
-  { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
-	{ key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
-	{ key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
-  { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
+  { key: 'transfersOfCare', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
+
+  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];
 
 export const dashboardVisible = {
@@ -83,6 +87,7 @@ export const pluginsEpicConfig = [
   drawingsEpic,
   vitalsEpic,
 	documentsEpic,
+  transfersOfCareEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -103,6 +108,7 @@ export const pluginsReducerConfig = [
   drawingsReducer,
   vitalsReducer,
 	documentsReducer,
+  transfersOfCareReducer,
 ];
 
 export const routersPluginConfig = [
@@ -171,4 +177,9 @@ export const routersPluginConfig = [
 
 	{ key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
 	{ key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
+
+  { key: 'transfersOfCare', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}` },
+  { key: 'transfersOfCareCreate', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/create` },
+  { key: 'transfersOfCareDetail', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/:sourceId` },
+
 ];

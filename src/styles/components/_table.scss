@@ -297,3 +297,7 @@ td[name='sourceId'], th[name='sourceId'] {
     height: 60px;
   }
 }
+
+.table-no-cursor {
+  tbody tr td { cursor: initial !important; }
+}
