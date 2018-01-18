@@ -2125,7 +2125,7 @@ exports[`Component <AdvancedPatientSearch /> should renders mount with fill Data
                                                   showTimeSelect={false}
                                                   showYearDropdown={true}
                                                   timeIntervals={30}
-                                                  utcOffset={0}
+                                                  utcOffset={180}
                                                   value="Invalid date"
                                                   withPortal={false}
                                                 >

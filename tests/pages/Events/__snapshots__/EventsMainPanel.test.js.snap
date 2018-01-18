@@ -1744,7 +1744,7 @@ exports[`Component <EventsMainPanel /> should renders with all props correctly 9
             className="rzslider-tooltip-inner"
           >
             To: 
-            14 Nov 2023
+            15 Nov 2023
           </div>
         </div>
       </div>
@@ -2048,7 +2048,7 @@ exports[`Component <EventsMainPanel /> should renders with all props correctly 1
             className="rzslider-tooltip-inner"
           >
             To: 
-            14 Nov 2023
+            15 Nov 2023
           </div>
         </div>
       </div>

@@ -83,7 +83,7 @@ exports[`Component <TestResultsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   >
-                    24-Aug-2015
+                    25-Aug-2015
                   </div>
                 </div>
               </div>
@@ -145,7 +145,7 @@ exports[`Component <TestResultsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   >
-                    18-Aug-2015
+                    19-Aug-2015
                   </div>
                 </div>
               </div>
@@ -348,7 +348,7 @@ exports[`Component <TestResultsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   >
-                    24-Aug-2015
+                    25-Aug-2015
                   </div>
                 </div>
               </div>
@@ -410,7 +410,7 @@ exports[`Component <TestResultsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   >
-                    18-Aug-2015
+                    19-Aug-2015
                   </div>
                 </div>
               </div>
@@ -533,7 +533,7 @@ exports[`Component <TestResultsDetail /> should renders with all props correctly
                   <div
                     className="form-control-static"
                   >
-                    24-Aug-2015
+                    25-Aug-2015
                   </div>
                 </div>
               </div>
@@ -595,7 +595,7 @@ exports[`Component <TestResultsDetail /> should renders with all props correctly
                   <div
                     className="form-control-static"
                   >
-                    18-Aug-2015
+                    19-Aug-2015
                   </div>
                 </div>
               </div>

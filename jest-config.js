@@ -1,13 +1,10 @@
 module.exports = {
   roots: ['<rootDir>/tests'],
-  verbose: true,
+  verbose: false,
   modulePaths: [
     '__stubs__',
   ],
   testEnvironment: 'jsdom',
-  setupFiles: [
-    '<rootDir>/tests/configs/momentMock.js',
-  ],
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
     '^[./a-zA-Z0-9$_-]+\\.png$': '<rootDir>/RelativeImageStub.js',
