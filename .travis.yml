@@ -29,3 +29,13 @@ script:
 after_success:
   - npm run report-coverage
   - npm run semantic-release
+
+notifications:
+  email:
+    recipients: dima.polishuk.1995@gmail.com
+    on_success: always
+    on_failure: always
+#  slack:
+#    secure: "<secret>"
+#    on_success: always
+#    on_failure: always
