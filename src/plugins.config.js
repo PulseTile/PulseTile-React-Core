@@ -56,7 +56,7 @@ export const sidebarConfig = [
   { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
-  { key: 'transfersOfCare', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
+  { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
 
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];

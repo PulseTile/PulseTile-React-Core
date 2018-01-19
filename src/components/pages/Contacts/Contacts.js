@@ -244,7 +244,7 @@ export default class Contacts extends PureComponent {
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     let sourceId;
-    if (!_.isEmpty(contactDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(contactDetail)) {
       sourceId = contactDetail[valuesNames.SOURCE_ID];
     }
 

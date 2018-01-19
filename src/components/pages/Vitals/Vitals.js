@@ -365,7 +365,7 @@ export default class Vitals extends PureComponent {
       const popoverLabels = serviceVitalsSigns.getLabels();
 
       let sourceId;
-      if (!_.isEmpty(vitalDetail)) {
+      if (isDetailPanelVisible && !_.isEmpty(vitalDetail)) {
         sourceId = vitalDetail.sourceId;
       }
 

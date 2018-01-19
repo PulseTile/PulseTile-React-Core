@@ -130,7 +130,7 @@ const pluginsPages = {
       state: '/documents',
     }],
   },
-  'transfersOfCare': {
+  'transfer-of-care': {
     breadcrumbs: [{
       title: 'Transfers Of Care',
       state: '/transfers-of-care',

@@ -251,11 +251,11 @@ export default class TransfersOfCare extends PureComponent {
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     let sourceId;
-    if (!_.isEmpty(transferOfCareDetail && transferOfCareDetail[valuesNames.SOURCE_ID])) {
-      sourceId = transferOfCareDetail[valuesNames.SOURCE_ID];
-    } else if (this.context.router.route.match.params.sourceId) {
-      sourceId = this.context.router.route.match.params.sourceId;
-      if (transferOfCareDetail) {
+    if (isDetailPanelVisible && !_.isEmpty(transferOfCareDetail)) {
+      if (transferOfCareDetail[valuesNames.SOURCE_ID]) {
+        sourceId = transferOfCareDetail[valuesNames.SOURCE_ID];
+      } else if (this.context.router.route.match.params.sourceId) {
+        sourceId = this.context.router.route.match.params.sourceId;
         transferOfCareDetail[valuesNames.SOURCE_ID] = sourceId;
       }
     }

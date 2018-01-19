@@ -234,7 +234,7 @@ export default class ClinicalNotes extends PureComponent {
     const filteredClinicalNotes = this.formToShowCollection(allClinicalNotes);
 
     let sourceId;
-    if (!_.isEmpty(clinicalNoteDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(clinicalNoteDetail)) {
       sourceId = clinicalNoteDetail[valuesNames.SOURCE_ID];
     }
 

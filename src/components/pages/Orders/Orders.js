@@ -187,7 +187,7 @@ export default class Orders extends PureComponent {
     const filteredOrders = this.formToShowCollection(allOrders);
 
     let sourceId;
-    if (!_.isEmpty(orderDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(orderDetail)) {
       sourceId = orderDetail[valuesNames.SOURCE_ID];
     }
 

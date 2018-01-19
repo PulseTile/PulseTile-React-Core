@@ -10,6 +10,7 @@ export const valuesNames = {
   RECORDS_SOURCE: 'source',
   REASON: 'reasonForContact',
   CLINICAL: 'clinicalSummary',
+  TYPE: 'type',
 
   DATE_CREATED: 'dateCreated',
   AUTHOR: 'author',
@@ -30,30 +31,27 @@ export const valuesLabels = {
   RECORDS_SOURCE: 'Records',
   REASON: 'Reason for contact',
   CLINICAL: 'Clinical Summary',
+  TYPE: 'Type',
 
-  DATE: 'Date',
+  DATE: 'Date of Transfer',
   AUTHOR: 'Author',
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',
 };
 
-export const relationshipOptions = [
-  { value: 'Husband', title: 'Husband' },
-  { value: 'Wife', title: 'Wife' },
-  { value: 'Father', title: 'Father' },
-  { value: 'Alone', title: 'Alone' },
-  { value: 'Mother', title: 'Mother' },
-  { value: 'Daughter', title: 'Daughter' },
-  { value: 'Son', title: 'Son' },
-  { value: 'Brother', title: 'Brother' },
-  { value: 'Sister', title: 'Sister' },
-  { value: 'Friend', title: 'Friend' },
-  { value: 'Family friend', title: 'Family friend' },
-  { value: 'Neighbour', title: 'Neighbour' },
-  { value: 'District Nurse', title: 'District Nurse' },
-  { value: 'Primary Care Worker', title: 'Primary Care Worker' },
-  { value: 'Allocated social worker', title: 'Allocated social worker' },
-  { value: 'Care C-ordinator', title: 'Care C-ordinator' },
+export const citiesOptions = [
+  { value: 'Worcester Trust',     title: 'Worcester Trust' },
+  { value: 'Kings Hospital',      title: 'Kings Hospital' },
+  { value: 'Oxford NHS Trust',    title: 'Oxford NHS Trust' },
+  { value: 'St James\' Hospital', title: 'St James\' Hospital' },
+];
+
+export const typesOptions = [
+  { value: 'diagnosis',   title: 'Problems / Diagnosis' },
+  { value: 'medications', title: 'Medications' },
+  { value: 'referrals',   title: 'Referrals' },
+  { value: 'events',      title: 'Events' },
+  { value: 'vitals',      title: 'Vitals' },
 ];
 
 export const relationshipTypeOptions = [
@@ -62,3 +60,36 @@ export const relationshipTypeOptions = [
   { value: 'at0038', title: 'Formal care worker' },
   { value: 'at0039', title: 'Key formal care worker' },
 ];
+
+const config = {
+  diagnosis: {
+    title: 'Problems / Diagnosis',
+    // actionsFuncAll: diagnosesActions.all,
+    // actionsFuncOne: diagnosesActions.get,
+    records: null
+  },
+  medications: {
+    title: 'Medications',
+    // actionsFuncAll: medicationsActions.all,
+    // actionsFuncOne: medicationsActions.get,
+    records: null
+  },
+  referrals: {
+    title: 'Referrals',
+    // actionsFuncAll: referralsActions.all,
+    // actionsFuncOne: referralsActions.get,
+    records: null
+  },
+  events: {
+    title: 'Events',
+    // actionsFuncAll: eventsActions.all,
+    // actionsFuncOne: eventsActions.get,
+    records: null
+  },
+  vitals: {
+    title: 'Vitals',
+    // actionsFuncAll: vitalsActions.all,
+    // actionsFuncOne: vitalsActions.get,
+    records: null
+  }
+};

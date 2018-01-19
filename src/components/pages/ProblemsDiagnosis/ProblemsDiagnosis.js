@@ -249,7 +249,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const filteredDiagnoses = this.formToShowCollection(allDiagnoses);
 
     let sourceId;
-    if (!_.isEmpty(diagnosisDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(diagnosisDetail)) {
       sourceId = diagnosisDetail[valuesNames.SOURCE_ID];
     }
 
