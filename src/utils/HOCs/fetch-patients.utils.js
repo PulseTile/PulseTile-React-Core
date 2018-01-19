@@ -108,3 +108,15 @@ export const fetchPatientVitalsDetailOnMount = (generateFetchDetailOnMount('fetc
 
 export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPatientDocumentsRequest'));
 export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));
+
+export const fetchPatientImagesOnMount = (generateFetchListOnMount('fetchPatientImagesRequest'));
+export const fetchPatientImagesDetailOnMount = (generateFetchDetailOnMount('fetchPatientImagesDetailRequest'));
+export const fetchSeriesOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    const sourceId = _.get('params.sourceId', match);
+    const source = 'orthanc';
+    if (userId && sourceId) actions.fetchSeriesRequest({ userId, studyId: sourceId, source })
+  },
+});
