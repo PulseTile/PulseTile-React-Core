@@ -16,7 +16,7 @@ import { fetchPatientImagesDetailRequest } from './ducks/fetch-patient-images-de
 import { fetchSeriesRequest } from './ducks/fetch-all-series.duck';
 import { fetchSeriesDetailRequest } from './ducks/fetch-series-detail.duck';
 import { fetchPatientImagesOnMount, fetchPatientImagesDetailOnMount, fetchSeriesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientImagesSelector, patientImagesDetailSelector } from './selectors';
+import { patientImagesSelector, patientImagesDetailSelector, seriesDetailAndInstanceIdsSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import ImagesDetail from './ImagesDetail/ImagesDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
@@ -30,7 +30,8 @@ const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientImagesRequest, fetchPatientImagesDetailRequest, fetchSeriesRequest, fetchSeriesDetailRequest }, dispatch) });
 
 @connect(patientImagesSelector, mapDispatchToProps)
-@connect(patientImagesDetailSelector, mapDispatchToProps)
+@connect(patientImagesDetailSelector)
+@connect(seriesDetailAndInstanceIdsSelector)
 @compose(lifecycle(fetchPatientImagesOnMount), lifecycle(fetchSeriesOnMount))
 export default class Images extends PureComponent {
   static propTypes = {
@@ -129,7 +130,7 @@ export default class Images extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, editedPanel, offset, isLoading } = this.state;
-    const { allImages, imageDetail } = this.props;
+    const { allImages, imageDetail, instanceIds } = this.props;
 
     const isPanelDetails = (expandedPanel === IMAGES_DETAIL || expandedPanel === IMAGES_PANEL || expandedPanel === IMAGES_DETAIL_PANEL);
     const isPanelMain = (expandedPanel === IMAGES_MAIN);
@@ -187,6 +188,7 @@ export default class Images extends PureComponent {
               onEdit={this.handleEdit}
               editedPanel={editedPanel}
               onShow={this.handleShow}
+              instanceIds={instanceIds}
             />
           </Col> : null}
         </Row>

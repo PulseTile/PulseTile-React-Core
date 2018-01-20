@@ -8,8 +8,10 @@ const IMAGES_PANEL = 'imagesPanel';
 const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
 
 export default class ImagesDetail extends PureComponent {
+  getURLtoImage = id => `http://46.101.95.245/orthanc/instances/${id}/preview`;
+
   render() {
-    const { onExpand, onShow,  openedPanel, expandedPanel, currentPanel, onEdit, editedPanel } = this.props;
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, instanceIds } = this.props;
     let { detail } = this.props;
     detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail.dateCreated);
@@ -32,7 +34,9 @@ export default class ImagesDetail extends PureComponent {
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper">
-                  <div> Swipper part </div>
+                  { instanceIds.map((item) => {
+                    return <img src={this.getURLtoImage(item)} />
+                  })}
                 </div>
               </div>
             </div>
