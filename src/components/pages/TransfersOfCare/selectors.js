@@ -3,7 +3,6 @@ import _ from 'lodash/fp';
 
 const transfersOfCareCreateFormSelector = _.getOr({}, 'form.transfersOfCareCreateFormSelector')
 const transfersOfCareDetailFormSelector = _.getOr({}, 'form.transfersOfCareDetailFormSelector')
-const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
 
 const patientTransfersOfCareSelector = createSelector(
   ({ patientsTransfersOfCare }) => patientsTransfersOfCare,

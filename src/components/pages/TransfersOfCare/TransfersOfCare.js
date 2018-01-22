@@ -25,7 +25,20 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import TransfersOfCareDetail from './TransfersOfCareDetail/TransfersOfCareDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import TransfersOfCareCreateForm from './TransfersOfCareCreate/TransfersOfCareCreateForm'
-import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
+import { getDDMMMYYYY } from "../../../utils/time-helpers.utils";
+import { serviceTransferOfCare } from './transfer-of-care-helpers.utills';
+
+
+import {fetchPatientReferralsRequest} from "../Referrals/ducks/fetch-patient-referrals.duck";
+import {fetchPatientVitalsRequest} from "../Vitals/ducks/fetch-patient-vitals.duck";
+import {fetchPatientEventsRequest} from "../Events/ducks/fetch-patient-events.duck";
+import {fetchPatientMedicationsRequest} from "../Medications/ducks/fetch-patient-medications.duck";
+import {fetchPatientDiagnosesRequest} from "../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
+import {patientDiagnosesSelector} from "../ProblemsDiagnosis/selectors";
+import {patientMedicationsSelector} from "../Medications/selectors";
+import {patientVitalsSelector} from "../Vitals/selectors";
+import {patientEventsSelector} from "../Events/selectors";
+import {patientReferralsSelector} from "../Referrals/selectors";
 
 const TRANSFERS_OF_CARE_MAIN = 'transfersOfCareMain';
 const TRANSFERS_OF_CARE_DETAIL = 'transfersOfCareDetail';
@@ -33,8 +46,22 @@ const TRANSFERS_OF_CARE_CREATE = 'transfersOfCareCreate';
 const TRANSFER_OF_CARE_PANEL = 'transferOfCarePanel';
 const META_PANEL = 'metaPanel';
 
+const mapDispatchTypesRecordsToProps = dispatch => ({
+  actions: bindActionCreators({
+    fetchPatientDiagnosesRequest,
+    fetchPatientMedicationsRequest,
+    fetchPatientReferralsRequest,
+    fetchPatientEventsRequest,
+    fetchPatientVitalsRequest
+  }, dispatch) });
+
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientTransfersOfCareRequest, fetchPatientTransfersOfCareCreateRequest, fetchPatientTransfersOfCareDetailRequest, fetchPatientTransfersOfCareDetailEditRequest }, dispatch) });
 
+@connect(patientDiagnosesSelector, mapDispatchTypesRecordsToProps)
+@connect(patientMedicationsSelector, mapDispatchTypesRecordsToProps)
+@connect(patientReferralsSelector, mapDispatchTypesRecordsToProps)
+@connect(patientEventsSelector, mapDispatchTypesRecordsToProps)
+@connect(patientVitalsSelector, mapDispatchTypesRecordsToProps)
 @connect(patientTransfersOfCareSelector, mapDispatchToProps)
 @connect(patientTransfersOfCareDetailSelector, mapDispatchToProps)
 @connect(transfersOfCareDetailFormStateSelector)
@@ -214,6 +241,10 @@ export default class TransfersOfCare extends PureComponent {
     this.setState({ openedPanel: name })
   };
 
+  setDataForTypesRecords = () => {
+    const { allDiagnoses, allEvents, allMedications, allReferrals, allTransfersOfCare, allVitals } = this.props;
+  };
+
   formToShowCollection = (collection) => {
     const { columnNameSortBy, sortingOrder, nameShouldInclude } = this.state;
 
@@ -235,6 +266,7 @@ export default class TransfersOfCare extends PureComponent {
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allTransfersOfCare, transfersOfCareDetailFormState, transfersOfCareCreateFormState, metaPanelFormState, transferOfCareDetail } = this.props;
+    serviceTransferOfCare.setAllRecords(this.props);
 
     const isPanelDetails = (expandedPanel === TRANSFERS_OF_CARE_DETAIL || expandedPanel === TRANSFER_OF_CARE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === TRANSFERS_OF_CARE_MAIN);

@@ -6,13 +6,16 @@ import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFo
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, citiesOptions, typesOptions, relationshipTypeOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions, typesOptions } from '../forms.config';
+import { transfersOfCareDetailFormStateSelector} from "../selectors";
+import { connect } from "react-redux";
+import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
 
 @reduxForm({
   form: 'transfersOfCareDetailFormSelector',
   validate: validateForm,
 })
-
+@connect(transfersOfCareDetailFormStateSelector)
 export default class TransfersOfCareDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
@@ -31,23 +34,24 @@ export default class TransfersOfCareDetailForm extends PureComponent {
   }
 
   generateCitiesOptions = (selected) => {
-    return citiesOptions.slice().map(item => {
-      if (item.value === selected) {
-        item.disable = true;
-      }
-      return item;
-    });
+    return citiesOptions.slice().map(item => ({
+      ...item,
+      disabled: (item.value === selected)
+    }));
   };
 
-  isShowTypeRecord = (type) => {
-    return true;
+  isShowTypeRecord = (formState, type) => {
+    return formState[valuesNames.TYPE] === type;
   };
 
   render() {
-    const { detail, isSubmit } = this.props;
+    const { detail, isSubmit, transfersOfCareDetailFormState } = this.props;
+    const typeRecords = serviceTransferOfCare.getConfig();
 
-    const citiesFromOptions = this.generateCitiesOptions();
-    const citiesToOptions = this.generateCitiesOptions();
+    const formState = transfersOfCareDetailFormState.values || {};
+    const citiesFromOptions = this.generateCitiesOptions(formState[valuesNames.TO]);
+    const citiesToOptions = this.generateCitiesOptions(formState[valuesNames.FROM]);
+
 
     return (
       <div className="panel-body-inner">
@@ -65,7 +69,6 @@ export default class TransfersOfCareDetailForm extends PureComponent {
                   placeholder="-- Select from --"
                   props={{ isSubmit }}
                 />
-                {/*ng-options="city disable when city === transferOfCareEdit.to for city in cities"*/}
               </div>
               <div className="col-expand-right">
                 <Field
@@ -77,7 +80,6 @@ export default class TransfersOfCareDetailForm extends PureComponent {
                   placeholder="-- Select to --"
                   props={{ isSubmit }}
                 />
-                {/*ng-options="city disable when city === transferOfCareEdit.from for city in cities"*/}
               </div>
             </div>
 
@@ -92,22 +94,24 @@ export default class TransfersOfCareDetailForm extends PureComponent {
             />
             {/*ng-change="selectTypeRecords(transferOfCareEdit.type)"*/}
 
-            {/*{(this.isShowTypeRecord('diagnosis') ||*/}
-              {/*this.isShowTypeRecord('medications') ||*/}
-              {/*this.isShowTypeRecord('referrals') ||*/}
-              {/*this.isShowTypeRecord('vitals') ?*/}
-              {/*<div className="form-group">*/}
-                {/*<label htmlFor="" className="control-label">{{ typeRecords[transferOfCareEdit.type].title }}</label>*/}
-                {/*<div className="input-holder">*/}
-                  {/*<select className="form-control input-sm" id="typeRecordId" name="typeRecordId" ng-model="selectedRecord" ng-options="item as item.selectName for item in typeRecords[transferOfCareEdit.type].records" ng-change="addToRecords(selectedRecord)">*/}
-                    {/*<option value="">-- Select {{ typeRecords[transferOfCareEdit.type].title }} --</option>*/}
-                  {/*</select>*/}
-                {/*</div>*/}
-              {/*</div>*/}
-              {/*: null*/}
-            {/*}*/}
+            {(this.isShowTypeRecord(formState, 'diagnosis') ||
+              this.isShowTypeRecord(formState, 'medications') ||
+              this.isShowTypeRecord(formState, 'referrals') ||
+              this.isShowTypeRecord(formState, 'vitals')) ?
+              <div className="form-group">
+                <div className="input-holder">
+                  <select
+                    ng-model="selectedRecord"
+                    ng-options="item as item.selectName for item in typeRecords[formState.type].records"
+                    ng-change="addToRecords(selectedRecord)">
+                  </select>
+                </div>
+              </div>
 
-            {this.isShowTypeRecord('events') ?
+              : null
+            }
+
+            {this.isShowTypeRecord(formState, 'events') ?
               <div>
                 <div  className="form-group">
                   <label htmlFor="typeevents" className="control-label">Events Type</label>
