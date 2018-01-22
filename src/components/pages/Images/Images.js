@@ -121,6 +121,9 @@ export default class Images extends PureComponent {
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
       filterKeys: [valuesNames.STUDY_DESCRIPTION, `${valuesNames.DATE_RECORDED}Convert`, valuesNames.SOURCE],
+      modeSorting: {
+        number: [valuesNames.DATE_RECORDED],
+      },
     });
   };
 
@@ -130,7 +133,7 @@ export default class Images extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, editedPanel, offset, isLoading } = this.state;
-    const { allImages, imageDetail, instanceIds } = this.props;
+    const { allImages, imageDetail, instanceIds, serieDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === IMAGES_DETAIL || expandedPanel === IMAGES_PANEL || expandedPanel === IMAGES_DETAIL_PANEL);
     const isPanelMain = (expandedPanel === IMAGES_MAIN);
@@ -184,7 +187,7 @@ export default class Images extends PureComponent {
               openedPanel={openedPanel}
               expandedPanel={expandedPanel}
               currentPanel={IMAGES_DETAIL}
-              detail={imageDetail}
+              detail={serieDetail}
               onEdit={this.handleEdit}
               editedPanel={editedPanel}
               onShow={this.handleShow}
