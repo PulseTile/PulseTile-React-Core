@@ -5,7 +5,7 @@ import _ from 'lodash/fp'
 import moment from 'moment'
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import ImagesDetailPanel from '../images-page-component/ImagesDetailPanel'
 import { valuesNames, valuesLabels } from '../forms.config';
 
 const IMAGES_PANEL = 'imagesPanel';
@@ -41,16 +41,13 @@ export default class ImagesDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === IMAGES_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === IMAGES_PANEL || expandedPanel === 'all') ? <ImagesDetailPanel
             onExpand={onExpand}
             name={IMAGES_PANEL}
             title="Image(s) Series"
             isOpen={openedPanel === IMAGES_PANEL}
             currentPanel={currentPanel}
-            onEdit={onEdit}
-            editedPanel={editedPanel}
             isBtnShowPanel
-            isShowControlPanel={false}
             onShow={onShow}
           >
             <div className="panel-body-inner">
@@ -66,7 +63,7 @@ export default class ImagesDetail extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
+          </ImagesDetailPanel> : null}
           {(expandedPanel === IMAGES_DETAIL_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={IMAGES_DETAIL_PANEL}

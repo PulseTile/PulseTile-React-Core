@@ -154,7 +154,7 @@ export default class Images extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Personal Notes"
+                panelTitle="Images"
                 isBtnExpandVisible={isBtnExpandVisible}
                 name={IMAGES_MAIN}
                 onExpand={this.handleExpand}
@@ -163,7 +163,7 @@ export default class Images extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allImages}
-                emptyDataMessage="No personal notes"
+                emptyDataMessage="No images"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailImagesClick}
                 columnNameSortBy={columnNameSortBy}
