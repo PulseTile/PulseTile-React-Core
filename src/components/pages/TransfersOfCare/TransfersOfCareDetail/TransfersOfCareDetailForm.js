@@ -10,6 +10,7 @@ import { valuesNames, valuesLabels, citiesOptions, typesOptions } from '../forms
 import { transfersOfCareDetailFormStateSelector} from "../selectors";
 import { connect } from "react-redux";
 import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
+import Spinner from '../../../ui-elements/Spinner/Spinner';
 
 @reduxForm({
   form: 'transfersOfCareDetailFormSelector',
@@ -17,11 +18,25 @@ import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
 })
 @connect(transfersOfCareDetailFormStateSelector)
 export default class TransfersOfCareDetailForm extends PureComponent {
+  state = {
+    typeRecords: '',
+  };
+
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
-  defaultValuesForm(value) {
+
+  // componentWillUpdate() {
+  //   const { typeRecords } = this.state;
+  //   const typesRecords = serviceTransferOfCare.getConfig();
+  //   if (typesRecords[typeRecords] && typesRecords[typeRecords].records) {
+  //     console.log('false componentWillUpdate');
+  //     this.setState({ isRecordsLoading: false });
+  //   }
+  // }
+
+  defaultValuesForm = (value) => {
     const defaultFormValues = {
       [valuesNames.FROM]: value[valuesNames.FROM],
       [valuesNames.TO]: value[valuesNames.TO],
@@ -31,7 +46,7 @@ export default class TransfersOfCareDetailForm extends PureComponent {
     };
 
     return defaultFormValues;
-  }
+  };
 
   generateCitiesOptions = (selected) => {
     return citiesOptions.slice().map(item => ({
@@ -40,21 +55,31 @@ export default class TransfersOfCareDetailForm extends PureComponent {
     }));
   };
 
-  isShowTypeRecord = (formState, type) => {
-    return formState[valuesNames.TYPE] === type;
+  getHeadingsLists = (ev) => {
+    const { handleGetHeadingsLists } = this.props;
+    const typeRecords = ev.target.value;
+    this.setState({ typeRecords });
+    handleGetHeadingsLists(typeRecords);
+  };
+
+  getHeadingsItem = (ev) => {
+    debugger
   };
 
   render() {
-    const { detail, isSubmit, transfersOfCareDetailFormState } = this.props;
-    const typeRecords = serviceTransferOfCare.getConfig();
+    const { detail, isSubmit, transfersOfCareDetailFormState, isRecordsLoading } = this.props;
+    const { typeRecords } = this.state;
+
+    const typesRecords = serviceTransferOfCare.getConfig();
+    // console.log('typesRecords', typesRecords);
 
     const formState = transfersOfCareDetailFormState.values || {};
     const citiesFromOptions = this.generateCitiesOptions(formState[valuesNames.TO]);
     const citiesToOptions = this.generateCitiesOptions(formState[valuesNames.FROM]);
 
-
     return (
       <div className="panel-body-inner">
+        {isRecordsLoading ? <Spinner /> : null }
         <form name="transfersOfCareDetailForm" className="form">
           <div className="form-group-wrapper">
 
@@ -83,7 +108,7 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               </div>
             </div>
 
-            <Field
+            <SelectFormGroup
               label={valuesLabels.TYPE}
               name={valuesNames.TYPE}
               id={valuesNames.TYPE}
@@ -91,27 +116,41 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               component={SelectFormGroup}
               placeholder="-- Select type --"
               props={{ isSubmit }}
+              meta={{error: false, touched: false}}
+              input={{value: typeRecords}}
+              onChange={this.getHeadingsLists}
             />
-            {/*ng-change="selectTypeRecords(transferOfCareEdit.type)"*/}
 
-            {(this.isShowTypeRecord(formState, 'diagnosis') ||
-              this.isShowTypeRecord(formState, 'medications') ||
-              this.isShowTypeRecord(formState, 'referrals') ||
-              this.isShowTypeRecord(formState, 'vitals')) ?
-              <div className="form-group">
-                <div className="input-holder">
-                  <select
-                    ng-model="selectedRecord"
-                    ng-options="item as item.selectName for item in typeRecords[formState.type].records"
-                    ng-change="addToRecords(selectedRecord)">
-                  </select>
-                </div>
-              </div>
+            {(typeRecords === 'diagnosis' ||
+              typeRecords === 'medications' ||
+              typeRecords === 'referrals' ||
+              typeRecords === 'vitals') ?
+              <SelectFormGroup
+                label={valuesLabels.RECORDS}
+                name={valuesNames.RECORDS}
+                id={valuesNames.RECORDS}
+                options={typesRecords[typeRecords].records || []}
+                component={SelectFormGroup}
+                placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
+                props={{ isSubmit }}
+                meta={{error: false, touched: false}}
+                input={{value: typeRecords}}
+                onChange={this.getHeadingsItem}
+              />
 
               : null
             }
+            {/*<Field*/}
+              {/*label={valuesLabels.RECORDS}*/}
+              {/*name={valuesNames.RECORDS}*/}
+              {/*id={valuesNames.RECORDS}*/}
+              {/*options={typesRecords[typeRecords].records || []}*/}
+              {/*component={SelectFormGroup}*/}
+              {/*placeholder={`-- Select ${typesRecords[typeRecords].title} --`}*/}
+              {/*props={{ isSubmit }}*/}
+            {/*/>*/}
 
-            {this.isShowTypeRecord(formState, 'events') ?
+            {typeRecords === 'events' ?
               <div>
                 <div  className="form-group">
                   <label htmlFor="typeevents" className="control-label">Events Type</label>

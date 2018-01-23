@@ -46,24 +46,27 @@ const TRANSFERS_OF_CARE_CREATE = 'transfersOfCareCreate';
 const TRANSFER_OF_CARE_PANEL = 'transferOfCarePanel';
 const META_PANEL = 'metaPanel';
 
-const mapDispatchTypesRecordsToProps = dispatch => ({
+const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
+    fetchPatientTransfersOfCareRequest,
+    fetchPatientTransfersOfCareCreateRequest,
+    fetchPatientTransfersOfCareDetailRequest,
+    fetchPatientTransfersOfCareDetailEditRequest,
+
     fetchPatientDiagnosesRequest,
     fetchPatientMedicationsRequest,
     fetchPatientReferralsRequest,
     fetchPatientEventsRequest,
-    fetchPatientVitalsRequest
+    fetchPatientVitalsRequest,
   }, dispatch) });
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientTransfersOfCareRequest, fetchPatientTransfersOfCareCreateRequest, fetchPatientTransfersOfCareDetailRequest, fetchPatientTransfersOfCareDetailEditRequest }, dispatch) });
-
-@connect(patientDiagnosesSelector, mapDispatchTypesRecordsToProps)
-@connect(patientMedicationsSelector, mapDispatchTypesRecordsToProps)
-@connect(patientReferralsSelector, mapDispatchTypesRecordsToProps)
-@connect(patientEventsSelector, mapDispatchTypesRecordsToProps)
-@connect(patientVitalsSelector, mapDispatchTypesRecordsToProps)
-@connect(patientTransfersOfCareSelector, mapDispatchToProps)
-@connect(patientTransfersOfCareDetailSelector, mapDispatchToProps)
+@connect(patientDiagnosesSelector, mapDispatchToProps)
+@connect(patientMedicationsSelector)
+@connect(patientReferralsSelector)
+@connect(patientEventsSelector)
+@connect(patientVitalsSelector)
+@connect(patientTransfersOfCareSelector)
+@connect(patientTransfersOfCareDetailSelector)
 @connect(transfersOfCareDetailFormStateSelector)
 @connect(transfersOfCareCreateFormStateSelector)
 @compose(lifecycle(fetchPatientTransfersOfCareOnMount), lifecycle(fetchPatientTransfersOfCareDetailOnMount))
@@ -96,9 +99,16 @@ export default class TransfersOfCare extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    waitingDataOf: '',
+    isRecordsLoading: false,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    const { waitingDataOf } = this.state;
+    if (nextProps[waitingDataOf]) {
+      this.setState({isRecordsLoading: false})
+    }
+
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -119,19 +129,19 @@ export default class TransfersOfCare extends PureComponent {
     }, 500)
   }
 
- handleExpand = (name, currentPanel) => {
-   if (currentPanel === TRANSFERS_OF_CARE_MAIN) {
-     if (this.state.expandedPanel === 'all') {
-       this.setState({ expandedPanel: name });
-     } else {
-       this.setState({ expandedPanel: 'all' });
-     }
-   } else if (this.state.expandedPanel === 'all') {
-     this.setState({ expandedPanel: name, openedPanel: name });
-   } else {
-     this.setState({ expandedPanel: 'all' });
-   }
- };
+  handleExpand = (name, currentPanel) => {
+    if (currentPanel === TRANSFERS_OF_CARE_MAIN) {
+      if (this.state.expandedPanel === 'all') {
+        this.setState({ expandedPanel: name });
+      } else {
+        this.setState({ expandedPanel: 'all' });
+      }
+    } else if (this.state.expandedPanel === 'all') {
+      this.setState({ expandedPanel: name, openedPanel: name });
+    } else {
+      this.setState({ expandedPanel: 'all' });
+    }
+  };
 
   handleFilterChange = ({ target: { value } }) => this.setState({ nameShouldInclude: _.toLower(value) });
 
@@ -144,7 +154,7 @@ export default class TransfersOfCare extends PureComponent {
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}/${sourceId}`);
   };
 
- handleSetOffset = offset => this.setState({ offset });
+  handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     const { userId } = this.props;
@@ -152,86 +162,86 @@ export default class TransfersOfCare extends PureComponent {
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}/create`);
   };
 
- handleEdit = (name) => {
-   this.setState(prevState => ({
-     editedPanel: {
-       ...prevState.editedPanel,
-       [name]: true,
-     },
-     isSubmit: false,
-   }))
- };
+  handleEdit = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: true,
+      },
+      isSubmit: false,
+    }))
+  };
 
- handleTransferOfCareDetailCancel = (name) => {
-   this.setState(prevState => ({
-     editedPanel: {
-       ...prevState.editedPanel,
-       [name]: false,
-     },
-     isSubmit: false,
-     isLoading: true,
-   }))
- };
+  handleTransferOfCareDetailCancel = (name) => {
+    this.setState(prevState => ({
+      editedPanel: {
+        ...prevState.editedPanel,
+        [name]: false,
+      },
+      isSubmit: false,
+      isLoading: true,
+    }))
+  };
 
- handleSaveSettingsDetailForm = (formValues, name) => {
-   const { actions, transfersOfCareDetailFormState } = this.props;
-   if (checkIsValidateForm(transfersOfCareDetailFormState)) {
-     actions.fetchPatientTransfersOfCareDetailEditRequest(this.formValuesToString(formValues, 'edit'));
-     this.setState(prevState => ({
-       editedPanel: {
-         ...prevState.editedPanel,
-         [name]: false,
-       },
-       isSubmit: false,
-       isLoading: true,
-     }))
-   } else {
-     this.setState({ isSubmit: true });
-   }
- };
+  handleSaveSettingsDetailForm = (formValues, name) => {
+    const { actions, transfersOfCareDetailFormState } = this.props;
+    if (checkIsValidateForm(transfersOfCareDetailFormState)) {
+      actions.fetchPatientTransfersOfCareDetailEditRequest(this.formValuesToString(formValues, 'edit'));
+      this.setState(prevState => ({
+        editedPanel: {
+          ...prevState.editedPanel,
+          [name]: false,
+        },
+        isSubmit: false,
+        isLoading: true,
+      }))
+    } else {
+      this.setState({ isSubmit: true });
+    }
+  };
 
- handleCreateCancel = () => {
-   const { userId } = this.props;
-   this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TRANSFER_OF_CARE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-   this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}`);
- };
+  handleCreateCancel = () => {
+    const { userId } = this.props;
+    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TRANSFER_OF_CARE_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}`);
+  };
 
- handleSaveSettingsCreateForm = (formValues) => {
-   const { actions, userId, transfersOfCareCreateFormState } = this.props;
+  handleSaveSettingsCreateForm = (formValues) => {
+    const { actions, userId, transfersOfCareCreateFormState } = this.props;
 
-   if (checkIsValidateForm(transfersOfCareCreateFormState)) {
-     actions.fetchPatientTransfersOfCareCreateRequest(this.formValuesToString(formValues, 'create'));
-     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}`);
-     this.hideCreateForm();
-     this.setState({ isSubmit: false, isLoading: true });
-   } else {
-     this.setState({ isSubmit: true });
-   }
- };
+    if (checkIsValidateForm(transfersOfCareCreateFormState)) {
+      actions.fetchPatientTransfersOfCareCreateRequest(this.formValuesToString(formValues, 'create'));
+      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TRANSFERS_OF_CARE}`);
+      this.hideCreateForm();
+      this.setState({ isSubmit: false, isLoading: true });
+    } else {
+      this.setState({ isSubmit: true });
+    }
+  };
 
- formValuesToString = (formValues, formName) => {
-   const { userId, transferOfCareDetail } = this.props;
-   const sendData = {};
+  formValuesToString = (formValues, formName) => {
+    const { userId, transferOfCareDetail } = this.props;
+    const sendData = {};
 
-   sendData.userId = userId;
-   // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-   // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
-   // sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
-   // sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
-   // sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
-   // sendData[valuesNames.TRANSFER_OF_CARE_INFORMATION] = formValues[valuesNames.TRANSFER_OF_CARE_INFORMATION];
-   // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-   // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-   // sendData[valuesNames.DATE_SUBMITTED] = new Date();
-   // sendData[valuesNames.SOURCE] = 'ethercis';
+    sendData.userId = userId;
+    // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
+    // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
+    // sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
+    // sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
+    // sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
+    // sendData[valuesNames.TRANSFER_OF_CARE_INFORMATION] = formValues[valuesNames.TRANSFER_OF_CARE_INFORMATION];
+    // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
+    // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    // sendData[valuesNames.DATE_SUBMITTED] = new Date();
+    // sendData[valuesNames.SOURCE] = 'ethercis';
 
-   if (formName === 'edit') {
-     // sendData[valuesNames.SOURCE_ID] = transferOfCareDetail[valuesNames.SOURCE_ID];
-   }
+    if (formName === 'edit') {
+      // sendData[valuesNames.SOURCE_ID] = transferOfCareDetail[valuesNames.SOURCE_ID];
+    }
 
-   // operationsOnCollection.propsToString(sendData, valuesNames.DATE_SUBMITTED);
-   return sendData;
- };
+    // operationsOnCollection.propsToString(sendData, valuesNames.DATE_SUBMITTED);
+    return sendData;
+  };
 
   hideCreateForm = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: TRANSFER_OF_CARE_PANEL, isSecondPanel: false })
@@ -239,10 +249,6 @@ export default class TransfersOfCare extends PureComponent {
 
   handleShow = (name) => {
     this.setState({ openedPanel: name })
-  };
-
-  setDataForTypesRecords = () => {
-    const { allDiagnoses, allEvents, allMedications, allReferrals, allTransfersOfCare, allVitals } = this.props;
   };
 
   formToShowCollection = (collection) => {
@@ -263,9 +269,20 @@ export default class TransfersOfCare extends PureComponent {
     });
   };
 
+  handleGetHeadingsLists = (type) => {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId && !serviceTransferOfCare.config[type].records) {
+      this.setState({ waitingDataOf: serviceTransferOfCare.config[type].stateName, isRecordsLoading: true });
+      actions[serviceTransferOfCare.config[type].actionsFuncAll]({ userId });
+    }
+  };
+
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
-    const { allTransfersOfCare, transfersOfCareDetailFormState, transfersOfCareCreateFormState, metaPanelFormState, transferOfCareDetail } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible,
+      expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit,
+      isLoading, isRecordsLoading } = this.state;
+    const { allTransfersOfCare, transfersOfCareDetailFormState, transfersOfCareCreateFormState, transferOfCareDetail } = this.props;
     serviceTransferOfCare.setAllRecords(this.props);
 
     const isPanelDetails = (expandedPanel === TRANSFERS_OF_CARE_DETAIL || expandedPanel === TRANSFER_OF_CARE_PANEL || expandedPanel === META_PANEL);
@@ -340,6 +357,8 @@ export default class TransfersOfCare extends PureComponent {
               onCancel={this.handleTransferOfCareDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               transfersOfCareDetailFormValues={transfersOfCareDetailFormState.values}
+              handleGetHeadingsLists={this.handleGetHeadingsLists}
+              isRecordsLoading={isRecordsLoading}
               isSubmit={isSubmit}
             />
           </Col> : null}

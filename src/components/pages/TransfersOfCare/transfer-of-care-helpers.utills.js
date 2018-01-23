@@ -1,76 +1,82 @@
 import _ from 'lodash/fp';
 import { getDDMMMYYYY } from "../../../utils/time-helpers.utils";
+// import {fetchPatientMedicationsRequest} from "../Medications/ducks/fetch-patient-medications.duck";
+// import {fetchPatientEventsRequest} from "../Events/ducks/fetch-patient-events.duck";
+// import {fetchPatientReferralsRequest} from "../Referrals/ducks/fetch-patient-referrals.duck";
+// import {fetchPatientDiagnosesRequest} from "../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
+// import {fetchPatientVitalsRequest} from "../Vitals/ducks/fetch-patient-vitals.duck";
 
 export const serviceTransferOfCare = {
   config: {
     diagnosis: {
       title: 'Problems / Diagnosis',
-      // actionsFuncAll: diagnosesActions.all,
+      actionsFuncAll: 'fetchPatientDiagnosesRequest',
       // actionsFuncOne: diagnosesActions.get,
       stateName: 'allDiagnoses',
       setMethodName: 'setDiagnosisRecords',
-      records: null
+      records: null,
     },
     medications: {
       title: 'Medications',
-      // actionsFuncAll: medicationsActions.all,
+      actionsFuncAll: 'fetchPatientMedicationsRequest',
       // actionsFuncOne: medicationsActions.get,
       stateName: 'allMedications',
       setMethodName: 'setMedicationRecords',
-      records: null
+      records: null,
     },
     referrals: {
       title: 'Referrals',
-      // actionsFuncAll: referralsActions.all,
+      actionsFuncAll: 'fetchPatientReferralsRequest',
       // actionsFuncOne: referralsActions.get,
       stateName: 'allReferrals',
       setMethodName: 'setReferralsRecords',
-      records: null
+      records: null,
     },
     events: {
       title: 'Events',
-      // actionsFuncAll: eventsActions.all,
+      actionsFuncAll: 'fetchPatientEventsRequest',
       // actionsFuncOne: eventsActions.get,
       stateName: 'allEvents',
       setMethodName: 'setEventsRecords',
-      records: null
+      records: null,
     },
     vitals: {
       title: 'Vitals',
-      // actionsFuncAll: vitalsActions.all,
+      actionsFuncAll: 'fetchPatientVitalsRequest',
       // actionsFuncOne: vitalsActions.get,
       stateName: 'allVitals',
       setMethodName: 'setVitalsRecords',
-      records: null
+      records: null,
     }
   },
   getConfig: () => {
     return serviceTransferOfCare.config;
   },
   changeArraysForTable: (arr, name, date) => {
-    arr.map(el => {
-      el.date = getDDMMMYYYY(el[date]);
+    return arr.map(el => {
       el.tableName = el[name];
-      el.selectName = el[name];
-      return el;
+      el.date = getDDMMMYYYY(el[date]);
+      return {
+        spacialValue: el,
+        title: el[name],
+      };
     });
   },
   setDiagnosisRecords: data => {
-    serviceTransferOfCare.config.diagnosis.records = data;
-    serviceTransferOfCare.changeArraysForTable(serviceTransferOfCare.config.diagnosis.records, 'problem', 'dateOfOnset');
+    serviceTransferOfCare.config.diagnosis.records = serviceTransferOfCare.changeArraysForTable(data, 'problem', 'dateOfOnset');
   },
   setMedicationRecords: data => {
-    serviceTransferOfCare.config.medications.records = data;
-    serviceTransferOfCare.changeArraysForTable(serviceTransferOfCare.config.medications.records, 'name', 'dateCreated');
+    serviceTransferOfCare.config.medications.records = serviceTransferOfCare.changeArraysForTable(data, 'name', 'dateCreated');
   },
   setReferralsRecords: data => {
-    serviceTransferOfCare.config.referrals.records = data;
-    serviceTransferOfCare.config.referrals.records.map(function (el) {
+    serviceTransferOfCare.config.referrals.records = data.map(el => {
       const date = getDDMMMYYYY(el.dateOfReferral);
       el.date = date;
-      el.tableName = date + ' ' + el.referralFrom + ' ' + el.referralTo;
-      el.selectName = date + ' - ' + el.referralFrom + ' -> ' + el.referralTo;
-      return el;
+      el.tableName = `${date} ${el.referralFrom} ${el.referralTo}`;
+      return {
+        specialValue: el,
+        title: `${date} - ${el.referralFrom} -> ${el.referralTo}`
+      }
     });
   },
   modificateEventsArr: arr => {
@@ -98,11 +104,13 @@ export const serviceTransferOfCare = {
   },
   setVitalsRecords: data => {
     serviceTransferOfCare.config.vitals.records = [];
-    serviceTransferOfCare.config.vitals.records.push(data[1]);
+    serviceTransferOfCare.config.vitals.records.push({
+      specialValue: data[1]
+    });
 
-    serviceTransferOfCare.config.vitals.records[0].date = getDDMMMYYYY(serviceTransferOfCare.config.vitals.records[0].dateCreate);
-    serviceTransferOfCare.config.vitals.records[0].selectName = 'Latest Vitals Data';
-    serviceTransferOfCare.config.vitals.records[0].tableName = 'Latest Vitals Data (News Score: ' + serviceTransferOfCare.config.vitals.records[0].newsScore + ')';
+    serviceTransferOfCare.config.vitals.records[0].specialValue.date = getDDMMMYYYY(serviceTransferOfCare.config.vitals.records[0].dateCreated);
+    serviceTransferOfCare.config.vitals.records[0].specialValue.tableName = 'Latest Vitals Data (News Score: ' + serviceTransferOfCare.config.vitals.records[0].newsScore + ')';
+    serviceTransferOfCare.config.vitals.records[0].title = 'Latest Vitals Data';
   },
 
   setAllRecords: (data) => {
@@ -112,7 +120,7 @@ export const serviceTransferOfCare = {
         serviceTransferOfCare[serviceTransferOfCare.config[key].setMethodName](data[stateName]);
       }
     }
-  }
+  },
 };
 
 
