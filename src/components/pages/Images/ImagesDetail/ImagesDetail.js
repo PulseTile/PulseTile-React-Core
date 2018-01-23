@@ -10,12 +10,49 @@ import { valuesNames, valuesLabels } from '../forms.config';
 
 const IMAGES_PANEL = 'imagesPanel';
 const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
+const SCALE = 50;
 
 export default class ImagesDetail extends PureComponent {
   getURLtoImage = id => `http://46.101.95.245/orthanc/instances/${id}/preview`;
 
+  state = {
+    styleSwiper: {},
+  };
+
+  zoomin = () => {
+    const { styleSwiper } = this.state;
+    const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
+    const currWidth = myImg.clientWidth;
+    const currHeight = myImg.clientHeight;
+    this.setState({ styleSwiper: {
+      ...styleSwiper,
+      [this.swiper.activeIndex]: {
+        width: `${currWidth + SCALE}px`,
+        height: `${currHeight + SCALE}px`,
+        maxWidth: 'initial',
+        maxHeight: 'initial',
+      },
+    } });
+  };
+  zoomout = () => {
+    const { styleSwiper } = this.state;
+    const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
+    const currWidth = myImg.clientWidth;
+    const currHeight = myImg.clientHeight;
+    this.setState({ styleSwiper: {
+      ...styleSwiper,
+      [this.swiper.activeIndex]: {
+        width: `${currWidth - SCALE}px`,
+        height: `${currHeight - SCALE}px`,
+        maxWidth: 'initial',
+        maxHeight: 'initial',
+      },
+    } });
+  };
+
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, instanceIds } = this.props;
+    const { styleSwiper } = this.state;
     let { detail } = this.props;
     detail = detail || {};
     const seriesDate = (detail[valuesNames.SERIES_DATE]) ? moment(detail[valuesNames.SERIES_DATE]).format('DD-MMM-YYYY') : '';
@@ -32,10 +69,11 @@ export default class ImagesDetail extends PureComponent {
         prevEl: '.swiper-button-prev',
       },
       spaceBetween: 30,
+      init: true,
     };
 
-    const swiperSlide = instanceIds.map((item) => {
-      return <div><img src={this.getURLtoImage(item)} /></div>
+    const swiperSlide = instanceIds.map((item, index) => {
+      return (<div key={index}><img id={`img-${index}`} style={styleSwiper[index] ? styleSwiper[index] : null} src={this.getURLtoImage(item)} /></div>)
     });
 
     return (
@@ -49,16 +87,17 @@ export default class ImagesDetail extends PureComponent {
             currentPanel={currentPanel}
             isBtnShowPanel
             onShow={onShow}
+            zoomin={this.zoomin}
+            zoomout={this.zoomout}
           >
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper dicom-container">
                   <Swiper
-                    pagination={params.pagination}
-                    navigation={params.navigation}
-                    spaceBetween={params.spaceBetween}
+                    {...params}
+                    ref={node => this.swiper = node ? node.swiper : null}
                   >
-                    { !_.isEmpty(instanceIds) ? swiperSlide : null }
+                    { swiperSlide }
                   </Swiper>
                 </div>
               </div>

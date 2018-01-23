@@ -32,6 +32,7 @@
   transform-style: preserve-3d;
   display: flex;
   margin: auto;
+  overflow: hidden;
 
   img {
     height: auto;
@@ -41,6 +42,6 @@
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: auto !important
+    width: auto
   }
 }

@@ -15,10 +15,12 @@ export default class ImagesDetailPanel extends PureComponent {
     onExpand: PropTypes.func.isRequired,
     isBtnShowPanel: PropTypes.bool.isRequired,
     currentPanel: PropTypes.string.isRequired,
+    zoomin: PropTypes.func.isRequired,
+    zoomout: PropTypes.func.isRequired,
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, currentPanel, isBtnShowPanel } = this.props;
+    const { name, title, children, isOpen, onShow, onExpand, currentPanel, isBtnShowPanel, zoomin, zoomout } = this.props;
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -34,10 +36,10 @@ export default class ImagesDetailPanel extends PureComponent {
                 <i className="btn-icon fa fa-stop" />
               </PTButton>
               <div className="control-separate control-separate-sm" />
-              <PTButton id="zoomIn" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal">
+              <PTButton id="zoomIn" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal" onClick={() => zoomout()}>
                 <i className="btn-icon fa fa-search-minus" />
               </PTButton>
-              <PTButton id="zoomOut" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal">
+              <PTButton id="zoomOut" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal" onClick={() => zoomin()}>
                 <i className="btn-icon fa fa-search-plus" />
               </PTButton>
               <div className="control-separate control-separate-sm" />
