@@ -15,8 +15,8 @@ import { fetchPatientImagesRequest } from './ducks/fetch-patient-images.duck';
 import { fetchPatientImagesDetailRequest } from './ducks/fetch-patient-images-detail.duck';
 import { fetchSeriesRequest } from './ducks/fetch-all-series.duck';
 import { fetchSeriesDetailRequest } from './ducks/fetch-series-detail.duck';
-import { fetchPatientImagesOnMount, fetchPatientImagesDetailOnMount, fetchSeriesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientImagesSelector, patientImagesDetailSelector, seriesDetailAndInstanceIdsSelector } from './selectors';
+import { fetchPatientImagesOnMount, fetchSeriesOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { patientImagesSelector, seriesDetailAndInstanceIdsSelector, allSeriesSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import ImagesDetail from './ImagesDetail/ImagesDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
@@ -30,8 +30,8 @@ const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientImagesRequest, fetchPatientImagesDetailRequest, fetchSeriesRequest, fetchSeriesDetailRequest }, dispatch) });
 
 @connect(patientImagesSelector, mapDispatchToProps)
-@connect(patientImagesDetailSelector)
 @connect(seriesDetailAndInstanceIdsSelector)
+@connect(allSeriesSelector)
 @compose(lifecycle(fetchPatientImagesOnMount), lifecycle(fetchSeriesOnMount))
 export default class Images extends PureComponent {
   static propTypes = {
@@ -133,7 +133,7 @@ export default class Images extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, editedPanel, offset, isLoading } = this.state;
-    const { allImages, imageDetail, instanceIds, serieDetail } = this.props;
+    const { allImages, instanceIds, serieDetail, allSerie } = this.props;
 
     const isPanelDetails = (expandedPanel === IMAGES_DETAIL || expandedPanel === IMAGES_PANEL || expandedPanel === IMAGES_DETAIL_PANEL);
     const isPanelMain = (expandedPanel === IMAGES_MAIN);
@@ -143,8 +143,8 @@ export default class Images extends PureComponent {
     const filteredImages = this.formToShowCollection(allImages);
 
     let sourceId;
-    if (!_.isEmpty(imageDetail)) {
-      sourceId = imageDetail[valuesNames.STUDY_ID];
+    if (!_.isEmpty(serieDetail)) {
+      sourceId = allSerie[valuesNames.STUDY_ID];
     }
 
     return (<section className="page-wrapper">

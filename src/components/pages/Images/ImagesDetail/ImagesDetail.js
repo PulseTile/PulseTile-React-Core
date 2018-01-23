@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import Swiper from 'react-id-swiper';
 import 'react-id-swiper/src/styles/scss/swiper.scss';
-import _ from 'lodash/fp'
 import moment from 'moment'
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
@@ -18,6 +17,12 @@ export default class ImagesDetail extends PureComponent {
   state = {
     styleSwiper: {},
   };
+
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.instanceIds[0] !== this.props.instanceIds[0]) {
+      this.setState({styleSwiper : {}})
+    }
+  }
 
   zoomin = () => {
     const { styleSwiper } = this.state;

@@ -14,16 +14,6 @@ const patientImagesSelector = createSelector(
   }
 );
 
-const patientImagesDetailSelector = createSelector(
-  ({ imagesDetail }) => imagesDetail,
-  (state, props) => _.getOr(null, 'match.params.userId', props),
-  (imagesDetail, userId) => {
-    const imageDetail = imagesDetail[userId];
-    // const instanceIds = imageDetail.instanceIds;
-    return ({ imageDetail, userId });
-  }
-);
-
 const seriesDetailAndInstanceIdsSelector = createSelector(
   ({ seriesDetail }) => seriesDetail,
   (state, props) => _.getOr(null, 'match.params.userId', props),
@@ -39,4 +29,13 @@ const seriesDetailAndInstanceIdsSelector = createSelector(
   }
 );
 
-export { patientImagesSelector, patientImagesDetailSelector, seriesDetailAndInstanceIdsSelector }
+const allSeriesSelector = createSelector(
+  ({ allSeries }) => allSeries,
+  (state, props) => _.getOr(null, 'match.params.userId', props),
+  (allSeries, userId) => {
+    const allSerie = allSeries[userId];
+    return ({ allSerie, userId });
+  }
+);
+
+export { patientImagesSelector, seriesDetailAndInstanceIdsSelector, allSeriesSelector }

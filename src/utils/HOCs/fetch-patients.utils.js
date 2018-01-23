@@ -110,7 +110,6 @@ export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPati
 export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));
 
 export const fetchPatientImagesOnMount = (generateFetchListOnMount('fetchPatientImagesRequest'));
-export const fetchPatientImagesDetailOnMount = (generateFetchDetailOnMount('fetchPatientImagesDetailRequest'));
 export const fetchSeriesOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
