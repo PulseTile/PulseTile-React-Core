@@ -24,6 +24,7 @@ export const clientUrls = {
   DRAWINGS: 'drawings',
   VITALS: 'vitals',
   DOCUMENTS: 'documents',
+  IMAGES: 'images',
   TRANSFERS_OF_CARE: 'transfer-of-care',
 };
 
@@ -128,6 +129,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Documents',
       state: '/documents',
+    }],
+  },
+  'images': {
+    breadcrumbs: [{
+      title: 'Images',
+      state: '/images',
     }],
   },
   'transfer-of-care': {

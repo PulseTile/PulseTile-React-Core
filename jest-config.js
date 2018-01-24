@@ -1,6 +1,6 @@
 module.exports = {
   roots: ['<rootDir>/tests'],
-  verbose: true,
+  verbose: false,
   modulePaths: [
     '__stubs__',
   ],
@@ -16,13 +16,17 @@ module.exports = {
     '^.+\\.js$': 'babel-jest',
   },
   collectCoverageFrom: [
+    // Coverage files
     '**/src/components/presentational/**.{js,jsx}',
     '**/src/components/form-fields/**.{js,jsx}',
     '**/src/components/ui-elements/**.{js,jsx}',
     '**/src/components/containers/**.{js,jsx}',
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
+
+    // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
+    '!**/src/components/**{viltals-helpers.utils.js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
     '!**/src/components/**{forms.validation.js}',

@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import sinon from 'sinon'
 import { StaticRouter } from 'react-router'
 import Enzyme, { shallow, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 
 import Sidebar from '../../src/components/presentational/Sidebar/Sidebar';
 

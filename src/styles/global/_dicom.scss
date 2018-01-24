@@ -1,0 +1,57 @@
+.dicom-container {
+  height: 512px;
+  margin: auto;
+  width: 100%;
+}
+
+.swiper-container {
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.swiper-wrapper {
+  background: rgb(0, 0, 0);
+  box-sizing: content-box;
+  display: flex;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translate3d(0px, 0px, 0px);
+  transition-property: transform;
+  transition-duration: 0ms;
+  width: 100%;
+  z-index: 1;
+}
+
+.swiper-slide {
+  background: rgb(0, 0, 0);
+  flex-shrink: 0;
+  transform-style: preserve-3d;
+  display: flex;
+  margin: auto;
+  overflow: hidden;
+
+  img {
+    height: auto;
+    left: 50%;
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto
+  }
+}
+
+.swiper-pagination-bullet {
+  background: #808080;
+  opacity: 1.2;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007aff;
+}

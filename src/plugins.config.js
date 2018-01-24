@@ -17,6 +17,7 @@ import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index';
 import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index';
 import { documentsEpic, documentsReducer } from './components/pages/Documents/index';
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
+import { imagesEpic, imagesReducer } from './components/pages/Images/index';
 import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 
 import Allergies from './components/pages/Allergies/Allergies';
@@ -36,6 +37,7 @@ import MDTs from './components/pages/MDTs/MDTs';
 import Drawings from './components/pages/Drawings/Drawings';
 import Vitals from './components/pages/Vitals/Vitals';
 import Documents from './components/pages/Documents/Documents';
+import Images from './components/pages/Images/Images';
 import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare';
 
 export const sidebarConfig = [
@@ -56,6 +58,7 @@ export const sidebarConfig = [
   { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
+  { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
   { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
 
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
@@ -66,7 +69,7 @@ export const dashboardVisible = {
   // for this you must to write key of board and give its false value
   // path: src\components\pages\PatientsSummary\patients-summary.config.js
   // e.g. (problems: false)
-  contacts: true
+  contacts: true,
 };
 
 export const pluginsEpicConfig = [
@@ -86,7 +89,8 @@ export const pluginsEpicConfig = [
   mdtsEpic,
   drawingsEpic,
   vitalsEpic,
-	documentsEpic,
+  documentsEpic,
+  imagesEpic,
   transfersOfCareEpic,
 ];
 
@@ -107,7 +111,8 @@ export const pluginsReducerConfig = [
   mdtsReducer,
   drawingsReducer,
   vitalsReducer,
-	documentsReducer,
+  documentsReducer,
+  imagesReducer,
   transfersOfCareReducer,
 ];
 
@@ -175,8 +180,11 @@ export const routersPluginConfig = [
   { key: 'vitalsCreate', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/create` },
   { key: 'vitalsDetail', component: Vitals, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VITALS}/:sourceId` },
 
-	{ key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
-	{ key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
+  { key: 'documents', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}` },
+  { key: 'documentsDetail', component: Documents, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DOCUMENTS}/:sourceId` },
+
+  { key: 'images', component: Images, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.IMAGES}` },
+  { key: 'imagesDetail', component: Images, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.IMAGES}/:sourceId` },
 
   { key: 'transfersOfCare', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}` },
   { key: 'transfersOfCareCreate', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/create` },

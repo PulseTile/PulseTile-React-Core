@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsPopover /> should renders with props correctly mount testing 1`] = `
+<VitalsPopover
+  detailValue="45"
+  id="heartRate"
+  input={
+    Object {
+      "name": "heartRate",
+      "value": 45,
+    }
+  }
+  placeholder="test placeholder"
+  popoverLabels={
+    Array [
+      Object {
+        "place": 1,
+        "text": "≤ 40",
+      },
+      Object {
+        "place": 3,
+        "text": "41-50",
+      },
+    ]
+  }
+  title="Test title"
+  vitalStatusesType="success"
+  vitalsAddon="bpm"
+>
+  <div>
+    <div
+      className="input-group vitals-holder popover-wrap success"
+      id="popover-wrap-heartRate"
+    >
+      <div
+        className="form-control input-sm"
+      >
+        45
+      </div>
+      <span
+        className="vitals-addon popover-toggle"
+        onClick={[Function]}
+      >
+        bpm
+      </span>
+      <div
+        className="popover vitals-popover fade"
+      >
+        <div
+          className="arrow"
+        />
+        <div
+          className="popover-inner"
+        >
+          <h3
+            className="popover-title"
+          >
+            Test title
+          </h3>
+          <div
+            className="popover-content"
+          >
+            <div
+              className="range-vital-labels"
+            >
+              <div
+                className="range-vital-label place-1"
+              >
+                ≤ 40
+              </div>
+              <div
+                className="range-vital-label place-3"
+              >
+                41-50
+              </div>
+              <img
+                alt=""
+                src="range-vital.jpg"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</VitalsPopover>
+`;
+
+exports[`Component <VitalsPopover /> should renders with props correctly shallow testing 1`] = `
+<div>
+  <div
+    className="input-group vitals-holder popover-wrap success"
+    id="popover-wrap-heartRate"
+  >
+    <div
+      className="form-control input-sm"
+    >
+      45
+    </div>
+    <span
+      className="vitals-addon popover-toggle"
+      onClick={[Function]}
+    >
+      bpm
+    </span>
+    <div
+      className="popover vitals-popover fade"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="popover-inner"
+      >
+        <h3
+          className="popover-title"
+        >
+          Test title
+        </h3>
+        <div
+          className="popover-content"
+        >
+          <div
+            className="range-vital-labels"
+          >
+            <div
+              className="range-vital-label place-1"
+            >
+              ≤ 40
+            </div>
+            <div
+              className="range-vital-label place-3"
+            >
+              41-50
+            </div>
+            <img
+              alt=""
+              src="range-vital.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    test error
+  </span>
+</div>
+`;
+
+exports[`Component <VitalsPopover /> should renders with props correctly shallow testing 2`] = `
+<div>
+  <div
+    className="input-group vitals-holder popover-wrap success"
+    id="popover-wrap-heartRate"
+  >
+    <div
+      className="form-control input-sm"
+    >
+      45
+    </div>
+    <span
+      className="vitals-addon popover-toggle"
+      onClick={[Function]}
+    >
+      bpm
+    </span>
+    <div
+      className="popover vitals-popover fade"
+    >
+      <div
+        className="arrow"
+      />
+      <div
+        className="popover-inner"
+      >
+        <h3
+          className="popover-title"
+        >
+          Test title
+        </h3>
+        <div
+          className="popover-content"
+        >
+          <div
+            className="range-vital-labels"
+          >
+            <div
+              className="range-vital-label place-1"
+            >
+              ≤ 40
+            </div>
+            <div
+              className="range-vital-label place-3"
+            >
+              41-50
+            </div>
+            <img
+              alt=""
+              src="range-vital.jpg"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    test error
+  </span>
+</div>
+`;
+
+exports[`Component <VitalsPopover /> should renders with props correctly shallow testing when popoverLabels is empty and is Input 1`] = `
+<div>
+  <div
+    className="input-group vitals-holder popover-wrap success"
+    id="popover-wrap-heartRate"
+  >
+    <input
+      className="form-control input-sm"
+      id="heartRate"
+      name="heartRate"
+      placeholder="test placeholder"
+      value={45}
+    />
+    <span
+      className="vitals-addon"
+      onClick={[Function]}
+    >
+      bpm
+    </span>
+  </div>
+  <span
+    className="help-block animate-fade"
+  >
+    test error
+  </span>
+</div>
+`;

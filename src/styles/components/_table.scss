@@ -278,7 +278,7 @@ td[ng-click] { cursor: pointer; }
   }
 }
 
-td[name='sourceId'], th[name='sourceId'] {
+td[name='sourceId'], th[name='sourceId'], td[name='studyId'], th[name='studyId'] {
   display: none !important;
 }
 
