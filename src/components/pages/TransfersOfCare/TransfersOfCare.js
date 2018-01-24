@@ -26,19 +26,6 @@ import TransfersOfCareDetail from './TransfersOfCareDetail/TransfersOfCareDetail
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import TransfersOfCareCreateForm from './TransfersOfCareCreate/TransfersOfCareCreateForm'
 import { getDDMMMYYYY } from "../../../utils/time-helpers.utils";
-import { serviceTransferOfCare } from './transfer-of-care-helpers.utills';
-
-
-import {fetchPatientReferralsRequest} from "../Referrals/ducks/fetch-patient-referrals.duck";
-import {fetchPatientVitalsRequest} from "../Vitals/ducks/fetch-patient-vitals.duck";
-import {fetchPatientEventsRequest} from "../Events/ducks/fetch-patient-events.duck";
-import {fetchPatientMedicationsRequest} from "../Medications/ducks/fetch-patient-medications.duck";
-import {fetchPatientDiagnosesRequest} from "../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
-import {patientDiagnosesSelector} from "../ProblemsDiagnosis/selectors";
-import {patientMedicationsSelector} from "../Medications/selectors";
-import {patientVitalsSelector} from "../Vitals/selectors";
-import {patientEventsSelector} from "../Events/selectors";
-import {patientReferralsSelector} from "../Referrals/selectors";
 
 const TRANSFERS_OF_CARE_MAIN = 'transfersOfCareMain';
 const TRANSFERS_OF_CARE_DETAIL = 'transfersOfCareDetail';
@@ -52,20 +39,9 @@ const mapDispatchToProps = dispatch => ({
     fetchPatientTransfersOfCareCreateRequest,
     fetchPatientTransfersOfCareDetailRequest,
     fetchPatientTransfersOfCareDetailEditRequest,
-
-    fetchPatientDiagnosesRequest,
-    fetchPatientMedicationsRequest,
-    fetchPatientReferralsRequest,
-    fetchPatientEventsRequest,
-    fetchPatientVitalsRequest,
   }, dispatch) });
 
-@connect(patientDiagnosesSelector, mapDispatchToProps)
-@connect(patientMedicationsSelector)
-@connect(patientReferralsSelector)
-@connect(patientEventsSelector)
-@connect(patientVitalsSelector)
-@connect(patientTransfersOfCareSelector)
+@connect(patientTransfersOfCareSelector, mapDispatchToProps)
 @connect(patientTransfersOfCareDetailSelector)
 @connect(transfersOfCareDetailFormStateSelector)
 @connect(transfersOfCareCreateFormStateSelector)
@@ -99,16 +75,9 @@ export default class TransfersOfCare extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
-    waitingDataOf: '',
-    isRecordsLoading: false,
   };
 
   componentWillReceiveProps(nextProps) {
-    const { waitingDataOf } = this.state;
-    if (nextProps[waitingDataOf]) {
-      this.setState({isRecordsLoading: false})
-    }
-
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -269,21 +238,11 @@ export default class TransfersOfCare extends PureComponent {
     });
   };
 
-  handleGetHeadingsLists = (type) => {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId && !serviceTransferOfCare.config[type].records) {
-      this.setState({ waitingDataOf: serviceTransferOfCare.config[type].stateName, isRecordsLoading: true });
-      actions[serviceTransferOfCare.config[type].actionsFuncAll]({ userId });
-    }
-  };
-
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible,
-      expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit,
-      isLoading, isRecordsLoading } = this.state;
-    const { allTransfersOfCare, transfersOfCareDetailFormState, transfersOfCareCreateFormState, transferOfCareDetail } = this.props;
-    serviceTransferOfCare.setAllRecords(this.props);
+      expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { allTransfersOfCare, transfersOfCareDetailFormState,
+            transfersOfCareCreateFormState, transferOfCareDetail, match } = this.props;
 
     const isPanelDetails = (expandedPanel === TRANSFERS_OF_CARE_DETAIL || expandedPanel === TRANSFER_OF_CARE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === TRANSFERS_OF_CARE_MAIN);
@@ -357,9 +316,8 @@ export default class TransfersOfCare extends PureComponent {
               onCancel={this.handleTransferOfCareDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               transfersOfCareDetailFormValues={transfersOfCareDetailFormState.values}
-              handleGetHeadingsLists={this.handleGetHeadingsLists}
-              isRecordsLoading={isRecordsLoading}
               isSubmit={isSubmit}
+              match={match}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>

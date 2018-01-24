@@ -31,16 +31,17 @@ export default class SelectFormGroup extends PureComponent {
 
   handleChange = (...args) => {
     const { options, onChange } = this.props;
-    const params = args;
-    debugger;
-    const indexOption = params[0].target.indexOption;
-    if (options[indexOption].specialValue) {
-      console.log(arguments[0].value);
-      debugger
-      onChange(specialValue);
-    } else {
-      onChange(...args);
-    }
+    // const params = args;
+    // debugger;
+    // const indexOption = params[0].target.indexOption;
+    // if (options[indexOption].specialValue) {
+    //   console.log(arguments[0].value);
+    //   debugger
+    //   onChange(specialValue);
+    // } else {
+    //   onChange(...args);
+    // }
+    onChange(...args);
   };
 
   render() {
@@ -61,7 +62,7 @@ export default class SelectFormGroup extends PureComponent {
         >
           { placeholder !== undefined ? <option>{placeholder || ''}</option> : null }
           {!_.isEmpty(options) ? options.map(({ value, title, spacialValue, disabled }, index) =>
-            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value} indexOption={index} disabled={disabled}>{title}</option>
+            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value} disabled={disabled}>{title}</option>
           ) : null }
         </select>
         {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}

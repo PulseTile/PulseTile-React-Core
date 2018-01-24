@@ -57,7 +57,7 @@ export const operationsOnCollection = {
         }
       }
 
-      return item[sortingByKey].toString().toLowerCase();
+      return item[sortingByKey] ? item[sortingByKey].toString().toLowerCase() : null;
     }]), reverseIfDescOrder)(collection);
   },
 

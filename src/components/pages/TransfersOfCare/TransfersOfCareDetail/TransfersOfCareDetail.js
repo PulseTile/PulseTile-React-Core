@@ -10,10 +10,10 @@ const TRANSFER_OF_CARE_PANEL = 'transferOfCarePanel';
 export default class TransfersOfCareDetail extends PureComponent {
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel,
-            onSaveSettings, transfersOfCareDetailFormValues, isSubmit, handleGetHeadingsLists, isRecordsLoading } = this.props;
+            onSaveSettings, transfersOfCareDetailFormValues, isSubmit, match } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
+    // const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
@@ -136,9 +136,8 @@ export default class TransfersOfCareDetail extends PureComponent {
           >
             <TransfersOfCareDetailForm
               detail={detail}
-              isRecordsLoading={isRecordsLoading}
               isSubmit={isSubmit}
-              handleGetHeadingsLists={handleGetHeadingsLists}
+              match={match}
             />
           </PluginDetailPanel> : null }
         </div>
