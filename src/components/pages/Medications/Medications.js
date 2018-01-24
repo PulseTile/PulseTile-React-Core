@@ -116,7 +116,7 @@ export default class Medications extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {}, expandedPanel: 'all', isOpenHourlySchedule: true, isLoading: true })
     actions.fetchPatientMedicationsDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -124,7 +124,7 @@ export default class Medications extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: MEDICATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`);
   };
 
   handleEdit = (name) => {
@@ -179,7 +179,7 @@ export default class Medications extends PureComponent {
  handleCreateCancel = () => {
    const { userId } = this.props;
    this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-   this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
+   this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
  };
 
  handleSaveSettingsCreateForm = (formValues) => {
@@ -187,7 +187,7 @@ export default class Medications extends PureComponent {
 
    if (checkIsValidateForm(medicationsCreateFormState)) {
      actions.fetchPatientMedicationsCreateRequest(this.formValuesToString(formValues, 'create'));
-     this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
+     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`);
      this.hideCreateForm();
      this.setState({ isSubmit: false, isLoading: true });
    } else {

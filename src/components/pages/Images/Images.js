@@ -101,7 +101,7 @@ export default class Images extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, openedPanel: IMAGES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchSeriesRequest({ userId, studyId: sourceId, source: 'orthanc' });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.IMAGES}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.IMAGES}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });

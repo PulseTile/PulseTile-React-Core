@@ -111,7 +111,7 @@ export default class Referrals extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientReferralsDetailRequest({ userId, sourceId });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/${sourceId}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -119,7 +119,7 @@ export default class Referrals extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: REFERRALS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/create`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}/create`);
   };
 
   handleEdit = (name) => {
@@ -163,7 +163,7 @@ export default class Referrals extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: REFERRAL_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`);
+    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -171,7 +171,7 @@ export default class Referrals extends PureComponent {
 
     if (checkIsValidateForm(referralsCreateFormState)) {
       actions.fetchPatientReferralsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`);
+      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.REFERRALS}`);
       this.hideCreateForm();
       this.setState({ isSubmit: false, isLoading: true });
     } else {
