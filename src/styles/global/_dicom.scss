@@ -45,3 +45,13 @@
     width: auto
   }
 }
+
+.swiper-pagination-bullet {
+  background: #808080;
+  opacity: 1.2;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #007aff;
+}
