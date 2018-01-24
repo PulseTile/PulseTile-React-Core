@@ -110,7 +110,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -118,7 +118,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`);
   };
 
   handleEdit = (name) => {
@@ -162,7 +162,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -170,7 +170,7 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     if (checkIsValidateForm(diagnosisCreateFormState)) {
       actions.fetchPatientDiagnosesCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`);
       this.setState({ isSubmit: false, isLoading: true });
       this.hideCreateForm();
     } else {

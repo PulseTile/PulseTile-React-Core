@@ -101,7 +101,7 @@ export default class TestResults extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, openedPanel: TEST_RESULT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientTestResultsDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TEST_RESULTS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });

@@ -110,7 +110,7 @@ export default class Vaccination extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -118,7 +118,7 @@ export default class Vaccination extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`);
   };
 
   handleEdit = (name) => {
@@ -162,7 +162,7 @@ export default class Vaccination extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -170,7 +170,7 @@ export default class Vaccination extends PureComponent {
 
     if (checkIsValidateForm(vaccinationCreateFormState)) {
       actions.fetchPatientVaccinationsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
       this.setState({ isSubmit: false, isLoading: true });
       this.hideCreateForm();
     } else {

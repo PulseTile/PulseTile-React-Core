@@ -145,7 +145,7 @@ export default class VitalsDetail extends PureComponent {
                                   type="radio"
                                   name={valuesNames.LEVEL_OF_CONSCIOUSNESS}
                                   disabled
-                                  value="Verbal"
+                                  value="Voice"
                                   transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
                                   text="V"
                                   id="levelOfConsciousnessV"
