@@ -17,10 +17,12 @@ export default class ImagesDetailPanel extends PureComponent {
     currentPanel: PropTypes.string.isRequired,
     zoomin: PropTypes.func.isRequired,
     zoomout: PropTypes.func.isRequired,
+    moveImg: PropTypes.func.isRequired,
+    fadeImg: PropTypes.func.isRequired,
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, currentPanel, isBtnShowPanel, zoomin, zoomout } = this.props;
+    const { name, title, children, isOpen, onShow, onExpand, currentPanel, isBtnShowPanel, zoomin, zoomout, moveImg, fadeImg } = this.props;
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -43,10 +45,10 @@ export default class ImagesDetailPanel extends PureComponent {
                 <i className="btn-icon fa fa-search-plus" />
               </PTButton>
               <div className="control-separate control-separate-sm" />
-              <PTButton id="arrows" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal">
+              <PTButton id="arrows" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal" onClick={() => moveImg()}>
                 <i className="fa fa-arrows" />
               </PTButton>
-              <PTButton id="verticalArrows" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal">
+              <PTButton id="verticalArrows" type="button" className="btn btn-inverse btn-success btn-none-border btn-icon-normal" onClick={() => fadeImg()}>
                 <i className="fa fa-arrows-v" />
               </PTButton>
             </div>
