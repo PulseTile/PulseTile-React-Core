@@ -35,6 +35,12 @@ export default class AllergiesCreateForm extends PureComponent {
         ...defaultFormValues,
         ...historyState.importData
       };
+      if (!historyState.importData[valuesNames.TERMINOLOGY]) {
+        dataToInitialize[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
+      }
+      if (!historyState.importData[valuesNames.TERMINOLOGYCODE]) {
+        dataToInitialize[valuesNames.TERMINOLOGYCODE] = defaultFormValues[valuesNames.TERMINOLOGYCODE];
+      }
       this.props.initialize(dataToInitialize);
       this.setState({isImport: true})
 
