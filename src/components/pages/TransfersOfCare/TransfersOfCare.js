@@ -77,7 +77,7 @@ export default class TransfersOfCare extends PureComponent {
     isLoading: true,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 

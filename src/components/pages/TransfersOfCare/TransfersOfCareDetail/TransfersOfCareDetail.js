@@ -13,7 +13,6 @@ export default class TransfersOfCareDetail extends PureComponent {
             onSaveSettings, transfersOfCareDetailFormValues, isSubmit, match } = this.props;
     let { detail } = this.props;
     detail = detail || {};
-    // const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
       <div className="section-detail">
@@ -59,17 +58,15 @@ export default class TransfersOfCareDetail extends PureComponent {
                             <col style={{width: '22%'}} />
                             <col style={{width: '19%'}} />
                           </colgroup>
-                          <thead>
-                          <tr>
+                          <thead><tr>
                             <th>{valuesLabels.RECORDS_NAME}</th>
                             <th>{valuesLabels.RECORDS_TYPE}</th>
                             <th>{valuesLabels.RECORDS_DATE}</th>
                             <th>{valuesLabels.RECORDS_SOURCE}</th>
-                          </tr>
-                          </thead>
+                          </tr></thead>
                           <tbody>
                           { detail[valuesNames.RECORDS].map((record, index) => <tr key={index}>
-                              <td data-th={valuesLabels.RECORDS_NAME} className="dnd-handle-wrapper"><span>{record[valuesNames.RECORDS_NAME]}</span></td>
+                              <td data-th={valuesLabels.RECORDS_NAME}><span>{record[valuesNames.RECORDS_NAME]}</span></td>
                               <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
                               <td data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></td>
                               <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>

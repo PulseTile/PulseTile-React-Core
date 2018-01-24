@@ -1,17 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
-import classNames from 'classnames';
 
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import TransfersOfCareRecordsEdit from '../transfers-of-care-components/TransfersOfCareRecordsEdit';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, citiesOptions, typesOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
 import { transfersOfCareDetailFormStateSelector} from "../selectors";
 import { connect } from "react-redux";
-// import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
-import Spinner from '../../../ui-elements/Spinner/Spinner';
 
 @reduxForm({
   form: 'transfersOfCareDetailFormSelector',
@@ -27,15 +24,6 @@ export default class TransfersOfCareDetailForm extends PureComponent {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
-
-  // componentWillUpdate() {
-  //   const { typeRecords } = this.state;
-  //   const typesRecords = serviceTransferOfCare.getConfig();
-  //   if (typesRecords[typeRecords] && typesRecords[typeRecords].records) {
-  //     console.log('false componentWillUpdate');
-  //     this.setState({ isRecordsLoading: false });
-  //   }
-  // }
 
   defaultValuesForm = (value) => {
     const defaultFormValues = {
@@ -58,10 +46,6 @@ export default class TransfersOfCareDetailForm extends PureComponent {
 
   render() {
     const { detail, isSubmit, transfersOfCareDetailFormState, match } = this.props;
-    // const { typeRecords } = this.state;
-
-    // const typesRecords = serviceTransferOfCare.getConfig();
-    // console.log('typesRecords', typesRecords);
 
     const formState = transfersOfCareDetailFormState.values || {};
     const citiesFromOptions = this.generateCitiesOptions(formState[valuesNames.TO]);
@@ -97,7 +81,11 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               </div>
             </div>
 
-            <TransfersOfCareRecordsEdit match={match} />
+            <TransfersOfCareRecordsEdit
+              match={match}
+              records={detail[valuesNames.RECORDS]}
+              isSubmit={isSubmit}
+            />
 
             <div className="row-expand">
               <div className="col-expand-left">

@@ -29,23 +29,9 @@ export default class SelectFormGroup extends PureComponent {
     }
   }
 
-  handleChange = (...args) => {
-    const { options, onChange } = this.props;
-    // const params = args;
-    // debugger;
-    // const indexOption = params[0].target.indexOption;
-    // if (options[indexOption].specialValue) {
-    //   console.log(arguments[0].value);
-    //   debugger
-    //   onChange(specialValue);
-    // } else {
-    //   onChange(...args);
-    // }
-    onChange(...args);
-  };
-
   render() {
-    const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit, isNotValidate, placeholder, isAdvancedSearch } = this.props;
+    const { label, name, options, input, id, meta: { error, touched },
+      disabled, isSubmit, isNotValidate, placeholder, isAdvancedSearch, onChange } = this.props;
     const { isChanged } = this.state;
     const showError = ((touched || isChanged || isSubmit) && error);
 
@@ -57,11 +43,11 @@ export default class SelectFormGroup extends PureComponent {
           name={name}
           id={id || ''}
           disabled={disabled}
-          onChange={this.handleChange}
+          onChange={onChange}
           {...input}
         >
           { placeholder !== undefined ? <option>{placeholder || ''}</option> : null }
-          {!_.isEmpty(options) ? options.map(({ value, title, spacialValue, disabled }, index) =>
+          {!_.isEmpty(options) ? options.map(({ value, title, disabled }) =>
             <option key={_.uniqueId('__SelectFormGroupOption__')} value={value} disabled={disabled}>{title}</option>
           ) : null }
         </select>

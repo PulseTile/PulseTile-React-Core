@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import { valuesNames, valuesLabels, typesOptions } from '../forms.config';
 import { connect } from "react-redux";
-import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
 import Spinner from '../../../ui-elements/Spinner/Spinner';
 
 import { bindActionCreators } from "redux";
@@ -81,41 +80,41 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
       },
     },
 
+    records: [],
+
     typeRecords: '',
+    indexOfSelectedRecord: '',
+    typeOfEvent: '',
+    indexOfSelectedEventType: '',
     waitingDataOf: '',
     isRecordsLoading: false,
   };
 
-
-  // componentDidMount() {
-  //   const { detail  } = this.props;
-  // }
+  componentWillMount() {
+    this.setState({records: this.props.records});
+  }
 
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
-    // console.log('waitingDataOf', waitingDataOf);
     if (nextProps[waitingDataOf]) {
       this.setState({isRecordsLoading: false})
     }
-  }
-
-  componentWillUpdate() {
-    // this.setAllRecords();
-    // const { typesRecords, typeRecords } = this.state;
-    // if (typesRecords[typeRecords] && typesRecords[typeRecords].records) {
-    //   console.log('false componentWillUpdate');
-    //   this.setState({ isRecordsLoading: false });
-    // }
+    if (nextProps.records !== this.props.records) {
+      this.setState({records: nextProps.records});
+    }
+    this.setAllRecords(nextProps);
   }
 
   changeArraysForTable = (arr, name, date) => {
-    return arr.map(el => {
+    return arr.map((el, index) => {
       el.tableName = el[name];
       el.date = getDDMMMYYYY(el[date]);
       return {
-      spacialValue: el,
-      title: el[name],
-    }});
+        record: el,
+        title: el[name],
+        value: index
+      }
+    });
   };
   setDiagnosisRecords = data => {
     return this.changeArraysForTable(data, 'problem', 'dateOfOnset');
@@ -124,13 +123,14 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     return this.changeArraysForTable(data, 'name', 'dateCreated');
   };
   setReferralsRecords = data => {
-    return data.map(el => {
+    return data.map((el, index) => {
       const date = getDDMMMYYYY(el.dateOfReferral);
       el.date = date;
       el.tableName = `${date} ${el.referralFrom} ${el.referralTo}`;
       return {
-        specialValue: el,
-        title: `${date} - ${el.referralFrom} -> ${el.referralTo}`
+        record: el,
+        title: `${date} - ${el.referralFrom} -> ${el.referralTo}`,
+        value: index
       }
     });
   };
@@ -142,9 +142,9 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     //   })
     //   .each(function (value, index) {
     //     value.type = 'Appointment';
-    //     value.date = serviceTransferOfCareFormatted.formattingDate(value.dateOfAppointment, serviceTransferOfCareFormatted.formatCollection.DDMMMYYYY);
-    //     value.tableName = value.serviceTransferOfCareTeam;
-    //     value.selectName = value.serviceTransferOfCareTeam;
+    //     value.date = getDDMMMYYYY(value.dateOfAppointment);
+    //     value.tableName = value.serviceTeam;
+    //     value.selectName = value.serviceTeam;
     //     return value;
     //   })
     //   .groupBy(function(value) {
@@ -156,32 +156,34 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
   setVitalsRecords = data => {
     const records = [];
     records.push({
-      specialValue: data[1]
+      record: data[1]
     });
 
-    records[0].specialValue.date = getDDMMMYYYY(records[0].dateCreated);
-    records[0].specialValue.tableName = 'Latest Vitals Data (News Score: ' + records[0].newsScore + ')';
+    records[0].record.date = getDDMMMYYYY(records[0].dateCreated);
+    records[0].record.tableName = 'Latest Vitals Data (News Score: ' + records[0].newsScore + ')';
     records[0].title = 'Latest Vitals Data';
+    records[0].value = 0;
     return records;
   };
 
-  setAllRecords = () => {
+  setAllRecords = (props) => {
     const { typesRecords } = this.state;
+    let isShouldUpdate = false;
     const newTypesRecords = {
       ...typesRecords
     };
     for (const key in newTypesRecords) {
       const stateName = newTypesRecords[key].stateName;
-      // console.log('stateName', stateName);
-      // console.log('newTypesRecords[key].records', newTypesRecords[key].records);
-      // console.log('this.props[stateName]', this.props[stateName]);
-      if (!_.isEmpty(this.props[stateName]) && _.isEmpty(newTypesRecords[key].records)) {
-        // console.log('was here!');
-        newTypesRecords[key].records = this[newTypesRecords[key].setMethodName](this.props[stateName]);
+
+      if (!_.isEmpty(props[stateName]) && _.isEmpty(newTypesRecords[key].records)) {
+        newTypesRecords[key].records = this[newTypesRecords[key].setMethodName](props[stateName]);
+        isShouldUpdate = true;
       }
     }
 
-    this.setState({ typesRecords: newTypesRecords });
+    if (isShouldUpdate) {
+      this.setState({ typesRecords: newTypesRecords });
+    }
   };
 
   handleGetHeadingsLists = (ev) => {
@@ -191,20 +193,47 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     const userId = _.get('params.userId', match);
 
     if (userId && !typesRecords[typeRecords].records) {
-      this.setState({ typeRecords, waitingDataOf: typesRecords[typeRecords].stateName, isRecordsLoading: true });
+      this.setState({ typeRecords, indexOfSelectedRecord: '', waitingDataOf: typesRecords[typeRecords].stateName, isRecordsLoading: true });
       actions[typesRecords[typeRecords].actionsFuncAll]({ userId });
     } else {
-      this.setState({ typeRecords });
+      this.setState({ typeRecords, indexOfSelectedRecord: '' });
     }
   };
 
-  getHeadingsItem = (ev) => {
-    debugger
+  handleGetHeadingsItems = (ev) => {
+    const indexOfSelectedRecord = parseInt(ev.target.value);
+    const { records, typeRecords, typesRecords } = this.state;
+
+    const newRecords = records.slice();
+    const selectedItem = typesRecords[typeRecords].records[indexOfSelectedRecord]
+
+    if (selectedItem) {
+      const record = {
+        name: selectedItem.record.tableName,
+        type: typeRecords,
+        typeTitle: typesRecords[typeRecords].title,
+        date: selectedItem.record.date,
+        source: selectedItem.record.source,
+        sourceId: selectedItem.record.sourceId,
+      };
+
+      newRecords.push(record);
+
+      this.setState({ indexOfSelectedRecord, records: newRecords });
+    }
+  };
+
+  removeRecord = index => {
+    const newRecords = this.state.records.slice();
+    newRecords.splice(index, 1);
+    this.setState({records: newRecords});
   };
 
   render() {
-    const { records, isSubmit } = this.props;
-    const { typesRecords, typeRecords, isRecordsLoading } = this.state;
+    const { isSubmit } = this.props;
+    const { typesRecords, typeRecords, indexOfSelectedRecord, isRecordsLoading, records } = this.state;
+    // console.log(typesRecords);
+    // console.log('records', records);
 
     return (
       <div>
@@ -216,7 +245,6 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
           options={typesOptions}
           component={SelectFormGroup}
           placeholder="-- Select type --"
-          props={{ isSubmit }}
           meta={{error: false, touched: false}}
           input={{value: typeRecords}}
           onChange={this.handleGetHeadingsLists}
@@ -233,108 +261,121 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
             options={typesRecords[typeRecords].records || []}
             component={SelectFormGroup}
             placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
-            props={{ isSubmit }}
             meta={{error: false, touched: false}}
-            input={{value: typeRecords}}
-            onChange={this.getHeadingsItem}
+            input={{value: indexOfSelectedRecord}}
+            onChange={this.handleGetHeadingsItems}
           />
-
           : null
         }
-        {/*<Field*/}
-        {/*label={valuesLabels.RECORDS}*/}
-        {/*name={valuesNames.RECORDS}*/}
-        {/*id={valuesNames.RECORDS}*/}
-        {/*options={typesRecords[typeRecords].records || []}*/}
-        {/*component={SelectFormGroup}*/}
-        {/*placeholder={`-- Select ${typesRecords[typeRecords].title} --`}*/}
-        {/*props={{ isSubmit }}*/}
-        {/*/>*/}
 
         {typeRecords === 'events' ?
           <div>
-            <div  className="form-group">
-              <label htmlFor="typeevents" className="control-label">Events Type</label>
-              <div className="input-holder">
-                <select className="form-control input-sm" id="typeevents" name="typeevents" ng-model="selectedTypeEvents" ng-options=" key as key for (key, item) in typeRecords.events.records">
-                  <option value="">-- Select Events Type --</option>
-                </select>
-              </div>
-            </div>
+            <SelectFormGroup
+              label={valuesLabels.RECORDS_TYPE_EVENTS}
+              name={valuesNames.RECORDS_TYPE_EVENTS}
+              id={valuesNames.RECORDS_TYPE_EVENTS}
+              options={typesRecords[typeRecords].records || []}
+              component={SelectFormGroup}
+              placeholder={'-- Select Events Type --'}
+              meta={{error: false, touched: false}}
+              input={{value: indexOfSelectedEventType}}
+              onChange={this.handleGetHeadingsItems}
+            />
+            {/*<div  className="form-group">*/}
+              {/*<label htmlFor="typeevents" className="control-label">Events Type</label>*/}
+              {/*<div className="input-holder">*/}
+                {/*<select className="form-control input-sm" id="typeevents" name="typeevents" ng-model="selectedTypeEvents" ng-options=" key as key for (key, item) in typeRecords.events.records">*/}
+                  {/*<option value="">-- Select Events Type --</option>*/}
+                {/*</select>*/}
+              {/*</div>*/}
+            {/*</div>*/}
 
-            <div  className="form-group">
-              <label htmlFor="typeRecordId" className="control-label">Events</label>
-              <div className="input-holder">
-                <select className="form-control input-sm" id="typeRecordId" name="typeRecordId" ng-model="selectedRecord" ng-options="item as item.selectName for item in typeRecords.events.records[selectedTypeEvents]" ng-change="addToRecords(selectedRecord)">
-                  <option value="">-- Select Events --</option>
-                </select>
-              </div>
-            </div>
+            <SelectFormGroup
+              label={valuesLabels.RECORDS_EVENTS}
+              name={valuesNames.RECORDS_EVENTS}
+              id={valuesNames.RECORDS_EVENTS}
+              options={typesRecords[typeRecords].records || []}
+              component={SelectFormGroup}
+              placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
+              meta={{error: false, touched: false}}
+              input={{value: indexOfSelectedRecord}}
+              onChange={this.handleGetHeadingsItems}
+            />
+
+            {/*<div  className="form-group">*/}
+              {/*<label htmlFor="typeRecordId" className="control-label">Events</label>*/}
+              {/*<div className="input-holder">*/}
+                {/*<select className="form-control input-sm" id="typeRecordId" name="typeRecordId" ng-model="selectedRecord" ng-options="item as item.selectName for item in typeRecords.events.records[selectedTypeEvents]" ng-change="addToRecords(selectedRecord)">*/}
+                  {/*<option value="">-- Select Events --</option>*/}
+                {/*</select>*/}
+              {/*</div>*/}
+            {/*</div>*/}
           </div>
           : null
         }
 
-        {/*{!transferOfCareEdit.records.length ?*/}
-        {/*<div className={classNames('form-group', { 'has-error': (formSubmitted || transferOfCareEdit.records.length)})}>*/}
-        {/*<div className="form-control-static">No records added</div>*/}
-        {/*{(formSubmitted || transferOfCareEdit.records.length) ?*/}
-        {/*<span className="help-block animate-fade">You must select at least one record.</span>*/}
-        {/*: null*/}
-        {/*}*/}
-        {/*</div>*/}
-        {/*: null*/}
-        {/*}*/}
+        { records.length
+          ? <div className="panel-body-inner-table">
+              <div className="form-group">
+                <div className="record-popover-wrapper">
+                <table className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-transferOfCare">
+                  <colgroup>
+                    <col />
+                    <col style={{width: '22%'}}/>
+                    <col style={{width: '22%'}}/>
+                    <col style={{width: '19%'}}/>
+                    <col style={{width: '54px'}}/>
+                  </colgroup>
+                  <thead><tr>
+                    <th>{valuesLabels.RECORDS_NAME}</th>
+                    <th>{valuesLabels.RECORDS_TYPE}</th>
+                    <th>{valuesLabels.RECORDS_DATE}</th>
+                    <th>{valuesLabels.RECORDS_SOURCE}</th>
+                    <th />
+                  </tr></thead>
+                  {/*<tbody dnd-list="transferOfCareEdit.records">*/}
+                  <tbody>
+                    { records.map((record, index) => <tr key={index}>
+                      {/*dnd-draggable="record"*/}
+                      {/*dnd-moved="transferOfCareEdit.records.splice($index, 1); closePopovers();"*/}
+                      {/*dnd-effect-allowed="move"*/}
+                      {/*dnd-nodrag*/}
+                      {/*ng-click="togglePopover($event, record);">*/}
 
-        {/*<div ng-if="transferOfCareEdit.records.length" class="panel-body-inner-table">*/}
-        {/*<div class="form-group">*/}
-        {/*<div class="record-popover-wrapper">*/}
-        {/*<table class="table table-striped table-hover table-bordered rwd-table table-fixedcol table-transferOfCare">*/}
-        {/*<colgroup>*/}
-        {/*<col>*/}
-        {/*<col style="width: 22%;">*/}
-        {/*<col style="width: 22%;">*/}
-        {/*<col style="width: 19%;">*/}
-        {/*<col style="width: 54px;">*/}
-        {/*</colgroup>*/}
-        {/*<thead>*/}
-        {/*<tr>*/}
-        {/*<th>Name</th>*/}
-        {/*<th>Type</th>*/}
-        {/*<th>Date</th>*/}
-        {/*<th>Source</th>*/}
-        {/*<th></th>*/}
-        {/*</tr>*/}
-        {/*</thead>*/}
-        {/*<tbody dnd-list="transferOfCareEdit.records">*/}
-        {/*<tr ng-repeat="(index, record) in transferOfCareEdit.records"*/}
-        {/*dnd-draggable="record"*/}
-        {/*dnd-moved="transferOfCareEdit.records.splice($index, 1); closePopovers();"*/}
-        {/*dnd-effect-allowed="move"*/}
-        {/*dnd-nodrag*/}
-        {/*ng-click="togglePopover($event, record);">*/}
-
-        {/*<td data-th="Name" class="dnd-handle-wrapper">*/}
-        {/*<div dnd-handle class="dnd-handle"><i class="fa fa-bars"></i></div>*/}
-        {/*<span>{{ record.name }}</span>*/}
-        {/*</td>*/}
-        {/*<td data-th="Type"><span>{{ record.typeTitle }}</span></td>*/}
-        {/*<td data-th="Date"><span>{{ record.date }}</span></td>*/}
-        {/*<td data-th="Source"><span>{{ record.source }}</span></td>*/}
-        {/*<td data-th="" class="table-transferOfCare__control"><div ng-click="removeRecord(index); closePopovers();" class="btn btn-smaller btn-danger btn-icon-normal"><i class="btn-icon fa fa-times"></i></div></td>*/}
-        {/*</tr>*/}
-        {/*<tr class="dndPlaceholder">*/}
-        {/*<td><span></span></td>*/}
-        {/*<td><span></span></td>*/}
-        {/*<td><span></span></td>*/}
-        {/*<td><span></span></td>*/}
-        {/*<td><span></span></td>*/}
-        {/*</tr>*/}
-        {/*</tbody>*/}
-        {/*</table>*/}
-        {/*<transfer-of-care-popover-component></transfer-of-care-popover-component>*/}
-        {/*</div>*/}
-        {/*</div>*/}
-        {/*</div>*/}
+                      <td data-th={valuesLabels.RECORDS_NAME} className="dnd-handle-wrapper">
+                        {/*dnd-handle*/}
+                        <div  className="dnd-handle"><i className="fa fa-bars" /></div>
+                        <span>{record[valuesNames.RECORDS_NAME]}</span>
+                      </td>
+                      <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
+                      <td data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></td>
+                      <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>
+                      <td data-th="" className="table-transferOfCare__control">
+                        <div
+                          className="btn btn-smaller btn-danger btn-icon-normal"
+                          onClick={() => {this.removeRecord(index);}}
+                        ><i className="btn-icon fa fa-times" /></div>
+                        {/*ng-click="removeRecord(index); closePopovers();"*/}
+                      </td>
+                    </tr>)}
+                    {/*<tr className="dndPlaceholder">*/}
+                      {/*<td><span></span></td>*/}
+                      {/*<td><span></span></td>*/}
+                      {/*<td><span></span></td>*/}
+                      {/*<td><span></span></td>*/}
+                      {/*<td><span></span></td>*/}
+                    {/*</tr>*/}
+                  </tbody>
+                </table>
+                {/*<transfer-of-care-popover-component></transfer-of-care-popover-component>*/}
+                </div>
+              </div>
+            </div>
+          : <div className={classNames('form-group', { 'has-error': isSubmit})}>
+              <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>
+              {isSubmit ? <span className="help-block animate-fade">You must select at least one record.</span> : null}
+            </div>
+        }
       </div>)
   }
 }
