@@ -126,7 +126,7 @@ export default class Events extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true, eventsType: '' })
     actions.fetchPatientEventsDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -134,7 +134,7 @@ export default class Events extends PureComponent {
   handleCreate = (eventsType) => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true, eventsType })
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create`);
   };
 
   handleEdit = (name) => {
@@ -178,7 +178,7 @@ export default class Events extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: EVENT_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true, eventsType: '' });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -186,7 +186,7 @@ export default class Events extends PureComponent {
 
     if (checkIsValidateForm(eventsCreateFormState)) {
       actions.fetchPatientEventsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}`);
       this.hideCreateForm();
       this.setState({ isSubmit: false, isLoading: true });
     } else {

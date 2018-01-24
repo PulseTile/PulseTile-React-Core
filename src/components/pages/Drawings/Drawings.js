@@ -115,7 +115,7 @@ export default class Drawings extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DRAWING, editedPanel: {}, expandedPanel: 'all', isLoading: true })
     actions.fetchPatientDrawingsDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}/${sourceId}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -123,7 +123,7 @@ export default class Drawings extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DRAWINGS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isSubmit: false, isLoading: true })
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}/create`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}/create`);
   };
 
   handleEdit = (name) => {
@@ -170,7 +170,7 @@ export default class Drawings extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DRAWING, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}`);
+    this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -178,7 +178,7 @@ export default class Drawings extends PureComponent {
 
     if (checkIsValidateForm(drawingsCreateFormState)) {
       actions.fetchPatientDrawingsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}`);
+      this.context.router.history.replace(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DRAWINGS}`);
       this.hideCreateForm();
       this.setState({ isSubmit: false, isLoading: true });
     } else {

@@ -64,7 +64,7 @@ export default class DocumentsDetail extends PureComponent {
     importData.originalSource = location.href;
     importData.originalComposition = this.getTypeOfDocument();
 
-    this.context.router.history.push({
+    this.context.router.history.replace({
       pathname: `${clientUrls.PATIENTS}/${userId}/${typeImportData}/create`,
       state: { importData }
     });
