@@ -37,7 +37,7 @@ export const valuesLabels = {
   CLINICAL: 'Clinical Summary',
   TYPE: 'Type',
 
-  DATE: 'Date of Transfer',
+  DATE_CREATED: 'Date',
   AUTHOR: 'Author',
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

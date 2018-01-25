@@ -1,0 +1,78 @@
+.table {
+  &__head { background-color: map-get($colored-table, 'header-background'); }
+  &__head &__col.selected {
+    background: map-get($colored-table, 'selected-background');
+  }
+  &__body &__col.selected {
+    background: #b4b4b4;
+    color: #ffffff;
+  }
+}
+
+.table-striped {
+  background-color: map-get($colored-table, 'background');
+  .table__body {
+    .table__row:nth-of-type(odd) {
+      background-color: map-get($colored-table, 'row-odd-background');
+    }
+    .table__row-holder:nth-of-type(even) .table__row {
+      background-color: map-get($colored-table, 'background');
+    }
+  }
+}
+.table-striped.table-hover {
+  background-color: map-get($colored-table, 'background');
+  &.table__col {
+    .table__row {
+      &:hover td[data-table-hover] {
+        background-color: map-get($colored-table, 'row-background-hover');
+      }
+      &.hovered td[data-table-hover] {
+        background-color: map-get($colored-table, 'row-background-hover');
+      }
+    }
+  }
+}
+.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover > .table__col,
+.is-not-touch-device .table-hover > .table__body > .table__row:hover > .table__col[ng-click],
+.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover,
+.is-not-touch-device .table-hover > .table__body > .table__row.hovered {
+  background-color: map-get($colored-table, 'row-background-hover');
+}
+
+@include respond-from(xs) {
+  .table-sorted {
+    .table__head .table__col {
+      &.sorted {
+        background: map-get($colored-table, 'selected-background');
+        &.asc:after {
+          border-color: #303030 transparent transparent;
+        }
+        &.desc:after {
+          border-color: transparent transparent #303030;
+        }
+      }
+    }
+    .table__body .table__col.sorted {
+      background: map-get($colored-table, 'sorted-background');
+    }
+    &.table-striped {
+      .table__body {
+        .table__row:nth-of-type(odd) .table__col.sorted {
+          background-color: map-get($colored-table, 'sorted-background-odd');
+        }
+        .table__row-holder:nth-of-type(even) .table__row .table__col.sorted {
+          background-color: map-get($colored-table, 'background');
+        }
+      }
+    }
+    &.table-striped.table-hover {
+      .table__body {
+        .table__row.hovered .table__col.sorted,
+        .table__row:hover .table__col.sorted {
+          background-color: map-get($colored-table, 'row-background-hover');
+        }
+      }
+    }
+  }
+}

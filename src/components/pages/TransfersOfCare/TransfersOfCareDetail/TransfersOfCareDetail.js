@@ -49,14 +49,20 @@ export default class TransfersOfCareDetail extends PureComponent {
                   </div>
 
                   <div className="form-group">
+                    <label className="control-label">{valuesLabels.DATE_TIME}</label>
+                    <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_TIME])}</div>
+                  </div>
+
+
+                  <div className="form-group">
                     <label className="control-label">{valuesLabels.RECORDS}</label>
                     { detail[valuesNames.RECORDS] && detail[valuesNames.RECORDS].length
                       ? <table className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor">
                           <colgroup>
                             <col />
-                            <col style={{width: '22%'}} />
-                            <col style={{width: '22%'}} />
-                            <col style={{width: '19%'}} />
+                            <col style={{width: '21%'}} />
+                            <col style={{width: '21%'}} />
+                            <col style={{width: '18%'}} />
                           </colgroup>
                           <thead><tr>
                             <th>{valuesLabels.RECORDS_NAME}</th>
@@ -100,8 +106,8 @@ export default class TransfersOfCareDetail extends PureComponent {
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
-                        <label className="control-label">{valuesLabels.DATE_TIME}</label>
-                        <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_TIME])}</div>
+                        <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                        <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_CREATED])}</div>
                       </div>
                     </div>
                     <div className="col-expand-right">

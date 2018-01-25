@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import classNames from 'classnames';
 
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
@@ -80,19 +81,12 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
       },
     },
 
-    records: [],
-
     typeRecords: '',
     indexOfSelectedRecord: '',
-    typeOfEvent: '',
-    indexOfSelectedEventType: '',
+    indexOfTypeEvents: '',
     waitingDataOf: '',
     isRecordsLoading: false,
   };
-
-  componentWillMount() {
-    this.setState({records: this.props.records});
-  }
 
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
@@ -105,6 +99,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     this.setAllRecords(nextProps);
   }
 
+  // Functionality of Set different data to types of Records
   changeArraysForTable = (arr, name, date) => {
     return arr.map((el, index) => {
       el.tableName = el[name];
@@ -135,23 +130,33 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     });
   };
   setEventsRecords = data => {
-    // goto: Later types will come
-    // arr = _.chain(arr)
-    //   .filter(function (value) {
-    //     return value.dateOfAppointment;
-    //   })
-    //   .each(function (value, index) {
-    //     value.type = 'Appointment';
-    //     value.date = getDDMMMYYYY(value.dateOfAppointment);
-    //     value.tableName = value.serviceTeam;
-    //     value.selectName = value.serviceTeam;
-    //     return value;
-    //   })
-    //   .groupBy(function(value) {
-    //     return value.type;
-    //   })
-    //   .value();
-    return data;
+    const events = _.flow(
+      _.filter(item => item.dateCreated && item.type),
+      _.filter(item => item.dateCreated),
+      _.map(item => {
+        item.date = getDDMMMYYYY(item.dateCreated);
+        item.tableName = item.name;
+        return item;
+      }),
+      _.groupBy(item => item.type.capitalize()),
+    )(data);
+
+    const arr = [];
+    let index = 0;
+    for (let key in events) {
+      events[key] = events[key].map((el, index) => ({
+        record: el,
+        title: el.name,
+        value: index
+      }));
+      arr.push({
+        events: events[key],
+        title: key,
+        value: index++
+      });
+    };
+
+    return arr;
   };
   setVitalsRecords = data => {
     const records = [];
@@ -186,26 +191,36 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     }
   };
 
+  // Functionality of Add and Remove Records items
   handleGetHeadingsLists = (ev) => {
     const { actions, match } = this.props;
     const { typesRecords } = this.state;
     const typeRecords = ev.target.value;
     const userId = _.get('params.userId', match);
+    const toSetState = { typeRecords, indexOfSelectedRecord: '', indexOfTypeEvents: '' };
 
     if (userId && !typesRecords[typeRecords].records) {
-      this.setState({ typeRecords, indexOfSelectedRecord: '', waitingDataOf: typesRecords[typeRecords].stateName, isRecordsLoading: true });
+      toSetState['waitingDataOf'] = typesRecords[typeRecords].stateName;
+      toSetState['isRecordsLoading'] = true;
       actions[typesRecords[typeRecords].actionsFuncAll]({ userId });
-    } else {
-      this.setState({ typeRecords, indexOfSelectedRecord: '' });
     }
-  };
 
+    this.setState(toSetState);
+  };
   handleGetHeadingsItems = (ev) => {
+    const { input: { onChange, value } } = this.props;
+    const records = value;
     const indexOfSelectedRecord = parseInt(ev.target.value);
-    const { records, typeRecords, typesRecords } = this.state;
+    const { typeRecords, typesRecords, indexOfTypeEvents } = this.state;
 
     const newRecords = records.slice();
-    const selectedItem = typesRecords[typeRecords].records[indexOfSelectedRecord]
+    let selectedItem;
+
+    if (typeRecords === 'events') {
+      selectedItem = typesRecords[typeRecords].records[indexOfTypeEvents].events[indexOfSelectedRecord];
+    } else {
+      selectedItem = typesRecords[typeRecords].records[indexOfSelectedRecord];
+    }
 
     if (selectedItem) {
       const record = {
@@ -216,22 +231,54 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
         source: selectedItem.record.source,
         sourceId: selectedItem.record.sourceId,
       };
-
+      // if (typeRecords === 'events') {
+      //   record.typeTitle = typesRecords[typeRecords].records[indexOfTypeEvents].title;
+      // }
       newRecords.push(record);
 
-      this.setState({ indexOfSelectedRecord, records: newRecords });
+      onChange(newRecords);
+      this.setState({ indexOfSelectedRecord });
     }
   };
-
+  handleGetEventType = ev => {
+    const indexOfTypeEvents = parseInt(ev.target.value);
+    this.setState({ indexOfTypeEvents, indexOfSelectedRecord: '' });
+  };
   removeRecord = index => {
-    const newRecords = this.state.records.slice();
+    const { input: { onChange, value } } = this.props;
+    const newRecords = value.slice();
     newRecords.splice(index, 1);
-    this.setState({records: newRecords});
+
+    onChange(newRecords);
   };
 
+  // Functionality of Drag and Drop
+  reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  };
+
+  onDragEnd = result => {
+    // dropped outside the list
+    if(!result.destination) { return }
+    const { input: { onChange, value } } = this.props;
+    const newRecords = this.reorder(value, result.source.index, result.destination.index);
+    onChange(newRecords);
+  };
+
+  getItemStyle = (isDragging, draggableStyle) => ({
+    opacity: isDragging ? 0.5 : 1,
+    ...draggableStyle
+  });
+
   render() {
-    const { isSubmit } = this.props;
-    const { typesRecords, typeRecords, indexOfSelectedRecord, isRecordsLoading, records } = this.state;
+    const { isSubmit, input: { value } } = this.props;
+    const records = value;
+    const { typesRecords, typeRecords, indexOfSelectedRecord, isRecordsLoading,
+      indexOfTypeEvents } = this.state;
     // console.log(typesRecords);
     // console.log('records', records);
 
@@ -278,99 +325,92 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
               component={SelectFormGroup}
               placeholder={'-- Select Events Type --'}
               meta={{error: false, touched: false}}
-              input={{value: indexOfSelectedEventType}}
-              onChange={this.handleGetHeadingsItems}
+              input={{value: indexOfTypeEvents}}
+              onChange={this.handleGetEventType}
             />
-            {/*<div  className="form-group">*/}
-              {/*<label htmlFor="typeevents" className="control-label">Events Type</label>*/}
-              {/*<div className="input-holder">*/}
-                {/*<select className="form-control input-sm" id="typeevents" name="typeevents" ng-model="selectedTypeEvents" ng-options=" key as key for (key, item) in typeRecords.events.records">*/}
-                  {/*<option value="">-- Select Events Type --</option>*/}
-                {/*</select>*/}
-              {/*</div>*/}
-            {/*</div>*/}
-
-            <SelectFormGroup
-              label={valuesLabels.RECORDS_EVENTS}
-              name={valuesNames.RECORDS_EVENTS}
-              id={valuesNames.RECORDS_EVENTS}
-              options={typesRecords[typeRecords].records || []}
-              component={SelectFormGroup}
-              placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
-              meta={{error: false, touched: false}}
-              input={{value: indexOfSelectedRecord}}
-              onChange={this.handleGetHeadingsItems}
-            />
-
-            {/*<div  className="form-group">*/}
-              {/*<label htmlFor="typeRecordId" className="control-label">Events</label>*/}
-              {/*<div className="input-holder">*/}
-                {/*<select className="form-control input-sm" id="typeRecordId" name="typeRecordId" ng-model="selectedRecord" ng-options="item as item.selectName for item in typeRecords.events.records[selectedTypeEvents]" ng-change="addToRecords(selectedRecord)">*/}
-                  {/*<option value="">-- Select Events --</option>*/}
-                {/*</select>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+            { indexOfTypeEvents || indexOfTypeEvents === 0 ?
+              <SelectFormGroup
+                label={valuesLabels.RECORDS_EVENTS}
+                name={valuesNames.RECORDS_EVENTS}
+                id={valuesNames.RECORDS_EVENTS}
+                options={typesRecords[typeRecords].records[indexOfTypeEvents].events || []}
+                component={SelectFormGroup}
+                placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
+                meta={{error: false, touched: false}}
+                input={{value: indexOfSelectedRecord}}
+                onChange={this.handleGetHeadingsItems}
+              /> : null
+            }
           </div>
           : null
         }
 
-        { records.length
-          ? <div className="panel-body-inner-table">
-              <div className="form-group">
-                <div className="record-popover-wrapper">
-                <table className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-transferOfCare">
-                  <colgroup>
-                    <col />
-                    <col style={{width: '22%'}}/>
-                    <col style={{width: '22%'}}/>
-                    <col style={{width: '19%'}}/>
-                    <col style={{width: '54px'}}/>
-                  </colgroup>
-                  <thead><tr>
-                    <th>{valuesLabels.RECORDS_NAME}</th>
-                    <th>{valuesLabels.RECORDS_TYPE}</th>
-                    <th>{valuesLabels.RECORDS_DATE}</th>
-                    <th>{valuesLabels.RECORDS_SOURCE}</th>
-                    <th />
-                  </tr></thead>
-                  {/*<tbody dnd-list="transferOfCareEdit.records">*/}
-                  <tbody>
-                    { records.map((record, index) => <tr key={index}>
-                      {/*dnd-draggable="record"*/}
-                      {/*dnd-moved="transferOfCareEdit.records.splice($index, 1); closePopovers();"*/}
-                      {/*dnd-effect-allowed="move"*/}
-                      {/*dnd-nodrag*/}
-                      {/*ng-click="togglePopover($event, record);">*/}
-
-                      <td data-th={valuesLabels.RECORDS_NAME} className="dnd-handle-wrapper">
-                        {/*dnd-handle*/}
-                        <div  className="dnd-handle"><i className="fa fa-bars" /></div>
-                        <span>{record[valuesNames.RECORDS_NAME]}</span>
-                      </td>
-                      <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
-                      <td data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></td>
-                      <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>
-                      <td data-th="" className="table-transferOfCare__control">
-                        <div
-                          className="btn btn-smaller btn-danger btn-icon-normal"
-                          onClick={() => {this.removeRecord(index);}}
-                        ><i className="btn-icon fa fa-times" /></div>
-                        {/*ng-click="removeRecord(index); closePopovers();"*/}
-                      </td>
-                    </tr>)}
-                    {/*<tr className="dndPlaceholder">*/}
-                      {/*<td><span></span></td>*/}
-                      {/*<td><span></span></td>*/}
-                      {/*<td><span></span></td>*/}
-                      {/*<td><span></span></td>*/}
-                      {/*<td><span></span></td>*/}
-                    {/*</tr>*/}
-                  </tbody>
-                </table>
-                {/*<transfer-of-care-popover-component></transfer-of-care-popover-component>*/}
+        { records && records.length ?
+          <DragDropContext onDragEnd={this.onDragEnd}>
+            <Droppable droppableId="droppable">
+              {(provided, snapshot) => (
+                <div className="panel-body-inner-table"
+                     ref={provided.innerRef} >
+                  <div className="form-group">
+                    <div className="record-popover-wrapper">
+                      <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor table-transferOfCare">
+                        <div className='table__head'>
+                          <div className="table__row">
+                            <div className="table__col">{valuesLabels.RECORDS_NAME}</div>
+                            <div className="table__col table__col-type">{valuesLabels.RECORDS_TYPE}</div>
+                            <div className="table__col table__col-date">{valuesLabels.RECORDS_DATE}</div>
+                            <div className="table__col table__col-source">{valuesLabels.RECORDS_SOURCE}</div>
+                            <div className="table__col table__col-control" />
+                          </div>
+                        </div>
+                        <div className="table__body">
+                          { records.map((record, index) =>
+                            <Draggable
+                              key={`record-${index}`}
+                              draggableId={`record-${index}`}
+                              index={index}
+                            >
+                              {(provided, snapshot) => (
+                                <div className="table__row-holder">
+                                  <div className="table__row"
+                                    ref={provided.innerRef}
+                                    {...provided.draggableProps}
+                                    style={this.getItemStyle(
+                                      snapshot.isDragging,
+                                      provided.draggableProps.style
+                                    )}
+                                  >
+                                    <div className="table__col dnd-handle-wrapper"
+                                         data-th={valuesLabels.RECORDS_NAME}>
+                                      <div className="dnd-handle" {...provided.dragHandleProps}>
+                                        <i className="fa fa-bars" />
+                                      </div>
+                                      <span>{record[valuesNames.RECORDS_NAME]}</span>
+                                    </div>
+                                    <div className="table__col table__col-type" data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></div>
+                                    <div className="table__col table__col-date" data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></div>
+                                    <div className="table__col table__col-source" data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></div>
+                                    <div className="table__col table__col-control table-transferOfCare__control" data-th="">
+                                      <div
+                                        className="btn btn-smaller btn-danger btn-icon-normal"
+                                        onClick={() => {this.removeRecord(index);}}
+                                      ><i className="btn-icon fa fa-times" /></div>
+                                    </div>
+                                  </div>
+                                  {provided.placeholder}
+                                </div>
+                              )}
+                            </Draggable>)}
+                          {provided.placeholder}
+                        </div>
+                      </div>
+                      {/*<transfer-of-care-popover-component></transfer-of-care-popover-component>*/}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              )}
+            </Droppable>
+          </DragDropContext>
           : <div className={classNames('form-group', { 'has-error': isSubmit})}>
               <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>
               {isSubmit ? <span className="help-block animate-fade">You must select at least one record.</span> : null}

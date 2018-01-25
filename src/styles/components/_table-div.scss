@@ -1,101 +1,49 @@
 .table {
-  background: map-get($colored-table, 'row-odd-background');
-  border-radius: 0;
-  border: none;
-  color: map-get($colored-table, 'text');
-  font-size: 11px;
-  line-height: 20px;
-  margin-bottom: 5px;
-  width: 100%;
-  thead {
+  &__row {
+    display: table;
+    width: 100%;
+  }
+  &__head {
     background-color: map-get($colored-table, 'header-background');
     font-weight: 700;
     i { margin-left: 5px; }
   }
-  thead tr th,
-  tbody tr td {
+  &__col {
     padding: 10px 4px 10px 5px;
     vertical-align: middle;
     word-wrap: break-word;
     word-break: break-word;
     line-height: 20px;
+    display: table-cell;
     @include respond-from(sm) {
       padding: 10px 4px 10px 10px;
     }
   }
-  thead tr th.selected {
+  &__head &__col.selected {
     background: map-get($colored-table, 'selected-background');
   }
-  tbody tr td.selected {
+  &__body &__col.selected {
     background: #b4b4b4;
     color: #ffffff;
   }
-  &.clickable tbody tr { cursor: pointer; }
-  .dropdown-menu {
-    left: auto;
-    right: 0;
-    li {
-      width: 100%;
-      i {
-        display: inline-block;
-        width: 18px;
-      }
-    }
-  }
-  .view { min-width: 93px; }
-}
-.is-not-touch-device .table .view .btn-dropdown-toggle:hover {
-  background-color: #7dbe31;
-  border-color: #7dbe31;
-  & > li > a:hover {
-    background-color: #d0e8af;
-  }
-}
-@include respond-from(xs) {
-  .table { font-size: 14px; }
-}
-.table > thead > tr > td.info,
-.table > tbody > tr > td.info,
-.table > tfoot > tr > td.info,
-.table > thead > tr > th.info,
-.table > tbody > tr > th.info,
-.table > tfoot > tr > th.info,
-.table > thead > tr.info > td,
-.table > tbody > tr.info > td,
-.table > tfoot > tr.info > td,
-.table > thead > tr.info > th,
-.table > tbody > tr.info > th,
-.table > tfoot > tr.info > th,
-.table > tbody > tr.info {
-  background-color: map-get($colored-table, 'row-background-hover') !important;
-}
-.wrap-table-scrollX {
-  max-width: initial;
-  overflow-x: scroll;
-  width: 100%;
-  .table { width: 1px; }
+  &.clickable &__row { cursor: pointer; }
 }
 
-.table-fixedcol {
-  table-layout: fixed;
-}
 .table-striped {
   background-color: map-get($colored-table, 'background');
-  tbody {
-    tr {
-      &:nth-of-type(odd) {
-        background-color: map-get($colored-table, 'row-odd-background');
-      }
-      td {
-        cursor: pointer;
-      }
+  .table__body {
+    .table__row:nth-of-type(odd) {
+      background-color: map-get($colored-table, 'row-odd-background');
+    }
+    .table__row-holder:nth-of-type(even) .table__row {
+      background-color: map-get($colored-table, 'background');
     }
   }
 }
 .table-striped.table-hover {
   background-color: map-get($colored-table, 'background');
-  tbody {
-    tr {
+  &.table__col {
+    .table__row {
       &:hover td[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
@@ -105,26 +53,20 @@
     }
   }
 }
-tr[ng-click],
-td[ng-click] { cursor: pointer; }
+.table__col[ng-click] { cursor: pointer; }
 
-.is-not-touch-device .table-hover > tbody > tr > td.info:hover,
-.is-not-touch-device .table-hover > tbody > tr > th.info:hover,
-.is-not-touch-device .table-hover > tbody > tr.info:hover > td,
-.is-not-touch-device .table-hover > tbody > tr:hover > .info,
-.is-not-touch-device .table-hover > tbody > tr.info:hover > th,
-.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover > td,
-.is-not-touch-device .table-hover > tbody > tr:hover > td[ng-click],
-.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover,
-.is-not-touch-device .table-hover > tbody > tr.hovered {
+.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover > .table__col,
+.is-not-touch-device .table-hover > .table__body > .table__row:hover > .table__col[ng-click],
+.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover,
+.is-not-touch-device .table-hover > .table__body > .table__row.hovered {
   background-color: map-get($colored-table, 'row-background-hover');
 }
 
 .table-bordered {
   border-collapse: separate;
   border: 1px solid #B4B5B4;
-  thead tr th,
-  tbody tr td {
+  .table__col,
+  .table__col {
     border: none;
     @include respond-from(xs) {
       border-left: 1px solid #B4B5B4;
@@ -133,8 +75,8 @@ td[ng-click] { cursor: pointer; }
   }
 }
 .table-schedule {
-  thead tr th,
-  tbody tr td {
+  .table__col,
+  .table__col {
     border-left: 1px solid #B4B5B4;
     &:first-child { border: none; }
   }
@@ -150,13 +92,13 @@ td[ng-click] { cursor: pointer; }
   .rwd-table {
     display: block;
     min-width: 300px;
-    th { display: none; }
-    & > tbody { display: block; }
-    & > tbody > tr {
+    .table__head { display: none; }
+    & > .table__body { display: block; }
+    & > .table__body .table__row {
       display: block;
       padding: 6px 0;
       position: relative;
-      & > td {
+      & > .table__col {
         display: block;
         line-height: 20px;
         overflow: hidden;
@@ -183,7 +125,7 @@ td[ng-click] { cursor: pointer; }
       }
     }
 
-    th, td {
+    .table__col {
       text-align: left;
       @include respond-from(xs) {
         display: table-cell;
@@ -191,7 +133,7 @@ td[ng-click] { cursor: pointer; }
       }
     }
   }
-  .rwd-table td.hidden-xs-cell,
+  .rwd-table .table__col.hidden-xs-cell,
   .hidden-xs-cell { display: none; }
 }
 
@@ -206,7 +148,7 @@ td[ng-click] { cursor: pointer; }
 }
 @include respond-from(xs) {
   .table-sorted {
-    thead tr th {
+    .table__head .table__col {
       cursor: pointer;
       &.sorted {
         background: map-get($colored-table, 'selected-background');
@@ -232,20 +174,23 @@ td[ng-click] { cursor: pointer; }
         }
       }
     }
-    tbody tr td.sorted {
+    .table__body .table__col.sorted {
       background: map-get($colored-table, 'sorted-background');
     }
     &.table-striped {
-      tbody {
-        tr:nth-of-type(odd) td.sorted {
+      .table__body {
+        .table__row:nth-of-type(odd) .table__col.sorted {
           background-color: map-get($colored-table, 'sorted-background-odd');
+        }
+        .table__row-holder:nth-of-type(even) .table__row .table__col.sorted {
+          background-color: map-get($colored-table, 'background');
         }
       }
     }
     &.table-striped.table-hover {
-      tbody {
-        tr.hovered td.sorted,
-        tr:hover td.sorted {
+      .table__body {
+        .table__row.hovered .table__col.sorted,
+        .table__row:hover .table__col.sorted {
           background-color: map-get($colored-table, 'row-background-hover');
         }
       }
@@ -263,47 +208,15 @@ td[ng-click] { cursor: pointer; }
     border-top: 0px !important;
   }
   @include respond-to(xs) {
-    tr {
-      position: relative;
-    }
-    td {
+    .table__row { position: relative; }
+    .table__body .table__col {
       padding-right: 48px !important;
     }
-    .table-transferOfCare__control {
-      .btn {
-        position: absolute;
-        right: 10px;
-        top: 5px;
-      }
-      &:before { display: none !important; }
-    }
   }
-
-
-}
-
-
-td[name='sourceId'], th[name='sourceId'],
-td[name='studyId'], th[name='studyId'] {
-  display: none !important;
-}
-
-.table-patients-name, .table-patients-controls {
-  td[name='id'], td[name='address'] {
-    display: none;
-  }
-}
-
-.table-row-higher > tbody > tr,
-.patientsList > tbody > tr,
-.table-patients-name > tbody > tr,
-.table-patients-controls > tbody > tr {
-  height: 100%;
   @include respond-from(xs) {
-    height: 60px;
+    .table__col.table__col-type {width: 21%;}
+    .table__col.table__col-date {width: 21%;}
+    .table__col.table__col-source {width: 18%;}
+    .table__col.table__col-control {width: 54px;}
   }
-}
-
-.table-no-cursor {
-  tbody tr td { cursor: initial !important; }
 }

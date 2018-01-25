@@ -1,128 +1,121 @@
 import React, { PureComponent } from 'react';
-import { Field, reduxForm } from 'redux-form'
-import { Row, Col } from 'react-bootstrap';
+import {connect} from "react-redux";
+import { Field, reduxForm } from 'redux-form';
+import moment from "moment";
 
-import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+import TransfersOfCareRecordsEdit from "../transfers-of-care-components/TransfersOfCareRecordsEdit";
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions, relationshipTypeOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import {transfersOfCareCreateFormStateSelector} from "../selectors";
+
 
 @reduxForm({
   form: 'transfersOfCareCreateFormSelector',
   validate: validateForm,
 })
+@connect(transfersOfCareCreateFormStateSelector)
 export default class TransfersOfCareCreateForm extends PureComponent {
   componentDidMount() {
     this.props.initialize(defaultFormValues);
   }
+
+  generateCitiesOptions = (selected) => {
+    return citiesOptions.slice().map(item => ({
+      ...item,
+      disabled: (item.value === selected)
+    }));
+  };
+
   render() {
-    const { isSubmit } = this.props;
+    const { isSubmit, transfersOfCareCreateFormState, match } = this.props;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
+
+    const formState = transfersOfCareCreateFormState.values || {};
+    const citiesFromOptions = this.generateCitiesOptions(formState[valuesNames.TO]);
+    const citiesToOptions = this.generateCitiesOptions(formState[valuesNames.FROM]);
 
     return (
       <div className="panel-body-inner">
         <form name="transfersOfCareCreateForm" className="form">
           <div className="form-group-wrapper">
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-left">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.NAME}*/}
-                  {/*name={valuesNames.NAME}*/}
-                  {/*id={valuesNames.NAME}*/}
-                  {/*type="text"*/}
-                  {/*component={ValidatedInput}*/}
-                  {/*props={{ isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
 
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-left">*/}
-                {/*<Row>*/}
-                  {/*<Col md={6} xs={12}>*/}
-                    {/*<Field*/}
-                      {/*label={valuesLabels.REALATIONSHIP}*/}
-                      {/*name={valuesNames.REALATIONSHIP}*/}
-                      {/*id={valuesNames.REALATIONSHIP}*/}
-                      {/*options={relationshipOptions}*/}
-                      {/*component={SelectFormGroup}*/}
-                      {/*props={{ isSubmit }}*/}
-                    {/*/>*/}
-                  {/*</Col>*/}
-                  {/*<Col md={6} xs={12}>*/}
-                    {/*<Field*/}
-                      {/*label={valuesLabels.NEXT_OF_KIN}*/}
-                      {/*name={valuesNames.NEXT_OF_KIN}*/}
-                      {/*id={valuesNames.NEXT_OF_KIN}*/}
-                      {/*type="checkbox"*/}
-                      {/*component={ValidatedInput}*/}
-                      {/*props={{ isSubmit }}*/}
-                    {/*/>*/}
-                  {/*</Col>*/}
-                {/*</Row>*/}
-              {/*</div>*/}
-              {/*<div className="col-expand-right">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.REALATIONSHIP_TYPE}*/}
-                  {/*name={valuesNames.REALATIONSHIP_CODE}*/}
-                  {/*id={valuesNames.REALATIONSHIP_CODE}*/}
-                  {/*options={relationshipTypeOptions}*/}
-                  {/*component={SelectFormGroup}*/}
-                  {/*props={{ isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.FROM}
+                  name={valuesNames.FROM}
+                  id={valuesNames.FROM}
+                  options={citiesFromOptions}
+                  component={SelectFormGroup}
+                  placeholder="-- Select from --"
+                  props={{ isSubmit }}
+                />
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.TO}
+                  name={valuesNames.TO}
+                  id={valuesNames.TO}
+                  options={citiesToOptions}
+                  component={SelectFormGroup}
+                  placeholder="-- Select to --"
+                  props={{ isSubmit }}
+                />
+              </div>
+            </div>
 
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-left">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.CONTACT_INFORMATION}*/}
-                  {/*name={valuesNames.CONTACT_INFORMATION}*/}
-                  {/*id={valuesNames.CONTACT_INFORMATION}*/}
-                  {/*component={ValidatedTextareaFormGroup}*/}
-                  {/*props={{ isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-              {/*<div className="col-expand-right">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.NOTES}*/}
-                  {/*name={valuesNames.NOTES}*/}
-                  {/*id={valuesNames.NOTES}*/}
-                  {/*component={ValidatedTextareaFormGroup}*/}
-                  {/*props={{ isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+            <Field
+              label={valuesLabels.DATE_TIME}
+              name={valuesNames.DATE_TIME}
+              id={valuesNames.DATE_TIME}
+              component={DateInput}
+              showTimeSelect
+              props={{
+                format: 'DD-MMM-YYYY HH:mm', isSubmit, showTimeSelect: true,
+                timeFormat: 'HH:mm', timeIntervals: 5, minDate: moment() }}
+            />
 
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-left">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.AUTHOR}*/}
-                  {/*name={valuesNames.AUTHOR}*/}
-                  {/*id={valuesNames.AUTHOR}*/}
-                  {/*component={ValidatedInput}*/}
-                  {/*props={{ disabled: true, isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+            <Field
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              component={TransfersOfCareRecordsEdit}
+              props={{ match, isSubmit }}
+            />
 
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-right">*/}
-                {/*<Field*/}
-                  {/*label={valuesLabels.DATE}*/}
-                  {/*name={valuesNames.DATE}*/}
-                  {/*id={valuesNames.DATE}*/}
-                  {/*component={DateInput}*/}
-                  {/*props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}*/}
-                {/*/>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <Field
+                  label={valuesLabels.REASON}
+                  name={valuesNames.REASON}
+                  id={valuesNames.REASON}
+                  component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
+                />
+              </div>
+              <div className="col-expand-right">
+                <Field
+                  label={valuesLabels.CLINICAL}
+                  name={valuesNames.CLINICAL}
+                  id={valuesNames.CLINICAL}
+                  component={ValidatedTextareaFormGroup}
+                  props={{ isSubmit }}
+                />
+              </div>
+            </div>
 
+            <Field
+              label={valuesLabels.DATE_CREATED}
+              name={valuesNames.DATE_CREATED}
+              id={valuesNames.DATE_CREATED}
+              component={DateInput}
+              props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
+            />
           </div>
         </form>
       </div>)

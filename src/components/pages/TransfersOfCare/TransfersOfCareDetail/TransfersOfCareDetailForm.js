@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
+import { connect } from "react-redux";
 import { Field, reduxForm } from 'redux-form'
+import moment from "moment";
 
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
@@ -8,7 +10,6 @@ import TransfersOfCareRecordsEdit from '../transfers-of-care-components/Transfer
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
 import { transfersOfCareDetailFormStateSelector} from "../selectors";
-import { connect } from "react-redux";
 
 @reduxForm({
   form: 'transfersOfCareDetailFormSelector',
@@ -16,10 +17,6 @@ import { connect } from "react-redux";
 })
 @connect(transfersOfCareDetailFormStateSelector)
 export default class TransfersOfCareDetailForm extends PureComponent {
-  state = {
-    typeRecords: '',
-  };
-
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
@@ -29,9 +26,11 @@ export default class TransfersOfCareDetailForm extends PureComponent {
     const defaultFormValues = {
       [valuesNames.FROM]: value[valuesNames.FROM],
       [valuesNames.TO]: value[valuesNames.TO],
+      [valuesNames.RECORDS]: value[valuesNames.RECORDS],
       [valuesNames.REASON]: value[valuesNames.REASON],
       [valuesNames.CLINICAL]: value[valuesNames.CLINICAL],
-      [valuesNames.DATE]: value[valuesNames.DATE],
+      [valuesNames.DATE_TIME]: value[valuesNames.DATE_TIME],
+      [valuesNames.DATE_CREATED]: value[valuesNames.DATE_CREATED],
     };
 
     return defaultFormValues;
@@ -81,10 +80,22 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               </div>
             </div>
 
-            <TransfersOfCareRecordsEdit
-              match={match}
-              records={detail[valuesNames.RECORDS]}
-              isSubmit={isSubmit}
+            <Field
+              label={valuesLabels.DATE_TIME}
+              name={valuesNames.DATE_TIME}
+              id={valuesNames.DATE_TIME}
+              component={DateInput}
+              showTimeSelect
+              props={{
+                format: 'DD-MMM-YYYY HH:mm', isSubmit, showTimeSelect: true,
+                timeFormat: 'HH:mm', timeIntervals: 5, minDate: moment() }}
+            />
+
+            <Field
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              component={TransfersOfCareRecordsEdit}
+              props={{ match, isSubmit }}
             />
 
             <div className="row-expand">
@@ -109,11 +120,11 @@ export default class TransfersOfCareDetailForm extends PureComponent {
             </div>
 
             <Field
-              label={valuesLabels.DATE_TIME}
-              name={valuesNames.DATE_TIME}
-              id={valuesNames.DATE_TIME}
+              label={valuesLabels.DATE_CREATED}
+              name={valuesNames.DATE_CREATED}
+              id={valuesNames.DATE_CREATED}
               component={DateInput}
-              props={{ disabled: true, value: detail[valuesNames.DATE_TIME], format: 'DD-MMM-YYYY', isSubmit }}
+              props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
             />
           </div>
         </form>
