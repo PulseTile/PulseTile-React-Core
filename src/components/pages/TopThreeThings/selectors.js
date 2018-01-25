@@ -16,8 +16,8 @@ const patientTopThreeThingsDetailSelector = createSelector(
   ({ topThreeThingsDetail }) => topThreeThingsDetail,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (topThreeThingsDetail, userId) => {
-    const personalNoteDetail = topThreeThingsDetail[userId];
-    return ({ personalNoteDetail, userId });
+    const topThreeThingDetail = topThreeThingsDetail[userId];
+    return ({ topThreeThingDetail, userId });
   }
 );
 

@@ -19,7 +19,7 @@ export const fetchPatientTopThreeThingsUpdateRequest = createAction(FETCH_PATIEN
 export const fetchPatientTopThreeThingsEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/topThreeThings`, {
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/top3Things`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(response => fetchPatientTopThreeThingsSuccess({
@@ -32,7 +32,7 @@ export const fetchPatientTopThreeThingsEpic = (action$, store) =>
 export const fetchPatientTopThreeThingsUpdateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_UPDATE_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/topThreeThings`, {
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/top3Things`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .flatMap((response) => {
