@@ -304,6 +304,36 @@ exports[`Component <Header /> should renders correctly 1`] = `
     />
     <Route
       component={[Function]}
+      exact={true}
+      key="images"
+      path="/patients/:userId/images"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="imagesDetail"
+      path="/patients/:userId/images/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="transfersOfCare"
+      path="/patients/:userId/transfer-of-care"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="transfersOfCareCreate"
+      path="/patients/:userId/transfer-of-care/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="transfersOfCareDetail"
+      path="/patients/:userId/transfer-of-care/:sourceId"
+    />
+    <Route
+      component={[Function]}
       path="/"
     />
   </Switch>

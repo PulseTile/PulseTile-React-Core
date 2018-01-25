@@ -63,7 +63,6 @@ exports[`Component <ClinicalNotes /> should renders correctly and testing anothe
                 },
               ]
             }
-            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -258,7 +257,6 @@ exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotes
                 },
               ]
             }
-            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -365,7 +363,6 @@ exports[`Component <ClinicalNotes /> should renders correctly with clinicalNotes
                 },
               ]
             }
-            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -726,7 +723,6 @@ exports[`Component <ClinicalNotes /> should renders correctly with forms error 1
                 },
               ]
             }
-            id="d6b4d397-779c-4a4e-b5eb-2084fb11876f"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

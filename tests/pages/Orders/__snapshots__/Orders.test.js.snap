@@ -76,7 +76,6 @@ exports[`Component <Orders /> should renders correctly and testing another metho
                 },
               ]
             }
-            id="7ae34463-0770-4a36-bbde-4869bb6a0f05"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -445,7 +444,6 @@ exports[`Component <Orders /> should renders correctly with forms error 1`] = `
                 },
               ]
             }
-            id="7ae34463-0770-4a36-bbde-4869bb6a0f05"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -559,7 +557,6 @@ exports[`Component <Orders /> should renders correctly with ordersDetail and tes
                 },
               ]
             }
-            id="7ae34463-0770-4a36-bbde-4869bb6a0f05"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -718,7 +715,6 @@ exports[`Component <Orders /> should renders correctly with ordersDetail and tes
                 },
               ]
             }
-            id="7ae34463-0770-4a36-bbde-4869bb6a0f05"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}

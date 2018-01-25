@@ -273,7 +273,7 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                             name="levelOfConsciousness"
                             text="V"
                             type="radio"
-                            value="Verbal"
+                            value="Voice"
                           />
                           <Switch
                             disabled={true}
@@ -851,7 +851,7 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                             text="V"
                             transitionValue="Alert"
                             type="radio"
-                            value="Verbal"
+                            value="Voice"
                           />
                           <Switch
                             disabled={true}

@@ -94,7 +94,6 @@ exports[`Component <Medications /> should renders correctly and testing another 
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -796,7 +795,6 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -942,7 +940,6 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -1114,7 +1111,6 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}

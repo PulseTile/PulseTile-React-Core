@@ -58,7 +58,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -323,7 +322,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -426,7 +424,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -779,7 +776,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

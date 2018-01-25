@@ -57,7 +57,6 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -319,7 +318,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -421,7 +419,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -775,7 +772,6 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

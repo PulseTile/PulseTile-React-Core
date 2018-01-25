@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import Swiper from 'react-id-swiper';
 import 'react-id-swiper/src/styles/scss/swiper.scss';
-import moment from 'moment'
+import moment from 'moment';
+import _ from 'lodash/fp';
 
-import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import ImagesDetailPanel from '../images-page-component/ImagesDetailPanel'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
+import ImagesDetailPanel from '../images-page-component/ImagesDetailPanel';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { hasClass } from '../../../../utils/plugin-helpers.utils';
 
@@ -38,7 +39,7 @@ export default class ImagesDetail extends PureComponent {
     document.onmouseup = this.stopDrag;
   }
 
-  startDrag = (e) => {
+  startDrag = /* istanbul ignore next */ (e) => {
     if (!this.state.touchMode) {
       if (e.preventDefault) e.preventDefault();
 
@@ -72,7 +73,6 @@ export default class ImagesDetail extends PureComponent {
   dragDiv = (e) => {
     const { drag, coordX, coordY, styleSwiper, marginTop, marginLeft } = this.state;
     if (!drag) { return }
-    if (!e) { const e = window.event }
     const currentCoordX = e.clientX;
     const currentCoordY = e.clientY;
     this.setState({ styleSwiper: {
@@ -90,7 +90,7 @@ export default class ImagesDetail extends PureComponent {
     this.setState({ drag: false });
   };
 
-  zoomin = () => {
+  zoomin = /* istanbul ignore next */ () => {
     const { styleSwiper } = this.state;
     const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
     const currWidth = myImg.clientWidth;
@@ -107,7 +107,7 @@ export default class ImagesDetail extends PureComponent {
       },
     } });
   };
-  zoomout = () => {
+  zoomout = /* istanbul ignore next */ () => {
     const { styleSwiper } = this.state;
     const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
     const currWidth = myImg.clientWidth;
@@ -157,12 +157,12 @@ export default class ImagesDetail extends PureComponent {
       allowTouchMove: touchMode,
     };
 
-    const demoArraySlides = ['d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930', 'f46068b5-95796c31-d6e3ddea-52d2fe09-72434be2'];
-    const demoInstanceIds = instanceIds.concat(demoArraySlides);
-
-    const swiperSlide = demoInstanceIds.map((item, index) => {
-      return (<div key={index}><img id={`img-${index}`} style={styleSwiper[index] ? styleSwiper[index] : null} src={this.getURLtoImage(item)} /></div>)
-    });
+    let swiperSlide;
+    if (!_.isEmpty(instanceIds)) {
+      swiperSlide = instanceIds.map((item, index) => {
+        return (<div key={index}><img id={`img-${index}`} style={styleSwiper[index] ? styleSwiper[index] : null} src={this.getURLtoImage(item)} /></div>)
+      });
+    }
 
     return (
       <div className="section-detail">

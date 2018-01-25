@@ -224,7 +224,7 @@ describe('Component <VitalsDetail />', () => {
 
     expect(component.find('Switch').at(2).props().type).toEqual('radio');
     expect(component.find('Switch').at(2).props().name).toEqual(valuesNames.LEVEL_OF_CONSCIOUSNESS);
-    expect(component.find('Switch').at(2).props().value).toEqual('Verbal');
+    expect(component.find('Switch').at(2).props().value).toEqual('Voice');
     expect(component.find('Switch').at(2).props().transitionValue).toEqual(propsForVitalsPanel.detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]);
     expect(component.find('Switch').at(2).props().text).toEqual('V');
     expect(component.find('Switch').at(2).props().id).toEqual('levelOfConsciousnessV');

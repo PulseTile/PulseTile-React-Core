@@ -148,7 +148,7 @@ describe('Component <VitalsCreateForm />', () => {
     expect(component.find('Field').at(7).props().id).toEqual(`${valuesNames.LEVEL_OF_CONSCIOUSNESS}V`);
     expect(component.find('Field').at(7).props().type).toEqual('radio');
     expect(component.find('Field').at(7).props().editOrCreate).toEqual(true);
-    expect(component.find('Field').at(7).props().value).toEqual('Verbal');
+    expect(component.find('Field').at(7).props().value).toEqual('Voice');
     expect(component.find('Field').at(7).props().text).toEqual('V');
     expect(component.find('Field').at(7).props().transitionValue).toEqual(testProps.detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]);
     expect(component.find('Field').at(7).props().props.isSubmit).toEqual(false);
