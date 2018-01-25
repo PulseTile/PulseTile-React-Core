@@ -11,6 +11,7 @@ const testProps = {
   onShow: () => {},
   onSaveSettings: () => {},
   onCancel: () => {},
+  onGoBack: () => {},
   title: 'Test Title Panel',
   name: 'TEST_PANEL',
   currentPanel: 'TEST_PANEL',
@@ -57,11 +58,51 @@ describe('Component <PluginCreate />', () => {
     expect(component.instance().props['name']).toEqual(testProps.name);
     expect(component.instance().props['currentPanel']).toEqual(testProps.currentPanel);
     expect(component.instance().props['formValues']).toEqual(testProps.formValues);
+    expect(component.instance().props['isImport']).toEqual(false);
+    expect(component.instance().props['onGoBack']).toEqual(undefined);
 
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
     component.find('.panel-control .btn-danger').at(0).simulate('click');
     component.find('.panel-control .btn-success').at(0).simulate('click');
+  });
+
+  it('should renders correctly when creation occurs after import', () => {
+    let tree;
+    const component = shallow(
+      <PluginCreate
+        onExpand={testProps.onExpand}
+        onShow={testProps.onShow}
+        onSaveSettings={testProps.onSaveSettings}
+        onCancel={testProps.onCancel}
+        expandedPanel={'another panel'}
+        title={testProps.title}
+        name={testProps.name}
+        openedPanel={testProps.name}
+        currentPanel={testProps.currentPanel}
+        formValues={testProps.formValues}
+        onGoBack={testProps.onGoBack}
+        isImport
+      />);
+
+    tree = toJson(component);
+    expect(tree).toMatchSnapshot();
+
+    component.setProps({
+      expandedPanel: testProps.name,
+      componentForm: 'children'
+    });
+    expect(component.find('PluginDetailPanel')).toHaveLength(1);
+    expect(component.find('PTButton')).toHaveLength(3);
+
+    expect(component.instance().props['isImport']).toEqual(true);
+    expect(component.instance().props['onGoBack']).toEqual(testProps.onGoBack);
+    // component.instance().goBack();
+
+    tree = toJson(component);
+    expect(tree).toMatchSnapshot();
+
+    component.find('PTButton').at(2).simulate('click');
   });
 });

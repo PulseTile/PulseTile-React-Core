@@ -12,13 +12,13 @@ export default class PluginDetailPanel extends PureComponent {
     title: PropTypes.string.isRequired,
     isOpen: PropTypes.bool.isRequired,
     children: PropTypes.element.isRequired,
-    onShow: PropTypes.func.isRequired,
+    onShow: PropTypes.func,
     onExpand: PropTypes.func.isRequired,
     onEdit: PropTypes.func,
     onCancel: PropTypes.func,
     onSaveSettings: PropTypes.func,
     editedPanel: PropTypes.object,
-		isShowControlPanel: PropTypes.bool
+    isShowControlPanel: PropTypes.bool,
   };
 
   static defaultProps = {

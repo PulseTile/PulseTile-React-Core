@@ -259,7 +259,7 @@ export default class Allergies extends PureComponent {
     const filteredAllergies = this.formToShowCollection(allAllergies);
 
     let sourceId;
-    if (!_.isEmpty(allergieDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(allergieDetail)) {
       sourceId = allergieDetail[valuesNames.SOURCE_ID];
     }
 

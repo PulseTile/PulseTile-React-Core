@@ -1,15 +1,16 @@
 import React from 'react';
-import {configure, shallow, mount} from 'enzyme'
+import { configure, shallow } from 'enzyme'
 import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
-configure({ adapter: new Adapter() });
 
 import SelectFormGroup from '../../src/components/form-fields/SelectFormGroup';
+
+configure({ adapter: new Adapter() });
 
 const testProps = {
   label: 'Test label',
   placeholder: 'Test placeholder',
-  input: {name: 'test-name', value: ''},
+  input: { name: 'test-name', value: '' },
   options: [
     { value: 1, title: 'One' },
     { value: 2, title: 'Two' },
@@ -28,18 +29,18 @@ describe('Component <SelectFormGroup />', () => {
   it('should renders with all props correctly', () => {
     let tree;
     const component = shallow(
-        <SelectFormGroup
-          id={testProps.id}
-          label={testProps.label}
-          input={testProps.input}
-          meta={testProps.meta}
-          options={testProps.options}
-          isSubmit={true}
-          isAdvancedSearch={false}
-          isNotValidate={false}
-          disabled={false}
-          placeholder={testProps.placeholder}
-        />);
+      <SelectFormGroup
+        id={testProps.id}
+        label={testProps.label}
+        input={testProps.input}
+        meta={testProps.meta}
+        options={testProps.options}
+        isSubmit
+        isAdvancedSearch={false}
+        isNotValidate={false}
+        disabled={false}
+        placeholder={testProps.placeholder}
+      />);
 
     expect(component.find('select')).toHaveLength(1);
     expect(component.find('option')).toHaveLength(6);
@@ -50,16 +51,16 @@ describe('Component <SelectFormGroup />', () => {
     expect(component.find('select').prop('id')).toEqual(testProps.id);
     expect(component.find('select').prop('disabled')).toEqual(false);
 
-    expect(component.instance().props['id']).toEqual(testProps.id);
-    expect(component.instance().props['label']).toEqual(testProps.label);
-    expect(component.instance().props['input']).toEqual(testProps.input);
-    expect(component.instance().props['meta']).toEqual(testProps.meta);
-    expect(component.instance().props['options']).toEqual(testProps.options);
-    expect(component.instance().props['placeholder']).toEqual(testProps.placeholder);
-    expect(component.instance().props['isSubmit']).toEqual(true);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(false);
-    expect(component.instance().props['isNotValidate']).toEqual(false);
-    expect(component.instance().props['disabled']).toEqual(false);
+    expect(component.instance().props.id).toEqual(testProps.id);
+    expect(component.instance().props.label).toEqual(testProps.label);
+    expect(component.instance().props.input).toEqual(testProps.input);
+    expect(component.instance().props.meta).toEqual(testProps.meta);
+    expect(component.instance().props.options).toEqual(testProps.options);
+    expect(component.instance().props.placeholder).toEqual(testProps.placeholder);
+    expect(component.instance().props.isSubmit).toEqual(true);
+    expect(component.instance().props.isAdvancedSearch).toEqual(false);
+    expect(component.instance().props.isNotValidate).toEqual(false);
+    expect(component.instance().props.disabled).toEqual(false);
 
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
@@ -67,7 +68,7 @@ describe('Component <SelectFormGroup />', () => {
     component.setProps({
       id: '',
       placeholder: '',
-      input: {name: 'test-name', value: 5}
+      input: { name: 'test-name', value: 5 },
     });
     expect(component.find('select')).toHaveLength(1);
     expect(component.find('option')).toHaveLength(6);
@@ -84,7 +85,7 @@ describe('Component <SelectFormGroup />', () => {
         input={testProps.input}
         options={testProps.options}
         meta={testProps.meta}
-        isSubmit={true}
+        isSubmit
         isAdvancedSearch={false}
         isNotValidate={false}
         disabled={false}
@@ -101,9 +102,9 @@ describe('Component <SelectFormGroup />', () => {
     component.setProps({
       meta: {
         touched: false,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: true
+      isSubmit: true,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -115,9 +116,9 @@ describe('Component <SelectFormGroup />', () => {
     component.setProps({
       meta: {
         touched: true,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: false
+      isSubmit: false,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -130,9 +131,9 @@ describe('Component <SelectFormGroup />', () => {
       meta: {
         dirty: true,
         touched: false,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: false
+      isSubmit: false,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -146,9 +147,9 @@ describe('Component <SelectFormGroup />', () => {
       meta: {
         dirty: true,
         touched: true,
-        error: false
+        error: false,
       },
-      isSubmit: true
+      isSubmit: true,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(false);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(true);
@@ -169,9 +170,9 @@ describe('Component <SelectFormGroup />', () => {
       meta: {
         dirty: true,
         touched: true,
-        error: 'Error'
+        error: 'Error',
       },
-      isSubmit: true
+      isSubmit: true,
     });
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(false);
     expect(component.find('.form-group').at(0).hasClass('has-success')).toEqual(false);
@@ -190,9 +191,9 @@ describe('Component <SelectFormGroup />', () => {
         meta={{
           dirty: true,
           touched: true,
-          error: 'Error'
+          error: 'Error',
         }}
-        isSubmit={true}
+        isSubmit
       />);
 
     expect(component.find('.form-group').at(0).hasClass('has-error')).toEqual(true);
@@ -200,8 +201,8 @@ describe('Component <SelectFormGroup />', () => {
     // 1 case when isNotValidate===false and isAdvancedSearch === false
     expect(component.find('.required-label')).toHaveLength(0);
     expect(component.find('.help-block')).toHaveLength(1);
-    expect(component.instance().props['isNotValidate']).toEqual(undefined);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(undefined);
+    expect(component.instance().props.isNotValidate).toEqual(undefined);
+    expect(component.instance().props.isAdvancedSearch).toEqual(undefined);
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
@@ -210,8 +211,8 @@ describe('Component <SelectFormGroup />', () => {
 
     expect(component.find('.required-label')).toHaveLength(1);
     expect(component.find('.help-block')).toHaveLength(0);
-    expect(component.instance().props['isNotValidate']).toEqual(undefined);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(true);
+    expect(component.instance().props.isNotValidate).toEqual(undefined);
+    expect(component.instance().props.isAdvancedSearch).toEqual(true);
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
@@ -219,8 +220,8 @@ describe('Component <SelectFormGroup />', () => {
     component.setProps({ isNotValidate: true });
     expect(component.find('.required-label')).toHaveLength(0);
     expect(component.find('.help-block')).toHaveLength(0);
-    expect(component.instance().props['isNotValidate']).toEqual(true);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(true);
+    expect(component.instance().props.isNotValidate).toEqual(true);
+    expect(component.instance().props.isAdvancedSearch).toEqual(true);
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
@@ -229,11 +230,10 @@ describe('Component <SelectFormGroup />', () => {
 
     expect(component.find('.required-label')).toHaveLength(0);
     expect(component.find('.help-block')).toHaveLength(0);
-    expect(component.instance().props['isNotValidate']).toEqual(true);
-    expect(component.instance().props['isAdvancedSearch']).toEqual(false);
+    expect(component.instance().props.isNotValidate).toEqual(true);
+    expect(component.instance().props.isAdvancedSearch).toEqual(false);
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
-
   });
 
   it('should renders without options correctly', () => {
@@ -244,17 +244,19 @@ describe('Component <SelectFormGroup />', () => {
         label={testProps.label}
         input={testProps.input}
         options={[]}
+        placeholder="placeholder"
         meta={{
           dirty: true,
           touched: true,
-          error: false
+          error: false,
         }}
-        isSubmit={true}
+        isSubmit
       />);
 
     tree = toJson(component);
     expect(tree).toMatchSnapshot();
 
+    expect(component.find('option').text()).toEqual('placeholder');
     expect(component.find('option')).toHaveLength(1);
   });
 });

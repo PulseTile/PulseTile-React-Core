@@ -241,7 +241,7 @@ export default class MDTs extends PureComponent {
     const filteredMDTs = this.formToShowCollection(allMDTs);
 
     let sourceId;
-    if (!_.isEmpty(mdtDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(mdtDetail)) {
       sourceId = mdtDetail[valuesNames.SOURCE_ID];
     }
 

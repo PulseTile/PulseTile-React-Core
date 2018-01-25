@@ -15,6 +15,7 @@ exports[`Component <SelectFormGroup /> should renders with all props correctly 1
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
     <option>
@@ -69,9 +70,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__11"
       value={1}
@@ -121,9 +122,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__16"
       value={1}
@@ -178,9 +179,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__21"
       value={1}
@@ -235,9 +236,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__26"
       value={1}
@@ -292,9 +293,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__31"
       value={1}
@@ -344,9 +345,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__36"
       value={1}
@@ -396,9 +397,9 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__41"
       value={1}
@@ -447,9 +448,9 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__46"
       value={1}
@@ -503,9 +504,9 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__51"
       value={1}
@@ -559,9 +560,9 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__56"
       value={1}
@@ -610,9 +611,9 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
     <option
       key="__SelectFormGroupOption__61"
       value={1}
@@ -661,9 +662,12 @@ exports[`Component <SelectFormGroup /> should renders without options correctly 
     className="form-control input-sm"
     id="test-id"
     name="test-name"
+    onChange={[Function]}
     value=""
   >
-    <option />
+    <option>
+      placeholder
+    </option>
   </select>
 </div>
 `;

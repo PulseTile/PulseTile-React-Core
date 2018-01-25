@@ -5,7 +5,12 @@ import _ from 'lodash/fp';
 import { Bar } from 'react-chartjs-2';
 
 /* istanbul ignore next */
-const handleBarClick = ({ onBarClick }) => (chartElements) => {
+const handleBarClick = ({ onBarClick, patients, isClinicalQueryChart }) => (chartElements) => {
+  let index;
+  if (isClinicalQueryChart) {
+    index = _.get('[0]_index', chartElements);
+    if (index) onBarClick(patients[index]);
+  }
   const label = _.get('[0]_model.label', chartElements);
   if (label && _.isFunction(onBarClick)) onBarClick(label);
 };

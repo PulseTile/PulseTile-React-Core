@@ -57,7 +57,6 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -187,6 +186,81 @@ exports[`Component <Allergies /> should renders correctly and testing context an
 </section>
 `;
 
+exports[`Component <Allergies /> should renders correctly when data take from Documents how "import" 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="allergiesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="allergiesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Allergies"
+          />
+          <PluginMainPanel
+            columnNameSortBy="cause"
+            emptyDataMessage="No allergies"
+            headers={
+              Array [
+                Object {
+                  "key": "cause",
+                  "title": "Cause",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "reaction",
+                  "title": "Reaction",
+                  "width": "55%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "Source ID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
 exports[`Component <Allergies /> should renders correctly with allergiesDetail and testing Create Panel 1`] = `
 <section
   className="page-wrapper"
@@ -244,7 +318,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -273,9 +346,11 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           currentPanel="allergiesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="allergiesCreate"
@@ -344,7 +419,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -373,9 +447,11 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           currentPanel="allergiesCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
           onExpand={[Function]}
+          onGoBack={[Function]}
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="allergiesCreate"
@@ -696,7 +772,6 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

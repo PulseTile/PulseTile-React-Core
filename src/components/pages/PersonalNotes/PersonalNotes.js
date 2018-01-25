@@ -236,7 +236,7 @@ export default class PersonalNotes extends PureComponent {
     const filteredPersonalNotes = this.formToShowCollection(allPersonalNotes);
 
     let sourceId;
-    if (!_.isEmpty(personalNoteDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(personalNoteDetail)) {
       sourceId = personalNoteDetail[valuesNames.SOURCE_ID];
     }
 

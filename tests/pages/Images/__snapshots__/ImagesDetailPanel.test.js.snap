@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ImagesDetailPanel /> should renders with all props correctly 1`] = `
+<div
+  className="panel panel-secondary open"
+>
+  <PluginDetailHeader
+    currentPanel="TEST_PANEL"
+    isBtnShowPanel={true}
+    name="TEST_PANEL"
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Test Title Panel"
+  />
+  <div
+    className="panel-body"
+  >
+    <SimpleComponent />
+    <div
+      className="panel-control"
+    >
+      <div
+        className="control-group center"
+      >
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal disabled"
+          id="play"
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-play"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal disabled"
+          id="stop"
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-stop"
+          />
+        </PTButton>
+        <div
+          className="control-separate control-separate-sm"
+        />
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="zoomIn"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-search-minus"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="zoomOut"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-search-plus"
+          />
+        </PTButton>
+        <div
+          className="control-separate control-separate-sm"
+        />
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="arrows"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fa fa-arrows"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="verticalArrows"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fa fa-arrows-v"
+          />
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <ImagesDetailPanel /> should renders with all props correctly 2`] = `
+<div
+  className="panel panel-secondary open"
+>
+  <PluginDetailHeader
+    currentPanel="TEST_PANEL"
+    isBtnShowPanel={true}
+    name="TEST_PANEL"
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Test Title Panel"
+  />
+  <div
+    className="panel-body"
+  >
+    <SimpleComponent />
+    <div
+      className="panel-control"
+    >
+      <div
+        className="control-group center"
+      >
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal disabled"
+          id="play"
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-play"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal disabled"
+          id="stop"
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-stop"
+          />
+        </PTButton>
+        <div
+          className="control-separate control-separate-sm"
+        />
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="zoomIn"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-search-minus"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="zoomOut"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="btn-icon fa fa-search-plus"
+          />
+        </PTButton>
+        <div
+          className="control-separate control-separate-sm"
+        />
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="arrows"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fa fa-arrows"
+          />
+        </PTButton>
+        <PTButton
+          className="btn btn-inverse btn-success btn-none-border btn-icon-normal"
+          id="verticalArrows"
+          onClick={[Function]}
+          type="button"
+        >
+          <i
+            className="fa fa-arrows-v"
+          />
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;

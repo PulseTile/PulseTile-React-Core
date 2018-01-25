@@ -3,7 +3,7 @@ import configureStore from 'redux-mock-store';
 import sinon from 'sinon'
 import { StaticRouter } from 'react-router'
 import Enzyme, { shallow, render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 
 import Sidebar from '../../src/components/presentational/Sidebar/Sidebar';
 
@@ -14,7 +14,7 @@ const dispatch = sinon.spy();
 const userId = 9999999000;
 const activeLink = 'patients-summary';
 const context = {};
-const testUnnecessaryProp = 'test'
+const testUnnecessaryProp = 'test';
 
 describe('Component <Sidebar />', () => {
   it('should renders with props correctly', () => {
@@ -42,7 +42,12 @@ describe('Component <Sidebar />', () => {
     expect(sidebar.prop('userId')).toEqual(9999999024);
   });
 
-  it('should renders whet it is visible', () => {
+  it('should renders when it is visible', () => {
+    const sidebarConfig = [
+      { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
+      { key: 'diagnoses', name: 'Problems / Diagnosis', isVisible: true },
+    ];
+
     const tree = render(
       <StaticRouter location="someLocation" context={context}>
         <Sidebar

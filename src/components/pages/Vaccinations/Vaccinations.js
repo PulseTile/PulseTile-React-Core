@@ -237,7 +237,7 @@ export default class Vaccination extends PureComponent {
     const filteredVaccinations = this.formToShowCollection(allVaccinations);
 
     let sourceId;
-    if (!_.isEmpty(vaccinationDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(vaccinationDetail)) {
       sourceId = vaccinationDetail[valuesNames.SOURCE_ID];
     }
 

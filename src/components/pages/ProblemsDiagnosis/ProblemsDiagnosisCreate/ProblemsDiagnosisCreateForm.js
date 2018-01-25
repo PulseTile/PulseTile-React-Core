@@ -34,6 +34,12 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
         ...defaultFormValues,
         ...historyState.importData
       };
+      if (!historyState.importData[valuesNames.CODE]) {
+        dataToInitialize[valuesNames.CODE] = defaultFormValues[valuesNames.CODE];
+      }
+      if (!historyState.importData[valuesNames.TERMINOLOGY]) {
+        dataToInitialize[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
+      }
       this.props.initialize(dataToInitialize);
       this.setState({isImport: true})
 

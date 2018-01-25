@@ -13,6 +13,7 @@ const store = mockStore({});
 const DATE_TO_USE = new Date('2017');
 const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
 global.Date = jest.fn(() => DATE_TO_USE);
+Date.now = jest.fn(() => DATE_TO_USE_TIME);
 
 const FORM_NAME = 'allergiesCreateForm';
 const DATE_FORMAT = 'DD-MMM-YYYY';
@@ -21,13 +22,51 @@ const testProps = {
   isSubmit: false,
 };
 
+const userId = '9999999000';
+const pathname = `/patients/${userId}/allergies/create`;
+const route = {
+  match: {
+    params: { userId },
+  },
+};
+
+const context = {
+  router: {
+    route,
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: { pathname },
+    },
+  },
+};
+const contextImport = {
+  router: {
+    route,
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            cause: 'cause',
+          }
+        }
+      },
+    }
+  },
+};
+
 describe('Component <AllergiesCreateForm />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
       <AllergiesCreateForm
         store={store}
         isSubmit={testProps.isSubmit}
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
 
     expect(component.find('Field')).toHaveLength(7);
     expect(component.find('form')).toHaveLength(1);
@@ -72,7 +111,7 @@ describe('Component <AllergiesCreateForm />', () => {
       <AllergiesCreateForm
         store={store}
         isSubmit
-      />).dive().dive().dive();
+      />, { context }).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(7);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
@@ -80,6 +119,20 @@ describe('Component <AllergiesCreateForm />', () => {
     expect(component.find('Field').at(0).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(1).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(2).props().props.isSubmit).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import"', () => {
+    const component = shallow(
+      <AllergiesCreateForm
+        store={store}
+      />, { context: contextImport }).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(8);
+
+    expect(component.find('Field').at(5).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(5).props().props.disabled).toEqual(true);
 
     expect(component).toMatchSnapshot();
   });

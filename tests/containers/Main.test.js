@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import sinon from 'sinon'
 import Enzyme, { render, shallow, mount } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 import { Provider } from 'react-redux'
 import { StaticRouter } from 'react-router'
 

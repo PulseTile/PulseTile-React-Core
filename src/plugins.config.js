@@ -18,6 +18,8 @@ import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index
 import { documentsEpic, documentsReducer } from './components/pages/Documents/index'
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index'
 import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index'
+import { imagesEpic, imagesReducer } from './components/pages/Images/index';
+import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -37,6 +39,8 @@ import Drawings from './components/pages/Drawings/Drawings';
 import Vitals from './components/pages/Vitals/Vitals';
 import Documents from './components/pages/Documents/Documents';
 import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
+import Images from './components/pages/Images/Images';
+import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
@@ -44,13 +48,16 @@ export const sidebarConfig = [
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
-  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
-  { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
-  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
-  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
+  { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
   { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
-  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
+  { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
+  { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
+  { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
+  { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
   { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
@@ -58,13 +65,17 @@ export const sidebarConfig = [
   { key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
   { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
   { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: true },
+  { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
+  { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
+  { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];
 
 export const dashboardVisible = {
-  problems: true,
+  // you can disable or enable the PatientsSummary boards here
+  // for this you must to write key of board and give its false value
+  // path: src\components\pages\PatientsSummary\patients-summary.config.js
+  // e.g. (problems: false)
   contacts: true,
-  allergies: true,
-  medications: true,
 };
 
 export const pluginsEpicConfig = [
@@ -86,6 +97,8 @@ export const pluginsEpicConfig = [
   vitalsEpic,
   documentsEpic,
   topThreeThingsEpic,
+  imagesEpic,
+  transfersOfCareEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -107,6 +120,8 @@ export const pluginsReducerConfig = [
   vitalsReducer,
   documentsReducer,
   topThreeThingsReducer,
+  imagesReducer,
+  transfersOfCareReducer,
 ];
 
 export const routersPluginConfig = [
@@ -178,5 +193,11 @@ export const routersPluginConfig = [
 
   { key: 'topThreeThings', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}` },
   { key: 'topThreeThingsDetail', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}/:sourceId` },
+  { key: 'images', component: Images, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.IMAGES}` },
+  { key: 'imagesDetail', component: Images, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.IMAGES}/:sourceId` },
+
+  { key: 'transfersOfCare', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}` },
+  { key: 'transfersOfCareCreate', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/create` },
+  { key: 'transfersOfCareDetail', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/:sourceId` },
 
 ];

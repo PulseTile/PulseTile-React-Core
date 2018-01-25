@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FormSectionList /> should renders with all props correctly 1`] = `
+<div
+  className="form-group-section-list"
+>
+  <div
+    className="form-group-section-heading"
+  >
+    <label
+      className="control-label"
+    >
+      Test title
+    </label>
+  </div>
+  <span
+    className="FormSectionList-children"
+  >
+    FormSectionList children
+  </span>
+</div>
+`;

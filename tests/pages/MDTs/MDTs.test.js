@@ -90,6 +90,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/mdt`,
@@ -139,10 +140,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailMDTsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -201,10 +199,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
@@ -230,10 +225,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -271,10 +263,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -290,10 +279,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'mdtsPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -306,10 +292,7 @@ describe('Component <MDTs />', () => {
       <MDTs
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });

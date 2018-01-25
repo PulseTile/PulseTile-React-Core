@@ -28,7 +28,8 @@ const testProps = {
   onCellClick: () => {},
 };
 
-const CONVER_DATE_TIME = moment(1452595820958).format('DD-MMM-YYYY');
+const CONVER_DATE_HEADER = moment(1452549600000).format('DD-MMM-YYYY');
+const CONVER_DATE_TEXT = moment(1452595820958).format('DD-MMM-YYYY');
 
 describe('Component <EventsTimelines />', () => {
   it('should renders with props correctly shallow testing', () => {
@@ -38,10 +39,10 @@ describe('Component <EventsTimelines />', () => {
       onCellClick={testProps.onCellClick}
     />);
 
-    expect(component.find('.timeline-header').text()).toEqual(CONVER_DATE_TIME);
+    expect(component.find('.timeline-header').text()).toEqual(CONVER_DATE_HEADER);
     expect(component.find('.timeline-date-title').text()).toEqual('Transfer from ward to ICU');
     expect(component.find('.timeline-date-subtitle').text()).toEqual('Transfer');
-    expect(component.find('.timeline-date-text').text()).toEqual(CONVER_DATE_TIME);
+    expect(component.find('.timeline-date-text').text()).toEqual(CONVER_DATE_TEXT);
     expect(component.find('Scrollbars')).toHaveLength(1);
     expect(component.find('Scrollbars').props().style.height).toEqual(648);
 

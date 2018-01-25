@@ -11,7 +11,7 @@ import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
-import { valuesNames } from './forms.config';
+import { valuesNames, defaultValue } from './forms.config';
 import { fetchPatientDrawingsRequest } from './ducks/fetch-patient-drawings.duck';
 import { fetchPatientDrawingsCreateRequest } from './ducks/fetch-patient-drawings-create.duck';
 import { fetchPatientDrawingsDetailRequest } from './ducks/fetch-patient-drawings-detail.duck';
@@ -191,6 +191,8 @@ export default class Drawings extends PureComponent {
     const { drawingImage } = this.state;
     const sendData = {};
 
+    const dateCreated = new Date().getTime();
+
     sendData.userId = userId;
 
     if (!_.isEmpty(drawingsDetailFormState) || formName === 'create') {
@@ -201,6 +203,11 @@ export default class Drawings extends PureComponent {
     if (!_.isEmpty(drawingsDetailFormState)) {
       sendData[valuesNames.DRAWING] = drawingDetail[valuesNames.DRAWING];
       sendData[valuesNames.SOURCE_ID] = drawingDetail[valuesNames.SOURCE_ID];
+    }
+
+    if (formName === 'edit') {
+      sendData[valuesNames.SOURCE] = defaultValue.SOURCE;
+      sendData[valuesNames.DATE_CREATED] = dateCreated;
     }
 
     if (drawingImage.length) {

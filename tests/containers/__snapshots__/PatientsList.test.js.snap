@@ -2386,3 +2386,174 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
   </div>
 </PatientsList>
 `;
+
+exports[`Component <PatientsList /> should renders with props correctly shallow testing 1`] = `
+<div
+  className="patients-list"
+>
+  <div
+    className="panel panel-primary"
+  >
+    <PatientsListHeader
+      onColumnsSelected={[Function]}
+      onFilterChange={[Function]}
+      panelTitle="Patient Info (Search Type: allergies, Search Query: contains \\\\\\"1\\\\\\")"
+      selectedColumns={
+        Object {
+          "address": true,
+          "dateOfBirth": true,
+          "diagnosesCount": false,
+          "diagnosesDate": false,
+          "gender": true,
+          "id": true,
+          "name": true,
+          "ordersCount": true,
+          "ordersDate": true,
+          "resultsCount": true,
+          "resultsDate": true,
+          "viewPatientNavigation": true,
+          "vitalsCount": false,
+          "vitalsDate": false,
+        }
+      }
+    />
+    <div
+      className="panel-body"
+    >
+      <div
+        className="wrap-patients-table"
+      >
+        <SortableTablePatients
+          columnNameSortBy="name"
+          data={
+            Array [
+              Object {
+                "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                "dateOfBirth": -363657600000,
+                "dateOfBirthConvert": "24-Jun-1958",
+                "department": "Primary Care",
+                "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                "diagnosesDateConvert": "01-Jan-1970",
+                "gender": "Male",
+                "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                "gpName": "Joseph May N.",
+                "id": "9999999006",
+                "name": "Ezra Gordon",
+                "nhsNumber": "9999999006",
+                "ordersDate": "1970-01-01T00:00:00-05:00",
+                "ordersDateConvert": "01-Jan-1970",
+                "pasNo": "595941",
+                "phone": "070 6691 5178",
+                "resultsDate": "1970-01-01T00:00:00-05:00",
+                "resultsDateConvert": "01-Jan-1970",
+                "viewPatientNavigation": <ViewPatientDropdown
+                  onPatientViewClick={[Function]}
+                  onSetOpenedDropdownID={[Function]}
+                  openedDropdownID={null}
+                  patient={
+                        Object {
+                              "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
+                              "dateOfBirth": -363657600000,
+                              "dateOfBirthConvert": "24-Jun-1958",
+                              "department": "Primary Care",
+                              "diagnosesDate": "1970-01-01T00:00:00-05:00",
+                              "diagnosesDateConvert": "01-Jan-1970",
+                              "gender": "Male",
+                              "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
+                              "gpName": "Joseph May N.",
+                              "id": "9999999006",
+                              "name": "Ezra Gordon",
+                              "nhsNumber": "9999999006",
+                              "ordersDate": "1970-01-01T00:00:00-05:00",
+                              "ordersDateConvert": "01-Jan-1970",
+                              "pasNo": "595941",
+                              "phone": "070 6691 5178",
+                              "resultsDate": "1970-01-01T00:00:00-05:00",
+                              "resultsDateConvert": "01-Jan-1970",
+                              "vitalsDate": "1970-01-01T00:00:00-05:00",
+                              "vitalsDateConvert": "01-Jan-1970",
+                            }
+                  }
+            />,
+                "vitalsDate": "1970-01-01T00:00:00-05:00",
+                "vitalsDateConvert": "01-Jan-1970",
+              },
+            ]
+          }
+          emptyDataMessage="No patients found"
+          headers={
+            Array [
+              Object {
+                "key": "name",
+                "title": "Name",
+                "width": 150,
+              },
+              Object {
+                "key": "address",
+                "title": "Address",
+                "width": 300,
+              },
+              Object {
+                "key": "dateOfBirth",
+                "title": "Born",
+                "transformer": [Function],
+                "width": 105,
+              },
+              Object {
+                "key": "gender",
+                "title": "Gender",
+                "width": 90,
+              },
+              Object {
+                "key": "id",
+                "title": "NHS No.",
+                "width": 115,
+              },
+              Object {
+                "icon": <CalendarIcon />,
+                "key": "ordersDate",
+                "title": "Orders",
+                "transformer": [Function],
+                "width": 110,
+              },
+              Object {
+                "icon": <span>
+                  #
+            </span>,
+                "key": "ordersCount",
+                "title": "Orders ",
+                "width": 100,
+              },
+              Object {
+                "icon": <CalendarIcon />,
+                "key": "resultsDate",
+                "title": "Results",
+                "transformer": [Function],
+                "width": 110,
+              },
+              Object {
+                "icon": <span>
+                  #
+            </span>,
+                "key": "resultsCount",
+                "title": "Results ",
+                "width": 100,
+              },
+              Object {
+                "icon": <span />,
+                "key": "viewPatientNavigation",
+                "title": "",
+                "width": 90,
+              },
+            ]
+          }
+          onCellClick={[Function]}
+          onHeaderCellClick={[Function]}
+          sortingOrder="asc"
+          table="patientsList"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

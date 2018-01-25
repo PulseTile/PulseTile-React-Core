@@ -3,6 +3,7 @@ export const clientUrls = {
   CHARTS: '/charts',
   PATIENTS: '/patients',
   PATIENTS_FULL_DETAILS: '/patients-full-details',
+  SEARCH_REPORT: '/search-report',
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
   RESULTS: 'results',
@@ -24,6 +25,8 @@ export const clientUrls = {
   VITALS: 'vitals',
   DOCUMENTS: 'documents',
   TOP_THREE_THINGS: 'topThreeThings',
+  IMAGES: 'images',
+  TRANSFERS_OF_CARE: 'transfer-of-care',
 };
 
 const pluginsPages = {
@@ -135,6 +138,18 @@ const pluginsPages = {
       state: '/topThreeThings',
     }],
   },
+  'images': {
+    breadcrumbs: [{
+      title: 'Images',
+      state: '/images',
+    }],
+  },
+  'transfer-of-care': {
+    breadcrumbs: [{
+      title: 'Transfers Of Care',
+      state: '/transfers-of-care',
+    }],
+  },
 };
 
 
@@ -185,6 +200,7 @@ export const mainPagesTitles = {
       title: 'Search Report',
       state: '/search-report',
     }],
+    headerTitle: 'System Dashboard',
   },
   'patients-summary': {
     breadcrumbs: [{

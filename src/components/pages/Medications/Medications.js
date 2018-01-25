@@ -301,7 +301,7 @@ export default class Medications extends PureComponent {
     const filteredMedications = this.formToShowCollection(allMedications);
 
     let sourceId;
-    if (!_.isEmpty(medicationDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(medicationDetail)) {
       sourceId = medicationDetail[valuesNames.SOURCE_ID];
     }
 

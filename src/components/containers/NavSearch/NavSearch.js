@@ -5,6 +5,7 @@ import SearchOptions from './SearchOptions'
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import BasicPatientSearch from '../BasicPatientSearch/BasicPatientSearch';
 import AdvancedPatientSearch from '../AdvancedPatientSearch/AdvancedPatientSearch';
+import ClinicalQuerySearch from '../ClinicalQuerySearch/ClinicalQuerySearch';
 import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 
 const BASIC_SEARCH = 'basicSearch';
@@ -69,6 +70,7 @@ export default class NavSearch extends PureComponent {
         </div>
         { selected === BASIC_SEARCH && <BasicPatientSearch /> }
         { selected === ADVANCED_SEARCH && <AdvancedPatientSearch className="advanced-search" onClose={() => this.handleSelect(BASIC_SEARCH)} /> }
+        { selected === SEARCH_CONTENT && <ClinicalQuerySearch className="clinical-query-search" onClose={() => this.handleSelect(BASIC_SEARCH)} /> }
       </div>
     </div>
   }

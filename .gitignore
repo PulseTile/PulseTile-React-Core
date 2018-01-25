@@ -13,3 +13,6 @@ coverage
 
 #IDE generated
 .idea/
+
+# Files
+./tempTZ.json

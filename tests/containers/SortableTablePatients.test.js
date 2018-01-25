@@ -53,6 +53,7 @@ const resourceData = [
   },
 ]
 const resizeEvent = new Event('resize');
+const emptyData = [];
 
 describe('Component <SortableTablePatients />', () => {
   it('should renders mount with props correctly', () => {
@@ -90,13 +91,31 @@ describe('Component <SortableTablePatients />', () => {
     const sortableTablePatients = shallow(
       <SortableTablePatients
         headers={headers}
-        data={data}
+        data={[]}
         resourceData={[]}
         columnNameSortBy="cause"
         emptyDataMessage="No allergies"
         sortingOrder="asc"
         table="patientsList"
       />)
+    expect(sortableTablePatients).toMatchSnapshot();
+  });
+
+  it('should renders shallow with props correctly when the data is empty array and table not patientsList', () => {
+    const sortableTablePatients = shallow(
+      <SortableTablePatients
+        headers={headers}
+        data={emptyData}
+        resourceData={[]}
+        columnNameSortBy="cause"
+        emptyDataMessage="No allergies"
+        sortingOrder="asc"
+        table="patientsList"
+      />);
+    expect(sortableTablePatients.find('SortableTableEmptyDataRow')).toHaveLength(1);
+    expect(sortableTablePatients.find('SortableTableHeaderRow')).toHaveLength(1);
+    expect(sortableTablePatients.find('SortableTableHoveredRow')).toHaveLength(0);
+    expect(sortableTablePatients.find('SortableTableHeaderCell')).toHaveLength(0);
     expect(sortableTablePatients).toMatchSnapshot();
   });
 });

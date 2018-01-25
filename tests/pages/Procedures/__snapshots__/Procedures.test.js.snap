@@ -63,7 +63,6 @@ exports[`Component <Procedures /> should renders correctly and testing another m
                 },
               ]
             }
-            id="08102813-e8d0-4f45-aa95-ac0d633e69fd"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -350,7 +349,6 @@ exports[`Component <Procedures /> should renders correctly with forms error 1`] 
                 },
               ]
             }
-            id="08102813-e8d0-4f45-aa95-ac0d633e69fd"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -433,7 +431,6 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
                 },
               ]
             }
-            id="08102813-e8d0-4f45-aa95-ac0d633e69fd"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -463,6 +460,7 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
           currentPanel="proceduresCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="proceduresCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -540,7 +538,6 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
                 },
               ]
             }
-            id="08102813-e8d0-4f45-aa95-ac0d633e69fd"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -570,6 +567,7 @@ exports[`Component <Procedures /> should renders correctly with proceduresDetail
           currentPanel="proceduresCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="proceduresCreate"
           onCancel={[Function]}
           onExpand={[Function]}
