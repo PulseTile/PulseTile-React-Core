@@ -42,12 +42,12 @@
 }
 .table-striped.table-hover {
   background-color: map-get($colored-table, 'background');
-  &.table__col {
+  &.table__body {
     .table__row {
-      &:hover td[data-table-hover] {
+      &:hover .table__col[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
-      &.hovered td[data-table-hover] {
+      &.hovered .table__col[data-table-hover] {
         background-color: map-get($colored-table, 'row-background-hover');
       }
     }
@@ -55,11 +55,10 @@
 }
 .table__col[ng-click] { cursor: pointer; }
 
-.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover > .table__col,
-.is-not-touch-device .table-hover > .table__body > .table__row:hover > .table__col[ng-click],
-.is-not-touch-device .table-hover > .table__body > .table__row[ng-click]:hover,
-.is-not-touch-device .table-hover > .table__body > .table__row.hovered {
+.is-not-touch-device .table-hover > .table__body .table__row:hover > .table__col,
+.is-not-touch-device .table-hover > .table__body .table__row.hovered {
   background-color: map-get($colored-table, 'row-background-hover');
+  cursor: pointer;
 }
 
 .table-bordered {

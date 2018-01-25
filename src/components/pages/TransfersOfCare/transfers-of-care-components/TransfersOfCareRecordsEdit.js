@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import _ from "lodash/fp";
 import classNames from 'classnames';
+import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
 
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
+import TransfersOfCarePopover from './TransfersOfCarePopover';
+import Spinner from '../../../ui-elements/Spinner/Spinner';
 import { valuesNames, valuesLabels, typesOptions } from '../forms.config';
 import { connect } from "react-redux";
-import Spinner from '../../../ui-elements/Spinner/Spinner';
 
 import { bindActionCreators } from "redux";
-// import PropTypes from "prop-types";
 import {fetchPatientReferralsRequest} from "../../Referrals/ducks/fetch-patient-referrals.duck";
 import {fetchPatientVitalsRequest} from "../../Vitals/ducks/fetch-patient-vitals.duck";
 import {fetchPatientEventsRequest} from "../../Events/ducks/fetch-patient-events.duck";
@@ -19,8 +21,8 @@ import {patientMedicationsSelector} from "../../Medications/selectors";
 import {patientVitalsSelector} from "../../Vitals/selectors";
 import {patientEventsSelector} from "../../Events/selectors";
 import {patientReferralsSelector} from "../../Referrals/selectors";
-import _ from "lodash/fp";
-import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
+
+const PREFIX_POPOVER_ID = 'toc-popover-';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
@@ -38,6 +40,13 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientVitalsSelector)
 export default class TransfersOfCareRecordsEdit extends PureComponent {
   state = {
+    typeRecords: '',
+    indexOfSelectedRecord: '',
+    indexOfTypeEvents: '',
+    waitingDataOf: '',
+    isRecordsLoading: false,
+    indexOfOpenedPopover: null,
+
     typesRecords: {
       diagnosis: {
         title: 'Problems / Diagnosis',
@@ -80,13 +89,19 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
         records: null,
       },
     },
-
-    typeRecords: '',
-    indexOfSelectedRecord: '',
-    indexOfTypeEvents: '',
-    waitingDataOf: '',
-    isRecordsLoading: false,
   };
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleClosePopover);
+    window.addEventListener('orientationchange', this.handleClosePopover);
+    document.addEventListener('click', this.handleDocumentClick);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleClosePopover);
+    window.removeEventListener('orientationchange', this.handleClosePopover);
+    document.removeEventListener('click', this.handleDocumentClick);
+  }
 
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
@@ -250,6 +265,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     newRecords.splice(index, 1);
 
     onChange(newRecords);
+    this.handleTogglePopover(null);
   };
 
   // Functionality of Drag and Drop
@@ -260,27 +276,44 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
 
     return result;
   };
-
+  onDragStart = () => {
+    this.handleTogglePopover(null);
+  };
   onDragEnd = result => {
     // dropped outside the list
     if(!result.destination) { return }
     const { input: { onChange, value } } = this.props;
     const newRecords = this.reorder(value, result.source.index, result.destination.index);
+    this.handleTogglePopover(null);
     onChange(newRecords);
   };
-
   getItemStyle = (isDragging, draggableStyle) => ({
     opacity: isDragging ? 0.5 : 1,
     ...draggableStyle
   });
 
+  // Functionality of Popover
+  handleTogglePopover = (index) => {
+    this.setState({indexOfOpenedPopover: this.state.indexOfOpenedPopover !== index ? index : null})
+  };
+  handleClosePopover = () => {
+    this.handleTogglePopover(null);
+  };
+  handleDocumentClick = (ev) => {
+    const target = ev.target;
+    const popoverWrapper = target.closest('.record-popover-wrapper');
+
+    if (!popoverWrapper) {
+      this.handleTogglePopover(null);
+    }
+  };
+
+
   render() {
-    const { isSubmit, input: { value } } = this.props;
+    const { isSubmit, input: { value }, match } = this.props;
     const records = value;
-    const { typesRecords, typeRecords, indexOfSelectedRecord, isRecordsLoading,
-      indexOfTypeEvents } = this.state;
-    // console.log(typesRecords);
-    // console.log('records', records);
+    const { typesRecords, typeRecords, indexOfSelectedRecord,
+            isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover } = this.state;
 
     return (
       <div>
@@ -346,65 +379,69 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
         }
 
         { records && records.length ?
-          <DragDropContext onDragEnd={this.onDragEnd}>
+          <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
             <Droppable droppableId="droppable">
-              {(provided, snapshot) => (
+              {(provided) => (
                 <div className="panel-body-inner-table"
                      ref={provided.innerRef} >
                   <div className="form-group">
-                    <div className="record-popover-wrapper">
-                      <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor table-transferOfCare">
-                        <div className='table__head'>
-                          <div className="table__row">
-                            <div className="table__col">{valuesLabels.RECORDS_NAME}</div>
-                            <div className="table__col table__col-type">{valuesLabels.RECORDS_TYPE}</div>
-                            <div className="table__col table__col-date">{valuesLabels.RECORDS_DATE}</div>
-                            <div className="table__col table__col-source">{valuesLabels.RECORDS_SOURCE}</div>
-                            <div className="table__col table__col-control" />
-                          </div>
-                        </div>
-                        <div className="table__body">
-                          { records.map((record, index) =>
-                            <Draggable
-                              key={`record-${index}`}
-                              draggableId={`record-${index}`}
-                              index={index}
-                            >
-                              {(provided, snapshot) => (
-                                <div className="table__row-holder">
-                                  <div className="table__row"
-                                    ref={provided.innerRef}
-                                    {...provided.draggableProps}
-                                    style={this.getItemStyle(
-                                      snapshot.isDragging,
-                                      provided.draggableProps.style
-                                    )}
-                                  >
-                                    <div className="table__col dnd-handle-wrapper"
-                                         data-th={valuesLabels.RECORDS_NAME}>
-                                      <div className="dnd-handle" {...provided.dragHandleProps}>
-                                        <i className="fa fa-bars" />
-                                      </div>
-                                      <span>{record[valuesNames.RECORDS_NAME]}</span>
-                                    </div>
-                                    <div className="table__col table__col-type" data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></div>
-                                    <div className="table__col table__col-date" data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></div>
-                                    <div className="table__col table__col-source" data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></div>
-                                    <div className="table__col table__col-control table-transferOfCare__control" data-th="">
-                                      <div
-                                        className="btn btn-smaller btn-danger btn-icon-normal"
-                                        onClick={() => {this.removeRecord(index);}}
-                                      ><i className="btn-icon fa fa-times" /></div>
-                                    </div>
-                                  </div>
-                                  {provided.placeholder}
-                                </div>
-                              )}
-                            </Draggable>)}
-                          {provided.placeholder}
+                    <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-transferOfCare">
+                      <div className='table__head'>
+                        <div className="table__row">
+                          <div className="table__col">{valuesLabels.RECORDS_NAME}</div>
+                          <div className="table__col table__col-type">{valuesLabels.RECORDS_TYPE}</div>
+                          <div className="table__col table__col-date">{valuesLabels.RECORDS_DATE}</div>
+                          <div className="table__col table__col-source">{valuesLabels.RECORDS_SOURCE}</div>
+                          <div className="table__col table__col-control" />
                         </div>
                       </div>
-                      {/*<transfer-of-care-popover-component></transfer-of-care-popover-component>*/}
+                      <div className="table__body">
+                        { records.map((record, index) =>
+                          <Draggable
+                            key={`record-${index}`}
+                            draggableId={`record-${index}`}
+                            index={index}
+                          >
+                            {(provided, snapshot) => (
+                              <div className="table__row-holder record-popover-wrapper">
+                                <div className="table__row"
+                                     ref={provided.innerRef}
+                                     {...provided.draggableProps}
+                                     style={this.getItemStyle(
+                                       snapshot.isDragging,
+                                       provided.draggableProps.style
+                                     )}
+                                     onClick={() => {this.handleTogglePopover(index)}}
+                                >
+                                  <div className="table__col dnd-handle-wrapper"
+                                       data-th={valuesLabels.RECORDS_NAME}>
+                                    <div className="dnd-handle" {...provided.dragHandleProps}>
+                                      <i className="fa fa-bars" />
+                                    </div>
+                                    <span>{record[valuesNames.RECORDS_NAME]}</span>
+                                  </div>
+                                  <div className="table__col table__col-type" data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></div>
+                                  <div className="table__col table__col-date" data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></div>
+                                  <div className="table__col table__col-source" data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></div>
+                                  <div className="table__col table__col-control table-transferOfCare__control" data-th="">
+                                    <div
+                                      className="btn btn-smaller btn-danger btn-icon-normal"
+                                      onClick={() => {this.removeRecord(index);}}
+                                    ><i className="btn-icon fa fa-times" /></div>
+                                  </div>
+                                </div>
+                                {provided.placeholder}
+                                {index === indexOfOpenedPopover ?
+                                  <TransfersOfCarePopover
+                                    id={`${PREFIX_POPOVER_ID}${index}`}
+                                    record={record}
+                                    match={match}
+                                  /> : null}
+                              </div>
+                            )}
+                          </Draggable>)}
+                        {provided.placeholder}
+                      </div>
                     </div>
                   </div>
                 </div>
