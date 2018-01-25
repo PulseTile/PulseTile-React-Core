@@ -378,9 +378,7 @@ describe('Component <Vitals />', () => {
 
     // Testing component toggleViewVisibility methods
     expect(component.state().activeView).toEqual('tableNews');
-    expect(component.state().isChartOpen).toEqual(false);
     component.instance().toggleViewVisibility('chartNews');
-    expect(component.state().isChartOpen).toEqual(true);
     expect(component.state().activeView).toEqual('chartNews');
     component.setState({ activeView: 'tableNews' });
     component.instance().toggleViewVisibility('tableNews');

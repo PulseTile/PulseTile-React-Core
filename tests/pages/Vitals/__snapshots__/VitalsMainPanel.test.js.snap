@@ -456,6 +456,16 @@ exports[`Component <VitalsMainPanel /> should renders with all props correctly 4
       className="wrap-control-group"
     >
       <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
         className="control-group with-indent right"
       >
         <PTButton
@@ -491,6 +501,16 @@ exports[`Component <VitalsMainPanel /> should renders with all props correctly 5
       className="wrap-control-group"
     >
       <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
         className="control-group with-indent right"
       />
     </div>
@@ -511,6 +531,16 @@ exports[`Component <VitalsMainPanel /> should renders with all props correctly 6
     <div
       className="wrap-control-group"
     >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
       <div
         className="control-group with-indent right"
       />

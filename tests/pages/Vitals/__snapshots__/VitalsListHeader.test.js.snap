@@ -119,7 +119,6 @@ exports[`Component <VitalsListHeader /> should renders correctly and testing com
         onChange={[Function]}
         onClick={[Function]}
         placeholder="Filter..."
-        value=""
       />
     </div>
   </div>
@@ -245,7 +244,6 @@ exports[`Component <VitalsListHeader /> should renders correctly and testing com
         onChange={[Function]}
         onClick={[Function]}
         placeholder="Filter..."
-        value=""
       />
     </div>
   </div>
@@ -474,7 +472,6 @@ exports[`Component <VitalsListHeader /> should renders with all props correctly 
         onChange={[Function]}
         onClick={[Function]}
         placeholder="Filter..."
-        value=""
       />
     </div>
   </div>
@@ -487,7 +484,16 @@ exports[`Component <VitalsListHeader /> should renders without some buttons corr
 >
   <div
     className="control-group right"
-  />
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
   <div
     className="control-group right"
   >

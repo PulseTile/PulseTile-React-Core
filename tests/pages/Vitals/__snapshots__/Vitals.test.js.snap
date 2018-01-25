@@ -25,7 +25,6 @@ exports[`Component <Vitals /> should renders correctly and testing another metho
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={true}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -350,7 +349,6 @@ exports[`Component <Vitals /> should renders correctly and testing context and l
             currentPanel="vitalsMain"
             isBtnExpandVisible={true}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -892,7 +890,6 @@ exports[`Component <Vitals /> should renders correctly with all store is empty 1
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -979,7 +976,6 @@ exports[`Component <Vitals /> should renders correctly with empty store 1`] = `
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -1304,7 +1300,6 @@ exports[`Component <Vitals /> should renders correctly with forms error 1`] = `
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -1629,7 +1624,6 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -2134,7 +2128,6 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
             currentPanel="vitalsMain"
             isBtnExpandVisible={false}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
@@ -2639,7 +2632,6 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
             currentPanel="vitalsMain"
             isBtnExpandVisible={true}
             isBtnTableVisible={false}
-            isChartOpen={false}
             name="vitalsMain"
             nameShouldInclude=""
             onExpand={[Function]}
