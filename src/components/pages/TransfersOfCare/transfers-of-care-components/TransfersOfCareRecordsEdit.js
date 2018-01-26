@@ -50,40 +50,35 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     typesRecords: {
       diagnosis: {
         title: 'Problems / Diagnosis',
-        actionsFuncAll: 'fetchPatientDiagnosesRequest',
-        // actionsFuncOne: diagnosesActions.get,
+        fetchList: 'fetchPatientDiagnosesRequest',
         stateName: 'allDiagnoses',
         setMethodName: 'setDiagnosisRecords',
         records: null,
       },
       medications: {
         title: 'Medications',
-        actionsFuncAll: 'fetchPatientMedicationsRequest',
-        // actionsFuncOne: medicationsActions.get,
+        fetchList: 'fetchPatientMedicationsRequest',
         stateName: 'allMedications',
         setMethodName: 'setMedicationRecords',
         records: null,
       },
       referrals: {
         title: 'Referrals',
-        actionsFuncAll: 'fetchPatientReferralsRequest',
-        // actionsFuncOne: referralsActions.get,
+        fetchList: 'fetchPatientReferralsRequest',
         stateName: 'allReferrals',
         setMethodName: 'setReferralsRecords',
         records: null,
       },
       events: {
         title: 'Events',
-        actionsFuncAll: 'fetchPatientEventsRequest',
-        // actionsFuncOne: eventsActions.get,
+        fetchList: 'fetchPatientEventsRequest',
         stateName: 'allEvents',
         setMethodName: 'setEventsRecords',
         records: null,
       },
       vitals: {
         title: 'Vitals',
-        actionsFuncAll: 'fetchPatientVitalsRequest',
-        // actionsFuncOne: vitalsActions.get,
+        fetchList: 'fetchPatientVitalsRequest',
         stateName: 'allVitals',
         setMethodName: 'setVitalsRecords',
         records: null,
@@ -217,7 +212,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     if (userId && !typesRecords[typeRecords].records) {
       toSetState['waitingDataOf'] = typesRecords[typeRecords].stateName;
       toSetState['isRecordsLoading'] = true;
-      actions[typesRecords[typeRecords].actionsFuncAll]({ userId });
+      actions[typesRecords[typeRecords].fetchList]({ userId });
     }
 
     this.setState(toSetState);
