@@ -42,7 +42,6 @@ export default class App extends Component {
                   <img src={headerImg2} alt="header img 2"/>
                 ]}/>
                 : <div />}
-              />
             </TopHeader>
             <Header />
           </header>
