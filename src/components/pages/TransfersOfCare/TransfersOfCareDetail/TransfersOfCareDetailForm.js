@@ -1,17 +1,15 @@
 import React, { PureComponent } from 'react';
+import { connect } from "react-redux";
 import { Field, reduxForm } from 'redux-form'
-import classNames from 'classnames';
+import moment from "moment";
 
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import TransfersOfCareRecordsEdit from '../transfers-of-care-components/TransfersOfCareRecordsEdit';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, citiesOptions, typesOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
 import { transfersOfCareDetailFormStateSelector} from "../selectors";
-import { connect } from "react-redux";
-// import { serviceTransferOfCare } from '../transfer-of-care-helpers.utills';
-import Spinner from '../../../ui-elements/Spinner/Spinner';
 
 @reduxForm({
   form: 'transfersOfCareDetailFormSelector',
@@ -19,31 +17,20 @@ import Spinner from '../../../ui-elements/Spinner/Spinner';
 })
 @connect(transfersOfCareDetailFormStateSelector)
 export default class TransfersOfCareDetailForm extends PureComponent {
-  state = {
-    typeRecords: '',
-  };
-
   componentDidMount() {
     const { detail, initialize } = this.props;
     initialize(this.defaultValuesForm(detail));
   }
 
-  // componentWillUpdate() {
-  //   const { typeRecords } = this.state;
-  //   const typesRecords = serviceTransferOfCare.getConfig();
-  //   if (typesRecords[typeRecords] && typesRecords[typeRecords].records) {
-  //     console.log('false componentWillUpdate');
-  //     this.setState({ isRecordsLoading: false });
-  //   }
-  // }
-
   defaultValuesForm = (value) => {
     const defaultFormValues = {
       [valuesNames.FROM]: value[valuesNames.FROM],
       [valuesNames.TO]: value[valuesNames.TO],
+      [valuesNames.RECORDS]: value[valuesNames.RECORDS],
       [valuesNames.REASON]: value[valuesNames.REASON],
       [valuesNames.CLINICAL]: value[valuesNames.CLINICAL],
-      [valuesNames.DATE]: value[valuesNames.DATE],
+      [valuesNames.DATE_TIME]: value[valuesNames.DATE_TIME],
+      [valuesNames.DATE_CREATED]: value[valuesNames.DATE_CREATED],
     };
 
     return defaultFormValues;
@@ -58,10 +45,6 @@ export default class TransfersOfCareDetailForm extends PureComponent {
 
   render() {
     const { detail, isSubmit, transfersOfCareDetailFormState, match } = this.props;
-    // const { typeRecords } = this.state;
-
-    // const typesRecords = serviceTransferOfCare.getConfig();
-    // console.log('typesRecords', typesRecords);
 
     const formState = transfersOfCareDetailFormState.values || {};
     const citiesFromOptions = this.generateCitiesOptions(formState[valuesNames.TO]);
@@ -97,7 +80,23 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               </div>
             </div>
 
-            <TransfersOfCareRecordsEdit match={match} />
+            <Field
+              label={valuesLabels.DATE_TIME}
+              name={valuesNames.DATE_TIME}
+              id={valuesNames.DATE_TIME}
+              component={DateInput}
+              showTimeSelect
+              props={{
+                format: 'DD-MMM-YYYY HH:mm', isSubmit, showTimeSelect: true,
+                timeFormat: 'HH:mm', timeIntervals: 5, minDate: moment() }}
+            />
+
+            <Field
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              component={TransfersOfCareRecordsEdit}
+              props={{ match, isSubmit }}
+            />
 
             <div className="row-expand">
               <div className="col-expand-left">
@@ -121,11 +120,11 @@ export default class TransfersOfCareDetailForm extends PureComponent {
             </div>
 
             <Field
-              label={valuesLabels.DATE_TIME}
-              name={valuesNames.DATE_TIME}
-              id={valuesNames.DATE_TIME}
+              label={valuesLabels.DATE_CREATED}
+              name={valuesNames.DATE_CREATED}
+              id={valuesNames.DATE_CREATED}
               component={DateInput}
-              props={{ disabled: true, value: detail[valuesNames.DATE_TIME], format: 'DD-MMM-YYYY', isSubmit }}
+              props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY', isSubmit }}
             />
           </div>
         </form>

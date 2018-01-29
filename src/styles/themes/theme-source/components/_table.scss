@@ -76,7 +76,6 @@
     thead tr th {
       &.sorted {
         background: map-get($colored-table, 'selected-background');
-      
         &.asc:after {
           border-color: #303030 transparent transparent;
         }
