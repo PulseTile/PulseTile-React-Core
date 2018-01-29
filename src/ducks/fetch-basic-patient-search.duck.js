@@ -4,6 +4,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../config/server-urls.constants'
+import {handleErrors} from "./handle-errors.duck";
 
 export const FETCH_BASIC_PATIENT_SEARCH_REQUEST = 'FETCH_BASIC_PATIENT_SEARCH_REQUEST';
 export const FETCH_BASIC_PATIENT_SEARCH_SUCCESS = 'FETCH_BASIC_PATIENT_SEARCH_SUCCESS';
@@ -21,7 +22,7 @@ export const fetchBasicPatientSearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchBasicPatientSearchSuccess(response))
-        .catch(error => Observable.of(fetchBasicPatientSearchFailure(error)))
+        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(basicSearchPatient = {}, action) {

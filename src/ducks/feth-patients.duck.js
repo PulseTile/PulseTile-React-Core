@@ -3,6 +3,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../config/server-urls.constants'
+import {handleErrors} from "./handle-errors.duck";
 
 export const FETCH_PATIENTS_REQUEST = 'FETCH_PATIENTS_REQUEST';
 export const FETCH_PATIENTS_SUCCESS = 'FETCH_PATIENTS_SUCCESS';
@@ -19,7 +20,7 @@ export const fetchPatientsEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchPatientsSuccess)
-        .catch(error => Observable.of(fetchPatientsFailure(error)))
+        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patients = {}, action) {

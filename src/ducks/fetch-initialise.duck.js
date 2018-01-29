@@ -4,6 +4,7 @@ import { createAction } from 'redux-actions';
 
 import { apiUrls } from '../config/server-urls.constants';
 import { setCookieSessiionId } from '../utils/auth/cookie.utils';
+import { handleErrors } from './handle-errors.duck';
 
 export const FETCH_INITIALISE_REQUEST = 'FETCH_INITIALISE_REQUEST';
 export const FETCH_INITIALISE_SUCCESS = 'FETCH_INITIALISE_SUCCESS';
@@ -19,7 +20,10 @@ export const fetchInitialiseEpic = action$ =>
       ajax.getJSON(apiUrls.INITIALISE)
         .do(setCookieSessiionId)
         .map(fetchInitialiseSuccess)
-        .catch(error => Observable.of(fetchInitialiseFailure(error)))
+        .catch((error) => {
+          error.initialiseError = true;
+          return Observable.of(handleErrors(error))
+        })
     );
 
 export default function reducer(initialiseData = {}, action) {

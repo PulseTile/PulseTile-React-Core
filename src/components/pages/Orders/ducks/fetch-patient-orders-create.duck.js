@@ -5,6 +5,7 @@ import _ from 'lodash/fp'
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientOrdersRequest } from './fetch-patient-orders.duck'
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_ORDERS_CREATE_REQUEST = 'FETCH_PATIENT_ORDERS_CREATE_REQUEST';
 export const FETCH_PATIENT_ORDERS_CREATE_SUCCESS = 'FETCH_PATIENT_ORDERS_CREATE_SUCCESS';
@@ -29,7 +30,7 @@ export const fetchPatientOrdersCreateEpic = (action$, store) =>
             fetchPatientOrdersRequest({ userId }),
           ];
         })
-        .catch(error => Observable.of(fetchPatientOrdersCreateFailure(error)))
+        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientOrdersCreate = {}, action) {
