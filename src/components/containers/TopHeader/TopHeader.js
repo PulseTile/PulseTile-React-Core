@@ -4,13 +4,14 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
+import { isLeedsPHRTheme } from '../../../themes.config';
 import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
 import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import headerLogo from '../../../assets/images/logo-leedsPHR.png';
+import headerLogoLeedsPHR from '../../../assets/images/logo-leedsPHR.png';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -36,6 +37,7 @@ class TopHeader extends PureComponent {
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
 
+    const headerLogo = isLeedsPHRTheme ? headerLogoLeedsPHR : null;
     return (
       <div className="navbar">
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>

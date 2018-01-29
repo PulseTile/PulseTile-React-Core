@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
-import { isShowPluginBanners } from '../../plugins.config';
+import { isShowPluginsBigBanner } from '../../themes.config';
 
 export default class PluginBanner extends PureComponent {
   static propTypes = {
@@ -17,7 +17,7 @@ export default class PluginBanner extends PureComponent {
     const { title, subTitle, img, toRight } = this.props;
 
     return (
-      isShowPluginBanners ?
+      isShowPluginsBigBanner ?
         <div className="page-banner">
           <div className={`page-banner__title ${toRight ? 'page-banner__title--right': ''}`}>{title}</div>
           <div className={`page-banner__subtitle ${toRight ? 'page-banner__subtitle--right': ''}`}>{subTitle}</div>

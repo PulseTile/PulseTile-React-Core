@@ -1,4 +1,5 @@
 import { clientUrls } from './config/client-urls.constants';
+import { patientsSummaryPageName } from './themes.config';
 
 import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index';
 import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index';
@@ -43,8 +44,7 @@ import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare'
 import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
 
 export const sidebarConfig = [
-  { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
-  // { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Home', isVisible: true },
+  { key: 'patients-summary', pathToTransition: '/patients-summary', name: patientsSummaryPageName, isVisible: true },
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
@@ -75,8 +75,13 @@ export const dashboardVisible = {
   // e.g. (problems: false)
   contacts: true,
 };
-
-export const isShowPluginBanners = true;
+export const dashboardBeing = {
+  // you can remove the PatientsSummary boards here
+  // for this you must to write key of board and give its false value
+  // path: src\components\pages\PatientsSummary\patients-summary.config.js
+  // e.g. (problems: false)
+  topThreeThings: false,
+};
 
 export const pluginsEpicConfig = [
   allergiesEpic,

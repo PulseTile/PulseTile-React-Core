@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import LoadingBar from 'react-redux-loading-bar'
+import LoadingBar from 'react-redux-loading-bar';
+import { headerHasSearch, isLeedsPHRHeaderList, footerCopyright, footerHasShowSupportedByText } from '../../../themes.config';
 
 import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
@@ -22,20 +23,23 @@ const App = (props) => {
     <div className={classNames('wrapper', isTouchDevice)}>
       <header className="header">
         <TopHeader
-          isHasSearch={false}
+          isHasSearch={headerHasSearch}
         >
-          <HeaderList items={[
-            <img src={headerImg1} alt="header img 1"/>,
-            <img src={headerImg2} alt="header img 2"/>
-          ]}/>
+          {isLeedsPHRHeaderList ?
+            <HeaderList items={[
+              <img src={headerImg1} alt="header img 1"/>,
+              <img src={headerImg2} alt="header img 2"/>
+            ]}/>
+            : <div />
+          }
         </TopHeader>
         <Header />
       </header>
       <Main />
     </div>
     <Footer
-      copyright={'Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved'}
-      isShowSupportedBy={false}
+      copyright={footerCopyright}
+      isShowSupportedBy={footerHasShowSupportedByText}
     />
   </div>)
 };

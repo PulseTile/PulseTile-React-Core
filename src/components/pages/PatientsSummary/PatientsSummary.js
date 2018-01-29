@@ -4,16 +4,16 @@ import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
-import _ from 'lodash/fp';
+import { patientsSummaryPageName, patientsSummaryHasPreviewSettings } from '../../../themes.config';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import { patientsSummaryConfig, patientsSummaryLoading, defaultViewOfBoardsSelected } from './patients-summary.config';
+import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { dashboardVisible } from '../../../plugins.config';
+import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
 
@@ -33,7 +33,8 @@ export default class PatientsSummary extends PureComponent {
     state = {
       selectedCategory: [],
       selectedViewOfBoards: defaultViewOfBoardsSelected,
-      isDisclaimerModalVisible: false
+      isDisclaimerModalVisible: false,
+      isCategory: {}
     };
 
     componentWillMount() {
@@ -73,9 +74,11 @@ export default class PatientsSummary extends PureComponent {
 
     render() {
       const { boards } = this.props;
-      const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible } = this.state;
-      const isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
+      const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
+      let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
+
+      if (!patientsSummaryHasPreviewSettings) {isHasPreview = false;}
 
       return (<section className="page-wrapper">
         <Row>
@@ -86,12 +89,12 @@ export default class PatientsSummary extends PureComponent {
                 onViewOfBoardsSelected={this.handleViewOfBoardsSelected}
                 selectedCategory={selectedCategory}
                 selectedViewOfBoards={selectedViewOfBoards}
-                title={'Home'}
+                title={patientsSummaryPageName}
               />
               <div className="panel-body">
                 <div className="dashboard">
                   {patientsSummaryConfig.map((item, index) => {
-                    return (selectedCategory[item.key] ?
+                    return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
                       <SimpleDashboardPanel
                         key={index}
                         title={item.title}

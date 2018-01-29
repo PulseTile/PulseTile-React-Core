@@ -8,6 +8,9 @@ import { Col } from 'react-bootstrap';
 import PTCustomInput from './PTCustomInput';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
+import { patientsSummaryHasPreviewSettings } from '../../../../themes.config';
+import { dashboardBeing } from "../../../../plugins.config";
+
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -51,37 +54,40 @@ export default class PatientsSummaryPanel extends PureComponent {
             <div className="heading">SHOW</div>
             <div className="form-group">
               <Row>
-                {patientsSummaryConfig.map((item, index) => {
-                  return (<Col xs={6} sm={4} key={index}>
+                {patientsSummaryConfig.map((item) => {
+                  return dashboardBeing[item.key] !== false ?
+                    <Col xs={6} sm={4} key={item.nameCheckboxes}>
                       <PTCustomInput
-                      type="checkbox"
-                      title={item.titleCheckboxes}
-                      id={item.nameCheckboxes}
-                      name={item.nameCheckboxes}
-                      isChecked={selected[item.key]}
-                      onChange={this.toggleCheckbox}
-                    />
-                  </Col>)
+                        type="checkbox"
+                        title={item.titleCheckboxes}
+                        id={item.nameCheckboxes}
+                        name={item.nameCheckboxes}
+                        isChecked={selected[item.key]}
+                        onChange={this.toggleCheckbox}
+                      />
+                    </Col> : null
                 })}
               </Row>
             </div>
-
-            <div className="heading">VIEW OF BOARDS</div>
-            <div className="form-group">
-              <Row>
-                <Col xs={12}>
-                  <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={selectedViewOptions.full} onChange={this.toggleRadio} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12} sm={6}>
-                  <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={selectedViewOptions.preview} onChange={this.toggleRadio} />
-                </Col>
-                <Col xs={12} sm={6}>
-                  <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={selectedViewOptions.list} onChange={this.toggleRadio} />
-                </Col>
-              </Row>
-            </div>
+            {patientsSummaryHasPreviewSettings ?
+              <div>
+                <div className="heading">VIEW OF BOARDS</div>
+                <div className="form-group">
+                  <Row>
+                    <Col xs={12}>
+                      <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={selectedViewOptions.full} onChange={this.toggleRadio} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12} sm={6}>
+                      <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={selectedViewOptions.preview} onChange={this.toggleRadio} />
+                    </Col>
+                    <Col xs={12} sm={6}>
+                      <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={selectedViewOptions.list} onChange={this.toggleRadio} />
+                    </Col>
+                  </Row>
+                </div>
+              </div> : null}
           </div>
         </div>
       )
