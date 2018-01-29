@@ -4,6 +4,8 @@ import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import TopThreeThingsDetailForm from './TopThreeThingsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
+import FormSectionList from '../../../form-fields/FormSectionList';
+import FormSection from '../../../form-fields/FormSection';
 
 const TOP_THREE_THINGS_PANEL = 'topThreeThingsPanel';
 
@@ -34,22 +36,66 @@ export default class TopThreeThingsDetail extends PureComponent {
               <div className="form">
                 <div className="form-group-wrapper">
                   <div>
-                    <div className="row-expand">
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.NAME}</label>
-                          <div className="form-control-static">{detail[valuesNames.NAME]}</div>
+                    <FormSectionList title="Isssue #1">
+                      <FormSection isBordered theme='primary'>
+                        <div className="form-group-wrapper">
+                          <div className="row-expand">
+                            <div className="col-expand-left">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.NAME}</label>
+                                <div className="form-control-static">{detail[valuesNames.NAME1]}</div>
+                              </div>
+                            </div>
+                            <div className="col-expand-right">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.DESCRIPTION}</label>
+                                <div className="form-control-static">{detail[valuesNames.DESCRIPTION1]}</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="row-expand">
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.DESCRIPTION}</label>
-                          <div className="form-control-static">{detail[valuesNames.DESCRIPTION]}</div>
+                      </FormSection>
+                    </FormSectionList>
+                    <FormSectionList title="Isssue #2">
+                      <FormSection isBordered theme='primary'>
+                        <div className="form-group-wrapper">
+                          <div className="row-expand">
+                            <div className="col-expand-left">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.NAME}</label>
+                                <div className="form-control-static">{detail[valuesNames.NAME2]}</div>
+                              </div>
+                            </div>
+                            <div className="col-expand-right">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.DESCRIPTION}</label>
+                                <div className="form-control-static">{detail[valuesNames.DESCRIPTION2]}</div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
+                      </FormSection>
+                    </FormSectionList>
+                    <FormSectionList title="Isssue #3">
+                      <FormSection isBordered theme='primary'>
+                        <div className="form-group-wrapper">
+                          <div className="row-expand">
+                            <div className="col-expand-left">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.NAME}</label>
+                                <div className="form-control-static">{detail[valuesNames.NAME3]}</div>
+                              </div>
+                            </div>
+                            <div className="col-expand-right">
+                              <div className="form-group">
+                                <label className="control-label">{valuesLabels.DESCRIPTION}</label>
+                                <div className="form-control-static">{detail[valuesNames.DESCRIPTION3]}</div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </FormSection>
+                    </FormSectionList>
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">

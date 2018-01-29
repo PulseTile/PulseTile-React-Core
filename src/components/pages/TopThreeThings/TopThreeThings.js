@@ -46,7 +46,7 @@ export default class TopThreeThings extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: TOP_THREE_THINGS_PANEL,
-    columnNameSortBy: valuesNames.NAME,
+    columnNameSortBy: valuesNames.DATE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnExpandVisible: false,
@@ -148,8 +148,12 @@ export default class TopThreeThings extends PureComponent {
     const currentDate = new Date();
 
     sendData.userId = userId;
-    sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.DESCRIPTION] = formValues[valuesNames.DESCRIPTION];
+    sendData[valuesNames.NAME1] = formValues[valuesNames.NAME1];
+    sendData[valuesNames.NAME2] = formValues[valuesNames.NAME2];
+    sendData[valuesNames.NAME3] = formValues[valuesNames.NAME3];
+    sendData[valuesNames.DESCRIPTION1] = formValues[valuesNames.DESCRIPTION1];
+    sendData[valuesNames.DESCRIPTION2] = formValues[valuesNames.DESCRIPTION2];
+    sendData[valuesNames.DESCRIPTION3] = formValues[valuesNames.DESCRIPTION3];
     sendData[valuesNames.DATE] = currentDate.getTime();
     sendData[valuesNames.SOURCE_ID] = topThreeThingDetail[valuesNames.SOURCE_ID];
     sendData[valuesNames.SOURCE] = topThreeThingDetail[valuesNames.SOURCE];
@@ -172,50 +176,13 @@ export default class TopThreeThings extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NAME, valuesNames.DESCRIPTION, `${valuesNames.DATE}Convert`, valuesNames.SOURCE],
+      filterKeys: [valuesNames.NAME1, valuesNames.NAME2, valuesNames.NAME3, `${valuesNames.DATE}Convert`, valuesNames.SOURCE],
     });
   };
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, editedPanel, offset, isSubmit, isLoading } = this.state;
-    // const { allTopThreeThings, topThreeThingDetail, topThreeThingFormState } = this.props;
-    const { topThreeThingFormState } = this.props;
-
-    const allTopThreeThings = [
-      {
-        name: 'Item 1',
-        description: 'Item 1 Description',
-        dateCreated: 1513941745000,
-        source: 'ethercis',
-        sourceId: '7800e7a4-dd6b-464a-9cc8-3ded16b097f9',
-      },
-      {
-        name: 'Item #2',
-        description: 'Item 2 Description',
-        dateCreated: 1483944745000,
-        source: 'ethercis',
-        sourceId: '7800e7a4-dd6b-464a-9cc8-3ded16b097f8',
-      },
-      {
-        name: 'Item #3',
-        description: 'Item 3 Description',
-        dateCreated: 1493941745000,
-        source: 'ethercis',
-        sourceId: '7800e7a4-dd6b-464a-9cc8-3ded16b097f7',
-      },
-    ];
-
-    let topThreeThingDetail;
-    if (isDetailPanelVisible) {
-      topThreeThingDetail = {
-        name: 'Item 1',
-        description: 'Item 1 Description',
-        dateCreated: 1513941745000,
-        source: 'ethercis',
-        sourceId: '7800e7a4-dd6b-464a-9cc8-3ded16b097f9',
-      };
-    }
-
+    const { allTopThreeThings, topThreeThingDetail, topThreeThingFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === TOP_THREE_THINGS_DETAIL || expandedPanel === TOP_THREE_THINGS_PANEL);
     const isPanelMain = (expandedPanel === TOP_THREE_THINGS_MAIN);
