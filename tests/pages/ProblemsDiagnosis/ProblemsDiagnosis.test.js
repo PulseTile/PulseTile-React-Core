@@ -88,6 +88,7 @@ const generateNewContext = (oldContext, pathname) => {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: `/patients/${userId}/diagnoses`,
@@ -105,6 +106,27 @@ const context = {
 };
 const contextCreate = generateNewContext(context, `/patients/${userId}/diagnoses/create`);
 const contextDetail = generateNewContext(context, `/patients/${userId}/diagnoses/${sourceId}`);
+
+const contextImport = {
+  router: {
+    route: { match: { params: { userId } } },
+    history: {
+      push: () => {},
+      replace: () => {},
+      goBack: () => {},
+      location: {
+        pathname: `/patients/${userId}/diagnoses/create`,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            name: 'name',
+          }
+        }
+      },
+    }
+  },
+};
 
 // configuration of forms for testing methods
 const formValuesEdit = {
@@ -125,6 +147,17 @@ const formValuesCreate = {
   [valuesNames.DESCRIPTION]: 'test',
   [valuesNames.DATE_OF_ONSET]: '20-Dec-2017',
 };
+const formValuesImportCreate = {
+  [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
+  [valuesNames.SOURCE_ID]: '',
+  [valuesNames.ISIMPORT]: true,
+  [valuesNames.IMPORT]: 'domen.com/documents/documents_id',
+  [valuesNames.CODE]: '12393890',
+  [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
+  [valuesNames.PROBLEM]: 'test',
+  [valuesNames.DESCRIPTION]: 'test',
+  [valuesNames.DATE_OF_ONSET]: '20-Dec-2017',
+};
 const match = {
   params: {
     userId,
@@ -137,10 +170,7 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailDiagnosesClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
@@ -199,10 +229,7 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
@@ -228,10 +255,7 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -269,10 +293,7 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -288,10 +309,7 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'diagnosesPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -304,10 +322,20 @@ describe('Component <ProblemsDiagnosis />', () => {
       <ProblemsDiagnosis
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />, { context }).dive().dive().dive().dive().dive().dive();
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import"', () => {
+    const component = shallow(
+      <ProblemsDiagnosis
+        store={storeEmpty}
+        match={match}
+      />, { context: contextImport }).dive().dive().dive().dive().dive().dive();
+
+    component.instance().goBack();
+    component.instance().handleSaveSettingsCreateForm(formValuesImportCreate);
 
     expect(component).toMatchSnapshot();
   });

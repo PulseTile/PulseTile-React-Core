@@ -238,7 +238,7 @@ export default class Referrals extends PureComponent {
     const filteredReferrals = this.formToShowCollection(allReferrals);
 
     let sourceId;
-    if (!_.isEmpty(referralDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(referralDetail)) {
       sourceId = referralDetail.sourceId;
     }
 

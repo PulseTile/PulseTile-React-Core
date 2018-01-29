@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Enzyme, { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 
 import PaginationBlock from '../../src/components/presentational/PaginationBlock/PaginationBlock';
 
@@ -120,10 +120,10 @@ describe('Component <PaginationBlock />', () => {
     expect(tree).toMatchSnapshot();
   });
 
-	it('should work all methods of component', () => {
-		const offset = 30;
-		const totalEntriesAmount = 29;
-		const paginationBlock = shallow(
+  it('should work all methods of component', () => {
+    const offset = 30;
+    const totalEntriesAmount = 29;
+    const paginationBlock = shallow(
       <PaginationBlock
         offset={offset}
         entriesPerPage={entriesPerPage}
@@ -131,11 +131,8 @@ describe('Component <PaginationBlock />', () => {
         setOffset={handleSetOffset}
       />);
 
-		paginationBlock.instance().setPage(101)();
-		paginationBlock.instance().setPage(0)();
-	});
+    paginationBlock.instance().setPage(101)();
+    paginationBlock.instance().setPage(0)();
+  });
 });
-
-
-
 

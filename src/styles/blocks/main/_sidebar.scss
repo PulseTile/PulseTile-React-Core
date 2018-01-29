@@ -31,7 +31,6 @@
 }
 .showSidebar .sidebar,
 .showSidebar.sidebar {
-  overflow-y: hidden;
   transform: translate(0, 0);
 }
 .showSidebar .sidebar-underlay,
@@ -118,7 +117,9 @@
   color: $text-on-base-color;
 }
 
-.btn-toggle-sidebar-open {
+.btn-toggle-sidebar-open,
+.btn-toggle-sidebar-open:focus,
+.btn-toggle-sidebar-open:hover {
   background: $text-on-base-color;
   color: $base-color;
 }

@@ -4,7 +4,7 @@ import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import DocumentsDetailDischarge from './DocumentsDetailDischarge';
 import DocumentsDetailReferral from './DocumentsDetailReferral';
 import ConfirmationModal from '../../../ui-elements/ConfirmationModal/ConfirmationModal';
-import {valuesLabels, valuesNames} from '../forms.config';
+import {valuesNames} from '../forms.config';
 import PropTypes from "prop-types";
 import {clientUrls} from "../../../../config/client-urls.constants";
 
@@ -80,7 +80,7 @@ export default class DocumentsDetail extends PureComponent {
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
-          {(expandedPanel === DOCUMENT_PANEL || expandedPanel === 'all') && !editedPanel[DOCUMENT_PANEL] ? <PluginDetailPanel
+          {(expandedPanel === DOCUMENT_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
             onExpand={onExpand}
             name={DOCUMENT_PANEL}
             title="Document Details"

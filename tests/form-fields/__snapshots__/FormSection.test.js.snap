@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FormSectionList /> should renders just with Import Button 1`] = `
+<div
+  className="form-group-section form-group-section-undefined"
+>
+  <div
+    className="form-group-section-heading"
+  >
+    <div
+      className="control-group without-side-indent right"
+    >
+      <button
+        className="btn btn-undefined"
+        onClick={[Function]}
+      >
+        <span
+          className="btn-text"
+        >
+          Import Data
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="form-group-section-body"
+  >
+    <span
+      className="FormSection-children"
+    >
+      FormSectionList children
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSectionList /> should renders with accordion and import button functionality 1`] = `
+<div
+  className="form-group-section form-group-section-primary form-group-section-bordered accordion open"
+>
+  <div
+    className="form-group-section-heading"
+  >
+    <div
+      className="control-group without-side-indent right"
+    >
+      <button
+        className="btn btn-primary"
+        onClick={[Function]}
+      >
+        <span
+          className="btn-text"
+        >
+          Import Data
+        </span>
+      </button>
+      <button
+        className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-chevron-up"
+        />
+      </button>
+    </div>
+    <h3
+      className="panel-title"
+    >
+      Test title
+    </h3>
+  </div>
+  <div
+    className="form-group-section-body"
+  >
+    <span
+      className="FormSection-children"
+    >
+      FormSectionList children
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSectionList /> should renders with all props correctly 1`] = `
+<div
+  className="form-group-section form-group-section-primary"
+>
+  <div
+    className="form-group-section-heading"
+  >
+    <h3
+      className="panel-title"
+    >
+      Test title
+    </h3>
+  </div>
+  <div
+    className="form-group-section-body"
+  >
+    <span
+      className="FormSection-children"
+    >
+      FormSectionList children
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSectionList /> should renders without heading 1`] = `
+<div
+  className="form-group-section form-group-section-undefined"
+>
+  <div
+    className="form-group-section-body"
+  >
+    <span
+      className="FormSection-children"
+    >
+      FormSectionList children
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSectionList /> should renders without title 1`] = `
+<div
+  className="form-group-section form-group-section-primary accordion"
+>
+  <div
+    className="form-group-section-heading"
+  >
+    <div
+      className="control-group without-side-indent right"
+    >
+      <button
+        className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-chevron-up"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="form-group-section-body"
+  >
+    <span
+      className="FormSection-children"
+    >
+      FormSectionList children
+    </span>
+  </div>
+</div>
+`;

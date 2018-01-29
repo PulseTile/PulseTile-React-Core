@@ -1,6 +1,7 @@
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
+import _ from 'lodash/fp'
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientOrdersRequest } from './fetch-patient-orders.duck'
@@ -16,12 +17,12 @@ export const fetchPatientOrdersCreateFailure = createAction(FETCH_PATIENT_ORDERS
 export const fetchPatientOrdersCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_ORDERS_CREATE_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.post(`${usersUrls.PATIENTS_URL}/${payload.userId}/laborders`, payload, {
+      ajax.post(`${usersUrls.PATIENTS_URL}/${_.last(payload)}/laborders`, payload, {
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
         .flatMap(({ response }) => {
-          const userId = payload.userId;
+          const userId = _.last(payload);
 
           return [
             fetchPatientOrdersCreateSuccess(response),

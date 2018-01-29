@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import sinon from 'sinon'
 import Enzyme, { render } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from 'enzyme-adapter-react-15';
 
 import HeaderTitle from '../../src/components/containers/Header/HeaderTitle/HeaderTitle';
 

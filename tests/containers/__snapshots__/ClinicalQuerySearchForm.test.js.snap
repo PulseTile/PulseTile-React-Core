@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ClinicalQuerySearchForm /> should renders with props correctly when select range 1`] = `
+<form
+  className="form ng-pristine ng-invalid ng-invalid-required"
+  name="clinicalQuerySearchForm"
+>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6 ng-scope"
+      >
+        <Field
+          component={[Function]}
+          id="type"
+          label="Search Type"
+          name="type"
+          options={
+            Array [
+              Object {
+                "title": "Allergies",
+                "value": "allergies",
+              },
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+              Object {
+                "title": "Procedures",
+                "value": "procedures",
+              },
+              Object {
+                "title": "Medications",
+                "value": "medications",
+              },
+            ]
+          }
+          props={
+            Object {
+              "placeholder": "",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-4"
+      >
+        <Field
+          component={[Function]}
+          id="queryContains"
+          label="Search Query"
+          name="queryContains"
+          options={
+            Array [
+              Object {
+                "title": "contains",
+                "value": true,
+              },
+            ]
+          }
+        />
+      </div>
+      <div
+        className="col-xs-12 col-sm-8"
+      >
+        <Field
+          component={[Function]}
+          id="queryText"
+          name="queryText"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-4"
+      >
+        <Field
+          component={[Function]}
+          label="Select Age Params"
+          name="selectAgeField"
+          options={
+            Array [
+              Object {
+                "title": "Date of Birth",
+                "value": "birthday",
+              },
+              Object {
+                "title": "Age Range",
+                "value": "range",
+              },
+            ]
+          }
+        />
+      </div>
+    </div>
+    <Field
+      component={[Function]}
+      label="Age Range (Years)"
+      name="ageRange"
+    />
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="gender"
+          >
+            Gender
+          </label>
+          <div
+            className="input-holder"
+          >
+            <div
+              className="wrap-fcustominps-inline"
+            >
+              <Field
+                component={[Function]}
+                id="sexMale"
+                label="Male"
+                name="sexMale"
+                type="checkbox"
+              />
+              <Field
+                component={[Function]}
+                id="sexFemale"
+                label="Female"
+                name="sexFemale"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`Component <ClinicalQuerySearchForm /> should renders with props correctly when select range 2`] = `
+<form
+  className="form ng-pristine ng-invalid ng-invalid-required"
+  name="clinicalQuerySearchForm"
+>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6 ng-scope"
+      >
+        <Field
+          component={[Function]}
+          id="type"
+          label="Search Type"
+          name="type"
+          options={
+            Array [
+              Object {
+                "title": "Allergies",
+                "value": "allergies",
+              },
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+              Object {
+                "title": "Procedures",
+                "value": "procedures",
+              },
+              Object {
+                "title": "Medications",
+                "value": "medications",
+              },
+            ]
+          }
+          props={
+            Object {
+              "placeholder": "",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-4"
+      >
+        <Field
+          component={[Function]}
+          id="queryContains"
+          label="Search Query"
+          name="queryContains"
+          options={
+            Array [
+              Object {
+                "title": "contains",
+                "value": true,
+              },
+            ]
+          }
+        />
+      </div>
+      <div
+        className="col-xs-12 col-sm-8"
+      >
+        <Field
+          component={[Function]}
+          id="queryText"
+          name="queryText"
+          type="text"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-4"
+      >
+        <Field
+          component={[Function]}
+          label="Select Age Params"
+          name="selectAgeField"
+          options={
+            Array [
+              Object {
+                "title": "Date of Birth",
+                "value": "birthday",
+              },
+              Object {
+                "title": "Age Range",
+                "value": "range",
+              },
+            ]
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <Field
+          component={[Function]}
+          id="dateOfBirth"
+          label="Date of Birth"
+          name="dateOfBirth"
+          placeholder="03/08/1970"
+          props={
+            Object {
+              "format": "MM/DD/YYYY",
+            }
+          }
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            htmlFor="gender"
+          >
+            Gender
+          </label>
+          <div
+            className="input-holder"
+          >
+            <div
+              className="wrap-fcustominps-inline"
+            >
+              <Field
+                component={[Function]}
+                id="sexMale"
+                label="Male"
+                name="sexMale"
+                type="checkbox"
+              />
+              <Field
+                component={[Function]}
+                id="sexFemale"
+                label="Female"
+                name="sexFemale"
+                type="checkbox"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+`;

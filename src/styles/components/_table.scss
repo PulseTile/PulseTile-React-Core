@@ -17,6 +17,7 @@
     padding: 10px 4px 10px 5px;
     vertical-align: middle;
     word-wrap: break-word;
+    word-break: break-word;
     line-height: 20px;
     @include respond-from(sm) {
       padding: 10px 4px 10px 10px;
@@ -254,6 +255,7 @@ td[ng-click] { cursor: pointer; }
 
 .table-icon { color: #9493a1; }
 
+
 .table-transferOfCare {
   border-left: 0px !important;
   border-right: 0px !important;
@@ -276,9 +278,13 @@ td[ng-click] { cursor: pointer; }
       &:before { display: none !important; }
     }
   }
+
+
 }
 
-td[name='sourceId'], th[name='sourceId'] {
+
+td[name='sourceId'], th[name='sourceId'],
+td[name='studyId'], th[name='studyId'] {
   display: none !important;
 }
 
@@ -296,4 +302,8 @@ td[name='sourceId'], th[name='sourceId'] {
   @include respond-from(xs) {
     height: 60px;
   }
+}
+
+.table-no-cursor {
+  tbody tr td { cursor: initial !important; }
 }

@@ -69,6 +69,7 @@ const match = {
 const context = {
   router: {
     history: {
+      push: () => {},
       replace: () => {},
       location: {
         pathname: '/profile',

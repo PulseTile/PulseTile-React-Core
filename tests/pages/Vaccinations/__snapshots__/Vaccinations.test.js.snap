@@ -58,7 +58,6 @@ exports[`Component <Vaccinations /> should renders correctly and testing another
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -322,7 +321,6 @@ exports[`Component <Vaccinations /> should renders correctly with forms error 1`
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -400,7 +398,6 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -430,6 +427,7 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
           currentPanel="vaccinationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="vaccinationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}
@@ -501,7 +499,6 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -531,6 +528,7 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
           currentPanel="vaccinationsCreate"
           expandedPanel="all"
           isCreatePanelVisible={true}
+          isImport={false}
           name="vaccinationsCreate"
           onCancel={[Function]}
           onExpand={[Function]}

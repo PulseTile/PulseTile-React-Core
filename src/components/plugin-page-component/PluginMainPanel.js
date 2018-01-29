@@ -4,7 +4,7 @@ import _ from 'lodash/fp';
 import PTButton from '../ui-elements/PTButton/PTButton';
 import SortableTable from '../containers/SortableTable/SortableTable';
 import PaginationBlock from '../presentational/PaginationBlock/PaginationBlock';
-import Spinner from '../ui-elements/Spinner/Spinner'
+import Spinner from '../ui-elements/Spinner/Spinner';
 
 export default class PluginMainPanel extends PureComponent {
   static defaultProps = {

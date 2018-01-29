@@ -15,43 +15,45 @@ export default class SelectFormGroup extends PureComponent {
     }).isRequired,
   };
 
- state={
-   isChanged: false,
- };
+  state={
+    isChanged: false
+  };
 
- defaultProps={
-   placeholder: '',
- };
+  defaultProps={
+    placeholder: '',
+  };
 
- componentWillReceiveProps(nextProps) {
-   if (nextProps.meta.dirty) {
-     this.setState({ isChanged: true })
-   }
- }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.meta.dirty) {
+      this.setState({ isChanged: true })
+    }
+  }
 
- render() {
-   const { label, name, options, input, id, meta: { error, touched }, disabled, isSubmit, isNotValidate, placeholder, isAdvancedSearch } = this.props;
-   const { isChanged } = this.state;
-   const showError = ((touched || isChanged || isSubmit) && error);
+  render() {
+    const { label, name, options, input, id, meta: { error, touched },
+      disabled, isSubmit, isNotValidate, placeholder, isAdvancedSearch, onChange } = this.props;
+    const { isChanged } = this.state;
+    const showError = ((touched || isChanged || isSubmit) && error);
 
-   return (
-     <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
-       <label htmlFor={id || ''} className="control-label">{label}</label>
-       <select
-         className="form-control input-sm"
-         name={name}
-         id={id || ''}
-         disabled={disabled}
-         {...input}
-       >
-         <option>{placeholder ? placeholder : ''}</option>
-         {!_.isEmpty(options) ? options.map(({ value, title }) =>
-           <option key={_.uniqueId('__SelectFormGroupOption__')} value={value}>{title}</option>
-         ) : null }
-       </select>
-       {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
-       {(showError && !isNotValidate && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
-     </div>
-   )
- }
+    return (
+      <div className={classNames('form-group', { 'has-error': showError && !isNotValidate }, { 'has-success': isChanged && !error && !isNotValidate })}>
+        <label htmlFor={id || ''} className="control-label">{label}</label>
+        <select
+          className="form-control input-sm"
+          name={name}
+          id={id || ''}
+          disabled={disabled}
+          onChange={onChange}
+          {...input}
+        >
+          { placeholder !== undefined ? <option>{placeholder || ''}</option> : null }
+          {!_.isEmpty(options) ? options.map(({ value, title, disabled }) =>
+            <option key={_.uniqueId('__SelectFormGroupOption__')} value={value} disabled={disabled}>{title}</option>
+          ) : null }
+        </select>
+        {(showError && !isNotValidate && isAdvancedSearch) ? <span className="required-label">{error}</span> : null}
+        {(showError && !isNotValidate && !isAdvancedSearch) ? <span className="help-block animate-fade">{error}</span> : null}
+      </div>
+    )
+  }
 }

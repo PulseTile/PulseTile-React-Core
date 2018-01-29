@@ -16,13 +16,13 @@ export const operationsOnCollection = {
 
   modificate: (collection, options) => {
     if (collection && options) {
-      collection.map((item) => {
+      collection.map((item, index) => {
         options.forEach((option) => {
           if (option.key) {
             option.keyFrom = option.key;
             option.keyTo = option.key;
           }
-          item[option.keyTo] = option.fn(item[option.keyFrom]);
+          item[option.keyTo] = option.fn(item[option.keyFrom], index);
         });
 
         return item;
@@ -57,7 +57,7 @@ export const operationsOnCollection = {
         }
       }
 
-      return item[sortingByKey].toString().toLowerCase();
+      return item[sortingByKey] ? item[sortingByKey].toString().toLowerCase() : null;
     }]), reverseIfDescOrder)(collection);
   },
 

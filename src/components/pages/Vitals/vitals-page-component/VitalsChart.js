@@ -3,6 +3,7 @@ import _ from 'lodash/fp';
 
 import { Line } from 'react-chartjs-2';
 
+/* istanbul ignore next */
 const handleLineClick = ({ onCellClick, dataChart }) => (chartElements) => {
   const index = _.get('[0]_index', chartElements);
   if (index) onCellClick(dataChart.datasetsData.sourceId[index]);
@@ -91,6 +92,7 @@ const VitalsChart = props => <div className="chart-block">
           caretSize: 0,
           callbacks: {
             label(tooltipItem, data) {
+              /* istanbul ignore next */
               return `  ${data.datasets[tooltipItem.datasetIndex].label} : ${tooltipItem.yLabel}`;
             },
           },

@@ -21,6 +21,7 @@ $font-family-main: Arial, Helvetica, sans-serif;
 @import 'components/control';
 @import 'components/label';
 @import 'components/table';
+@import 'components/table-div';
 @import 'components/pagination';
 @import 'components/form';
 @import 'components/form-section';
@@ -68,35 +69,10 @@ $font-family-main: Arial, Helvetica, sans-serif;
 
 @import 'themes/index';
 
-//components
-//@import 'components/form';
-//@import 'components/form-custom-inputs';
-
-//pages
-//@import '../components/pages/PatientsLists/PatientsLists';
-
-//containers
-//@import '../components/containers/App/App';
-//@import '../components/containers/Main/Main';
-//@import '../components/containers/Breadcumbs/Breadcrumbs';
-//@import '../components/containers/TopHeader/TopHeader';
-//@import '../components/containers/HeaderToolbar/HeaderToolbar';
-//@import '../components/containers/Footer/Footer';
-//@import '../components/containers/PatientsChart/PatientsChart';
-//@import '../components/containers/MainLogo/MainLogo';
-//@import '../components/ui-elements/PTButton/PTButton';
-//@import '../components/containers/NavSearch/NavSearch';
-//@import '../components/containers/UserPanel/UserPanel';
-//@import '../components/containers/UserPanel/UserPanelItem';
-//@import '../components/containers/SortableTable/SortableTable';
-
-//presentational
-//@import '../components/ui-elements/PTPanel/PTPanel';
-//@import '../components/presentational/PaginationBlock/PaginationBlock';
-
 //global
 
 @import './global/control';
 @import './global/notification';
 @import './global/loading-bar';
 @import './global/spinner';
+@import './global/dicom';

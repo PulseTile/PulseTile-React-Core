@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
+exports[`Component <Sidebar /> should renders when it is visible 1`] = `
 <div>
   <div
     class="sidebar-underlay showSidebar"
@@ -73,9 +73,9 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/clinicalNotes"
+              href="/patients/9999999000/events"
             >
-              Clinical Notes
+              Events
             </a>
           </li>
           <li
@@ -83,9 +83,9 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/vaccinations"
+              href="/patients/9999999000/documents"
             >
-              Vaccinations
+              Documents
             </a>
           </li>
           <li
@@ -93,9 +93,9 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/personalNotes"
+              href="/patients/9999999000/orders"
             >
-              Personal Notes
+              Orders
             </a>
           </li>
           <li
@@ -123,9 +123,49 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/events"
+              href="/patients/9999999000/clinicalNotes"
             >
-              Events
+              Clinical Notes
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/personalNotes"
+            >
+              Personal Notes
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/vaccinations"
+            >
+              Vaccinations
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/vitals"
+            >
+              Vitals - News
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/drawings"
+            >
+              Drawings
             </a>
           </li>
           <li
@@ -153,9 +193,9 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/orders"
+              href="/patients/9999999000/images"
             >
-              Orders
+              Images
             </a>
           </li>
           <li
@@ -163,19 +203,9 @@ exports[`Component <Sidebar /> should renders whet it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/drawings"
+              href="/patients/9999999000/transfer-of-care"
             >
-              Drawings
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/vitals"
-            >
-              Vitals - News
+              Transfers of Care
             </a>
           </li>
         </ul>

@@ -5,8 +5,8 @@ import { bootstrapUtils } from 'react-bootstrap/lib/utils';
 
 bootstrapUtils.addStyle(Panel, 'secondary');
 
-const PTPanel = props => <Col xs={12} md={6}>
-  <Panel header={props.header} bsStyle="secondary" className="mainPagePanel">
+const PTPanel = props => <Col className={props.className}>
+  <Panel header={props.header} bsStyle="secondary" className={props.classNameForPanel}>
     <div className="panel-body-inner">
       {props.children}
     </div>
@@ -14,8 +14,10 @@ const PTPanel = props => <Col xs={12} md={6}>
 </Col>
 
 PTPanel.propTypes = {
-  header: PropTypes.element,
-  children: PropTypes.element,
+  header: PropTypes.element.isRequired,
+  children: PropTypes.element.isRequired,
+  classNameForPanel: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 };
 
 export default PTPanel;

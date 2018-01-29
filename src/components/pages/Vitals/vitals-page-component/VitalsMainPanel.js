@@ -49,7 +49,7 @@ export default class VitalsMainPanel extends PureComponent {
           /> : null }
         <div className="panel-control">
           <div className="wrap-control-group">
-            {(this.shouldHavePagination(filteredData) && activeView === 'tableNews') ? <div className="control-group with-indent left">
+            {(this.shouldHavePagination(filteredData)) ? <div className="control-group with-indent left">
               <PaginationBlock
                 entriesPerPage={listPerPageAmount}
                 totalEntriesAmount={totalEntriesAmount}

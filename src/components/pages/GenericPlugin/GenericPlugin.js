@@ -234,7 +234,7 @@ export default class GenericPlugin extends PureComponent {
     const filteredGenericPlugin = this.formToShowCollection(allGenericPlugin);
 
     let sourceId;
-    if (!_.isEmpty(genericPluginDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(genericPluginDetail)) {
       sourceId = genericPluginDetail[valuesNames.SOURCE_ID];
     }
 
