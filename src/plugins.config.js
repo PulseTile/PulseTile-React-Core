@@ -17,7 +17,6 @@ import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index';
 import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index';
 import { documentsEpic, documentsReducer } from './components/pages/Documents/index';
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
-import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
 import { imagesEpic, imagesReducer } from './components/pages/Images/index';
 import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
@@ -63,7 +62,7 @@ export const sidebarConfig = [
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
   { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
   { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
-  { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: true },
+  { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: false },
 
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];
