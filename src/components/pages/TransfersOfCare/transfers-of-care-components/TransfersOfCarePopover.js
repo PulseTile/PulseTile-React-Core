@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import _ from "lodash/fp";
-// import classNames from 'classnames';
-
-// import { valuesNames, valuesLabels } from '../forms.config';
 import { connect } from "react-redux";
 import Spinner from '../../../ui-elements/Spinner/Spinner';
 import TransfersOfCarePopoverDiagnosis from './TransfersOfCarePopoverDiagnosis';
+import TransfersOfCarePopoverMedications from './TransfersOfCarePopoverMedications';
+import TransfersOfCarePopoverReferrals from './TransfersOfCarePopoverReferrals';
+import TransfersOfCarePopoverEvents from './TransfersOfCarePopoverEvents';
+import TransfersOfCarePopoverVitals from './TransfersOfCarePopoverVitals';
 
 import { bindActionCreators } from "redux";
 import { fetchPatientDiagnosesDetailRequest } from '../../ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
@@ -50,22 +51,22 @@ export default class TransfersOfCarePopover extends PureComponent {
       medications: {
         title: 'Medications',
         fetchDetail: 'fetchPatientMedicationsDetailRequest',
-        stateName: 'medicationsDetail',
+        stateName: 'medicationDetail',
       },
       referrals: {
         title: 'Referrals',
         fetchDetail: 'fetchPatientReferralsDetailRequest',
-        stateName: 'referralsDetail',
+        stateName: 'referralDetail',
       },
       events: {
         title: 'Events',
         fetchDetail: 'fetchPatientEventsDetailRequest',
-        stateName: 'eventsDetail',
+        stateName: 'eventDetail',
       },
       vitals: {
         title: 'Vitals',
         fetchDetail: 'fetchPatientVitalsDetailRequest',
-        stateName: 'vitalsDetail',
+        stateName: 'vitalDetail',
       },
     },
 
@@ -89,9 +90,7 @@ export default class TransfersOfCarePopover extends PureComponent {
     const { record: {type: typeOfRecord} } = this.props;
     const { typesRecords, sourceId } = this.state;
     const title = typesRecords[typeOfRecord].title;
-
     const detail = this.props[typesRecords[typeOfRecord].stateName] || null;
-    // console.log(detail);
 
     return (
       <div className="record-popover" style={{display: 'block'}}>
@@ -101,12 +100,11 @@ export default class TransfersOfCarePopover extends PureComponent {
         <div className="record-popover-body">
           <div className="record-popover-content">
             {!detail || detail.sourceId !== sourceId ? <Spinner /> : null }
-            { detail && detail.sourceId === sourceId ?
-              <div>
-                {typeOfRecord === 'diagnosis' ? <TransfersOfCarePopoverDiagnosis detail={detail} /> : null}
-              </div>
-              : null
-            }
+            {typeOfRecord === 'diagnosis' ? <TransfersOfCarePopoverDiagnosis detail={detail} /> : null}
+            {typeOfRecord === 'medications' ? <TransfersOfCarePopoverMedications detail={detail} /> : null}
+            {typeOfRecord === 'referrals' ? <TransfersOfCarePopoverReferrals detail={detail} /> : null}
+            {typeOfRecord === 'events' ? <TransfersOfCarePopoverEvents detail={detail} /> : null}
+            {typeOfRecord === 'vitals' ? <TransfersOfCarePopoverVitals detail={detail} /> : null}
           </div>
         </div>
       </div>

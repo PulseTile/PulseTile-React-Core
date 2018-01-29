@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import PropTypes from "prop-types";
 import { Row, Col } from 'react-bootstrap';
 import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
-import {valuesLabels, valuesNames} from "../../ProblemsDiagnosis/forms.config";
+import {valuesLabels, valuesNames} from "../../Events/forms.config";
 
-export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
+export default class TransfersOfCarePopoverEvents extends PureComponent {
   static propTypes = {
     detail: PropTypes.object,
   };
@@ -18,14 +18,14 @@ export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
         <Row>
           <Col xs={12} md={6}>
             <div className="form-group">
-              <label className="control-label">{valuesLabels.PROBLEM}</label>
-              <div className="form-control-static">{detail[valuesNames.PROBLEM]}</div>
+              <label className="control-label">{valuesLabels.NAME}</label>
+              <div className="form-control-static">{detail[valuesNames.NAME]}</div>
             </div>
           </Col>
           <Col xs={12} md={6}>
             <div className="form-group">
-              <label className="control-label">{valuesLabels.DATE_OF_ONSET}</label>
-              <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_OF_ONSET])}</div>
+              <label className="control-label">{valuesLabels.TYPE}</label>
+              <div className="form-control-static">{detail[valuesNames.TYPE]}</div>
             </div>
           </Col>
         </Row>
@@ -34,22 +34,18 @@ export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
           <label className="control-label">{valuesLabels.DESCRIPTION}</label>
           <div className="form-control-static">{detail[valuesNames.DESCRIPTION]}</div>
         </div>
-        {/*<div className="form-group">*/}
-          {/*<label className="control-label">NHS Choices Web Page URL</label>*/}
-          {/*<div className="form-control-static">{{data.diagnosis.url}}</div>*/}
-        {/*</div>*/}
 
         <Row>
           <Col xs={12} md={6}>
             <div className="form-group">
-              <label className="control-label">{valuesLabels.TERMINOLOGY}</label>
-              <div className="form-control-static">{detail[valuesNames.TERMINOLOGY]}</div>
+              <label className="control-label">{valuesLabels.LOCATION}</label>
+              <div className="form-control-static">{detail[valuesNames.LOCATION]}</div>
             </div>
           </Col>
           <Col xs={12} md={6}>
             <div className="form-group">
-              <label className="control-label">{valuesLabels.CODE}</label>
-              <div className="form-control-static">{detail[valuesNames.CODE]}</div>
+              <label className="control-label">{valuesLabels.EVENT_DATE}</label>
+              <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_CREATED])}</div>
             </div>
           </Col>
         </Row>
