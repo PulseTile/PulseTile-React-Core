@@ -9,6 +9,7 @@ import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
@@ -25,6 +26,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
+import imgBanner from '../../../assets/images/banners/contacts.jpg';
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -249,6 +251,14 @@ export default class Contacts extends PureComponent {
     }
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title='Contacts'
+          subTitle='Short blurb containing a few words to describe this section'
+          img={imgBanner}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

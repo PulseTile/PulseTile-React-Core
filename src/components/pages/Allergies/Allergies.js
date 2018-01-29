@@ -8,6 +8,8 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
+
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientAllergiesRequest } from './ducks/fetch-patient-allergies.duck';
@@ -22,6 +24,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import imgBanner from '../../../assets/images/banners/allergies.jpg';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -267,6 +270,14 @@ export default class Allergies extends PureComponent {
     const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title='Allergies'
+          subTitle='Short blurb containing a few words to describe this section'
+          img={imgBanner}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

@@ -1,4 +1,4 @@
 .footer {
-  background-color: #EEEEEE;
-  color: #757584;
+  background-color: map-get($footer, 'bg');
+  color: map-get($footer, 'color');
 }

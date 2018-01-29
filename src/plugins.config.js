@@ -1,15 +1,15 @@
 import { clientUrls } from './config/client-urls.constants';
 
-import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index'
-import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index'
-import { clinicalNotesEpic, clinicalNotesReducer } from './components/pages/ClinicalNotes/index'
-import { personalNotesEpic, personalNotesReducer } from './components/pages/PersonalNotes/index'
-import { contactsEpic, contactsReducer } from './components/pages/Contacts/index'
-import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccinations/index'
-import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index'
-import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index'
-import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index'
-import { eventsEpic, eventsReducer } from './components/pages/Events/index'
+import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index';
+import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index';
+import { clinicalNotesEpic, clinicalNotesReducer } from './components/pages/ClinicalNotes/index';
+import { personalNotesEpic, personalNotesReducer } from './components/pages/PersonalNotes/index';
+import { contactsEpic, contactsReducer } from './components/pages/Contacts/index';
+import { vaccinationsEpic, vaccinationsReducer } from './components/pages/Vaccinations/index';
+import { medicationsEpic, medicationsReducer } from './components/pages/Medications/index';
+import { genericPluginEpic, genericPluginReducer } from './components/pages/GenericPlugin/index';
+import { proceduresEpic, proceduresReducer } from './components/pages/Procedures/index';
+import { eventsEpic, eventsReducer } from './components/pages/Events/index';
 import { testResultsEpic, testResultsReducer } from './components/pages/TestResults/index';
 import { referralsEpic, referralsReducer } from './components/pages/Referrals/index';
 import { ordersEpic, ordersReducer } from './components/pages/Orders/index';
@@ -19,6 +19,7 @@ import { documentsEpic, documentsReducer } from './components/pages/Documents/in
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
 import { imagesEpic, imagesReducer } from './components/pages/Images/index';
 import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
+import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -39,9 +40,11 @@ import Vitals from './components/pages/Vitals/Vitals';
 import Documents from './components/pages/Documents/Documents';
 import Images from './components/pages/Images/Images';
 import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare';
+import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
+  // { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Home', isVisible: true },
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
@@ -60,6 +63,7 @@ export const sidebarConfig = [
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
   { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
   { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
+  { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: false },
 
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];
@@ -71,6 +75,8 @@ export const dashboardVisible = {
   // e.g. (problems: false)
   contacts: true,
 };
+
+export const isShowPluginBanners = true;
 
 export const pluginsEpicConfig = [
   allergiesEpic,
@@ -92,6 +98,7 @@ export const pluginsEpicConfig = [
   documentsEpic,
   imagesEpic,
   transfersOfCareEpic,
+  topThreeThingsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -114,6 +121,7 @@ export const pluginsReducerConfig = [
   documentsReducer,
   imagesReducer,
   transfersOfCareReducer,
+  topThreeThingsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -189,5 +197,8 @@ export const routersPluginConfig = [
   { key: 'transfersOfCare', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}` },
   { key: 'transfersOfCareCreate', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/create` },
   { key: 'transfersOfCareDetail', component: TransfersOfCare, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TRANSFERS_OF_CARE}/:sourceId` },
+
+  { key: 'topThreeThings', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}` },
+  { key: 'topThreeThingsDetail', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}/:sourceId` },
 
 ];

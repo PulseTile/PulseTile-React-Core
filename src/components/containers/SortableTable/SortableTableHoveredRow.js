@@ -17,7 +17,10 @@ export default class SortableTableHoveredRow extends PureComponent {
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     columnNameSortBy: PropTypes.string.isRequired,
-    hoveredRowIndex: PropTypes.number,
+    hoveredRowIndex: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   };
 
   render() {

@@ -77,7 +77,7 @@ export default class TransfersOfCare extends PureComponent {
     isLoading: true,
   };
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -191,24 +191,22 @@ export default class TransfersOfCare extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId, transferOfCareDetail } = this.props;
     const sendData = {};
+    const currentDate = new Date().getTime();
 
     sendData.userId = userId;
-    // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
-    // sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
-    // sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
-    // sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
-    // sendData[valuesNames.TRANSFER_OF_CARE_INFORMATION] = formValues[valuesNames.TRANSFER_OF_CARE_INFORMATION];
-    // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    // sendData[valuesNames.DATE_SUBMITTED] = new Date();
-    // sendData[valuesNames.SOURCE] = 'ethercis';
+    sendData[valuesNames.FROM] = formValues[valuesNames.FROM];
+    sendData[valuesNames.TO] = formValues[valuesNames.TO];
+    sendData[valuesNames.RECORDS] = formValues[valuesNames.RECORDS];
+    sendData[valuesNames.CLINICAL] = formValues[valuesNames.CLINICAL];
+    sendData[valuesNames.REASON] = formValues[valuesNames.REASON];
+    sendData[valuesNames.DATE_TIME] = new Date(formValues[valuesNames.DATE_TIME]).getTime();
+    sendData[valuesNames.DATE_CREATED] = currentDate;
 
     if (formName === 'edit') {
-      // sendData[valuesNames.SOURCE_ID] = transferOfCareDetail[valuesNames.SOURCE_ID];
+      sendData[valuesNames.SOURCE_ID] = transferOfCareDetail[valuesNames.SOURCE_ID];
     }
 
-    // operationsOnCollection.propsToString(sendData, valuesNames.DATE_SUBMITTED);
+    operationsOnCollection.propsToString(sendData, valuesNames.RECORDS, valuesNames.DATE_TIME, valuesNames.DATE_CREATED);
     return sendData;
   };
 
@@ -334,7 +332,7 @@ export default class TransfersOfCare extends PureComponent {
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               componentForm={
-                <TransfersOfCareCreateForm isSubmit={isSubmit} />
+                <TransfersOfCareCreateForm isSubmit={isSubmit} match={match} />
               }
             />
           </Col> : null}

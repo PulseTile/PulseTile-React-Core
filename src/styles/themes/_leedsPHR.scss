@@ -1,0 +1,202 @@
+$dodger-blue: #3596f4;
+$lucky-point: #18276d;
+$white: #ffffff;
+
+$base-color: $dodger-blue;
+$auxiliary-color: $lucky-point;
+
+$table-color: lighten($base-color, 40%);;
+$table-text: #5c5c5c;
+$colored-table: (
+  bg: #ffffff,
+  color: $table-text,
+  border-color: #d4d2d2,
+  border-width: 1px,
+
+  header-bg: #e0e0e0,
+  header-color: #333,
+  header-highlighted-bg: darken(#e0e0e0, 10%),
+  header-highlighted-color: #333,
+
+  row-bg: #ffffff,
+  row-odd-bg: #ffffff,
+  row-hover-bg: $auxiliary-color,
+  row-odd-hover-bg: $auxiliary-color,
+  row-color: $table-text,
+  row-odd-color: $table-text,
+  row-hover-color: #fff,
+  row-odd-hover-color: #fff,
+
+  row-sorted-bg: lighten(#e0e0e0, 7%),
+  row-sorted-odd-bg: lighten(#e0e0e0, 7%),
+  row-sorted-hover-bg: $auxiliary-color,
+  row-sorted-odd-hover-bg: $auxiliary-color,
+  row-sorted-color: $table-text,
+  row-sorted-odd-color: $table-text,
+  row-sorted-hover-color: #fff,
+  row-sorted-odd-hover-color: #fff,
+
+  row-highlighted-bg: #b4b4b4,
+  row-highlighted-color: #ffffff,
+);
+
+$text-color: #303030;
+$text-on-base-color: #ffffff;
+
+$colored-buttons: (
+    default: #ffffff,
+    primary: #337AB7,
+    success: #017A41,
+    info: #31b0d5,
+    warning: #F0AD4E,
+    danger: #DA534F
+);
+
+
+/**
+  * COLORS for base configuration
+  */
+$body-bg: #eee;
+
+/**
+  * COLORS for header
+  */
+
+$header-bg: $white;
+$header-btn: (
+    bg: $dodger-blue,
+    color: $text-on-base-color,
+    bg-hover: $lucky-point,
+    color-hover: $text-on-base-color,
+    bg-active: $lucky-point,
+    color-active: $text-on-base-color
+);
+$header-toolbar: (
+    bg: $lucky-point,
+    color: $text-on-base-color,
+);
+
+/**
+  * COLORS for search
+  */
+  $search-btn: (
+      bg: $base-color,
+      color: $text-on-base-color,
+      bg-hover: $auxiliary-color,
+      color-hover: $text-on-base-color
+  );
+  $search-btn-toggle: (
+      bg: $dodger-blue,
+      color: $text-on-base-color,
+      bg-hover: $auxiliary-color,
+      color-hover: $text-on-base-color,
+      border: $base-color,
+      border-hover: $auxiliary-color
+  );
+
+/**
+  * COLORS for footer
+  */
+  $footer: (
+    bg: $white,
+    color: #5c5c5c
+  );
+
+/**
+  * COLORS for dashboard
+  */
+  $board: (
+    border: #c9c8c8,
+    radius: 4px,
+    header-bg: $base-color,
+    header-color: $text-on-base-color,
+    preview-ratio: 60%,
+    item-bg: $white,
+    item-odd-bg: $white,
+    item-color: $text-color,
+    item-bg-hover: $auxiliary-color,
+    item-color-hover: $white,
+  );
+
+/**
+  * COLORS for panels
+  */
+  $panel-border-color: #d4d2d2;
+  $panel-heading-bg: $base-color;
+  $panel-heading-color: $text-on-base-color;
+  $panel-control-bg: transparent;
+  $panels: (
+    panel-default: (
+      bg: #fff,
+      heading-bg: $base-color,
+      heading-color: $text-on-base-color,
+      border-color: $base-color,
+      border-width: 2px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-primary: (
+      bg: transparent,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 3px,
+      control-bg: transparent
+    ),
+    panel-secondary: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-subaccordion: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    ),
+    panel-small: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 3px,
+      control-bg: $panel-control-bg
+    )
+  );
+
+/**
+  * COLORS for forms
+  */
+  $forms: (
+    bg: #fff,
+    color: #555555,
+    disabled-bg: #ebebeb,
+    disabled-color: #5c5c5c,
+    readonly-bg: #fff,
+    readonly-color: #555,
+
+    border-color: #c5c4c4,
+    border-error-color: #a94442,
+    border-success-color: #2b542c,
+    border-width: 1px,
+    border-radius: 4px,
+    addon-color: #222,
+    label-color: #333,
+    label-control-color: #333,
+    label-required-color: #a32d44,
+    control-static-color: #333,
+  );
+
+body.themeLeedsPHR {
+  @import 'theme-source/index';
+  @import 'theme-leedsPHR/index';
+}

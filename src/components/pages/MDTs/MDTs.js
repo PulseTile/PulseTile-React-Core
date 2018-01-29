@@ -310,7 +310,7 @@ export default class MDTs extends PureComponent {
               componentForm={
                 <MDTsCreateForm isSubmit={isSubmit} />
               }
-              title="Create Create MDT"
+              title="Create MDT"
             />
           </Col> : null}
         </Row>

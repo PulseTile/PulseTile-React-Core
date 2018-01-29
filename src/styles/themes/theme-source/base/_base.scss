@@ -8,3 +8,7 @@ a:focus {
 .is-not-touch-device a:focus, {
   color: $auxiliary-color;
 }
+
+& {
+  background: $body-bg;
+}

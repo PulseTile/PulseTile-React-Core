@@ -8,7 +8,7 @@ export const setLogo = createAction(SET_LOGO);
 export const setLogoSuccess = createAction(SET_LOGO_SUCCESS);
 
 const setLogoOnImage = (logo) => {
-  const image = window.document.getElementsByClassName('img');
+  const image = window.document.getElementsByClassName('logo-img');
   _.head(image).src = logo;
 };
 

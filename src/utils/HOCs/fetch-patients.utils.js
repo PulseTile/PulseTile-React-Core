@@ -122,3 +122,6 @@ export const fetchSeriesOnMount = ({
 
 export const fetchPatientTransfersOfCareOnMount = (generateFetchListOnMount('fetchPatientTransfersOfCareRequest'));
 export const fetchPatientTransfersOfCareDetailOnMount = (generateFetchDetailOnMount('fetchPatientTransfersOfCareDetailRequest'));
+
+export const fetchPatientTopThreeThingsOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsRequest'));
+export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTopThreeThingsDetailRequest'));

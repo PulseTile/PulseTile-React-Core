@@ -26,6 +26,7 @@ export const clientUrls = {
   DOCUMENTS: 'documents',
   IMAGES: 'images',
   TRANSFERS_OF_CARE: 'transfer-of-care',
+  TOP_THREE_THINGS: 'topThreeThings',
 };
 
 const pluginsPages = {
@@ -143,6 +144,12 @@ const pluginsPages = {
       state: '/transfers-of-care',
     }],
   },
+  'topThreeThings': {
+    breadcrumbs: [{
+      title: 'Top 3 Things',
+      state: '/topThreeThings',
+    }],
+  },
 };
 
 
@@ -200,7 +207,7 @@ export const mainPagesTitles = {
       title: 'Patient Listings',
       state: '/patients',
     }, {
-      title: 'Patient Summary',
+      title: 'Home',
       state: '/patients-summary',
     }],
   },
@@ -235,7 +242,7 @@ export const mainPagesTitlesForPatients = {
   },
   'patients-summary': {
     breadcrumbs: [{
-      title: 'Patient Summary',
+      title: 'Home',
       state: '/patients-summary',
     }],
   },

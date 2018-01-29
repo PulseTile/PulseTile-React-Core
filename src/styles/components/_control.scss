@@ -1,20 +1,22 @@
+$control-indent: 5px;
+
 .wrap-control-group {
   @include clearfix;
-  &.hide-indent-bottom { margin-bottom: -5px; }
+  &.hide-indent-bottom { margin-bottom: -$control-indent; }
 }
 .control-group {
-  margin-right: -5px;
-  & > * { margin-right: 5px; }
+  margin-right: -$control-indent;
+  & > * { margin-right: $control-indent; }
   &.right {
     float: right;
-    margin-left: 5px;
+    margin-left: $control-indent;
   }
   &.left {
     float: left;
-    margin-left: -5px;
-    margin-right: 5px;
+    margin-left: -$control-indent;
+    margin-right: $control-indent;
     & > * {
-      margin-left: 5px;
+      margin-left: $control-indent;
       margin-right: 0;
     }
   }
@@ -27,7 +29,7 @@
     text-align: center;
     & > * { display: inline-block; }
   }
-  &.with-indent > * { margin-bottom: 5px; }
+  &.with-indent > * { margin-bottom: $control-indent; }
   &.without-side-indent {
     margin-left: 0;
     margin-right: 0;

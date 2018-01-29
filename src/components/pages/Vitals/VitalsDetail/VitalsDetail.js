@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { Row, Col } from 'react-bootstrap';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import VitalsDetailForm from './VitalsDetailForm'
@@ -37,8 +38,8 @@ export default class VitalsDetail extends PureComponent {
                 <div className="vitals-group-wrapper">
                   <div className="row-expand">
                     <div className="col-expand-left">
-                      <div className="row">
-                        <div className="col-xs-12 col-md-6">
+                      <Row>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.RESPIRATION_RATE)}`} />
                             <label className="vitals-label">{valuesLabels.RESPIRATION_RATE}</label>
@@ -51,8 +52,8 @@ export default class VitalsDetail extends PureComponent {
                               id={valuesNames.RESPIRATION_RATE}
                             />
                           </div>
-                        </div>
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.OXYGEN_SATURATION)}`} />
                             <label className="vitals-label">{valuesLabels.OXYGEN_SATURATION}</label>
@@ -65,10 +66,10 @@ export default class VitalsDetail extends PureComponent {
                               id={valuesNames.OXYGEN_SATURATION}
                             />
                           </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.OXYGEN_SUPPLEMENTAL)}`} />
                             <label className="vitals-label">{valuesLabels.OXYGEN_SUPPLEMENTAL}</label>
@@ -81,8 +82,8 @@ export default class VitalsDetail extends PureComponent {
                               />
                             </div>
                           </div>
-                        </div>
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.HEART_RATE)}`} />
                             <label className="vitals-label">{valuesLabels.HEART_RATE}</label>
@@ -95,12 +96,12 @@ export default class VitalsDetail extends PureComponent {
                               id={valuesNames.HEART_RATE}
                             />
                           </div>
-                        </div>
-                      </div>
+                        </Col>
+                      </Row>
                     </div>
                     <div className="col-expand-right">
-                      <div className="row">
-                        <div className="col-xs-12 col-md-6">
+                      <Row>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.SYSTOLIC_BP)}`} />
                             <label className="vitals-label">{valuesLabels.SYSTOLIC_BP}</label>
@@ -113,8 +114,8 @@ export default class VitalsDetail extends PureComponent {
                               id={valuesNames.SYSTOLIC_BP}
                             />
                           </div>
-                        </div>
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className="highlighter-not-vital" />
                             <label className="vitals-label">{valuesLabels.DIASTOLIC_BP}</label>
@@ -123,10 +124,10 @@ export default class VitalsDetail extends PureComponent {
                               <span className="vitals-addon">{valuesAddons.DIASTOLIC_BP}</span>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div className="row">
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.LEVEL_OF_CONSCIOUSNESS)}`} />
                             <label htmlFor={valuesNames.LEVEL_OF_CONSCIOUSNESS} className="vitals-label">{valuesLabels.LEVEL_OF_CONSCIOUSNESS}</label>
@@ -171,8 +172,8 @@ export default class VitalsDetail extends PureComponent {
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div className="col-xs-12 col-md-6">
+                        </Col>
+                        <Col xs={12} md={6}>
                           <div className="vitals-group highlighter-wrapper">
                             <span className={`${getHighlighterClass(valuesNames.TEMPERATURE)}`} />
                             <label className="vitals-label">{valuesLabels.TEMPERATURE}</label>
@@ -185,8 +186,8 @@ export default class VitalsDetail extends PureComponent {
                               id={valuesNames.TEMPERATURE}
                             />
                           </div>
-                        </div>
-                      </div>
+                        </Col>
+                      </Row>
                     </div>
                   </div>
                   <div className="row-expand">

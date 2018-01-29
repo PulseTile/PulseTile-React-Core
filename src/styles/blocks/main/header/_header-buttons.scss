@@ -4,14 +4,14 @@
   color: map-get($header-btn, 'color');
   display: block;
   font-size: 19px;
-  height: 52px;
-  line-height: 52px;
+  height: $header-height;
+  line-height: $header-height;
   outline: none;
   position: relative;
   text-align: center;
   width: 45px;
   @include respond-from(xs) {
-    width: 52px;
+    width: $header-height;
   }
   .count {
     background-color: map-get($header-btn, 'color');
@@ -43,7 +43,7 @@
 
 .btn-header-prev {
   float: left;
-  width: 52px;
+  width: $header-height;
   @include respond-from(sm) {
     float: none;
     order: 1;

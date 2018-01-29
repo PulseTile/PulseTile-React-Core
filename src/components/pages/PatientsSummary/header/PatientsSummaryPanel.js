@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import { lifecycle } from 'recompose';
 import { Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
-import PTCustomCheckbox from './PTCustomCheckbox';
+import PTCustomInput from './PTCustomInput';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 
@@ -12,15 +13,19 @@ import { patientsSummaryConfig } from '../patients-summary.config';
 export default class PatientsSummaryPanel extends PureComponent {
     static propTypes = {
       onCategorySelected: PropTypes.func.isRequired,
+      onViewOfBoardsSelected: PropTypes.func.isRequired,
       selectedCategory: PropTypes.objectOf(PropTypes.bool).isRequired,
+      selectedViewOfBoards: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
       selected: this.props.selectedCategory,
+      selectedViewOptions: this.props.selectedViewOfBoards
     };
 
     componentDidUpdate(prevProps, prevState) {
       if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onCategorySelected(this.state.selected)
+      if (!_.isEqual(prevState.selectedViewOptions, this.state.selectedViewOptions)) this.props.onViewOfBoardsSelected(this.state.selectedViewOptions)
     }
 
     toggleCheckbox = key => this.setState((prevState) => {
@@ -28,8 +33,17 @@ export default class PatientsSummaryPanel extends PureComponent {
       return _.set(['selected', key], newValue)(prevState);
     });
 
+    toggleRadio = key => this.setState((prevState) => {
+      const selectedViewOptions = Object.assign({}, prevState.selectedViewOptions);
+      selectedViewOptions.full = false;
+      selectedViewOptions.preview = false;
+      selectedViewOptions.list = false;
+      selectedViewOptions[key] = true;
+      return { 'selectedViewOptions': selectedViewOptions };
+    });
+
     render() {
-      const { selected } = this.state;
+      const { selected, selectedViewOptions } = this.state;
 
       return (
         <div className="dropdown-menu dropdown-menu-panel dropdown-menu-summary">
@@ -38,14 +52,34 @@ export default class PatientsSummaryPanel extends PureComponent {
             <div className="form-group">
               <Row>
                 {patientsSummaryConfig.map((item, index) => {
-                  return (<PTCustomCheckbox
-                    key={index}
-                    title={item.title}
-                    name={item.nameCheckboxes}
-                    isChecked={selected[item.key]}
-                    onChange={this.toggleCheckbox}
-                  />)
+                  return (<Col xs={6} sm={4} key={index}>
+                      <PTCustomInput
+                      type="checkbox"
+                      title={item.titleCheckboxes}
+                      id={item.nameCheckboxes}
+                      name={item.nameCheckboxes}
+                      isChecked={selected[item.key]}
+                      onChange={this.toggleCheckbox}
+                    />
+                  </Col>)
                 })}
+              </Row>
+            </div>
+
+            <div className="heading">VIEW OF BOARDS</div>
+            <div className="form-group">
+              <Row>
+                <Col xs={12}>
+                  <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={selectedViewOptions.full} onChange={this.toggleRadio} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12} sm={6}>
+                  <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={selectedViewOptions.preview} onChange={this.toggleRadio} />
+                </Col>
+                <Col xs={12} sm={6}>
+                  <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={selectedViewOptions.list} onChange={this.toggleRadio} />
+                </Col>
               </Row>
             </div>
           </div>
