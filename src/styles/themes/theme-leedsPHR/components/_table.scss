@@ -6,10 +6,12 @@
 }
 
 .table {
-  tbody tr td {
+  tbody tr td,
+  .table__body .table__col{
     padding-bottom: 10px - map-get($colored-table, 'border-width');
     border-bottom: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
   }
+
   border-bottom: 0;
 }
 

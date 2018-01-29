@@ -68,7 +68,14 @@ export default class Vitals extends PureComponent {
     isSubmit: false,
     isLoading: true,
     activeView: 'tableNews',
-    vitalStatuses: {},
+    vitalStatuses: {
+      [valuesNames.RESPIRATION_RATE]: {},
+      [valuesNames.OXYGEN_SATURATION]: {},
+      [valuesNames.HEART_RATE]: {},
+      [valuesNames.SYSTOLIC_BP]: {},
+      [valuesNames.TEMPERATURE]: {},
+      [valuesNames.NEWS_SCORE]: {},
+    },
     vitalDetailConvert: {},
   };
 
