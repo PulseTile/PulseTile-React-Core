@@ -207,7 +207,7 @@ export const mainPagesTitles = {
       title: 'Patient Listings',
       state: '/patients',
     }, {
-      title: 'Patient Summary',
+      title: 'Home',
       state: '/patients-summary',
     }],
   },
@@ -242,7 +242,7 @@ export const mainPagesTitlesForPatients = {
   },
   'patients-summary': {
     breadcrumbs: [{
-      title: 'Patient Summary',
+      title: 'Home',
       state: '/patients-summary',
     }],
   },

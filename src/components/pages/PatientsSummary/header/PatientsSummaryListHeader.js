@@ -9,7 +9,9 @@ import PTButton from '../../../ui-elements/PTButton/PTButton';
 export default class PatientsSummaryListHeader extends PureComponent {
     static propTypes = {
       onCategorySelected: PropTypes.func.isRequired,
+      onViewOfBoardsSelected: PropTypes.func.isRequired,
       selectedCategory: PropTypes.objectOf(PropTypes.bool).isRequired,
+      selectedViewOfBoards: PropTypes.objectOf(PropTypes.bool).isRequired,
     };
 
     state = {
@@ -23,7 +25,7 @@ export default class PatientsSummaryListHeader extends PureComponent {
 
     render() {
       const { isPatientSummaryPanelVisible } = this.state;
-      const { onCategorySelected, selectedCategory } = this.props;
+      const { onCategorySelected, onViewOfBoardsSelected, selectedCategory, selectedViewOfBoards, title } = this.props;
 
       return (
         <div className="panel-heading">
@@ -32,10 +34,16 @@ export default class PatientsSummaryListHeader extends PureComponent {
               <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientSummaryPanelVisibility}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
-              {isPatientSummaryPanelVisible && <PatientsSummaryPanel onCategorySelected={onCategorySelected} selectedCategory={selectedCategory} toggleVisibility={this.togglePatientSummaryPanelVisibility} />}
+              {isPatientSummaryPanelVisible && <PatientsSummaryPanel
+                onCategorySelected={onCategorySelected}
+                onViewOfBoardsSelected={onViewOfBoardsSelected}
+                selectedCategory={selectedCategory}
+                selectedViewOfBoards={selectedViewOfBoards}
+                toggleVisibility={this.togglePatientSummaryPanelVisibility}
+              />}
             </div>
           </div>
-          <h3 className="panel-title">Patient Summary</h3>
+          <h3 className="panel-title">{ title }</h3>
         </div>
       )
     }

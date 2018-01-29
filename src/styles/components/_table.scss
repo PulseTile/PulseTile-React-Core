@@ -1,14 +1,15 @@
 .table {
-  background: map-get($colored-table, 'row-odd-background');
   border-radius: 0;
   border: none;
-  color: map-get($colored-table, 'text');
+  background: map-get($colored-table, 'bg');
+  color: map-get($colored-table, 'color');
   font-size: 11px;
   line-height: 20px;
   margin-bottom: 5px;
   width: 100%;
-  thead {
-    background-color: map-get($colored-table, 'header-background');
+  thead tr th {
+    background-color: map-get($colored-table, 'header-bg');
+    color: map-get($colored-table, 'header-color');
     font-weight: 700;
     i { margin-left: 5px; }
   }
@@ -24,11 +25,12 @@
     }
   }
   thead tr th.selected {
-    background: map-get($colored-table, 'selected-background');
+    background-color: map-get($colored-table, 'header-highlighted-bg');
+    color: map-get($colored-table, 'header-highlighted-color');
   }
   tbody tr td.selected {
-    background: #b4b4b4;
-    color: #ffffff;
+    background-color: map-get($colored-table, 'row-highlighted-bg');
+    color: map-get($colored-table, 'row-highlighted-color');
   }
   &.clickable tbody tr { cursor: pointer; }
   .dropdown-menu {
@@ -67,7 +69,8 @@
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th,
 .table > tbody > tr.info {
-  background-color: map-get($colored-table, 'row-background-hover') !important;
+  background-color: map-get($colored-table, 'row-hover-bg') !important;
+  color: map-get($colored-table, 'row-hover-color') !important;
 }
 .wrap-table-scrollX {
   max-width: initial;
@@ -80,27 +83,52 @@
   table-layout: fixed;
 }
 .table-striped {
-  background-color: map-get($colored-table, 'background');
+  background-color: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
   tbody {
     tr {
       &:nth-of-type(odd) {
-        background-color: map-get($colored-table, 'row-odd-background');
+        background-color: map-get($colored-table, 'row-odd-bg');
+        color: map-get($colored-table, 'row-odd-color');
       }
       td {
         cursor: pointer;
       }
     }
   }
+  thead > tr:nth-of-type(odd) > td.info,
+  tbody > tr:nth-of-type(odd) > td.info,
+  tfoot > tr:nth-of-type(odd) > td.info,
+  thead > tr:nth-of-type(odd) > th.info,
+  tbody > tr:nth-of-type(odd) > th.info,
+  tfoot > tr:nth-of-type(odd) > th.info,
+  thead > tr:nth-of-type(odd).info > td,
+  tbody > tr:nth-of-type(odd).info > td,
+  tfoot > tr:nth-of-type(odd).info > td,
+  thead > tr:nth-of-type(odd).info > th,
+  tbody > tr:nth-of-type(odd).info > th,
+  tfoot > tr:nth-of-type(odd).info > th,
+  tbody > tr:nth-of-type(odd).info {
+    background-color: map-get($colored-table, 'row-odd-hover-bg') !important;
+    color: map-get($colored-table, 'row-odd-hover-color') !important;
+  }
 }
 .table-striped.table-hover {
-  background-color: map-get($colored-table, 'background');
+  background: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
   tbody {
     tr {
-      &:hover td[data-table-hover] {
-        background-color: map-get($colored-table, 'row-background-hover');
-      }
+      &:hover td[data-table-hover],
       &.hovered td[data-table-hover] {
-        background-color: map-get($colored-table, 'row-background-hover');
+        background: map-get($colored-table, 'row-hover-bg');
+        color: map-get($colored-table, 'row-hover-color');
+      }
+    }
+    tr:nth-of-type(odd) {
+      &:hover td[data-table-hover],
+      &.hovered td[data-table-hover] {
+        background: map-get($colored-table, 'row-odd-hover-bg');
+        color: map-get($colored-table, 'row-odd-hover-color');
       }
     }
   }
@@ -117,26 +145,27 @@ td[ng-click] { cursor: pointer; }
 .is-not-touch-device .table-hover > tbody > tr:hover > td[ng-click],
 .is-not-touch-device .table-hover > tbody > tr[ng-click]:hover,
 .is-not-touch-device .table-hover > tbody > tr.hovered {
-  background-color: map-get($colored-table, 'row-background-hover');
+  background: map-get($colored-table, 'row-hover-bg');
+  color: map-get($colored-table, 'row-hover-color');
 }
 
 .table-bordered {
   border-collapse: separate;
-  border: 1px solid #B4B5B4;
+  border: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
   thead tr th,
   tbody tr td {
     border: none;
     @include respond-from(xs) {
-      border-left: 1px solid #B4B5B4;
-      &:first-child { border: none; }
+      border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+      &:first-child { border-left: none; }
     }
   }
 }
 .table-schedule {
   thead tr th,
   tbody tr td {
-    border-left: 1px solid #B4B5B4;
-    &:first-child { border: none; }
+    border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+    &:first-child { border-left: none; }
   }
 }
 @include respond-to(xs) {
@@ -209,7 +238,8 @@ td[ng-click] { cursor: pointer; }
     thead tr th {
       cursor: pointer;
       &.sorted {
-        background: map-get($colored-table, 'selected-background');
+        background-color: map-get($colored-table, 'header-highlighted-bg');
+        color: map-get($colored-table, 'header-highlighted-color');
         position: relative;
         &.asc,
         &.desc { padding-right: 22px; }
@@ -233,12 +263,14 @@ td[ng-click] { cursor: pointer; }
       }
     }
     tbody tr td.sorted {
-      background: map-get($colored-table, 'sorted-background');
+      background: map-get($colored-table, 'row-sorted-bg');
+      color: map-get($colored-table, 'row-sorted-color');
     }
     &.table-striped {
       tbody {
         tr:nth-of-type(odd) td.sorted {
-          background-color: map-get($colored-table, 'sorted-background-odd');
+          background: map-get($colored-table, 'row-sorted-odd-bg');
+          color: map-get($colored-table, 'row-sorted-odd-color');
         }
       }
     }
@@ -246,7 +278,8 @@ td[ng-click] { cursor: pointer; }
       tbody {
         tr.hovered td.sorted,
         tr:hover td.sorted {
-          background-color: map-get($colored-table, 'row-background-hover');
+          background: map-get($colored-table, 'row-sorted-odd-hover-bg');
+          color: map-get($colored-table, 'row-sorted-odd-hover-color');
         }
       }
     }

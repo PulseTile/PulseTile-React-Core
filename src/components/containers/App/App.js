@@ -7,6 +7,9 @@ import Header from '../Header/Header';
 import Main from '../Main/Main';
 import Footer from '../../presentational/Footer/Footer';
 import MainSpinner from '../MainSpinner/MainSpinner';
+import HeaderList from '../HeaderList/HeaderList';
+import headerImg1 from '../../../assets/images/leeds.png'
+import headerImg2 from '../../../assets/images/nhs.png'
 
 import '../../../styles/main.scss';
 
@@ -18,12 +21,22 @@ const App = (props) => {
     <MainSpinner />
     <div className={classNames('wrapper', isTouchDevice)}>
       <header className="header">
-        <TopHeader />
+        <TopHeader
+          isHasSearch={false}
+        >
+          <HeaderList items={[
+            <img src={headerImg1} alt="header img 1"/>,
+            <img src={headerImg2} alt="header img 2"/>
+          ]}/>
+        </TopHeader>
         <Header />
       </header>
       <Main />
     </div>
-    <Footer />
+    <Footer
+      copyright={'Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved'}
+      isShowSupportedBy={false}
+    />
   </div>)
 };
 

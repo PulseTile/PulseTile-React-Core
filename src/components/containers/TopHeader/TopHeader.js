@@ -2,14 +2,15 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux'
+import { push } from 'react-router-redux';
 
 import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
 import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
-import { clientUrls } from '../../../config/client-urls.constants'
+import { clientUrls } from '../../../config/client-urls.constants';
+import headerLogo from '../../../assets/images/logo-leedsPHR.png';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -22,13 +23,16 @@ class TopHeader extends PureComponent {
       location: PropTypes.object,
     }),
   };
+  static defaultProps = {
+    isHasSearch: true,
+  };
 
   routeGoBack = () => {
     this.context.router.history.goBack()
   };
 
   render() {
-    const { userAccount, router, patientsInfo } = this.props;
+    const { userAccount, router, patientsInfo, isHasSearch, children } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
 
@@ -40,9 +44,13 @@ class TopHeader extends PureComponent {
         <MainLogo
           patientsInfo={patientsInfo}
           userAccount={userAccount}
+          logo={headerLogo}
         />
-        <UserPanel />
-        <NavSearch userAccount={userAccount} />
+        <UserPanel isSearch={false}/>
+        { children ? <div className="navbar-space-right">
+          { children }
+        </div> : null }
+        {isHasSearch ? <NavSearch userAccount={userAccount} /> : null}
       </div>
     )
   }

@@ -1,18 +1,33 @@
 .board {
-  border-color: #B4B5B4;
-  color: map-get($colored-table, 'text');
+  border-color: map-get($board, 'border');
+  color: map-get($board, 'item-color');
+  border-radius: map-get($board, 'radius');
 }
 .board-header {
-  background-color: map-get($colored-table, 'header-background');
+  background-color: map-get($board, 'header-bg');
+  color: map-get($board, 'header-color');
+}
+.board-title {
+  color: map-get($board, 'header-color');
+}
+.board-body {
+  background: map-get($board, 'item-bg');
+}
+.board-preview {
+  padding-bottom: map-get($board, 'preview-ratio');
 }
 
 
 .board-list-item {
-  background: map-get($colored-table, 'row-odd-background');
+  background: map-get($board, 'item-odd-bg');
   &:nth-of-type(even) {
-    background:  map-get($colored-table, 'background');
+    background: map-get($board, 'item-bg');
   }
 }
+.board-list-link {
+  color: map-get($board, 'item-color');
+}
 .is-not-touch-device .board-list-link:hover {
-  background: map-get($colored-table, 'row-background-hover');
+  background: map-get($board, 'item-bg-hover');
+  color: map-get($board, 'item-color-hover');
 }

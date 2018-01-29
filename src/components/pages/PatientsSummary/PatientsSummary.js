@@ -10,7 +10,7 @@ import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import {patientsSummaryConfig, patientsSummaryLoading} from './patients-summary.config';
+import { patientsSummaryConfig, patientsSummaryLoading, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible } from '../../../plugins.config';
@@ -32,6 +32,7 @@ export default class PatientsSummary extends PureComponent {
 
     state = {
       selectedCategory: [],
+      selectedViewOfBoards: defaultViewOfBoardsSelected,
       isDisclaimerModalVisible: false
     };
 
@@ -64,21 +65,28 @@ export default class PatientsSummary extends PureComponent {
 
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
 
+    handleViewOfBoardsSelected = selectedViewOfBoards => this.setState({ selectedViewOfBoards });
+
     handleGoToState = (state) => {
       this.context.router.history.push(state);
     };
 
     render() {
-      let { boards } = this.props;
-      const { selectedCategory, isDisclaimerModalVisible } = this.state;
+      const { boards } = this.props;
+      const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible } = this.state;
+      const isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
+      const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
 
       return (<section className="page-wrapper">
         <Row>
           <Col xs={12}>
-            <div className="panel panel-primary">
+            <div className="panel panel-primary panel-dashboard">
               <PatientsSummaryListHeader
                 onCategorySelected={this.handleCategorySelected}
+                onViewOfBoardsSelected={this.handleViewOfBoardsSelected}
                 selectedCategory={selectedCategory}
+                selectedViewOfBoards={selectedViewOfBoards}
+                title={'Home'}
               />
               <div className="panel-body">
                 <div className="dashboard">
@@ -91,6 +99,9 @@ export default class PatientsSummary extends PureComponent {
                         navigateTo={console.log}
                         state={item.state}
                         goToState={this.handleGoToState}
+                        srcPrevirew={item.imgPreview}
+                        isHasPreview={isHasPreview}
+                        isHasList={isHasList}
                       />
                       : null)
                   })}

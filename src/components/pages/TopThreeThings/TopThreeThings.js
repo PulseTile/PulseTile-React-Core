@@ -9,6 +9,7 @@ import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientTopThreeThingsRequest } from './ducks/fetch-patient-top-three-things.duck';
@@ -20,6 +21,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import TopThreeThingsDetail from './TopThreeThingsDetail/TopThreeThingsDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import imgBanner from '../../../assets/images/banners/top3.jpg';
 
 const TOP_THREE_THINGS_MAIN = 'topThreeThingsMain';
 const TOP_THREE_THINGS_DETAIL = 'topThreeThingsDetail';
@@ -197,6 +199,14 @@ export default class TopThreeThings extends PureComponent {
     }
 
     return (<section className="page-wrapper">
+      {!isDetailPanelVisible ?
+        <PluginBanner
+          title='Top 3 Things'
+          subTitle='Top 3 things to know about my care'
+          img={imgBanner}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': isPanelDetails })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

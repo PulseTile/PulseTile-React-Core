@@ -1,3 +1,4 @@
+$header-height: 52px;
 .header .navbar {
   border-radius: 0;
   border: 0;
@@ -12,6 +13,15 @@
     justify-content: space-between;
   }
 }
+.navbar-space-right {
+  display: none;
+  @include respond-from(sm) {
+    display: block;
+    float: none;
+    order: 5;
+    padding-right: 12px;
+  }
+}
 
 @import 'logo';
 @import 'user-panel';
@@ -20,3 +30,4 @@
 @import 'title';
 @import 'notification';
 @import 'user';
+@import 'header-list';

@@ -24,6 +24,8 @@ export default class PluginMainPanel extends PureComponent {
   render() {
     const { headers, resourceData, emptyDataMessage, onHeaderCellClick, onCellClick, columnNameSortBy, sortingOrder, filteredData, totalEntriesAmount, offset, setOffset, isBtnCreateVisible, onCreate, listPerPageAmount, isLoading, id } = this.props;
     const listOnFirstPage = _.flow(this.getClinicalNotesOnFirstPage)(filteredData);
+    const isPagination = this.shouldHavePagination(filteredData);
+
     return (
       <div className="panel-body">
         <SortableTable
@@ -38,26 +40,30 @@ export default class PluginMainPanel extends PureComponent {
           id={id}
         />
         {isLoading ? <Spinner /> : null }
-        <div className="panel-control">
-          <div className="wrap-control-group">
-            {this.shouldHavePagination(filteredData) &&
-            <div className="control-group with-indent left">
-              <PaginationBlock
-                entriesPerPage={listPerPageAmount}
-                totalEntriesAmount={totalEntriesAmount}
-                offset={offset}
-                setOffset={setOffset}
-              />
-            </div>
-            }
-            <div className="control-group with-indent right">
-              {isBtnCreateVisible ? <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => onCreate()}>
-                <i className="btn-icon fa fa-plus" />
-                <span className="btn-text"> Create</span>
-              </PTButton> : null}
+        {isPagination && isBtnCreateVisible ?
+          <div className="panel-control">
+            <div className="wrap-control-group">
+              { isPagination &&
+              <div className="control-group with-indent left">
+                <PaginationBlock
+                  entriesPerPage={listPerPageAmount}
+                  totalEntriesAmount={totalEntriesAmount}
+                  offset={offset}
+                  setOffset={setOffset}
+                />
+              </div>
+              }
+              {isBtnCreateVisible && <div className="control-group with-indent right">
+                <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => onCreate()}>
+                  <i className="btn-icon fa fa-plus" />
+                  <span className="btn-text"> Create</span>
+                </PTButton>
+              </div>}
             </div>
           </div>
-        </div>
+          : null
+        }
+
       </div>
     )
   }

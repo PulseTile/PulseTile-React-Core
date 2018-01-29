@@ -44,6 +44,7 @@ import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
+  // { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Home', isVisible: true },
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
@@ -74,6 +75,8 @@ export const dashboardVisible = {
   // e.g. (problems: false)
   contacts: true,
 };
+
+export const isShowPluginBanners = true;
 
 export const pluginsEpicConfig = [
   allergiesEpic,

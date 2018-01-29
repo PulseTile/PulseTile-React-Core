@@ -9,6 +9,7 @@ import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 
 import { columnsConfig, defaultColumnsSelected } from './medications-table-columns.config'
 import { fetchPatientMedicationsRequest } from './ducks/fetch-patient-medications.duck';
@@ -24,6 +25,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+// import imgBanner from '../../../assets/images/banners/medications.jpg';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -309,6 +311,14 @@ export default class Medications extends PureComponent {
     const isImportFromDocuments = historyState && historyState.importData;
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title='Medications'
+          subTitle='Short blurb containing a few words to describe this section'
+          img={'http://via.placeholder.com/1920x305'}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
