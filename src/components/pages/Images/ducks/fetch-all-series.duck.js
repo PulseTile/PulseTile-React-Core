@@ -5,6 +5,7 @@ import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchSeriesDetailRequest } from '../../Images/ducks/fetch-series-detail.duck';
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_SERIES_REQUEST = 'FETCH_SERIES_REQUEST';
 export const FETCH_SERIES_SUCCESS = 'FETCH_SERIES_SUCCESS';
@@ -30,7 +31,7 @@ export const fetchSeriesEpic = (action$, store) =>
             fetchSeriesDetailRequest({ userId, seriesId, source }),
           ]
         })
-        .catch(error => Observable.of(fetchSeriesFailure(error)))
+        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(allSeries = {}, action) {

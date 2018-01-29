@@ -17,6 +17,7 @@ import fetchPatientSummaryReducer from './ducks/fetch-patient-summary.duck'
 import fetchProfileAppPreferencesReducer from './ducks/fetch-profile-application-preferences.duck'
 import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility'
 import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck'
+import requestErrorReducer from './ducks/handle-errors.duck'
 
 let reducers = {
   router: routerReducer,
@@ -35,6 +36,7 @@ let reducers = {
   profileAppPreferences: fetchProfileAppPreferencesReducer,
   patientsInfo: fetchPatientsInfoReducer,
   loadingBar: loadingBarReducer,
+  requestError: requestErrorReducer,
 };
 
 pluginsReducerConfig.forEach((el) => {
