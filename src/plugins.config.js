@@ -17,6 +17,7 @@ import { mdtsEpic, mdtsReducer } from './components/pages/MDTs/index';
 import { drawingsEpic, drawingsReducer } from './components/pages/Drawings/index';
 import { documentsEpic, documentsReducer } from './components/pages/Documents/index';
 import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
+import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
 import { imagesEpic, imagesReducer } from './components/pages/Images/index';
 import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
