@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle } from 'recompose';
-import { patientsSummaryPageName, patientsSummaryHasPreviewSettings } from '../../../themes.config';
+import { themeConfigs } from '../../../themes.config';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
@@ -78,7 +78,7 @@ export default class PatientsSummary extends PureComponent {
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
 
-      if (!patientsSummaryHasPreviewSettings) {isHasPreview = false;}
+      if (!themeConfigs.patientsSummaryHasPreviewSettings) {isHasPreview = false;}
 
       return (<section className="page-wrapper">
         <Row>
@@ -89,7 +89,7 @@ export default class PatientsSummary extends PureComponent {
                 onViewOfBoardsSelected={this.handleViewOfBoardsSelected}
                 selectedCategory={selectedCategory}
                 selectedViewOfBoards={selectedViewOfBoards}
-                title={patientsSummaryPageName}
+                title={themeConfigs.patientsSummaryPageName}
               />
               <div className="panel-body">
                 <div className="dashboard">

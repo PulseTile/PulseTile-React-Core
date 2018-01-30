@@ -8,7 +8,7 @@ import { Col } from 'react-bootstrap';
 import PTCustomInput from './PTCustomInput';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
-import { patientsSummaryHasPreviewSettings } from '../../../../themes.config';
+import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from "../../../../plugins.config";
 
 
@@ -69,7 +69,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                 })}
               </Row>
             </div>
-            {patientsSummaryHasPreviewSettings ?
+            {themeConfigs.patientsSummaryHasPreviewSettings ?
               <div>
                 <div className="heading">VIEW OF BOARDS</div>
                 <div className="form-group">

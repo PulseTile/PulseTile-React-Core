@@ -1,5 +1,5 @@
 import { clientUrls } from './config/client-urls.constants';
-import { patientsSummaryPageName } from './themes.config';
+import { themeConfigs } from './themes.config';
 
 import { allergiesEpic, allergiesReducer } from './components/pages/Allergies/index';
 import { diagnosesEpic, diagnosesReducer } from './components/pages/ProblemsDiagnosis/index';
@@ -44,7 +44,7 @@ import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare'
 import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
 
 export const sidebarConfig = [
-  { key: 'patients-summary', pathToTransition: '/patients-summary', name: patientsSummaryPageName, isVisible: true },
+  { key: 'patients-summary', pathToTransition: '/patients-summary', name: themeConfigs.patientsSummaryPageName, isVisible: true },
   { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true },
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
