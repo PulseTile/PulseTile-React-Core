@@ -29,7 +29,7 @@ export class App extends Component {
         <LoadingBar className="loading-bar" />
         {(!requestError.initialiseError && !_.isEmpty(initialiseData)) ? <MainSpinner /> : null }
         {!_.isEmpty(requestError) ? <HandleErrors /> : null }
-        { !_.isEmpty(initialiseData) ? <div className={classNames('wrapper', isTouchDevice)}>
+        <div className={classNames('wrapper', isTouchDevice)}>
           <header className="header">
             <TopHeader
               isHasSearch={themeConfigs.headerHasSearch}
@@ -45,7 +45,7 @@ export class App extends Component {
             <Header />
           </header>
           <Main />
-        </div> : null }
+        </div>
         <Footer
           copyright={themeConfigs.footerCopyright}
           isShowSupportedBy={themeConfigs.footerHasShowSupportedByText}
