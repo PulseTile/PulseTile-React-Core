@@ -4,9 +4,9 @@ import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import DocumentsDetailDischarge from './DocumentsDetailDischarge';
 import DocumentsDetailReferral from './DocumentsDetailReferral';
 import ConfirmationModal from '../../../ui-elements/ConfirmationModal/ConfirmationModal';
-import {valuesNames} from '../forms.config';
-import PropTypes from "prop-types";
-import {clientUrls} from "../../../../config/client-urls.constants";
+import { valuesNames } from '../forms.config';
+import PropTypes from 'prop-types';
+import { clientUrls } from '../../../../config/client-urls.constants';
 
 const DOCUMENT_PANEL = 'documentPanel';
 const DOCUMENT_TYPE_DISCHARGE = 'discharge';
@@ -23,7 +23,7 @@ export default class DocumentsDetail extends PureComponent {
   state = {
     isOpenModal: false,
     typeImportData: '',
-    importData: null
+    importData: null,
   };
 
   getTypeOfDocument = () => {
@@ -45,13 +45,13 @@ export default class DocumentsDetail extends PureComponent {
     return typeOfDocument;
   };
 
-  openModal = () => {this.setState({isOpenModal: true})};
+  openModal = () => { this.setState({ isOpenModal: true }) };
 
-  closeModal = () => {this.setState({isOpenModal: false})};
+  closeModal = () => { this.setState({ isOpenModal: false }) };
 
   importHandler = (typeImportData, importData) => () => {
     this.openModal();
-    this.setState({typeImportData, importData});
+    this.setState({ typeImportData, importData });
   };
 
   onOkModal = () => {
@@ -66,7 +66,7 @@ export default class DocumentsDetail extends PureComponent {
 
     this.context.router.history.push({
       pathname: `${clientUrls.PATIENTS}/${userId}/${typeImportData}/create`,
-      state: { importData }
+      state: { importData },
     });
   };
 
@@ -119,14 +119,14 @@ export default class DocumentsDetail extends PureComponent {
         </div>
         {isOpenModal && <ConfirmationModal
           title={'Documents Import Access Disclaimer'}
-          isShow={true}
+          isShow
           onOk={this.onOkModal}
           onHide={this.closeModal}
           onCancel={this.closeModal}
           isShowOkButton
           isShowCancelButton
-          textOkButton='Agree'
-          textCancelButton='Decline'
+          textOkButton="Agree"
+          textCancelButton="Decline"
         >
           <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lobortis elit. Aenean mi nunc, feugiat ut aliquet non, iaculis vel tellus. Donec semper felis placerat, posuere nisi a, suscipit turpis. Integer sit amet lacus pellentesque, vestibulum libero id, sagittis nisi. Phasellus eleifend, neque eget vulputate semper, enim dui dictum neque, non iaculis felis augue at nunc.</span>
         </ConfirmationModal>}
