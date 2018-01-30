@@ -1,5 +1,49 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <App /> should renders correctly when props is empty 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <Footer
+    copyright="Transforming Usability"
+    isShowSupportedBy={true}
+  />
+</div>
+`;
+
+exports[`Component <App /> should renders correctly when props not empty 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <MainSpinner />
+  <div
+    className="wrapper touch-device"
+  >
+    <header
+      className="header"
+    >
+      <Connect(Connect(TopHeader))
+        isHasSearch={true}
+      >
+        <div />
+      </Connect(Connect(TopHeader))>
+      <Header />
+    </header>
+    <withRouter(Connect(Connect(Connect(Main)))) />
+  </div>
+  <Footer
+    copyright="Transforming Usability"
+    isShowSupportedBy={true}
+  />
+</div>
+`;
+
 exports[`Component <App /> should renders correctly with context 1`] = `
 <div
   className="page"
@@ -14,16 +58,23 @@ exports[`Component <App /> should renders correctly with context 1`] = `
     <header
       className="header"
     >
-      <Connect(Connect(TopHeader)) />
+      <Connect(Connect(TopHeader))
+        isHasSearch={true}
+      >
+        <div />
+      </Connect(Connect(TopHeader))>
       <Header />
     </header>
     <withRouter(Connect(Connect(Connect(Main)))) />
   </div>
-  <Footer />
+  <Footer
+    copyright="Transforming Usability"
+    isShowSupportedBy={true}
+  />
 </div>
 `;
 
-exports[`Component <App /> should renders correctly with is not touch device 1`] = `
+exports[`Component <App /> should renders correctly with is not touch device and requestError not empty 1`] = `
 <div
   className="page"
 >
@@ -31,40 +82,25 @@ exports[`Component <App /> should renders correctly with is not touch device 1`]
     className="loading-bar"
   />
   <MainSpinner />
+  <Connect(HandleErrors) />
   <div
     className="wrapper is-not-touch-device"
   >
     <header
       className="header"
     >
-      <Connect(Connect(TopHeader)) />
+      <Connect(Connect(TopHeader))
+        isHasSearch={true}
+      >
+        <div />
+      </Connect(Connect(TopHeader))>
       <Header />
     </header>
     <withRouter(Connect(Connect(Connect(Main)))) />
   </div>
-  <Footer />
-</div>
-`;
-
-exports[`Component <App /> should renders correctly with touch device 1`] = `
-<div
-  className="page"
->
-  <Connect(LoadingBar)
-    className="loading-bar"
+  <Footer
+    copyright="Transforming Usability"
+    isShowSupportedBy={true}
   />
-  <MainSpinner />
-  <div
-    className="wrapper touch-device"
-  >
-    <header
-      className="header"
-    >
-      <Connect(Connect(TopHeader)) />
-      <Header />
-    </header>
-    <withRouter(Connect(Connect(Connect(Main)))) />
-  </div>
-  <Footer />
 </div>
 `;
