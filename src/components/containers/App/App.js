@@ -4,9 +4,9 @@ import LoadingBar from 'react-redux-loading-bar';
 import { connect } from 'react-redux';
 import _ from 'lodash/fp';
 import { withRouter } from 'react-router-dom';
-import { compose, lifecycle } from 'recompose';
+import { compose } from 'recompose';
 
-import { headerHasSearch, isLeedsPHRHeaderList, footerCopyright, footerHasShowSupportedByText } from '../../../themes.config';
+import { themeConfigs } from '../../../themes.config';
 import { requestErrorSelector, initialiseSelector } from './selectors';
 import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
@@ -32,9 +32,9 @@ export class App extends Component {
         { !_.isEmpty(initialiseData) ? <div className={classNames('wrapper', isTouchDevice)}>
           <header className="header">
             <TopHeader
-              isHasSearch={headerHasSearch}
+              isHasSearch={themeConfigs.headerHasSearch}
             >
-              {isLeedsPHRHeaderList ?
+              {themeConfigs.isLeedsPHRHeaderList ?
                 <HeaderList items={[
                   <img src={headerImg1} alt="header img 1" />,
                   <img src={headerImg2} alt="header img 2" />,
@@ -47,8 +47,8 @@ export class App extends Component {
           <Main />
         </div> : null }
         <Footer
-          copyright={footerCopyright}
-          isShowSupportedBy={footerHasShowSupportedByText}
+          copyright={themeConfigs.footerCopyright}
+          isShowSupportedBy={themeConfigs.footerHasShowSupportedByText}
         />
       </div>
     )

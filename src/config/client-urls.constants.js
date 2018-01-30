@@ -1,4 +1,4 @@
-import { patientsSummaryPageName } from '../themes.config';
+import { themeConfigs } from '../themes.config';
 export const clientUrls = {
   ROOT: '/',
   CHARTS: '/charts',
@@ -208,7 +208,7 @@ export const mainPagesTitles = {
       title: 'Patient Listings',
       state: '/patients',
     }, {
-      title: patientsSummaryPageName,
+      title: themeConfigs.patientsSummaryPageName,
       state: '/patients-summary',
     }],
   },
@@ -221,7 +221,7 @@ addPluginsPagesToLists(mainPagesTitles, [{
   title: 'Patient Listings',
   state: '/patients',
 }, {
-  title: patientsSummaryPageName,
+  title: themeConfigs.patientsSummaryPageName,
   state: '/patients-summary',
 }]);
 
@@ -243,12 +243,12 @@ export const mainPagesTitlesForPatients = {
   },
   'patients-summary': {
     breadcrumbs: [{
-      title: patientsSummaryPageName,
+      title: themeConfigs.patientsSummaryPageName,
       state: '/patients-summary',
     }],
   },
 };
 addPluginsPagesToLists(mainPagesTitlesForPatients, [{
-  title: patientsSummaryPageName,
+  title: themeConfigs.patientsSummaryPageName,
   state: '/patients-summary',
 }]);

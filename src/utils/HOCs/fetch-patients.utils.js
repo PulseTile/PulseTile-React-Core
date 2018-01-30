@@ -50,7 +50,7 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchPatientSummaryOnMount = ({
+export const fetchHeaderToolbarOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
@@ -72,6 +72,8 @@ export const fetchListOrdersOnMount = ({
     this.props.actions.fetchListOrdersRequest()
   },
 });
+
+export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
 export const fetchPatientAllergiesDetailOnMount = (generateFetchDetailOnMount('fetchPatientAllergiesDetailRequest'));

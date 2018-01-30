@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { isLeedsPHRTheme } from '../themes.config';
+import { themeConfigs } from '../themes.config';
 
 export const SET_THEME = 'SET_THEME';
 export const SET_THEME_SUCCESS = 'SET_THEME_SUCCESS';
@@ -10,7 +10,7 @@ export const setThemeSuccess = createAction(SET_THEME_SUCCESS);
 const setThemeOnBody = (theme) => {
   let themeName;
 
-  if (isLeedsPHRTheme) {
+  if (themeConfigs.isLeedsPHRTheme) {
     themeName = 'themeLeedsPHR';
   } else {
     switch (theme) {
