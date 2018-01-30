@@ -2083,7 +2083,16 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
                   ],
                 }
               }
-              vitalStatuses={Object {}}
+              vitalStatuses={
+                Object {
+                  "heartRate": Object {},
+                  "newsScore": Object {},
+                  "oxygenSaturation": Object {},
+                  "respirationRate": Object {},
+                  "systolicBP": Object {},
+                  "temperature": Object {},
+                }
+              }
             />
           }
           currentPanel="vitalsCreate"
@@ -2587,7 +2596,16 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
                   ],
                 }
               }
-              vitalStatuses={Object {}}
+              vitalStatuses={
+                Object {
+                  "heartRate": Object {},
+                  "newsScore": Object {},
+                  "oxygenSaturation": Object {},
+                  "respirationRate": Object {},
+                  "systolicBP": Object {},
+                  "temperature": Object {},
+                }
+              }
             />
           }
           currentPanel="vitalsCreate"
@@ -3098,7 +3116,16 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
               ],
             }
           }
-          vitalStatuses={Object {}}
+          vitalStatuses={
+            Object {
+              "heartRate": Object {},
+              "newsScore": Object {},
+              "oxygenSaturation": Object {},
+              "respirationRate": Object {},
+              "systolicBP": Object {},
+              "temperature": Object {},
+            }
+          }
         />
       </Col>
     </Row>
@@ -3288,7 +3315,16 @@ exports[`Component <Vitals /> should renders correctly with vitalsDetail and tes
               ],
             }
           }
-          vitalStatuses={Object {}}
+          vitalStatuses={
+            Object {
+              "heartRate": Object {},
+              "newsScore": Object {},
+              "oxygenSaturation": Object {},
+              "respirationRate": Object {},
+              "systolicBP": Object {},
+              "temperature": Object {},
+            }
+          }
         />
       </Col>
     </Row>

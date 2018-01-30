@@ -464,7 +464,7 @@ exports[`Component <MDTs /> should renders correctly with mdtsDetail and testing
           onExpand={[Function]}
           onSaveSettings={[Function]}
           openedPanel="mdtsCreate"
-          title="Create Create MDT"
+          title="Create MDT"
         />
       </Col>
     </Row>
@@ -571,7 +571,7 @@ exports[`Component <MDTs /> should renders correctly with mdtsDetail and testing
           onExpand={[Function]}
           onSaveSettings={[Function]}
           openedPanel="mdtsCreate"
-          title="Create Create MDT"
+          title="Create MDT"
         />
       </Col>
     </Row>

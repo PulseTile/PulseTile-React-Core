@@ -4,6 +4,12 @@ exports[`Component <Allergies /> should renders correctly and testing another me
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -190,6 +196,12 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -644,6 +656,12 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -719,6 +737,12 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
