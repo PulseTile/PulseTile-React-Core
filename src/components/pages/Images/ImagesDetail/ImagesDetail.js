@@ -37,11 +37,16 @@ export default class ImagesDetail extends PureComponent {
     document.onmouseup = this.stopDrag;
   }
 
+  componentWillUnmount () {
+    document.onmousedown = null;
+    document.onmouseup = null;
+  }
+
   getURLtoImage = (id) => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
 
   startDrag = /* istanbul ignore next */ (e) => {
     if (!this.state.touchMode) {
-      if (e.preventDefault) e.preventDefault();
+      // if (e.preventDefault) e.preventDefault();
 
       let target = e.target ? e.target : e.srcElement;
 
