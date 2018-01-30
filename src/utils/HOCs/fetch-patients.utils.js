@@ -50,13 +50,28 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
+export const fetchPatientSummaryOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
+  },
+  componentWillReceiveProps(nextProps) {
+    const { actions, match } = this.props;
+    const nextUserId = _.get('match.params.userId', nextProps);
+    const userId = _.get('params.userId', match);
+
+    if (nextUserId !== userId) {
+      actions.fetchPatientSummaryRequest({ userId: nextUserId })
+    }
+  },
+});
+
 export const fetchListOrdersOnMount = ({
   componentDidMount() {
     this.props.actions.fetchListOrdersRequest()
   },
 });
-
-export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
 export const fetchPatientAllergiesDetailOnMount = (generateFetchDetailOnMount('fetchPatientAllergiesDetailRequest'));
@@ -65,10 +80,10 @@ export const fetchPatientDiagnosesOnMount = (generateFetchListOnMount('fetchPati
 export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiagnosesDetailRequest'));
 
 export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
-export const fetchPatientClinicalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesDetailRequest'));
+export const fetchPatientClinicalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalNotesDetailRequest'));
 
 export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
-export const fetchPatientPersonalNotesDetailOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesDetailRequest'));
+export const fetchPatientPersonalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientPersonalNotesDetailRequest'));
 
 export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
 export const fetchPatientGenericPluginDetailOnMount = (generateFetchDetailOnMount('fetchPatientGenericPluginDetailRequest'));
