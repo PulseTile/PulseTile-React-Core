@@ -14,8 +14,6 @@ const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
 const SCALE = 100;
 
 export default class ImagesDetail extends PureComponent {
-  getURLtoImage = id => `http://46.101.95.245/orthanc/instances/${id}/preview`;
-
   state = {
     styleSwiper: {},
     coordX: '',
@@ -38,6 +36,8 @@ export default class ImagesDetail extends PureComponent {
     document.onmousedown = this.startDrag;
     document.onmouseup = this.stopDrag;
   }
+
+  getURLtoImage = (id) => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
 
   startDrag = /* istanbul ignore next */ (e) => {
     if (!this.state.touchMode) {
