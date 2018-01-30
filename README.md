@@ -40,8 +40,10 @@ Just simply run `npm start` - this will also watch changes.
 #### NPM Scripts
 Here's a list of available scripts:
 * `$ npm run build`
-  * runs Webpack, which will transpile, concatenate, and compress (collectively, "bundle") all assets and modules into `dist/bundle.js`. It also prepares `index.html` to be used as application entry point, links assets and created dist version of our application.
+  * it runs Webpack, which will transpile, concatenate, and compress (collectively, "bundle") all assets and modules into `dist/bundle.js`. It also prepares `index.html` to be used as application entry point, links assets and created dist version of our application.
 * `$ npm start`
-  * starts a dev server via `webpack-dev-server`, serving the client folder with watching source file change.
+  * it starts a dev server via `webpack-dev-server`, serving the client folder with watching source file change.
 * `$ npm run lint`
-  * lint codebase using [Eslint](http://eslint.org/)
+  * it lints codebase using [Eslint](http://eslint.org/)
+* `$ npm run test`
+  * it runs unit tests

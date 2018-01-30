@@ -37,12 +37,12 @@ export default class ImagesDetail extends PureComponent {
     document.onmouseup = this.stopDrag;
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     document.onmousedown = null;
     document.onmouseup = null;
   }
 
-  getURLtoImage = (id) => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
+  getURLtoImage = id => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
 
   startDrag = /* istanbul ignore next */ (e) => {
     if (!this.state.touchMode) {
@@ -130,8 +130,14 @@ export default class ImagesDetail extends PureComponent {
   };
 
   moveImg = () => {
-    this.setState({ touchMode: false });
-    this.swiper.allowTouchMove = false;
+    const { touchMode } = this.state;
+    if (touchMode) {
+      this.setState({ touchMode: false });
+      this.swiper.allowTouchMove = false;
+    } else {
+      this.setState({ touchMode: true });
+      this.swiper.allowTouchMove = true;
+    }
   };
 
   fadeImg = () => {
