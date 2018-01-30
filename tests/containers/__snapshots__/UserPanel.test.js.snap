@@ -39,6 +39,11 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       }
     >
       <UserPanel
+        addUserPanels={Array []}
+        isNotifications={true}
+        isQuestions={true}
+        isSearch={true}
+        isUserPanel={true}
         openedPanel="userAccountPanel"
       >
         <ul
@@ -59,6 +64,25 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                 >
                   <i
                     className="fa fa-search"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
+            className="user-panel-item"
+          >
+            <li
+              className="user-panel-item"
+            >
+              <PTButton
+                className="btn-header"
+              >
+                <button
+                  className="btn-header"
+                >
+                  <i
+                    className="fa fa-question-circle"
                   />
                 </button>
               </PTButton>
@@ -313,6 +337,17 @@ exports[`Component <UserPanel /> should renders with props correctly 2`] = `
     >
       <i
         className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
       />
     </PTButton>
   </UserPanelItem>
