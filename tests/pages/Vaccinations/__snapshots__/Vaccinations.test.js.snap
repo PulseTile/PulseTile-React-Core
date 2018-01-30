@@ -4,6 +4,12 @@ exports[`Component <Vaccinations /> should renders correctly and testing another
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -190,6 +196,12 @@ exports[`Component <Vaccinations /> should renders correctly with empty store 1`
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -267,6 +279,12 @@ exports[`Component <Vaccinations /> should renders correctly with forms error 1`
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >

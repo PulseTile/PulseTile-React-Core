@@ -4,6 +4,12 @@ exports[`Component <Contacts /> should renders correctly and testing another met
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -600,6 +606,12 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -681,6 +693,12 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >

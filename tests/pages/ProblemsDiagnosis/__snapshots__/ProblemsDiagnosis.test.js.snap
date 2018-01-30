@@ -4,6 +4,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -191,6 +197,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -645,6 +657,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -722,6 +740,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >

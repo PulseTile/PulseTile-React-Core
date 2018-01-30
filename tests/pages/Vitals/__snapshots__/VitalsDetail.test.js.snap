@@ -33,11 +33,15 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
               <div
                 className="col-expand-left"
               >
-                <div
-                  className="row"
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -68,9 +72,12 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         vitalsAddon="resps/min"
                       />
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -101,13 +108,17 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         vitalsAddon="%"
                       />
                     </div>
-                  </div>
-                </div>
-                <div
-                  className="row"
+                  </Col>
+                </Row>
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -130,9 +141,12 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         />
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -164,17 +178,21 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         vitalsAddon="bpm"
                       />
                     </div>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
               <div
                 className="col-expand-right"
               >
-                <div
-                  className="row"
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -205,9 +223,12 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         vitalsAddon="mmHg"
                       />
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -233,13 +254,17 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div
-                  className="row"
+                  </Col>
+                </Row>
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -294,9 +319,12 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -327,8 +355,8 @@ exports[`Component <VitalsDetail /> should renders correctly with different stat
                         vitalsAddon="c"
                       />
                     </div>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </div>
             <div
@@ -603,11 +631,15 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
               <div
                 className="col-expand-left"
               >
-                <div
-                  className="row"
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -639,9 +671,12 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         vitalsAddon="resps/min"
                       />
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -673,13 +708,17 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         vitalsAddon="%"
                       />
                     </div>
-                  </div>
-                </div>
-                <div
-                  className="row"
+                  </Col>
+                </Row>
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -702,9 +741,12 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         />
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -737,17 +779,21 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         vitalsAddon="bpm"
                       />
                     </div>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
               <div
                 className="col-expand-right"
               >
-                <div
-                  className="row"
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -779,9 +825,12 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         vitalsAddon="mmHg"
                       />
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -809,13 +858,17 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         </span>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div
-                  className="row"
+                  </Col>
+                </Row>
+                <Row
+                  bsClass="row"
+                  componentClass="div"
                 >
-                  <div
-                    className="col-xs-12 col-md-6"
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -874,9 +927,12 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div
-                    className="col-xs-12 col-md-6"
+                  </Col>
+                  <Col
+                    bsClass="col"
+                    componentClass="div"
+                    md={6}
+                    xs={12}
                   >
                     <div
                       className="vitals-group highlighter-wrapper"
@@ -908,8 +964,8 @@ exports[`Component <VitalsDetail /> should renders with props correctly 1`] = `
                         vitalsAddon="c"
                       />
                     </div>
-                  </div>
-                </div>
+                  </Col>
+                </Row>
               </div>
             </div>
             <div
