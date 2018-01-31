@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import requestErrorSelector from './selectors';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 
-@connect(requestErrorSelector)
-class HandleErrors extends Component {
+export class HandleErrors extends Component {
+  static propTypes = {
+    requestError: PropTypes.object.isRequired,
+  };
+
   state = {
     isOpenModal: true,
     countErrorRequest: 0,
@@ -17,7 +21,7 @@ class HandleErrors extends Component {
 
   componentWillReceiveProps() {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
-  };
+  }
 
   handleClickButton = () => {
     const { requestError } = this.props;
@@ -65,4 +69,4 @@ class HandleErrors extends Component {
   }
 }
 
-export default HandleErrors;
+export default connect(requestErrorSelector)(HandleErrors)
