@@ -15,7 +15,6 @@ exports[`Component <SelectFormGroup /> should renders with all props correctly 1
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option>
@@ -70,7 +69,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -122,7 +120,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -179,7 +176,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -236,7 +232,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -293,7 +288,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -345,7 +339,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -397,7 +390,6 @@ exports[`Component <SelectFormGroup /> should renders with different state of va
     disabled={false}
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -448,7 +440,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -504,7 +495,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -560,7 +550,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -611,7 +600,6 @@ exports[`Component <SelectFormGroup /> should renders with error message correct
     className="form-control input-sm"
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option
@@ -662,7 +650,6 @@ exports[`Component <SelectFormGroup /> should renders without options correctly 
     className="form-control input-sm"
     id="test-id"
     name="test-name"
-    onChange={[Function]}
     value=""
   >
     <option>
