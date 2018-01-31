@@ -96,7 +96,6 @@ exports[`Component <App /> should renders correctly with is not touch device and
   <Connect(LoadingBar)
     className="loading-bar"
   />
-  <MainSpinner />
   <Connect(HandleErrors) />
   <div
     className="wrapper is-not-touch-device"

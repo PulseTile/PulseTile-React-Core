@@ -83,7 +83,7 @@ describe('Component <App />', () => {
     component.setContext({ isLeedsPHRHeaderList: true });
     expect(component.find('Connect(LoadingBar)')).toHaveLength(1);
     expect(component.find('Footer')).toHaveLength(1);
-    expect(component.find('MainSpinner')).toHaveLength(1);
+    expect(component.find('MainSpinner')).toHaveLength(0);
     expect(component.find('Connect(HandleErrors)')).toHaveLength(1);
     expect(component.find('.wrapper')).toHaveLength(1);
     expect(component.find('Connect(Connect(TopHeader))')).toHaveLength(1);

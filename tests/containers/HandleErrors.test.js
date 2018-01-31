@@ -24,7 +24,7 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Reload Page');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children[0].props.children).toEqual('Some connection error has occurred. Please check your connection and try again.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Some connection error has occurred. Please check your connection and try again.');
 
     expect(component).toMatchSnapshot();
   });
@@ -45,7 +45,7 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children[3].props.children).toEqual('Current request is invalid.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Current request is invalid.');
 
     expect(component).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Reload Page');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children[2].props.children).toEqual('Your token has been expired. Please reload the page.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Your token has been expired. Please reload the page.');
 
     expect(component).toMatchSnapshot();
   });
@@ -87,7 +87,7 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Reload Page');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children[1].props.children).toEqual('Something is wrong with the server. Please try again later.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Something is wrong with the server. Please try again later.');
 
     expect(component).toMatchSnapshot();
   });
@@ -118,19 +118,9 @@ describe('Component <HandleErrors />', () => {
     component.setProps({ requestError: { payload: { status: 400 }, initialiseError: true } });
     expect(component.state().countErrorRequest).toEqual(3);
     component.instance().closeModal();
-    expect(component.state().isOpenModal).toEqual(true);
+    expect(component.state().isOpenModal).toEqual(false);
 
-
-    //Testing handleClickButton methods
-    component.setState({ isOpenModal: true });
-    component.setProps({ requestError: { payload: { status: 400 } } });
-    component.instance().handleClickButton();
-    component.setState({ isOpenModal: false });
-
-    component.setState({ isOpenModal: true });
-    component.setProps({ requestError: { payload: { status: 403 } } });
-    component.instance().handleClickButton();
-    component.setState({ isOpenModal: true });
+    component.instance().reloadPage()
 
     expect(component).toMatchSnapshot();
   });

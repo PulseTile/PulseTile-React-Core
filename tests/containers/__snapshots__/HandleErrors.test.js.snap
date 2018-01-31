@@ -23,8 +23,9 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
 <div>
   <ConfirmationModal
     isShow={true}
-    isShowCancelButton={false}
+    isShowCancelButton={true}
     isShowOkButton={true}
+    onCancel={[Function]}
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
@@ -42,8 +43,9 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
 <div>
   <ConfirmationModal
     isShow={true}
-    isShowCancelButton={false}
+    isShowCancelButton={true}
     isShowOkButton={true}
+    onCancel={[Function]}
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
@@ -89,7 +91,7 @@ exports[`Component <HandleErrors /> testing methods 1`] = `
     title="Connection Error"
   >
     <span>
-      Your token has been expired. Please reload the page.
+      Some connection error has occurred. Please check your connection and try again.
     </span>
   </ConfirmationModal>
 </div>
