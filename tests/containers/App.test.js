@@ -23,7 +23,7 @@ describe('Component <App />', () => {
     expect(component.find('Footer')).toHaveLength(1);
     expect(component.find('MainSpinner')).toHaveLength(0);
     expect(component.find('HandleErrors')).toHaveLength(0);
-    expect(component.find('.wrapper')).toHaveLength(0);
+    expect(component.find('.wrapper')).toHaveLength(1);
     expect(component.find('TopHeader')).toHaveLength(0);
 
     expect(component).toMatchSnapshot();

@@ -126,7 +126,7 @@ class SearchReport extends PureComponent {
     const { patientsByAge, clinicalQuerySearch } = this.props;
     const { searchResult } = this.state;
     // TODO It is necessary to send data from the backend about the patient with his age
-    const isChartsDataReceived = patientsByAge.map(_.size).reduce((a, b) => a + b) > 0 || true;
+    const isChartsDataReceived = patientsByAge.map(_.size).reduce((a, b) => a + b) > 0;
     return (<section className="page-wrapper">
       <Row>
         <Col xs={12}>
