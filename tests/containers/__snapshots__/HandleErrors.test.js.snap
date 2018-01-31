@@ -1,802 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component <HandleErrors /> should renders correctly when requestError contains 400 error 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HandleErrors
-    requestError={
-        Object {
-            "payload": Object {
-              "status": 400,
-            },
-          }
-    }
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <ConfirmationModal
-        isShow={true}
-        isShowCancelButton={false}
-        isShowOkButton={true}
-        onHide={[Function]}
-        onOk={[Function]}
-        textCancelButton="Cancel"
-        textOkButton="Ok"
-        title="Connection Error"
->
-        <span>
-                Current request is invalid.
-        </span>
-</ConfirmationModal>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          null,
-          null,
-          null,
-          <span>
-            Current request is invalid.
-</span>,
-        ],
-        "isShow": true,
-        "isShowCancelButton": false,
-        "isShowOkButton": true,
-        "onHide": [Function],
-        "onOk": [Function],
-        "textCancelButton": "Cancel",
-        "textOkButton": "Ok",
-        "title": "Connection Error",
-      },
-      "ref": null,
-      "rendered": Array [
-        null,
-        null,
-        null,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Current request is invalid.",
-          },
-          "ref": null,
-          "rendered": "Current request is invalid.",
-          "type": "span",
-        },
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <ConfirmationModal
-          isShow={true}
-          isShowCancelButton={false}
-          isShowOkButton={true}
-          onHide={[Function]}
-          onOk={[Function]}
-          textCancelButton="Cancel"
-          textOkButton="Ok"
-          title="Connection Error"
->
-          <span>
-                    Current request is invalid.
-          </span>
-</ConfirmationModal>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            null,
-            null,
-            null,
-            <span>
-              Current request is invalid.
-</span>,
-          ],
-          "isShow": true,
-          "isShowCancelButton": false,
-          "isShowOkButton": true,
-          "onHide": [Function],
-          "onOk": [Function],
-          "textCancelButton": "Cancel",
-          "textOkButton": "Ok",
-          "title": "Connection Error",
-        },
-        "ref": null,
-        "rendered": Array [
-          null,
-          null,
-          null,
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Current request is invalid.",
-            },
-            "ref": null,
-            "rendered": "Current request is invalid.",
-            "type": "span",
-          },
-        ],
-        "type": [Function],
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Connection Error"
+  >
+    <span>
+      Current request is invalid.
+    </span>
+  </ConfirmationModal>
+</div>
 `;
 
 exports[`Component <HandleErrors /> should renders correctly when requestError contains 403 error 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HandleErrors
-    requestError={
-        Object {
-            "payload": Object {
-              "status": 403,
-            },
-          }
-    }
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <ConfirmationModal
-        isShow={true}
-        isShowCancelButton={false}
-        isShowOkButton={true}
-        onHide={[Function]}
-        onOk={[Function]}
-        textCancelButton="Cancel"
-        textOkButton="Reload Page"
-        title="Connection Error"
->
-        <span>
-                Your token has been expired. Please reload the page.
-        </span>
-</ConfirmationModal>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          null,
-          null,
-          <span>
-            Your token has been expired. Please reload the page.
-</span>,
-          null,
-        ],
-        "isShow": true,
-        "isShowCancelButton": false,
-        "isShowOkButton": true,
-        "onHide": [Function],
-        "onOk": [Function],
-        "textCancelButton": "Cancel",
-        "textOkButton": "Reload Page",
-        "title": "Connection Error",
-      },
-      "ref": null,
-      "rendered": Array [
-        null,
-        null,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Your token has been expired. Please reload the page.",
-          },
-          "ref": null,
-          "rendered": "Your token has been expired. Please reload the page.",
-          "type": "span",
-        },
-        null,
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <ConfirmationModal
-          isShow={true}
-          isShowCancelButton={false}
-          isShowOkButton={true}
-          onHide={[Function]}
-          onOk={[Function]}
-          textCancelButton="Cancel"
-          textOkButton="Reload Page"
-          title="Connection Error"
->
-          <span>
-                    Your token has been expired. Please reload the page.
-          </span>
-</ConfirmationModal>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            null,
-            null,
-            <span>
-              Your token has been expired. Please reload the page.
-</span>,
-            null,
-          ],
-          "isShow": true,
-          "isShowCancelButton": false,
-          "isShowOkButton": true,
-          "onHide": [Function],
-          "onOk": [Function],
-          "textCancelButton": "Cancel",
-          "textOkButton": "Reload Page",
-          "title": "Connection Error",
-        },
-        "ref": null,
-        "rendered": Array [
-          null,
-          null,
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Your token has been expired. Please reload the page.",
-            },
-            "ref": null,
-            "rendered": "Your token has been expired. Please reload the page.",
-            "type": "span",
-          },
-          null,
-        ],
-        "type": [Function],
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Your token has been expired. Please reload the page.
+    </span>
+  </ConfirmationModal>
+</div>
 `;
 
 exports[`Component <HandleErrors /> should renders correctly when requestError contains 500 error 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HandleErrors
-    requestError={
-        Object {
-            "payload": Object {
-              "status": 500,
-            },
-          }
-    }
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <ConfirmationModal
-        isShow={true}
-        isShowCancelButton={false}
-        isShowOkButton={true}
-        onHide={[Function]}
-        onOk={[Function]}
-        textCancelButton="Cancel"
-        textOkButton="Reload Page"
-        title="Connection Error"
->
-        <span>
-                Something is wrong with the server. Please try again later.
-        </span>
-</ConfirmationModal>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          null,
-          <span>
-            Something is wrong with the server. Please try again later.
-</span>,
-          null,
-          null,
-        ],
-        "isShow": true,
-        "isShowCancelButton": false,
-        "isShowOkButton": true,
-        "onHide": [Function],
-        "onOk": [Function],
-        "textCancelButton": "Cancel",
-        "textOkButton": "Reload Page",
-        "title": "Connection Error",
-      },
-      "ref": null,
-      "rendered": Array [
-        null,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Something is wrong with the server. Please try again later.",
-          },
-          "ref": null,
-          "rendered": "Something is wrong with the server. Please try again later.",
-          "type": "span",
-        },
-        null,
-        null,
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <ConfirmationModal
-          isShow={true}
-          isShowCancelButton={false}
-          isShowOkButton={true}
-          onHide={[Function]}
-          onOk={[Function]}
-          textCancelButton="Cancel"
-          textOkButton="Reload Page"
-          title="Connection Error"
->
-          <span>
-                    Something is wrong with the server. Please try again later.
-          </span>
-</ConfirmationModal>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            null,
-            <span>
-              Something is wrong with the server. Please try again later.
-</span>,
-            null,
-            null,
-          ],
-          "isShow": true,
-          "isShowCancelButton": false,
-          "isShowOkButton": true,
-          "onHide": [Function],
-          "onOk": [Function],
-          "textCancelButton": "Cancel",
-          "textOkButton": "Reload Page",
-          "title": "Connection Error",
-        },
-        "ref": null,
-        "rendered": Array [
-          null,
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Something is wrong with the server. Please try again later.",
-            },
-            "ref": null,
-            "rendered": "Something is wrong with the server. Please try again later.",
-            "type": "span",
-          },
-          null,
-          null,
-        ],
-        "type": [Function],
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Something is wrong with the server. Please try again later.
+    </span>
+  </ConfirmationModal>
+</div>
 `;
 
 exports[`Component <HandleErrors /> should renders correctly when requestError contains initialiseError 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HandleErrors
-    requestError={
-        Object {
-            "initialiseError": true,
-            "payload": Object {
-              "status": 0,
-            },
-          }
-    }
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <ConfirmationModal
-        isShow={true}
-        isShowCancelButton={false}
-        isShowOkButton={true}
-        onHide={[Function]}
-        onOk={[Function]}
-        textCancelButton="Cancel"
-        textOkButton="Reload Page"
-        title="Connection Error"
->
-        <span>
-                Some connection error has occurred. Please check your connection and try again.
-        </span>
-</ConfirmationModal>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          <span>
-            Some connection error has occurred. Please check your connection and try again.
-</span>,
-          null,
-          null,
-          null,
-        ],
-        "isShow": true,
-        "isShowCancelButton": false,
-        "isShowOkButton": true,
-        "onHide": [Function],
-        "onOk": [Function],
-        "textCancelButton": "Cancel",
-        "textOkButton": "Reload Page",
-        "title": "Connection Error",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Some connection error has occurred. Please check your connection and try again.",
-          },
-          "ref": null,
-          "rendered": "Some connection error has occurred. Please check your connection and try again.",
-          "type": "span",
-        },
-        null,
-        null,
-        null,
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <ConfirmationModal
-          isShow={true}
-          isShowCancelButton={false}
-          isShowOkButton={true}
-          onHide={[Function]}
-          onOk={[Function]}
-          textCancelButton="Cancel"
-          textOkButton="Reload Page"
-          title="Connection Error"
->
-          <span>
-                    Some connection error has occurred. Please check your connection and try again.
-          </span>
-</ConfirmationModal>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            <span>
-              Some connection error has occurred. Please check your connection and try again.
-</span>,
-            null,
-            null,
-            null,
-          ],
-          "isShow": true,
-          "isShowCancelButton": false,
-          "isShowOkButton": true,
-          "onHide": [Function],
-          "onOk": [Function],
-          "textCancelButton": "Cancel",
-          "textOkButton": "Reload Page",
-          "title": "Connection Error",
-        },
-        "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Some connection error has occurred. Please check your connection and try again.",
-            },
-            "ref": null,
-            "rendered": "Some connection error has occurred. Please check your connection and try again.",
-            "type": "span",
-          },
-          null,
-          null,
-          null,
-        ],
-        "type": [Function],
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Some connection error has occurred. Please check your connection and try again.
+    </span>
+  </ConfirmationModal>
+</div>
 `;
 
 exports[`Component <HandleErrors /> testing methods 1`] = `
-ShallowWrapper {
-  "length": 1,
-  Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <HandleErrors
-    requestError={
-        Object {
-            "payload": Object {
-              "status": 403,
-            },
-          }
-    }
-/>,
-  Symbol(enzyme.__renderer__): Object {
-    "batchedUpdates": [Function],
-    "getNode": [Function],
-    "render": [Function],
-    "simulateEvent": [Function],
-    "unmount": [Function],
-  },
-  Symbol(enzyme.__node__): Object {
-    "instance": null,
-    "key": undefined,
-    "nodeType": "host",
-    "props": Object {
-      "children": <ConfirmationModal
-        isShow={true}
-        isShowCancelButton={false}
-        isShowOkButton={true}
-        onHide={[Function]}
-        onOk={[Function]}
-        textCancelButton="Cancel"
-        textOkButton="Reload Page"
-        title="Connection Error"
->
-        <span>
-                Your token has been expired. Please reload the page.
-        </span>
-</ConfirmationModal>,
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "class",
-      "props": Object {
-        "children": Array [
-          null,
-          null,
-          <span>
-            Your token has been expired. Please reload the page.
-</span>,
-          null,
-        ],
-        "isShow": true,
-        "isShowCancelButton": false,
-        "isShowOkButton": true,
-        "onHide": [Function],
-        "onOk": [Function],
-        "textCancelButton": "Cancel",
-        "textOkButton": "Reload Page",
-        "title": "Connection Error",
-      },
-      "ref": null,
-      "rendered": Array [
-        null,
-        null,
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Your token has been expired. Please reload the page.",
-          },
-          "ref": null,
-          "rendered": "Your token has been expired. Please reload the page.",
-          "type": "span",
-        },
-        null,
-      ],
-      "type": [Function],
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <ConfirmationModal
-          isShow={true}
-          isShowCancelButton={false}
-          isShowOkButton={true}
-          onHide={[Function]}
-          onOk={[Function]}
-          textCancelButton="Cancel"
-          textOkButton="Reload Page"
-          title="Connection Error"
->
-          <span>
-                    Your token has been expired. Please reload the page.
-          </span>
-</ConfirmationModal>,
-      },
-      "ref": null,
-      "rendered": Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "children": Array [
-            null,
-            null,
-            <span>
-              Your token has been expired. Please reload the page.
-</span>,
-            null,
-          ],
-          "isShow": true,
-          "isShowCancelButton": false,
-          "isShowOkButton": true,
-          "onHide": [Function],
-          "onOk": [Function],
-          "textCancelButton": "Cancel",
-          "textOkButton": "Reload Page",
-          "title": "Connection Error",
-        },
-        "ref": null,
-        "rendered": Array [
-          null,
-          null,
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Your token has been expired. Please reload the page.",
-            },
-            "ref": null,
-            "rendered": "Your token has been expired. Please reload the page.",
-            "type": "span",
-          },
-          null,
-        ],
-        "type": [Function],
-      },
-      "type": "div",
-    },
-  ],
-  Symbol(enzyme.__options__): Object {
-    "adapter": ReactFifteenAdapter {
-      "options": Object {
-        "supportPrevContextArgumentOfComponentDidUpdate": true,
-      },
-    },
-  },
-}
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Your token has been expired. Please reload the page.
+    </span>
+  </ConfirmationModal>
+</div>
 `;
