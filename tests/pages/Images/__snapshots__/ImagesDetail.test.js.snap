@@ -54,7 +54,7 @@ exports[`Component <ImagesDetail /> should renders correctly with different stat
               >
                 <img
                   id="img-0"
-                  src="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8/preview"
+                  src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8/preview"
                   style={null}
                 />
               </div>
@@ -274,7 +274,7 @@ exports[`Component <ImagesDetail /> should renders with props correctly 1`] = `
               >
                 <img
                   id="img-0"
-                  src="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7/preview"
+                  src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7/preview"
                   style={null}
                 />
               </div>
@@ -585,7 +585,7 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 1`
                         >
                           <img
                             id="img-0"
-                            src="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9/preview"
+                            src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9/preview"
                             style={null}
                           />
                         </div>
