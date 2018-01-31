@@ -47,7 +47,7 @@ const storeRootPage = mockStore(Object.assign({
   } }, storeResource));
 describe('Component <TopHeader />', () => {
   it('should renders with props correctly', () => {
-    const topHeader = mount(
+    const component = mount(
       <Provider store={storeProfilePage}>
         <StaticRouter location="someLocation" context={context}>
           <TopHeader
@@ -55,22 +55,31 @@ describe('Component <TopHeader />', () => {
           />
         </StaticRouter>
       </Provider>)
-    expect(topHeader).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
   });
+
   it('should renders with props correctly when we are on the page Profile', () => {
-    const topHeader = shallow(
+    const component = shallow(
       <TopHeader
         store={storeProfilePage}
       />, { context }).dive().dive();
-    expect(topHeader).toMatchSnapshot();
-    topHeader.setContext(context);
-    topHeader.find('.btn-header-prev').simulate('click');
+    expect(component).toMatchSnapshot();
+    component.setContext(context);
+    component.find('.btn-header-prev').simulate('click');
   });
+
   it('should renders with props correctly when we are on the ROOT page', () => {
-    const topHeader = shallow(
+    const component = shallow(
       <TopHeader
         store={storeRootPage}
+        children={{}}
+        isHasSearch={false}
       />).dive().dive();
-    expect(topHeader).toMatchSnapshot();
+
+    expect(component.find('.navbar-space-right')).toHaveLength(1);
+    expect(component).toMatchSnapshot();
+
+    component.setProps({ children: undefined });
+    expect(component).toMatchSnapshot();
   });
 });

@@ -566,12 +566,38 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
     isSearch={false}
     isUserPanel={true}
   />
-  <NavSearch
+  <div
+    className="navbar-space-right"
+  />
+</div>
+`;
+
+exports[`Component <TopHeader /> should renders with props correctly when we are on the ROOT page 2`] = `
+<div
+  className="navbar"
+>
+  <MainLogo
+    logo={null}
+    patientsInfo={
+      Object {
+        "browserTitle": "PulseTile",
+        "logoB64": "testLogo",
+        "themeColor": "green",
+        "title": "PulseTile",
+      }
+    }
     userAccount={
       Object {
         "role": "IDCR",
       }
     }
+  />
+  <UserPanel
+    addUserPanels={Array []}
+    isNotifications={true}
+    isQuestions={true}
+    isSearch={false}
+    isUserPanel={true}
   />
 </div>
 `;
