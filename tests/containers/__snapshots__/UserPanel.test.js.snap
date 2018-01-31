@@ -324,7 +324,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
 </Provider>
 `;
 
-exports[`Component <UserPanel /> should renders with props correctly 2`] = `
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 1`] = `
 <ul
   className="user-panel"
   role="tablist"
@@ -339,6 +339,11 @@ exports[`Component <UserPanel /> should renders with props correctly 2`] = `
         className="fa fa-search"
       />
     </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item"
@@ -385,6 +390,100 @@ exports[`Component <UserPanel /> should renders with props correctly 2`] = `
         className="fa fa-user"
       />
     </PTButton>
+  </UserPanelItem>
+</ul>
+`;
+
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 2`] = `
+<ul
+  className="user-panel"
+  role="tablist"
+>
+  <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown open"
+  >
+    <Connect(lifecycle(UserAccountPanel))
+      onClick={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
+      />
+    </PTButton>
+  </UserPanelItem>
+</ul>
+`;
+
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 3`] = `
+<ul
+  className="user-panel"
+  role="tablist"
+>
+  <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
   </UserPanelItem>
 </ul>
 `;
