@@ -23,46 +23,76 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
-  handleClickButton = () => {
+  getErrorConfig = () => {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
-    if (requestErrorStatus === 400) {
-      this.closeModal()
-    } else {
-      location.reload();
+    switch (true) {
+      case (requestError.initialiseError || requestErrorStatus === 0):
+        return {
+          eventOk: this.reloadPage,
+          eventHide: this.reloadPage,
+          textButton: 'Reload Page',
+          textMessage: 'Some connection error has occurred. Please check your connection and try again.',
+        };
+      case requestErrorStatus > 499:
+        return {
+          eventOk: this.reloadPage,
+          eventHide: this.closeModal,
+          eventCancel: this.closeModal,
+          isShowCancelButton: true,
+          textButton: 'Reload Page',
+          textMessage: 'Something is wrong with the server. Please try again later.',
+        };
+      case requestErrorStatus === 403:
+        return {
+          eventOk: this.reloadPage,
+          eventHide: this.closeModal,
+          eventCancel: this.closeModal,
+          isShowCancelButton: true,
+          textButton: 'Reload Page',
+          textMessage: 'Your token has been expired. Please reload the page.',
+        };
+      case (requestErrorStatus === 400 || requestErrorStatus === 404):
+        return {
+          eventOk: this.closeModal,
+          eventHide: this.closeModal,
+          textButton: 'Ok',
+          textMessage: 'Current request is invalid.',
+        };
+      default:
+        return {
+          eventOk: this.closeModal,
+          eventHide: this.closeModal,
+          textButton: 'Ok',
+          textMessage: 'Something wrong',
+        }
     }
   };
 
   closeModal = () => {
-    const { requestError } = this.props;
-    const { countErrorRequest } = this.state;
-    const requestErrorStatus = requestError.payload.status;
-    if (requestError.initialiseError || (countErrorRequest === 1 && requestErrorStatus !== 400)) {
-      location.reload();
-    } else {
-      this.setState({ isOpenModal: false })
-    }
+    this.setState({ isOpenModal: false })
+  };
+
+  reloadPage = () => {
+    location.reload()
   };
 
   render() {
-    const { requestError } = this.props;
     const { isOpenModal } = this.state;
-    const requestErrorStatus = requestError.payload.status;
-    const textButton = (requestErrorStatus === 400) ? 'Ok' : 'Reload Page';
+    const config = this.getErrorConfig();
     return (
       <div>
         {isOpenModal && <ConfirmationModal
           title={'Connection Error'}
-          onOk={this.handleClickButton}
-          onHide={this.closeModal}
+          onOk={config.eventOk}
+          onHide={config.eventHide}
+          onCancel={config.eventCancel}
           isShow
-          textOkButton={textButton}
+          textOkButton={config.textButton}
           isShowOkButton
+          isShowCancelButton={config.isShowCancelButton}
         >
-          { (requestError.initialiseError || requestErrorStatus === 0) ? <span>Some connection error has occurred. Please check your connection and try again.</span> : null }
-          { requestErrorStatus > 499 ? <span>Something is wrong with the server. Please try again later.</span> : null }
-          { requestErrorStatus === 403 ? <span>Your token has been expired. Please reload the page.</span> : null }
-          { requestErrorStatus === 400 ? <span>Current request is invalid.</span> : null }
+          <span>{config.textMessage}</span>
         </ConfirmationModal> }
       </div>
     )
