@@ -52,10 +52,16 @@ exports[`Component <ImagesDetail /> should renders correctly with different stat
               <div
                 key="0"
               >
-                <img
-                  id="img-0"
-                  src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8/preview"
-                  style={null}
+                <CornerstoneImage
+                  imageId="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8/preview"
+                  index={0}
+                  instanceIds={
+                    Array [
+                      "ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8",
+                    ]
+                  }
+                  isVisibleCornerstone={true}
+                  visibleCornerstone={[Function]}
                 />
               </div>
             </ReactIdSwiper>
@@ -272,10 +278,16 @@ exports[`Component <ImagesDetail /> should renders with props correctly 1`] = `
               <div
                 key="0"
               >
-                <img
-                  id="img-0"
-                  src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7/preview"
-                  style={null}
+                <CornerstoneImage
+                  imageId="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7/preview"
+                  index={0}
+                  instanceIds={
+                    Array [
+                      "ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7",
+                    ]
+                  }
+                  isVisibleCornerstone={true}
+                  visibleCornerstone={[Function]}
                 />
               </div>
             </ReactIdSwiper>
@@ -583,11 +595,29 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 1`
                           className="swiper-slide  "
                           key=".$0"
                         >
-                          <img
-                            id="img-0"
-                            src="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9/preview"
-                            style={null}
-                          />
+                          <CornerstoneImage
+                            imageId="about://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9/preview"
+                            index={0}
+                            instanceIds={
+                              Array [
+                                "ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9",
+                              ]
+                            }
+                            isVisibleCornerstone={false}
+                            visibleCornerstone={[Function]}
+                          >
+                            <div
+                              id="dicomImage-0"
+                              style={
+                                Object {
+                                  "height": "512px",
+                                  "margin": "auto",
+                                  "visibility": "hidden",
+                                  "width": "100%",
+                                }
+                              }
+                            />
+                          </CornerstoneImage>
                         </div>
                       </div>
                       <div
@@ -1066,7 +1096,12 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 2`
                     >
                       <div
                         className="swiper-wrapper"
-                      />
+                      >
+                        <div
+                          className="swiper-slide  "
+                          key=".0"
+                        />
+                      </div>
                       <div
                         className="swiper-pagination "
                       />
