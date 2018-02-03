@@ -53,10 +53,32 @@ const contextImport = {
             isImport: true,
             originalSource: 'domen.com/documents/documents_id',
             cause: 'cause',
-          }
-        }
+          },
+        },
       },
-    }
+    },
+  },
+};
+
+const contextImportWithTerminology = {
+  router: {
+    route,
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            cause: 'cause',
+            causeTerminology: 'causeTerminology',
+            terminologyCode: 'terminologyCode',
+          },
+        },
+      },
+    },
   },
 };
 
@@ -128,6 +150,20 @@ describe('Component <AllergiesCreateForm />', () => {
       <AllergiesCreateForm
         store={store}
       />, { context: contextImport }).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(8);
+
+    expect(component.find('Field').at(5).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(5).props().props.disabled).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import" with Terminology', () => {
+    const component = shallow(
+      <AllergiesCreateForm
+        store={store}
+      />, { context: contextImportWithTerminology }).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(8);
 
     expect(component.find('Field').at(5).props().name).toEqual(valuesNames.IMPORT);
