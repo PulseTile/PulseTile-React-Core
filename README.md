@@ -47,3 +47,5 @@ Here's a list of available scripts:
   * it lints codebase using [Eslint](http://eslint.org/)
 * `$ npm run test`
   * it runs unit tests
+* `$ npm run test-update`
+  * it will run unit tests which will update the snapshots. It should be used mostly in development mode.
