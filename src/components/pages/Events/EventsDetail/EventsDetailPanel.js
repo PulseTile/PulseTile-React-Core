@@ -16,6 +16,7 @@ export default class EventsDetailPanel extends PureComponent {
     onExpand: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    startAppointment: PropTypes.func.isRequired,
     onSaveSettings: PropTypes.func.isRequired,
     editedPanel: PropTypes.object,
     isShowControlPanel: PropTypes.bool,
@@ -26,7 +27,7 @@ export default class EventsDetailPanel extends PureComponent {
   };
 
   render() {
-    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible, isBtnShowPanel, isShowControlPanel } = this.props;
+    const { name, title, children, isOpen, onShow, onExpand, onEdit, editedPanel, onCancel, onSaveSettings, formValues, currentPanel, isCreatePanelVisible, isBtnShowPanel, isShowControlPanel, startAppointment } = this.props;
 
     return (
       <div className={classNames('panel panel-secondary', { open: isOpen })}>
@@ -36,7 +37,7 @@ export default class EventsDetailPanel extends PureComponent {
           {(isShowControlPanel && !isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
-                <PTButton className="btn btn-primary">
+                <PTButton className="btn btn-primary" onClick={() => startAppointment()}>
                   <span className="btn-text">Start Appointment</span>
                 </PTButton>
                 <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>

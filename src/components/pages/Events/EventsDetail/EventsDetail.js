@@ -12,7 +12,7 @@ const CHAT_PANEL = 'chatPanel';
 
 export default class EventsDetail extends PureComponent {
   render() {
-    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, eventsDetailFormValues, metaPanelFormValues, isSubmit } = this.props;
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, eventsDetailFormValues, metaPanelFormValues, isSubmit, startAppointment } = this.props;
     let { detail } = this.props;
     detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
@@ -34,6 +34,7 @@ export default class EventsDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={eventsDetailFormValues}
             isBtnShowPanel
+            startAppointment={startAppointment}
           >
             <div className="panel-body-inner">
               <div className="form">

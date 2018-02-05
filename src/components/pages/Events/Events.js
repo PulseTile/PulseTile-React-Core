@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import { debounce } from 'throttle-debounce';
+import io from 'socket.io-client';
+import moment from 'moment';
 
 import EventsListHeader from './events-page-component/EventsListHeader';
 import EventsMainPanel from './events-page-component/EventsMainPanel';
@@ -18,7 +20,7 @@ import { fetchPatientEventsDetailRequest } from './ducks/fetch-patient-events-de
 import { fetchPatientEventsDetailEditRequest } from './ducks/fetch-patient-events-detail-edit.duck';
 import { fetchPatientEventsCreateRequest } from './ducks/fetch-patient-events-create.duck';
 import { fetchPatientEventsOnMount, fetchPatientEventsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector } from './selectors';
+import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector, userSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import EventsDetail from './EventsDetail/EventsDetail';
@@ -26,6 +28,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { modificateEventsArr } from './events-helpers.utils';
 import EventsCreateForm from './EventsCreate/EventsCreateForm'
+import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 
 const EVENTS_MAIN = 'eventsMain';
 const EVENTS_DETAIL = 'eventsDetail';
@@ -40,6 +43,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientEventsDetailSelector, mapDispatchToProps)
 @connect(eventsDetailFormStateSelector)
 @connect(eventsCreateFormStateSelector)
+@connect(userSelector)
 @compose(lifecycle(fetchPatientEventsOnMount), lifecycle(fetchPatientEventsDetailOnMount))
 
 export default class Events extends PureComponent {
@@ -81,7 +85,25 @@ export default class Events extends PureComponent {
     eventsType: '',
     isTimelinesOpen: false,
     valueEventsRange: [],
+    socket: null,
+    token: null,
   };
+
+  componentWillMount() {
+    const socket = io.connect(`wss://${window.location.hostname}:${8070}`);
+    const token = this.getCookie('JSESSIONID');
+    this.setState({ socket, token })
+  }
+
+  componentDidMount() {
+    const { socket } = this.state;
+    socket.off('appointment:messages'); // remove dublicate socket listeners
+    socket.off('appointment:close');
+    socket.off('appointment:status');
+    socket.on('appointment:messages', this.onMessages);
+    socket.on('appointment:close', this.onClose);
+    socket.on('appointment:status', this.onStatus);
+  }
 
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
@@ -273,6 +295,96 @@ export default class Events extends PureComponent {
     this.onRangeChange(renges)
   };
 
+  getCookie = (name) => {
+    const nameEQ = `${name}=`;
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+  };
+
+  onClose = (data) => {
+    const { socket, token, eventDetail } = this.props;
+    console.log('onClose ---> ', data);
+    // $scope.showJoinAppointment = null;
+    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
+      socket.emit('appointment:status', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token });
+      socket.emit('appointment:messages', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token });
+    }
+  };
+
+  onStatus = (data) => {
+    const { eventDetail } = this.props;
+    console.log('onStatus ---> ', data, data.appointmentId, ' == ', eventDetail[valuesNames.SOURCE_ID]);
+    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
+      const isClosed = data.isClosed;
+    }
+  };
+
+  onMessages = (dt) => {
+    const { userAccount } = this.props;
+    const data = JSON.parse(JSON.stringify(dt));
+    if (!data.appointment) return;
+    const messages = data.messages.map((message) => {
+      message.timestamp = moment(+message.timestamp).format('HH:mm');
+      if (!message.author) {
+        message.author = '';
+      } else {
+        const role = isIDCRRole(userAccount) ? 'doctor' : 'patient';
+        const opponent = !isIDCRRole(userAccount) ? 'doctor' : 'patient';
+        if (message.author == role) {
+          message.author = 'You: ';
+        } else {
+          message.author = `${data.appointment[opponent]}: `;
+        }
+      }
+      return message;
+    });
+    console.log('onMessages ---> ', messages);
+  };
+
+  popupCenter = (w, h) => {
+    const dualScreenLeft = (window.screenLeft !== undefined) ? window.screenLeft : screen.left;
+    const dualScreenTop = (window.screenTop !== undefined) ? window.screenTop : screen.top;
+
+    const width = (window.innerWidth ? window.innerWidth : document.documentElement.clientWidth) ? document.documentElement.clientWidth : screen.width;
+    const height = (window.innerHeight ? window.innerHeight : document.documentElement.clientHeight) ? document.documentElement.clientHeight : screen.height;
+
+    const left = ((width / 2) - (w / 2)) + dualScreenLeft;
+    const top = ((height / 2) - (h / 2)) + dualScreenTop;
+    return `width=${w}, height=${h}, top=${top}, left=${left}`;
+  };
+
+  openPopup = (id) => {
+    window.windowObjectReference = window.windowObjectReference || null;
+    const center = this.popupCenter(972, 734);
+    const options = `${center},resizable=yes,scrollbars=yes,status=yes,minimizable=yes,location=no`;
+    if (window.windowObjectReference == null || window.windowObjectReference.closed) {
+      window.windowObjectReference = window.open(`${window.location.origin}/videochat/videochat.html?appointmentId=${id}`,
+        'Video Chat', options);
+      window.windowObjectReference.focus();
+    } else {
+      window.windowObjectReference.focus();
+    }
+  };
+
+  startAppointment = () => {
+    const { socket } = this.state;
+    const { eventDetail, userId } = this.props;
+    console.log('startAppointment ===> ', eventDetail);
+    if (!eventDetail) return;
+
+    socket.emit('appointment:init', {
+      patientId: userId,
+      appointmentId: eventDetail[valuesNames.SOURCE_ID],
+    });
+
+    this.openPopup(eventDetail[valuesNames.SOURCE_ID]);
+  };
+
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
     const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail } = this.props;
@@ -351,6 +463,7 @@ export default class Events extends PureComponent {
               onSaveSettings={this.handleSaveSettingsDetailForm}
               eventsDetailFormValues={eventsDetailFormState.values}
               isSubmit={isSubmit}
+              startAppointment={this.startAppointment}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
