@@ -1,32 +1,19 @@
 .panel {
   border-radius: 0;
-  &.panel-default {
-    border-color: $base-color;
-    border-width: 2px;
+  border-style: solid;
+  @each $label, $panel in $panels {
+    &.#{$label} {
+      background:    map-get($panel, 'bg');
+      border-color:  map-get($panel, 'border-color');
+      border-width:  map-get($panel, 'border-width');
+      border-radius: map-get($panel, 'border-radius');
+      box-shadow: none;
+    }
   }
-  &.panel-primary {
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    margin-bottom: 14px;
-  }
-  &.panel-secondary {
-    background: transparent;
-    border: 1px solid #D8D8D8;
-    box-shadow: none;
-    margin-bottom: 14px;
-  }
-  &.panel-subaccordion {
-    background: #ffffff;
-    border: 0;
-    box-shadow: none;
-  }
-  &.panel-small {
-    background: #ffffff;
-    border: 1px solid #D8D8D8;
-    box-shadow: none;
-    margin-bottom: 0;
-  }
+  &.panel-primary { margin-bottom: 14px; }
+  &.panel-secondary { margin-bottom: 14px; }
+  &.panel-subaccordion {}
+  &.panel-small { margin-bottom: 0; }
   &.without-margin { margin-bottom: 0; }
 }
 .panel-table .table {
@@ -37,15 +24,18 @@
 }
 
 .panel-expand-wrapper { position: relative; }
-.panel-expand-row {
-  @include clearfix;
-  & + .panel-expand-row{
-    border-top: 1px solid #D8D8D8;
+.panel-expand-row { @include clearfix; }
+@each $label, $panel in $panels {
+  .#{$label} {
+    .panel-expand-row + .panel-expand-row{
+      border: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
+    .panel-expand-item + .panel-expand-item {
+      border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
   }
 }
-.panel-expand-item + .panel-expand-item {
-  border-top: 1px solid #D8D8D8;
-}
+
 @include respond-from(md) {
   .full-panel {
     .panel-expand-wrapper {
@@ -60,13 +50,20 @@
       }
       &.without-separate:after { display: none; }
     }
-    .panel-expand-row + .panel-expand-row{
-      border-top: 1px solid #D8D8D8;
+    @each $label, $panel in $panels {
+      &.#{$label} {
+        .panel-expand-wrapper:after {background: map-get($panel, 'border-color');}
+      }
+    }
+    @each $label, $panel in $panels {
+      &.#{$label} {
+        .panel-expand-row + .panel-expand-row{
+          border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+        }
+        .panel-expand-item + .panel-expand-item { border-top: none; }
+      }
     }
     .panel-expand-item {
-      & + .panel-expand-item {
-        border-top: none;
-      }
       float: left;
       width: 50%;
     }
@@ -75,6 +72,7 @@
 
 .mainPagePanel {
   min-height: 500px;
+  background: #fff !important;
 }
 
 @import 'group';

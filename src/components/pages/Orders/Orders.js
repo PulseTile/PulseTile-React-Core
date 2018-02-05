@@ -140,10 +140,26 @@ export default class Orders extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId } = this.props;
     const { chosenOrders } = this.state;
-    const sendData = {
-      userId,
-      ...chosenOrders,
-    };
+    const myArray = [
+      {
+        'code': 'order1',
+        'name': 'Xray Chest X-ray',
+      },
+      {
+        'code': 'order2',
+        'name': 'Radiology-CT Head',
+      },
+    ];
+
+    const sendData = [
+      ...myArray,
+    ];
+
+    sendData.push(userId);
+    // const sendData = {
+    //   userId,
+    //   ...chosenOrders,
+    // };
 
     return sendData;
   };
@@ -187,7 +203,7 @@ export default class Orders extends PureComponent {
     const filteredOrders = this.formToShowCollection(allOrders);
 
     let sourceId;
-    if (!_.isEmpty(orderDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(orderDetail)) {
       sourceId = orderDetail[valuesNames.SOURCE_ID];
     }
 

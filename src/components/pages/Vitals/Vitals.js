@@ -68,8 +68,14 @@ export default class Vitals extends PureComponent {
     isSubmit: false,
     isLoading: true,
     activeView: 'tableNews',
-    isChartOpen: false,
-    vitalStatuses: {},
+    vitalStatuses: {
+      [valuesNames.RESPIRATION_RATE]: {},
+      [valuesNames.OXYGEN_SATURATION]: {},
+      [valuesNames.HEART_RATE]: {},
+      [valuesNames.SYSTOLIC_BP]: {},
+      [valuesNames.TEMPERATURE]: {},
+      [valuesNames.NEWS_SCORE]: {},
+    },
     vitalDetailConvert: {},
   };
 
@@ -265,11 +271,6 @@ export default class Vitals extends PureComponent {
 
   toggleViewVisibility = (currentView) => {
     this.setState({ activeView: currentView });
-    if (currentView === 'chartNews') {
-      this.setState({ isChartOpen: true });
-    } else {
-      this.setState({ isChartOpen: false });
-    }
   };
 
   chartLoad = (vitals) => {
@@ -353,7 +354,7 @@ export default class Vitals extends PureComponent {
     };
 
     render() {
-      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, isChartOpen, vitalStatuses, vitalDetailConvert, nameShouldInclude } = this.state;
+      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, vitalStatuses, vitalDetailConvert, nameShouldInclude } = this.state;
       const { allVitals, vitalsDetailFormState, vitalsCreateFormState, vitalDetail } = this.props;
 
       const isPanelDetails = (expandedPanel === VITALS_DETAIL || expandedPanel === VITAL_PANEL);
@@ -365,7 +366,7 @@ export default class Vitals extends PureComponent {
       const popoverLabels = serviceVitalsSigns.getLabels();
 
       let sourceId;
-      if (!_.isEmpty(vitalDetail)) {
+      if (isDetailPanelVisible && !_.isEmpty(vitalDetail)) {
         sourceId = vitalDetail.sourceId;
       }
 
@@ -384,7 +385,6 @@ export default class Vitals extends PureComponent {
                   currentPanel={VITALS_MAIN}
                   activeView={activeView}
                   toggleViewVisibility={this.toggleViewVisibility}
-                  isChartOpen={isChartOpen}
                   nameShouldInclude={nameShouldInclude}
                 />
                 <VitalsMainPanel

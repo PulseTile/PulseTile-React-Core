@@ -1,6 +1,7 @@
 import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
+import {handleErrors} from "./handle-errors.duck";
 
 export const REDIRECT_TO_LOGIN = 'REDIRECT_TO_LOGIN';
 export const LOGIN_PENDING = 'LOGIN_PENDING';
@@ -21,7 +22,7 @@ export const loginEpic = (action$, store) =>
       auth0.login({ connections }); //will redirect
       return loginPending(action);
     })
-    .catch(error => Observable.of(loginFailure(error)));
+    .catch(error => Observable.of(handleErrors(error)))
 
 export default function reducer(loginStatus = {}, action) {
   switch (action.type) {

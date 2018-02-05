@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <HeaderList /> should renders correctly when items is Empty 1`] = `<div />`;
+
+exports[`Component <HeaderList /> should renders correctly when items is not Empty 1`] = `
+<div
+  className="header-list"
+>
+  <div
+    className="header-list__item"
+    key="0"
+  >
+    <img
+      alt="header img 1"
+      src="test1"
+    />
+  </div>
+  <div
+    className="header-list__item"
+    key="1"
+  >
+    <img
+      alt="header img 2"
+      src="test2"
+    />
+  </div>
+</div>
+`;

@@ -16,8 +16,6 @@ const testProps = {
   currentPanel: 'vitalsMain',
   isBtnExpandVisible: true,
   isBtnTableVisible: true,
-  isChartOpen: false,
-  nameShouldInclude: '',
 };
 
 describe('Component <VitalsListHeader />', () => {
@@ -32,9 +30,7 @@ describe('Component <VitalsListHeader />', () => {
         panelTitle={testProps.panelTitle}
         isBtnExpandVisible
         isBtnTableVisible
-        isChartOpen={testProps.isChartOpen}
         activeView={testProps.activeView}
-        nameShouldInclude={testProps.nameShouldInclude}
       />);
 
     expect(component.find('PTButton')).toHaveLength(3);
@@ -72,7 +68,6 @@ describe('Component <VitalsListHeader />', () => {
     const component = shallow(
       <VitalsListHeader
         toggleViewVisibility={testProps.toggleViewVisibility}
-        isChartOpen
         activeView={testProps.activeView}
         nameShouldInclude={testProps.nameShouldInclude}
         onExpand={testProps.onExpand}
@@ -84,14 +79,13 @@ describe('Component <VitalsListHeader />', () => {
         isBtnTableVisible={false}
       />);
 
-    expect(component.find('.control-group').children()).toHaveLength(1);
-    expect(component.find('PTButton')).toHaveLength(1);
+    expect(component.find('.control-group').children()).toHaveLength(2);
+    expect(component.find('PTButton')).toHaveLength(2);
 
     expect(component).toMatchSnapshot();
 
     expect(component.instance().props.isBtnExpandVisible).toEqual(false);
     expect(component.instance().props.isBtnTableVisible).toEqual(false);
-    expect(component.instance().props.isChartOpen).toEqual(true);
   });
 
   it('should renders correctly and testing component methods', () => {
@@ -105,7 +99,6 @@ describe('Component <VitalsListHeader />', () => {
         panelTitle={testProps.panelTitle}
         isBtnExpandVisible
         isBtnTableVisible
-        isChartOpen={testProps.isChartOpen}
         activeView={testProps.activeView}
         nameShouldInclude={testProps.nameShouldInclude}
       />);

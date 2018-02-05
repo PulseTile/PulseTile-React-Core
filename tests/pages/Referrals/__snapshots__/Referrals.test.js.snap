@@ -62,7 +62,6 @@ exports[`Component <Referrals /> should renders correctly and testing another me
                 },
               ]
             }
-            id="94133578-f505-4e76-b4ed-762462508801"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -347,7 +346,6 @@ exports[`Component <Referrals /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            id="94133578-f505-4e76-b4ed-762462508801"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -622,7 +620,6 @@ exports[`Component <Referrals /> should renders correctly with referralsDetail a
                 },
               ]
             }
-            id="94133578-f505-4e76-b4ed-762462508801"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -728,7 +725,6 @@ exports[`Component <Referrals /> should renders correctly with referralsDetail a
                 },
               ]
             }
-            id="94133578-f505-4e76-b4ed-762462508801"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}

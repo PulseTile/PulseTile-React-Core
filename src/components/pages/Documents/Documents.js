@@ -163,7 +163,7 @@ export default class Documents extends PureComponent {
     const filteredDocuments = this.formToShowCollection(allDocuments);
 
     let sourceId;
-    if (!_.isEmpty(documentDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(documentDetail)) {
       sourceId = documentDetail.sourceId;
     }
 

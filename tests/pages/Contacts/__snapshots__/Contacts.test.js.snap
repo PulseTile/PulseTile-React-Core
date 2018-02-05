@@ -4,6 +4,12 @@ exports[`Component <Contacts /> should renders correctly and testing another met
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -62,7 +68,6 @@ exports[`Component <Contacts /> should renders correctly and testing another met
                 },
               ]
             }
-            id="e2f4670c-6f7b-477f-b4f8-7a2f98b0f960"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -262,7 +267,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                 },
               ]
             }
-            id="e2f4670c-6f7b-477f-b4f8-7a2f98b0f960"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -369,7 +373,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                 },
               ]
             }
-            id="e2f4670c-6f7b-477f-b4f8-7a2f98b0f960"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -603,6 +606,12 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -684,6 +693,12 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="contacts.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -742,7 +757,6 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
                 },
               ]
             }
-            id="e2f4670c-6f7b-477f-b4f8-7a2f98b0f960"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

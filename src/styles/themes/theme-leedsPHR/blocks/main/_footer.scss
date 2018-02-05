@@ -1,0 +1,7 @@
+.footer {
+  padding: 12px 0 13px;
+  box-shadow: 0 -1px 1px rgba(#000, 0.11);
+  @include respond-from(sm) {
+    height: 54px;
+  }
+}

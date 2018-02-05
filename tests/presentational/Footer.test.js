@@ -6,13 +6,28 @@ import Footer from '../../src/components/presentational/Footer/Footer';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const copyright = 'Transforming Usability';
+
 describe('Component <Footer />', () => {
   it('should renders with props correctly', () => {
-    const footer = shallow(
+    const component = shallow(
       <Footer
-        testProps="testProps"
-        testText="testText"
+        copyright={copyright}
       />);
-    expect(footer).toMatchSnapshot();
+
+    expect(component.find('.footer-text')).toHaveLength(1);
+    expect(component.find('.footer-povered-text')).toHaveLength(1);
+
+    expect(component.find('.footer-text').text()).toEqual(copyright);
+    expect(component.find('.footer-povered-text').text()).toEqual('Supported by');
+
+    expect(component).toMatchSnapshot();
+
+    component.setProps({ copyright: undefined, isShowSupportedBy: false });
+
+    expect(component.find('.footer-text')).toHaveLength(0);
+    expect(component.find('.footer-povered-text')).toHaveLength(0);
+
+    expect(component).toMatchSnapshot();
   });
 });

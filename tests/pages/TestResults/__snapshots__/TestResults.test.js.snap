@@ -63,7 +63,6 @@ exports[`Component <TestResults /> should renders correctly and testing another 
                 },
               ]
             }
-            id="f6763678-71dc-49c8-b6d1-88a5871a10a6"
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

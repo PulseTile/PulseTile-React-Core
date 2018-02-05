@@ -1381,7 +1381,7 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
 exports[`Component <SortableTablePatients /> should renders shallow with props correctly when the data is empty array and table not patientsList 1`] = `
 <div>
   <table
-    className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table patientsList"
+    className="table table-striped table-bordered table-sorted table-hover table-fixedcol table-patients-full rwd-table patientsList1"
   >
     <colgroup>
       <col

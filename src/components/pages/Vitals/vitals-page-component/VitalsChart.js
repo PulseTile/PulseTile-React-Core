@@ -98,11 +98,6 @@ const VitalsChart = props => <div className="chart-block">
           },
         },
         scales: {
-          yAxes: [{
-            ticks: {
-              stepSize: 5,
-            },
-          }],
           xAxes: [{
             ticks: {
               maxRotation: 90,

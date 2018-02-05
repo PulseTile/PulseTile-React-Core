@@ -394,7 +394,7 @@ exports[`Component <VitalsDetailForm /> should renders correctly when form is su
                         text="V"
                         transitionValue="testValue"
                         type="radio"
-                        value="Verbal"
+                        value="Voice"
                       />
                       <Field
                         component={[Function]}
@@ -965,7 +965,7 @@ exports[`Component <VitalsDetailForm /> should renders with props correctly 1`] 
                         text="V"
                         transitionValue="testValue"
                         type="radio"
-                        value="Verbal"
+                        value="Voice"
                       />
                       <Field
                         component={[Function]}

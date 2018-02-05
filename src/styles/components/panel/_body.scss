@@ -3,22 +3,30 @@
   position: relative;
 }
 
+@each $label, $panel in $panels {
+  .#{$label} {
+    .panel-body {
+      background-color: map-get($panel, 'bg');
+      border-radius: 0 0 map-get($panel, 'border-radius') map-get($panel, 'border-radius');
+    }
+    .panel-body-inner + .panel-body-inner {
+      border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
+    .panel-body-section + .panel-body-section {
+      border-top: map-get($panel, 'border-width') solid map-get($panel, 'border-color');
+    }
+  }
+}
+
 .panel-primary .panel-body {
-  border-radius: 0;
   padding: 0;
 }
 .panel-secondary .panel-body {
-  background: #fff;
-  border-radius: 0;
   padding: 0;
 }
 .panel-body-inner {
   padding: 14px 10px;
-  & + .panel-body-inner {
-    border-top: 1px solid #D8D8D8;
-  }
   .panel-body-section + .panel-body-section {
-    border-top: 1px solid #D8D8D8;
     margin-top: 4px;
     padding-top: 24px;
   }

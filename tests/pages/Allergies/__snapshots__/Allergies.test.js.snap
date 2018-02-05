@@ -4,6 +4,12 @@ exports[`Component <Allergies /> should renders correctly and testing another me
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -57,7 +63,6 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -191,6 +196,12 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -319,7 +330,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -421,7 +431,6 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -647,6 +656,12 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -722,6 +737,12 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="allergies.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -775,7 +796,6 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

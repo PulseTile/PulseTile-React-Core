@@ -8,8 +8,10 @@ export const setLogo = createAction(SET_LOGO);
 export const setLogoSuccess = createAction(SET_LOGO_SUCCESS);
 
 const setLogoOnImage = (logo) => {
-  const image = window.document.getElementsByClassName('img');
-  _.head(image).src = logo;
+  const image = window.document.getElementsByClassName('logo-img');
+  if (image) {
+    _.head(image).src = logo;
+  }
 };
 
 export const setLogoEpic = (action$, store) =>

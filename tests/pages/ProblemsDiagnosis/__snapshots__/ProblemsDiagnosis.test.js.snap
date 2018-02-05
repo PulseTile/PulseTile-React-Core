@@ -4,6 +4,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -58,7 +64,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -192,6 +197,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -323,7 +334,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -426,7 +436,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -648,6 +657,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -725,6 +740,12 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={true}
+  />
   <div
     className="section"
   >
@@ -779,7 +800,6 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
                 },
               ]
             }
-            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}

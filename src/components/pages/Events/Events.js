@@ -285,7 +285,7 @@ export default class Events extends PureComponent {
 
     const filteredEvents = this.formToShowCollection(allEvents);
 
-    const sourceId = (!_.isEmpty(eventDetail)) ? eventDetail.sourceId : '';
+    const sourceId = (isDetailPanelVisible && !_.isEmpty(eventDetail)) ? eventDetail.sourceId : '';
     const eventsTimeline = (!_.isEmpty(allEvents)) ? modificateEventsArr(filteredEvents) : {};
 
     const minValueRange = valueEventsRange[0];

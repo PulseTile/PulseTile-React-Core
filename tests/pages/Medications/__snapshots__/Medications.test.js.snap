@@ -4,6 +4,12 @@ exports[`Component <Medications /> should renders correctly and testing another 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -94,7 +100,6 @@ exports[`Component <Medications /> should renders correctly and testing another 
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -335,6 +340,12 @@ exports[`Component <Medications /> should renders correctly when data take from 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -480,6 +491,12 @@ exports[`Component <Medications /> should renders correctly with all store is em
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -561,6 +578,12 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -706,6 +729,12 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -796,7 +825,6 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -942,7 +970,6 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -1114,7 +1141,6 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                 },
               ]
             }
-            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}

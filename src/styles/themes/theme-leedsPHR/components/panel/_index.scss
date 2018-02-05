@@ -1,0 +1,67 @@
+.panel {
+  @each $label, $panel in $panels {
+    &.#{$label} {
+      box-shadow: 0 1px 1px rgba(#000, 0.21);
+    }
+  }
+  &.panel-primary,
+  &.panel-subaccordion{ box-shadow: none };
+}
+
+.panel {
+  .panel-heading {
+    .btn.btn-inverse.btn-success {
+      border: 0 !important;
+      color: #fff !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      &:hover { color: #fff !important; }
+      &:active, &:focus {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+    }
+  }
+}
+
+.panel-primary .panel-heading { margin-bottom: 0; }
+
+.panel-dashboard {
+  .panel-heading {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin-bottom: 16px;
+    .panel-title {
+      line-height: 20px;
+      color: #555555;
+    }
+    .btn.btn-inverse.btn-success {
+      border: 0 !important;
+      min-height: 0 !important;
+      height: 20px !important;
+      padding: 0;
+      font-size: 21px;
+      width: auto;
+      min-width: auto;
+      color: #555555 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      &:hover { color: #555555 !important; }
+      &:active, &:focus {
+        background: transparent !important;
+        box-shadow: none !important;
+      }
+      &:after {display: none;}
+    }
+
+    .dropdown-menu { margin-top: 5px; }
+  }
+}
+
+
+.panel-secondary .panel-control { padding: 5px; }
+.panel-body-inner { padding: 14px 10px; }
+
+//.panel-secondary .panel-control { padding: 21px 17px 23px 13px; }
+//.panel-body-inner { padding: 14px 17px 14px 13px; }

@@ -218,7 +218,7 @@ export const serviceVitalsSigns = {
       }, {
         label: 'V,P or U',
         condition(value) {
-          return value === 'Verbal' || value === 'Pain' || value === 'Unresponsive'
+          return value === 'Voice' || value === 'Pain' || value === 'Unresponsive'
         },
         column: 7,
         point: 3,

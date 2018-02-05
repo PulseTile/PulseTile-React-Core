@@ -63,6 +63,28 @@ const contextImport = {
   },
 };
 
+const contextImportWithTerminology = {
+  router: {
+    route,
+    history: {
+      push: () => {},
+      replace: () => {},
+      location: {
+        pathname,
+        state: {
+          importData: {
+            isImport: true,
+            originalSource: 'domen.com/documents/documents_id',
+            cause: 'cause',
+            medicationCode: 'medicationCode',
+            medicationTerminology: 'medicationTerminology',
+          },
+        },
+      },
+    },
+  },
+};
+
 describe('Component <MedicationsCreateForm />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
@@ -150,6 +172,20 @@ describe('Component <MedicationsCreateForm />', () => {
       <MedicationsCreateForm
         store={store}
       />, { context: contextImport }).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(9);
+
+    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when data take from Documents how "import" with Terminology', () => {
+    const component = shallow(
+      <MedicationsCreateForm
+        store={store}
+      />, { context: contextImportWithTerminology }).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(9);
 
     expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);

@@ -4,6 +4,12 @@ exports[`Component <Vaccinations /> should renders correctly and testing another
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -58,7 +64,6 @@ exports[`Component <Vaccinations /> should renders correctly and testing another
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -191,6 +196,12 @@ exports[`Component <Vaccinations /> should renders correctly with empty store 1`
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -268,6 +279,12 @@ exports[`Component <Vaccinations /> should renders correctly with forms error 1`
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Vaccinations"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -322,7 +339,6 @@ exports[`Component <Vaccinations /> should renders correctly with forms error 1`
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
@@ -400,7 +416,6 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
@@ -502,7 +517,6 @@ exports[`Component <Vaccinations /> should renders correctly with vaccinationsDe
                 },
               ]
             }
-            id="b9ececa8-4e84-4229-8ee3-1fa0bc8519a2"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}

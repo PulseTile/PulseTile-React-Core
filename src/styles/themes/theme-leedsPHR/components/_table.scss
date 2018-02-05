@@ -1,0 +1,74 @@
+.table thead tr th {
+  padding: 11px 4px 11px 5px;
+  @include respond-from(sm) {
+    padding: 11px 4px 11px 10px;
+  }
+}
+
+.table {
+  tbody tr td,
+  .table__body .table__col{
+    padding-bottom: 10px - map-get($colored-table, 'border-width');
+    border-bottom: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+  }
+
+  border-bottom: 0;
+}
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > tbody > tr.info {
+  border-color: $auxiliary-color;
+}
+
+.table-striped {
+  thead > tr:nth-of-type(odd) > td.info,
+  tbody > tr:nth-of-type(odd) > td.info,
+  tfoot > tr:nth-of-type(odd) > td.info,
+  thead > tr:nth-of-type(odd).info > td,
+  tbody > tr:nth-of-type(odd).info > td,
+  tfoot > tr:nth-of-type(odd).info > td,
+  tbody > tr:nth-of-type(odd).info {
+    border-color: $auxiliary-color;
+  }
+}
+.table-striped.table-hover {
+  tbody {
+    tr {
+      &:hover td[data-table-hover],
+      &.hovered td[data-table-hover] {
+        border-color: $auxiliary-color;
+      }
+    }
+    tr:nth-of-type(odd) {
+      &:hover td[data-table-hover],
+      &.hovered td[data-table-hover] {
+        border-color: $auxiliary-color;
+      }
+    }
+  }
+}
+.is-not-touch-device .table-hover > tbody > tr > td.info:hover,
+.is-not-touch-device .table-hover > tbody > tr > th.info:hover,
+.is-not-touch-device .table-hover > tbody > tr.info:hover > td,
+.is-not-touch-device .table-hover > tbody > tr:hover > .info,
+.is-not-touch-device .table-hover > tbody > tr.info:hover > th,
+.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover > td,
+.is-not-touch-device .table-hover > tbody > tr:hover > td[ng-click],
+.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover,
+.is-not-touch-device .table-hover > tbody > tr.hovered {
+  border-color: $auxiliary-color;
+}
+
+@include respond-from(xs) {
+  .table-sorted.table-striped.table-hover tbody {
+    tr.hovered td.sorted,
+    tr:hover td.sorted {
+      border-color: $auxiliary-color;
+    }
+  }
+}

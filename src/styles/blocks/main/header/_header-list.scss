@@ -1,0 +1,14 @@
+.header-list {
+  display: flex;
+  flex-direction: row;
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: $header-height;
+    padding: 0 7px;
+    @include respond-from(md) {
+      padding: 0 12px;
+    }
+  }
+}
