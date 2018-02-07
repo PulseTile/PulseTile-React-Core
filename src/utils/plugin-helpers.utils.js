@@ -12,6 +12,8 @@ export const checkIsValidateForm = (formState) => {
 export const operationsOnCollection = {
   modsSorting: {
     NUMBER: 'number',
+    DATE: 'date',
+    REPLACEMENT: 'replacement',
   },
 
   modificate: (collection, options) => {
@@ -48,16 +50,29 @@ export const operationsOnCollection = {
     ])(sortingByOrder);
 
     return _.flow(_.sortBy([(item) => {
+      let key = sortingByKey;
+
       if (modeSorting) {
+        if (modeSorting[operationsOnCollection.modsSorting.REPLACEMENT]) {
+          modeSorting[operationsOnCollection.modsSorting.REPLACEMENT].forEach(item => {
+            if (key === item.instead) {
+              key = item.to;
+            }
+          });
+        }
         if (modeSorting[operationsOnCollection.modsSorting.NUMBER] &&
-            modeSorting[operationsOnCollection.modsSorting.NUMBER].indexOf(sortingByKey) !== -1) {
-          if (!_.isNaN(+item[sortingByKey])) {
-            return +item[sortingByKey];
+            modeSorting[operationsOnCollection.modsSorting.NUMBER].indexOf(key) !== -1) {
+          if (!_.isNaN(+item[key])) {
+            return +item[key];
           }
+        }
+        if (modeSorting[operationsOnCollection.modsSorting.DATE] &&
+          modeSorting[operationsOnCollection.modsSorting.DATE].indexOf(key) !== -1) {
+          return new Date(item[key]).getTime();
         }
       }
 
-      return item[sortingByKey] ? item[sortingByKey].toString().toLowerCase() : null;
+      return item[key] ? item[key].toString().toLowerCase() : null;
     }]), reverseIfDescOrder)(collection);
   },
 
