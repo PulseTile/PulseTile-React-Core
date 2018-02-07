@@ -44,17 +44,6 @@ exports[`Component <PluginMainPanel /> should renders with all props correctly 1
     sortingOrder="asc"
     table=""
   />
-  <div
-    className="panel-control"
-  >
-    <div
-      className="wrap-control-group"
-    >
-      <div
-        className="control-group with-indent right"
-      />
-    </div>
-  </div>
 </div>
 `;
 
@@ -114,9 +103,6 @@ exports[`Component <PluginMainPanel /> should renders with pagination component 
           totalEntriesAmount={5}
         />
       </div>
-      <div
-        className="control-group with-indent right"
-      />
     </div>
   </div>
 </div>

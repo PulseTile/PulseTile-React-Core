@@ -78,6 +78,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 "push": [Function],
               }
             }
+            isHasSearch={true}
             openedPanel="userAccountPanel"
             patientsInfo={
               Object {
@@ -119,6 +120,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 </button>
               </PTButton>
               <MainLogo
+                logo={null}
                 patientsInfo={
                   Object {
                     "browserTitle": "PulseTile",
@@ -152,7 +154,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         >
                           <img
                             alt="logo"
-                            className="img"
+                            className="img logo-img "
                             src="testLogo"
                           />
                         </a>
@@ -161,16 +163,22 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   </div>
                 </div>
               </MainLogo>
-              <UserPanel>
+              <UserPanel
+                addUserPanels={Array []}
+                isNotifications={true}
+                isQuestions={true}
+                isSearch={false}
+                isUserPanel={true}
+              >
                 <ul
                   className="user-panel"
                   role="tablist"
                 >
                   <UserPanelItem
-                    className="user-panel-item visible-xs"
+                    className="user-panel-item"
                   >
                     <li
-                      className="user-panel-item visible-xs"
+                      className="user-panel-item"
                     >
                       <PTButton
                         className="btn-header"
@@ -179,7 +187,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                           className="btn-header"
                         >
                           <i
-                            className="fa fa-search"
+                            className="fa fa-question-circle"
                           />
                         </button>
                       </PTButton>
@@ -536,6 +544,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
+    logo={null}
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -550,13 +559,45 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
       }
     }
   />
-  <UserPanel />
-  <NavSearch
+  <UserPanel
+    addUserPanels={Array []}
+    isNotifications={true}
+    isQuestions={true}
+    isSearch={false}
+    isUserPanel={true}
+  />
+  <div
+    className="navbar-space-right"
+  />
+</div>
+`;
+
+exports[`Component <TopHeader /> should renders with props correctly when we are on the ROOT page 2`] = `
+<div
+  className="navbar"
+>
+  <MainLogo
+    logo={null}
+    patientsInfo={
+      Object {
+        "browserTitle": "PulseTile",
+        "logoB64": "testLogo",
+        "themeColor": "green",
+        "title": "PulseTile",
+      }
+    }
     userAccount={
       Object {
         "role": "IDCR",
       }
     }
+  />
+  <UserPanel
+    addUserPanels={Array []}
+    isNotifications={true}
+    isQuestions={true}
+    isSearch={false}
+    isUserPanel={true}
   />
 </div>
 `;
@@ -574,6 +615,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
     />
   </PTButton>
   <MainLogo
+    logo={null}
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -588,7 +630,13 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
       }
     }
   />
-  <UserPanel />
+  <UserPanel
+    addUserPanels={Array []}
+    isNotifications={true}
+    isQuestions={true}
+    isSearch={false}
+    isUserPanel={true}
+  />
   <NavSearch
     userAccount={
       Object {

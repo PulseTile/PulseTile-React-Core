@@ -3,145 +3,116 @@ import Swiper from 'react-id-swiper';
 import 'react-id-swiper/src/styles/scss/swiper.scss';
 import moment from 'moment';
 import _ from 'lodash/fp';
+import * as cornerstone from 'cornerstone-core';
+import * as cornerstoneTools from 'cornerstone-tools';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
 import ImagesDetailPanel from '../images-page-component/ImagesDetailPanel';
+import CornerstoneImage from '../images-page-component/CornerstoneImage';
 import { valuesNames, valuesLabels } from '../forms.config';
-import { hasClass } from '../../../../utils/plugin-helpers.utils';
 
 const IMAGES_PANEL = 'imagesPanel';
 const IMAGES_DETAIL_PANEL = 'imagesDetailPanel';
-const SCALE = 100;
 
 export default class ImagesDetail extends PureComponent {
-  getURLtoImage = id => `http://46.101.95.245/orthanc/instances/${id}/preview`;
-
   state = {
-    styleSwiper: {},
-    coordX: '',
-    coordY: '',
-    drag: false,
-    targ: {},
-    marginTop: 0,
-    marginLeft: 0,
     touchMode: true,
+    isVisibleCornerstone: true,
   };
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.instanceIds[0] !== this.props.instanceIds[0]) {
-      this.setState({ styleSwiper: {}, touchMode: true });
-      this.swiper.allowTouchMove = true;
-    }
-  }
 
   componentDidMount() {
-    document.onmousedown = this.startDrag;
-    document.onmouseup = this.stopDrag;
+    this.updateSwiper();
   }
 
-  startDrag = /* istanbul ignore next */ (e) => {
-    if (!this.state.touchMode) {
-      if (e.preventDefault) e.preventDefault();
-
-      let target = e.target ? e.target : e.srcElement;
-
-      if (hasClass(target, 'swiper-slide')) {
-        target = target.querySelector('img');
+  componentWillReceiveProps(nextProps) {
+    if ((nextProps.instanceIds[0] !== this.props.instanceIds[0]) && this.props.instanceIds.length) {
+      this.setState({ touchMode: true });
+      this.visibleCornerstone(false);
+      this.swiper.allowTouchMove = true;
+      const cornerstoneElement = this.getImgBlock();
+      /* istanbul ignore next */
+      if (cornerstoneElement) {
+        this.disableCornerstoneTools(cornerstoneElement)
+        cornerstone.reset(cornerstoneElement);
       }
+    }
+  }
 
-      if (target.id !== `img-${this.swiper.activeIndex}`) { return }
+  componentDidUpdate() {
+    this.updateSwiper();
+  }
 
-      this.setState({ targ: target });
+  getImgBlock = () => document.getElementById(`dicomImage-${this.swiper.activeIndex}`);
 
-      if (target.id !== `img-${this.swiper.activeIndex}`) { return }
-      const marginTop = parseInt(target.style.marginTop) || 0;
-      const marginLeft = parseInt(target.style.marginLeft) || 0;
-      this.setState({
-        coordX: parseInt(e.clientX),
-        coordY: parseInt(e.clientY),
-        drag: true,
-        marginTop,
-        marginLeft,
-      });
+  getURLtoImage = id => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
 
-      document.onmousemove = this.dragDiv;
+  visibleCornerstone = isVisibleCornerstone => this.setState({ isVisibleCornerstone });
 
-      return false;
+  updateSwiper = () => {
+    if (this.swiper) {
+      this.swiper.update();
     }
   };
 
-  dragDiv = (e) => {
-    const { drag, coordX, coordY, styleSwiper, marginTop, marginLeft } = this.state;
-    if (!drag) { return }
-    const currentCoordX = e.clientX;
-    const currentCoordY = e.clientY;
-    this.setState({ styleSwiper: {
-      ...styleSwiper,
-      [this.swiper.activeIndex]: {
-        ...styleSwiper[this.swiper.activeIndex],
-        marginLeft: `${marginLeft - coordX + currentCoordX}px`,
-        marginTop: `${marginTop - coordY + currentCoordY}px`,
-      },
-    } });
-    return false;
-  };
-
-  stopDrag = () => {
-    this.setState({ drag: false });
+  disableCornerstoneTools = (cornerstoneElement) => {
+    cornerstoneTools.mouseInput.disable(cornerstoneElement);
+    cornerstoneTools.pan.disable(cornerstoneElement);
+    cornerstoneTools.wwwc.disable(cornerstoneElement);
   };
 
   zoomin = /* istanbul ignore next */ () => {
-    const { styleSwiper } = this.state;
-    const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
-    const currWidth = myImg.clientWidth;
-    const currHeight = myImg.clientHeight;
-
-    this.setState({ styleSwiper: {
-      ...styleSwiper,
-      [this.swiper.activeIndex]: {
-        ...styleSwiper[this.swiper.activeIndex],
-        width: `${currWidth + SCALE}px`,
-        height: `${currHeight + SCALE}px`,
-        maxWidth: 'initial',
-        maxHeight: 'initial',
-      },
-    } });
+    const cornerstoneElement = this.getImgBlock();
+    const viewport = cornerstone.getViewport(cornerstoneElement);
+    viewport.scale += 0.1;
+    cornerstone.setViewport(cornerstoneElement, viewport);
   };
   zoomout = /* istanbul ignore next */ () => {
-    const { styleSwiper } = this.state;
-    const myImg = document.getElementById(`img-${this.swiper.activeIndex}`);
-    const currWidth = myImg.clientWidth;
-    const currHeight = myImg.clientHeight;
-    this.setState({ styleSwiper: {
-      ...styleSwiper,
-      [this.swiper.activeIndex]: {
-        ...styleSwiper[this.swiper.activeIndex],
-        width: `${currWidth - SCALE}px`,
-        height: `${currHeight - SCALE}px`,
-        maxWidth: 'initial',
-        maxHeight: 'initial',
-      },
-    } });
+    const cornerstoneElement = this.getImgBlock();
+    const viewport = cornerstone.getViewport(cornerstoneElement);
+    if (viewport.scale > 0.1) {
+      viewport.scale -= 0.1;
+      cornerstone.setViewport(cornerstoneElement, viewport);
+    }
   };
 
-  moveImg = () => {
-    this.setState({ touchMode: false });
-    this.swiper.allowTouchMove = false;
+  moveImg = /* istanbul ignore next */ () => {
+    const { touchMode } = this.state;
+    const cornerstoneElement = this.getImgBlock();
+    if (touchMode) {
+      this.setState({ touchMode: false });
+      this.swiper.allowTouchMove = false;
+      cornerstoneTools.mouseInput.enable(cornerstoneElement);
+      cornerstoneTools.pan.activate(cornerstoneElement, 1);
+      cornerstoneTools.wwwc.disable(cornerstoneElement)
+    } else {
+      this.setState({ touchMode: true });
+      this.swiper.allowTouchMove = true;
+      this.disableCornerstoneTools(cornerstoneElement)
+    }
   };
 
-  fadeImg = () => {
+  fadeImg = /* istanbul ignore next */ () => {
+    const { touchMode } = this.state;
+    const cornerstoneElement = this.getImgBlock();
+    if (!touchMode) {
+      cornerstoneTools.mouseInput.enable(cornerstoneElement);
+      cornerstoneTools.mouseWheelInput.enable(cornerstoneElement);
+      cornerstoneTools.pan.disable(cornerstoneElement);
+      cornerstoneTools.wwwc.activate(cornerstoneElement, 2)
+    } else {
+      this.disableCornerstoneTools(cornerstoneElement)
+    }
     this.setState({ touchMode: true });
     this.swiper.allowTouchMove = true;
   };
 
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, instanceIds } = this.props;
-    const { styleSwiper, touchMode } = this.state;
+    const { touchMode, isVisibleCornerstone } = this.state;
     let { detail } = this.props;
     detail = detail || {};
     const seriesDate = (detail[valuesNames.SERIES_DATE]) ? moment(detail[valuesNames.SERIES_DATE]).format('DD-MMM-YYYY') : '';
     const seriesTime = (detail[valuesNames.SERIES_TIME]) ? moment(detail[valuesNames.SERIES_TIME]).format('HH:MM') : '';
-
     const params = {
       pagination: {
         el: '.swiper-pagination',
@@ -160,8 +131,19 @@ export default class ImagesDetail extends PureComponent {
     let swiperSlide;
     if (!_.isEmpty(instanceIds)) {
       swiperSlide = instanceIds.map((item, index) => {
-        return (<div key={index}><img id={`img-${index}`} style={styleSwiper[index] ? styleSwiper[index] : null} src={this.getURLtoImage(item)} /></div>)
-      });
+        return (
+          <div key={index}>
+            <CornerstoneImage
+              instanceIds={instanceIds}
+              imageId={this.getURLtoImage(item)}
+              visibleCornerstone={this.visibleCornerstone}
+              isVisibleCornerstone={isVisibleCornerstone}
+              index={index}
+            />
+          </div>
+        );
+      }
+      )
     }
 
     return (
@@ -187,7 +169,7 @@ export default class ImagesDetail extends PureComponent {
                     {...params}
                     ref={node => this.swiper = node ? node.swiper : null}
                   >
-                    { swiperSlide }
+                    { swiperSlide || <div /> }
                   </Swiper>
                 </div>
               </div>

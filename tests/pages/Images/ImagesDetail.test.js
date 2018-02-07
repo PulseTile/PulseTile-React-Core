@@ -35,6 +35,7 @@ const CONVERT_SERIES_DATE = moment(propsForImagePanel.detail[valuesNames.SERIES_
 const CONVERT_SERIES_TIME = moment(propsForImagePanel.detail[valuesNames.SERIES_TIME]).format('HH:MM');
 const EVENT = {
   preventDefault: () => {},
+  removeEventListener: () => {},
   target: {
     className: 'swiper-slide',
     querySelector: () => {},
@@ -95,6 +96,16 @@ describe('Component <ImagesDetail />', () => {
     expect(component.find('.form-control-static').at(7).text()).toEqual(propsForImagePanel.detail[valuesNames.SERIES_NUMBER]);
 
     expect(component).toMatchSnapshot();
+
+    // Testing methods shallow
+
+    expect(component.state().isVisibleCornerstone).toEqual(true);
+    component.instance().visibleCornerstone(false);
+    expect(component.state().isVisibleCornerstone).toEqual(false);
+    component.instance().visibleCornerstone(true);
+    expect(component.state().isVisibleCornerstone).toEqual(true);
+    component.instance().disableCornerstoneTools(EVENT);
+
   });
 
   it('should renders with props correctly mount', () => {
@@ -104,32 +115,12 @@ describe('Component <ImagesDetail />', () => {
       expandedPanel="all"
     />);
 
-    // Testing component methods dragDiv()
-    expect(component.state().styleSwiper).toEqual({})
-    component.setState({ drag: true });
-    component.instance().dragDiv(EVENT)
-    expect(component.state().styleSwiper).toEqual({ '0': { marginLeft: '10px', marginTop: '10px' } });
+    // Testing methods
 
-    component.setState({ drag: false });
-    component.instance().dragDiv();
-
-    // Testing component methods stopDrag()
-    component.setState({ drag: true });
-    expect(component.state().drag).toEqual(true);
-    component.instance().stopDrag();
-    console.log(component.state().drag);
-
-    // Testing component methods moveImg()
-    component.instance().moveImg();
-    expect(component.state().touchMode).toEqual(false);
-
-    // Testing component methods fadeImg()
-    component.instance().fadeImg();
-    expect(component.state().touchMode).toEqual(true);
+    component.instance().getImgBlock();
+    component.instance().getURLtoImage('test');
 
     component.setProps({ instanceIds: ['ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9'] });
-    expect(component.state().styleSwiper).toEqual({});
-    expect(component.state().touchMode).toEqual(true);
     expect(component).toMatchSnapshot();
 
     component.setProps({ instanceIds: [] });

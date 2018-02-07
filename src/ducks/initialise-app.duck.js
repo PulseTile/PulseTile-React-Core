@@ -34,7 +34,7 @@ export const initialiseEpic = (action$, store) => Observable.merge(
       return fetchUserAccountRequest(action)
     }),
   action$
-    .ofType(FETCH_INITIALISE_SUCCESS)
+    .ofType(FETCH_USER_ACCOUNT_SUCCESS)
     .map((action) => {
       return fetchPatientsInfoRequest(action);
     }),

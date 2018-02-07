@@ -128,13 +128,6 @@ exports[`Component <VitalsChart /> should renders with props correctly 1`] = `
                 },
               },
             ],
-            "yAxes": Array [
-              Object {
-                "ticks": Object {
-                  "stepSize": 5,
-                },
-              },
-            ],
           },
           "tooltips": Object {
             "bodySpacing": 10,

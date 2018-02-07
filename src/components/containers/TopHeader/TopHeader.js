@@ -48,7 +48,7 @@ class TopHeader extends PureComponent {
           userAccount={userAccount}
           logo={headerLogo}
         />
-        <UserPanel isSearch={false}/>
+        <UserPanel isSearch={false} />
         { children ? <div className="navbar-space-right">
           { children }
         </div> : null }

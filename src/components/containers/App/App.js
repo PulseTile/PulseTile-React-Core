@@ -4,8 +4,9 @@ import LoadingBar from 'react-redux-loading-bar';
 import { connect } from 'react-redux';
 import _ from 'lodash/fp';
 import { withRouter } from 'react-router-dom';
-import { themeConfigs } from '../../../themes.config';
+import { compose } from 'recompose';
 
+import { themeConfigs } from '../../../themes.config';
 import { requestErrorSelector, initialiseSelector } from './selectors';
 import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
@@ -19,34 +20,31 @@ import headerImg2 from '../../../assets/images/nhs.png'
 
 import '../../../styles/main.scss';
 
-@withRouter
-@connect(requestErrorSelector)
-@connect(initialiseSelector)
-export default class App extends Component {
+export class App extends Component {
   render() {
     const { requestError, initialiseData } = this.props;
     const isTouchDevice = (this.props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
     return (
       <div className="page">
         <LoadingBar className="loading-bar" />
-        {(!requestError.initialiseError && !_.isEmpty(initialiseData)) ? <MainSpinner /> : null }
-        {!_.isEmpty(requestError) ? <HandleErrors /> : null }
-        { !_.isEmpty(initialiseData) ? <div className={classNames('wrapper', isTouchDevice)}>
+        {!_.isEmpty(requestError) ? <HandleErrors /> : <MainSpinner /> }
+        <div className={classNames('wrapper', isTouchDevice)}>
           <header className="header">
             <TopHeader
               isHasSearch={themeConfigs.headerHasSearch}
             >
               {themeConfigs.isLeedsPHRHeaderList ?
                 <HeaderList items={[
-                  <img src={headerImg1} alt="header img 1"/>,
-                  <img src={headerImg2} alt="header img 2"/>
-                ]}/>
+                  <img src={headerImg1} alt="header img 1" />,
+                  <img src={headerImg2} alt="header img 2" />,
+                ]}
+                />
                 : <div />}
             </TopHeader>
             <Header />
           </header>
           <Main />
-        </div> : null }
+        </div>
         <Footer
           copyright={themeConfigs.footerCopyright}
           isShowSupportedBy={themeConfigs.footerHasShowSupportedByText}
@@ -55,3 +53,5 @@ export default class App extends Component {
     )
   }
 }
+
+export default withRouter(compose(connect(requestErrorSelector), connect(initialiseSelector))(App))

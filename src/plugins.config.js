@@ -58,10 +58,10 @@ export const sidebarConfig = [
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
   { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
+  { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
   { key: 'drawings', pathToTransition: '/drawings', name: 'Drawings', isVisible: true },
   { key: 'referrals', pathToTransition: '/referrals', name: 'Referrals', isVisible: true },
   { key: 'mdt', pathToTransition: '/mdt', name: 'MDT', isVisible: true },
-  { key: 'images', pathToTransition: '/images', name: 'Images', isVisible: true },
   { key: 'transfer-of-care', pathToTransition: '/transfer-of-care', name: 'Transfers of Care', isVisible: true },
   { key: 'topThreeThings', pathToTransition: '/topThreeThings', name: 'Top 3 Things', isVisible: false },
 

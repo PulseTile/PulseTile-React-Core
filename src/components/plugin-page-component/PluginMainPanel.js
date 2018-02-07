@@ -40,7 +40,7 @@ export default class PluginMainPanel extends PureComponent {
           id={id}
         />
         {isLoading ? <Spinner /> : null }
-        {isPagination && isBtnCreateVisible ?
+        {isPagination || isBtnCreateVisible ?
           <div className="panel-control">
             <div className="wrap-control-group">
               { isPagination &&

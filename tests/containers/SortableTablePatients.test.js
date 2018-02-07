@@ -110,8 +110,11 @@ describe('Component <SortableTablePatients />', () => {
         columnNameSortBy="cause"
         emptyDataMessage="No allergies"
         sortingOrder="asc"
-        table="patientsList"
+        table="patientsList1"
       />);
+    setTimeout(() => sortableTablePatients.instance().resizeFixedTables());
+    window.dispatchEvent(resizeEvent);
+
     expect(sortableTablePatients.find('SortableTableEmptyDataRow')).toHaveLength(1);
     expect(sortableTablePatients.find('SortableTableHeaderRow')).toHaveLength(1);
     expect(sortableTablePatients.find('SortableTableHoveredRow')).toHaveLength(0);

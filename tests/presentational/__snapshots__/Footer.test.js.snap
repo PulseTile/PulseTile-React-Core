@@ -34,3 +34,28 @@ exports[`Component <Footer /> should renders with props correctly 1`] = `
   </div>
 </footer>
 `;
+
+exports[`Component <Footer /> should renders with props correctly 2`] = `
+<footer
+  className="footer"
+>
+  <div
+    className="container-fluid"
+  >
+    <div
+      className="footer-povered"
+    >
+      <a
+        className="footer-logo"
+        href="/"
+      >
+        <img
+          alt="Ripple Icon"
+          className="footer-logo-img"
+          src="ripple-foundation-logo-footer.png"
+        />
+      </a>
+    </div>
+  </div>
+</footer>
+`;
