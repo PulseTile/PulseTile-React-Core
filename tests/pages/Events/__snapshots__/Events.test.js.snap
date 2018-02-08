@@ -1168,6 +1168,7 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
         xs={12}
       >
         <EventsDetail
+          appoitmentId={null}
           currentPanel="eventsDetail"
           detail={
             Object {
@@ -1184,6 +1185,8 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
           editedPanel={Object {}}
           expandedPanel="all"
           isSubmit={false}
+          joinAppointment={[Function]}
+          messages={Array []}
           name="eventsDetail"
           onCancel={[Function]}
           onEdit={[Function]}
@@ -1191,6 +1194,20 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="eventPanel"
+          startAppointment={[Function]}
+          userAccount={
+            Object {
+              "email": "bob.smith@gmail.com",
+              "family_name": "Smith",
+              "given_name": "Bob",
+              "role": "IDCR",
+              "roles": Array [
+                "IDCR",
+              ],
+              "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+              "tenant": null,
+            }
+          }
         />
       </Col>
     </Row>
@@ -1216,6 +1233,7 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
         xs={12}
       >
         <EventsDetail
+          appoitmentId={null}
           currentPanel="eventsDetail"
           detail={
             Object {
@@ -1232,6 +1250,8 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
           editedPanel={Object {}}
           expandedPanel="eventPanel"
           isSubmit={false}
+          joinAppointment={[Function]}
+          messages={Array []}
           name="eventsDetail"
           onCancel={[Function]}
           onEdit={[Function]}
@@ -1239,6 +1259,20 @@ exports[`Component <Events /> should renders correctly with eventsDetail and tes
           onSaveSettings={[Function]}
           onShow={[Function]}
           openedPanel="eventPanel"
+          startAppointment={[Function]}
+          userAccount={
+            Object {
+              "email": "bob.smith@gmail.com",
+              "family_name": "Smith",
+              "given_name": "Bob",
+              "role": "IDCR",
+              "roles": Array [
+                "IDCR",
+              ],
+              "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+              "tenant": null,
+            }
+          }
         />
       </Col>
     </Row>
