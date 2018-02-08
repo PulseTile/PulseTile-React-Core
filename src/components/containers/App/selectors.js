@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 
 const requestErrorsSelector = state => state.requestError;
 const initialiseDataSelector = ({ initialiseData }) => initialiseData;
+const patientsInfoSelector = state => state.patientsInfo;
 
 const requestErrorSelector = createSelector(
   requestErrorsSelector,
@@ -13,4 +14,9 @@ const initialiseSelector = createSelector(
   initialiseData => ({ initialiseData })
 );
 
-export { requestErrorSelector, initialiseSelector };
+const patientInfoSelector = createSelector(
+  patientsInfoSelector,
+  patientsInfo => ({ patientsInfo })
+);
+
+export { requestErrorSelector, initialiseSelector, patientInfoSelector };
