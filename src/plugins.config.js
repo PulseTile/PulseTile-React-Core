@@ -21,6 +21,7 @@ import { vitalsEpic, vitalsReducer } from './components/pages/Vitals/index';
 import { imagesEpic, imagesReducer } from './components/pages/Images/index';
 import { transfersOfCareEpic, transfersOfCareReducer } from './components/pages/TransfersOfCare/index';
 import { topThreeThingsEpic, topThreeThingsReducer } from './components/pages/TopThreeThings/index';
+import { clinicalStatementsEpic, clinicalStatementsReducer } from './components/pages/ClinicalStatements/index';
 
 import Allergies from './components/pages/Allergies/Allergies';
 import ProblemsDiagnosis from './components/pages/ProblemsDiagnosis/ProblemsDiagnosis';
@@ -42,6 +43,7 @@ import Documents from './components/pages/Documents/Documents';
 import Images from './components/pages/Images/Images';
 import TransfersOfCare from './components/pages/TransfersOfCare/TransfersOfCare';
 import TopThreeThings from './components/pages/TopThreeThings/TopThreeThings';
+import ClinicalStatements from './components/pages/ClinicalStatements/ClinicalStatements';
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: themeConfigs.patientsSummaryPageName, isVisible: true },
@@ -55,6 +57,7 @@ export const sidebarConfig = [
   { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
   { key: 'procedures', pathToTransition: '/procedures', name: 'Procedures', isVisible: true },
   { key: 'clinicalNotes', pathToTransition: '/clinicalNotes', name: 'Clinical Notes', isVisible: true },
+  { key: 'clinicalStatements', pathToTransition: '/clinicalStatements', name: 'Clinical Statements', isVisible: true },
   { key: 'personalNotes', pathToTransition: '/personalNotes', name: 'Personal Notes', isVisible: true },
   { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true },
   { key: 'vitals', pathToTransition: '/vitals', name: 'Vitals - News', isVisible: true },
@@ -104,6 +107,7 @@ export const pluginsEpicConfig = [
   imagesEpic,
   transfersOfCareEpic,
   topThreeThingsEpic,
+  clinicalStatementsEpic,
 ];
 
 export const pluginsReducerConfig = [
@@ -127,6 +131,7 @@ export const pluginsReducerConfig = [
   imagesReducer,
   transfersOfCareReducer,
   topThreeThingsReducer,
+  clinicalStatementsReducer,
 ];
 
 export const routersPluginConfig = [
@@ -206,4 +211,7 @@ export const routersPluginConfig = [
   { key: 'topThreeThings', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}` },
   { key: 'topThreeThingsDetail', component: TopThreeThings, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.TOP_THREE_THINGS}/:sourceId` },
 
+  { key: 'clinicalStatements', component: ClinicalStatements, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_STATEMENTS}` },
+  { key: 'clinicalStatementsCreate', component: ClinicalStatements, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_STATEMENTS}/create` },
+  { key: 'clinicalStatementsDetail', component: ClinicalStatements, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.CLINICAL_STATEMENTS}/:sourceId` },
 ];

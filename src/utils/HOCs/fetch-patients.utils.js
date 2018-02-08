@@ -142,3 +142,6 @@ export const fetchPatientTransfersOfCareDetailOnMount = (generateFetchDetailOnMo
 
 export const fetchPatientTopThreeThingsOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsRequest'));
 export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTopThreeThingsDetailRequest'));
+
+export const fetchPatientClinicalStatementsOnMount = (generateFetchListOnMount('fetchPatientClinicalStatementsRequest'));
+export const fetchPatientClinicalStatementsDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalStatementsDetailRequest'));

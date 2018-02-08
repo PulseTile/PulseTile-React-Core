@@ -28,6 +28,7 @@ export const clientUrls = {
   IMAGES: 'images',
   TRANSFERS_OF_CARE: 'transfer-of-care',
   TOP_THREE_THINGS: 'topThreeThings',
+  CLINICAL_STATEMENTS: 'clinicalStatements',
 };
 
 const pluginsPages = {
@@ -149,6 +150,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Top 3 Things',
       state: '/topThreeThings',
+    }],
+  },
+  'clinicalStatements': {
+    breadcrumbs: [{
+      title: 'Clinical Sta',
+      state: '/clinicalStatements',
     }],
   },
 };
