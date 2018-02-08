@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
-
-import { themeConfigs } from '../../../themes.config';
+import classNames from 'classnames';
 
 export default class MainLogo extends PureComponent {
   render() {
@@ -12,11 +11,13 @@ export default class MainLogo extends PureComponent {
           <div className="logo-icon">
             {userAccount.role === 'IDCR'
               ? <Link to={'/'}>
-                {themeConfigs.isLeedsPHRTheme ? <img className="img" alt="logo" src={logo} /> : <img className="img logo-img" alt="logo" src={patientsInfo.logoB64} />}
+                {logo ? <img className="img" alt="logo" src={logo} /> : null}
+                <img className={classNames(`img logo-img ${logo ? 'hidden' : ''}`)} alt="logo" src={patientsInfo.logoB64} />
               </Link>
               : userAccount.role === 'PHR'
                 ? <Link to={`/patients/${userAccount.nhsNumber}/patients-summary`}>
-                  {themeConfigs.isLeedsPHRTheme ? <img className="img" alt="logo" src={logo} /> : <img className="img logo-img" alt="logo" src={patientsInfo.logoB64} />}
+                  {logo ? <img className="img" alt="logo" src={logo} /> : null}
+                  <img className={classNames(`img logo-img ${logo ? 'hidden' : ''}`)} alt="logo" src={patientsInfo.logoB64} />
                 </Link> : null }
           </div>
         </div>
