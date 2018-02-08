@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import { debounce } from 'throttle-debounce';
+import io from 'socket.io-client';
 
 import EventsListHeader from './events-page-component/EventsListHeader';
 import EventsMainPanel from './events-page-component/EventsMainPanel';
@@ -18,13 +19,13 @@ import { fetchPatientEventsDetailRequest } from './ducks/fetch-patient-events-de
 import { fetchPatientEventsDetailEditRequest } from './ducks/fetch-patient-events-detail-edit.duck';
 import { fetchPatientEventsCreateRequest } from './ducks/fetch-patient-events-create.duck';
 import { fetchPatientEventsOnMount, fetchPatientEventsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector } from './selectors';
+import { patientEventsSelector, patientEventsDetailSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector, userSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import EventsDetail from './EventsDetail/EventsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { modificateEventsArr } from './events-helpers.utils';
+import { modificateEventsArr, getCookie, openPopup } from './events-helpers.utils';
 import EventsCreateForm from './EventsCreate/EventsCreateForm'
 
 const EVENTS_MAIN = 'eventsMain';
@@ -40,6 +41,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientEventsDetailSelector, mapDispatchToProps)
 @connect(eventsDetailFormStateSelector)
 @connect(eventsCreateFormStateSelector)
+@connect(userSelector)
 @compose(lifecycle(fetchPatientEventsOnMount), lifecycle(fetchPatientEventsDetailOnMount))
 
 export default class Events extends PureComponent {
@@ -58,6 +60,35 @@ export default class Events extends PureComponent {
 
     this.onRangeChange = this.onRangeChange.bind(this);
     this.onRangeChange = debounce(100, this.onRangeChange);
+
+    // Socket initialization
+    this.socket = io.connect(`wss://${window.location.hostname}:${8070}`);
+    this.token = getCookie('JSESSIONID');
+
+    // Init user, when he connected to server
+    this.socket.emit('user:init', {
+      username: props.userAccount.username || props.userAccount.sub,
+      nhsNumber: props.userAccount.nhsNumber,
+      role: props.userAccount.role,
+      surname: props.userAccount.family_name,
+      name: props.userAccount.given_name,
+    });
+
+    // When doctor press start appointment, he emit 'appointment:init'
+    this.socket.on('appointment:init', (data) => {
+      console.log('ON appointment:init', data.appointmentId);
+      this.setState({ appoitmentId: data.appointmentId })
+    });
+
+    // Send appointment messages
+    this.socket.on('appointment:messages', (data) => {
+      console.log('ON appointment:messages', data);
+    });
+
+    // Check appointment status (closed/open) from database
+    this.socket.on('appointment:status', (data) => {
+      console.log('ON appointment:status', data);
+    });
   }
 
   state = {
@@ -81,15 +112,29 @@ export default class Events extends PureComponent {
     eventsType: '',
     isTimelinesOpen: false,
     valueEventsRange: [],
+    messages: [],
+    appoitmentId: null,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    const { eventDetail } = this.props;
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, eventsType: 'initEventsType' })
+      if (!_.isEmpty(eventDetail) && !_.isEmpty(nextProps)) {
+        if (eventDetail.sourceId !== nextProps.eventDetail.sourceId) {
+          // this.socket.emit('appointment:status', { appointmentId: eventDetail.sourceId, token: this.token });
+          // this.socket.off('appointment:messages');
+          // this.socket.off('appointment:status');
+          // this.socket.on('appointment:messages', this.onMessages);
+          // this.socket.on('appointment:status', this.onStatus);
+          this.socket.off('appointment:close');
+          this.socket.on('appointment:close', this.onClose);
+        }
+      }
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create` && _.isEmpty(this.state.eventsType)) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
@@ -103,6 +148,33 @@ export default class Events extends PureComponent {
       this.setState({ isLoading: false })
     }, 500)
   }
+
+  startAppointment = () => {
+    const { eventDetail, userId } = this.props;
+    console.log('startAppointment ===> ', eventDetail);
+    if (!eventDetail) return;
+    this.socket.emit('appointment:init', {
+      patientId: userId,
+      appointmentId: eventDetail[valuesNames.SOURCE_ID],
+    });
+
+    openPopup(eventDetail[valuesNames.SOURCE_ID]);
+  };
+
+  joinAppointment = () => {
+    const { eventDetail } = this.props;
+    openPopup(eventDetail[valuesNames.SOURCE_ID]);
+  };
+
+  onClose = (data) => {
+    const { eventDetail } = this.props;
+    console.log('onClose ---> ', data);
+    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
+      this.socket.emit('appointment:status', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token: this.token });
+      this.socket.emit('appointment:messages', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token: this.token });
+      this.setState({ appoitmentId: null })
+    }
+  };
 
   handleExpand = (name, currentPanel) => {
     if (currentPanel === EVENTS_MAIN) {
@@ -274,8 +346,28 @@ export default class Events extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
-    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail } = this.props;
+    const {
+      selectedColumns,
+      columnNameSortBy,
+      sortingOrder,
+      isSecondPanel,
+      isDetailPanelVisible,
+      isBtnExpandVisible,
+      expandedPanel,
+      openedPanel,
+      isBtnCreateVisible,
+      isCreatePanelVisible,
+      editedPanel,
+      offset,
+      isSubmit,
+      activeView,
+      isLoading,
+      eventsType,
+      isTimelinesOpen,
+      valueEventsRange,
+      messages,
+      appoitmentId } = this.state;
+    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail, userAccount } = this.props;
 
     const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL || expandedPanel === CHAT_PANEL);
     const isPanelMain = (expandedPanel === EVENTS_MAIN);
@@ -351,6 +443,11 @@ export default class Events extends PureComponent {
               onSaveSettings={this.handleSaveSettingsDetailForm}
               eventsDetailFormValues={eventsDetailFormState.values}
               isSubmit={isSubmit}
+              startAppointment={this.startAppointment}
+              joinAppointment={this.joinAppointment}
+              messages={messages}
+              userAccount={userAccount}
+              appoitmentId={appoitmentId}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>

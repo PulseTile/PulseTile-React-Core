@@ -3,6 +3,7 @@ import _ from 'lodash/fp';
 
 const eventsCreateFormSelector = _.getOr({}, 'form.eventsCreateFormSelector')
 const eventsDetailFormSelector = _.getOr({}, 'form.eventsDetailFormSelector')
+const userAccountSelector = ({ userAccount }) => userAccount;
 
 const patientEventsSelector = createSelector(
   ({ patientsEvents }) => patientsEvents,
@@ -28,4 +29,9 @@ const patientEventsDetailSelector = createSelector(
   }
 );
 
-export { patientEventsSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector, patientEventsDetailSelector }
+const userSelector = createSelector(
+  userAccountSelector,
+  userAccount => ({ userAccount })
+);
+
+export { patientEventsSelector, eventsDetailFormStateSelector, eventsCreateFormStateSelector, patientEventsDetailSelector, userSelector }
