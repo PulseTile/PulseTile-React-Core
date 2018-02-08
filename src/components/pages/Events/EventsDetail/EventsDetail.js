@@ -1,18 +1,34 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
+import _ from 'lodash/fp';
 
 import EventsDetailPanel from './EventsDetailPanel'
 import EventsDetailForm from './EventsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
+import { isIDCRRole } from '../../../../utils/auth/auth-check-permissions';
 
 const EVENT_PANEL = 'eventPanel';
 const META_PANEL = 'metaPanel';
 const CHAT_PANEL = 'chatPanel';
 
 export default class EventsDetail extends PureComponent {
+  canJoinAppointment = () => {
+    const { detail, userAccount, appoitmentId } = this.props;
+    if (!_.isEmpty(detail)) {
+      return (detail.type === 'Appointment' && !isIDCRRole(userAccount) && appoitmentId === detail[valuesNames.SOURCE_ID])
+    }
+  };
+
+  canStartAppointment = () => {
+    const { detail, userAccount } = this.props;
+    if (!_.isEmpty(detail)) {
+      return (detail.type === 'Appointment' && isIDCRRole(userAccount))
+    }
+  };
+
   render() {
-    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, eventsDetailFormValues, metaPanelFormValues, isSubmit, startAppointment } = this.props;
+    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, eventsDetailFormValues, metaPanelFormValues, isSubmit, startAppointment, joinAppointment, messages } = this.props;
     let { detail } = this.props;
     detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
@@ -35,6 +51,9 @@ export default class EventsDetail extends PureComponent {
             formValues={eventsDetailFormValues}
             isBtnShowPanel
             startAppointment={startAppointment}
+            joinAppointment={joinAppointment}
+            canJoinAppointment={this.canJoinAppointment}
+            canStartAppointment={this.canStartAppointment}
           >
             <div className="panel-body-inner">
               <div className="form">
@@ -154,7 +173,16 @@ export default class EventsDetail extends PureComponent {
               <div className="form">
                 <div className="form-group-wrapper">
                   <div className="row-expand">
-
+                    { !_.isEmpty(messages) ? <div className="col-expand-right">
+                      <div className="form-group">
+                        <label className="control-label">Chat History:</label>
+                        <div className="form-control-static">
+                          <ul className="list-reset">
+                            {messages.map((message) => { return (<li>{message.timestamp} - {message.author}: {message.message}</li>) })}
+                          </ul>
+                        </div>
+                      </div>
+                    </div> : null}
                   </div>
                 </div>
               </div>

@@ -8,7 +8,6 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import { debounce } from 'throttle-debounce';
 import io from 'socket.io-client';
-import moment from 'moment';
 
 import EventsListHeader from './events-page-component/EventsListHeader';
 import EventsMainPanel from './events-page-component/EventsMainPanel';
@@ -26,9 +25,8 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import EventsDetail from './EventsDetail/EventsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { modificateEventsArr } from './events-helpers.utils';
+import { modificateEventsArr, getCookie, openPopup } from './events-helpers.utils';
 import EventsCreateForm from './EventsCreate/EventsCreateForm'
-import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 
 const EVENTS_MAIN = 'eventsMain';
 const EVENTS_DETAIL = 'eventsDetail';
@@ -62,6 +60,35 @@ export default class Events extends PureComponent {
 
     this.onRangeChange = this.onRangeChange.bind(this);
     this.onRangeChange = debounce(100, this.onRangeChange);
+
+    // Socket initialization
+    this.socket = io.connect(`wss://${window.location.hostname}:${8070}`);
+    this.token = getCookie('JSESSIONID');
+
+    // Init user, when he connected to server
+    this.socket.emit('user:init', {
+      username: props.userAccount.username || props.userAccount.sub,
+      nhsNumber: props.userAccount.nhsNumber,
+      role: props.userAccount.role,
+      surname: props.userAccount.family_name,
+      name: props.userAccount.given_name,
+    });
+
+    // When doctor press start appointment, he emit 'appointment:init'
+    this.socket.on('appointment:init', (data) => {
+      console.log('ON appointment:init', data.appointmentId);
+      this.setState({ appoitmentId: data.appointmentId })
+    });
+
+    // Send appointment messages
+    this.socket.on('appointment:messages', (data) => {
+      console.log('ON appointment:messages', data);
+    });
+
+    // Check appointment status (closed/open) from database
+    this.socket.on('appointment:status', (data) => {
+      console.log('ON appointment:status', data);
+    });
   }
 
   state = {
@@ -85,33 +112,29 @@ export default class Events extends PureComponent {
     eventsType: '',
     isTimelinesOpen: false,
     valueEventsRange: [],
-    socket: null,
-    token: null,
+    messages: [],
+    appoitmentId: null,
   };
 
-  componentWillMount() {
-    const socket = io.connect(`wss://${window.location.hostname}:${8070}`);
-    const token = this.getCookie('JSESSIONID');
-    this.setState({ socket, token })
-  }
-
-  componentDidMount() {
-    const { socket } = this.state;
-    socket.off('appointment:messages'); // remove dublicate socket listeners
-    socket.off('appointment:close');
-    socket.off('appointment:status');
-    socket.on('appointment:messages', this.onMessages);
-    socket.on('appointment:close', this.onClose);
-    socket.on('appointment:status', this.onStatus);
-  }
-
-  componentWillReceiveProps() {
+  componentWillReceiveProps(nextProps) {
+    const { eventDetail } = this.props;
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, eventsType: 'initEventsType' })
+      if (!_.isEmpty(eventDetail) && !_.isEmpty(nextProps)) {
+        if (eventDetail.sourceId !== nextProps.eventDetail.sourceId) {
+          // this.socket.emit('appointment:status', { appointmentId: eventDetail.sourceId, token: this.token });
+          // this.socket.off('appointment:messages');
+          // this.socket.off('appointment:status');
+          // this.socket.on('appointment:messages', this.onMessages);
+          // this.socket.on('appointment:status', this.onStatus);
+          this.socket.off('appointment:close');
+          this.socket.on('appointment:close', this.onClose);
+        }
+      }
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.EVENTS}/create` && _.isEmpty(this.state.eventsType)) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: EVENTS_CREATE, isDetailPanelVisible: false, eventsType: 'Transfer' })
@@ -125,6 +148,33 @@ export default class Events extends PureComponent {
       this.setState({ isLoading: false })
     }, 500)
   }
+
+  startAppointment = () => {
+    const { eventDetail, userId } = this.props;
+    console.log('startAppointment ===> ', eventDetail);
+    if (!eventDetail) return;
+    this.socket.emit('appointment:init', {
+      patientId: userId,
+      appointmentId: eventDetail[valuesNames.SOURCE_ID],
+    });
+
+    openPopup(eventDetail[valuesNames.SOURCE_ID]);
+  };
+
+  joinAppointment = () => {
+    const { eventDetail } = this.props;
+    openPopup(eventDetail[valuesNames.SOURCE_ID]);
+  };
+
+  onClose = (data) => {
+    const { eventDetail } = this.props;
+    console.log('onClose ---> ', data);
+    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
+      this.socket.emit('appointment:status', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token: this.token });
+      this.socket.emit('appointment:messages', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token: this.token });
+      this.setState({ appoitmentId: null })
+    }
+  };
 
   handleExpand = (name, currentPanel) => {
     if (currentPanel === EVENTS_MAIN) {
@@ -295,99 +345,29 @@ export default class Events extends PureComponent {
     this.onRangeChange(renges)
   };
 
-  getCookie = (name) => {
-    const nameEQ = `${name}=`;
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  };
-
-  onClose = (data) => {
-    const { socket, token, eventDetail } = this.props;
-    console.log('onClose ---> ', data);
-    // $scope.showJoinAppointment = null;
-    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
-      socket.emit('appointment:status', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token });
-      socket.emit('appointment:messages', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token });
-    }
-  };
-
-  onStatus = (data) => {
-    const { eventDetail } = this.props;
-    console.log('onStatus ---> ', data, data.appointmentId, ' == ', eventDetail[valuesNames.SOURCE_ID]);
-    if (data.appointmentId === eventDetail[valuesNames.SOURCE_ID]) {
-      const isClosed = data.isClosed;
-    }
-  };
-
-  onMessages = (dt) => {
-    const { userAccount } = this.props;
-    const data = JSON.parse(JSON.stringify(dt));
-    if (!data.appointment) return;
-    const messages = data.messages.map((message) => {
-      message.timestamp = moment(+message.timestamp).format('HH:mm');
-      if (!message.author) {
-        message.author = '';
-      } else {
-        const role = isIDCRRole(userAccount) ? 'doctor' : 'patient';
-        const opponent = !isIDCRRole(userAccount) ? 'doctor' : 'patient';
-        if (message.author == role) {
-          message.author = 'You: ';
-        } else {
-          message.author = `${data.appointment[opponent]}: `;
-        }
-      }
-      return message;
-    });
-    console.log('onMessages ---> ', messages);
-  };
-
-  popupCenter = (w, h) => {
-    const dualScreenLeft = (window.screenLeft !== undefined) ? window.screenLeft : screen.left;
-    const dualScreenTop = (window.screenTop !== undefined) ? window.screenTop : screen.top;
-
-    const width = (window.innerWidth ? window.innerWidth : document.documentElement.clientWidth) ? document.documentElement.clientWidth : screen.width;
-    const height = (window.innerHeight ? window.innerHeight : document.documentElement.clientHeight) ? document.documentElement.clientHeight : screen.height;
-
-    const left = ((width / 2) - (w / 2)) + dualScreenLeft;
-    const top = ((height / 2) - (h / 2)) + dualScreenTop;
-    return `width=${w}, height=${h}, top=${top}, left=${left}`;
-  };
-
-  openPopup = (id) => {
-    window.windowObjectReference = window.windowObjectReference || null;
-    const center = this.popupCenter(972, 734);
-    const options = `${center},resizable=yes,scrollbars=yes,status=yes,minimizable=yes,location=no`;
-    if (window.windowObjectReference == null || window.windowObjectReference.closed) {
-      window.windowObjectReference = window.open(`${window.location.origin}/videochat/videochat.html?appointmentId=${id}`,
-        'Video Chat', options);
-      window.windowObjectReference.focus();
-    } else {
-      window.windowObjectReference.focus();
-    }
-  };
-
-  startAppointment = () => {
-    const { socket } = this.state;
-    const { eventDetail, userId } = this.props;
-    console.log('startAppointment ===> ', eventDetail);
-    if (!eventDetail) return;
-
-    socket.emit('appointment:init', {
-      patientId: userId,
-      appointmentId: eventDetail[valuesNames.SOURCE_ID],
-    });
-
-    this.openPopup(eventDetail[valuesNames.SOURCE_ID]);
-  };
-
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, activeView, isLoading, eventsType, isTimelinesOpen, valueEventsRange } = this.state;
-    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail } = this.props;
+    const {
+      selectedColumns,
+      columnNameSortBy,
+      sortingOrder,
+      isSecondPanel,
+      isDetailPanelVisible,
+      isBtnExpandVisible,
+      expandedPanel,
+      openedPanel,
+      isBtnCreateVisible,
+      isCreatePanelVisible,
+      editedPanel,
+      offset,
+      isSubmit,
+      activeView,
+      isLoading,
+      eventsType,
+      isTimelinesOpen,
+      valueEventsRange,
+      messages,
+      appoitmentId } = this.state;
+    const { allEvents, eventsDetailFormState, eventsCreateFormState, eventDetail, userAccount } = this.props;
 
     const isPanelDetails = (expandedPanel === EVENTS_DETAIL || expandedPanel === EVENT_PANEL || expandedPanel === META_PANEL || expandedPanel === CHAT_PANEL);
     const isPanelMain = (expandedPanel === EVENTS_MAIN);
@@ -464,6 +444,10 @@ export default class Events extends PureComponent {
               eventsDetailFormValues={eventsDetailFormState.values}
               isSubmit={isSubmit}
               startAppointment={this.startAppointment}
+              joinAppointment={this.joinAppointment}
+              messages={messages}
+              userAccount={userAccount}
+              appoitmentId={appoitmentId}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
