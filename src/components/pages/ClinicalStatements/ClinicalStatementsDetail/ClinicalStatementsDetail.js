@@ -21,7 +21,9 @@ export default class ClinicalStatementsDetail extends PureComponent {
     let { detail } = this.props;
     detail = detail || {};
 
-    detail[valuesNames.STATEMENT] = detail[valuesNames.STATEMENT].replace(/fa-close|tag|editable/gi, '');
+    if (detail[valuesNames.STATEMENT]) {
+      detail[valuesNames.STATEMENT] = detail[valuesNames.STATEMENT].replace(/fa-close|tag|editable/gi, '');
+    }
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     return (
