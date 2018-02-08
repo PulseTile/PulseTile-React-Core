@@ -1,8 +1,7 @@
 import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
 
-
 export const columnsConfig = [
-  { key: 'number', title: 'Transfer', width: '18%' },
+  { key: 'numberText', title: 'Transfer', width: '18%' },
   { key: 'from', title: 'From (Site / Org)', width: '22%' },
   { key: 'to', title: 'To (Site / Org)', width: '22%' },
   { key: 'transferDateTime', title: 'Date / Time', width: '19%', transformer: getDDMMMYYYY },
@@ -11,7 +10,7 @@ export const columnsConfig = [
 ];
 
 export const defaultColumnsSelected = {
-  number: true,
+  numberText: true,
   from: true,
   to: true,
   transferDateTime: true,

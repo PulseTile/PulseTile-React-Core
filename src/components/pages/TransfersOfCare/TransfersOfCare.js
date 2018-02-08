@@ -62,7 +62,7 @@ export default class TransfersOfCare extends PureComponent {
     nameShouldInclude: '',
     selectedColumns: defaultColumnsSelected,
     openedPanel: TRANSFER_OF_CARE_PANEL,
-    columnNameSortBy: valuesNames.NUMBER,
+    columnNameSortBy: valuesNames.NUMBER_TEXT,
     sortingOrder: 'asc',
     expandedPanel: 'all',
     isBtnCreateVisible: true,
@@ -232,7 +232,14 @@ export default class TransfersOfCare extends PureComponent {
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.NUMBER, valuesNames.FROM, valuesNames.TO, `${valuesNames.DATE_TIME}Convert`, valuesNames.SOURCE],
+      filterKeys: [valuesNames.NUMBER_TEXT, valuesNames.FROM, valuesNames.TO, `${valuesNames.DATE_TIME}Convert`, valuesNames.SOURCE],
+      modeSorting: {
+        replacement: [{
+          instead: valuesNames.NUMBER_TEXT,
+          to: valuesNames.NUMBER
+        }],
+        number: [valuesNames.NUMBER, valuesNames.DATE_TIME]
+      },
     });
   };
 
@@ -248,8 +255,14 @@ export default class TransfersOfCare extends PureComponent {
 
     /* istanbul ignore next */
     const fixedAllTransfersOfCare = operationsOnCollection.modificate(allTransfersOfCare, [{
-      key: valuesNames.NUMBER,
+      key: valuesNames.DATE_TIME,
+      fn: item => new Date(item).getTime()
+    }, {
+      key: valuesNames.NUMBER_TEXT,
       fn: (el, index) => `Transfer #${index + 1}`,
+    }, {
+      key: valuesNames.NUMBER,
+      fn: (el, index) => index + 1,
     }]);
 
     const filteredTransfersOfCare = this.formToShowCollection(fixedAllTransfersOfCare);

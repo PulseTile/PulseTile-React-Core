@@ -1,5 +1,6 @@
 export const valuesNames = {
   NUMBER: 'number',
+  NUMBER_TEXT: 'numberText',
   FROM: 'from',
   TO: 'to',
   DATE_TIME: 'transferDateTime',
