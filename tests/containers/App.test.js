@@ -17,13 +17,13 @@ describe('Component <App />', () => {
       <App
         isTouchDevice
         requestError={{}}
-        initialiseData={{}}
+        patientsInfo={{}}
       />);
     expect(component.find('Connect(LoadingBar)')).toHaveLength(1);
-    expect(component.find('Footer')).toHaveLength(1);
-    expect(component.find('MainSpinner')).toHaveLength(0);
-    expect(component.find('HandleErrors')).toHaveLength(0);
-    expect(component.find('.wrapper')).toHaveLength(1);
+    expect(component.find('Footer')).toHaveLength(0);
+    expect(component.find('MainSpinner')).toHaveLength(1);
+    expect(component.find('Connect(HandleErrors)')).toHaveLength(0);
+    expect(component.find('.wrapper')).toHaveLength(0);
     expect(component.find('TopHeader')).toHaveLength(0);
 
     expect(component).toMatchSnapshot();
@@ -33,9 +33,8 @@ describe('Component <App />', () => {
       <App
         isTouchDevice
         requestError={{}}
-        initialiseData={{
-          ok: true,
-          mode: 'demo',
+        patientsInfo={{
+          test: 'test',
         }}
       />);
     expect(component.find('Connect(LoadingBar)')).toHaveLength(1);
@@ -75,9 +74,8 @@ describe('Component <App />', () => {
             status: 400,
           },
         }}
-        initialiseData={{
-          ok: true,
-          mode: 'demo',
+        patientsInfo={{
+          test: 'test',
         }}
       />, { context: { isLeedsPHRHeaderList: true } });
     component.setContext({ isLeedsPHRHeaderList: true });
@@ -97,9 +95,8 @@ describe('Component <App />', () => {
       <App
         testProps="testProps"
         requestError={{}}
-        initialiseData={{
-          ok: true,
-          mode: 'demo',
+        patientsInfo={{
+          test: 'test',
         }}
       />);
     expect(component.find('.wrapper').hasClass('touch-device')).toEqual(true);

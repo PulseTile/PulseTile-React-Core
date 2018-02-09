@@ -8,6 +8,8 @@ exports[`Component <EventsDetail /> should renders correctly with different stat
     className="panel-group accordion"
   >
     <EventsDetailPanel
+      canJoinAppointment={[Function]}
+      canStartAppointment={[Function]}
       editedPanel={
         Object {
           "eventPanel": false,
@@ -289,6 +291,8 @@ exports[`Component <EventsDetail /> should renders with props correctly 1`] = `
     className="panel-group accordion"
   >
     <EventsDetailPanel
+      canJoinAppointment={[Function]}
+      canStartAppointment={[Function]}
       editedPanel={
         Object {
           "eventPanel": false,

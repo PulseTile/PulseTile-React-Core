@@ -1,6 +1,6 @@
 module.exports = {
-  roots: ['<rootDir>/tests'],
-  verbose: false,
+  roots: ['<rootDir>/tests/pages'],
+  verbose: true,
   modulePaths: [
     '__stubs__',
   ],
@@ -27,6 +27,7 @@ module.exports = {
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
     '!**/src/components/**{viltals-helpers.utils.js}',
+    '!**/src/components/**{events-helpers.utils.js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',
     '!**/src/components/**{forms.validation.js}',
@@ -40,6 +41,7 @@ module.exports = {
     '!**/src/components/**{ducks/**}',
     '!**/node_modules/**',
     '!**/dist/**',
+    '!**/videochat/**',
   ],
   collectCoverage: true,
   bail: true,

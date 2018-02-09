@@ -2,11 +2,15 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
+import { JSDOM } from 'jsdom';
 
 import Events from '../../../src/components/pages/Events/Events';
 import { valuesNames } from '../../../src/components/pages/Events/forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
+const jsdom = new JSDOM(`<!doctype html><html><head></head><body></body></html>`);
+const { window } = jsdom;
+global.window = window;
 
 // frequently used variables
 const userId = '9999999000';
@@ -42,6 +46,17 @@ const storeResource = {
         dateTime: 1489056620958,
       },
     ],
+  },
+  userAccount: {
+    sub: '28AD8576-1948-4C84-8B5E-55FB7EE027CE',
+    given_name: 'Bob',
+    family_name: 'Smith',
+    email: 'bob.smith@gmail.com',
+    tenant: null,
+    role: 'IDCR',
+    roles: [
+      'IDCR'
+    ]
   },
 };
 const storeWithFormsError = mockStore(Object.assign({
@@ -100,6 +115,17 @@ const allStoreEmpty = mockStore({
   eventsDetail: {
     '9999999001': {},
   },
+  userAccount: {
+    sub: '28AD8576-1948-4C84-8B5E-55FB7EE027CE',
+    given_name: 'Bob',
+    family_name: 'Smith',
+    email: 'bob.smith@gmail.com',
+    tenant: null,
+    role: 'IDCR',
+    roles: [
+      'IDCR'
+    ]
+  },
 });
 
 // configure context for various tests
@@ -155,11 +181,12 @@ const match = {
 
 describe('Component <Events />', () => {
   it('should renders correctly with eventsDetail and testing Detail Panel', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailEventsClick methods
     expect(component.find('EventsListHeader')).toHaveLength(1);
@@ -227,11 +254,12 @@ describe('Component <Events />', () => {
   });
 
   it('should renders correctly with eventsDetail and testing Create Panel', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component.find('EventsListHeader')).toHaveLength(1);
     expect(component.find('EventsMainPanel')).toHaveLength(1);
@@ -253,11 +281,12 @@ describe('Component <Events />', () => {
   });
 
   it('should renders correctly and testing another methods', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component hideCreateForm methods
     component.instance().hideCreateForm();
@@ -309,11 +338,12 @@ describe('Component <Events />', () => {
   });
 
   it('should renders correctly and testing context and lifecycle componentWillReceiveProps', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextCreate);
@@ -329,11 +359,12 @@ describe('Component <Events />', () => {
   });
 
   it('should renders correctly with forms error', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'eventPanel');
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
@@ -342,21 +373,23 @@ describe('Component <Events />', () => {
   });
 
   it('should renders correctly with empty store', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders correctly with all store is empty', () => {
+    global.document = window.document;
     const component = shallow(
       <Events
         store={allStoreEmpty}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component setDefaultRangeValues methods
     component.instance().setDefaultRangeValues();

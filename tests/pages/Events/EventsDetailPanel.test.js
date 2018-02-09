@@ -39,6 +39,8 @@ describe('Component <EventsDetailPanel />', () => {
         onEdit={testProps.onEdit}
         onCancel={testProps.onCancel}
         onSaveSettings={testProps.onSaveSettings}
+        canStartAppointment={() => { return true}}
+        canJoinAppointment={() => { return true}}
         title={testProps.title}
         name={testProps.name}
         currentPanel={testProps.currentPanel}
@@ -78,7 +80,7 @@ describe('Component <EventsDetailPanel />', () => {
 
     expect(component.instance().props.isCreatePanelVisible).toEqual(false);
     expect(component.find('PluginDetailHeader')).toHaveLength(1);
-    expect(component.find('PTButton')).toHaveLength(2);
+    expect(component.find('PTButton')).toHaveLength(3);
     expect(component.find('.btn-text').at(0).text()).toEqual('Start Appointment');
     expect(component.find('.btn-text').at(1).text()).toEqual(' Edit');
 
