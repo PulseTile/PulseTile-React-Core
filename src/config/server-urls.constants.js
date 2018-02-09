@@ -1,5 +1,6 @@
 export const apiUrls = {
   INITIALISE: '/api/initialise',
+  LOGOUT: '/api/logout',
 };
 
 export const usersUrls = {

@@ -35,6 +35,18 @@ const leedsPHRThemeConfigs = {
 
   patientsSummaryPageName: 'Home',
   patientsSummaryHasPreviewSettings: true,
+
+  sidebarConfigIsVisible: {
+    default: false,
+    'patients-summary': true,
+    'diagnoses': true,
+    'medications': true,
+    'allergies': true,
+    'contacts': true,
+    'vaccinations': true,
+    'topThreeThings': true,
+  },
+  dashboardBeing: { topThreeThings: true }
 };
 
 // - In config - ./plugins.config.js when you will change sidebarConfig

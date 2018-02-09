@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Field, reduxForm } from 'redux-form'
-import { Row, Col } from 'react-bootstrap';
+import { Field, reduxForm } from 'redux-form';
+import classNames from 'classnames';
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
@@ -44,17 +44,20 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
 
             {/*<div className="row-expand">*/}
               {/*<div className="col-expand-left">*/}
-                {/*<div className="form-group" ng-className="{'has-error': (formSubmitted || clinicalStatementForm.name.$dirty) && clinicalStatementForm.name.$invalid, 'has-success': clinicalStatementForm.name.$valid && clinicalStatementForm.name.$dirty}">*/}
-                  {/*<label for="search" className="control-label">Search</label>*/}
+                {/*<div className="form-group">*/}
+                  {/*<label htmlFor="search" className="control-label">Search</label>*/}
                   {/*<div className="input-holder">*/}
-                    {/*<div className="dropdown" ng-className="{open: !!queryFilter}">*/}
+                    {/*<div className={classNames('dropdown', { 'open': !!queryFilter })}>*/}
                       {/*<div mc-dropdown className="form-control input-sm input-container" id="clinicalTags" name="clinicalTags">*/}
-                        {/*<span className="input-tag" ng-if="clinicalTag">*/}
-                          {/*<span>{{clinicalTag}}</span>*/}
-                          {/*<i className="fa fa-times" ng-click="$ctrl.removeTag()"></i>*/}
-                        {/*</span>*/}
+                        {/*{clinicalTag ?*/}
+                          {/*<span className="input-tag">*/}
+                            {/*<span>{clinicalTag}</span>*/}
+                            {/*<i className="fa fa-times" onClick="$ctrl.removeTag()" />*/}
+                          {/*</span> : null*/}
+                        {/*}*/}
+
                         {/*<div className="wrap-overflow">*/}
-                          {/*<span className="input-contenteditable" tabindex="0" contenteditable="true" contenteditabled ng-model="queryFilter"></span>*/}
+                          {/*<span className="input-contenteditable" tabindex="0" contenteditable="true" contenteditabled ng-model="queryFilter" />*/}
                         {/*</div>*/}
                       {/*</div>*/}
                       {/*<div className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left" ng-if="!statements.length">*/}
@@ -90,12 +93,13 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                 {/*</div>*/}
               {/*</div>*/}
             {/*</div>*/}
+
             {/*<div className="row-expand">*/}
               {/*<div className="col-expand-left">*/}
                 {/*<div className="form-group hidden-not-expand visible-expand">*/}
-                  {/*<label for="" className="control-label">Statements</label>*/}
+                  {/*<label htmlFor="" className="control-label">Statements</label>*/}
                   {/*<div className="input-holder">*/}
-                    {/*<select multiple="" className="form-control form-contenteditable textarea-big ng-valid ng-dirty" ng-model="selectedStatements" ng-change="changeSelect(selectedStatements)">*/}
+                    {/*<select multiple="" className="form-control form-contenteditable textarea-big ng-valid" ng-model="selectedStatements" ng-change="changeSelect(selectedStatements)">*/}
                       {/*<option value="{{item.index}}" ng-repeat="item in statementsText | filter: queryFiltering">{{item.phrase}}</option>*/}
                     {/*</select>*/}
                   {/*</div>*/}
@@ -103,7 +107,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
               {/*</div>*/}
               {/*<div className="col-expand-right">*/}
                 {/*<div className="form-group" ng-className="{'has-error': (formSubmitted || clinicalStatementForm.clinicalNote.$dirty) && clinicalStatementForm.clinicalNote.$invalid, 'has-success': clinicalStatementForm.clinicalNote.$valid && clinicalStatementForm.clinicalNote.$dirty}">*/}
-                  {/*<label for="clinicalNote" className="control-label">Clinical Note</label>*/}
+                  {/*<label htmlFor="clinicalNote" className="control-label">Clinical Note</label>*/}
                   {/*<div className="input-holder">*/}
                     {/*<div className="form-control textarea-big input-sm contenteditable-resize" tabindex="0" contenteditable="true" id="clinicalNote" name="clinicalNote" ng-html="clinicalStatementCreate.clinicalNote" required><span id="temp"></span></div>*/}
                   {/*</div>*/}
@@ -129,8 +133,8 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.DATE}
-                  name={valuesNames.DATE}
-                  id={valuesNames.DATE}
+                  name={valuesNames.DATE_CREATED}
+                  id={valuesNames.DATE_CREATED}
                   component={DateInput}
                   props={{ disabled: true, value: dateCreated, format: 'DD-MMM-YYYY', isSubmit }}
                 />

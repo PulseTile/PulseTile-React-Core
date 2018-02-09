@@ -1,9 +1,10 @@
 import { combineEpics } from 'redux-observable';
 
-import { pluginsEpicConfig } from './plugins.config'
-import { initialiseEpic } from './ducks/initialise-app.duck'
+import { pluginsEpicConfig } from './plugins.config';
+import { initialiseEpic } from './ducks/initialise-app.duck';
 import { loginEpic, loginURLEpic } from './ducks/login-status.duck';
 import { logoutEpic } from './ducks/logout.duck';
+import { fetchLogoutEpic } from './ducks/fetch-logout.duck';
 import { fetchInitialiseEpic } from './ducks/fetch-initialise.duck';
 import { setCredentialsEpic } from './ducks/set-credentials.duck';
 import { fetchPatientsEpic } from './ducks/feth-patients.duck';
@@ -24,6 +25,7 @@ const rootEpic = combineEpics(
   loginEpic,
   loginURLEpic,
   logoutEpic,
+  fetchLogoutEpic,
   fetchInitialiseEpic,
   setCredentialsEpic,
   fetchPatientsEpic,

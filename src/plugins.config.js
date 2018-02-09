@@ -51,7 +51,7 @@ export const sidebarConfig = [
   { key: 'medications', pathToTransition: '/medications', name: 'Medications', isVisible: true },
   { key: 'allergies', pathToTransition: '/allergies', name: 'Allergies', isVisible: true },
   { key: 'contacts', pathToTransition: '/contacts', name: 'Contacts', isVisible: true },
-  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: true },
+  { key: 'events', pathToTransition: '/events', name: 'Events', isVisible: false },
   { key: 'documents', pathToTransition: '/documents', name: 'Documents', isVisible: true },
   { key: 'orders', pathToTransition: '/orders', name: 'Orders', isVisible: true },
   { key: 'results', pathToTransition: '/results', name: 'Test Results', isVisible: true },
@@ -71,14 +71,24 @@ export const sidebarConfig = [
   { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false },
 ];
 
-export const dashboardVisible = {
+if (themeConfigs.sidebarConfigIsVisible) {
+  sidebarConfig.forEach(item => {
+    if (themeConfigs.sidebarConfigIsVisible[item.key] !== undefined) {
+      item.isVisible = themeConfigs.sidebarConfigIsVisible[item.key];
+    } else {
+      item.isVisible = themeConfigs.sidebarConfigIsVisible.default;
+    }
+  });
+}
+
+export const dashboardVisible = themeConfigs.dashboardVisible || {
   // you can disable or enable the PatientsSummary boards here
   // for this you must to write key of board and give its false value
   // path: src\components\pages\PatientsSummary\patients-summary.config.js
   // e.g. (problems: false)
   contacts: true,
 };
-export const dashboardBeing = {
+export const dashboardBeing = themeConfigs.dashboardBeing || {
   // you can remove the PatientsSummary boards here
   // for this you must to write key of board and give its false value
   // path: src\components\pages\PatientsSummary\patients-summary.config.js
