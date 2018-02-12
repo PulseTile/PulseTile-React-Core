@@ -1,26 +1,124 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { lifecycle, compose } from 'recompose';
+import _ from 'lodash/fp';
 import classNames from 'classnames';
 
+import { fetchPatientClinicalStatementsTagsRequest } from '../ducks/fetch-patient-clinical-statements-tags.duck';
+import { fetchPatientClinicalStatementsQueryRequest } from '../ducks/fetch-patient-clinical-statements-query.duck';
+import { fetchPatientClinicalStatementsTagsOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
+import { patientClinicalStatementsTagsSelector, patientClinicalStatementsQuerySelector } from '../selectors';
+
+import PaginationBlock from '../../../presentational/PaginationBlock/PaginationBlock';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
-import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
-import SelectFormGroup from '../../../form-fields/SelectFormGroup';
+// import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
+// import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, relationshipOptions, relationshipTypeOptions } from '../forms.config';
+import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalStatementsTagsRequest, fetchPatientClinicalStatementsQueryRequest }, dispatch) });
+
+
 @reduxForm({
-  form: 'clinicalStatementsCreateFormSelector',
-  validate: validateForm,
+	form: 'clinicalStatementsCreateFormSelector',
+	validate: validateForm,
 })
+@connect(patientClinicalStatementsTagsSelector, mapDispatchToProps)
+@connect(patientClinicalStatementsQuerySelector)
+@compose(lifecycle(fetchPatientClinicalStatementsTagsOnMount))
 export default class ClinicalStatementsCreateForm extends PureComponent {
+	state = {
+		offset: 0,
+		listPerPageAmount: 5,
+
+		queryFilter: '',
+		clinicalTag: '',
+
+		statements: [],
+	  statementsText: [],
+	  clinicalStatementCreate: {
+      contentStore: {
+				name: "ts",
+				phrases: [],
+      },
+    },
+	  openSearch: false,
+	};
+
   componentDidMount() {
     this.props.initialize(defaultFormValues);
   }
+
+	componentWillReceiveProps(nextProps) {
+		const { clinicalStatementsQuery } = nextProps;
+		const { clinicalTag } = this.state;
+		if (clinicalStatementsQuery[clinicalTag]) {
+			this.setState({statements: clinicalStatementsQuery[clinicalTag]});
+    } else {
+			this.setState({statements: []});
+		}
+	}
+
+  requestStatements = tag => {
+		const { actions, match } = this.props;
+		const userId = _.get('params.userId', match);
+		if (userId) actions.fetchPatientClinicalStatementsQueryRequest({ userId, tag });
+  };
+
+	handleSetOffset = offset => this.setState({ offset });
+
+	getListItemsOnPage = (list) => {
+		const { listPerPageAmount, offset } = this.state;
+
+		return (_.size(list) > listPerPageAmount
+			? _.slice(offset, offset + listPerPageAmount)(list)
+			: list)
+	};
+
+	filterList = (tags) => tags.filter(item => {
+		const { queryFilter } = this.state;
+		const str = item ? `${item.toString().toLowerCase()} ` : '';
+
+		return str.indexOf(queryFilter.toLowerCase() || '') !== -1
+	});
+
+	getQueryFilter = event => { this.setState({ queryFilter: event.target.value }) };
+
+	setTag = clinicalTag => () => {
+		this.setState({ offset: 0, clinicalTag, queryFilter: '' });
+		this.requestStatements(clinicalTag);
+	};
+
+	removeTag = () => {
+	  this.setState({
+			offset: 0,
+      clinicalTag: '',
+			queryFilter: '',
+			statements: [],
+      statementsText: [],
+	  })
+	};
+
+	setStatement = statement => () => {
+	  console.log('statement', statement);
+		// this.setState({ offset: 0, statement, queryFilter: '' });
+	};
+
   render() {
-    const { isSubmit } = this.props;
+		const { clinicalStatementsTags, isSubmit } = this.props;
+		const { queryFilter, clinicalTag, statements, offset, listPerPageAmount } = this.state;
+
+		const filteredTags = this.filterList(clinicalStatementsTags || []);
+		const listTagsOnPage = this.getListItemsOnPage(filteredTags);
+
+		const filteredStatements = this.filterList(statements || []);
+		const listStatementsOnPage = this.getListItemsOnPage(filteredStatements);
+
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
@@ -41,58 +139,89 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
               </div>
             </div>
 
+            <div className="row-expand">
+              <div className="col-expand-left">
+                <div className="form-group">
+                  <label htmlFor="search" className="control-label">Search</label>
+                  <div className="input-holder">
+                    <div className={classNames('dropdown', { 'open': !!queryFilter })}>
+                      <div className="form-control input-sm input-container" id="clinicalTags" name="clinicalTags">
+                        {clinicalTag ?
+                          <span className="input-tag">
+                            <span>{clinicalTag}</span>
+                            <i className="fa fa-times" onClick={this.removeTag} />
+                          </span> : null
+                        }
 
-            {/*<div className="row-expand">*/}
-              {/*<div className="col-expand-left">*/}
-                {/*<div className="form-group">*/}
-                  {/*<label htmlFor="search" className="control-label">Search</label>*/}
-                  {/*<div className="input-holder">*/}
-                    {/*<div className={classNames('dropdown', { 'open': !!queryFilter })}>*/}
-                      {/*<div mc-dropdown className="form-control input-sm input-container" id="clinicalTags" name="clinicalTags">*/}
-                        {/*{clinicalTag ?*/}
-                          {/*<span className="input-tag">*/}
-                            {/*<span>{clinicalTag}</span>*/}
-                            {/*<i className="fa fa-times" onClick="$ctrl.removeTag()" />*/}
-                          {/*</span> : null*/}
-                        {/*}*/}
+                        <div className="wrap-overflow">
+                          <input
+                            className="input-contenteditable"
+                            id="queryFilter"
+                            type="text"
+                            autoComplete={'off'}
+                            value={queryFilter}
+                            onChange={this.getQueryFilter}
+                          />
+                        </div>
+                      </div>
+                      {!statements.length
+                        ? <div className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left">
+                          <div className="heading wrap-overflow">
+                            <div className="control-group right">
+                              { listTagsOnPage.length ? <PaginationBlock
+                                  entriesPerPage={listPerPageAmount}
+                                  totalEntriesAmount={filteredTags.length}
+                                  offset={offset}
+                                  setOffset={this.handleSetOffset}
+                                  isShortView={true}
+                                /> : null }
+                            </div>
+                            <div className="pagination-heading">Tags</div>
+                          </div>
+                          <div className="dropdown-menu-wrap-list">
+                            <div className="dropdown-menu-list">
+															{listTagsOnPage ?
+																listTagsOnPage.map(tag => {
+																	return <div className="dropdown-menu-item" key={`dropdown-item-${tag}`} onClick={this.setTag(tag)}>
+                                    <span className="dropdown-menu-item-text">{tag}</span>
+                                  </div>
+																})
+																: null
+															}
+                            </div>
+                          </div>
+                        </div>
+                        : <div className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left hidden-expand">
+                          <div className="heading wrap-overflow">
+                            <div className="control-group right">
+                              {/*<dir-pagination-controls className="pagination-short" max-size="5" on-page-change="pageChangeHandler(newPageNumber)" boundary-links="false" pagination-id="phrase"></dir-pagination-controls>*/}
+                            </div>
+                            <div className="pagination-heading">Statements</div>
+                          </div>
+                          <div className="dropdown-menu-wrap-list">
+                            <div className="dropdown-menu-list">
+															{listStatementsOnPage ?
+																listStatementsOnPage.map(statement => {
+																	return <div className="dropdown-menu-item" key={`dropdown-item-${statement}`} onClick={this.setStatement(statement)}>
+                                    <span className="dropdown-menu-item-text">{statement}</span>
+                                  </div>
+																})
+																: null
+															}
 
-                        {/*<div className="wrap-overflow">*/}
-                          {/*<span className="input-contenteditable" tabindex="0" contenteditable="true" contenteditabled ng-model="queryFilter" />*/}
-                        {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left" ng-if="!statements.length">*/}
-                        {/*<div className="heading wrap-overflow">*/}
-                          {/*<div className="control-group right">*/}
-                            {/*<dir-pagination-controls className="pagination-short" max-size="5" on-page-change="pageChangeHandler(newPageNumber)" boundary-links="false" pagination-id="tags"></dir-pagination-controls>*/}
-                          {/*</div>*/}
-                          {/*<div className="pagination-heading">Tags</div>*/}
-                        {/*</div>*/}
-                        {/*<div className="dropdown-menu-wrap-list">*/}
-                          {/*<div className="dropdown-menu-list">*/}
-                            {/*<div className="dropdown-menu-item" ng-click="$ctrl.getTag(tag)" dir-paginate="tag in tags | filter: queryFilter | itemsPerPage: 5" pagination-id="tags"><span className="dropdown-menu-item-text">{{tag}}</span></div>*/}
-                          {/*</div>*/}
-                        {/*</div>*/}
-                      {/*</div>*/}
-                      {/*<div className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left hidden-expand" ng-if="statements.length">*/}
-                        {/*<div className="heading wrap-overflow">*/}
-                          {/*<div className="control-group right">*/}
-                            {/*<dir-pagination-controls className="pagination-short" max-size="5" on-page-change="pageChangeHandler(newPageNumber)" boundary-links="false" pagination-id="phrase"></dir-pagination-controls>*/}
-                          {/*</div>*/}
-                          {/*<div className="pagination-heading">Statements</div>*/}
-                        {/*</div>*/}
-                        {/*<div className="dropdown-menu-wrap-list">*/}
-                          {/*<div className="dropdown-menu-list">*/}
-                            {/*<select multiple="" className="form-control not-bordered textarea-big ng-valid ng-dirty" ng-model="selectedStatements" ng-change="changeSelect(selectedStatements)">*/}
-                              {/*<option value="{{item.index}}" dir-paginate="item in statementsText | filter: queryFiltering | itemsPerPage: 5" pagination-id="phrase">{{item.phrase}}</option>*/}
-                            {/*</select>*/}
-                          {/*</div>*/}
-                        {/*</div>*/}
-                      {/*</div>*/}
-                    {/*</div>*/}
-                  {/*</div>*/}
-                {/*</div>*/}
-              {/*</div>*/}
-            {/*</div>*/}
+                              {/*<select multiple="" className="form-control not-bordered textarea-big ng-valid ng-dirty" ng-model="selectedStatements" ng-change="changeSelect(selectedStatements)">*/}
+                                {/*<option value="{{item.index}}" dir-paginate="item in statementsText | filter: queryFiltering | itemsPerPage: 5" pagination-id="phrase">{{item.phrase}}</option>*/}
+                              {/*</select>*/}
+                            </div>
+                          </div>
+                        </div>
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
             {/*<div className="row-expand">*/}
               {/*<div className="col-expand-left">*/}

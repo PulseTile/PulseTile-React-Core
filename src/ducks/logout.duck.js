@@ -16,11 +16,11 @@ const clearCookie = () => document.cookie = 'JSESSIONID=; expires=Thu, 01-Jan-70
 export const logoutEpic = (action$, store) => Observable.merge(
   action$.ofType(LOGOUT_START)
     .map(() => {
-      clearCookie();
       return fetchLogoutRequest();
     }),
   action$.ofType(FETCH_LOGOUT_SUCCESS)
     .map(() => {
+			clearCookie();
       window.location = ''; // TO REFRESH THE PAGE
       return logoutFinish();
     })

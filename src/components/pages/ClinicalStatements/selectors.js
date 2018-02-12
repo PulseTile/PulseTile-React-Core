@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const clinicalStatementsCreateFormSelector = _.getOr({}, 'form.clinicalStatementsCreateFormSelector')
+const clinicalStatementsCreateFormSelector = _.getOr({}, 'form.clinicalStatementsCreateFormSelector');
 
 const patientClinicalStatementsSelector = createSelector(
   ({ patientsClinicalStatements }) => patientsClinicalStatements,
@@ -24,4 +24,28 @@ const patientClinicalStatementsDetailSelector = createSelector(
   }
 );
 
-export { patientClinicalStatementsSelector, clinicalStatementsCreateFormStateSelector, patientClinicalStatementsDetailSelector }
+const patientClinicalStatementsTagsSelector = createSelector(
+	({ patientsClinicalStatementsTags }) => patientsClinicalStatementsTags,
+	(state, props) => _.getOr(null, 'match.params.userId', props),
+	(patientsClinicalStatementsTags, userId) => {
+		const clinicalStatementsTags = patientsClinicalStatementsTags[userId];
+		return ({ clinicalStatementsTags, userId });
+	}
+);
+
+const patientClinicalStatementsQuerySelector = createSelector(
+	({ patientsClinicalStatementsQuery }) => patientsClinicalStatementsQuery,
+	(state, props) => _.getOr(null, 'match.params.userId', props),
+	(patientsClinicalStatementsQuery, userId) => {
+		const clinicalStatementsQuery = patientsClinicalStatementsQuery;
+		return ({ clinicalStatementsQuery, userId });
+	}
+);
+
+export {
+	patientClinicalStatementsSelector,
+	clinicalStatementsCreateFormStateSelector,
+	patientClinicalStatementsDetailSelector,
+	patientClinicalStatementsTagsSelector,
+	patientClinicalStatementsQuerySelector
+}

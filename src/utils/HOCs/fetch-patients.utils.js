@@ -145,3 +145,10 @@ export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMou
 
 export const fetchPatientClinicalStatementsOnMount = (generateFetchListOnMount('fetchPatientClinicalStatementsRequest'));
 export const fetchPatientClinicalStatementsDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalStatementsDetailRequest'));
+export const fetchPatientClinicalStatementsTagsOnMount = ({
+	componentDidMount() {
+		const { actions, match } = this.props;
+		const userId = _.get('params.userId', match);
+		if (userId) actions.fetchPatientClinicalStatementsTagsRequest({ userId });
+	},
+});

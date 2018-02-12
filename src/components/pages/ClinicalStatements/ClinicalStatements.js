@@ -34,10 +34,9 @@ const CLINICAL_STATEMENT_PANEL = 'clinicalStatementPanel';
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalStatementsRequest, fetchPatientClinicalStatementsCreateRequest, fetchPatientClinicalStatementsDetailRequest }, dispatch) });
 
 @connect(patientClinicalStatementsSelector, mapDispatchToProps)
-@connect(patientClinicalStatementsDetailSelector, mapDispatchToProps)
+@connect(patientClinicalStatementsDetailSelector)
 @connect(clinicalStatementsCreateFormStateSelector)
 @compose(lifecycle(fetchPatientClinicalStatementsOnMount), lifecycle(fetchPatientClinicalStatementsDetailOnMount))
-
 export default class ClinicalStatements extends PureComponent {
   static propTypes = {
     allClinicalStatements: PropTypes.arrayOf(PropTypes.object),
@@ -204,7 +203,7 @@ export default class ClinicalStatements extends PureComponent {
 
   render() {
       const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
-      const { allClinicalStatements, clinicalStatementsCreateFormState, clinicalStatementDetail } = this.props;
+      const { allClinicalStatements, clinicalStatementsCreateFormState, clinicalStatementDetail, match } = this.props;
 
       const isPanelDetails = (expandedPanel === CLINICAL_STATEMENTS_DETAIL || expandedPanel === CLINICAL_STATEMENT_PANEL);
       const isPanelMain = (expandedPanel === CLINICAL_STATEMENTS_MAIN);
@@ -283,7 +282,7 @@ export default class ClinicalStatements extends PureComponent {
                 onCancel={this.handleCreateCancel}
                 isCreatePanelVisible={isCreatePanelVisible}
                 componentForm={
-                  <ClinicalStatementsCreateForm isSubmit={isSubmit} />
+                  <ClinicalStatementsCreateForm isSubmit={isSubmit} match={match}/>
                 }
               />
             </Col> : null}
