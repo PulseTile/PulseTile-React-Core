@@ -26,12 +26,13 @@ export default class PTCustomInput extends PureComponent {
       <div className="wrap-fcustominp">
         <div className={classNames('fcustominp-state', { disabled })} onClick={this.toggleInput} >
           <div className="fcustominp">
-            <input type={type}
-                   id={`dashboard-${id}`}
-                   name={`dashboard-${name}`}
-                   checked={isChecked}
-                   onChange={this.toggleInput}
-                   value={value ? value : ''}
+            <input
+              type={type}
+              id={`dashboard-${id}`}
+              name={`dashboard-${name}`}
+              checked={isChecked}
+              onChange={this.toggleInput}
+              value={value || ''}
             />
             <label htmlFor={`dashboard-${id}`} />
           </div>
@@ -40,4 +41,4 @@ export default class PTCustomInput extends PureComponent {
       </div>
     )
   }
-};
+}

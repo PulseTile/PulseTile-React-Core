@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PTCustomInput /> should renders with all props correctly 1`] = `
+<div
+  className="wrap-fcustominp"
+>
+  <div
+    className="fcustominp-state"
+    onClick={[Function]}
+  >
+    <div
+      className="fcustominp"
+    >
+      <input
+        id="dashboard-undefined"
+        name="dashboard-test name"
+        onChange={[Function]}
+        value="test value"
+      />
+      <label
+        htmlFor="dashboard-undefined"
+      />
+    </div>
+    <label
+      className="fcustominp-label"
+      htmlFor="dashboard-undefined"
+    />
+  </div>
+</div>
+`;
