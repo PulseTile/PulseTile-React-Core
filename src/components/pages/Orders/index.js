@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
 import Orders from './Orders';
-import {clientUrls} from '../../../config/client-urls.constants';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientOrdersEpic } from './ducks/fetch-patient-orders.duck';
 import { fetchPatientOrdersDetailEpic } from './ducks/fetch-patient-orders-detail.duck';

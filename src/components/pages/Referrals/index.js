@@ -9,10 +9,10 @@ import { fetchPatientReferralsEpic } from './ducks/fetch-patient-referrals.duck'
 import { fetchPatientReferralsUpdateEpic } from './ducks/fetch-patient-referrals.duck';
 import { fetchPatientReferralsCreateEpic } from './ducks/fetch-patient-referrals-create.duck';
 
-import patientsReferrals from './ducks/fetch-patient-referrals.duck'
-import patientReferralsCreate from './ducks/fetch-patient-referrals-create.duck'
-import referralsDetail from './ducks/fetch-patient-referrals-detail.duck'
-import referralsDetailEdit from './ducks/fetch-patient-referrals-detail-edit.duck'
+import patientsReferrals from './ducks/fetch-patient-referrals.duck';
+import patientReferralsCreate from './ducks/fetch-patient-referrals-create.duck';
+import referralsDetail from './ducks/fetch-patient-referrals-detail.duck';
+import referralsDetailEdit from './ducks/fetch-patient-referrals-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientReferralsDetailEpic, fetchPatientReferralsDetailEditEpic, fetchPatientReferralsEpic, fetchPatientReferralsCreateEpic, fetchPatientReferralsUpdateEpic);
 

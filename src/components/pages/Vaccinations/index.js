@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
-import Vaccinations from "./Vaccinations";
-import {clientUrls} from "../../../config/client-urls.constants";
+import Vaccinations from './Vaccinations';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientVaccinationsEpic } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsUpdateEpic } from './ducks/fetch-patient-vaccinations.duck';
@@ -9,10 +9,10 @@ import { fetchPatientVaccinationsDetailEpic } from './ducks/fetch-patient-vaccin
 import { fetchPatientVaccinationsDetailEditEpic } from './ducks/fetch-patient-vaccinations-detail-edit.duck';
 import { fetchPatientVaccinationsCreateEpic } from './ducks/fetch-patient-vaccinations-create.duck';
 
-import patientsVaccinations from './ducks/fetch-patient-vaccinations.duck'
-import vaccinationsDetail from './ducks/fetch-patient-vaccinations-detail.duck'
-import vaccinationsDetailEdit from './ducks/fetch-patient-vaccinations-detail-edit.duck'
-import patientVaccinationsCreate from './ducks/fetch-patient-vaccinations-create.duck'
+import patientsVaccinations from './ducks/fetch-patient-vaccinations.duck';
+import vaccinationsDetail from './ducks/fetch-patient-vaccinations-detail.duck';
+import vaccinationsDetailEdit from './ducks/fetch-patient-vaccinations-detail-edit.duck';
+import patientVaccinationsCreate from './ducks/fetch-patient-vaccinations-create.duck';
 
 const epics = combineEpics(fetchPatientVaccinationsEpic, fetchPatientVaccinationsDetailEpic, fetchPatientVaccinationsDetailEditEpic, fetchPatientVaccinationsCreateEpic, fetchPatientVaccinationsUpdateEpic);
 

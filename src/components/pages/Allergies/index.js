@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
 import Allergies from './Allergies';
-import {clientUrls} from '../../../config/client-urls.constants';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientAllergiesDetailEpic } from './ducks/fetch-patient-allergies-detail.duck';
 import { fetchPatientAllergiesDetailEditEpic } from './ducks/fetch-patient-allergies-detail-edit.duck';

@@ -8,9 +8,9 @@ import { fetchPatientClinicalStatementsEpic } from './ducks/fetch-patient-clinic
 import { fetchPatientClinicalStatementsUpdateEpic } from './ducks/fetch-patient-clinical-statements.duck';
 import { fetchPatientClinicalStatementsCreateEpic } from './ducks/fetch-patient-clinical-statements-create.duck';
 
-import patientsClinicalStatements from './ducks/fetch-patient-clinical-statements.duck'
-import patientClinicalStatementsCreate from './ducks/fetch-patient-clinical-statements-create.duck'
-import clinicalStatementsDetail from './ducks/fetch-patient-clinical-statements-detail.duck'
+import patientsClinicalStatements from './ducks/fetch-patient-clinical-statements.duck';
+import patientClinicalStatementsCreate from './ducks/fetch-patient-clinical-statements-create.duck';
+import clinicalStatementsDetail from './ducks/fetch-patient-clinical-statements-detail.duck';
 
 const epics = combineEpics(fetchPatientClinicalStatementsDetailEpic, fetchPatientClinicalStatementsEpic, fetchPatientClinicalStatementsCreateEpic, fetchPatientClinicalStatementsUpdateEpic);
 

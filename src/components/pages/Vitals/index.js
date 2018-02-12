@@ -9,10 +9,10 @@ import { fetchPatientVitalsEpic } from './ducks/fetch-patient-vitals.duck';
 import { fetchPatientVitalsUpdateEpic } from './ducks/fetch-patient-vitals.duck';
 import { fetchPatientVitalsCreateEpic } from './ducks/fetch-patient-vitals-create.duck';
 
-import patientsVitals from './ducks/fetch-patient-vitals.duck'
-import patientVitalsCreate from './ducks/fetch-patient-vitals-create.duck'
-import vitalsDetail from './ducks/fetch-patient-vitals-detail.duck'
-import vitalsDetailEdit from './ducks/fetch-patient-vitals-detail-edit.duck'
+import patientsVitals from './ducks/fetch-patient-vitals.duck';
+import patientVitalsCreate from './ducks/fetch-patient-vitals-create.duck';
+import vitalsDetail from './ducks/fetch-patient-vitals-detail.duck';
+import vitalsDetailEdit from './ducks/fetch-patient-vitals-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientVitalsDetailEpic, fetchPatientVitalsDetailEditEpic, fetchPatientVitalsEpic, fetchPatientVitalsCreateEpic, fetchPatientVitalsUpdateEpic);
 

@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
-import Medications from "./Medications";
-import {clientUrls} from "../../../config/client-urls.constants";
+import Medications from './Medications';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientMedicationsDetailEpic } from './ducks/fetch-patient-medications-detail.duck';
 import { fetchPatientMedicationsDetailEditEpic } from './ducks/fetch-patient-medications-detail-edit.duck';
@@ -9,10 +9,10 @@ import { fetchPatientMedicationsEpic } from './ducks/fetch-patient-medications.d
 import { fetchPatientMedicationsUpdateEpic } from './ducks/fetch-patient-medications.duck';
 import { fetchPatientMedicationsCreateEpic } from './ducks/fetch-patient-medications-create.duck';
 
-import patientsMedications from './ducks/fetch-patient-medications.duck'
-import patientMedicationsCreate from './ducks/fetch-patient-medications-create.duck'
-import medicationsDetail from './ducks/fetch-patient-medications-detail.duck'
-import medicationsDetailEdit from './ducks/fetch-patient-medications-detail-edit.duck'
+import patientsMedications from './ducks/fetch-patient-medications.duck';
+import patientMedicationsCreate from './ducks/fetch-patient-medications-create.duck';
+import medicationsDetail from './ducks/fetch-patient-medications-detail.duck';
+import medicationsDetailEdit from './ducks/fetch-patient-medications-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientMedicationsDetailEpic, fetchPatientMedicationsDetailEditEpic, fetchPatientMedicationsEpic, fetchPatientMedicationsCreateEpic, fetchPatientMedicationsUpdateEpic);
 

@@ -22,9 +22,52 @@ import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';
 
+// the order of the elements in this array affects the order of the Headings in the sidebar
+export const plugins = [
+	diagnoses,
+	medications,
+	allergies,
+	contacts,
+	events,
+	documents,
+	orders,
+	testResults,
+	procedures,
+	clinicalNotes,
+	clinicalStatements,
+	personalNotes,
+	vaccinations,
+	vitals,
+	images,
+	drawings,
+	referrals,
+	mdts,
+	transfersOfCare,
+
+	topThreeThings,
+
+	genericPlugin,
+];
+
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: themeConfigs.patientsSummaryPageName, isVisible: true },
 ];
+
+export const pluginsEpicConfig = [];
+
+export const pluginsReducerConfig = [];
+
+export const routersPluginConfig = [];
+
+plugins.forEach(plugin => {
+	sidebarConfig.push(plugin.sidebarConfig);
+	pluginsEpicConfig.push(plugin.epics);
+	pluginsReducerConfig.push(plugin.reducers);
+
+	plugin.routers.forEach(item => {
+		routersPluginConfig.push(item);
+	})
+});
 
 if (themeConfigs.sidebarConfigIsVisible) {
   sidebarConfig.forEach(item => {
@@ -50,53 +93,3 @@ export const dashboardBeing = themeConfigs.dashboardBeing || {
   // e.g. (problems: false)
   topThreeThings: false,
 };
-
-export const pluginsEpicConfig = [
-  // allergiesEpic,
-  // diagnosesEpic,
-  // clinicalNotesEpic,
-  // personalNotesEpic,
-  // contactsEpic,
-  // vaccinationsEpic,
-  // genericPluginEpic,
-  // medicationsEpic,
-  // proceduresEpic,
-  // eventsEpic,
-  // testResultsEpic,
-  // referralsEpic,
-  // ordersEpic,
-  // mdtsEpic,
-  // drawingsEpic,
-  // vitalsEpic,
-  // documentsEpic,
-  // imagesEpic,
-  // transfersOfCareEpic,
-  // topThreeThingsEpic,
-  // clinicalStatementsEpic,
-];
-
-export const pluginsReducerConfig = [
-  // allergiesReducer,
-  // diagnosesReducer,
-  // clinicalNotesReducer,
-  // personalNotesReducer,
-  // contactsReducer,
-  // vaccinationsReducer,
-  // genericPluginReducer,
-  // medicationsReducer,
-  // proceduresReducer,
-  // eventsReducer,
-  // testResultsReducer,
-  // referralsReducer,
-  // ordersReducer,
-  // mdtsReducer,
-  // drawingsReducer,
-  // vitalsReducer,
-  // documentsReducer,
-  // imagesReducer,
-  // transfersOfCareReducer,
-  // topThreeThingsReducer,
-  // clinicalStatementsReducer,
-];
-
-export const routersPluginConfig = [];

@@ -1,7 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
-import Contacts from "./Contacts";
-import {clientUrls} from "../../../config/client-urls.constants";
+import Contacts from './Contacts';
+import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientContactsDetailEpic } from './ducks/fetch-patient-contacts-detail.duck';
 import { fetchPatientContactsDetailEditEpic } from './ducks/fetch-patient-contacts-detail-edit.duck';
@@ -9,10 +9,10 @@ import { fetchPatientContactsEpic } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsUpdateEpic } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateEpic } from './ducks/fetch-patient-contacts-create.duck';
 
-import patientsContacts from './ducks/fetch-patient-contacts.duck'
-import patientContactsCreate from './ducks/fetch-patient-contacts-create.duck'
-import contactsDetail from './ducks/fetch-patient-contacts-detail.duck'
-import contactsDetailEdit from './ducks/fetch-patient-contacts-detail-edit.duck'
+import patientsContacts from './ducks/fetch-patient-contacts.duck';
+import patientContactsCreate from './ducks/fetch-patient-contacts-create.duck';
+import contactsDetail from './ducks/fetch-patient-contacts-detail.duck';
+import contactsDetailEdit from './ducks/fetch-patient-contacts-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientContactsDetailEpic, fetchPatientContactsDetailEditEpic, fetchPatientContactsEpic, fetchPatientContactsCreateEpic, fetchPatientContactsUpdateEpic);
 
