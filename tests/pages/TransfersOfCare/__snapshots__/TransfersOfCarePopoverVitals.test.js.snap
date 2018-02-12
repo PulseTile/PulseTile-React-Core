@@ -1,0 +1,360 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <TransfersOfCarePopoverVitals /> should renders with props correctly 1`] = `
+<div
+  className="form-group-wrapper"
+>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Respiration Rate
+            </label>
+            <div
+              className="input-group vitals-holder popover-wrap undefined"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                12.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                resps/min
+              </span>
+            </div>
+          </div>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Oxygen Saturation
+            </label>
+            <div
+              className="input-group vitals-holder popover-wrap undefined"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                97.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                %
+              </span>
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Any Supplemental Oxygen
+            </label>
+            <div
+              className="input-holder"
+            >
+              <Switch
+                disabled={true}
+                name="oxygenSupplemental"
+                type="checkbox"
+                value="false"
+              />
+            </div>
+          </div>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-success"
+            />
+            <label
+              className="vitals-label"
+            >
+              Heart Rate
+            </label>
+            <div
+              className="input-group vitals-holder popover-wrap success"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                45.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                bpm
+              </span>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </div>
+    <div
+      className="col-expand-right"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Systolic BP
+            </label>
+            <div
+              className="input-group vitals-holder popover-wrap undefined"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                112.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                mmHg
+              </span>
+            </div>
+          </div>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Diastolic BP
+            </label>
+            <div
+              className="input-group vitals-holder"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                64.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                mmHg
+              </span>
+            </div>
+          </div>
+        </Col>
+      </Row>
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-danger"
+            />
+            <label
+              className="vitals-label"
+              htmlFor="levelOfConsciousness"
+            >
+              Level of Consciousness
+            </label>
+            <div
+              className="input-holder"
+            >
+              <div
+                className="switch-group"
+              >
+                <Switch
+                  disabled={true}
+                  id="levelOfConsciousnessA"
+                  name="levelOfConsciousness"
+                  text="A"
+                  transitionValue="Voice"
+                  type="radio"
+                  value="Alert"
+                />
+                <Switch
+                  disabled={true}
+                  id="levelOfConsciousnessV"
+                  name="levelOfConsciousness"
+                  text="V"
+                  transitionValue="Voice"
+                  type="radio"
+                  value="Voice"
+                />
+                <Switch
+                  disabled={true}
+                  id="levelOfConsciousnessP"
+                  name="levelOfConsciousness"
+                  text="P"
+                  transitionValue="Voice"
+                  type="radio"
+                  value="Pain"
+                />
+                <Switch
+                  disabled={true}
+                  id="levelOfConsciousnessU"
+                  name="levelOfConsciousness"
+                  text="U"
+                  transitionValue="Voice"
+                  type="radio"
+                  value="Unresponsive"
+                />
+              </div>
+            </div>
+          </div>
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          md={6}
+          xs={12}
+        >
+          <div
+            className="vitals-group highlighter-wrapper"
+          >
+            <span
+              className="highlighter-not-vital"
+            />
+            <label
+              className="vitals-label"
+            >
+              Temperature
+            </label>
+            <div
+              className="input-group vitals-holder popover-wrap undefined"
+            >
+              <div
+                className="form-control input-sm"
+              >
+                37.0
+              </div>
+              <span
+                className="vitals-addon"
+              >
+                c
+              </span>
+            </div>
+          </div>
+        </Col>
+      </Row>
+    </div>
+  </div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="vitals-group highlighter-wrapper"
+      >
+        <span
+          className="highlighter-success"
+        />
+        <label
+          className="vitals-label"
+        >
+          NEWS Score
+        </label>
+        <div
+          className="input-holder vitals-holder success"
+        >
+          <div
+            className="form-control input-sm"
+          >
+            4
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

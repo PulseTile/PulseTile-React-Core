@@ -27,22 +27,26 @@ export default class CornerstoneImage extends PureComponent {
     const element = document.getElementById(`dicomImage-${index}`);
     /* istanbul ignore next */
     if (element) {
+      console.log('element ---->', element);
       cornerstoneTools.external.cornerstone = cornerstone;
       cornerstoneTools.external.cornerstoneMath = cornerstoneMath;
       cornerstoneWebImageLoader.external.cornerstone = cornerstone;
       cornerstoneWebImageLoader.external.cornerstoneMath = cornerstoneMath;
 
       if (reEnableCornerstoneElement) {
+        console.log('reEnableCornerstoneElement --->', reEnableCornerstoneElement);
         cornerstone.enable(element);
       }
 
       cornerstone.loadImage(imageId).then((image) => {
+        console.log('image --->', image);
         cornerstone.displayImage(element, image);
         if (image) {
           this.setState({ reEnableCornerstoneElement: false });
           visibleCornerstone(true)
         }
       }).catch((e) => {
+        console.log('errorsLoadImage --->', e);
         this.setState({ reEnableCornerstoneElement: true });
         console.log(e);
       })

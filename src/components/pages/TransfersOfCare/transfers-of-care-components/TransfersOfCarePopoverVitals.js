@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import {valuesAddons, valuesLabels, valuesNames} from "../../Vitals/forms.config";
-import { serviceVitalsSigns } from "../../Vitals/viltals-helpers.utils";
+import _ from 'lodash/fp';
+
+import { valuesAddons, valuesLabels, valuesNames } from '../../Vitals/forms.config';
+import { serviceVitalsSigns } from '../../Vitals/viltals-helpers.utils';
 import Switch from '../../../form-fields/Switch';
-import _ from "lodash/fp";
 
 export default class TransfersOfCarePopoverVitals extends PureComponent {
   static propTypes = {
@@ -18,11 +19,11 @@ export default class TransfersOfCarePopoverVitals extends PureComponent {
       [valuesNames.SYSTOLIC_BP]: {},
       [valuesNames.TEMPERATURE]: {},
       [valuesNames.NEWS_SCORE]: {},
-    }
+    },
   };
 
   componentWillMount() {
-    const {detail} = this.props;
+    const { detail } = this.props;
     this.setVitalStatuses(detail);
   }
 
