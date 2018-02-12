@@ -9,7 +9,7 @@ import PTCustomInput from './PTCustomInput';
 import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
-import { dashboardBeing } from "../../../../plugins.config";
+import { dashboardBeing } from '../../../../plugins.config';
 
 
 @lifecycle(unmountOnBlur)
@@ -23,12 +23,12 @@ export default class PatientsSummaryPanel extends PureComponent {
 
     state = {
       selected: this.props.selectedCategory,
-      selectedViewOptions: this.props.selectedViewOfBoards
+      selectedViewOptions: this.props.selectedViewOfBoards,
     };
 
     componentDidUpdate(prevProps, prevState) {
-      if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onCategorySelected(this.state.selected)
-      if (!_.isEqual(prevState.selectedViewOptions, this.state.selectedViewOptions)) this.props.onViewOfBoardsSelected(this.state.selectedViewOptions)
+      if (!_.isEqual(prevState.selected, this.state.selected)) this.props.onCategorySelected(this.state.selected);
+      if (!_.isEqual(prevState.selectedViewOptions, this.state.selectedViewOptions)) this.props.onViewOfBoardsSelected(this.state.selectedViewOptions);
     }
 
     toggleCheckbox = key => this.setState((prevState) => {
@@ -47,6 +47,7 @@ export default class PatientsSummaryPanel extends PureComponent {
 
     render() {
       const { selected, selectedViewOptions } = this.state;
+      const { patientsSummaryHasPreviewSettings } = this.props;
 
       return (
         <div className="dropdown-menu dropdown-menu-panel dropdown-menu-summary">
@@ -69,7 +70,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                 })}
               </Row>
             </div>
-            {themeConfigs.patientsSummaryHasPreviewSettings ?
+            {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
               <div>
                 <div className="heading">VIEW OF BOARDS</div>
                 <div className="form-group">

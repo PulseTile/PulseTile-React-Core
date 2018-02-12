@@ -1,14 +1,9 @@
 module.exports = {
-  roots: ['<rootDir>/tests/pages'],
+  roots: ['<rootDir>/src/components'],
   verbose: true,
-  modulePaths: [
-    '__stubs__',
-  ],
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',
-    '^[./a-zA-Z0-9$_-]+\\.png$': '<rootDir>/RelativeImageStub.js',
-    'module_name_(.*)': '<rootDir>/substituted_module_$1.js',
     '\\.(css|scss)$': 'identity-obj-proxy',
   },
   transform: {
@@ -23,6 +18,9 @@ module.exports = {
     '**/src/components/containers/**.{js,jsx}',
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
+
+    // Temporarily ignore coverage files
+    '!**/src/components/pages/TransfersOfCare/transfers-of-care-components/**{TransfersOfCareRecordsEdit.js}',
 
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
@@ -47,4 +45,7 @@ module.exports = {
   bail: true,
   snapshotSerializers: ['enzyme-to-json/serializer'],
   'notify': true,
+  testEnvironmentOptions: {
+    'url': 'http://localhost:3000/',
+  },
 };

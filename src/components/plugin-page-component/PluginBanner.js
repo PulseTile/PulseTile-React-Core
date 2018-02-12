@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { themeConfigs } from '../../themes.config';
 
 export default class PluginBanner extends PureComponent {
@@ -10,20 +10,20 @@ export default class PluginBanner extends PureComponent {
   };
 
   static defaultProps = {
-    toRight: false
+    toRight: false,
   };
 
   render() {
-    const { title, subTitle, img, toRight } = this.props;
+    const { title, subTitle, img, toRight, isShowPluginsBigBanner } = this.props;
 
     return (
-      themeConfigs.isShowPluginsBigBanner ?
+      themeConfigs.isShowPluginsBigBanner || isShowPluginsBigBanner ?
         <div className="page-banner">
-          <div className={`page-banner__title ${toRight ? 'page-banner__title--right': ''}`}>{title}</div>
-          <div className={`page-banner__subtitle ${toRight ? 'page-banner__subtitle--right': ''}`}>{subTitle}</div>
-          <img className="page-banner__img" src={img} alt=""/>
+          <div className={`page-banner__title ${toRight ? 'page-banner__title--right' : ''}`}>{title}</div>
+          <div className={`page-banner__subtitle ${toRight ? 'page-banner__subtitle--right' : ''}`}>{subTitle}</div>
+          <img className="page-banner__img" src={img} alt="" />
         </div>
-      : <div />
+        : <div />
     )
   }
 }

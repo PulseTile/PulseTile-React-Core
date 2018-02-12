@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 
-import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
-import {valuesLabels, valuesNames} from "../../Referrals/forms.config";
+import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesLabels, valuesNames } from '../../Referrals/forms.config';
 
 export default class TransfersOfCarePopoverReferrals extends PureComponent {
   static propTypes = {

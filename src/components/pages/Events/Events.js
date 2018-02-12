@@ -57,7 +57,6 @@ export default class Events extends PureComponent {
 
   constructor(props) {
     super(props);
-
     this.onRangeChange = this.onRangeChange.bind(this);
     this.onRangeChange = debounce(100, this.onRangeChange);
 
@@ -75,20 +74,17 @@ export default class Events extends PureComponent {
     });
 
     // When doctor press start appointment, he emit 'appointment:init'
-    this.socket.on('appointment:init', (data) => {
-      console.log('ON appointment:init', data.appointmentId);
-      this.setState({ appoitmentId: data.appointmentId })
-    });
+    this.socket.on('appointment:init', this.onAppointmentInit);
 
     // Send appointment messages
-    this.socket.on('appointment:messages', (data) => {
-      console.log('ON appointment:messages', data);
-    });
+    // this.socket.on('appointment:messages', (data) => {
+    //   console.log('ON appointment:messages', data);
+    // });
 
     // Check appointment status (closed/open) from database
-    this.socket.on('appointment:status', (data) => {
-      console.log('ON appointment:status', data);
-    });
+    // this.socket.on('appointment:status', (data) => {
+    //   console.log('ON appointment:status', data);
+    // });
   }
 
   state = {
@@ -149,7 +145,7 @@ export default class Events extends PureComponent {
     }, 500)
   }
 
-  startAppointment = () => {
+  startAppointment = /* istanbul ignore next */ () => {
     const { eventDetail, userId } = this.props;
     console.log('startAppointment ===> ', eventDetail);
     if (!eventDetail) return;
@@ -161,7 +157,7 @@ export default class Events extends PureComponent {
     openPopup(eventDetail[valuesNames.SOURCE_ID]);
   };
 
-  joinAppointment = () => {
+  joinAppointment = /* istanbul ignore next */ () => {
     const { eventDetail } = this.props;
     openPopup(eventDetail[valuesNames.SOURCE_ID]);
   };
@@ -174,6 +170,11 @@ export default class Events extends PureComponent {
       this.socket.emit('appointment:messages', { appointmentId: eventDetail[valuesNames.SOURCE_ID], token: this.token });
       this.setState({ appoitmentId: null })
     }
+  };
+
+  onAppointmentInit = (data) => {
+    console.log('ON appointment:init', data.appointmentId);
+    this.setState({ appoitmentId: data.appointmentId })
   };
 
   handleExpand = (name, currentPanel) => {

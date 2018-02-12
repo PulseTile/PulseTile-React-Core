@@ -12,7 +12,6 @@ import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
-import { defaultFormValues } from './TransfersOfCareCreate/default-values.config';
 
 import { fetchPatientTransfersOfCareRequest } from './ducks/fetch-patient-transfers-of-care.duck';
 import { fetchPatientTransfersOfCareCreateRequest } from './ducks/fetch-patient-transfers-of-care-create.duck';
@@ -25,7 +24,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import TransfersOfCareDetail from './TransfersOfCareDetail/TransfersOfCareDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import TransfersOfCareCreateForm from './TransfersOfCareCreate/TransfersOfCareCreateForm'
-import { getDDMMMYYYY } from "../../../utils/time-helpers.utils";
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const TRANSFERS_OF_CARE_MAIN = 'transfersOfCareMain';
 const TRANSFERS_OF_CARE_DETAIL = 'transfersOfCareDetail';
@@ -224,7 +223,7 @@ export default class TransfersOfCare extends PureComponent {
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE_TIME,
       keyTo: `${valuesNames.DATE_TIME}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
@@ -236,9 +235,9 @@ export default class TransfersOfCare extends PureComponent {
       modeSorting: {
         replacement: [{
           instead: valuesNames.NUMBER_TEXT,
-          to: valuesNames.NUMBER
+          to: valuesNames.NUMBER,
         }],
-        number: [valuesNames.NUMBER, valuesNames.DATE_TIME]
+        number: [valuesNames.NUMBER, valuesNames.DATE_TIME],
       },
     });
   };
@@ -247,7 +246,7 @@ export default class TransfersOfCare extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible,
       expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allTransfersOfCare, transfersOfCareDetailFormState,
-            transfersOfCareCreateFormState, transferOfCareDetail, match } = this.props;
+      transfersOfCareCreateFormState, transferOfCareDetail, match } = this.props;
 
     const isPanelDetails = (expandedPanel === TRANSFERS_OF_CARE_DETAIL || expandedPanel === TRANSFER_OF_CARE_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === TRANSFERS_OF_CARE_MAIN);
@@ -256,7 +255,7 @@ export default class TransfersOfCare extends PureComponent {
     /* istanbul ignore next */
     const fixedAllTransfersOfCare = operationsOnCollection.modificate(allTransfersOfCare, [{
       key: valuesNames.DATE_TIME,
-      fn: item => new Date(item).getTime()
+      fn: item => new Date(item).getTime(),
     }, {
       key: valuesNames.NUMBER_TEXT,
       fn: (el, index) => `Transfer #${index + 1}`,
