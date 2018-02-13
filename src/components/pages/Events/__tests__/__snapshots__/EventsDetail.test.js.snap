@@ -103,7 +103,7 @@ exports[`Component <EventsDetail /> should renders correctly with different stat
                   <div
                     className="form-control-static"
                   >
-                    13-Nov-2017 18:00
+                    01-Jan-2018 02:00
                   </div>
                 </div>
               </div>
@@ -121,7 +121,7 @@ exports[`Component <EventsDetail /> should renders correctly with different stat
                   <div
                     className="form-control-static"
                   >
-                    13-Nov-2017
+                    01-Jan-2018
                   </div>
                 </div>
               </div>
@@ -393,7 +393,7 @@ exports[`Component <EventsDetail /> should renders with props correctly 1`] = `
                   <div
                     className="form-control-static"
                   >
-                    22-Nov-2017 10:30
+                    01-Jan-2018 02:00
                   </div>
                 </div>
               </div>
@@ -411,7 +411,7 @@ exports[`Component <EventsDetail /> should renders with props correctly 1`] = `
                   <div
                     className="form-control-static"
                   >
-                    06-Dec-2017
+                    01-Jan-2018
                   </div>
                 </div>
               </div>
@@ -623,7 +623,7 @@ exports[`Component <EventsDetail /> should renders with props correctly 2`] = `
                   <div
                     className="form-control-static"
                   >
-                    12-Feb-2018 15:35
+                    01-Jan-2018 02:00
                   </div>
                 </div>
               </div>
@@ -641,7 +641,7 @@ exports[`Component <EventsDetail /> should renders with props correctly 2`] = `
                   <div
                     className="form-control-static"
                   >
-                    12-Feb-2018
+                    01-Jan-2018
                   </div>
                 </div>
               </div>

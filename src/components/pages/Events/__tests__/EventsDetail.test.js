@@ -9,6 +9,10 @@ import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const DATE_TO_USE = new Date('2018');
+const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
+global.Date = jest.fn(() => DATE_TO_USE);
+
 const propsForEventsPanel = {
   detail: {
     [valuesNames.NAME]: '14444',
@@ -28,8 +32,8 @@ const EVENT_PANEL = 'eventPanel';
 const META_PANEL = 'metaPanel';
 const CHAT_PANEL = 'chatPanel';
 
-const CONVERT_DATE_CREATED = getDDMMMYYYY(propsForEventsPanel.detail[valuesNames.DATE_CREATED]);
-const CONVERT_EVENT_DATE = moment(propsForEventsPanel.detail[valuesNames.DATE_TIME]).format('DD-MMM-YYYY HH:mm');
+const CONVERT_DATE_CREATED = getDDMMMYYYY(DATE_TO_USE_TIME);
+const CONVERT_EVENT_DATE = moment(DATE_TO_USE_TIME).format('DD-MMM-YYYY HH:mm');
 
 describe('Component <EventsDetail />', () => {
   it('should renders with props correctly', () => {

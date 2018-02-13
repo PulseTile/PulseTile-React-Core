@@ -8,6 +8,9 @@ import { valuesNames } from '../forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
+const DATE_TO_USE = new Date('2018');
+global.Date = jest.fn(() => DATE_TO_USE);
+
 // frequently used variables
 const userId = '9999999000';
 const sourceId = 'acb0eaf2-d1df-4c7a-9382-619b31935f2b';
