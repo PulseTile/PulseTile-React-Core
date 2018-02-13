@@ -77,6 +77,22 @@ label.control-label {
 }
 select.input-sm { line-height: 20px; }
 
+.select-option {
+  cursor: pointer;
+  font-size: 0;
+  line-height: 0;
+  padding: 0 2px 1px;
+  &.active { background: #f3f3f3; }
+}
+.is-not-touch-device .select-option:hover { background: #f3f3f3; }
+.select-option-text {
+  display: inline-block;
+  line-height: 16px;
+  vertical-align: middle;
+  color: #3c3c3c;
+  font-size: 14px;
+}
+
 .non-edit-value {
   line-height: 30px;
   min-height: 30px;

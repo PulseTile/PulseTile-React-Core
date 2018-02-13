@@ -154,7 +154,7 @@ const pluginsPages = {
   },
   'clinicalStatements': {
     breadcrumbs: [{
-      title: 'Clinical Sta',
+      title: 'Clinical Statements',
       state: '/clinicalStatements',
     }],
   },
