@@ -236,12 +236,7 @@ export default class Contacts extends PureComponent {
     const isPanelMain = (expandedPanel === CONTACTS_MAIN);
     const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
-    /* istanbul ignore next */
-    const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
-      key: valuesNames.NEXT_OF_KIN,
-      fn: el => (el || false),
-    }]);
-    const filteredContacts = this.formToShowCollection(fixedAllContacts);
+    const filteredContacts = this.formToShowCollection(allContacts);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
@@ -253,8 +248,8 @@ export default class Contacts extends PureComponent {
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
-          title='Contacts'
-          subTitle='Short blurb containing a few words to describe this section'
+          title="Contacts"
+          subTitle="Short blurb containing a few words to describe this section"
           img={imgBanner}
         />
         : null
@@ -274,7 +269,7 @@ export default class Contacts extends PureComponent {
               />
               <PluginMainPanel
                 headers={columnsToShowConfig}
-                resourceData={fixedAllContacts}
+                resourceData={allContacts}
                 emptyDataMessage="No contacts"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailContactsClick}

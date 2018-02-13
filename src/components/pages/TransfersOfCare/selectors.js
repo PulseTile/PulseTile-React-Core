@@ -1,14 +1,26 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const transfersOfCareCreateFormSelector = _.getOr({}, 'form.transfersOfCareCreateFormSelector')
-const transfersOfCareDetailFormSelector = _.getOr({}, 'form.transfersOfCareDetailFormSelector')
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
+const transfersOfCareCreateFormSelector = _.getOr({}, 'form.transfersOfCareCreateFormSelector');
+const transfersOfCareDetailFormSelector = _.getOr({}, 'form.transfersOfCareDetailFormSelector');
 
 const patientTransfersOfCareSelector = createSelector(
   ({ patientsTransfersOfCare }) => patientsTransfersOfCare,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsTransfersOfCare, userId) => {
-    const allTransfersOfCare = patientsTransfersOfCare[userId];
+    const allTransfersOfCare = operationsOnCollection.modificate(patientsTransfersOfCare[userId], [{
+      key: valuesNames.DATE_TIME,
+      fn: item => new Date(item).getTime(),
+    }, {
+      key: valuesNames.NUMBER_TEXT,
+      fn: (el, index) => `Transfer #${index + 1}`,
+    }, {
+      key: valuesNames.NUMBER,
+      fn: (el, index) => index + 1,
+    }]);
     return ({ allTransfersOfCare, userId });
   }
 );

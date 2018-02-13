@@ -252,19 +252,7 @@ export default class TransfersOfCare extends PureComponent {
     const isPanelMain = (expandedPanel === TRANSFERS_OF_CARE_MAIN);
     const isPanelCreate = (expandedPanel === TRANSFERS_OF_CARE_CREATE);
 
-    /* istanbul ignore next */
-    const fixedAllTransfersOfCare = operationsOnCollection.modificate(allTransfersOfCare, [{
-      key: valuesNames.DATE_TIME,
-      fn: item => new Date(item).getTime(),
-    }, {
-      key: valuesNames.NUMBER_TEXT,
-      fn: (el, index) => `Transfer #${index + 1}`,
-    }, {
-      key: valuesNames.NUMBER,
-      fn: (el, index) => index + 1,
-    }]);
-
-    const filteredTransfersOfCare = this.formToShowCollection(fixedAllTransfersOfCare);
+    const filteredTransfersOfCare = this.formToShowCollection(allTransfersOfCare);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
@@ -294,7 +282,7 @@ export default class TransfersOfCare extends PureComponent {
               />
               <PluginMainPanel
                 headers={columnsToShowConfig}
-                resourceData={fixedAllTransfersOfCare}
+                resourceData={allTransfersOfCare}
                 emptyDataMessage="No transfers of care"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailTransfersOfCareClick}

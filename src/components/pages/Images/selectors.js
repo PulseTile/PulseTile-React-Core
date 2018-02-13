@@ -1,11 +1,17 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
 const patientImagesSelector = createSelector(
   ({ patientsImages }) => patientsImages,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsImages, userId) => {
-    const allImages = patientsImages[userId];
+    const allImages = operationsOnCollection.modificate(patientsImages[userId], [{
+      key: valuesNames.DATE_RECORDED,
+      fn: item => new Date(item).getTime(),
+    }]);
     if (!_.isEmpty(allImages)) {
       allImages.map(item => item.sourceId = item.studyId);
     }

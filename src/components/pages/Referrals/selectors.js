@@ -1,15 +1,21 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const referralsCreateFormSelector = _.getOr({}, 'form.referralsCreateFormSelector')
-const referralsDetailFormSelector = _.getOr({}, 'form.referralsDetailFormSelector')
-const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
+const referralsCreateFormSelector = _.getOr({}, 'form.referralsCreateFormSelector');
+const referralsDetailFormSelector = _.getOr({}, 'form.referralsDetailFormSelector');
+const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector');
 
 const patientReferralsSelector = createSelector(
   ({ patientsReferrals }) => patientsReferrals,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsReferrals, userId) => {
-    const allReferrals = patientsReferrals[userId];
+    const allReferrals = operationsOnCollection.modificate(patientsReferrals[userId], [{
+      key: valuesNames.DATE,
+      fn: item => new Date(item).getTime(),
+    }]);
     return ({ allReferrals, userId });
   }
 );
