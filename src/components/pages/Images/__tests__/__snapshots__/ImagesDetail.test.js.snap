@@ -54,6 +54,7 @@ exports[`Component <ImagesDetail /> should renders correctly with different stat
               >
                 <CornerstoneImage
                   imageId="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c8/preview"
+                  imageLoaded={[Function]}
                   index={0}
                   instanceIds={
                     Array [
@@ -280,6 +281,7 @@ exports[`Component <ImagesDetail /> should renders with props correctly 1`] = `
               >
                 <CornerstoneImage
                   imageId="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c7/preview"
+                  imageLoaded={[Function]}
                   index={0}
                   instanceIds={
                     Array [
@@ -597,6 +599,7 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 1`
                         >
                           <CornerstoneImage
                             imageId="http://46.101.95.245/orthanc/instances/ecd967b0-aaec17a2-860b3925-91d8ef8b-1932d1c9/preview"
+                            imageLoaded={[Function]}
                             index={0}
                             instanceIds={
                               Array [

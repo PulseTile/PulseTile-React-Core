@@ -19,6 +19,7 @@ describe('Component <CornerstoneImage />', () => {
         instanceIds={['d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930/preview']}
         isVisibleCornerstone
         visibleCornerstone={()=> {}}
+        imageLoaded={() => {}}
       />);
     expect(component).toMatchSnapshot();
   });
@@ -32,6 +33,7 @@ describe('Component <CornerstoneImage />', () => {
         instanceIds={['d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930/preview']}
         isVisibleCornerstone
         visibleCornerstone={()=> {}}
+        imageLoaded={() => {}}
       />);
 
     component.setProps({ instanceIds: ['d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930/preview'] });

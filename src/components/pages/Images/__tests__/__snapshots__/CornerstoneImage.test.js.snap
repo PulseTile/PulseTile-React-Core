@@ -17,6 +17,7 @@ exports[`Component <CornerstoneImage /> should renders with all props correctly 
 exports[`Component <CornerstoneImage /> should renders with all props correctly 2`] = `
 <CornerstoneImage
   imageId="http://46.101.95.245/orthanc/instances/d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930/preview"
+  imageLoaded={[Function]}
   index={0}
   instanceIds={
     Array [
@@ -43,6 +44,7 @@ exports[`Component <CornerstoneImage /> should renders with all props correctly 
 exports[`Component <CornerstoneImage /> should renders with all props correctly 3`] = `
 <CornerstoneImage
   imageId="http://46.101.95.245/orthanc/instances/d1d4875a-2a8267c2-2ee4f8f0-3d9e917e-9a141930/preview"
+  imageLoaded={[Function]}
   index={0}
   instanceIds={Array []}
   isVisibleCornerstone={true}

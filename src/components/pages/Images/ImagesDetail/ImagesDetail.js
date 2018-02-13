@@ -18,6 +18,7 @@ export default class ImagesDetail extends PureComponent {
   state = {
     touchMode: true,
     isVisibleCornerstone: true,
+    isImageLoaded: true,
   };
 
   componentDidMount() {
@@ -25,14 +26,15 @@ export default class ImagesDetail extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
+    const { isImageLoaded } = this.state;
     if ((nextProps.instanceIds[0] !== this.props.instanceIds[0]) && this.props.instanceIds.length) {
       this.setState({ touchMode: true });
       this.visibleCornerstone(false);
       this.swiper.allowTouchMove = true;
       const cornerstoneElement = this.getImgBlock();
       /* istanbul ignore next */
-      if (cornerstoneElement) {
-        this.disableCornerstoneTools(cornerstoneElement)
+      if (cornerstoneElement && isImageLoaded) {
+        this.disableCornerstoneTools(cornerstoneElement);
         cornerstone.reset(cornerstoneElement);
       }
     }
@@ -45,6 +47,8 @@ export default class ImagesDetail extends PureComponent {
   getImgBlock = () => document.getElementById(`dicomImage-${this.swiper.activeIndex}`);
 
   getURLtoImage = id => `${window.location.protocol}//46.101.95.245/orthanc/instances/${id}/preview`;
+
+  imageLoaded = isImageLoaded => this.setState({ isImageLoaded });
 
   visibleCornerstone = isVisibleCornerstone => this.setState({ isVisibleCornerstone });
 
@@ -100,10 +104,10 @@ export default class ImagesDetail extends PureComponent {
       cornerstoneTools.pan.disable(cornerstoneElement);
       cornerstoneTools.wwwc.activate(cornerstoneElement, 2)
     } else {
-      this.disableCornerstoneTools(cornerstoneElement)
+      this.swiper.allowTouchMove = true;
+      this.disableCornerstoneTools(cornerstoneElement);
     }
     this.setState({ touchMode: true });
-    this.swiper.allowTouchMove = true;
   };
 
   render() {
@@ -137,6 +141,7 @@ export default class ImagesDetail extends PureComponent {
               instanceIds={instanceIds}
               imageId={this.getURLtoImage(item)}
               visibleCornerstone={this.visibleCornerstone}
+              imageLoaded={this.imageLoaded}
               isVisibleCornerstone={isVisibleCornerstone}
               index={index}
             />
