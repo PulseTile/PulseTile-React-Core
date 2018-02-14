@@ -82,6 +82,7 @@
     "istanbul": "0.4.5",
     "istanbul-instrumenter-loader": "3.0.0",
     "jest": "22.2.2",
+    "jquery": "3.3.1",
     "jsdom": "11.2.0",
     "karma": "1.7.1",
     "karma-chai": "^0.1.0",

@@ -43,9 +43,10 @@ export default class PaginationBlock extends PureComponent {
 	};
 
 	pagination = (actualPage, collectionLength, rowsPerPage) => {
+		const { entriesPerPage } = this.props;
 		const pages = [];
 		const maxSizePage = 6;
-		const totalPages = Math.ceil(collectionLength / 10);
+		const totalPages = Math.ceil(collectionLength / entriesPerPage);
 		let paginationRange;
 
 		if (rowsPerPage > maxSizePage) {
@@ -85,7 +86,7 @@ export default class PaginationBlock extends PureComponent {
 	noop = () => undefined;
 
 	render() {
-		const { entriesPerPage, totalEntriesAmount, offset } = this.props;
+		const { entriesPerPage, totalEntriesAmount, offset, isShortView } = this.props;
 
 		const isFirstPage = offset < entriesPerPage;
 		const isLastPage = offset >= totalEntriesAmount - entriesPerPage;
@@ -97,7 +98,7 @@ export default class PaginationBlock extends PureComponent {
 		}
 
 		return (
-      <ul className="pagination-block">
+      <ul className={`pagination-block ${isShortView ? 'pagination-short' : ''}`}>
         <li className={classNames('pagination-item arrow', { disabled: isFirstPage })}>
           <a className="pagination-link" onClick={isFirstPage ? this.noop() : this.setPage(1)}>«</a>
         </li>
@@ -105,7 +106,7 @@ export default class PaginationBlock extends PureComponent {
           <a className="pagination-link pp" onClick={isFirstPage ? this.noop() : this.setPage(currentPage - 1)}>‹</a>
         </li>
 				{ this.pagination(currentPage, totalEntriesAmount, pagesAmount).map(pageIndex =>
-          <li className={classNames('pagination-item short-show', { active: currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
+          <li className={classNames('pagination-item', { active: currentPage === pageIndex, 'short-show': currentPage === pageIndex, disabled: pageIndex === '...' })} key={_.uniqueId('__PaginationBlock__li__')}>
             <a className="pagination-link" onClick={pageIndex === '...' ? this.noop() : this.setPage(pageIndex)}>{pageIndex}</a>
           </li>
 				)}

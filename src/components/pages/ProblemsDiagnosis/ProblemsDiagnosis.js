@@ -265,7 +265,6 @@ export default class ProblemsDiagnosis extends PureComponent {
           title='Problems / Diagnoses'
           subTitle='Short blurb containing a few words to describe this section'
           img={imgBanner}
-          toRight
         />
         : null
       }
