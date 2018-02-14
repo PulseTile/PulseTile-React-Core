@@ -28,7 +28,7 @@ export class App extends Component {
       <div className="page">
         <LoadingBar className="loading-bar" />
         {!_.isEmpty(requestError) ? <HandleErrors /> : <MainSpinner /> }
-        {!_.isEmpty(patientsInfo) ? <div>
+        {!_.isEmpty(patientsInfo) ? <div style={{height: '100%'}}>
           <div className={classNames('wrapper', isTouchDevice)}>
             <header className="header">
               <TopHeader
