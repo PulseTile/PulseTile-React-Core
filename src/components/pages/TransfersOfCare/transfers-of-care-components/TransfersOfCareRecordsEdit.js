@@ -175,7 +175,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     });
 
     records[0].record.date = getDDMMMYYYY(records[0].dateCreated);
-    records[0].record.tableName = 'Latest Vitals Data (News Score: ' + records[0].newsScore + ')';
+    records[0].record.tableName = 'Latest Vitals Data (News Score: ' + records[0].record.newsScore + ')';
     records[0].title = 'Latest Vitals Data';
     records[0].value = 0;
     return records;
@@ -219,7 +219,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
   };
   handleGetHeadingsItems = (ev) => {
     const { input: { onChange, value } } = this.props;
-    const records = value;
+    const records = value || [];
     const indexOfSelectedRecord = parseInt(ev.target.value);
     const { typeRecords, typesRecords, indexOfTypeEvents } = this.state;
 
@@ -254,7 +254,9 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
     const indexOfTypeEvents = parseInt(ev.target.value);
     this.setState({ indexOfTypeEvents, indexOfSelectedRecord: '' });
   };
-  removeRecord = index => {
+  removeRecord = index => (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
     const { input: { onChange, value } } = this.props;
     const newRecords = value.slice();
     newRecords.splice(index, 1);
@@ -421,7 +423,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
                                   <div className="table__col table__col-control table-transferOfCare__control" data-th="">
                                     <div
                                       className="btn btn-smaller btn-danger btn-icon-normal"
-                                      onClick={() => {this.removeRecord(index);}}
+                                      onClick={this.removeRecord(index)}
                                     ><i className="btn-icon fa fa-times" /></div>
                                   </div>
                                 </div>

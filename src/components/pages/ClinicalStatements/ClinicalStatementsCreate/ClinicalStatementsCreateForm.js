@@ -3,8 +3,11 @@ import { Field, reduxForm } from 'redux-form';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
-import _ from 'lodash/fp';
-import $ from 'jquery';
+import 'bootstrap';
+import 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable';
+import 'x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
+
+
 import * as helper from './clinical-statements-helper';
 import classNames from 'classnames';
 
@@ -127,16 +130,15 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
     const html = '<span class="tag" data-id="' + statement.id + '" data-phrase="' + statement.phrase + '" contenteditable="false">' + inner + '. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>';
 
     helper.pasteHtmlAtCaret(html, 'clinicalNote');
-    // helper.pasteHtmlAtCaret(html, 'clinicalNote');
 
     // Apply Editable
-    // $('span.tag .editable').editable({
-    //   type: 'text',
-    //   title: 'Edit Text',
-    //   success: (response, newValue) => {
-    //     phraseItem.value = newValue;
-    //   }
-    // });
+    $('span.tag .editable').editable({
+      type: 'text',
+      title: 'Edit Text',
+      success: (response, newValue) => {
+        phraseItem.value = newValue;
+      }
+    });
 
     // Bind Remove to tag
     helper.removeTags('clinicalNote');
