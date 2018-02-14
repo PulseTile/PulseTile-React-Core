@@ -1,17 +1,17 @@
 import React, { PureComponent } from 'react';
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import moment from "moment";
+import moment from 'moment';
 
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
-import TransfersOfCareRecordsEdit from "../transfers-of-care-components/TransfersOfCareRecordsEdit";
+import TransfersOfCareRecordsEdit from '../transfers-of-care-components/TransfersOfCareRecordsEdit';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-import {transfersOfCareCreateFormStateSelector} from "../selectors";
+import { transfersOfCareCreateFormStateSelector } from '../selectors';
 
 
 @reduxForm({
@@ -27,7 +27,7 @@ export default class TransfersOfCareCreateForm extends PureComponent {
   generateCitiesOptions = (selected) => {
     return citiesOptions.slice().map(item => ({
       ...item,
-      disabled: (item.value === selected)
+      disabled: (item.value === selected),
     }));
   };
 
@@ -77,8 +77,12 @@ export default class TransfersOfCareCreateForm extends PureComponent {
               component={DateInput}
               showTimeSelect
               props={{
-                format: 'DD-MMM-YYYY HH:mm', isSubmit, showTimeSelect: true,
-                timeFormat: 'HH:mm', timeIntervals: 5, minDate: moment() }}
+                format: 'DD-MMM-YYYY HH:mm',
+                isSubmit,
+                showTimeSelect: true,
+                timeFormat: 'HH:mm',
+                timeIntervals: 5,
+                minDate: moment() }}
             />
 
             <Field

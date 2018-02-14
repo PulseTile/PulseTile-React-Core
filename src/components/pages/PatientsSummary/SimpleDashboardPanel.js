@@ -16,16 +16,17 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
           ? <div
             className="board-preview"
             style={{ backgroundImage: `url(${srcPrevirew})` }}
-            onClick={() => goToState(state)} />
+            onClick={() => goToState(state)}
+          />
           : null
         }
         {isHasList
           ? <ul className="board-list">
-              {items.map(item =>
-                <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
-                  {item.text ? <span className="board-list-link">{item.text}</span> : null}
-                </li>)}
-            </ul>
+            {items.map(item =>
+              <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
+                {item.text ? <span className="board-list-link">{item.text}</span> : null}
+              </li>)}
+          </ul>
           : null}
       </div>
     </div>

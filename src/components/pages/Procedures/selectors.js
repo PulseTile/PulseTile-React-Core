@@ -1,15 +1,24 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const proceduresCreateFormSelector = _.getOr({}, 'form.proceduresCreateFormSelector')
-const proceduresDetailFormSelector = _.getOr({}, 'form.proceduresDetailFormSelector')
-const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
+const proceduresCreateFormSelector = _.getOr({}, 'form.proceduresCreateFormSelector');
+const proceduresDetailFormSelector = _.getOr({}, 'form.proceduresDetailFormSelector');
+const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector');
 
 const patientProceduresSelector = createSelector(
   ({ patientsProcedures }) => patientsProcedures,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsProcedures, userId) => {
-    const allProcedures = patientsProcedures[userId];
+    const allProcedures = operationsOnCollection.modificate(patientsProcedures[userId], [{
+      key: valuesNames.DATE_OF_PROCEDURE,
+      fn: item => new Date(item).getTime(),
+    }, {
+      key: valuesNames.TIME,
+      fn: item => new Date(item).getTime(),
+    }]);
     return ({ allProcedures, userId });
   }
 );

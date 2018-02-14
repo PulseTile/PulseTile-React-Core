@@ -1,15 +1,21 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const medicationsCreateFormSelector = _.getOr({}, 'form.medicationsCreateFormSelector')
-const medicationsDetailFormSelector = _.getOr({}, 'form.medicationsDetailFormSelector')
-const medicationsPrescriptionFormSelector = _.getOr({}, 'form.medicationsPrescriptionFormSelector')
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
+const medicationsCreateFormSelector = _.getOr({}, 'form.medicationsCreateFormSelector');
+const medicationsDetailFormSelector = _.getOr({}, 'form.medicationsDetailFormSelector');
+const medicationsPrescriptionFormSelector = _.getOr({}, 'form.medicationsPrescriptionFormSelector');
 
 const patientMedicationsSelector = createSelector(
   ({ patientsMedications }) => patientsMedications,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsMedications, userId) => {
-    const allMedications = patientsMedications[userId];
+    const allMedications = operationsOnCollection.modificate(patientsMedications[userId], [{
+      key: valuesNames.DATE_CREATED,
+      fn: item => new Date(item).getTime(),
+    }]);
     return ({ allMedications, userId });
   }
 );

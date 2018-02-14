@@ -1,6 +1,9 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
 const clinicalNotesPanelFormSelector = _.getOr({}, 'form.clinicalNotesPanelFormSelector');
 const clinicalNotesCreateFormSelector = _.getOr({}, 'form.clinicalNotesCreateFormSelector');
 
@@ -8,7 +11,10 @@ const patientClinicalNotesSelector = createSelector(
   ({ patientsClinicalNotes }) => patientsClinicalNotes,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsClinicalNotes, userId) => {
-    const allClinicalNotes = patientsClinicalNotes[userId];
+    const allClinicalNotes = operationsOnCollection.modificate(patientsClinicalNotes[userId], [{
+      key: valuesNames.DATE_CREATED,
+      fn: item => new Date(item).getTime(),
+    }]);
     return ({ allClinicalNotes, userId });
   }
 );

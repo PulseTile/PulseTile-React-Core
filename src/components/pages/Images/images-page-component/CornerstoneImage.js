@@ -15,14 +15,15 @@ export default class CornerstoneImage extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { instanceIds } = this.props;
+    const { instanceIds, imageLoaded } = this.props;
     if (nextProps.instanceIds[0] !== instanceIds[0]) {
+      imageLoaded(true);
       this.initCornerstone();
     }
   }
 
   initCornerstone = () => {
-    const { imageId, visibleCornerstone, index } = this.props;
+    const { imageId, visibleCornerstone, index, imageLoaded } = this.props;
     const { reEnableCornerstoneElement } = this.state;
     const element = document.getElementById(`dicomImage-${index}`);
     /* istanbul ignore next */
@@ -40,11 +41,12 @@ export default class CornerstoneImage extends PureComponent {
         cornerstone.displayImage(element, image);
         if (image) {
           this.setState({ reEnableCornerstoneElement: false });
-          visibleCornerstone(true)
+          visibleCornerstone(true);
+          imageLoaded(true);
         }
       }).catch((e) => {
         this.setState({ reEnableCornerstoneElement: true });
-        console.log(e);
+        imageLoaded(false);
       })
     }
   };

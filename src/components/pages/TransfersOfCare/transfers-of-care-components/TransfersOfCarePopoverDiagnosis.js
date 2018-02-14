@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
-import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
-import {valuesLabels, valuesNames} from "../../ProblemsDiagnosis/forms.config";
+
+import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { valuesLabels, valuesNames } from '../../ProblemsDiagnosis/forms.config';
 
 export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
   static propTypes = {
@@ -35,8 +36,8 @@ export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
           <div className="form-control-static">{detail[valuesNames.DESCRIPTION]}</div>
         </div>
         {/*<div className="form-group">*/}
-          {/*<label className="control-label">NHS Choices Web Page URL</label>*/}
-          {/*<div className="form-control-static">{{data.diagnosis.url}}</div>*/}
+        {/*<label className="control-label">NHS Choices Web Page URL</label>*/}
+        {/*<div className="form-control-static">{{data.diagnosis.url}}</div>*/}
         {/*</div>*/}
 
         <Row>

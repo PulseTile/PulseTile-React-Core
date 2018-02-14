@@ -1,6 +1,9 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
 const drawingsCreateFormSelector = _.getOr({}, 'form.drawingsCreateFormSelector');
 const drawingsDetailFormSelector = _.getOr({}, 'form.drawingsDetailFormSelector');
 const drawingsFormSelector = _.getOr({}, 'form.drawingsFormSelector');
@@ -9,7 +12,10 @@ const patientDrawingsSelector = createSelector(
   ({ patientsDrawings }) => patientsDrawings,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsDrawings, userId) => {
-    const allDrawings = patientsDrawings[userId];
+    const allDrawings = operationsOnCollection.modificate(patientsDrawings[userId], [{
+      key: valuesNames.DATE_CREATED,
+      fn: item => new Date(item).getTime(),
+    }]);
     return ({ allDrawings, userId });
   }
 );

@@ -1,0 +1,871 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <TransfersOfCare /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="ae7b874e-3133-4700-a650-2b016ad7b05f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <TransfersOfCareDetail
+          currentPanel="transfersOfCareDetail"
+          detail={
+            Object {
+              "clinicalSummary": "Review",
+              "dateCreated": 1495704408641,
+              "from": "Worcester Trust",
+              "reasonForContact": "Testing TOC",
+              "records": Array [
+                Object {
+                  "date": "10-Apr-2017",
+                  "name": "Cholecystectomy",
+                  "source": "ethercis",
+                  "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
+                  "type": "diagnosis",
+                  "typeTitle": "Problems / Diagnosis",
+                },
+                Object {
+                  "date": "11-Feb-2015",
+                  "name": "Care Service Team 444",
+                  "source": "marand",
+                  "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
+                  "type": "events",
+                  "typeTitle": "Events",
+                },
+              ],
+              "source": "qewdDB",
+              "sourceId": "ae7b874e-3133-4700-a650-2b016ad7b05f",
+              "to": "Oxford NHS Trust",
+              "transferDateTime": "2017-05-25T09:25:33.026Z",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="transfersOfCareDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="transfersOfCareCreate"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with transfersOfCareDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+            />
+          }
+          currentPanel="transfersOfCareCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="transfersOfCareCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="transfersOfCareCreate"
+          title="Create Transfer Of Care"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with transfersOfCareDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+            />
+          }
+          currentPanel="transfersOfCareCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="transfersOfCareCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="transfersOfCareCreate"
+          title="Create Transfer Of Care"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with transfersOfCareDetail and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="transfersOfCareMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="transfersOfCareMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Transfers of Care"
+          />
+          <PluginMainPanel
+            columnNameSortBy="numberText"
+            emptyDataMessage="No transfers of care"
+            headers={
+              Array [
+                Object {
+                  "key": "numberText",
+                  "title": "Transfer",
+                  "width": "18%",
+                },
+                Object {
+                  "key": "from",
+                  "title": "From (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "to",
+                  "title": "To (Site / Org)",
+                  "width": "22%",
+                },
+                Object {
+                  "key": "transferDateTime",
+                  "title": "Date / Time",
+                  "transformer": [Function],
+                  "width": "19%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="ae7b874e-3133-4700-a650-2b016ad7b05f"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="transfersOfCare"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <TransfersOfCareDetail
+          currentPanel="transfersOfCareDetail"
+          detail={
+            Object {
+              "clinicalSummary": "Review",
+              "dateCreated": 1495704408641,
+              "from": "Worcester Trust",
+              "reasonForContact": "Testing TOC",
+              "records": Array [
+                Object {
+                  "date": "10-Apr-2017",
+                  "name": "Cholecystectomy",
+                  "source": "ethercis",
+                  "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
+                  "type": "diagnosis",
+                  "typeTitle": "Problems / Diagnosis",
+                },
+                Object {
+                  "date": "11-Feb-2015",
+                  "name": "Care Service Team 444",
+                  "source": "marand",
+                  "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
+                  "type": "events",
+                  "typeTitle": "Events",
+                },
+              ],
+              "source": "qewdDB",
+              "sourceId": "ae7b874e-3133-4700-a650-2b016ad7b05f",
+              "to": "Oxford NHS Trust",
+              "transferDateTime": "2017-05-25T09:25:33.026Z",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="transfersOfCareDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="transferOfCarePanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with transfersOfCareDetail and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <TransfersOfCareDetail
+          currentPanel="transfersOfCareDetail"
+          detail={
+            Object {
+              "clinicalSummary": "Review",
+              "dateCreated": 1495704408641,
+              "from": "Worcester Trust",
+              "reasonForContact": "Testing TOC",
+              "records": Array [
+                Object {
+                  "date": "10-Apr-2017",
+                  "name": "Cholecystectomy",
+                  "source": "ethercis",
+                  "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
+                  "type": "diagnosis",
+                  "typeTitle": "Problems / Diagnosis",
+                },
+                Object {
+                  "date": "11-Feb-2015",
+                  "name": "Care Service Team 444",
+                  "source": "marand",
+                  "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
+                  "type": "events",
+                  "typeTitle": "Events",
+                },
+              ],
+              "source": "qewdDB",
+              "sourceId": "ae7b874e-3133-4700-a650-2b016ad7b05f",
+              "to": "Oxford NHS Trust",
+              "transferDateTime": "2017-05-25T09:25:33.026Z",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="transferOfCarePanel"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="transfersOfCareDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="transferOfCarePanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <TransfersOfCare /> should renders correctly with transfersOfCareDetail and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;

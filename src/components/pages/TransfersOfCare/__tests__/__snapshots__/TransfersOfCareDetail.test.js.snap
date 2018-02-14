@@ -1,0 +1,691 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <TransfersOfCareDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "transferOfCarePanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="transferOfCarePanel"
+      title="Transfer of Care"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    From (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    To (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Date of Transfer
+              </label>
+              <div
+                className="form-control-static"
+              >
+                25-Nov-2017
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Records
+              </label>
+              <div
+                className="form-control-static"
+              >
+                No records added
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Reason for contact
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Clinical Summary
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <TransfersOfCareDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "transferOfCarePanel": true,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="transferOfCarePanel"
+      title="Edit Transfer of Care"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "clinicalSummary": "Review",
+            "dateCreated": 1495704408641,
+            "from": "Worcester Trust",
+            "reasonForContact": "Testing TOC",
+            "records": Array [
+              Object {
+                "date": "10-Apr-2017",
+                "name": "Cholecystectomy",
+                "source": "ethercis",
+                "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
+                "type": "diagnosis",
+                "typeTitle": "Problems / Diagnosis",
+              },
+              Object {
+                "date": "11-Feb-2015",
+                "name": "Care Service Team 444",
+                "source": "marand",
+                "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
+                "type": "events",
+                "typeTitle": "Events",
+              },
+            ],
+            "source": "qewdDB",
+            "sourceId": "ae7b874e-3133-4700-a650-2b016ad7b05f",
+            "to": "Oxford NHS Trust",
+            "transferDateTime": "2017-05-25T09:25:33.026Z",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <TransfersOfCareDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "transferOfCarePanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="transferOfCarePanel"
+      title="Transfer of Care"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    From (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Worcester Trust
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    To (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Oxford NHS Trust
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Date of Transfer
+              </label>
+              <div
+                className="form-control-static"
+              >
+                25-May-2017
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Records
+              </label>
+              <table
+                className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor"
+              >
+                <colgroup>
+                  <col />
+                  <col
+                    style={
+                      Object {
+                        "width": "21%",
+                      }
+                    }
+                  />
+                  <col
+                    style={
+                      Object {
+                        "width": "21%",
+                      }
+                    }
+                  />
+                  <col
+                    style={
+                      Object {
+                        "width": "18%",
+                      }
+                    }
+                  />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>
+                      Name
+                    </th>
+                    <th>
+                      Type
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      Source
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    key="0"
+                  >
+                    <td
+                      data-th="Name"
+                    >
+                      <span>
+                        Cholecystectomy
+                      </span>
+                    </td>
+                    <td
+                      data-th="Type"
+                    >
+                      <span>
+                        Problems / Diagnosis
+                      </span>
+                    </td>
+                    <td
+                      data-th="Date"
+                    >
+                      <span>
+                        10-Apr-2017
+                      </span>
+                    </td>
+                    <td
+                      data-th="Source"
+                    >
+                      <span>
+                        ethercis
+                      </span>
+                    </td>
+                  </tr>
+                  <tr
+                    key="1"
+                  >
+                    <td
+                      data-th="Name"
+                    >
+                      <span>
+                        Care Service Team 444
+                      </span>
+                    </td>
+                    <td
+                      data-th="Type"
+                    >
+                      <span>
+                        Events
+                      </span>
+                    </td>
+                    <td
+                      data-th="Date"
+                    >
+                      <span>
+                        11-Feb-2015
+                      </span>
+                    </td>
+                    <td
+                      data-th="Source"
+                    >
+                      <span>
+                        marand
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Reason for contact
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Testing TOC
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Clinical Summary
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Review
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    25-May-2017
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    qewdDB
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <TransfersOfCareDetail /> should renders with props correctly 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "transferOfCarePanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="transferOfCarePanel"
+      title="Transfer of Care"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    From (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    To (Site / Org)
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Date of Transfer
+              </label>
+              <div
+                className="form-control-static"
+              >
+                01-Feb-2018
+              </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Records
+              </label>
+              <div
+                className="form-control-static"
+              >
+                No records added
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Reason for contact
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Clinical Summary
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    01-Feb-2018
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
