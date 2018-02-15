@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
-import TransfersOfCarePopover from '../transfers-of-care-components/TransfersOfCarePopover';
+import RecordsOfTablePopover from '../../../form-fields/RecordsOfTable/RecordsOfTablePopover';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -125,10 +125,10 @@ const match = {
   },
 };
 
-describe('Component <TransfersOfCarePopover />', () => {
+describe('Component <RecordsOfTablePopover />', () => {
   it('should renders with props correctly when type referrals', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={store}
         record={
           {
@@ -147,14 +147,14 @@ describe('Component <TransfersOfCarePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Referrals');
 
     expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('TransfersOfCarePopoverReferrals')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverReferrals')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders with props correctly when type diagnosis', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={store}
         record={
           {
@@ -173,14 +173,14 @@ describe('Component <TransfersOfCarePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Problems / Diagnosis');
 
     expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('TransfersOfCarePopoverDiagnosis')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverDiagnosis')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders with props correctly when type medications', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={store}
         record={
           {
@@ -199,14 +199,14 @@ describe('Component <TransfersOfCarePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Medications');
 
     expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('TransfersOfCarePopoverMedications')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverMedications')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders with props correctly when type events', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={store}
         record={
           {
@@ -225,14 +225,14 @@ describe('Component <TransfersOfCarePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Events');
 
     expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('TransfersOfCarePopoverEvents')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverEvents')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders with props correctly when type vitals', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={store}
         record={
           {
@@ -251,14 +251,14 @@ describe('Component <TransfersOfCarePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Vitals');
 
     expect(component.find('Spinner')).toHaveLength(0);
-    expect(component.find('TransfersOfCarePopoverVitals')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverVitals')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders with props correctly without Spinner', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={emptyStore}
         record={
           {
@@ -277,7 +277,7 @@ describe('Component <TransfersOfCarePopover />', () => {
 
   it('should renders with props correctly without Spinner', () => {
     const component = shallow(
-      <TransfersOfCarePopover
+      <RecordsOfTablePopover
         store={emptyStore}
         record={
           {

@@ -4,7 +4,7 @@ import { Field, reduxForm } from 'redux-form';
 import moment from 'moment';
 
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
-import TransfersOfCareRecordsEdit from '../transfers-of-care-components/TransfersOfCareRecordsEdit';
+import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
@@ -88,7 +88,7 @@ export default class TransfersOfCareCreateForm extends PureComponent {
             <Field
               name={valuesNames.RECORDS}
               id={valuesNames.RECORDS}
-              component={TransfersOfCareRecordsEdit}
+              component={RecordsOfTable}
               props={{ match, isSubmit }}
             />
 

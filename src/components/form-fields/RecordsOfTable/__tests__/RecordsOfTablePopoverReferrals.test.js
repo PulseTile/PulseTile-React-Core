@@ -3,8 +3,8 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import moment from 'moment';
 
-import TransfersOfCarePopoverReferrals from '../transfers-of-care-components/TransfersOfCarePopoverReferrals';
-import { valuesLabels, valuesNames } from '../../Referrals/forms.config';
+import RecordsOfTablePopoverReferrals from '../../../form-fields/RecordsOfTable/RecordsOfTablePopoverReferrals';
+import { valuesLabels, valuesNames } from '../../../pages/Referrals/forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -28,10 +28,10 @@ const testProps = {
 const DATE = moment(testProps.detail[valuesNames.DATE]).format(DATE_FORMAT);
 const STATE_DATE = moment(testProps.detail[valuesNames.STATE_DATE]).format(DATE_FORMAT);
 
-describe('Component <TransfersOfCarePopoverReferrals />', () => {
+describe('Component <RecordsOfTablePopoverReferrals />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
-      <TransfersOfCarePopoverReferrals
+      <RecordsOfTablePopoverReferrals
         detail={testProps.detail}
       />);
 
@@ -60,7 +60,7 @@ describe('Component <TransfersOfCarePopoverReferrals />', () => {
 
   it('should renders with props correctly with empty detail', () => {
     const component = shallow(
-      <TransfersOfCarePopoverReferrals />);
+      <RecordsOfTablePopoverReferrals />);
 
     expect(component).toMatchSnapshot();
   });

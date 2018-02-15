@@ -2,25 +2,25 @@ import React, { PureComponent } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import _ from "lodash/fp";
 import classNames from 'classnames';
-import {getDDMMMYYYY} from "../../../../utils/time-helpers.utils";
+import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
 
-import SelectFormGroup from '../../../form-fields/SelectFormGroup';
-import TransfersOfCarePopover from './TransfersOfCarePopover';
-import Spinner from '../../../ui-elements/Spinner/Spinner';
-import { valuesNames, valuesLabels, typesOptions } from '../forms.config';
+import SelectFormGroup from '../SelectFormGroup';
+import RecordsOfTablePopover from './RecordsOfTablePopover';
+import Spinner from '../../ui-elements/Spinner/Spinner';
+import { valuesNames, valuesLabels, typesOptions } from './forms.config';
 import { connect } from "react-redux";
 
 import { bindActionCreators } from "redux";
-import {fetchPatientReferralsRequest} from "../../Referrals/ducks/fetch-patient-referrals.duck";
-import {fetchPatientVitalsRequest} from "../../Vitals/ducks/fetch-patient-vitals.duck";
-import {fetchPatientEventsRequest} from "../../Events/ducks/fetch-patient-events.duck";
-import {fetchPatientMedicationsRequest} from "../../Medications/ducks/fetch-patient-medications.duck";
-import {fetchPatientDiagnosesRequest} from "../../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
-import {patientDiagnosesSelector} from "../../ProblemsDiagnosis/selectors";
-import {patientMedicationsSelector} from "../../Medications/selectors";
-import {patientVitalsSelector} from "../../Vitals/selectors";
-import {patientEventsSelector} from "../../Events/selectors";
-import {patientReferralsSelector} from "../../Referrals/selectors";
+import { fetchPatientReferralsRequest } from "../../pages/Referrals/ducks/fetch-patient-referrals.duck";
+import { fetchPatientVitalsRequest } from "../../pages/Vitals/ducks/fetch-patient-vitals.duck";
+import { fetchPatientEventsRequest } from "../../pages/Events/ducks/fetch-patient-events.duck";
+import { fetchPatientMedicationsRequest } from "../../pages/Medications/ducks/fetch-patient-medications.duck";
+import { fetchPatientDiagnosesRequest } from "../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
+import { patientDiagnosesSelector } from "../../pages/ProblemsDiagnosis/selectors";
+import { patientMedicationsSelector } from "../../pages/Medications/selectors";
+import { patientVitalsSelector } from "../../pages/Vitals/selectors";
+import { patientEventsSelector } from "../../pages/Events/selectors";
+import { patientReferralsSelector } from "../../pages/Referrals/selectors";
 
 const PREFIX_POPOVER_ID = 'toc-popover-';
 
@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientReferralsSelector)
 @connect(patientEventsSelector)
 @connect(patientVitalsSelector)
-export default class TransfersOfCareRecordsEdit extends PureComponent {
+export default class RecordsOfTable extends PureComponent {
   state = {
     typeRecords: '',
     indexOfSelectedRecord: '',
@@ -429,7 +429,7 @@ export default class TransfersOfCareRecordsEdit extends PureComponent {
                                 </div>
                                 {provided.placeholder}
                                 {index === indexOfOpenedPopover ?
-                                  <TransfersOfCarePopover
+                                  <RecordsOfTablePopover
                                     id={`${PREFIX_POPOVER_ID}${index}`}
                                     record={record}
                                     match={match}
