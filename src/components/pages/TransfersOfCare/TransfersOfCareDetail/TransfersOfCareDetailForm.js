@@ -8,7 +8,7 @@ import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions, typesOfRecordsOptions } from '../forms.config';
 import { transfersOfCareDetailFormStateSelector} from "../selectors";
 
 @reduxForm({
@@ -95,7 +95,7 @@ export default class TransfersOfCareDetailForm extends PureComponent {
               name={valuesNames.RECORDS}
               id={valuesNames.RECORDS}
               component={RecordsOfTable}
-              props={{ match, isSubmit }}
+              props={{ match, isSubmit, typesOptions: typesOfRecordsOptions }}
             />
 
             <div className="row-expand">

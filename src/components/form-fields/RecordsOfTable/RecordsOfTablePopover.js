@@ -10,18 +10,22 @@ import RecordsOfTablePopoverMedications from './RecordsOfTablePopoverMedications
 import RecordsOfTablePopoverReferrals from './RecordsOfTablePopoverReferrals';
 import RecordsOfTablePopoverEvents from './RecordsOfTablePopoverEvents';
 import RecordsOfTablePopoverVitals from './RecordsOfTablePopoverVitals';
+import RecordsOfTablePopoverProcedures from './RecordsOfTablePopoverProcedures';
+
 
 import { fetchPatientDiagnosesDetailRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientMedicationsDetailRequest } from '../../pages/Medications/ducks/fetch-patient-medications-detail.duck';
 import { fetchPatientReferralsDetailRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals-detail.duck';
 import { fetchPatientEventsDetailRequest } from '../../pages/Events/ducks/fetch-patient-events-detail.duck';
 import { fetchPatientVitalsDetailRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals-detail.duck';
+import { fetchPatientProceduresDetailRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures-detail.duck';
 
 import { patientDiagnosesDetailSelector } from '../../pages/ProblemsDiagnosis/selectors';
 import { patientMedicationsDetailSelector } from '../../pages/Medications/selectors';
 import { patientReferralsDetailSelector } from '../../pages/Referrals/selectors';
 import { patientEventsDetailSelector } from '../../pages/Events/selectors';
 import { patientVitalsDetailSelector } from '../../pages/Vitals/selectors';
+import { patientProceduresDetailSelector } from '../../pages/Procedures/selectors';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
@@ -30,6 +34,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPatientReferralsDetailRequest,
     fetchPatientEventsDetailRequest,
     fetchPatientVitalsDetailRequest,
+    fetchPatientProceduresDetailRequest,
   }, dispatch) });
 
 @connect(patientDiagnosesDetailSelector, mapDispatchToProps)
@@ -37,6 +42,7 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientReferralsDetailSelector)
 @connect(patientEventsDetailSelector)
 @connect(patientVitalsDetailSelector)
+@connect(patientProceduresDetailSelector)
 export default class RecordsOfTablePopover extends PureComponent {
   static propTypes = {
     record: PropTypes.object,
@@ -68,6 +74,11 @@ export default class RecordsOfTablePopover extends PureComponent {
         title: 'Vitals',
         fetchDetail: 'fetchPatientVitalsDetailRequest',
         stateName: 'vitalDetail',
+      },
+      procedures: {
+        title: 'Procedures',
+        fetchDetail: 'fetchPatientProceduresDetailRequest',
+        stateName: 'procedureDetail',
       },
     },
 
@@ -110,6 +121,7 @@ export default class RecordsOfTablePopover extends PureComponent {
             {typeOfRecord === 'referrals' ? <RecordsOfTablePopoverReferrals detail={detail} /> : null}
             {typeOfRecord === 'events' ? <RecordsOfTablePopoverEvents detail={detail} /> : null}
             {typeOfRecord === 'vitals' ? <RecordsOfTablePopoverVitals detail={detail} /> : null}
+            {typeOfRecord === 'procedures' ? <RecordsOfTablePopoverProcedures detail={detail} /> : null}
           </div>
         </div>
       </div>

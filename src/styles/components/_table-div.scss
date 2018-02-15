@@ -214,7 +214,8 @@
 .table-icon { color: #9493a1; }
 
 
-.table-transferOfCare {
+.table-transferOfCare,
+.table-records-editable {
   border-left: 0px !important;
   border-right: 0px !important;
   @include respond-from(xs) {

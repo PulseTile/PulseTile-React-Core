@@ -21,11 +21,11 @@ export const valuesLabels = {
   RECORDS_TYPE_EVENTS: 'Events Type',
 };
 
-export const typesOptions = [
+export const defaultTypesOptions = [
   { value: 'diagnosis',   title: 'Problems / Diagnosis' },
   { value: 'medications', title: 'Medications' },
   { value: 'referrals',   title: 'Referrals' },
   { value: 'events',      title: 'Events' },
   { value: 'vitals',      title: 'Vitals' },
-  // { value: 'procedures',  title: 'Procedures' },
+  { value: 'procedures',  title: 'Procedures' },
 ];

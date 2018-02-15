@@ -8,7 +8,7 @@ import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, citiesOptions } from '../forms.config';
+import { valuesNames, valuesLabels, citiesOptions, typesOfRecordsOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { transfersOfCareCreateFormStateSelector } from '../selectors';
@@ -89,7 +89,7 @@ export default class TransfersOfCareCreateForm extends PureComponent {
               name={valuesNames.RECORDS}
               id={valuesNames.RECORDS}
               component={RecordsOfTable}
-              props={{ match, isSubmit }}
+              props={{ match, isSubmit, typesOptions: typesOfRecordsOptions }}
             />
 
             <div className="row-expand">

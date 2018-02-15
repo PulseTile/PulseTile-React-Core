@@ -7,7 +7,7 @@ import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
 import SelectFormGroup from '../SelectFormGroup';
 import RecordsOfTablePopover from './RecordsOfTablePopover';
 import Spinner from '../../ui-elements/Spinner/Spinner';
-import { valuesNames, valuesLabels, typesOptions } from './forms.config';
+import { valuesNames, valuesLabels, defaultTypesOptions } from './forms.config';
 import { connect } from "react-redux";
 
 import { bindActionCreators } from "redux";
@@ -16,13 +16,15 @@ import { fetchPatientVitalsRequest } from "../../pages/Vitals/ducks/fetch-patien
 import { fetchPatientEventsRequest } from "../../pages/Events/ducks/fetch-patient-events.duck";
 import { fetchPatientMedicationsRequest } from "../../pages/Medications/ducks/fetch-patient-medications.duck";
 import { fetchPatientDiagnosesRequest } from "../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
+import { fetchPatientProceduresRequest } from "../../pages/Procedures/ducks/fetch-patient-procedures.duck";
 import { patientDiagnosesSelector } from "../../pages/ProblemsDiagnosis/selectors";
 import { patientMedicationsSelector } from "../../pages/Medications/selectors";
 import { patientVitalsSelector } from "../../pages/Vitals/selectors";
 import { patientEventsSelector } from "../../pages/Events/selectors";
 import { patientReferralsSelector } from "../../pages/Referrals/selectors";
+import { patientProceduresSelector } from "../../pages/Procedures/selectors";
 
-const PREFIX_POPOVER_ID = 'toc-popover-';
+const PREFIX_POPOVER_ID = 'rot-popover-';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
@@ -31,6 +33,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPatientReferralsRequest,
     fetchPatientEventsRequest,
     fetchPatientVitalsRequest,
+    fetchPatientProceduresRequest,
   }, dispatch) });
 
 @connect(patientDiagnosesSelector, mapDispatchToProps)
@@ -38,7 +41,12 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientReferralsSelector)
 @connect(patientEventsSelector)
 @connect(patientVitalsSelector)
+@connect(patientProceduresSelector)
 export default class RecordsOfTable extends PureComponent {
+  static defaultProps = {
+    typesOptions: defaultTypesOptions
+  };
+
   state = {
     typeRecords: '',
     indexOfSelectedRecord: '',
@@ -59,7 +67,7 @@ export default class RecordsOfTable extends PureComponent {
         title: 'Medications',
         fetchList: 'fetchPatientMedicationsRequest',
         stateName: 'allMedications',
-        setMethodName: 'setMedicationRecords',
+        setMethodName: 'setMedicationsRecords',
         records: null,
       },
       referrals: {
@@ -81,6 +89,13 @@ export default class RecordsOfTable extends PureComponent {
         fetchList: 'fetchPatientVitalsRequest',
         stateName: 'allVitals',
         setMethodName: 'setVitalsRecords',
+        records: null,
+      },
+      procedures: {
+        title: 'Procedures',
+        fetchList: 'fetchPatientProceduresRequest',
+        stateName: 'allProcedures',
+        setMethodName: 'setProceduresRecords',
         records: null,
       },
     },
@@ -124,8 +139,11 @@ export default class RecordsOfTable extends PureComponent {
   setDiagnosisRecords = data => {
     return this.changeArraysForTable(data, 'problem', 'dateOfOnset');
   };
-  setMedicationRecords = data => {
+  setMedicationsRecords = data => {
     return this.changeArraysForTable(data, 'name', 'dateCreated');
+  };
+  setProceduresRecords = data => {
+    return this.changeArraysForTable(data, 'name', 'date');
   };
   setReferralsRecords = data => {
     return data.map((el, index) => {
@@ -307,7 +325,7 @@ export default class RecordsOfTable extends PureComponent {
 
 
   render() {
-    const { isSubmit, input: { value }, match } = this.props;
+    const { typesOptions, isSubmit, input: { value }, match } = this.props;
     const records = value;
     const { typesRecords, typeRecords, indexOfSelectedRecord,
             isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover } = this.state;
@@ -330,7 +348,8 @@ export default class RecordsOfTable extends PureComponent {
         {(typeRecords === 'diagnosis' ||
           typeRecords === 'medications' ||
           typeRecords === 'referrals' ||
-          typeRecords === 'vitals') ?
+          typeRecords === 'vitals' ||
+          typeRecords === 'procedures') ?
           <SelectFormGroup
             label={valuesLabels.RECORDS}
             name={valuesNames.RECORDS}
@@ -382,7 +401,7 @@ export default class RecordsOfTable extends PureComponent {
                 <div className="panel-body-inner-table"
                      ref={provided.innerRef} >
                   <div className="form-group">
-                    <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-transferOfCare">
+                    <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable">
                       <div className='table__head'>
                         <div className="table__row">
                           <div className="table__col">{valuesLabels.RECORDS_NAME}</div>
@@ -420,7 +439,7 @@ export default class RecordsOfTable extends PureComponent {
                                   <div className="table__col table__col-type" data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></div>
                                   <div className="table__col table__col-date" data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></div>
                                   <div className="table__col table__col-source" data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></div>
-                                  <div className="table__col table__col-control table-transferOfCare__control" data-th="">
+                                  <div className="table__col table__col-control table-records-editable__control" data-th="">
                                     <div
                                       className="btn btn-smaller btn-danger btn-icon-normal"
                                       onClick={this.removeRecord(index)}
