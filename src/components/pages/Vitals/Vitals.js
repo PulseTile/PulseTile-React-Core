@@ -274,10 +274,8 @@ export default class Vitals extends PureComponent {
   };
 
   chartLoad = (vitals) => {
-    let tempDate;
-    let lastDate = '';
     const dataChart = {
-      labels: [],
+      labels: operationsOnCollection.getDateLabels(vitals, valuesNames.DATE_CREATED),
     };
     const datasetsData = {
       diastolicBP: [],
@@ -290,52 +288,20 @@ export default class Vitals extends PureComponent {
     };
 
     if (!_.isEmpty(vitals)) {
-      for (let i = 0; i < vitals.length; i++) {
-        tempDate = this.formatDate(new Date(+vitals[i].dateCreated));
-
-        if (lastDate === tempDate.date) {
-          dataChart.labels.push(tempDate.time);
-        } else {
-          lastDate = tempDate.date;
-          dataChart.labels.push(`${tempDate.date} ${tempDate.time}`);
-        }
-
-        datasetsData.diastolicBP.push(vitals[i].diastolicBP);
-        datasetsData.systolicBP.push(vitals[i].systolicBP);
-        datasetsData.temperature.push(vitals[i].temperature);
-        datasetsData.heartRate.push(vitals[i].heartRate);
-        datasetsData.respirationRate.push(vitals[i].respirationRate);
-        datasetsData.oxygenSaturation.push(vitals[i].oxygenSaturation);
-        datasetsData.sourceId.push(vitals[i].sourceId);
-      }
+      vitals.forEach(item => {
+        datasetsData.diastolicBP.push(item.diastolicBP);
+        datasetsData.systolicBP.push(item.systolicBP);
+        datasetsData.temperature.push(item.temperature);
+        datasetsData.heartRate.push(item.heartRate);
+        datasetsData.respirationRate.push(item.respirationRate);
+        datasetsData.oxygenSaturation.push(item.oxygenSaturation);
+        datasetsData.sourceId.push(item.sourceId);
+      });
     }
 
     dataChart.datasetsData = datasetsData;
 
     return dataChart;
-  };
-
-  formatDate = (date) => {
-    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-
-    let dd = date.getDate();
-    if (dd < 10) dd = `0${dd}`;
-
-    const mm = month[date.getMonth()];
-
-    let yy = date.getFullYear() % 100;
-    if (yy < 10) yy = `0${yy}`;
-
-    let hh = date.getHours();
-    if (hh < 10) hh = `0${hh}`;
-
-    let min = date.getMinutes();
-    if (min < 10) min = `0${min}`;
-
-    return {
-      date: `${dd}-${mm}-${yy}`,
-      time: `${hh}:${min}`,
-    };
   };
 
   getHighlighterClass = (vitalName) => {
