@@ -8,7 +8,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
     img="problems.jpg"
     subTitle="Short blurb containing a few words to describe this section"
     title="Problems / Diagnoses"
-    toRight={true}
+    toRight={false}
   />
   <div
     className="section"
@@ -201,7 +201,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
     img="problems.jpg"
     subTitle="Short blurb containing a few words to describe this section"
     title="Problems / Diagnoses"
-    toRight={true}
+    toRight={false}
   />
   <div
     className="section"
@@ -661,7 +661,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
     img="problems.jpg"
     subTitle="Short blurb containing a few words to describe this section"
     title="Problems / Diagnoses"
-    toRight={true}
+    toRight={false}
   />
   <div
     className="section"
@@ -744,7 +744,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
     img="problems.jpg"
     subTitle="Short blurb containing a few words to describe this section"
     title="Problems / Diagnoses"
-    toRight={true}
+    toRight={false}
   />
   <div
     className="section"

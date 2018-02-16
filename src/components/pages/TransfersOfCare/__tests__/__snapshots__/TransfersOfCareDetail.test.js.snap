@@ -77,20 +77,7 @@ exports[`Component <TransfersOfCareDetail /> should renders correctly with diffe
                 25-Nov-2017
               </div>
             </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Records
-              </label>
-              <div
-                className="form-control-static"
-              >
-                No records added
-              </div>
-            </div>
+            <RecordsOfTableView />
             <div
               className="row-expand"
             >
@@ -201,20 +188,14 @@ exports[`Component <TransfersOfCareDetail /> should renders correctly with diffe
             "reasonForContact": "Testing TOC",
             "records": Array [
               Object {
-                "date": "10-Apr-2017",
-                "name": "Cholecystectomy",
-                "source": "ethercis",
                 "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
                 "type": "diagnosis",
-                "typeTitle": "Problems / Diagnosis",
+                "undefined": "Problems / Diagnosis",
               },
               Object {
-                "date": "11-Feb-2015",
-                "name": "Care Service Team 444",
-                "source": "marand",
                 "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
                 "type": "events",
-                "typeTitle": "Events",
+                "undefined": "Events",
               },
             ],
             "source": "qewdDB",
