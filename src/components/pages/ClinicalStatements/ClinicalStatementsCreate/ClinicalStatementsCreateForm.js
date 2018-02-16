@@ -24,6 +24,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import {operationsOnCollection} from "../../../../utils/plugin-helpers.utils";
+import _ from "lodash/fp";
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalStatementsTagsRequest, fetchPatientClinicalStatementsQueryRequest }, dispatch) });
 
@@ -43,6 +44,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
 		queryFilter: '',
 		clinicalTag: '',
 
+    contentEditableFocus: { offset: 0, node: null },
     statements: [],
     clinicalStatementCreate: {
       contentStore: {
@@ -113,8 +115,8 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
   };
 
 	setStatement = statement => () => {
-	  console.log('statement', statement);
-    const { clinicalTag, clinicalStatementCreate } = this.state;
+	  // console.log('statement', statement);
+    const { clinicalTag, contentEditableFocus, clinicalStatementCreate } = this.state;
 
     const phraseItem = {
       id: statement.id,
@@ -129,7 +131,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
     );
     const html = '<span class="tag" data-id="' + statement.id + '" data-phrase="' + statement.phrase + '" contenteditable="false">' + inner + '. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>';
 
-    helper.pasteHtmlAtCaret(html, 'clinicalNote');
+    helper.pasteHtmlAtCaret(html, 'clinicalNote', contentEditableFocus);
 
     // Apply Editable
     $('span.tag .editable').editable({
@@ -148,6 +150,17 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
     console.log(event.target.innerText);
     // this.setState({html: event.target.value});
   };
+  handleBlurContentEditable = () => {
+    if (window.getSelection) {
+      const sel = window.getSelection();
+      this.setState({contentEditableFocus: { offset: sel.focusOffset, node: sel.focusNode }});
+    }
+  };
+
+  createMarkup = (text, queryFilter) => {
+    const regular = new RegExp(`(${queryFilter})`, 'gi');
+    return {__html: text.replace(regular, '<b class="text-mark">$1</b>')}
+  };
 
   render() {
 		const { clinicalStatementsTags, isSubmit } = this.props;
@@ -162,7 +175,6 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
 
-    console.log('render');
     return (
       <div className="panel-body-inner">
         <form name="clinicalStatementsCreateForm" className="form">
@@ -179,7 +191,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <div className="form-group">
-                  <label htmlFor="search" className="control-label">Search</label>
+                  <label htmlFor="search" className="control-label">{valuesLabels.SEARCH}</label>
                   <div className="input-holder">
                     <div className={classNames('dropdown', { 'open': !!queryFilter })}>
                       <div className="form-control input-sm input-container" id="clinicalTags">
@@ -211,14 +223,14 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                                   isShortView={true}
                                 /> : null }
                             </div>
-                            <div className="pagination-heading">Tags</div>
+                            <div className="pagination-heading">{valuesLabels.TAGS}</div>
                           </div>
                           <div className="dropdown-menu-wrap-list">
                             <div className="dropdown-menu-list">
 															{listTagsOnPage ?
 																listTagsOnPage.map(tag => {
 																	return <div className="dropdown-menu-item" key={`dropdown-item-${tag}`} onClick={this.setTag(tag)}>
-                                    <span className="dropdown-menu-item-text">{ tag }</span>
+                                    <span className="dropdown-menu-item-text" dangerouslySetInnerHTML={this.createMarkup(tag, queryFilter)} />
                                   </div>
 																})
 																: null
@@ -237,14 +249,14 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                                 isShortView={true}
                               /> : null }
                             </div>
-                            <div className="pagination-heading">Statements</div>
+                            <div className="pagination-heading">{valuesLabels.STATEMENTS}</div>
                           </div>
                           <div className="dropdown-menu-wrap-list">
                             <div className="dropdown-menu-list">
 															{listStatementsOnPage ?
 																listStatementsOnPage.map(statement => {
 																	return <div className="dropdown-menu-item" key={`dropdown-item-${statement.id}`} onClick={this.setStatement(statement)}>
-                                    <span className="dropdown-menu-item-text">{ statement.phrase }</span>
+                                    <span className="dropdown-menu-item-text" dangerouslySetInnerHTML={this.createMarkup(statement.phrase, queryFilter)} />
                                   </div>
 																})
 																: null}
@@ -261,13 +273,13 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <div className="form-group hidden-not-expand visible-expand">
-                  <label htmlFor="" className="control-label">Statements</label>
+                  <label htmlFor="" className="control-label">{valuesLabels.STATEMENTS}</label>
                   <div className="input-holder">
                     <div className="form-control form-contenteditable textarea-big">
                       {filteredStatements ?
                         filteredStatements.map(statement => {
                           return <div className="select-option" key={`select-option-${statement.id}`} onClick={this.setStatement(statement)}>
-                            <span className="select-option-text">{ statement.phrase }</span>
+                            <span className="select-option-text" dangerouslySetInnerHTML={this.createMarkup(statement.phrase, queryFilter)} />
                           </div>
                         })
                         : null }
@@ -277,18 +289,19 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
               </div>
               <div className="col-expand-right">
                 <div className="form-group">
-                  <label htmlFor="clinicalNote" className="control-label">Clinical Note</label>
+                  <label htmlFor="clinicalNote" className="control-label">{valuesLabels.NOTE}</label>
                   <div className="input-holder">
                     <div className="form-control textarea-big input-sm contenteditable-resize"
                          tabIndex="0"
-                         id={'clinicalNote'}
+                         id={valuesNames.NOTE}
                          contentEditable
                          onInput={this.handleChangeContentEditable}
+                         onBlur={this.handleBlurContentEditable}
                     >
                       <span id="temp" contentEditable={false} />
                     </div>
                   </div>
-                  {/*<span className="help-block animate-fade">You must enter a value.</span>*/}
+                  <span className="help-block animate-fade">You must enter a value.</span>
                 </div>
               </div>
             </div>
