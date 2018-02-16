@@ -54,7 +54,7 @@ export const operationsOnCollection = {
 
       if (modeSorting) {
         if (modeSorting[operationsOnCollection.modsSorting.REPLACEMENT]) {
-          modeSorting[operationsOnCollection.modsSorting.REPLACEMENT].forEach(item => {
+          modeSorting[operationsOnCollection.modsSorting.REPLACEMENT].forEach((item) => {
             if (key === item.instead) {
               key = item.to;
             }
@@ -102,6 +102,50 @@ export const operationsOnCollection = {
         obj[key] = obj[key].toString();
       }
     }
+  },
+
+  formatDateForCharts: (date) => {
+    const month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+    let dd = date.getDate();
+    if (dd < 10) dd = `0${dd}`;
+
+    const mm = month[date.getMonth()];
+
+    let yy = date.getFullYear() % 100;
+    if (yy < 10) yy = `0${yy}`;
+
+    let hh = date.getHours();
+    if (hh < 10) hh = `0${hh}`;
+
+    let min = date.getMinutes();
+    if (min < 10) min = `0${min}`;
+
+    return {
+      date: `${dd}-${mm}-${yy}`,
+      time: `${hh}:${min}`,
+    };
+  },
+
+  getDateLabels: (collection, key) => {
+    let tempDate;
+    let lastDate = '';
+    const labels = [];
+
+    if (!_.isEmpty(collection)) {
+      collection.forEach(item => {
+        tempDate = operationsOnCollection.formatDateForCharts(new Date(+item[key]));
+
+        if (lastDate === tempDate.date) {
+          labels.push(tempDate.time);
+        } else {
+          lastDate = tempDate.date;
+          labels.push(`${tempDate.date} ${tempDate.time}`);
+        }
+      });
+    }
+
+    return labels;
   },
 };
 
