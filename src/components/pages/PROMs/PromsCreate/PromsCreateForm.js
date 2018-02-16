@@ -1,29 +1,23 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
-import moment from 'moment';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-
-import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
-// import PromsRecordsEdit from '../transfers-of-care-components/PromsRecordsEdit';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import FormTitle from '../../../ui-elements/FormTitle/FormTitle';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange } from '../forms.config';
+import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange, typesOfRecordsOptions } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-// import { promsCreateFormStateSelector } from '../selectors';
+import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 
 
 @reduxForm({
   form: 'promsCreateFormSelector',
   validate: validateForm,
 })
-// @connect(promsCreateFormStateSelector)
 export default class PromsCreateForm extends PureComponent {
   componentDidMount() {
     this.props.initialize(defaultFormValues);
@@ -31,11 +25,9 @@ export default class PromsCreateForm extends PureComponent {
   }
 
   render() {
-    const { isSubmit, promsCreateFormState, match, changeScoreStatus, status } = this.props;
+    const { isSubmit, match, changeScoreStatus, status } = this.props;
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
-
-    // const formState = promsCreateFormState.values || {};
 
     return (
       <div className="panel-body-inner">
@@ -54,12 +46,12 @@ export default class PromsCreateForm extends PureComponent {
               </div>
             </div>
 
-            {/*<Field*/}
-            {/*name={valuesNames.RECORDS}*/}
-            {/*id={valuesNames.RECORDS}*/}
-            {/*component={PromsRecordsEdit}*/}
-            {/*props={{ match, isSubmit }}*/}
-            {/*/>*/}
+            <Field
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              component={RecordsOfTable}
+              props={{ match, isSubmit, typesOptions: typesOfRecordsOptions }}
+            />
 
             <FormTitle text="Specific Question" />
             <div className="row-expand">

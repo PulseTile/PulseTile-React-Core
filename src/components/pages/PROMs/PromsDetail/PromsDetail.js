@@ -5,6 +5,7 @@ import PromsDetailForm from './PromsDetailForm';
 import FormTitle from '../../../ui-elements/FormTitle/FormTitle';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
+import RecordsOfTableView from '../../../form-fields/RecordsOfTable/RecordsOfTableView';
 
 const PROM_PANEL = 'promPanel';
 
@@ -42,34 +43,7 @@ export default class PromsDetail extends PureComponent {
                     </div>
                   </div>
 
-                  <div className="form-group">
-                    <label className="control-label">{valuesLabels.RECORDS}</label>
-                    { detail[valuesNames.RECORDS] && detail[valuesNames.RECORDS].length
-                      ? <table className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor">
-                        <colgroup>
-                          <col />
-                          <col style={{ width: '21%' }} />
-                          <col style={{ width: '21%' }} />
-                          <col style={{ width: '18%' }} />
-                        </colgroup>
-                        <thead><tr>
-                          <th>{valuesLabels.RECORDS_NAME}</th>
-                          <th>{valuesLabels.RECORDS_TYPE}</th>
-                          <th>{valuesLabels.RECORDS_DATE}</th>
-                          <th>{valuesLabels.RECORDS_SOURCE}</th>
-                        </tr></thead>
-                        <tbody>
-                          { detail[valuesNames.RECORDS].map((record, index) => <tr key={index}>
-                            <td data-th={valuesLabels.RECORDS_NAME}><span>{record[valuesNames.RECORDS_NAME]}</span></td>
-                            <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
-                            <td data-th={valuesLabels.RECORDS_DATE}><span>{getDDMMMYYYY(record[valuesNames.RECORDS_DATE])}</span></td>
-                            <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>
-                          </tr>)}
-                        </tbody>
-                      </table>
-                      : <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>
-                    }
-                  </div>
+                  <RecordsOfTableView records={detail[valuesNames.RECORDS]} />
 
                   <FormTitle text="Specific Question" />
                   <div className="row-expand">

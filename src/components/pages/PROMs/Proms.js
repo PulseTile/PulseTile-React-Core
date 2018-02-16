@@ -316,7 +316,7 @@ export default class Proms extends PureComponent {
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, nameShouldInclude, scoreStatus } = this.state;
     // const { allProms, promsDetailFormState, promsCreateFormState, promDetail } = this.props;
-    const { promsDetailFormState, promsCreateFormState } = this.props;
+    const { promsDetailFormState, promsCreateFormState, match } = this.props;
 
     const allProms = [
       {
@@ -410,6 +410,7 @@ export default class Proms extends PureComponent {
               isSubmit={isSubmit}
               status={scoreStatus}
               changeScoreStatus={this.changeScoreStatus}
+              match={match}
             />
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
@@ -430,6 +431,7 @@ export default class Proms extends PureComponent {
                   isSubmit={isSubmit}
                   changeScoreStatus={this.changeScoreStatus}
                   status={scoreStatus}
+                  match={match}
                 />
               }
             />

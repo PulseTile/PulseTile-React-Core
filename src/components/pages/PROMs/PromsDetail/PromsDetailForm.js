@@ -12,15 +12,15 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import FormTitle from '../../../ui-elements/FormTitle/FormTitle';
 // import PromsRecordsEdit from '../transfers-of-care-components/PromsRecordsEdit';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange } from '../forms.config';
+import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange, typesOfRecordsOptions } from '../forms.config';
 import RangeInput from '../../../form-fields/RangeInput';
+import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 // import { promsDetailFormStateSelector } from '../selectors';
 
 @reduxForm({
   form: 'promsDetailFormSelector',
   validate: validateForm,
 })
-// @connect(promsDetailFormStateSelector)
 export default class PromsDetailForm extends PureComponent {
   componentDidMount() {
     const { detail, initialize } = this.props;
@@ -31,7 +31,7 @@ export default class PromsDetailForm extends PureComponent {
     const defaultFormValues = {
       [valuesNames.NAME]: value[valuesNames.NAME],
       [valuesNames.SPECIFIC_Q1]: value[valuesNames.SPECIFIC_Q1],
-      // [valuesNames.RECORDS]: value[valuesNames.RECORDS],
+      [valuesNames.RECORDS]: value[valuesNames.RECORDS],
       [valuesNames.SPECIFIC_Q2]: value[valuesNames.SPECIFIC_Q2],
       [valuesNames.SPECIFIC_Q3]: value[valuesNames.SPECIFIC_Q3],
       [valuesNames.SPECIFIC_Q4]: value[valuesNames.SPECIFIC_Q4],
@@ -43,9 +43,7 @@ export default class PromsDetailForm extends PureComponent {
   };
 
   render() {
-    const { detail, isSubmit, promsDetailFormState, match, status, changeScoreStatus } = this.props;
-
-    // const formState = promsDetailFormState.values || {};
+    const { detail, isSubmit, match, status, changeScoreStatus } = this.props;
 
     return (
       <div className="panel-body-inner">
@@ -64,12 +62,12 @@ export default class PromsDetailForm extends PureComponent {
               </div>
             </div>
 
-            {/*<Field*/}
-            {/*name={valuesNames.RECORDS}*/}
-            {/*id={valuesNames.RECORDS}*/}
-            {/*component={PromsRecordsEdit}*/}
-            {/*props={{ match, isSubmit }}*/}
-            {/*/>*/}
+            <Field
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              component={RecordsOfTable}
+              props={{ match, isSubmit, typesOptions: typesOfRecordsOptions }}
+            />
 
             <FormTitle text="Specific Question" />
             <div className="row-expand">

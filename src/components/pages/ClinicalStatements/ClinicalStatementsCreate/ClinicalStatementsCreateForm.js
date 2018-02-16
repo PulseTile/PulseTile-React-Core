@@ -6,10 +6,9 @@ import { lifecycle, compose } from 'recompose';
 import 'bootstrap';
 import 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable';
 import 'x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
-
+import classNames from 'classnames';
 
 import * as helper from './clinical-statements-helper';
-import classNames from 'classnames';
 
 import { fetchPatientClinicalStatementsTagsRequest } from '../ducks/fetch-patient-clinical-statements-tags.duck';
 import { fetchPatientClinicalStatementsQueryRequest } from '../ducks/fetch-patient-clinical-statements-query.duck';
@@ -23,126 +22,126 @@ import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-import {operationsOnCollection} from "../../../../utils/plugin-helpers.utils";
+import { operationsOnCollection } from '../../../../utils/plugin-helpers.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientClinicalStatementsTagsRequest, fetchPatientClinicalStatementsQueryRequest }, dispatch) });
 
 
 @reduxForm({
-	form: 'clinicalStatementsCreateFormSelector',
-	validate: validateForm,
+  form: 'clinicalStatementsCreateFormSelector',
+  validate: validateForm,
 })
 @connect(patientClinicalStatementsTagsSelector, mapDispatchToProps)
 @connect(patientClinicalStatementsQuerySelector)
 @compose(lifecycle(fetchPatientClinicalStatementsTagsOnMount))
 export default class ClinicalStatementsCreateForm extends PureComponent {
-	state = {
-		offset: 0,
-		listPerPageAmount: 5,
+ state = {
+   offset: 0,
+   listPerPageAmount: 5,
 
-		queryFilter: '',
-		clinicalTag: '',
+   queryFilter: '',
+   clinicalTag: '',
 
-    statements: [],
-    clinicalStatementCreate: {
-      contentStore: {
-				name: "ts",
-				phrases: [],
-      },
-    },
-    html: ''
-    // openSearch: false,
-	};
+   statements: [],
+   clinicalStatementCreate: {
+     contentStore: {
+       name: 'ts',
+       phrases: [],
+     },
+   },
+   html: '',
+   // openSearch: false,
+ };
 
-  componentDidMount() {
-    this.props.initialize(defaultFormValues);
-  }
+ componentDidMount() {
+   this.props.initialize(defaultFormValues);
+ }
 
-	componentWillReceiveProps(nextProps) {
-		const { clinicalStatementsQuery } = nextProps;
-		const { clinicalTag } = this.state;
-		if (clinicalStatementsQuery[clinicalTag]) {
-			this.setState({ statements: clinicalStatementsQuery[clinicalTag] });
-    } else {
-			this.setState({ statementsIDS: {}, statements: [] });
-		}
-	}
+ componentWillReceiveProps(nextProps) {
+   const { clinicalStatementsQuery } = nextProps;
+   const { clinicalTag } = this.state;
+   if (clinicalStatementsQuery[clinicalTag]) {
+     this.setState({ statements: clinicalStatementsQuery[clinicalTag] });
+   } else {
+     this.setState({ statementsIDS: {}, statements: [] });
+   }
+ }
 
-  requestStatements = tag => {
-		const { actions, match } = this.props;
-		const userId = _.get('params.userId', match);
-		if (userId) actions.fetchPatientClinicalStatementsQueryRequest({ userId, tag });
+  requestStatements = (tag) => {
+    const { actions, match } = this.props;
+    const userId = _.get('params.userId', match);
+    if (userId) actions.fetchPatientClinicalStatementsQueryRequest({ userId, tag });
   };
 
-	handleSetOffset = offset => this.setState({ offset });
+ handleSetOffset = offset => this.setState({ offset });
 
-	getListItemsOnPage = (list) => {
-		const { listPerPageAmount, offset } = this.state;
+ getListItemsOnPage = (list) => {
+   const { listPerPageAmount, offset } = this.state;
 
-		return (_.size(list) > listPerPageAmount
-			? _.slice(offset, offset + listPerPageAmount)(list)
-			: list)
-	};
+   return (_.size(list) > listPerPageAmount
+     ? _.slice(offset, offset + listPerPageAmount)(list)
+     : list)
+ };
 
-	filterTags = (tags) => tags.filter(item => {
-		const { queryFilter } = this.state;
-		const str = item ? `${item.toString().toLowerCase()} ` : '';
+ filterTags = tags => tags.filter((item) => {
+   const { queryFilter } = this.state;
+   const str = item ? `${item.toString().toLowerCase()} ` : '';
 
-		return str.indexOf(queryFilter.toLowerCase() || '') !== -1
-	});
+   return str.indexOf(queryFilter.toLowerCase() || '') !== -1
+ });
 
-	getQueryFilter = event => { this.setState({ queryFilter: event.target.value }) };
+ getQueryFilter = (event) => { this.setState({ queryFilter: event.target.value }) };
 
-	setTag = clinicalTag => () => {
-		this.setState({ offset: 0, clinicalTag, queryFilter: '' });
-		this.requestStatements(clinicalTag);
-	};
+ setTag = clinicalTag => () => {
+   this.setState({ offset: 0, clinicalTag, queryFilter: '' });
+   this.requestStatements(clinicalTag);
+ };
 
-	removeTag = () => {
+ removeTag = () => {
 	  this.setState({
-			offset: 0,
-      clinicalTag: '',
-			queryFilter: '',
-			statements: [],
+     offset: 0,
+     clinicalTag: '',
+     queryFilter: '',
+     statements: [],
 	  })
-	};
+ };
 
   filterStatements = (statements) => {
     const { queryFilter } = this.state;
     return operationsOnCollection.filter(statements, queryFilter, ['phrase'],);
   };
 
-	setStatement = statement => () => {
+ setStatement = statement => () => {
 	  console.log('statement', statement);
-    const { clinicalTag, clinicalStatementCreate } = this.state;
+   const { clinicalTag, clinicalStatementCreate } = this.state;
 
-    const phraseItem = {
-      id: statement.id,
-      tag: clinicalTag
-    };
+   const phraseItem = {
+     id: statement.id,
+     tag: clinicalTag,
+   };
 
-    clinicalStatementCreate.contentStore.phrases.push(phraseItem);
-    // Parse inputs
-    const inner = statement.phrase.replace(
-      /(.*)(\{|\|)([^~|])(\}|\|)(.*)/,
-      '$1<span class="editable" contenteditable="false" data-arr-subject="$1" editable-text data-arr-unit="$3" data-arr-value="$5">$3</span>$5'
-    );
-    const html = '<span class="tag" data-id="' + statement.id + '" data-phrase="' + statement.phrase + '" contenteditable="false">' + inner + '. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>';
+   clinicalStatementCreate.contentStore.phrases.push(phraseItem);
+   // Parse inputs
+   const inner = statement.phrase.replace(
+     /(.*)(\{|\|)([^~|])(\}|\|)(.*)/,
+     '$1<span class="editable" contenteditable="false" data-arr-subject="$1" editable-text data-arr-unit="$3" data-arr-value="$5">$3</span>$5'
+   );
+   const html = `<span class="tag" data-id="${statement.id}" data-phrase="${statement.phrase}" contenteditable="false">${inner}. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>`;
 
-    helper.pasteHtmlAtCaret(html, 'clinicalNote');
+   helper.pasteHtmlAtCaret(html, 'clinicalNote');
 
-    // Apply Editable
-    $('span.tag .editable').editable({
-      type: 'text',
-      title: 'Edit Text',
-      success: (response, newValue) => {
-        phraseItem.value = newValue;
-      }
-    });
+   // Apply Editable
+   $('span.tag .editable').editable({
+     type: 'text',
+     title: 'Edit Text',
+     success: (response, newValue) => {
+       phraseItem.value = newValue;
+     },
+   });
 
-    // Bind Remove to tag
-    helper.removeTags('clinicalNote');
-	};
+   // Bind Remove to tag
+   helper.removeTags('clinicalNote');
+ };
 
   handleChangeContentEditable = (event) => {
     console.log(event.target.innerText);
@@ -150,14 +149,14 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
   };
 
   render() {
-		const { clinicalStatementsTags, isSubmit } = this.props;
-		const { queryFilter, clinicalTag, statements, offset, listPerPageAmount } = this.state;
+    const { clinicalStatementsTags, isSubmit } = this.props;
+    const { queryFilter, clinicalTag, statements, offset, listPerPageAmount } = this.state;
 
-		const filteredTags = this.filterTags(clinicalStatementsTags || []);
-		const listTagsOnPage = this.getListItemsOnPage(filteredTags);
+    const filteredTags = this.filterTags(clinicalStatementsTags || []);
+    const listTagsOnPage = this.getListItemsOnPage(filteredTags);
 
-		const filteredStatements = this.filterStatements(statements || []);
-		const listStatementsOnPage = this.getListItemsOnPage(filteredStatements);
+    const filteredStatements = this.filterStatements(statements || []);
+    const listStatementsOnPage = this.getListItemsOnPage(filteredStatements);
 
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
@@ -204,25 +203,25 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                           <div className="heading wrap-overflow">
                             <div className="control-group right">
                               { listTagsOnPage.length ? <PaginationBlock
-                                  entriesPerPage={listPerPageAmount}
-                                  totalEntriesAmount={filteredTags.length}
-                                  offset={offset}
-                                  setOffset={this.handleSetOffset}
-                                  isShortView={true}
-                                /> : null }
+                                entriesPerPage={listPerPageAmount}
+                                totalEntriesAmount={filteredTags.length}
+                                offset={offset}
+                                setOffset={this.handleSetOffset}
+                                isShortView
+                              /> : null }
                             </div>
                             <div className="pagination-heading">Tags</div>
                           </div>
                           <div className="dropdown-menu-wrap-list">
                             <div className="dropdown-menu-list">
-															{listTagsOnPage ?
-																listTagsOnPage.map(tag => {
-																	return <div className="dropdown-menu-item" key={`dropdown-item-${tag}`} onClick={this.setTag(tag)}>
+                              {listTagsOnPage ?
+                                listTagsOnPage.map((tag) => {
+                                  return <div className="dropdown-menu-item" key={`dropdown-item-${tag}`} onClick={this.setTag(tag)}>
                                     <span className="dropdown-menu-item-text">{ tag }</span>
                                   </div>
-																})
-																: null
-															}
+                                })
+                                : null
+                              }
                             </div>
                           </div>
                         </div>
@@ -234,20 +233,20 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                                 totalEntriesAmount={filteredStatements.length}
                                 offset={offset}
                                 setOffset={this.handleSetOffset}
-                                isShortView={true}
+                                isShortView
                               /> : null }
                             </div>
                             <div className="pagination-heading">Statements</div>
                           </div>
                           <div className="dropdown-menu-wrap-list">
                             <div className="dropdown-menu-list">
-															{listStatementsOnPage ?
-																listStatementsOnPage.map(statement => {
-																	return <div className="dropdown-menu-item" key={`dropdown-item-${statement.id}`} onClick={this.setStatement(statement)}>
+                              {listStatementsOnPage ?
+                                listStatementsOnPage.map((statement) => {
+                                  return <div className="dropdown-menu-item" key={`dropdown-item-${statement.id}`} onClick={this.setStatement(statement)}>
                                     <span className="dropdown-menu-item-text">{ statement.phrase }</span>
                                   </div>
-																})
-																: null}
+                                })
+                                : null}
                             </div>
                           </div>
                         </div>
@@ -265,7 +264,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                   <div className="input-holder">
                     <div className="form-control form-contenteditable textarea-big">
                       {filteredStatements ?
-                        filteredStatements.map(statement => {
+                        filteredStatements.map((statement) => {
                           return <div className="select-option" key={`select-option-${statement.id}`} onClick={this.setStatement(statement)}>
                             <span className="select-option-text">{ statement.phrase }</span>
                           </div>
@@ -279,11 +278,12 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
                 <div className="form-group">
                   <label htmlFor="clinicalNote" className="control-label">Clinical Note</label>
                   <div className="input-holder">
-                    <div className="form-control textarea-big input-sm contenteditable-resize"
-                         tabIndex="0"
-                         id={'clinicalNote'}
-                         contentEditable
-                         onInput={this.handleChangeContentEditable}
+                    <div
+                      className="form-control textarea-big input-sm contenteditable-resize"
+                      tabIndex="0"
+                      id={'clinicalNote'}
+                      contentEditable
+                      onInput={this.handleChangeContentEditable}
                     >
                       <span id="temp" contentEditable={false} />
                     </div>

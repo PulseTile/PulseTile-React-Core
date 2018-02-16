@@ -80,3 +80,8 @@ export const marksForPromsRange = {
   9: '9',
   10: '10',
 };
+
+export const typesOfRecordsOptions = [
+  { value: 'procedures',   title: 'Procedures' },
+  { value: 'diagnosis',   title: 'Problems / Diagnosis' },
+];
