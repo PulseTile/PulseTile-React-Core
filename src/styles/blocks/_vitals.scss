@@ -10,7 +10,8 @@ $vitalsInputColor: (
   padding-bottom: 5px;
   padding-top: 7px;
 }
-.vitals-group {
+.vitals-group,
+.highlighter-input-group {
   margin-bottom: 23px;
   margin-left: -11px;
   padding-left: 12px;
@@ -21,13 +22,15 @@ $vitalsInputColor: (
   .input-group { padding-bottom: 3px; }
 }
 @include respond-from(xs) {
-  .vitals-group {
+  .vitals-group,
+  .highlighter-input-group {
     margin-left: 0;
     .highlighter { width: 4px; }
     .highlighter-not-vital { width: 1px; }
   }
 }
-.vitals-holder {
+.vitals-holder,
+.highlighter-input-holder {
   width: 150px;
   .form-control {
     background-color: #fff;
@@ -51,7 +54,8 @@ $vitalsInputColor: (
   }
 }
 @each $vitalInput, $color in $vitalsInputColor {
-  .vitals-holder.#{$vitalInput} .form-control {
+  .vitals-holder.#{$vitalInput} .form-control,
+  .highlighter-input-holder.#{$vitalInput} .form-control {
     background-color: $color;
   }
 }
