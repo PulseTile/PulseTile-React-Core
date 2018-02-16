@@ -1,17 +1,16 @@
 import React from 'react';
 import { configure, shallow, mount } from 'enzyme'
-import toJson from 'enzyme-to-json';
 import Adapter from 'enzyme-adapter-react-15';
 
-configure({ adapter: new Adapter() });
-
 import RangeInput from '../RangeInput';
+
+configure({ adapter: new Adapter() });
 
 const testProps = {
   label: 'Test label',
   input: {
     name: 'test-name',
-    value: 'Input Value',
+    value: [0, 100],
     onChange: () => {},
   },
 };
@@ -33,7 +32,20 @@ describe('Component <RangeInput />', () => {
     expect(component.instance().props.label).toEqual(testProps.label);
     expect(component.instance().props.input).toEqual(testProps.input);
 
-    const tree = toJson(component);
-    expect(tree).toMatchSnapshot();
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders with all props correctly shallow testing', () => {
+    const component = shallow(
+      <RangeInput
+        label={testProps.label}
+        input={{
+          name: 'test-name',
+          value: [],
+          onChange: () => {},
+        }}
+      />);
+
+    expect(component).toMatchSnapshot();
   });
 });

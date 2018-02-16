@@ -93,6 +93,25 @@ const storeResource = {
       sourceId: '773c2b67-9a88-4bfd-9f0d-04e78dc5721e',
     },
   },
+  proceduresDetail: {
+    '9999999000': {
+      name: 'a test request23 changed',
+      procedureName: 'a test request23 changed',
+      procedureCode: '1234523 changed',
+      date: 1510856522000,
+      time: 66122000,
+      procedureTerminology: 'SNOMED-CT changed',
+      notes: 'testing23 changed',
+      performer: 'Performer changed',
+      currentStatus: 'completed',
+      author: 'bob.smith@gmail.com',
+      dateSubmitted: 1511799722000,
+      source: 'ethercis',
+      sourceId: 'abfa6a6c-9703-4566-8926-f046580bd8a7',
+      originalComposition: '',
+      originalSource: '',
+    },
+  },
 }
 const store = mockStore(Object.assign({}, storeResource));
 const emptyStore = mockStore({
@@ -109,6 +128,9 @@ const emptyStore = mockStore({
     // '9999999000': {},
   },
   eventsDetail: {
+    // '9999999000': {},
+  },
+  proceduresDetail: {
     // '9999999000': {},
   },
 });
@@ -139,6 +161,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />).dive().dive().dive()
       .dive()
+      .dive()
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -164,6 +187,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         }
         match={match}
       />).dive().dive().dive()
+      .dive()
       .dive()
       .dive();
 
@@ -191,6 +215,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />).dive().dive().dive()
       .dive()
+      .dive()
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -216,6 +241,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         }
         match={match}
       />).dive().dive().dive()
+      .dive()
       .dive()
       .dive();
 
@@ -243,6 +269,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />).dive().dive().dive()
       .dive()
+      .dive()
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -252,6 +279,33 @@ describe('Component <RecordsOfTablePopover />', () => {
 
     expect(component.find('Spinner')).toHaveLength(0);
     expect(component.find('RecordsOfTablePopoverVitals')).toHaveLength(1);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders with props correctly when type procedures', () => {
+    const component = shallow(
+      <RecordsOfTablePopover
+        store={store}
+        record={
+          {
+            type: 'procedures',
+            sourceId: '9dabaf87-7ad4-410a-944f-2449a8d0f8f7',
+          }
+        }
+        match={match}
+      />).dive().dive().dive()
+      .dive()
+      .dive()
+      .dive();
+
+    expect(component.find('.record-popover')).toHaveLength(1);
+
+    expect(component.find('.record-popover-title')).toHaveLength(1);
+    expect(component.find('.record-popover-title').at(0).text()).toEqual('Procedures');
+
+    expect(component.find('Spinner')).toHaveLength(1);
+    expect(component.find('RecordsOfTablePopoverProcedures')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
@@ -268,6 +322,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         }
         match={match}
       />).dive().dive().dive()
+      .dive()
       .dive()
       .dive();
 
@@ -287,6 +342,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         }
         match={match}
       />).dive().dive().dive()
+      .dive()
       .dive()
       .dive();
 
