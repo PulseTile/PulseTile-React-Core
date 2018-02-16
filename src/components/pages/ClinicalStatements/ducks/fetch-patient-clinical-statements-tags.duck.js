@@ -22,7 +22,7 @@ export const fetchPatientClinicalStatementsTagsEpic = (action$, store) =>
 					userId: payload.userId,
 					clinicalStatementsTags: response,
 				}))
-				.catch(error => Observable.of(handleErrors(error)))
+				// .catch(error => Observable.of(handleErrors(error)))
 		);
 
 

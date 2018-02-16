@@ -21,7 +21,7 @@ export const fetchListOrdersEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchListOrdersSuccess)
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(listOrders = {}, action) {

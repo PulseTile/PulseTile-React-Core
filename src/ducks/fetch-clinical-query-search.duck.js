@@ -3,7 +3,6 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../config/server-urls.constants'
-import {handleErrors} from "./handle-errors.duck";
 
 export const FETCH_CLINICAL_QUERY_SEARCH_REQUEST = 'FETCH_CLINICAL_QUERY_SEARCH_REQUEST';
 export const FETCH_CLINICAL_QUERY_SEARCH_SUCCESS = 'FETCH_CLINICAL_QUERY_SEARCH_SUCCESS';
@@ -21,7 +20,7 @@ export const fetchClinicalQuerySearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchClinicalQuerySearchSuccess(response))
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(fetchClinicalQuerySearchFailure(error)))
     );
 
 export default function reducer(clinicalQuerySearch = {}, action) {

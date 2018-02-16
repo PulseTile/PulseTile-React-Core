@@ -24,7 +24,7 @@ export const fetchPatientGenericPluginDetailEpic = (action$, store) =>
           userId: payload.userId,
           genericPluginDetail: response,
         }))
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(genericPluginDetail = {}, action) {

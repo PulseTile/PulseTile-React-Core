@@ -1,6 +1,5 @@
-import _ from 'lodash/fp';
 import { createAction } from 'redux-actions';
-import {Observable} from "rxjs/Rx";
+import { Observable } from 'rxjs/Rx';
 
 import { fetchLogoutRequest, FETCH_LOGOUT_SUCCESS } from './fetch-logout.duck';
 
@@ -20,7 +19,7 @@ export const logoutEpic = (action$, store) => Observable.merge(
     }),
   action$.ofType(FETCH_LOGOUT_SUCCESS)
     .map(() => {
-			clearCookie();
+      clearCookie();
       window.location = ''; // TO REFRESH THE PAGE
       return logoutFinish();
     })

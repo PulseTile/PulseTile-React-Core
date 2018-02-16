@@ -1,10 +1,8 @@
-import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../config/server-urls.constants'
-import {handleErrors} from "./handle-errors.duck";
 
 export const FETCH_PROFILE_APP_PREFERENCES_REQUEST = 'FETCH_PROFILE_APP_PREFERENCES_REQUEST';
 export const FETCH_PROFILE_APP_PREFERENCES_SUCCESS = 'FETCH_PROFILE_APP_PREFERENCES_SUCCESS';
@@ -22,7 +20,7 @@ export const fetchProfileAppPreferencesEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchProfileAppPreferencesSuccess(response))
-        .catch(error => Observable.of(handleErrors(error)))
+        .catch(error => Observable.of(fetchProfileAppPreferencesFailure(error)))
     );
 
 export default function reducer(profileAppPreferences = {}, action) {

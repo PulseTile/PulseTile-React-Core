@@ -24,7 +24,7 @@ export const fetchPatientTestResultsEpic = (action$, store) =>
           userId: payload.userId,
           testResults: response,
         }))
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 
