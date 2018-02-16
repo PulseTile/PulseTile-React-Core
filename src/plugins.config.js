@@ -21,32 +21,34 @@ import mdts from './components/pages/MDTs/index';
 import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';
+import proms from './components/pages/PROMs/index';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
-	diagnoses,
-	medications,
-	allergies,
-	contacts,
-	events,
-	documents,
-	orders,
-	testResults,
-	procedures,
-	clinicalNotes,
-	clinicalStatements,
-	personalNotes,
-	vaccinations,
-	vitals,
-	images,
-	drawings,
-	referrals,
-	mdts,
-	transfersOfCare,
+  diagnoses,
+  medications,
+  allergies,
+  contacts,
+  events,
+  documents,
+  orders,
+  testResults,
+  procedures,
+  clinicalNotes,
+  clinicalStatements,
+  personalNotes,
+  vaccinations,
+  vitals,
+  images,
+  drawings,
+  referrals,
+  mdts,
+  transfersOfCare,
+  proms,
 
-	topThreeThings,
+  topThreeThings,
 
-	genericPlugin,
+  genericPlugin,
 ];
 
 export const sidebarConfig = [
@@ -59,18 +61,18 @@ export const pluginsReducerConfig = [];
 
 export const routersPluginConfig = [];
 
-plugins.forEach(plugin => {
-	sidebarConfig.push(plugin.sidebarConfig);
-	pluginsEpicConfig.push(plugin.epics);
-	pluginsReducerConfig.push(plugin.reducers);
+plugins.forEach((plugin) => {
+  sidebarConfig.push(plugin.sidebarConfig);
+  pluginsEpicConfig.push(plugin.epics);
+  pluginsReducerConfig.push(plugin.reducers);
 
-	plugin.routers.forEach(item => {
-		routersPluginConfig.push(item);
-	})
+  plugin.routers.forEach((item) => {
+    routersPluginConfig.push(item);
+  })
 });
 
 if (themeConfigs.sidebarConfigIsVisible) {
-  sidebarConfig.forEach(item => {
+  sidebarConfig.forEach((item) => {
     if (themeConfigs.sidebarConfigIsVisible[item.key] !== undefined) {
       item.isVisible = themeConfigs.sidebarConfigIsVisible[item.key];
     } else {
