@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <RecordsOfTable /> should renders with props correctly when type referrals 1`] = `
+<div>
+  <SelectFormGroup
+    component={[Function]}
+    id="type"
+    input={
+      Object {
+        "value": "",
+      }
+    }
+    label="Type"
+    meta={
+      Object {
+        "error": false,
+        "touched": false,
+      }
+    }
+    name="type"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "title": "Problems / Diagnosis",
+          "value": "diagnosis",
+        },
+        Object {
+          "title": "Medications",
+          "value": "medications",
+        },
+        Object {
+          "title": "Referrals",
+          "value": "referrals",
+        },
+        Object {
+          "title": "Events",
+          "value": "events",
+        },
+        Object {
+          "title": "Vitals",
+          "value": "vitals",
+        },
+        Object {
+          "title": "Procedures",
+          "value": "procedures",
+        },
+      ]
+    }
+    placeholder="-- Select type --"
+  />
+  <DragDropContext
+    onDragEnd={[Function]}
+    onDragStart={[Function]}
+  >
+    <Connect(Droppable)
+      droppableId="droppable"
+    />
+  </DragDropContext>
+</div>
+`;
