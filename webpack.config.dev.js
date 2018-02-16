@@ -54,6 +54,13 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
 
     // new BundleAnalyzerPlugin()
+
+    new webpack.ProvidePlugin({
+      '_': 'lodash/fp',
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
+    })
   ],
 
   module: {

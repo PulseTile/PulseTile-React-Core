@@ -4,24 +4,28 @@ import _ from 'lodash/fp';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Spinner from '../../../ui-elements/Spinner/Spinner';
-import TransfersOfCarePopoverDiagnosis from './TransfersOfCarePopoverDiagnosis';
-import TransfersOfCarePopoverMedications from './TransfersOfCarePopoverMedications';
-import TransfersOfCarePopoverReferrals from './TransfersOfCarePopoverReferrals';
-import TransfersOfCarePopoverEvents from './TransfersOfCarePopoverEvents';
-import TransfersOfCarePopoverVitals from './TransfersOfCarePopoverVitals';
+import Spinner from '../../ui-elements/Spinner/Spinner';
+import RecordsOfTablePopoverDiagnosis from './RecordsOfTablePopoverDiagnosis';
+import RecordsOfTablePopoverMedications from './RecordsOfTablePopoverMedications';
+import RecordsOfTablePopoverReferrals from './RecordsOfTablePopoverReferrals';
+import RecordsOfTablePopoverEvents from './RecordsOfTablePopoverEvents';
+import RecordsOfTablePopoverVitals from './RecordsOfTablePopoverVitals';
+import RecordsOfTablePopoverProcedures from './RecordsOfTablePopoverProcedures';
 
-import { fetchPatientDiagnosesDetailRequest } from '../../ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
-import { fetchPatientMedicationsDetailRequest } from '../../Medications/ducks/fetch-patient-medications-detail.duck';
-import { fetchPatientReferralsDetailRequest } from '../../Referrals/ducks/fetch-patient-referrals-detail.duck';
-import { fetchPatientEventsDetailRequest } from '../../Events/ducks/fetch-patient-events-detail.duck';
-import { fetchPatientVitalsDetailRequest } from '../../Vitals/ducks/fetch-patient-vitals-detail.duck';
 
-import { patientDiagnosesDetailSelector } from '../../ProblemsDiagnosis/selectors';
-import { patientMedicationsDetailSelector } from '../../Medications/selectors';
-import { patientReferralsDetailSelector } from '../../Referrals/selectors';
-import { patientEventsDetailSelector } from '../../Events/selectors';
-import { patientVitalsDetailSelector } from '../../Vitals/selectors';
+import { fetchPatientDiagnosesDetailRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
+import { fetchPatientMedicationsDetailRequest } from '../../pages/Medications/ducks/fetch-patient-medications-detail.duck';
+import { fetchPatientReferralsDetailRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals-detail.duck';
+import { fetchPatientEventsDetailRequest } from '../../pages/Events/ducks/fetch-patient-events-detail.duck';
+import { fetchPatientVitalsDetailRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals-detail.duck';
+import { fetchPatientProceduresDetailRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures-detail.duck';
+
+import { patientDiagnosesDetailSelector } from '../../pages/ProblemsDiagnosis/selectors';
+import { patientMedicationsDetailSelector } from '../../pages/Medications/selectors';
+import { patientReferralsDetailSelector } from '../../pages/Referrals/selectors';
+import { patientEventsDetailSelector } from '../../pages/Events/selectors';
+import { patientVitalsDetailSelector } from '../../pages/Vitals/selectors';
+import { patientProceduresDetailSelector } from '../../pages/Procedures/selectors';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
@@ -30,6 +34,7 @@ const mapDispatchToProps = dispatch => ({
     fetchPatientReferralsDetailRequest,
     fetchPatientEventsDetailRequest,
     fetchPatientVitalsDetailRequest,
+    fetchPatientProceduresDetailRequest,
   }, dispatch) });
 
 @connect(patientDiagnosesDetailSelector, mapDispatchToProps)
@@ -37,7 +42,8 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientReferralsDetailSelector)
 @connect(patientEventsDetailSelector)
 @connect(patientVitalsDetailSelector)
-export default class TransfersOfCarePopover extends PureComponent {
+@connect(patientProceduresDetailSelector)
+export default class RecordsOfTablePopover extends PureComponent {
   static propTypes = {
     record: PropTypes.object,
   };
@@ -68,6 +74,11 @@ export default class TransfersOfCarePopover extends PureComponent {
         title: 'Vitals',
         fetchDetail: 'fetchPatientVitalsDetailRequest',
         stateName: 'vitalDetail',
+      },
+      procedures: {
+        title: 'Procedures',
+        fetchDetail: 'fetchPatientProceduresDetailRequest',
+        stateName: 'procedureDetail',
       },
     },
 
@@ -105,11 +116,12 @@ export default class TransfersOfCarePopover extends PureComponent {
         <div className="record-popover-body">
           <div className="record-popover-content">
             {!detail || detail.sourceId !== sourceId ? <Spinner /> : null }
-            {typeOfRecord === 'diagnosis' ? <TransfersOfCarePopoverDiagnosis detail={detail} /> : null}
-            {typeOfRecord === 'medications' ? <TransfersOfCarePopoverMedications detail={detail} /> : null}
-            {typeOfRecord === 'referrals' ? <TransfersOfCarePopoverReferrals detail={detail} /> : null}
-            {typeOfRecord === 'events' ? <TransfersOfCarePopoverEvents detail={detail} /> : null}
-            {typeOfRecord === 'vitals' ? <TransfersOfCarePopoverVitals detail={detail} /> : null}
+            {typeOfRecord === 'diagnosis' ? <RecordsOfTablePopoverDiagnosis detail={detail} /> : null}
+            {typeOfRecord === 'medications' ? <RecordsOfTablePopoverMedications detail={detail} /> : null}
+            {typeOfRecord === 'referrals' ? <RecordsOfTablePopoverReferrals detail={detail} /> : null}
+            {typeOfRecord === 'events' ? <RecordsOfTablePopoverEvents detail={detail} /> : null}
+            {typeOfRecord === 'vitals' ? <RecordsOfTablePopoverVitals detail={detail} /> : null}
+            {typeOfRecord === 'procedures' ? <RecordsOfTablePopoverProcedures detail={detail} /> : null}
           </div>
         </div>
       </div>

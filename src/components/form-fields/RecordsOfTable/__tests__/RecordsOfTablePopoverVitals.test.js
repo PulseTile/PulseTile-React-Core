@@ -3,8 +3,8 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import moment from 'moment';
 
-import TransfersOfCarePopoverVitals from '../transfers-of-care-components/TransfersOfCarePopoverVitals';
-import { valuesLabels, valuesNames, valuesAddons } from '../../Vitals/forms.config';
+import RecordsOfTablePopoverVitals from '../../../form-fields/RecordsOfTable/RecordsOfTablePopoverVitals';
+import { valuesLabels, valuesNames, valuesAddons } from '../../../pages/Vitals/forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -35,10 +35,10 @@ const testProps = {
 
 const DATE_CREATED = moment(testProps.detail[valuesNames.DATE_CREATED]).format(DATE_FORMAT);
 
-describe('Component <TransfersOfCarePopoverVitals />', () => {
+describe('Component <RecordsOfTablePopoverVitals />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
-      <TransfersOfCarePopoverVitals
+      <RecordsOfTablePopoverVitals
         detail={testProps.detail}
       />);
 
@@ -87,7 +87,7 @@ describe('Component <TransfersOfCarePopoverVitals />', () => {
 
   it('should renders with props correctly with empty detail', () => {
     const component = shallow(
-      <TransfersOfCarePopoverVitals />);
+      <RecordsOfTablePopoverVitals />);
 
     expect(component).toMatchSnapshot();
   });

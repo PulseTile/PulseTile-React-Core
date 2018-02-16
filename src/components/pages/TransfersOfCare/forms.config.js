@@ -5,12 +5,6 @@ export const valuesNames = {
   TO: 'to',
   DATE_TIME: 'transferDateTime',
   RECORDS: 'records',
-  RECORDS_NAME: 'name',
-  RECORDS_TYPE: 'typeTitle',
-  RECORDS_DATE: 'date',
-  RECORDS_SOURCE: 'source',
-  RECORDS_EVENTS: 'typeRecordId',
-  RECORDS_TYPE_EVENTS: 'typeevents',
   REASON: 'reasonForContact',
   CLINICAL: 'clinicalSummary',
   TYPE: 'type',
@@ -27,13 +21,6 @@ export const valuesLabels = {
   TO: 'To (Site / Org)',
   DATE_TIME: 'Date of Transfer',
   RECORDS: 'Records',
-  RECORDS_NOT_EXIST: 'No records added',
-  RECORDS_NAME: 'Name',
-  RECORDS_TYPE: 'Type',
-  RECORDS_DATE: 'Date',
-  RECORDS_SOURCE: 'Source',
-  RECORDS_EVENTS: 'Events',
-  RECORDS_TYPE_EVENTS: 'Events Type',
   REASON: 'Reason for contact',
   CLINICAL: 'Clinical Summary',
   TYPE: 'Type',
@@ -51,7 +38,7 @@ export const citiesOptions = [
   { value: 'St James\' Hospital', title: 'St James\' Hospital' },
 ];
 
-export const typesOptions = [
+export const typesOfRecordsOptions = [
   { value: 'diagnosis',   title: 'Problems / Diagnosis' },
   { value: 'medications', title: 'Medications' },
   { value: 'referrals',   title: 'Referrals' },

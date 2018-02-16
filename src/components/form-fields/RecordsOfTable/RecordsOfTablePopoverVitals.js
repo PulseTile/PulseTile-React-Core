@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import _ from 'lodash/fp';
 
-import { valuesAddons, valuesLabels, valuesNames } from '../../Vitals/forms.config';
-import { serviceVitalsSigns } from '../../Vitals/viltals-helpers.utils';
-import Switch from '../../../form-fields/Switch';
+import { valuesAddons, valuesLabels, valuesNames } from '../../pages/Vitals/forms.config';
+import { serviceVitalsSigns } from '../../pages/Vitals/viltals-helpers.utils';
+import Switch from '../Switch';
 
-export default class TransfersOfCarePopoverVitals extends PureComponent {
+export default class RecordsOfTablePopoverVitals extends PureComponent {
   static propTypes = {
     detail: PropTypes.object,
   };

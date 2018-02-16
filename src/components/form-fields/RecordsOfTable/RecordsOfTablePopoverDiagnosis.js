@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 
-import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
-import { valuesLabels, valuesNames } from '../../ProblemsDiagnosis/forms.config';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { valuesLabels, valuesNames } from '../../pages/ProblemsDiagnosis/forms.config';
 
-export default class TransfersOfCarePopoverDiagnosis extends PureComponent {
+export default class RecordsOfTablePopoverDiagnosis extends PureComponent {
   static propTypes = {
     detail: PropTypes.object,
   };

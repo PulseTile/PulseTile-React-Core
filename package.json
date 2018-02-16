@@ -116,6 +116,7 @@
     "webpack-hot-middleware": "2.19.1"
   },
   "dependencies": {
+    "bootstrap": "3.3.7",
     "bootstrap-sass": "3.3.7",
     "chart.js": "2.7.0",
     "classnames": "2.2.5",
@@ -159,6 +160,7 @@
     "simple-react-dropdown": "3.3.0",
     "sinon": "^2.4.1",
     "socket.io-client": "^2.0.4",
-    "throttle-debounce": "^1.0.1"
+    "throttle-debounce": "1.0.1",
+    "x-editable": "1.5.1"
   }
 }
