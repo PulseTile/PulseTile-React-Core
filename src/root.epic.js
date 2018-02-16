@@ -48,6 +48,9 @@ const allEpics = combineEpics(
 
 const rootEpic = (action$, store) =>
   combineEpics(allEpics)(action$, store)
+    .map((params) => {
+      return params
+    })
     .catch(error => Observable.of(handleErrors(error)));
 
 export default rootEpic;

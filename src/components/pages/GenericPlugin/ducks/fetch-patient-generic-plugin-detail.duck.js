@@ -21,6 +21,7 @@ export const fetchPatientGenericPluginDetailEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(response => fetchPatientGenericPluginDetailSuccess({
+          response,
           userId: payload.userId,
           genericPluginDetail: response,
         }))
