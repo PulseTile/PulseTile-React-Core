@@ -2,6 +2,8 @@ export const valuesNames = {
   TYPE: 'type',
   STATEMENT: 'text',
   NOTE: 'clinicalNote',
+  NOTE_CONTENT: 'contentStore',
+  NOTE_TEXT: 'text',
   TAGS: 'tags',
   DATE_CREATED: 'dateCreated',
   AUTHOR: 'author',
@@ -18,7 +20,7 @@ export const valuesLabels = {
   TAGS: 'Tags',
   AUTHOR: 'Author',
   DATE: 'Date',
-  SEARCH: 'Date',
+  SEARCH: 'Search',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

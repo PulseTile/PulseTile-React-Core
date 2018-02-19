@@ -65,6 +65,7 @@ export default class ClinicalStatements extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    clickOnCreate: false
   };
 
   componentWillReceiveProps() {
@@ -134,7 +135,7 @@ export default class ClinicalStatements extends PureComponent {
     }))
   };
 
-  handleSaveSettingsDetailForm = (formValues, name) => {};
+  handleSaveSettingsDetailForm = () => {};
 
   handleCreateCancel = () => {
     const { userId } = this.props;
@@ -144,14 +145,16 @@ export default class ClinicalStatements extends PureComponent {
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, userId, clinicalStatementsCreateFormState } = this.props;
+    const { clickOnCreate } = this.state;
+
 
     if (checkIsValidateForm(clinicalStatementsCreateFormState)) {
       actions.fetchPatientClinicalStatementsCreateRequest(this.formValuesToString(formValues, 'create'));
       this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.CLINICAL_STATEMENTS}`);
       this.hideCreateForm();
-      this.setState({ isSubmit: false, isLoading: true });
+      this.setState({ clickOnCreate: !clickOnCreate, isSubmit: false, isLoading: true });
     } else {
-      this.setState({ isSubmit: true });
+      this.setState({ clickOnCreate: !clickOnCreate, isSubmit: true });
     }
   };
 
@@ -160,14 +163,10 @@ export default class ClinicalStatements extends PureComponent {
     const sendData = {};
 
     sendData.userId = userId;
-    // sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    // sendData[valuesNames.NEXT_OF_KIN] = formValues[valuesNames.NEXT_OF_KIN] || false;
-    // sendData[valuesNames.REALATIONSHIP] = formValues[valuesNames.REALATIONSHIP];
-    // sendData[valuesNames.REALATIONSHIP_CODE] = formValues[valuesNames.REALATIONSHIP_CODE];
-    // sendData[valuesNames.REALATIONSHIP_TERMINOLOGY] = defaultFormValues[valuesNames.REALATIONSHIP_TERMINOLOGY];
-    // sendData[valuesNames.CLINICAL_STATEMENT_INFORMATION] = formValues[valuesNames.CLINICAL_STATEMENT_INFORMATION];
-    // sendData[valuesNames.NOTES] = formValues[valuesNames.NOTES];
-    // sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
+    sendData[valuesNames.TYPE] = formValues[valuesNames.TYPE];
+    sendData[valuesNames.NOTE_CONTENT] = formValues[valuesNames.NOTE][valuesNames.NOTE_CONTENT];
+    sendData[valuesNames.NOTE_TEXT] = formValues[valuesNames.NOTE][valuesNames.NOTE_TEXT];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
     sendData[valuesNames.DATE_CREATED] = new Date().getTime();
     sendData[valuesNames.SOURCE] = 'ethercis';
 
@@ -202,7 +201,8 @@ export default class ClinicalStatements extends PureComponent {
   };
 
   render() {
-      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel,
+        isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, clickOnCreate } = this.state;
       const { allClinicalStatements, clinicalStatementsCreateFormState, clinicalStatementDetail, match } = this.props;
 
       const isPanelDetails = (expandedPanel === CLINICAL_STATEMENTS_DETAIL || expandedPanel === CLINICAL_STATEMENT_PANEL);
@@ -282,7 +282,7 @@ export default class ClinicalStatements extends PureComponent {
                 onCancel={this.handleCreateCancel}
                 isCreatePanelVisible={isCreatePanelVisible}
                 componentForm={
-                  <ClinicalStatementsCreateForm isSubmit={isSubmit} match={match}/>
+                  <ClinicalStatementsCreateForm isSubmit={isSubmit} match={match} clickOnCreate={clickOnCreate}/>
                 }
               />
             </Col> : null}

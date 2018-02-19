@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export function removeTags(targetId){
+export function removeTags(targetId, cb){
   // Bind remove events
   $(`#${targetId}`).find('a.remove').each(function(){
     // Remove binding is already assigned
@@ -8,57 +8,13 @@ export function removeTags(targetId){
 
     // Re-bind
     $(this).click(function(){
-      $(this).closest('span').remove();
+      const tag = $(this).closest('span');
+      tag.remove();
 
-      // Store Structured
-      setStructured(targetId);
+      cb(tag.attr('data-tag-id'));
     });
   });
 
-}
-
-export function setStructured(targetId, cb){
-  // Parse the text box for all tags
-  const tags = [];
-  const target = $(`#${targetId}`);
-
-  target.contents().each(function(){
-    let newTag;
-    if( $(this).hasClass('tag') ){
-
-      const editable = $(this).find('.editable');
-      if( $(editable).length > 0 ){
-        // Contains structured data
-        newTag = {
-          id: $(this).attr('data-id'),
-          value: editable.html()
-        }
-      } else {
-        // Just a typed phrase
-        newTag = {
-          id: $(this).attr('data-id')
-        }
-      }
-
-      // Found in array
-      const found = false;
-
-      if( !found ){
-        tags.push(newTag);
-      }
-    } else   {
-      // It's text
-      const newTag = {
-        phrase: this.wholeText
-      };
-
-      tags.push(newTag);
-    }
-  });
-
-  //Update the structured box for output
-  $( '#' + target.attr('data-structured') ).val( JSON.stringify(tags) );
-  $('#plain-data').val( strip(target.html(), cb) );
 }
 
 function setCaret(el, focus) {
