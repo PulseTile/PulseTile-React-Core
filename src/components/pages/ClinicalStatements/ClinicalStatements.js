@@ -12,7 +12,6 @@ import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
-import { defaultFormValues } from './ClinicalStatementsCreate/default-values.config';
 
 import { fetchPatientClinicalStatementsRequest } from './ducks/fetch-patient-clinical-statements.duck';
 import { fetchPatientClinicalStatementsCreateRequest } from './ducks/fetch-patient-clinical-statements-create.duck';

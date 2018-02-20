@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import 'bootstrap';
+import 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable';
+import 'x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
 
 import PaginationBlock from '../../../presentational/PaginationBlock/PaginationBlock';
 import { valuesLabels, valuesNames } from '../forms.config';

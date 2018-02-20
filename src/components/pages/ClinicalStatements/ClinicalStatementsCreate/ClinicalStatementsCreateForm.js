@@ -1,10 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-import 'bootstrap';
-import 'x-editable/dist/bootstrap3-editable/js/bootstrap-editable';
-import 'x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
-
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ClinicalNoteField from '../form-fields/ClinicalNoteField';
 import DateInput from '../../../form-fields/DateInput';
