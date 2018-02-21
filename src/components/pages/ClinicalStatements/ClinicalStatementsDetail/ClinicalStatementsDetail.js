@@ -22,7 +22,7 @@ export default class ClinicalStatementsDetail extends PureComponent {
     detail = detail || {};
 
     if (detail[valuesNames.STATEMENT]) {
-      detail[valuesNames.STATEMENT] = detail[valuesNames.STATEMENT].replace(/fa-close|tag|editable/gi, '');
+      detail[valuesNames.STATEMENT] = detail[valuesNames.STATEMENT].replace(/fa-close|tag|editable|display: block;|display|block/gi, '');
     }
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 

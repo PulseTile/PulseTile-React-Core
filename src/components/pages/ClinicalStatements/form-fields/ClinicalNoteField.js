@@ -121,7 +121,7 @@ export default class ClinicalNoteField extends PureComponent {
     // Parse inputs
     const inner = statement.phrase.replace(
       /(.*)(\{|\|)([^~|])(\}|\|)(.*)/,
-      '$1<span class="editable" contenteditable="false" data-arr-subject="$1" editable-text data-arr-unit="$3" data-arr-value="$5">$3</span>$5'
+      '$1<span class="editable" contenteditable="false" data-arr-subject="$1" editable-text data-arr-unit="$3" data-arr-value="$5">$3</span> $5'
     );
     const html = '<span class="tag" data-tag-id="' + tagId + '" data-id="' + statement.id + '" data-phrase="' + statement.phrase + '" contenteditable="false">' + inner + '. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>';
 
@@ -134,8 +134,10 @@ export default class ClinicalNoteField extends PureComponent {
       title: 'Edit Text',
       success: (response, newValue) => {
         phraseItem.value = newValue;
-        this.handleChangeContentEditable();
-      }
+        setTimeout(() => {
+          this.handleChangeContentEditable();
+        }, 100);
+      },
     });
 
     // Bind Remove to tag
@@ -169,9 +171,13 @@ export default class ClinicalNoteField extends PureComponent {
       }
     }
 
+    const tempEl = $('<div>');
+    tempEl.html(contentEditableEl.html());
+    tempEl.find('.popover').remove();
+
     const contentStore = {
-      [valuesNames.NOTE_TEXT]: contentEditableEl.html(),
-      [`${valuesNames.NOTE_TEXT}Validate`]: contentEditableEl.text(),
+      [valuesNames.NOTE_TEXT]: tempEl.html(),
+      [`${valuesNames.NOTE_TEXT}Validate`]: tempEl.text(),
       [valuesNames.NOTE_CONTENT]: {
         name: 'ts',
         phrases
