@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-import {valuesLabels, valuesNames} from "./forms.config";
+import { valuesLabels, valuesNames } from './forms.config';
 
 export default class RecordsOfTableView extends PureComponent {
   render() {
@@ -24,12 +24,12 @@ export default class RecordsOfTableView extends PureComponent {
               <th>{valuesLabels.RECORDS_SOURCE}</th>
             </tr></thead>
             <tbody>
-            { records.map((record, index) => <tr key={index}>
-              <td data-th={valuesLabels.RECORDS_NAME}><span>{record[valuesNames.RECORDS_NAME]}</span></td>
-              <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
-              <td data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></td>
-              <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>
-            </tr>)}
+              { records.map((record, index) => <tr key={index}>
+                <td data-th={valuesLabels.RECORDS_NAME}><span>{record[valuesNames.RECORDS_NAME]}</span></td>
+                <td data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></td>
+                <td data-th={valuesLabels.RECORDS_DATE}><span>{record[valuesNames.RECORDS_DATE]}</span></td>
+                <td data-th={valuesLabels.RECORDS_SOURCE}><span>{record[valuesNames.RECORDS_SOURCE]}</span></td>
+              </tr>)}
             </tbody>
           </table>
           : <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>

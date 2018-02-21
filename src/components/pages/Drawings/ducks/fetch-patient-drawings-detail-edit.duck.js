@@ -30,7 +30,7 @@ export const fetchPatientDrawingsDetailEditEpic = (action$, store) =>
             fetchPatientDrawingsUpdateRequest({ userId, sourceId }),
           ];
         })
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(drawingsDetailEdit = {}, action) {

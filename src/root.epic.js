@@ -1,4 +1,5 @@
 import { combineEpics } from 'redux-observable';
+import { Observable } from 'rxjs';
 
 import { pluginsEpicConfig } from './plugins.config';
 import { initialiseEpic } from './ducks/initialise-app.duck';
@@ -20,7 +21,9 @@ import { setThemeEpic } from './ducks/set-theme.duck';
 import { setLogoEpic } from './ducks/set-logo.duck';
 import { setTitleEpic } from './ducks/set-title.duck';
 
-const rootEpic = combineEpics(
+import { handleErrors } from './ducks/handle-errors.duck';
+
+const allEpics = combineEpics(
   initialiseEpic,
   loginEpic,
   loginURLEpic,
@@ -42,5 +45,12 @@ const rootEpic = combineEpics(
   setTitleEpic,
   ...pluginsEpicConfig,
 );
+
+const rootEpic = (action$, store) =>
+  combineEpics(allEpics)(action$, store)
+    .map((params) => {
+      return params
+    })
+    .catch(error => Observable.of(handleErrors(error)));
 
 export default rootEpic;

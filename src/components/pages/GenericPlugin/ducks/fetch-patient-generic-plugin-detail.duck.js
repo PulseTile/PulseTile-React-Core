@@ -21,10 +21,11 @@ export const fetchPatientGenericPluginDetailEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(response => fetchPatientGenericPluginDetailSuccess({
+          response,
           userId: payload.userId,
           genericPluginDetail: response,
         }))
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(genericPluginDetail = {}, action) {

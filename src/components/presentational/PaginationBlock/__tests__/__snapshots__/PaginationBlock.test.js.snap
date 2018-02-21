@@ -2,7 +2,7 @@
 
 exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount less then offset 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow"
@@ -25,7 +25,7 @@ exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -35,7 +35,7 @@ exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -45,7 +45,7 @@ exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -79,7 +79,7 @@ exports[`Component <PaginationBlock /> should be renders when totalEntriesAmount
 
 exports[`Component <PaginationBlock /> should be renders when we are in the middle of the pagination block 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow"
@@ -102,7 +102,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -112,7 +112,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
   >
     <a
       className="pagination-link"
@@ -122,7 +122,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
   >
     <a
       className="pagination-link"
@@ -132,7 +132,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -142,7 +142,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
   >
     <a
       className="pagination-link"
@@ -152,7 +152,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -186,7 +186,7 @@ exports[`Component <PaginationBlock /> should be renders when we are in the midd
 
 exports[`Component <PaginationBlock /> should be renders when we have less than six pages 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow"
@@ -209,7 +209,7 @@ exports[`Component <PaginationBlock /> should be renders when we have less than 
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -219,7 +219,7 @@ exports[`Component <PaginationBlock /> should be renders when we have less than 
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
   >
     <a
       className="pagination-link"
@@ -229,7 +229,7 @@ exports[`Component <PaginationBlock /> should be renders when we have less than 
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -239,7 +239,7 @@ exports[`Component <PaginationBlock /> should be renders when we have less than 
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -273,7 +273,7 @@ exports[`Component <PaginationBlock /> should be renders when we have less than 
 
 exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow disabled"
@@ -296,7 +296,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
   >
     <a
       className="pagination-link"
@@ -306,7 +306,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -316,7 +316,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -326,7 +326,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -336,7 +336,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
   >
     <a
       className="pagination-link"
@@ -346,7 +346,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -380,7 +380,7 @@ exports[`Component <PaginationBlock /> should renders on the first page 1`] = `
 
 exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow"
@@ -403,7 +403,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -413,7 +413,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -423,7 +423,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
   >
     <a
       className="pagination-link"
@@ -433,7 +433,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -443,7 +443,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
   >
     <a
       className="pagination-link"
@@ -453,7 +453,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -487,7 +487,7 @@ exports[`Component <PaginationBlock /> should renders on the last page 1`] = `
 
 exports[`Component <PaginationBlock /> should renders when we move to another page 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow"
@@ -510,7 +510,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -520,7 +520,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
   >
     <a
       className="pagination-link"
@@ -530,7 +530,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -540,7 +540,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -550,7 +550,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
   >
     <a
       className="pagination-link"
@@ -560,7 +560,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
   >
     <a
       className="pagination-link"
@@ -594,7 +594,7 @@ exports[`Component <PaginationBlock /> should renders when we move to another pa
 
 exports[`Component <PaginationBlock /> should work methods 1`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow disabled"
@@ -615,7 +615,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
     key="__PaginationBlock__li__19"
   >
     <a
@@ -626,7 +626,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__20"
   >
     <a
@@ -637,7 +637,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__21"
   >
     <a
@@ -648,7 +648,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__22"
   >
     <a
@@ -659,7 +659,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
     key="__PaginationBlock__li__23"
   >
     <a
@@ -669,7 +669,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__24"
   >
     <a
@@ -704,7 +704,7 @@ exports[`Component <PaginationBlock /> should work methods 1`] = `
 
 exports[`Component <PaginationBlock /> should work methods 2`] = `
 <ul
-  className="pagination-block"
+  className="pagination-block "
 >
   <li
     className="pagination-item arrow disabled"
@@ -725,7 +725,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show active"
+    className="pagination-item active short-show"
     key="__PaginationBlock__li__19"
   >
     <a
@@ -736,7 +736,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__20"
   >
     <a
@@ -747,7 +747,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__21"
   >
     <a
@@ -758,7 +758,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__22"
   >
     <a
@@ -769,7 +769,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show disabled"
+    className="pagination-item disabled"
     key="__PaginationBlock__li__23"
   >
     <a
@@ -779,7 +779,7 @@ exports[`Component <PaginationBlock /> should work methods 2`] = `
     </a>
   </li>
   <li
-    className="pagination-item short-show"
+    className="pagination-item"
     key="__PaginationBlock__li__24"
   >
     <a

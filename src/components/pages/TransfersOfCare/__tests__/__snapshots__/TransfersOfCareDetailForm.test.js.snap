@@ -120,6 +120,28 @@ exports[`Component <TransfersOfCareDetailForm /> should renders correctly when f
           Object {
             "isSubmit": true,
             "match": undefined,
+            "typesOptions": Array [
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+              Object {
+                "title": "Medications",
+                "value": "medications",
+              },
+              Object {
+                "title": "Referrals",
+                "value": "referrals",
+              },
+              Object {
+                "title": "Events",
+                "value": "events",
+              },
+              Object {
+                "title": "Vitals",
+                "value": "vitals",
+              },
+            ],
           }
         }
       />
@@ -296,6 +318,28 @@ exports[`Component <TransfersOfCareDetailForm /> should renders with props corre
           Object {
             "isSubmit": false,
             "match": undefined,
+            "typesOptions": Array [
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+              Object {
+                "title": "Medications",
+                "value": "medications",
+              },
+              Object {
+                "title": "Referrals",
+                "value": "referrals",
+              },
+              Object {
+                "title": "Events",
+                "value": "events",
+              },
+              Object {
+                "title": "Vitals",
+                "value": "vitals",
+              },
+            ],
           }
         }
       />

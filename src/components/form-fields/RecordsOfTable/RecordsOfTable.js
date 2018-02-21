@@ -1,28 +1,28 @@
 import React, { PureComponent } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import _ from "lodash/fp";
+import _ from 'lodash/fp';
 import classNames from 'classnames';
-import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import SelectFormGroup from '../SelectFormGroup';
 import RecordsOfTablePopover from './RecordsOfTablePopover';
 import Spinner from '../../ui-elements/Spinner/Spinner';
 import { valuesNames, valuesLabels, defaultTypesOptions } from './forms.config';
-import { connect } from "react-redux";
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
-import { bindActionCreators } from "redux";
-import { fetchPatientReferralsRequest } from "../../pages/Referrals/ducks/fetch-patient-referrals.duck";
-import { fetchPatientVitalsRequest } from "../../pages/Vitals/ducks/fetch-patient-vitals.duck";
-import { fetchPatientEventsRequest } from "../../pages/Events/ducks/fetch-patient-events.duck";
-import { fetchPatientMedicationsRequest } from "../../pages/Medications/ducks/fetch-patient-medications.duck";
-import { fetchPatientDiagnosesRequest } from "../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck";
-import { fetchPatientProceduresRequest } from "../../pages/Procedures/ducks/fetch-patient-procedures.duck";
-import { patientDiagnosesSelector } from "../../pages/ProblemsDiagnosis/selectors";
-import { patientMedicationsSelector } from "../../pages/Medications/selectors";
-import { patientVitalsSelector } from "../../pages/Vitals/selectors";
-import { patientEventsSelector } from "../../pages/Events/selectors";
-import { patientReferralsSelector } from "../../pages/Referrals/selectors";
-import { patientProceduresSelector } from "../../pages/Procedures/selectors";
+import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals.duck';
+import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
+import { fetchPatientEventsRequest } from '../../pages/Events/ducks/fetch-patient-events.duck';
+import { fetchPatientMedicationsRequest } from '../../pages/Medications/ducks/fetch-patient-medications.duck';
+import { fetchPatientDiagnosesRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
+import { fetchPatientProceduresRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures.duck';
+import { patientDiagnosesSelector } from '../../pages/ProblemsDiagnosis/selectors';
+import { patientMedicationsSelector } from '../../pages/Medications/selectors';
+import { patientVitalsSelector } from '../../pages/Vitals/selectors';
+import { patientEventsSelector } from '../../pages/Events/selectors';
+import { patientReferralsSelector } from '../../pages/Referrals/selectors';
+import { patientProceduresSelector } from '../../pages/Procedures/selectors';
 
 const PREFIX_POPOVER_ID = 'rot-popover-';
 
@@ -44,7 +44,7 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientProceduresSelector)
 export default class RecordsOfTable extends PureComponent {
   static defaultProps = {
-    typesOptions: defaultTypesOptions
+    typesOptions: defaultTypesOptions,
   };
 
   state = {
@@ -113,13 +113,11 @@ export default class RecordsOfTable extends PureComponent {
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
-    if (nextProps[waitingDataOf]) {
-      this.setState({isRecordsLoading: false})
-    }
-    if (nextProps.records !== this.props.records) {
-      this.setState({records: nextProps.records});
+    if (waitingDataOf) {
+      this.setState({ isRecordsLoading: false })
     }
     this.setAllRecords(nextProps);
   }
@@ -132,20 +130,20 @@ export default class RecordsOfTable extends PureComponent {
       return {
         record: el,
         title: el[name],
-        value: index
+        value: index,
       }
     });
   };
-  setDiagnosisRecords = data => {
+  setDiagnosisRecords = (data) => {
     return this.changeArraysForTable(data, 'problem', 'dateOfOnset');
   };
-  setMedicationsRecords = data => {
+  setMedicationsRecords = (data) => {
     return this.changeArraysForTable(data, 'name', 'dateCreated');
   };
-  setProceduresRecords = data => {
+  setProceduresRecords = (data) => {
     return this.changeArraysForTable(data, 'name', 'date');
   };
-  setReferralsRecords = data => {
+  setReferralsRecords = (data) => {
     return data.map((el, index) => {
       const date = getDDMMMYYYY(el.dateOfReferral);
       el.date = date;
@@ -153,15 +151,15 @@ export default class RecordsOfTable extends PureComponent {
       return {
         record: el,
         title: `${date} - ${el.referralFrom} -> ${el.referralTo}`,
-        value: index
+        value: index,
       }
     });
   };
-  setEventsRecords = data => {
+  setEventsRecords = /* istanbul ignore next */ (data) => {
     const events = _.flow(
       _.filter(item => item.dateCreated && item.type),
-      _.filter(item => item.dateCreated),
-      _.map(item => {
+      // _.filter(item => item.dateCreated),
+      _.map((item) => {
         item.date = getDDMMMYYYY(item.dateCreated);
         item.tableName = item.name;
         return item;
@@ -171,39 +169,39 @@ export default class RecordsOfTable extends PureComponent {
 
     const arr = [];
     let index = 0;
-    for (let key in events) {
+    for (const key in events) {
       events[key] = events[key].map((el, index) => ({
         record: el,
         title: el.name,
-        value: index
+        value: index,
       }));
       arr.push({
         events: events[key],
         title: key,
-        value: index++
+        value: index++,
       });
-    };
+    }
 
     return arr;
   };
-  setVitalsRecords = data => {
+  setVitalsRecords = (data) => {
     const records = [];
     records.push({
-      record: data[1]
+      record: data[1],
     });
 
     records[0].record.date = getDDMMMYYYY(records[0].dateCreated);
-    records[0].record.tableName = 'Latest Vitals Data (News Score: ' + records[0].record.newsScore + ')';
+    records[0].record.tableName = `Latest Vitals Data (News Score: ${records[0].record.newsScore})`;
     records[0].title = 'Latest Vitals Data';
     records[0].value = 0;
     return records;
   };
 
-  setAllRecords = (props) => {
+  setAllRecords = /* istanbul ignore next */ (props) => {
     const { typesRecords } = this.state;
     let isShouldUpdate = false;
     const newTypesRecords = {
-      ...typesRecords
+      ...typesRecords,
     };
     for (const key in newTypesRecords) {
       const stateName = newTypesRecords[key].stateName;
@@ -228,8 +226,8 @@ export default class RecordsOfTable extends PureComponent {
     const toSetState = { typeRecords, indexOfSelectedRecord: '', indexOfTypeEvents: '' };
 
     if (userId && !typesRecords[typeRecords].records) {
-      toSetState['waitingDataOf'] = typesRecords[typeRecords].stateName;
-      toSetState['isRecordsLoading'] = true;
+      toSetState.waitingDataOf = typesRecords[typeRecords].stateName;
+      toSetState.isRecordsLoading = true;
       actions[typesRecords[typeRecords].fetchList]({ userId });
     }
 
@@ -268,7 +266,7 @@ export default class RecordsOfTable extends PureComponent {
       this.setState({ indexOfSelectedRecord });
     }
   };
-  handleGetEventType = ev => {
+  handleGetEventType = (ev) => {
     const indexOfTypeEvents = parseInt(ev.target.value);
     this.setState({ indexOfTypeEvents, indexOfSelectedRecord: '' });
   };
@@ -294,9 +292,9 @@ export default class RecordsOfTable extends PureComponent {
   onDragStart = () => {
     this.handleTogglePopover(null);
   };
-  onDragEnd = result => {
+  onDragEnd = (result) => {
     // dropped outside the list
-    if(!result.destination) { return }
+    if (!result.destination) { return }
     const { input: { onChange, value } } = this.props;
     const newRecords = this.reorder(value, result.source.index, result.destination.index);
     this.handleTogglePopover(null);
@@ -304,12 +302,12 @@ export default class RecordsOfTable extends PureComponent {
   };
   getItemStyle = (isDragging, draggableStyle) => ({
     opacity: isDragging ? 0.5 : 1,
-    ...draggableStyle
+    ...draggableStyle,
   });
 
   // Functionality of Popover
   handleTogglePopover = (index) => {
-    this.setState({indexOfOpenedPopover: this.state.indexOfOpenedPopover !== index ? index : null})
+    this.setState({ indexOfOpenedPopover: this.state.indexOfOpenedPopover !== index ? index : null })
   };
   handleClosePopover = () => {
     this.handleTogglePopover(null);
@@ -328,7 +326,7 @@ export default class RecordsOfTable extends PureComponent {
     const { typesOptions, isSubmit, input: { value }, match } = this.props;
     const records = value;
     const { typesRecords, typeRecords, indexOfSelectedRecord,
-            isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover } = this.state;
+      isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover } = this.state;
 
     return (
       <div>
@@ -340,8 +338,8 @@ export default class RecordsOfTable extends PureComponent {
           options={typesOptions}
           component={SelectFormGroup}
           placeholder="-- Select type --"
-          meta={{error: false, touched: false}}
-          input={{value: typeRecords}}
+          meta={{ error: false, touched: false }}
+          input={{ value: typeRecords }}
           onChange={this.handleGetHeadingsLists}
         />
 
@@ -350,19 +348,17 @@ export default class RecordsOfTable extends PureComponent {
           typeRecords === 'referrals' ||
           typeRecords === 'vitals' ||
           typeRecords === 'procedures') ?
-          <SelectFormGroup
-            label={valuesLabels.RECORDS}
-            name={valuesNames.RECORDS}
-            id={valuesNames.RECORDS}
-            options={typesRecords[typeRecords].records || []}
-            component={SelectFormGroup}
-            placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
-            meta={{error: false, touched: false}}
-            input={{value: indexOfSelectedRecord}}
-            onChange={this.handleGetHeadingsItems}
-          />
-          : null
-        }
+            <SelectFormGroup
+              label={valuesLabels.RECORDS}
+              name={valuesNames.RECORDS}
+              id={valuesNames.RECORDS}
+              options={typesRecords[typeRecords].records || []}
+              component={SelectFormGroup}
+              placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
+              meta={{ error: false, touched: false }}
+              input={{ value: indexOfSelectedRecord }}
+              onChange={this.handleGetHeadingsItems}
+          /> : null }
 
         {typeRecords === 'events' ?
           <div>
@@ -373,8 +369,8 @@ export default class RecordsOfTable extends PureComponent {
               options={typesRecords[typeRecords].records || []}
               component={SelectFormGroup}
               placeholder={'-- Select Events Type --'}
-              meta={{error: false, touched: false}}
-              input={{value: indexOfTypeEvents}}
+              meta={{ error: false, touched: false }}
+              input={{ value: indexOfTypeEvents }}
               onChange={this.handleGetEventType}
             />
             { indexOfTypeEvents || indexOfTypeEvents === 0 ?
@@ -385,8 +381,8 @@ export default class RecordsOfTable extends PureComponent {
                 options={typesRecords[typeRecords].records[indexOfTypeEvents].events || []}
                 component={SelectFormGroup}
                 placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
-                meta={{error: false, touched: false}}
-                input={{value: indexOfSelectedRecord}}
+                meta={{ error: false, touched: false }}
+                input={{ value: indexOfSelectedRecord }}
                 onChange={this.handleGetHeadingsItems}
               /> : null
             }
@@ -397,12 +393,14 @@ export default class RecordsOfTable extends PureComponent {
         { records && records.length ?
           <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
             <Droppable droppableId="droppable">
-              {(provided) => (
-                <div className="panel-body-inner-table"
-                     ref={provided.innerRef} >
+              {provided => (
+                <div
+                  className="panel-body-inner-table"
+                  ref={provided.innerRef}
+                >
                   <div className="form-group">
                     <div className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable">
-                      <div className='table__head'>
+                      <div className="table__head">
                         <div className="table__row">
                           <div className="table__col">{valuesLabels.RECORDS_NAME}</div>
                           <div className="table__col table__col-type">{valuesLabels.RECORDS_TYPE}</div>
@@ -420,17 +418,20 @@ export default class RecordsOfTable extends PureComponent {
                           >
                             {(provided, snapshot) => (
                               <div className="table__row-holder record-popover-wrapper">
-                                <div className="table__row"
-                                     ref={provided.innerRef}
-                                     {...provided.draggableProps}
-                                     style={this.getItemStyle(
-                                       snapshot.isDragging,
-                                       provided.draggableProps.style
-                                     )}
-                                     onClick={() => {this.handleTogglePopover(index)}}
+                                <div
+                                  className="table__row"
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  style={this.getItemStyle(
+                                    snapshot.isDragging,
+                                    provided.draggableProps.style
+                                  )}
+                                  onClick={ /* istanbul ignore next */ () => { this.handleTogglePopover(index) }}
                                 >
-                                  <div className="table__col dnd-handle-wrapper"
-                                       data-th={valuesLabels.RECORDS_NAME}>
+                                  <div
+                                    className="table__col dnd-handle-wrapper"
+                                    data-th={valuesLabels.RECORDS_NAME}
+                                  >
                                     <div className="dnd-handle" {...provided.dragHandleProps}>
                                       <i className="fa fa-bars" />
                                     </div>
@@ -464,10 +465,10 @@ export default class RecordsOfTable extends PureComponent {
               )}
             </Droppable>
           </DragDropContext>
-          : <div className={classNames('form-group', { 'has-error': isSubmit})}>
-              <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>
-              {isSubmit ? <span className="help-block animate-fade">You must select at least one record.</span> : null}
-            </div>
+          : <div className={classNames('form-group', { 'has-error': isSubmit })}>
+            <div className="form-control-static">{valuesLabels.RECORDS_NOT_EXIST}</div>
+            {isSubmit ? <span className="help-block animate-fade">You must select at least one record.</span> : null}
+          </div>
         }
       </div>)
   }

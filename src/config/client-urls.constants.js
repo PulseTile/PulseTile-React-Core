@@ -1,4 +1,5 @@
 import { themeConfigs } from '../themes.config';
+
 export const clientUrls = {
   ROOT: '/',
   CHARTS: '/charts',
@@ -29,6 +30,7 @@ export const clientUrls = {
   TRANSFERS_OF_CARE: 'transfer-of-care',
   TOP_THREE_THINGS: 'topThreeThings',
   CLINICAL_STATEMENTS: 'clinicalStatements',
+  PROMS: 'proms',
 };
 
 const pluginsPages = {
@@ -156,6 +158,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Clinical Statements',
       state: '/clinicalStatements',
+    }],
+  },
+  'proms': {
+    breadcrumbs: [{
+      title: 'PROMs',
+      state: '/proms',
     }],
   },
 };

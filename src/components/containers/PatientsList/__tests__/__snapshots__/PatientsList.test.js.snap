@@ -1151,7 +1151,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersName__82"
+                    key="__colHeadersName__83"
                     style={
                       Object {
                         "width": 150,
@@ -1176,7 +1176,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__97"
+                        key="__SortableTableHeaderCell__98"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1267,7 +1267,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__83"
+                    key="__SortableTableRow__84"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1324,7 +1324,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__98"
+                        key="__SortableTableHoveredRow__99"
                         name="name"
                         onClick={[Function]}
                       >
@@ -1334,7 +1334,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__99"
+                        key="__SortableTableHoveredRow__100"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1349,7 +1349,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeaders__84"
+                    key="__colHeaders__85"
                     style={
                       Object {
                         "width": 150,
@@ -1357,7 +1357,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__85"
+                    key="__colHeaders__86"
                     style={
                       Object {
                         "width": 300,
@@ -1365,7 +1365,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__86"
+                    key="__colHeaders__87"
                     style={
                       Object {
                         "width": 105,
@@ -1373,7 +1373,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__87"
+                    key="__colHeaders__88"
                     style={
                       Object {
                         "width": 90,
@@ -1381,7 +1381,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__88"
+                    key="__colHeaders__89"
                     style={
                       Object {
                         "width": 115,
@@ -1389,18 +1389,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__89"
-                    style={
-                      Object {
-                        "width": 110,
-                      }
-                    }
-                  />
-                  <col
                     key="__colHeaders__90"
                     style={
                       Object {
-                        "width": 100,
+                        "width": 110,
                       }
                     }
                   />
@@ -1408,7 +1400,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     key="__colHeaders__91"
                     style={
                       Object {
-                        "width": 110,
+                        "width": 100,
                       }
                     }
                   />
@@ -1416,12 +1408,20 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     key="__colHeaders__92"
                     style={
                       Object {
-                        "width": 100,
+                        "width": 110,
                       }
                     }
                   />
                   <col
                     key="__colHeaders__93"
+                    style={
+                      Object {
+                        "width": 100,
+                      }
+                    }
+                  />
+                  <col
+                    key="__colHeaders__94"
                     style={
                       Object {
                         "width": 90,
@@ -1503,7 +1503,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__100"
+                        key="__SortableTableHeaderCell__101"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1521,7 +1521,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__101"
+                        key="__SortableTableHeaderCell__102"
                         name="address"
                         onClick={[Function]}
                         sortingOrder="asc"
@@ -1539,7 +1539,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__102"
+                        key="__SortableTableHeaderCell__103"
                         name="dateOfBirth"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1557,7 +1557,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__103"
+                        key="__SortableTableHeaderCell__104"
                         name="gender"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1575,7 +1575,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__104"
+                        key="__SortableTableHeaderCell__105"
                         name="id"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1594,7 +1594,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__105"
+                        key="__SortableTableHeaderCell__106"
                         name="ordersDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1622,7 +1622,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__106"
+                        key="__SortableTableHeaderCell__107"
                         name="ordersCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1644,7 +1644,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__107"
+                        key="__SortableTableHeaderCell__108"
                         name="resultsDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1672,7 +1672,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__108"
+                        key="__SortableTableHeaderCell__109"
                         name="resultsCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1694,7 +1694,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__109"
+                        key="__SortableTableHeaderCell__110"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1784,7 +1784,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__94"
+                    key="__SortableTableRow__95"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1901,7 +1901,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__110"
+                        key="__SortableTableHoveredRow__111"
                         name="name"
                         onClick={[Function]}
                       >
@@ -1911,7 +1911,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="sorted"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__111"
+                        key="__SortableTableHoveredRow__112"
                         name="address"
                         onClick={[Function]}
                       >
@@ -1921,7 +1921,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Born"
-                        key="__SortableTableHoveredRow__112"
+                        key="__SortableTableHoveredRow__113"
                         name="dateOfBirth"
                         onClick={[Function]}
                       >
@@ -1931,7 +1931,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Gender"
-                        key="__SortableTableHoveredRow__113"
+                        key="__SortableTableHoveredRow__114"
                         name="gender"
                         onClick={[Function]}
                       >
@@ -1941,7 +1941,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="NHS No."
-                        key="__SortableTableHoveredRow__114"
+                        key="__SortableTableHoveredRow__115"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1951,7 +1951,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders"
-                        key="__SortableTableHoveredRow__115"
+                        key="__SortableTableHoveredRow__116"
                         name="ordersDate"
                         onClick={[Function]}
                       >
@@ -1961,7 +1961,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders "
-                        key="__SortableTableHoveredRow__116"
+                        key="__SortableTableHoveredRow__117"
                         name="ordersCount"
                         onClick={[Function]}
                       >
@@ -1971,7 +1971,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results"
-                        key="__SortableTableHoveredRow__117"
+                        key="__SortableTableHoveredRow__118"
                         name="resultsDate"
                         onClick={[Function]}
                       >
@@ -1981,7 +1981,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Results "
-                        key="__SortableTableHoveredRow__118"
+                        key="__SortableTableHoveredRow__119"
                         name="resultsCount"
                         onClick={[Function]}
                       >
@@ -1991,7 +1991,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th=""
-                        key="__SortableTableHoveredRow__119"
+                        key="__SortableTableHoveredRow__120"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -2056,7 +2056,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersView__95"
+                    key="__colHeadersView__96"
                     style={
                       Object {
                         "width": 90,
@@ -2083,7 +2083,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     <tr>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__120"
+                        key="__SortableTableHeaderCell__121"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -2173,7 +2173,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__96"
+                    key="__SortableTableRow__97"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -2254,7 +2254,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__121"
+                        key="__SortableTableHoveredRow__122"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -2327,7 +2327,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
             totalEntriesAmount={2}
           >
             <ul
-              className="pagination-block"
+              className="pagination-block "
             >
               <li
                 className="pagination-item arrow disabled"
@@ -2348,7 +2348,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </a>
               </li>
               <li
-                className="pagination-item short-show active"
+                className="pagination-item active short-show"
                 key="__PaginationBlock__li__41"
               >
                 <a
@@ -2356,6 +2356,17 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   onClick={[Function]}
                 >
                   1
+                </a>
+              </li>
+              <li
+                className="pagination-item"
+                key="__PaginationBlock__li__42"
+              >
+                <a
+                  className="pagination-link"
+                  onClick={[Function]}
+                >
+                  2
                 </a>
               </li>
               <li

@@ -1,6 +1,6 @@
 module.exports = {
   roots: ['<rootDir>/src/components'],
-  verbose: true,
+  verbose: false,
   // testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^image![a-zA-Z0-9$_-]+$': 'GlobalImageStub',

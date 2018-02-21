@@ -40,6 +40,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
             filteredData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -96,6 +97,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
             resourceData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -152,6 +154,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing conte
             filteredData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -208,6 +211,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing conte
             resourceData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -302,6 +306,7 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
             filteredData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -357,6 +362,7 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
             resourceData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -419,6 +425,7 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
             filteredData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -475,6 +482,7 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
             resourceData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -531,6 +539,7 @@ exports[`Component <TopThreeThings /> should renders correctly with topThreeThin
             filteredData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",
@@ -587,6 +596,7 @@ exports[`Component <TopThreeThings /> should renders correctly with topThreeThin
             resourceData={
               Array [
                 Object {
+                  "dateCreated": 1514764800000,
                   "dateCreatedConvert": "01-Jan-2018",
                   "name1": "Item 2",
                   "name2": "Item 2",

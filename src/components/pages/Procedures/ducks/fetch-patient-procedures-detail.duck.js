@@ -24,7 +24,7 @@ export const fetchPatientProceduresDetailEpic = (action$, store) =>
           userId: payload.userId,
           proceduresDetail: response,
         }))
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(proceduresDetail = {}, action) {

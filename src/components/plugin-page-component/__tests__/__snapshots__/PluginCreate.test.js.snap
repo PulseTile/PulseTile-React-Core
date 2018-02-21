@@ -27,52 +27,54 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
       onShow={[Function]}
       title="Test Title Panel"
     >
-      children
-      <div
-        className="panel-control"
-      >
+      <div>
+        children
         <div
-          className="wrap-control-group"
+          className="panel-control"
         >
           <div
-            className="control-group right"
+            className="wrap-control-group"
           >
-            <PTButton
-              className="btn btn-danger"
-              onClick={[Function]}
+            <div
+              className="control-group right"
             >
-              <i
-                className="fa fa-ban"
-              />
-               Cancel
-            </PTButton>
-            <PTButton
-              className="btn btn-success"
-              onClick={[Function]}
-            >
-              <i
-                className="fa fa-check"
-              />
-               Complete
-            </PTButton>
-          </div>
-          <div
-            className="control-group with-indent left"
-          >
-            <PTButton
-              className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
-              onClick={[Function]}
-            >
-              <i
-                className="btn-icon fa fa-caret-left"
-              />
-               
-              <span
-                className="btn-text"
+              <PTButton
+                className="btn btn-danger"
+                onClick={[Function]}
               >
-                Back to Documents
-              </span>
-            </PTButton>
+                <i
+                  className="fa fa-ban"
+                />
+                 Cancel
+              </PTButton>
+              <PTButton
+                className="btn btn-success"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-check"
+                />
+                 Complete
+              </PTButton>
+            </div>
+            <div
+              className="control-group with-indent left"
+            >
+              <PTButton
+                className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
+                onClick={[Function]}
+              >
+                <i
+                  className="btn-icon fa fa-caret-left"
+                />
+                 
+                <span
+                  className="btn-text"
+                >
+                  Back to Documents
+                </span>
+              </PTButton>
+            </div>
           </div>
         </div>
       </div>
@@ -191,44 +193,46 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
           <div
             className="panel-body"
           >
-            children
-            <div
-              className="panel-control"
-            >
+            <div>
+              children
               <div
-                className="wrap-control-group"
+                className="panel-control"
               >
                 <div
-                  className="control-group right"
+                  className="wrap-control-group"
                 >
-                  <PTButton
-                    className="btn btn-danger"
-                    onClick={[Function]}
+                  <div
+                    className="control-group right"
                   >
-                    <button
+                    <PTButton
                       className="btn btn-danger"
                       onClick={[Function]}
                     >
-                      <i
-                        className="fa fa-ban"
-                      />
-                       Cancel
-                    </button>
-                  </PTButton>
-                  <PTButton
-                    className="btn btn-success"
-                    onClick={[Function]}
-                  >
-                    <button
+                      <button
+                        className="btn btn-danger"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="fa fa-ban"
+                        />
+                         Cancel
+                      </button>
+                    </PTButton>
+                    <PTButton
                       className="btn btn-success"
                       onClick={[Function]}
                     >
-                      <i
-                        className="fa fa-check"
-                      />
-                       Complete
-                    </button>
-                  </PTButton>
+                      <button
+                        className="btn btn-success"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="fa fa-check"
+                        />
+                         Complete
+                      </button>
+                    </PTButton>
+                  </div>
                 </div>
               </div>
             </div>

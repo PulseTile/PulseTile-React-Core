@@ -2,20 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Range } from 'rc-slider';
 import 'rc-slider/assets/index.css';
-
-const marks = {
-  0: '0',
-  10: '10',
-  20: '20',
-  30: '30',
-  40: '40',
-  50: '50',
-  60: '60',
-  70: '70',
-  80: '80',
-  90: '90',
-  100: '100+',
-};
+import _ from 'lodash/fp';
 
 export default class RangeInput extends PureComponent {
   static propTypes = {
@@ -26,33 +13,43 @@ export default class RangeInput extends PureComponent {
     }).isRequired,
   };
 
-  /*static defaultProps = {
-    input: { value: [0, 100] },
-  };*/
-
-  constructor(props) {
-    super();
-    props.input.value = [0, 100]
-  }
-
+  static defaultProps = {
+    marks: {
+      0: '0',
+      10: '10',
+      20: '20',
+      30: '30',
+      40: '40',
+      50: '50',
+      60: '60',
+      70: '70',
+      80: '80',
+      90: '90',
+      100: '100+',
+    },
+    input: {
+      value: [0, 100],
+    },
+    defaultValue: [0, 100],
+  };
 
   componentDidMount() {
     this.props.input.onChange(this.props.input.value);
   }
 
   render() {
-    const { label, input } = this.props;
+    const { label, input, marks, defaultValue } = this.props;
 
     return (
       <div className="form-group">
         <label htmlFor={input.name} className="control-label">{label}</label>
         <div className="wrap-rzslider-search">
-          <Range
-            defaultValue={[0, 100]}
+          {!_.isEmpty(input.value) ? <Range
+            defaultValue={defaultValue}
             marks={marks}
             value={input.value}
             {...input}
-          />
+          /> : null}
         </div>
       </div>
     )

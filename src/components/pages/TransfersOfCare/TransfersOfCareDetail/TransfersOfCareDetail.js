@@ -53,7 +53,7 @@ export default class TransfersOfCareDetail extends PureComponent {
                     <div className="form-control-static">{getDDMMMYYYY(detail[valuesNames.DATE_TIME])}</div>
                   </div>
 
-                  <RecordsOfTableView records={detail[valuesNames.RECORDS]}/>
+                  <RecordsOfTableView records={detail[valuesNames.RECORDS]} />
 
                   <div className="row-expand">
                     <div className="col-expand-left">

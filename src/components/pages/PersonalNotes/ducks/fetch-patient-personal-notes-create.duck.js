@@ -29,7 +29,7 @@ export const fetchPatientPersonalNotesCreateEpic = (action$, store) =>
             fetchPatientPersonalNotesRequest({ userId }),
           ];
         })
-        .catch(error => Observable.of(handleErrors(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientPersonalNotesCreate = {}, action) {

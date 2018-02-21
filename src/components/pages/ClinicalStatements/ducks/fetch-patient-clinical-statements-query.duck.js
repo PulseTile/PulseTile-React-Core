@@ -27,7 +27,7 @@ export const fetchPatientClinicalStatementsQueryEpic = (action$, store) =>
 					clinicalStatementsQuery: response,
 					tag: payload.tag
 				}))
-				.catch(error => Observable.of(handleErrors(error)))
+				// .catch(error => Observable.of(handleErrors(error)))
 		});
 
 
