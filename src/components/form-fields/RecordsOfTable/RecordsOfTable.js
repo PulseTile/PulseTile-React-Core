@@ -113,13 +113,11 @@ export default class RecordsOfTable extends PureComponent {
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
+  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
-    if (nextProps[waitingDataOf]) {
+    if (waitingDataOf) {
       this.setState({ isRecordsLoading: false })
-    }
-    if (nextProps.records !== this.props.records) {
-      this.setState({ records: nextProps.records });
     }
     this.setAllRecords(nextProps);
   }
@@ -157,10 +155,10 @@ export default class RecordsOfTable extends PureComponent {
       }
     });
   };
-  setEventsRecords = (data) => {
+  setEventsRecords = /* istanbul ignore next */ (data) => {
     const events = _.flow(
       _.filter(item => item.dateCreated && item.type),
-      _.filter(item => item.dateCreated),
+      // _.filter(item => item.dateCreated),
       _.map((item) => {
         item.date = getDDMMMYYYY(item.dateCreated);
         item.tableName = item.name;
@@ -199,7 +197,7 @@ export default class RecordsOfTable extends PureComponent {
     return records;
   };
 
-  setAllRecords = (props) => {
+  setAllRecords = /* istanbul ignore next */ (props) => {
     const { typesRecords } = this.state;
     let isShouldUpdate = false;
     const newTypesRecords = {
@@ -428,7 +426,7 @@ export default class RecordsOfTable extends PureComponent {
                                     snapshot.isDragging,
                                     provided.draggableProps.style
                                   )}
-                                  onClick={() => { this.handleTogglePopover(index) }}
+                                  onClick={ /* istanbul ignore next */ () => { this.handleTogglePopover(index) }}
                                 >
                                   <div
                                     className="table__col dnd-handle-wrapper"

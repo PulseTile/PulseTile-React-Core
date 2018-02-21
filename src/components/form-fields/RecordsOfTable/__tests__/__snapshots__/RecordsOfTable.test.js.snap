@@ -1,6 +1,1719 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <RecordsOfTable /> should renders with props correctly when type referrals 1`] = `
+exports[`Component <RecordsOfTable /> should renders with props correctly mount testing for refs 1`] = `
+<Connect(Connect(Connect(Connect(Connect(Connect(RecordsOfTable))))))
+  allReferrals={
+    Array [
+      Object {
+        "dateOfReferral": 1511283530634,
+        "dateOfReferralConvert": "21-Nov-2017",
+        "referralFrom": "#Tony Shannon1",
+        "referralTo": "Ripplefields Optometry service",
+        "source": "ethercis",
+        "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+      },
+    ]
+  }
+  input={
+    Object {
+      "onChange": [Function],
+      "value": Array [
+        Object {
+          "date": "05-Dec-2017",
+          "name": "Too bad desease ddd",
+          "source": "ethercis",
+          "type": "diagnosis",
+          "typeTitle": "Problems / Diagnosis",
+          "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+        },
+      ],
+    }
+  }
+  match={
+    Object {
+      "params": Object {
+        "userId": "9999999000",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <Connect(Connect(Connect(Connect(Connect(RecordsOfTable)))))
+    actions={
+      Object {
+        "fetchPatientDiagnosesRequest": [Function],
+        "fetchPatientEventsRequest": [Function],
+        "fetchPatientMedicationsRequest": [Function],
+        "fetchPatientProceduresRequest": [Function],
+        "fetchPatientReferralsRequest": [Function],
+        "fetchPatientVitalsRequest": [Function],
+      }
+    }
+    allDiagnoses={
+      Array [
+        Object {
+          "dateOfOnset": 1483228800000,
+          "dateOfOnsetConvert": "05-Dec-2017",
+          "problem": "Too bad desease ddd",
+          "source": "ethercis",
+          "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+        },
+      ]
+    }
+    allReferrals={
+      Array [
+        Object {
+          "dateOfReferral": 1511283530634,
+          "dateOfReferralConvert": "21-Nov-2017",
+          "referralFrom": "#Tony Shannon1",
+          "referralTo": "Ripplefields Optometry service",
+          "source": "ethercis",
+          "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+        },
+      ]
+    }
+    input={
+      Object {
+        "onChange": [Function],
+        "value": Array [
+          Object {
+            "date": "05-Dec-2017",
+            "name": "Too bad desease ddd",
+            "source": "ethercis",
+            "type": "diagnosis",
+            "typeTitle": "Problems / Diagnosis",
+            "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+          },
+        ],
+      }
+    }
+    match={
+      Object {
+        "params": Object {
+          "userId": "9999999000",
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    userId="9999999000"
+  >
+    <Connect(Connect(Connect(Connect(RecordsOfTable))))
+      actions={
+        Object {
+          "fetchPatientDiagnosesRequest": [Function],
+          "fetchPatientEventsRequest": [Function],
+          "fetchPatientMedicationsRequest": [Function],
+          "fetchPatientProceduresRequest": [Function],
+          "fetchPatientReferralsRequest": [Function],
+          "fetchPatientVitalsRequest": [Function],
+        }
+      }
+      allDiagnoses={
+        Array [
+          Object {
+            "dateOfOnset": 1483228800000,
+            "dateOfOnsetConvert": "05-Dec-2017",
+            "problem": "Too bad desease ddd",
+            "source": "ethercis",
+            "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+          },
+        ]
+      }
+      allMedications={
+        Array [
+          Object {
+            "dateCreated": 1483228800000,
+            "dateCreatedConvert": "11-Jan-2018",
+            "doseAmount": "Dose Amount",
+            "highlighters": Array [
+              Object {
+                "name": "name",
+                "status": "warning",
+              },
+            ],
+            "name": "test medication 11.01",
+            "source": "ethercis",
+            "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+          },
+        ]
+      }
+      allReferrals={
+        Array [
+          Object {
+            "dateOfReferral": 1511283530634,
+            "dateOfReferralConvert": "21-Nov-2017",
+            "referralFrom": "#Tony Shannon1",
+            "referralTo": "Ripplefields Optometry service",
+            "source": "ethercis",
+            "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+          },
+        ]
+      }
+      dispatch={[Function]}
+      input={
+        Object {
+          "onChange": [Function],
+          "value": Array [
+            Object {
+              "date": "05-Dec-2017",
+              "name": "Too bad desease ddd",
+              "source": "ethercis",
+              "type": "diagnosis",
+              "typeTitle": "Problems / Diagnosis",
+              "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+            },
+          ],
+        }
+      }
+      match={
+        Object {
+          "params": Object {
+            "userId": "9999999000",
+          },
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+      storeSubscription={
+        Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          },
+          "store": Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          },
+          "unsubscribe": [Function],
+        }
+      }
+      userId="9999999000"
+    >
+      <Connect(Connect(Connect(RecordsOfTable)))
+        actions={
+          Object {
+            "fetchPatientDiagnosesRequest": [Function],
+            "fetchPatientEventsRequest": [Function],
+            "fetchPatientMedicationsRequest": [Function],
+            "fetchPatientProceduresRequest": [Function],
+            "fetchPatientReferralsRequest": [Function],
+            "fetchPatientVitalsRequest": [Function],
+          }
+        }
+        allDiagnoses={
+          Array [
+            Object {
+              "dateOfOnset": 1483228800000,
+              "dateOfOnsetConvert": "05-Dec-2017",
+              "problem": "Too bad desease ddd",
+              "source": "ethercis",
+              "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+            },
+          ]
+        }
+        allMedications={
+          Array [
+            Object {
+              "dateCreated": 1483228800000,
+              "dateCreatedConvert": "11-Jan-2018",
+              "doseAmount": "Dose Amount",
+              "highlighters": Array [
+                Object {
+                  "name": "name",
+                  "status": "warning",
+                },
+              ],
+              "name": "test medication 11.01",
+              "source": "ethercis",
+              "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+            },
+          ]
+        }
+        allReferrals={
+          Array [
+            Object {
+              "dateOfReferral": 1483228800000,
+              "dateOfReferralConvert": "21-Nov-2017",
+              "referralFrom": "#Tony Shannon1",
+              "referralTo": "Ripplefields Optometry service",
+              "source": "ethercis",
+              "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+            },
+          ]
+        }
+        dispatch={[Function]}
+        input={
+          Object {
+            "onChange": [Function],
+            "value": Array [
+              Object {
+                "date": "05-Dec-2017",
+                "name": "Too bad desease ddd",
+                "source": "ethercis",
+                "type": "diagnosis",
+                "typeTitle": "Problems / Diagnosis",
+                "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+              },
+            ],
+          }
+        }
+        match={
+          Object {
+            "params": Object {
+              "userId": "9999999000",
+            },
+          }
+        }
+        store={
+          Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+        storeSubscription={
+          Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": Subscription {
+              "listeners": Object {
+                "clear": [Function],
+                "get": [Function],
+                "notify": [Function],
+                "subscribe": [Function],
+              },
+              "onStateChange": [Function],
+              "parentSub": Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": undefined,
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              },
+              "store": Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              },
+              "unsubscribe": [Function],
+            },
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          }
+        }
+        userId="9999999000"
+      >
+        <Connect(Connect(RecordsOfTable))
+          actions={
+            Object {
+              "fetchPatientDiagnosesRequest": [Function],
+              "fetchPatientEventsRequest": [Function],
+              "fetchPatientMedicationsRequest": [Function],
+              "fetchPatientProceduresRequest": [Function],
+              "fetchPatientReferralsRequest": [Function],
+              "fetchPatientVitalsRequest": [Function],
+            }
+          }
+          allDiagnoses={
+            Array [
+              Object {
+                "dateOfOnset": 1483228800000,
+                "dateOfOnsetConvert": "05-Dec-2017",
+                "problem": "Too bad desease ddd",
+                "source": "ethercis",
+                "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+              },
+            ]
+          }
+          allEvents={
+            Array [
+              Object {
+                "dateCreated": 1494586220000,
+                "dateTime": 1483228800000,
+                "dateTimeConvert": "11-May-2017",
+                "description": "Needs nursing and supervisory care",
+                "name": "Discharge to care home",
+                "sideDateInTimeline": "right",
+                "source": "ethercis",
+                "sourceId": "93ac376d-3ff4-4e0b-b080-47eb3fe81750",
+                "type": "Discharge",
+              },
+            ]
+          }
+          allMedications={
+            Array [
+              Object {
+                "dateCreated": 1483228800000,
+                "dateCreatedConvert": "11-Jan-2018",
+                "doseAmount": "Dose Amount",
+                "highlighters": Array [
+                  Object {
+                    "name": "name",
+                    "status": "warning",
+                  },
+                ],
+                "name": "test medication 11.01",
+                "source": "ethercis",
+                "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+              },
+            ]
+          }
+          allReferrals={
+            Array [
+              Object {
+                "dateOfReferral": 1483228800000,
+                "dateOfReferralConvert": "21-Nov-2017",
+                "referralFrom": "#Tony Shannon1",
+                "referralTo": "Ripplefields Optometry service",
+                "source": "ethercis",
+                "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+              },
+            ]
+          }
+          dispatch={[Function]}
+          input={
+            Object {
+              "onChange": [Function],
+              "value": Array [
+                Object {
+                  "date": "05-Dec-2017",
+                  "name": "Too bad desease ddd",
+                  "source": "ethercis",
+                  "type": "diagnosis",
+                  "typeTitle": "Problems / Diagnosis",
+                  "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+                },
+              ],
+            }
+          }
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          store={
+            Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            }
+          }
+          storeSubscription={
+            Subscription {
+              "listeners": Object {
+                "clear": [Function],
+                "get": [Function],
+                "notify": [Function],
+                "subscribe": [Function],
+              },
+              "onStateChange": [Function],
+              "parentSub": Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": undefined,
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                },
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              },
+              "store": Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              },
+              "unsubscribe": [Function],
+            }
+          }
+          userId="9999999000"
+        >
+          <Connect(RecordsOfTable)
+            actions={
+              Object {
+                "fetchPatientDiagnosesRequest": [Function],
+                "fetchPatientEventsRequest": [Function],
+                "fetchPatientMedicationsRequest": [Function],
+                "fetchPatientProceduresRequest": [Function],
+                "fetchPatientReferralsRequest": [Function],
+                "fetchPatientVitalsRequest": [Function],
+              }
+            }
+            allDiagnoses={
+              Array [
+                Object {
+                  "dateOfOnset": 1483228800000,
+                  "dateOfOnsetConvert": "05-Dec-2017",
+                  "problem": "Too bad desease ddd",
+                  "source": "ethercis",
+                  "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+                },
+              ]
+            }
+            allEvents={
+              Array [
+                Object {
+                  "dateCreated": 1494586220000,
+                  "dateTime": 1483228800000,
+                  "dateTimeConvert": "11-May-2017",
+                  "description": "Needs nursing and supervisory care",
+                  "name": "Discharge to care home",
+                  "sideDateInTimeline": "right",
+                  "source": "ethercis",
+                  "sourceId": "93ac376d-3ff4-4e0b-b080-47eb3fe81750",
+                  "type": "Discharge",
+                },
+              ]
+            }
+            allMedications={
+              Array [
+                Object {
+                  "dateCreated": 1483228800000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "doseAmount": "Dose Amount",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test medication 11.01",
+                  "source": "ethercis",
+                  "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+                },
+              ]
+            }
+            allReferrals={
+              Array [
+                Object {
+                  "dateOfReferral": 1483228800000,
+                  "dateOfReferralConvert": "21-Nov-2017",
+                  "referralFrom": "#Tony Shannon1",
+                  "referralTo": "Ripplefields Optometry service",
+                  "source": "ethercis",
+                  "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+                },
+              ]
+            }
+            allVitals={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1483228800000,
+                  "dateCreatedConvert": "19-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Voice",
+                  "newsScore": 4,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "false",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            dispatch={[Function]}
+            input={
+              Object {
+                "onChange": [Function],
+                "value": Array [
+                  Object {
+                    "date": "05-Dec-2017",
+                    "name": "Too bad desease ddd",
+                    "source": "ethercis",
+                    "type": "diagnosis",
+                    "typeTitle": "Problems / Diagnosis",
+                    "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+                  },
+                ],
+              }
+            }
+            match={
+              Object {
+                "params": Object {
+                  "userId": "9999999000",
+                },
+              }
+            }
+            store={
+              Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              }
+            }
+            storeSubscription={
+              Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": Subscription {
+                      "listeners": Object {
+                        "clear": [Function],
+                        "get": [Function],
+                        "notify": [Function],
+                        "subscribe": [Function],
+                      },
+                      "onStateChange": [Function],
+                      "parentSub": Subscription {
+                        "listeners": Object {
+                          "clear": [Function],
+                          "get": [Function],
+                          "notify": [Function],
+                          "subscribe": [Function],
+                        },
+                        "onStateChange": [Function],
+                        "parentSub": undefined,
+                        "store": Object {
+                          "clearActions": [Function],
+                          "dispatch": [Function],
+                          "getActions": [Function],
+                          "getState": [Function],
+                          "replaceReducer": [Function],
+                          "subscribe": [Function],
+                        },
+                        "unsubscribe": [Function],
+                      },
+                      "store": Object {
+                        "clearActions": [Function],
+                        "dispatch": [Function],
+                        "getActions": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                      "unsubscribe": [Function],
+                    },
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                },
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              }
+            }
+            userId="9999999000"
+          >
+            <RecordsOfTable
+              actions={
+                Object {
+                  "fetchPatientDiagnosesRequest": [Function],
+                  "fetchPatientEventsRequest": [Function],
+                  "fetchPatientMedicationsRequest": [Function],
+                  "fetchPatientProceduresRequest": [Function],
+                  "fetchPatientReferralsRequest": [Function],
+                  "fetchPatientVitalsRequest": [Function],
+                }
+              }
+              allDiagnoses={
+                Array [
+                  Object {
+                    "dateOfOnset": 1483228800000,
+                    "dateOfOnsetConvert": "05-Dec-2017",
+                    "problem": "Too bad desease ddd",
+                    "source": "ethercis",
+                    "sourceId": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+                  },
+                ]
+              }
+              allEvents={
+                Array [
+                  Object {
+                    "dateCreated": 1494586220000,
+                    "dateTime": 1483228800000,
+                    "dateTimeConvert": "11-May-2017",
+                    "description": "Needs nursing and supervisory care",
+                    "name": "Discharge to care home",
+                    "sideDateInTimeline": "right",
+                    "source": "ethercis",
+                    "sourceId": "93ac376d-3ff4-4e0b-b080-47eb3fe81750",
+                    "type": "Discharge",
+                  },
+                ]
+              }
+              allMedications={
+                Array [
+                  Object {
+                    "dateCreated": 1483228800000,
+                    "dateCreatedConvert": "11-Jan-2018",
+                    "doseAmount": "Dose Amount",
+                    "highlighters": Array [
+                      Object {
+                        "name": "name",
+                        "status": "warning",
+                      },
+                    ],
+                    "name": "test medication 11.01",
+                    "source": "ethercis",
+                    "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+                  },
+                ]
+              }
+              allProcedures={
+                Array [
+                  Object {
+                    "date": 1483228800000,
+                    "dateConvert": "15-Jul-2015",
+                    "name": "total replacement of hip",
+                    "source": "ethercis",
+                    "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                    "time": 1483228800000,
+                    "timeConvert": "17:11",
+                  },
+                ]
+              }
+              allReferrals={
+                Array [
+                  Object {
+                    "dateOfReferral": 1483228800000,
+                    "dateOfReferralConvert": "21-Nov-2017",
+                    "referralFrom": "#Tony Shannon1",
+                    "referralTo": "Ripplefields Optometry service",
+                    "source": "ethercis",
+                    "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+                  },
+                ]
+              }
+              allVitals={
+                Array [
+                  Object {
+                    "author": "Dr Tony Shannon",
+                    "dateCreated": 1483228800000,
+                    "dateCreatedConvert": "19-Jan-2018",
+                    "diastolicBP": "64.0",
+                    "heartRate": "45.0",
+                    "highlighters": Array [
+                      Object {
+                        "name": "newsScore",
+                        "status": "success",
+                      },
+                    ],
+                    "id": 1,
+                    "levelOfConsciousness": "Voice",
+                    "newsScore": 4,
+                    "oxygenSaturation": "97.0",
+                    "oxygenSupplemental": "false",
+                    "respirationRate": "12.0",
+                    "source": "ethercis",
+                    "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                    "systolicBP": "112.0",
+                    "temperature": "37.0",
+                  },
+                ]
+              }
+              dispatch={[Function]}
+              input={
+                Object {
+                  "onChange": [Function],
+                  "value": Array [
+                    Object {
+                      "date": "05-Dec-2017",
+                      "name": "Too bad desease ddd",
+                      "source": "ethercis",
+                      "type": "diagnosis",
+                      "typeTitle": "Problems / Diagnosis",
+                      "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
+                    },
+                  ],
+                }
+              }
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+              store={
+                Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                }
+              }
+              storeSubscription={
+                Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": Subscription {
+                      "listeners": Object {
+                        "clear": [Function],
+                        "get": [Function],
+                        "notify": [Function],
+                        "subscribe": [Function],
+                      },
+                      "onStateChange": [Function],
+                      "parentSub": Subscription {
+                        "listeners": Object {
+                          "clear": [Function],
+                          "get": [Function],
+                          "notify": [Function],
+                          "subscribe": [Function],
+                        },
+                        "onStateChange": [Function],
+                        "parentSub": Subscription {
+                          "listeners": Object {
+                            "clear": [Function],
+                            "get": [Function],
+                            "notify": [Function],
+                            "subscribe": [Function],
+                          },
+                          "onStateChange": [Function],
+                          "parentSub": Subscription {
+                            "listeners": Object {
+                              "clear": [Function],
+                              "get": [Function],
+                              "notify": [Function],
+                              "subscribe": [Function],
+                            },
+                            "onStateChange": [Function],
+                            "parentSub": undefined,
+                            "store": Object {
+                              "clearActions": [Function],
+                              "dispatch": [Function],
+                              "getActions": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                            },
+                            "unsubscribe": [Function],
+                          },
+                          "store": Object {
+                            "clearActions": [Function],
+                            "dispatch": [Function],
+                            "getActions": [Function],
+                            "getState": [Function],
+                            "replaceReducer": [Function],
+                            "subscribe": [Function],
+                          },
+                          "unsubscribe": [Function],
+                        },
+                        "store": Object {
+                          "clearActions": [Function],
+                          "dispatch": [Function],
+                          "getActions": [Function],
+                          "getState": [Function],
+                          "replaceReducer": [Function],
+                          "subscribe": [Function],
+                        },
+                        "unsubscribe": [Function],
+                      },
+                      "store": Object {
+                        "clearActions": [Function],
+                        "dispatch": [Function],
+                        "getActions": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                      "unsubscribe": [Function],
+                    },
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                }
+              }
+              typesOptions={
+                Array [
+                  Object {
+                    "title": "Problems / Diagnosis",
+                    "value": "diagnosis",
+                  },
+                  Object {
+                    "title": "Medications",
+                    "value": "medications",
+                  },
+                  Object {
+                    "title": "Referrals",
+                    "value": "referrals",
+                  },
+                  Object {
+                    "title": "Events",
+                    "value": "events",
+                  },
+                  Object {
+                    "title": "Vitals",
+                    "value": "vitals",
+                  },
+                  Object {
+                    "title": "Procedures",
+                    "value": "procedures",
+                  },
+                ]
+              }
+              userId="9999999000"
+            >
+              <div>
+                <SelectFormGroup
+                  component={[Function]}
+                  id="type"
+                  input={
+                    Object {
+                      "value": "",
+                    }
+                  }
+                  label="Type"
+                  meta={
+                    Object {
+                      "error": false,
+                      "touched": false,
+                    }
+                  }
+                  name="type"
+                  onChange={[Function]}
+                  options={
+                    Array [
+                      Object {
+                        "title": "Problems / Diagnosis",
+                        "value": "diagnosis",
+                      },
+                      Object {
+                        "title": "Medications",
+                        "value": "medications",
+                      },
+                      Object {
+                        "title": "Referrals",
+                        "value": "referrals",
+                      },
+                      Object {
+                        "title": "Events",
+                        "value": "events",
+                      },
+                      Object {
+                        "title": "Vitals",
+                        "value": "vitals",
+                      },
+                      Object {
+                        "title": "Procedures",
+                        "value": "procedures",
+                      },
+                    ]
+                  }
+                  placeholder="-- Select type --"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                      htmlFor="type"
+                    >
+                      Type
+                    </label>
+                    <select
+                      className="form-control input-sm"
+                      id="type"
+                      name="type"
+                      onChange={[Function]}
+                      value=""
+                    >
+                      <option>
+                        -- Select type --
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__1"
+                        value="diagnosis"
+                      >
+                        Problems / Diagnosis
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__2"
+                        value="medications"
+                      >
+                        Medications
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__3"
+                        value="referrals"
+                      >
+                        Referrals
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__4"
+                        value="events"
+                      >
+                        Events
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__5"
+                        value="vitals"
+                      >
+                        Vitals
+                      </option>
+                      <option
+                        key="__SelectFormGroupOption__6"
+                        value="procedures"
+                      >
+                        Procedures
+                      </option>
+                    </select>
+                  </div>
+                </SelectFormGroup>
+                <DragDropContext
+                  onDragEnd={[Function]}
+                  onDragStart={[Function]}
+                >
+                  <Connect(Droppable)
+                    droppableId="droppable"
+                  >
+                    <Droppable
+                      direction="vertical"
+                      dispatch={[Function]}
+                      droppableId="droppable"
+                      ignoreContainerClipping={false}
+                      isDraggingOver={false}
+                      isDropDisabled={false}
+                      placeholder={null}
+                      type="DEFAULT"
+                    >
+                      <DroppableDimensionPublisher
+                        direction="vertical"
+                        droppableId="droppable"
+                        ignoreContainerClipping={false}
+                        isDropDisabled={false}
+                        targetRef={
+                          <div
+                            class="panel-body-inner-table"
+                          >
+                            <div
+                              class="form-group"
+                            >
+                              <div
+                                class="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable"
+                              >
+                                <div
+                                  class="table__head"
+                                >
+                                  <div
+                                    class="table__row"
+                                  >
+                                    <div
+                                      class="table__col"
+                                    >
+                                      Name
+                                    </div>
+                                    <div
+                                      class="table__col table__col-type"
+                                    >
+                                      Type
+                                    </div>
+                                    <div
+                                      class="table__col table__col-date"
+                                    >
+                                      Date
+                                    </div>
+                                    <div
+                                      class="table__col table__col-source"
+                                    >
+                                      Source
+                                    </div>
+                                    <div
+                                      class="table__col table__col-control"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="table__body"
+                                >
+                                  <div
+                                    class="table__row-holder record-popover-wrapper"
+                                  >
+                                    <div
+                                      class="table__row"
+                                      data-react-beautiful-dnd-draggable="0"
+                                      style="opacity: 1;"
+                                    >
+                                      <div
+                                        class="table__col dnd-handle-wrapper"
+                                        data-th="Name"
+                                      >
+                                        <div
+                                          aria-grabbed="false"
+                                          class="dnd-handle"
+                                          data-react-beautiful-dnd-drag-handle="0"
+                                          draggable="false"
+                                          tabindex="0"
+                                        >
+                                          <i
+                                            class="fa fa-bars"
+                                          />
+                                        </div>
+                                        <span>
+                                          Too bad desease ddd
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-type"
+                                        data-th="Type"
+                                      >
+                                        <span>
+                                          Problems / Diagnosis
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-date"
+                                        data-th="Date"
+                                      >
+                                        <span>
+                                          05-Dec-2017
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-source"
+                                        data-th="Source"
+                                      >
+                                        <span>
+                                          ethercis
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-control table-records-editable__control"
+                                        data-th=""
+                                      >
+                                        <div
+                                          class="btn btn-smaller btn-danger btn-icon-normal"
+                                        >
+                                          <i
+                                            class="btn-icon fa fa-times"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+                        type="DEFAULT"
+                      >
+                        <div
+                          className="panel-body-inner-table"
+                        >
+                          <div
+                            className="form-group"
+                          >
+                            <div
+                              className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable"
+                            >
+                              <div
+                                className="table__head"
+                              >
+                                <div
+                                  className="table__row"
+                                >
+                                  <div
+                                    className="table__col"
+                                  >
+                                    Name
+                                  </div>
+                                  <div
+                                    className="table__col table__col-type"
+                                  >
+                                    Type
+                                  </div>
+                                  <div
+                                    className="table__col table__col-date"
+                                  >
+                                    Date
+                                  </div>
+                                  <div
+                                    className="table__col table__col-source"
+                                  >
+                                    Source
+                                  </div>
+                                  <div
+                                    className="table__col table__col-control"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                className="table__body"
+                              >
+                                <Connect(Draggable)
+                                  draggableId="record-0"
+                                  index={0}
+                                  key="record-0"
+                                >
+                                  <Draggable
+                                    cancel={[Function]}
+                                    crossAxisMoveBackward={[Function]}
+                                    crossAxisMoveForward={[Function]}
+                                    dimension={null}
+                                    direction={null}
+                                    disableInteractiveElementBlocking={false}
+                                    draggableId="record-0"
+                                    drop={[Function]}
+                                    dropAnimationFinished={[Function]}
+                                    index={0}
+                                    isDragDisabled={false}
+                                    isDragging={false}
+                                    isDropAnimating={false}
+                                    lift={[Function]}
+                                    move={[Function]}
+                                    moveBackward={[Function]}
+                                    moveByWindowScroll={[Function]}
+                                    moveForward={[Function]}
+                                    offset={
+                                      Object {
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                    shouldAnimateDisplacement={true}
+                                    shouldAnimateDragMovement={false}
+                                  >
+                                    <DraggableDimensionPublisher
+                                      draggableId="record-0"
+                                      droppableId="droppable"
+                                      index={0}
+                                      targetRef={
+                                        <div
+                                          class="table__row"
+                                          data-react-beautiful-dnd-draggable="0"
+                                          style="opacity: 1;"
+                                        >
+                                          <div
+                                            class="table__col dnd-handle-wrapper"
+                                            data-th="Name"
+                                          >
+                                            <div
+                                              aria-grabbed="false"
+                                              class="dnd-handle"
+                                              data-react-beautiful-dnd-drag-handle="0"
+                                              draggable="false"
+                                              tabindex="0"
+                                            >
+                                              <i
+                                                class="fa fa-bars"
+                                              />
+                                            </div>
+                                            <span>
+                                              Too bad desease ddd
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-type"
+                                            data-th="Type"
+                                          >
+                                            <span>
+                                              Problems / Diagnosis
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-date"
+                                            data-th="Date"
+                                          >
+                                            <span>
+                                              05-Dec-2017
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-source"
+                                            data-th="Source"
+                                          >
+                                            <span>
+                                              ethercis
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-control table-records-editable__control"
+                                            data-th=""
+                                          >
+                                            <div
+                                              class="btn btn-smaller btn-danger btn-icon-normal"
+                                            >
+                                              <i
+                                                class="btn-icon fa fa-times"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      }
+                                    >
+                                      <Movable
+                                        destination={
+                                          Object {
+                                            "x": 0,
+                                            "y": 0,
+                                          }
+                                        }
+                                        onMoveEnd={[Function]}
+                                        speed="INSTANT"
+                                      >
+                                        <Motion
+                                          defaultStyle={
+                                            Object {
+                                              "x": 0,
+                                              "y": 0,
+                                            }
+                                          }
+                                          onRest={[Function]}
+                                          style={
+                                            Object {
+                                              "x": 0,
+                                              "y": 0,
+                                            }
+                                          }
+                                        >
+                                          <DragHandle
+                                            callbacks={
+                                              Object {
+                                                "onCancel": [Function],
+                                                "onCrossAxisMoveBackward": [Function],
+                                                "onCrossAxisMoveForward": [Function],
+                                                "onDrop": [Function],
+                                                "onLift": [Function],
+                                                "onMove": [Function],
+                                                "onMoveBackward": [Function],
+                                                "onMoveForward": [Function],
+                                                "onWindowScroll": [Function],
+                                              }
+                                            }
+                                            canDragInteractiveElements={false}
+                                            direction={null}
+                                            draggableId="record-0"
+                                            getDraggableRef={[Function]}
+                                            isDragging={false}
+                                            isEnabled={true}
+                                          >
+                                            <div
+                                              className="table__row-holder record-popover-wrapper"
+                                            >
+                                              <div
+                                                className="table__row"
+                                                data-react-beautiful-dnd-draggable="0"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "opacity": 1,
+                                                    "transform": null,
+                                                    "transition": null,
+                                                  }
+                                                }
+                                              >
+                                                <div
+                                                  className="table__col dnd-handle-wrapper"
+                                                  data-th="Name"
+                                                >
+                                                  <div
+                                                    aria-grabbed={false}
+                                                    className="dnd-handle"
+                                                    data-react-beautiful-dnd-drag-handle="0"
+                                                    draggable={false}
+                                                    onClick={[Function]}
+                                                    onDragStart={[Function]}
+                                                    onDrop={[Function]}
+                                                    onKeyDown={[Function]}
+                                                    onMouseDown={[Function]}
+                                                    onTouchMove={[Function]}
+                                                    onTouchStart={[Function]}
+                                                    tabIndex={0}
+                                                  >
+                                                    <i
+                                                      className="fa fa-bars"
+                                                    />
+                                                  </div>
+                                                  <span>
+                                                    Too bad desease ddd
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-type"
+                                                  data-th="Type"
+                                                >
+                                                  <span>
+                                                    Problems / Diagnosis
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-date"
+                                                  data-th="Date"
+                                                >
+                                                  <span>
+                                                    05-Dec-2017
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-source"
+                                                  data-th="Source"
+                                                >
+                                                  <span>
+                                                    ethercis
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-control table-records-editable__control"
+                                                  data-th=""
+                                                >
+                                                  <div
+                                                    className="btn btn-smaller btn-danger btn-icon-normal"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <i
+                                                      className="btn-icon fa fa-times"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </DragHandle>
+                                        </Motion>
+                                      </Movable>
+                                    </DraggableDimensionPublisher>
+                                  </Draggable>
+                                </Connect(Draggable)>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </DroppableDimensionPublisher>
+                    </Droppable>
+                  </Connect(Droppable)>
+                </DragDropContext>
+              </div>
+            </RecordsOfTable>
+          </Connect(RecordsOfTable)>
+        </Connect(Connect(RecordsOfTable))>
+      </Connect(Connect(Connect(RecordsOfTable)))>
+    </Connect(Connect(Connect(Connect(RecordsOfTable))))>
+  </Connect(Connect(Connect(Connect(Connect(RecordsOfTable)))))>
+</Connect(Connect(Connect(Connect(Connect(Connect(RecordsOfTable))))))>
+`;
+
+exports[`Component <RecordsOfTable /> should renders with props correctly shallow testing different methods 1`] = `
+<div>
+  <Spinner />
+  <SelectFormGroup
+    component={[Function]}
+    id="type"
+    input={
+      Object {
+        "value": "events",
+      }
+    }
+    label="Type"
+    meta={
+      Object {
+        "error": false,
+        "touched": false,
+      }
+    }
+    name="type"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "title": "Problems / Diagnosis",
+          "value": "diagnosis",
+        },
+        Object {
+          "title": "Medications",
+          "value": "medications",
+        },
+        Object {
+          "title": "Referrals",
+          "value": "referrals",
+        },
+        Object {
+          "title": "Events",
+          "value": "events",
+        },
+        Object {
+          "title": "Vitals",
+          "value": "vitals",
+        },
+        Object {
+          "title": "Procedures",
+          "value": "procedures",
+        },
+      ]
+    }
+    placeholder="-- Select type --"
+  />
+  <div>
+    <SelectFormGroup
+      component={[Function]}
+      id="typeevents"
+      input={
+        Object {
+          "value": "",
+        }
+      }
+      label="Events Type"
+      meta={
+        Object {
+          "error": false,
+          "touched": false,
+        }
+      }
+      name="typeevents"
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "events": undefined,
+          },
+        ]
+      }
+      placeholder="-- Select Events Type --"
+    />
+  </div>
+  <DragDropContext
+    onDragEnd={[Function]}
+    onDragStart={[Function]}
+  >
+    <Connect(Droppable)
+      droppableId="droppable"
+    />
+  </DragDropContext>
+</div>
+`;
+
+exports[`Component <RecordsOfTable /> should renders with props correctly when input.value is empty 1`] = `
 <div>
   <SelectFormGroup
     component={[Function]}
@@ -49,13 +1762,111 @@ exports[`Component <RecordsOfTable /> should renders with props correctly when t
     }
     placeholder="-- Select type --"
   />
-  <DragDropContext
-    onDragEnd={[Function]}
-    onDragStart={[Function]}
+  <div
+    className="form-group has-error"
   >
-    <Connect(Droppable)
-      droppableId="droppable"
-    />
-  </DragDropContext>
+    <div
+      className="form-control-static"
+    >
+      No records added
+    </div>
+    <span
+      className="help-block animate-fade"
+    >
+      You must select at least one record.
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Component <RecordsOfTable /> should renders with props correctly when input.value is undefined 1`] = `
+<div>
+  <SelectFormGroup
+    component={[Function]}
+    id="type"
+    input={
+      Object {
+        "value": "diagnosis",
+      }
+    }
+    label="Type"
+    meta={
+      Object {
+        "error": false,
+        "touched": false,
+      }
+    }
+    name="type"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "title": "Problems / Diagnosis",
+          "value": "diagnosis",
+        },
+        Object {
+          "title": "Medications",
+          "value": "medications",
+        },
+        Object {
+          "title": "Referrals",
+          "value": "referrals",
+        },
+        Object {
+          "title": "Events",
+          "value": "events",
+        },
+        Object {
+          "title": "Vitals",
+          "value": "vitals",
+        },
+        Object {
+          "title": "Procedures",
+          "value": "procedures",
+        },
+      ]
+    }
+    placeholder="-- Select type --"
+  />
+  <SelectFormGroup
+    component={[Function]}
+    id="records"
+    input={
+      Object {
+        "value": "",
+      }
+    }
+    label="Records"
+    meta={
+      Object {
+        "error": false,
+        "touched": false,
+      }
+    }
+    name="records"
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "record": Object {
+            "date": 1512432000000,
+            "source": "test Source",
+            "sourceId": "test SourceID",
+            "tableName": "test",
+          },
+        },
+      ]
+    }
+    placeholder="-- Select undefined --"
+  />
+  <div
+    className="form-group"
+  >
+    <div
+      className="form-control-static"
+    >
+      No records added
+    </div>
+  </div>
 </div>
 `;
