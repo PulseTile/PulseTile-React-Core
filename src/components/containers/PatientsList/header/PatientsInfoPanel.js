@@ -70,8 +70,9 @@ export default class PatientsInfoPanel extends PureComponent {
                 <PTCustomCheckbox title="Results" name="resultsDate" isChecked={selected.resultsDate} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="Vitals" name="vitalsDate" isChecked={selected.vitalsDate} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="Diagnosis" name="diagnosesDate" isChecked={selected.diagnosesDate} onChange={this.toggleCheckbox} />
+                <PTCustomCheckbox title="PROMS" name="promsDate" isChecked={selected.promsDate} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate'])}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate', 'promsDate'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>
@@ -86,8 +87,9 @@ export default class PatientsInfoPanel extends PureComponent {
                 <PTCustomCheckbox title="Results" name="resultsCount" isChecked={selected.resultsCount} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="Vitals" name="vitalsCount" isChecked={selected.vitalsCount} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="Diagnosis" name="diagnosesCount" isChecked={selected.diagnosesCount} onChange={this.toggleCheckbox} />
+                <PTCustomCheckbox title="PROMS" name="promsCount" isChecked={selected.promsCount} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount'])}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount', 'promsCount'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>

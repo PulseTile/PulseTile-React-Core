@@ -20,7 +20,7 @@ module.exports = {
     '**/src/components/pages/**.{js,jsx}',
 
     // Temporarily ignore coverage files
-    '!**/src/components/pages/TransfersOfCare/transfers-of-care-components/**{TransfersOfCareRecordsEdit.js}',
+    '!**/src/components/pages/ClinicalStatements/**.{js}',
 
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
