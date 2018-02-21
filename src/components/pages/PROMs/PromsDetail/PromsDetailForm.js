@@ -123,11 +123,13 @@ export default class PromsDetailForm extends PureComponent {
             <div className="form-group">
               <div>Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.</div>
               <div className={`rc-slider--${status}`}>
-                <Field
-                  name={valuesNames.SCORE}
-                  component={Slider}
-                  props={{ marks: marksForPromsRange, min: 0, max: 10, defaultValue: detail[valuesNames.SCORE], onChange: changeScoreStatus }}
-                />
+                <div className="rc-slider-indent">
+                  <Field
+                    name={valuesNames.SCORE}
+                    component={Slider}
+                    props={{ marks: marksForPromsRange, min: 0, max: 10, defaultValue: detail[valuesNames.SCORE], onChange: changeScoreStatus }}
+                  />
+                </div>
               </div>
             </div>
 
