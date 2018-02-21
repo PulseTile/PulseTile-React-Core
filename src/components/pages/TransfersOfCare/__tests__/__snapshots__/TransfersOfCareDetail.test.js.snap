@@ -291,125 +291,22 @@ exports[`Component <TransfersOfCareDetail /> should renders with props correctly
                 25-May-2017
               </div>
             </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Records
-              </label>
-              <table
-                className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor"
-              >
-                <colgroup>
-                  <col />
-                  <col
-                    style={
-                      Object {
-                        "width": "21%",
-                      }
-                    }
-                  />
-                  <col
-                    style={
-                      Object {
-                        "width": "21%",
-                      }
-                    }
-                  />
-                  <col
-                    style={
-                      Object {
-                        "width": "18%",
-                      }
-                    }
-                  />
-                </colgroup>
-                <thead>
-                  <tr>
-                    <th>
-                      Name
-                    </th>
-                    <th>
-                      Type
-                    </th>
-                    <th>
-                      Date
-                    </th>
-                    <th>
-                      Source
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr
-                    key="0"
-                  >
-                    <td
-                      data-th="Name"
-                    >
-                      <span>
-                        Cholecystectomy
-                      </span>
-                    </td>
-                    <td
-                      data-th="Type"
-                    >
-                      <span>
-                        Problems / Diagnosis
-                      </span>
-                    </td>
-                    <td
-                      data-th="Date"
-                    >
-                      <span>
-                        10-Apr-2017
-                      </span>
-                    </td>
-                    <td
-                      data-th="Source"
-                    >
-                      <span>
-                        ethercis
-                      </span>
-                    </td>
-                  </tr>
-                  <tr
-                    key="1"
-                  >
-                    <td
-                      data-th="Name"
-                    >
-                      <span>
-                        Care Service Team 444
-                      </span>
-                    </td>
-                    <td
-                      data-th="Type"
-                    >
-                      <span>
-                        Events
-                      </span>
-                    </td>
-                    <td
-                      data-th="Date"
-                    >
-                      <span>
-                        11-Feb-2015
-                      </span>
-                    </td>
-                    <td
-                      data-th="Source"
-                    >
-                      <span>
-                        marand
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <RecordsOfTableView
+              records={
+                Array [
+                  Object {
+                    "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
+                    "type": "diagnosis",
+                    "undefined": "Problems / Diagnosis",
+                  },
+                  Object {
+                    "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
+                    "type": "events",
+                    "undefined": "Events",
+                  },
+                ]
+              }
+            />
             <div
               className="row-expand"
             >
@@ -575,20 +472,7 @@ exports[`Component <TransfersOfCareDetail /> should renders with props correctly
                 01-Feb-2018
               </div>
             </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Records
-              </label>
-              <div
-                className="form-control-static"
-              >
-                No records added
-              </div>
-            </div>
+            <RecordsOfTableView />
             <div
               className="row-expand"
             >

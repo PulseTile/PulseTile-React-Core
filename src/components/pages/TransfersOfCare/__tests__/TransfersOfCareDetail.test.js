@@ -51,7 +51,7 @@ describe('Component <TransfersOfCareDetail />', () => {
     component.setProps({ detail: propsForTransfersOfCarePanel.detail, expandedPanel: 'all', editedPanel: { [TRANSFER_OF_CARE_PANEL]: false } });
     expect(component.props().className).toEqual('section-detail');
     expect(component.find('PluginDetailPanel')).toHaveLength(1);
-    expect(component.find('table')).toHaveLength(1);
+    expect(component.find('RecordsOfTableView')).toHaveLength(1);
 
     // Testing transferOfCarePanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(TRANSFER_OF_CARE_PANEL);
@@ -59,14 +59,16 @@ describe('Component <TransfersOfCareDetail />', () => {
     expect(component.find('PluginDetailPanel').at(0).props().isOpen).toEqual(false);
     expect(component.find('PluginDetailPanel').at(0).props().isShowControlPanel).toEqual(true);
 
+    expect(component.find('RecordsOfTableView').props().records).toEqual(propsForTransfersOfCarePanel.detail[valuesNames.RECORDS]);
+
     expect(component.find('.control-label').at(0).text()).toEqual(valuesLabels.FROM);
     expect(component.find('.control-label').at(1).text()).toEqual(valuesLabels.TO);
     expect(component.find('.control-label').at(2).text()).toEqual(valuesLabels.DATE_TIME);
-    expect(component.find('.control-label').at(3).text()).toEqual(valuesLabels.RECORDS);
-    expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.REASON);
-    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.CLINICAL);
-    expect(component.find('.control-label').at(6).text()).toEqual(valuesLabels.DATE_CREATED);
-    expect(component.find('.control-label').at(7).text()).toEqual(valuesLabels.SOURCE);
+    // expect(component.find('.control-label').at(3).text()).toEqual(valuesLabels.RECORDS);
+    expect(component.find('.control-label').at(3).text()).toEqual(valuesLabels.REASON);
+    expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.CLINICAL);
+    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.DATE_CREATED);
+    expect(component.find('.control-label').at(6).text()).toEqual(valuesLabels.SOURCE);
 
     expect(component.find('.form-control-static').at(0).text()).toEqual(propsForTransfersOfCarePanel.detail[valuesNames.FROM]);
     expect(component.find('.form-control-static').at(1).text()).toEqual(propsForTransfersOfCarePanel.detail[valuesNames.TO]);
@@ -79,8 +81,8 @@ describe('Component <TransfersOfCareDetail />', () => {
     expect(component).toMatchSnapshot();
 
     component.setProps({ detail: {} });
-    expect(component.find('table')).toHaveLength(0);
-    expect(component.find('.form-control-static').at(3).text()).toEqual(valuesLabels.RECORDS_NOT_EXIST);
+    expect(component.find('RecordsOfTableView')).toHaveLength(1);
+    // expect(component.find('.form-control-static').at(3).text()).toEqual(valuesLabels.RECORDS_NOT_EXIST);
     expect(component).toMatchSnapshot();
   });
 

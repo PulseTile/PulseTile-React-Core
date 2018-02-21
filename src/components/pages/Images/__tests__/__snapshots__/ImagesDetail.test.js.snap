@@ -594,7 +594,7 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 1`
                         className="swiper-wrapper"
                       >
                         <div
-                          className="swiper-slide  "
+                          className="swiper-slide"
                           key=".$0"
                         >
                           <CornerstoneImage
@@ -624,13 +624,13 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 1`
                         </div>
                       </div>
                       <div
-                        className="swiper-pagination "
+                        className="swiper-pagination"
                       />
                       <div
-                        className="swiper-button-next "
+                        className="swiper-button-next"
                       />
                       <div
-                        className="swiper-button-prev "
+                        className="swiper-button-prev"
                       />
                     </div>
                   </ReactIdSwiper>
@@ -1101,18 +1101,18 @@ exports[`Component <ImagesDetail /> should renders with props correctly mount 2`
                         className="swiper-wrapper"
                       >
                         <div
-                          className="swiper-slide  "
+                          className="swiper-slide"
                           key=".0"
                         />
                       </div>
                       <div
-                        className="swiper-pagination "
+                        className="swiper-pagination"
                       />
                       <div
-                        className="swiper-button-next "
+                        className="swiper-button-next"
                       />
                       <div
-                        className="swiper-button-prev "
+                        className="swiper-button-prev"
                       />
                     </div>
                   </ReactIdSwiper>
