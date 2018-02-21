@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FormTitle /> should renders correctly 1`] = `
+<div
+  className="form-title-block test-class-name"
+  restProps="restProps"
+>
+  <div
+    className="form-title"
+  >
+    test text
+  </div>
+</div>
+`;

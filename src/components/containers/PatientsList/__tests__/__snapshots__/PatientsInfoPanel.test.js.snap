@@ -107,6 +107,12 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             onChange={[Function]}
             title="Diagnosis"
           />
+          <PTCustomCheckbox
+            isChecked={true}
+            name="promsDate"
+            onChange={[Function]}
+            title="PROMS"
+          />
           <Col
             bsClass="col"
             componentClass="div"
@@ -163,6 +169,11 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             name="diagnosesCount"
             onChange={[Function]}
             title="Diagnosis"
+          />
+          <PTCustomCheckbox
+            name="promsCount"
+            onChange={[Function]}
+            title="PROMS"
           />
           <Col
             bsClass="col"

@@ -118,6 +118,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
             "name": true,
             "ordersCount": true,
             "ordersDate": true,
+            "promsCount": false,
+            "promsDate": false,
             "resultsCount": true,
             "resultsDate": true,
             "viewPatientNavigation": true,
@@ -161,6 +163,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     "name": true,
                     "ordersCount": true,
                     "ordersDate": true,
+                    "promsCount": false,
+                    "promsDate": false,
                     "resultsCount": true,
                     "resultsDate": true,
                     "viewPatientNavigation": true,
@@ -183,6 +187,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       "name": true,
                       "ordersCount": true,
                       "ordersDate": true,
+                      "promsCount": false,
+                      "promsDate": false,
                       "resultsCount": true,
                       "resultsDate": true,
                       "viewPatientNavigation": true,
@@ -674,6 +680,52 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                   </div>
                                 </Col>
                               </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="promsDate"
+                                onChange={[Function]}
+                                title="PROMS"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="promsDate"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="promsDate"
+                                        >
+                                          PROMS
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
                               <Col
                                 bsClass="col"
                                 componentClass="div"
@@ -898,6 +950,52 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                           htmlFor="diagnosesCount"
                                         >
                                           Diagnosis
+                                        </label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Col>
+                              </PTCustomCheckbox>
+                              <PTCustomCheckbox
+                                isChecked={false}
+                                name="promsCount"
+                                onChange={[Function]}
+                                title="PROMS"
+                              >
+                                <Col
+                                  bsClass="col"
+                                  componentClass="div"
+                                  sm={4}
+                                  xs={6}
+                                >
+                                  <div
+                                    className="col-sm-4 col-xs-6"
+                                  >
+                                    <div
+                                      className="wrap-fcustominp"
+                                    >
+                                      <div
+                                        className="fcustominp-state"
+                                        onClick={[Function]}
+                                      >
+                                        <div
+                                          className="fcustominp"
+                                        >
+                                          <input
+                                            checked={false}
+                                            name="promsCount"
+                                            onChange={[Function]}
+                                            type="checkbox"
+                                          />
+                                          <label
+                                            htmlFor="patients-table-info-name"
+                                          />
+                                        </div>
+                                        <label
+                                          className="fcustominp-label"
+                                          htmlFor="promsCount"
+                                        >
+                                          PROMS
                                         </label>
                                       </div>
                                     </div>
@@ -2420,6 +2518,8 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
           "name": true,
           "ordersCount": true,
           "ordersDate": true,
+          "promsCount": false,
+          "promsDate": false,
           "resultsCount": true,
           "resultsDate": true,
           "viewPatientNavigation": true,
