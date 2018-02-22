@@ -155,3 +155,18 @@ export const fetchPatientClinicalStatementsTagsOnMount = ({
 
 export const fetchPatientPromsOnMount = (generateFetchListOnMount('fetchPatientPromsRequest'));
 export const fetchPatientPromsDetailOnMount = (generateFetchDetailOnMount('fetchPatientPromsDetailRequest'));
+
+
+export const fetchFeedsOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    actions.fetchFeedsRequest();
+  },
+});
+export const fetchFeedsDetailOnMount = ({
+  componentDidMount() {
+    const { actions, match } = this.props;
+    const sourceId = _.get('params.sourceId', match);
+    if (sourceId) actions.fetchFeedsDetailRequest({ sourceId })
+  },
+});

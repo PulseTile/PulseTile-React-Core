@@ -10,6 +10,7 @@ import PersonalInformationPanel from './PersonalInformationPanel';
 import AppSettingsForm from './forms/AppSettingsForm';
 import PersonalForm from './forms/PersonalForm';
 import ContactForm from './forms/ContactForm';
+import Feeds from '../Feeds/Feeds'
 import { formStateSelector, patientInfoSelector, userAccountSelector } from './selectors';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
@@ -18,11 +19,14 @@ import { setTitle } from '../../../ducks/set-title.duck';
 import { setTheme } from '../../../ducks/set-theme.duck';
 import { valuesSettingsFormLabels, valuesPersonalFormLabels, valuesContactFormLabels } from './forms/values-names.config';
 import themes from './theme-config';
+import { themeConfigs } from '../../../themes.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
+
+const FEEDS = 'feeds';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme }, dispatch) });
 
@@ -360,6 +364,22 @@ class UserProfile extends PureComponent {
                     </div>
                   </div>
                 </PersonalInformationPanel> : null }
+
+                { themeConfigs.isLeedsPHRTheme ? <div>
+                  {expandedPanel === 'feeds' || expandedPanel === 'all' ? <PersonalInformationPanel
+                    name={FEEDS}
+                    title="Feeds"
+                    isOpen={openedPanel === FEEDS}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    editedPanel={editedPanel}
+                    onCancel={this.handleCancel}
+                  >
+                    <Feeds />
+                  </PersonalInformationPanel> : null }
+                </div> : null }
+
               </div>
             </div>
           </Col>

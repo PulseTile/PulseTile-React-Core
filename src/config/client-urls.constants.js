@@ -31,6 +31,7 @@ export const clientUrls = {
   TOP_THREE_THINGS: 'topThreeThings',
   CLINICAL_STATEMENTS: 'clinicalStatements',
   PROMS: 'proms',
+  FEEDS: 'feeds',
 };
 
 const pluginsPages = {
