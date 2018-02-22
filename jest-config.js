@@ -25,6 +25,7 @@ module.exports = {
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
     '!**/src/components/**{viltals-helpers.utils.js}',
+    '!**/src/components/**{proms-helpers.utils.js}',
     '!**/src/components/**{events-helpers.utils.js}',
     '!**/src/components/**{selectors.js}',
     '!**/src/components/**{forms.config.js}',

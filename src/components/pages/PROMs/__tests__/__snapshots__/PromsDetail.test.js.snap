@@ -1,0 +1,696 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PromsDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "promPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="promPanel"
+      title="PROM"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name of PROM
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <RecordsOfTableView />
+            <FormTitle
+              text="Specific Question"
+            />
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q1 Pain
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q2 Activity limitations / support
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q3 Walking
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q4 Walking Surfaces
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <FormTitle
+              text="General Score"
+            />
+            <div
+              className="form-group"
+            >
+              <div>
+                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="highlighter-input-group highlighter-wrapper"
+                >
+                  <span
+                    className="highlighter-undefined"
+                  />
+                  <label
+                    className="control-label"
+                  >
+                    Score
+                  </label>
+                  <div
+                    className="input-holder highlighter-input-holder undefined"
+                  >
+                    <div
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PromsDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "promPanel": true,
+        }
+      }
+      isBtnShowPanel={true}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="promPanel"
+      title="Edit PROM"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "DR Mary Jones",
+            "dateCreated": 1482170593395,
+            "name": "test Proms 1",
+            "records": Array [
+              Object {
+                "date": 1482190593395,
+                "name": "test records",
+                "source": "test records source",
+                "sourceId": "test records sourceId",
+                "type": "test records type",
+                "undefined": "test records typeTitle",
+              },
+            ],
+            "score": "9",
+            "source": "openehr",
+            "sourceId": "testSourceID1",
+            "specific_Q1": "No Pain",
+            "specific_Q2": "No limitations",
+            "specific_Q3": "Around the house",
+            "specific_Q4": "No difficulty",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "promPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="promPanel"
+      title="PROM"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name of PROM
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    test Proms 1
+                  </div>
+                </div>
+              </div>
+            </div>
+            <RecordsOfTableView
+              records={
+                Array [
+                  Object {
+                    "date": 1482190593395,
+                    "name": "test records",
+                    "source": "test records source",
+                    "sourceId": "test records sourceId",
+                    "type": "test records type",
+                    "undefined": "test records typeTitle",
+                  },
+                ]
+              }
+            />
+            <FormTitle
+              text="Specific Question"
+            />
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q1 Pain
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    No Pain
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q2 Activity limitations / support
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    No limitations
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q3 Walking
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Around the house
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q4 Walking Surfaces
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    No difficulty
+                  </div>
+                </div>
+              </div>
+            </div>
+            <FormTitle
+              text="General Score"
+            />
+            <div
+              className="form-group"
+            >
+              <div>
+                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="highlighter-input-group highlighter-wrapper"
+                >
+                  <span
+                    className="highlighter-undefined"
+                  />
+                  <label
+                    className="control-label"
+                  >
+                    Score
+                  </label>
+                  <div
+                    className="input-holder highlighter-input-holder undefined"
+                  >
+                    <div
+                      className="form-control input-sm"
+                    >
+                      9
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    19-Dec-2016
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    openehr
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "promPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="promPanel"
+      title="PROM"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Name of PROM
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <RecordsOfTableView />
+            <FormTitle
+              text="Specific Question"
+            />
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q1 Pain
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q2 Activity limitations / support
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q3 Walking
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Q4 Walking Surfaces
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <FormTitle
+              text="General Score"
+            />
+            <div
+              className="form-group"
+            >
+              <div>
+                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="highlighter-input-group highlighter-wrapper"
+                >
+                  <span
+                    className="highlighter-undefined"
+                  />
+                  <label
+                    className="control-label"
+                  >
+                    Score
+                  </label>
+                  <div
+                    className="input-holder highlighter-input-holder undefined"
+                  >
+                    <div
+                      className="form-control input-sm"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    01-Feb-2018
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

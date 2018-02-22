@@ -1,21 +1,15 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
-import moment from 'moment';
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import FormTitle from '../../../ui-elements/FormTitle/FormTitle';
-// import PromsRecordsEdit from '../transfers-of-care-components/PromsRecordsEdit';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange, typesOfRecordsOptions } from '../forms.config';
-import RangeInput from '../../../form-fields/RangeInput';
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
-// import { promsDetailFormStateSelector } from '../selectors';
 
 @reduxForm({
   form: 'promsDetailFormSelector',

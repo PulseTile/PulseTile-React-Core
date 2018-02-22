@@ -1,0 +1,575 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PromsDetailForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="promsDetailForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name of PROM"
+            name="name"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <Field
+        component={[Function]}
+        id="records"
+        name="records"
+        props={
+          Object {
+            "isSubmit": true,
+            "match": undefined,
+            "typesOptions": Array [
+              Object {
+                "title": "Procedures",
+                "value": "procedures",
+              },
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+            ],
+          }
+        }
+      />
+      <FormTitle
+        text="Specific Question"
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q1"
+            label="Q1 Pain"
+            name="specific_Q1"
+            options={
+              Array [
+                Object {
+                  "title": "No Pain",
+                  "value": "No Pain",
+                },
+                Object {
+                  "title": "Mild",
+                  "value": "Mild",
+                },
+                Object {
+                  "title": "Moderate",
+                  "value": "Moderate",
+                },
+                Object {
+                  "title": "Severe",
+                  "value": "Severe",
+                },
+              ]
+            }
+            placeholder="-- Select pain --"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q2"
+            label="Q2 Activity limitations / support"
+            name="specific_Q2"
+            options={
+              Array [
+                Object {
+                  "title": "No limitations",
+                  "value": "No limitations",
+                },
+                Object {
+                  "title": "Occasional limitations",
+                  "value": "Occasional limitations",
+                },
+                Object {
+                  "title": "Moderate limitations",
+                  "value": "Moderate limitations",
+                },
+                Object {
+                  "title": "Severe limitations",
+                  "value": "Severe limitations",
+                },
+              ]
+            }
+            placeholder="-- Select limitations --"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q3"
+            label="Q3 Walking"
+            name="specific_Q3"
+            options={
+              Array [
+                Object {
+                  "title": "Around the house",
+                  "value": "Around the house",
+                },
+                Object {
+                  "title": "Less than 1 block",
+                  "value": "Less than 1 block",
+                },
+                Object {
+                  "title": "Less than 1 mile",
+                  "value": "Less than 1 mile",
+                },
+                Object {
+                  "title": "More than 1 mile",
+                  "value": "More than 1 mile",
+                },
+              ]
+            }
+            placeholder="-- Select walking --"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q4"
+            label="Q4 Walking Surfaces"
+            name="specific_Q4"
+            options={
+              Array [
+                Object {
+                  "title": "No difficulty",
+                  "value": "No difficulty",
+                },
+                Object {
+                  "title": "Some difficulty",
+                  "value": "Some difficulty",
+                },
+                Object {
+                  "title": "Severe difficulty",
+                  "value": "Severe difficulty",
+                },
+              ]
+            }
+            placeholder="-- Select walking surfaces --"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <FormTitle
+        text="General Score"
+      />
+      <div
+        className="form-group"
+      >
+        <div>
+          Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+        </div>
+        <div
+          className="rc-slider--undefined"
+        >
+          <div
+            className="rc-slider-indent"
+          >
+            <Field
+              component={[Function]}
+              name="score"
+              props={
+                Object {
+                  "defaultValue": undefined,
+                  "marks": Object {
+                    "0": "0",
+                    "1": "1",
+                    "10": "10",
+                    "2": "2",
+                    "3": "3",
+                    "4": "4",
+                    "5": "5",
+                    "6": "6",
+                    "7": "7",
+                    "8": "8",
+                    "9": "9",
+                  },
+                  "max": 10,
+                  "min": 0,
+                  "onChange": undefined,
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <PromsDetailForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="promsDetailForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name of PROM"
+            name="name"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <Field
+        component={[Function]}
+        id="records"
+        name="records"
+        props={
+          Object {
+            "isSubmit": false,
+            "match": undefined,
+            "typesOptions": Array [
+              Object {
+                "title": "Procedures",
+                "value": "procedures",
+              },
+              Object {
+                "title": "Problems / Diagnosis",
+                "value": "diagnosis",
+              },
+            ],
+          }
+        }
+      />
+      <FormTitle
+        text="Specific Question"
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q1"
+            label="Q1 Pain"
+            name="specific_Q1"
+            options={
+              Array [
+                Object {
+                  "title": "No Pain",
+                  "value": "No Pain",
+                },
+                Object {
+                  "title": "Mild",
+                  "value": "Mild",
+                },
+                Object {
+                  "title": "Moderate",
+                  "value": "Moderate",
+                },
+                Object {
+                  "title": "Severe",
+                  "value": "Severe",
+                },
+              ]
+            }
+            placeholder="-- Select pain --"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q2"
+            label="Q2 Activity limitations / support"
+            name="specific_Q2"
+            options={
+              Array [
+                Object {
+                  "title": "No limitations",
+                  "value": "No limitations",
+                },
+                Object {
+                  "title": "Occasional limitations",
+                  "value": "Occasional limitations",
+                },
+                Object {
+                  "title": "Moderate limitations",
+                  "value": "Moderate limitations",
+                },
+                Object {
+                  "title": "Severe limitations",
+                  "value": "Severe limitations",
+                },
+              ]
+            }
+            placeholder="-- Select limitations --"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q3"
+            label="Q3 Walking"
+            name="specific_Q3"
+            options={
+              Array [
+                Object {
+                  "title": "Around the house",
+                  "value": "Around the house",
+                },
+                Object {
+                  "title": "Less than 1 block",
+                  "value": "Less than 1 block",
+                },
+                Object {
+                  "title": "Less than 1 mile",
+                  "value": "Less than 1 mile",
+                },
+                Object {
+                  "title": "More than 1 mile",
+                  "value": "More than 1 mile",
+                },
+              ]
+            }
+            placeholder="-- Select walking --"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="specific_Q4"
+            label="Q4 Walking Surfaces"
+            name="specific_Q4"
+            options={
+              Array [
+                Object {
+                  "title": "No difficulty",
+                  "value": "No difficulty",
+                },
+                Object {
+                  "title": "Some difficulty",
+                  "value": "Some difficulty",
+                },
+                Object {
+                  "title": "Severe difficulty",
+                  "value": "Severe difficulty",
+                },
+              ]
+            }
+            placeholder="-- Select walking surfaces --"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <FormTitle
+        text="General Score"
+      />
+      <div
+        className="form-group"
+      >
+        <div>
+          Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+        </div>
+        <div
+          className="rc-slider--undefined"
+        >
+          <div
+            className="rc-slider-indent"
+          >
+            <Field
+              component={[Function]}
+              name="score"
+              props={
+                Object {
+                  "defaultValue": undefined,
+                  "marks": Object {
+                    "0": "0",
+                    "1": "1",
+                    "10": "10",
+                    "2": "2",
+                    "3": "3",
+                    "4": "4",
+                    "5": "5",
+                    "6": "6",
+                    "7": "7",
+                    "8": "8",
+                    "9": "9",
+                  },
+                  "max": 10,
+                  "min": 0,
+                  "onChange": undefined,
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
