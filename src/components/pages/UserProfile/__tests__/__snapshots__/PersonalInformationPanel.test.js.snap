@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PersonalInformationPanel /> should renders with all props correctly 1`] = `
+exports[`Component <ControlPanel /> should renders with all props correctly 1`] = `
 <div
   className="panel panel-secondary open"
 >
@@ -42,7 +42,7 @@ exports[`Component <PersonalInformationPanel /> should renders with all props co
 </div>
 `;
 
-exports[`Component <PersonalInformationPanel /> should renders with all props correctly 2`] = `
+exports[`Component <ControlPanel /> should renders with all props correctly 2`] = `
 <div
   className="panel panel-secondary open"
 >
@@ -106,7 +106,7 @@ exports[`Component <PersonalInformationPanel /> should renders with all props co
 </div>
 `;
 
-exports[`Component <PersonalInformationPanel /> should renders with all props correctly 3`] = `
+exports[`Component <ControlPanel /> should renders with all props correctly 3`] = `
 <div
   className="panel panel-secondary open"
 >
@@ -179,7 +179,7 @@ exports[`Component <PersonalInformationPanel /> should renders with all props co
 </div>
 `;
 
-exports[`Component <PersonalInformationPanel /> should renders with all props correctly 4`] = `
+exports[`Component <ControlPanel /> should renders with all props correctly 4`] = `
 <div
   className="panel panel-secondary open"
 >

@@ -3,7 +3,7 @@ import Enzyme, { shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 // import configureStore from 'redux-mock-store';
 
-import PersonalInformationPanel from '../PersonalInformationPanel';
+import ControlPanel from '../ControlPanel';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -24,10 +24,10 @@ const testProps = {
 	formValues: {},
 };
 
-describe('Component <PersonalInformationPanel />', () => {
+describe('Component <ControlPanel />', () => {
   it('should renders with all props correctly', () => {
     const component = shallow(
-      <PersonalInformationPanel
+      <ControlPanel
 				onShow={testProps.onShow}
 				onExpand={testProps.onExpand}
 				onEdit={testProps.onEdit}

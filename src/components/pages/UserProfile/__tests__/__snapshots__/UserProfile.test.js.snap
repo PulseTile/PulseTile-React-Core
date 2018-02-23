@@ -22,7 +22,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
           <div
             className="panel-group accordion"
           >
-            <PersonalInformationPanel
+            <ControlPanel
               editedPanel={
                 Object {
                   "applicationPreferences": true,
@@ -47,8 +47,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   }
                 }
               />
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "applicationPreferences": true,
@@ -195,8 +195,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "applicationPreferences": true,
@@ -348,8 +348,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "applicationPreferences": true,
@@ -471,7 +471,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
+            </ControlPanel>
           </div>
         </div>
       </Col>
@@ -502,7 +502,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
           <div
             className="panel-group accordion"
           >
-            <PersonalInformationPanel
+            <ControlPanel
               editedPanel={
                 Object {
                   "contactInformation": true,
@@ -620,8 +620,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "contactInformation": true,
@@ -768,8 +768,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "contactInformation": true,
@@ -784,8 +784,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
               title="Contact Information"
             >
               <ReduxForm />
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "contactInformation": true,
@@ -907,7 +907,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
+            </ControlPanel>
           </div>
         </div>
       </Col>
@@ -938,7 +938,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
           <div
             className="panel-group accordion"
           >
-            <PersonalInformationPanel
+            <ControlPanel
               editedPanel={
                 Object {
                   "personalInformation": true,
@@ -1056,8 +1056,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "personalInformation": true,
@@ -1072,8 +1072,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
               title="Personal Information"
             >
               <ReduxForm />
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "personalInformation": true,
@@ -1225,8 +1225,8 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={
                 Object {
                   "personalInformation": true,
@@ -1348,7 +1348,7 @@ exports[`Component <UserProfile /> should renders correctly when open Edit Panel
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
+            </ControlPanel>
           </div>
         </div>
       </Col>
@@ -1379,7 +1379,7 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
           <div
             className="panel-group accordion"
           >
-            <PersonalInformationPanel
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={true}
               name="applicationPreferences"
@@ -1493,8 +1493,8 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="personalInformation"
@@ -1639,8 +1639,8 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="contactInformation"
@@ -1788,8 +1788,8 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="changeHistory"
@@ -1907,7 +1907,7 @@ exports[`Component <UserProfile /> should renders correctly when the User is PHR
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
+            </ControlPanel>
           </div>
         </div>
       </Col>
@@ -1938,7 +1938,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
           <div
             className="panel-group accordion"
           >
-            <PersonalInformationPanel
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={true}
               name="applicationPreferences"
@@ -2052,8 +2052,8 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="personalInformation"
@@ -2196,8 +2196,8 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="contactInformation"
@@ -2345,8 +2345,8 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
-            <PersonalInformationPanel
+            </ControlPanel>
+            <ControlPanel
               editedPanel={Object {}}
               isOpen={false}
               name="changeHistory"
@@ -2464,7 +2464,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </PersonalInformationPanel>
+            </ControlPanel>
           </div>
         </div>
       </Col>

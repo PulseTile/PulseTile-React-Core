@@ -7,7 +7,7 @@ import moment from 'moment';
 Enzyme.configure({ adapter: new Adapter() });
 
 import UserProfile from '../UserProfile';
-import { valuesSettingsFormLabels, valuesPersonalFormLabels, valuesContactFormLabels } from '../forms/values-names.config';
+import { valuesSettingsFormLabels, valuesPersonalFormLabels, valuesContactFormLabels } from '../forms.config';
 import themes from '../theme-config';
 
 const patientsInfo = {
@@ -90,13 +90,13 @@ describe('Component <UserProfile />', () => {
 
     expect(component).toMatchSnapshot();
 
-    expect(component.find('PersonalInformationPanel')).toHaveLength(4);
+    expect(component.find('ControlPanel')).toHaveLength(4);
     expect(component.find('ReduxForm')).toHaveLength(0);
 
-    const panelApp = component.find('PersonalInformationPanel').at(0);
-    const panelPersonal = component.find('PersonalInformationPanel').at(1);
-    const panelContact = component.find('PersonalInformationPanel').at(2);
-    const panelHistory = component.find('PersonalInformationPanel').at(3);
+    const panelApp = component.find('ControlPanel').at(0);
+    const panelPersonal = component.find('ControlPanel').at(1);
+    const panelContact = component.find('ControlPanel').at(2);
+    const panelHistory = component.find('ControlPanel').at(3);
     const colorName = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor].name : themes.default.name;
 
     expect(panelApp.find('.control-label').at(0).text()).toEqual(valuesSettingsFormLabels.APP_TITLE);
@@ -138,9 +138,9 @@ describe('Component <UserProfile />', () => {
 
     expect(component).toMatchSnapshot();
 
-    expect(component.find('PersonalInformationPanel')).toHaveLength(4);
+    expect(component.find('ControlPanel')).toHaveLength(4);
     expect(component.find('ReduxForm')).toHaveLength(1);
-    expect(component.find('PersonalInformationPanel').at(0).find('ReduxForm')).toHaveLength(1);
+    expect(component.find('ControlPanel').at(0).find('ReduxForm')).toHaveLength(1);
   });
 
   it('should renders correctly when open Edit Panel of Personal Information', () => {
@@ -153,9 +153,9 @@ describe('Component <UserProfile />', () => {
 
     expect(component).toMatchSnapshot();
 
-    expect(component.find('PersonalInformationPanel')).toHaveLength(4);
+    expect(component.find('ControlPanel')).toHaveLength(4);
     expect(component.find('ReduxForm')).toHaveLength(1);
-    expect(component.find('PersonalInformationPanel').at(1).find('ReduxForm')).toHaveLength(1);
+    expect(component.find('ControlPanel').at(1).find('ReduxForm')).toHaveLength(1);
   });
 
   it('should renders correctly when open Edit Panel of Contact Information', () => {
@@ -168,9 +168,9 @@ describe('Component <UserProfile />', () => {
 
     expect(component).toMatchSnapshot();
 
-    expect(component.find('PersonalInformationPanel')).toHaveLength(4);
+    expect(component.find('ControlPanel')).toHaveLength(4);
     expect(component.find('ReduxForm')).toHaveLength(1);
-    expect(component.find('PersonalInformationPanel').at(2).find('ReduxForm')).toHaveLength(1);
+    expect(component.find('ControlPanel').at(2).find('ReduxForm')).toHaveLength(1);
   });
 
   it('should work all methods of component', () => {
@@ -212,7 +212,7 @@ describe('Component <UserProfile />', () => {
         match={match}
       />, { context }).dive().dive().dive();
 
-    expect(component.find('PersonalInformationPanel').at(0).find('.palette-color-name').text()).toEqual(themes.purple.name);
+    expect(component.find('ControlPanel').at(0).find('.palette-color-name').text()).toEqual(themes.purple.name);
   });
 
   it('should renders correctly when the User is PHR', () => {
@@ -222,12 +222,12 @@ describe('Component <UserProfile />', () => {
         match={match}
       />, { context }).dive().dive().dive();
 
-    expect(component.find('PersonalInformationPanel')).toHaveLength(4);
+    expect(component.find('ControlPanel')).toHaveLength(4);
     expect(component.find('ReduxForm')).toHaveLength(0);
 
-    const panelPersonal = component.find('PersonalInformationPanel').at(1);
-    const panelContact = component.find('PersonalInformationPanel').at(2);
-    const panelHistory = component.find('PersonalInformationPanel').at(3);
+    const panelPersonal = component.find('ControlPanel').at(1);
+    const panelContact = component.find('ControlPanel').at(2);
+    const panelHistory = component.find('ControlPanel').at(3);
 
     expect(panelPersonal.find('.form-control-static').at(0).text()).toEqual(userAccountPHR.given_name);
     expect(panelPersonal.find('.form-control-static').at(1).text()).toEqual(userAccountPHR.family_name);
