@@ -29,9 +29,9 @@ const FEEDS_CREATE = 'feedsCreate';
 const FEEDS_PANEL = 'feedsPanel';
 
 const feedsDetail = {
-  name: 'talkhealth Blog',
-  landingPageUrl: 'test landing page url 1',
-  rssFeedUrl: 'test RSS feed url 1',
+  name: 'BBC Health',
+  landingPageUrl: 'http://www.bbc.co.uk/news/health',
+  rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
   sourceId: 'testSourceID1',
   dateCreated: 1482170593395,
   author: 'bob.smith@gmail.com',
@@ -71,7 +71,7 @@ export default class Feeds extends PureComponent {
     editedPanel: {},
     offset: 0,
     isSubmit: false,
-    isLoading: true,
+    // isLoading: true,
   };
 
   componentWillReceiveProps() {
@@ -116,14 +116,14 @@ export default class Feeds extends PureComponent {
     const { actions } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchFeedsDetailRequest({ sourceId });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/${sourceId}`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: FEEDS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/create`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/create`);
   };
 
   handleEdit = (name) => {
@@ -166,14 +166,14 @@ export default class Feeds extends PureComponent {
 
   handleCreateCancel = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, feedCreateFormState } = this.props;
     if (checkIsValidateForm(feedCreateFormState)) {
       actions.fetchFeedsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
+      // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
       this.hideCreateForm();
       this.setState({ isLoading: true });
     } else {
@@ -221,19 +221,29 @@ export default class Feeds extends PureComponent {
 
     const feeds = [
       {
-        name: 'talkhealth Blog',
-        landingPageUrl: 'test landing page url 1',
+        name: 'BBC Health',
+        landingPageUrl: 'http://www.bbc.co.uk/news/health',
         sourceId: 'testSourceID1',
       },
       {
-        name: 'Spectator Health',
-        landingPageUrl: 'test landing page url 2',
+        name: 'NHS Choices',
+        landingPageUrl: 'https://www.nhs.uk/news/',
         sourceId: 'testSourceID2',
       },
       {
-        name: 'BBC Health',
-        landingPageUrl: 'test landing page url 3',
+        name: 'Public Health',
+        landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
         sourceId: 'testSourceID3',
+      },
+      {
+        name: 'Leeds Live - Whats on',
+        landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+        sourceId: 'testSourceID4',
+      },
+      {
+        name: 'Leeds CC Local News',
+        landingPageUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+        sourceId: 'testSourceID5',
       },
     ];
 
@@ -257,7 +267,7 @@ export default class Feeds extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Feeds"
+                panelTitle=""
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={FEEDS_MAIN}

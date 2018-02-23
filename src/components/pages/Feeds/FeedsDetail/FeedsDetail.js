@@ -5,7 +5,7 @@ import FeedsDetailForm from './FeedsDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
-const FEEDS_PANEL = 'feddsPanel';
+const FEEDS_PANEL = 'feedsPanel';
 
 export default class FeedsDetail extends PureComponent {
   render() {

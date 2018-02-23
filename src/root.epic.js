@@ -51,6 +51,6 @@ const rootEpic = (action$, store) =>
     .map((params) => {
       return params
     })
-    .catch(error => Observable.of(handleErrors(error)));
+    // .catch(error => Observable.of(handleErrors(error)));
 
 export default rootEpic;

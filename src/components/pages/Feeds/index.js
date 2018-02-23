@@ -1,6 +1,7 @@
 import { combineEpics } from 'redux-observable';
 
 import Feeds from './Feeds';
+import UserProfile from '../UserProfile/UserProfile';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchFeedsEpic } from './ducks/fetch-feeds.duck';
@@ -24,9 +25,9 @@ const reducers = {
 };
 
 const routers = [
-  { key: 'feeds', component: Feeds, path: `${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`, withoutHeaderToolbar: true },
-  { key: 'feedsCreate', component: Feeds, path: `${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/create`, withoutHeaderToolbar: true },
-  { key: 'feedsDetail', component: Feeds, path: `${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/:sourceId`, withoutHeaderToolbar: true },
+  { key: 'feeds', component: UserProfile, path: `${clientUrls.USER_PROFILE}`, withoutHeaderToolbar: true },
+  { key: 'feedsCreate', component: UserProfile, path: `${clientUrls.USER_PROFILE}`, withoutHeaderToolbar: true },
+  { key: 'feedsDetail', component: UserProfile, path: `${clientUrls.USER_PROFILE}`, withoutHeaderToolbar: true },
 ];
 
 export default {
