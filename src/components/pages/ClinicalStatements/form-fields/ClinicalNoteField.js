@@ -83,7 +83,7 @@ export default class ClinicalNoteField extends PureComponent {
     const { queryFilter } = this.state;
     const str = item ? `${item.toString().toLowerCase()} ` : '';
 
-    return str.indexOf(queryFilter.toLowerCase() || '') !== -1
+    return str.indexOf(queryFilter.trim().toLowerCase() || '') !== -1
   });
 
   getQueryFilter = event => { this.setState({ queryFilter: event.target.value }) };
@@ -104,7 +104,7 @@ export default class ClinicalNoteField extends PureComponent {
 
   filterStatements = (statements) => {
     const { queryFilter } = this.state;
-    return operationsOnCollection.filter(statements, queryFilter, ['phrase'],);
+    return operationsOnCollection.filter(statements, queryFilter.trim(), ['phrase'],);
   };
 
   setStatement = statement => () => {
@@ -148,7 +148,7 @@ export default class ClinicalNoteField extends PureComponent {
   };
 
   createMarkup = (text, queryFilter) => {
-    const regular = new RegExp(`(${queryFilter})`, 'gi');
+    const regular = new RegExp(`(${queryFilter.trim() })`, 'gi');
     return {__html: text.replace(regular, '<b class="text-mark">$1</b>')}
   };
 
@@ -157,6 +157,20 @@ export default class ClinicalNoteField extends PureComponent {
       const sel = window.getSelection();
       this.setState({contentEditableFocus: { offset: sel.focusOffset, node: sel.focusNode }});
     }
+  };
+
+  getEmptyFieldsAmount = (field) => {
+    let emptyFieldsLength = field.find(valuesNames.EDITABLE_EMPTY_CLASS).length;
+    const editableFilds = field.find(valuesNames.EDITABLE_CLASS);
+
+    editableFilds.each((i, el) => {
+      const contentText = $(el).text();
+      if (contentText.indexOf('?') !== -1) {
+        emptyFieldsLength++;
+      }
+    });
+
+    return emptyFieldsLength;
   };
 
   handleChangeContentEditable = () => {
@@ -176,8 +190,8 @@ export default class ClinicalNoteField extends PureComponent {
     tempEl.find('.popover').remove();
 
     const contentStore = {
-      [valuesNames.NOTE_TEXT]: tempEl.html(),
-      [`${valuesNames.NOTE_TEXT}Validate`]: tempEl.text(),
+      [valuesNames.NOTE_TEXT]: tempEl.text(),
+      [valuesNames.EDITABLE_EMPTY_FIELDS]: this.getEmptyFieldsAmount(tempEl),
       [valuesNames.NOTE_CONTENT]: {
         name: 'ts',
         phrases
@@ -313,9 +327,8 @@ export default class ClinicalNoteField extends PureComponent {
                      contentEditable
                      onInput={this.handleChangeContentEditable}
                      onBlur={this.handleBlurContentEditable}
-                >
-                  <span id="temp" contentEditable={false} />
-                </div>
+                     dangerouslySetInnerHTML={{__html: '<span id="temp" contentEditable={false}'}}
+                />
               </div>
               {showError && <span className="required-label">{error}</span>}
             </div>

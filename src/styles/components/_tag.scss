@@ -23,6 +23,10 @@
     color: #428bca;
   }
 
+  & > .editable-empty {
+    color: #DD1144;
+  }
+
   .popover-title { font-weight: 700; }
   .editable-submit,
   .editable-cancel { 
