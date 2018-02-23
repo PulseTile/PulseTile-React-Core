@@ -39,7 +39,7 @@ export default class PluginMainPanel extends PureComponent {
           sortingOrder={sortingOrder}
           id={id}
         />
-        {isLoading ? <Spinner /> : null }
+        {/*{isLoading ? <Spinner /> : null }*/}
         {isPagination || isBtnCreateVisible ?
           <div className="panel-control">
             <div className="wrap-control-group">
