@@ -5,8 +5,8 @@ import { Row, Col } from 'react-bootstrap';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import { optionsForCountryField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
-import { validateContactForm } from './validation';
-import { valuesContactForm, valuesContactFormLabels } from './values-names.config';
+import { validateContactForm } from '../forms.validation';
+import { valuesContactForm, valuesContactFormLabels } from '../forms.config';
 import { defaultContactFormValues } from './default-values.config';
 
 @reduxForm({
