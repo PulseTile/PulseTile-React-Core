@@ -7,7 +7,6 @@ import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
-import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 @reduxForm({
   form: 'clinicalStatementsCreateFormSelector',
@@ -21,7 +20,7 @@ export default class ClinicalStatementsCreateForm extends PureComponent {
   render() {
     const { isSubmit, match, clickOnCreate } = this.props;
 
-    const dateCreated = getDDMMMYYYY(new Date().getTime());
+    const dateCreated = new Date().getTime();
 
     return (
       <div className="panel-body-inner">

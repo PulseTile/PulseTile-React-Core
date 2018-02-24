@@ -1,5 +1,6 @@
 module.exports = {
   roots: ['<rootDir>/src/components'],
+  // roots: ['<rootDir>/src/components/pages/ClinicalStatements'],
   verbose: false,
   // testEnvironment: 'jsdom',
   moduleNameMapper: {
@@ -20,11 +21,14 @@ module.exports = {
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
 
+    // '**/src/components/pages/ClinicalStatements/**.{js,jsx}',
+
     // Temporarily ignore coverage files
-    '!**/src/components/pages/ClinicalStatements/**.{js}',
+    // '!**/src/components/pages/_name_/**.{js}',
 
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
+    '!**/src/components/**{clinical-statements-helper.js}',
     '!**/src/components/**{viltals-helpers.utils.js}',
     '!**/src/components/**{proms-helpers.utils.js}',
     '!**/src/components/**{events-helpers.utils.js}',

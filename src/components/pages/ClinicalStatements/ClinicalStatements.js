@@ -23,7 +23,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ClinicalStatementsDetail from './ClinicalStatementsDetail/ClinicalStatementsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ClinicalStatementsCreateForm from './ClinicalStatementsCreate/ClinicalStatementsCreateForm'
-import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const CLINICAL_STATEMENTS_MAIN = 'clinicalStatementsMain';
 const CLINICAL_STATEMENTS_DETAIL = 'clinicalStatementsDetail';
@@ -64,7 +64,7 @@ export default class ClinicalStatements extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
-    clickOnCreate: false
+    clickOnCreate: false,
   };
 
   componentWillReceiveProps() {
@@ -122,18 +122,7 @@ export default class ClinicalStatements extends PureComponent {
   };
 
   handleEdit = () => {};
-
-  handleClinicalStatementDetailCancel = (name) => {
-    this.setState(prevState => ({
-      editedPanel: {
-        ...prevState.editedPanel,
-        [name]: false,
-      },
-      isSubmit: false,
-      isLoading: true,
-    }))
-  };
-
+  handleClinicalStatementDetailCancel = () => {};
   handleSaveSettingsDetailForm = () => {};
 
   handleCreateCancel = () => {
@@ -158,7 +147,7 @@ export default class ClinicalStatements extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId} = this.props;
+    const { userId } = this.props;
     const sendData = {};
 
     sendData.userId = userId;
@@ -187,7 +176,7 @@ export default class ClinicalStatements extends PureComponent {
     collection = operationsOnCollection.modificate(collection, [{
       keyFrom: valuesNames.DATE_CREATED,
       keyTo: `${valuesNames.DATE_CREATED}Convert`,
-      fn: getDDMMMYYYY
+      fn: getDDMMMYYYY,
     }]);
 
     return operationsOnCollection.filterAndSort({
@@ -200,93 +189,93 @@ export default class ClinicalStatements extends PureComponent {
   };
 
   render() {
-      const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel,
-        isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, clickOnCreate } = this.state;
-      const { allClinicalStatements, clinicalStatementsCreateFormState, clinicalStatementDetail, match } = this.props;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel,
+      isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, clickOnCreate } = this.state;
+    const { allClinicalStatements, clinicalStatementsCreateFormState, clinicalStatementDetail, match } = this.props;
 
-      const isPanelDetails = (expandedPanel === CLINICAL_STATEMENTS_DETAIL || expandedPanel === CLINICAL_STATEMENT_PANEL);
-      const isPanelMain = (expandedPanel === CLINICAL_STATEMENTS_MAIN);
-      const isPanelCreate = (expandedPanel === CLINICAL_STATEMENTS_CREATE);
+    const isPanelDetails = (expandedPanel === CLINICAL_STATEMENTS_DETAIL || expandedPanel === CLINICAL_STATEMENT_PANEL);
+    const isPanelMain = (expandedPanel === CLINICAL_STATEMENTS_MAIN);
+    const isPanelCreate = (expandedPanel === CLINICAL_STATEMENTS_CREATE);
 
-      const filteredClinicalStatements = this.formToShowCollection(allClinicalStatements);
+    const filteredClinicalStatements = this.formToShowCollection(allClinicalStatements);
 
-      const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+    const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
-      let sourceId;
-      if (isDetailPanelVisible && !_.isEmpty(clinicalStatementDetail)) {
-        sourceId = clinicalStatementDetail[valuesNames.SOURCE_ID];
-      }
-
-      return (<section className="page-wrapper">
-        <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
-          <Row>
-            {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
-              <div className="panel panel-primary">
-                <PluginListHeader
-                  onFilterChange={this.handleFilterChange}
-                  panelTitle="Clinical Statements"
-                  isBtnExpandVisible={isBtnExpandVisible}
-                  isBtnTableVisible={false}
-                  name={CLINICAL_STATEMENTS_MAIN}
-                  onExpand={this.handleExpand}
-                  currentPanel={CLINICAL_STATEMENTS_MAIN}
-                />
-                <PluginMainPanel
-                  headers={columnsToShowConfig}
-                  resourceData={allClinicalStatements}
-                  emptyDataMessage="No clinical statements"
-                  onHeaderCellClick={this.handleHeaderCellClick}
-                  onCellClick={this.handleDetailClinicalStatementsClick}
-                  columnNameSortBy={columnNameSortBy}
-                  sortingOrder={sortingOrder}
-                  table="clinicalStatements"
-                  filteredData={filteredClinicalStatements}
-                  totalEntriesAmount={_.size(filteredClinicalStatements)}
-                  offset={offset}
-                  setOffset={this.handleSetOffset}
-                  isBtnCreateVisible={isBtnCreateVisible}
-                  onCreate={this.handleCreate}
-                  id={sourceId}
-                  isLoading={isLoading}
-                />
-              </div>
-            </Col> : null}
-            {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-              <ClinicalStatementsDetail
-                onExpand={this.handleExpand}
-                name={CLINICAL_STATEMENTS_DETAIL}
-                openedPanel={openedPanel}
-                onShow={this.handleShow}
-                expandedPanel={expandedPanel}
-                currentPanel={CLINICAL_STATEMENTS_DETAIL}
-                detail={clinicalStatementDetail}
-                onEdit={this.handleEdit}
-                editedPanel={editedPanel}
-                onCancel={this.handleClinicalStatementDetailCancel}
-                onSaveSettings={this.handleSaveSettingsDetailForm}
-                isSubmit={isSubmit}
-              />
-            </Col> : null}
-            {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-              <PluginCreate
-                title="Create Clinical Statement"
-                onExpand={this.handleExpand}
-                name={CLINICAL_STATEMENTS_CREATE}
-                openedPanel={openedPanel}
-                onShow={this.handleShow}
-                expandedPanel={expandedPanel}
-                currentPanel={CLINICAL_STATEMENTS_CREATE}
-                onSaveSettings={this.handleSaveSettingsCreateForm}
-                formValues={clinicalStatementsCreateFormState.values}
-                onCancel={this.handleCreateCancel}
-                isCreatePanelVisible={isCreatePanelVisible}
-                componentForm={
-                  <ClinicalStatementsCreateForm isSubmit={isSubmit} match={match} clickOnCreate={clickOnCreate}/>
-                }
-              />
-            </Col> : null}
-          </Row>
-        </div>
-      </section>)
+    let sourceId;
+    if (isDetailPanelVisible && !_.isEmpty(clinicalStatementDetail)) {
+      sourceId = clinicalStatementDetail[valuesNames.SOURCE_ID];
     }
+
+    return (<section className="page-wrapper">
+      <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
+        <Row>
+          {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
+            <div className="panel panel-primary">
+              <PluginListHeader
+                onFilterChange={this.handleFilterChange}
+                panelTitle="Clinical Statements"
+                isBtnExpandVisible={isBtnExpandVisible}
+                isBtnTableVisible={false}
+                name={CLINICAL_STATEMENTS_MAIN}
+                onExpand={this.handleExpand}
+                currentPanel={CLINICAL_STATEMENTS_MAIN}
+              />
+              <PluginMainPanel
+                headers={columnsToShowConfig}
+                resourceData={allClinicalStatements}
+                emptyDataMessage="No clinical statements"
+                onHeaderCellClick={this.handleHeaderCellClick}
+                onCellClick={this.handleDetailClinicalStatementsClick}
+                columnNameSortBy={columnNameSortBy}
+                sortingOrder={sortingOrder}
+                table="clinicalStatements"
+                filteredData={filteredClinicalStatements}
+                totalEntriesAmount={_.size(filteredClinicalStatements)}
+                offset={offset}
+                setOffset={this.handleSetOffset}
+                isBtnCreateVisible={isBtnCreateVisible}
+                onCreate={this.handleCreate}
+                id={sourceId}
+                isLoading={isLoading}
+              />
+            </div>
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <ClinicalStatementsDetail
+              onExpand={this.handleExpand}
+              name={CLINICAL_STATEMENTS_DETAIL}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={CLINICAL_STATEMENTS_DETAIL}
+              detail={clinicalStatementDetail}
+              onEdit={this.handleEdit}
+              editedPanel={editedPanel}
+              onCancel={this.handleClinicalStatementDetailCancel}
+              onSaveSettings={this.handleSaveSettingsDetailForm}
+              isSubmit={isSubmit}
+            />
+          </Col> : null}
+          {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
+            <PluginCreate
+              title="Create Clinical Statement"
+              onExpand={this.handleExpand}
+              name={CLINICAL_STATEMENTS_CREATE}
+              openedPanel={openedPanel}
+              onShow={this.handleShow}
+              expandedPanel={expandedPanel}
+              currentPanel={CLINICAL_STATEMENTS_CREATE}
+              onSaveSettings={this.handleSaveSettingsCreateForm}
+              formValues={clinicalStatementsCreateFormState.values}
+              onCancel={this.handleCreateCancel}
+              isCreatePanelVisible={isCreatePanelVisible}
+              componentForm={
+                <ClinicalStatementsCreateForm isSubmit={isSubmit} match={match} clickOnCreate={clickOnCreate} />
+              }
+            />
+          </Col> : null}
+        </Row>
+      </div>
+    </section>)
+  }
 }
