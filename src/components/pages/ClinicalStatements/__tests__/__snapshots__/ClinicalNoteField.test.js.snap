@@ -1,0 +1,476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ClinicalNoteField /> should renders with empty props correctly 1`] = `
+<div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="search"
+        >
+          Search
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="dropdown"
+          >
+            <div
+              className="form-control input-sm input-container"
+              id="clinicalTags"
+            >
+              <div
+                className="wrap-overflow"
+              >
+                <input
+                  autoComplete="off"
+                  className="input-contenteditable"
+                  id="queryFilter"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left"
+            >
+              <div
+                className="heading wrap-overflow"
+              >
+                <div
+                  className="control-group right"
+                />
+                <div
+                  className="pagination-heading"
+                >
+                  Tags
+                </div>
+              </div>
+              <div
+                className="dropdown-menu-wrap-list"
+              >
+                <div
+                  className="dropdown-menu-list"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group hidden-not-expand visible-expand"
+      >
+        <label
+          className="control-label"
+          htmlFor=""
+        >
+          Statements
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control form-contenteditable textarea-big"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-expand-right"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="clinicalNote"
+        >
+          Clinical Note
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control textarea-big input-sm contenteditable-resize"
+            contentEditable={true}
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<span id=\\"temp\\" contentEditable={false}",
+              }
+            }
+            id="clinicalNote"
+            onBlur={[Function]}
+            onInput={[Function]}
+            tabIndex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <ClinicalNoteField /> should renders with error message 1`] = `
+<div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="search"
+        >
+          Search
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="dropdown"
+          >
+            <div
+              className="form-control input-sm input-container"
+              id="clinicalTags"
+            >
+              <div
+                className="wrap-overflow"
+              >
+                <input
+                  autoComplete="off"
+                  className="input-contenteditable"
+                  id="queryFilter"
+                  onChange={[Function]}
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left"
+            >
+              <div
+                className="heading wrap-overflow"
+              >
+                <div
+                  className="control-group right"
+                >
+                  <PaginationBlock
+                    entriesPerPage={5}
+                    isShortView={true}
+                    offset={0}
+                    setOffset={[Function]}
+                    totalEntriesAmount={3}
+                  />
+                </div>
+                <div
+                  className="pagination-heading"
+                >
+                  Tags
+                </div>
+              </div>
+              <div
+                className="dropdown-menu-wrap-list"
+              >
+                <div
+                  className="dropdown-menu-list"
+                >
+                  <div
+                    className="dropdown-menu-item"
+                    key="dropdown-item-chestpain"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "<b class=\\"text-mark\\"></b>c<b class=\\"text-mark\\"></b>h<b class=\\"text-mark\\"></b>e<b class=\\"text-mark\\"></b>s<b class=\\"text-mark\\"></b>t<b class=\\"text-mark\\"></b>p<b class=\\"text-mark\\"></b>a<b class=\\"text-mark\\"></b>i<b class=\\"text-mark\\"></b>n<b class=\\"text-mark\\"></b>",
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="dropdown-menu-item"
+                    key="dropdown-item-shouder"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "<b class=\\"text-mark\\"></b>s<b class=\\"text-mark\\"></b>h<b class=\\"text-mark\\"></b>o<b class=\\"text-mark\\"></b>u<b class=\\"text-mark\\"></b>d<b class=\\"text-mark\\"></b>e<b class=\\"text-mark\\"></b>r<b class=\\"text-mark\\"></b>",
+                        }
+                      }
+                    />
+                  </div>
+                  <div
+                    className="dropdown-menu-item"
+                    key="dropdown-item-"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "<b class=\\"text-mark\\"></b>",
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group hidden-not-expand visible-expand"
+      >
+        <label
+          className="control-label"
+          htmlFor=""
+        >
+          Statements
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control form-contenteditable textarea-big"
+          />
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-expand-right"
+    >
+      <div
+        className="form-group has-error"
+      >
+        <label
+          className="control-label"
+          htmlFor="clinicalNote"
+        >
+          Clinical Note
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control textarea-big input-sm contenteditable-resize"
+            contentEditable={true}
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<span id=\\"temp\\" contentEditable={false}",
+              }
+            }
+            id="clinicalNote"
+            onBlur={[Function]}
+            onInput={[Function]}
+            tabIndex="0"
+          />
+        </div>
+        <span
+          className="required-label"
+        >
+          Error message
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <ClinicalNoteField /> should renders with props correctly shallow testing different methods 1`] = `
+<div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="search"
+        >
+          Search
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="dropdown open"
+          >
+            <div
+              className="form-control input-sm input-container"
+              id="clinicalTags"
+            >
+              <div
+                className="wrap-overflow"
+              >
+                <input
+                  autoComplete="off"
+                  className="input-contenteditable"
+                  id="queryFilter"
+                  onChange={[Function]}
+                  type="text"
+                  value="the"
+                />
+              </div>
+            </div>
+            <div
+              className="dropdown-menu dropdown-menu-panel dropdown-menu-statements dropdown-menu-small dropdown-menu-top-left hidden-expand"
+            >
+              <div
+                className="heading wrap-overflow"
+              >
+                <div
+                  className="control-group right"
+                >
+                  <PaginationBlock
+                    entriesPerPage={5}
+                    isShortView={true}
+                    offset={0}
+                    setOffset={[Function]}
+                    totalEntriesAmount={1}
+                  />
+                </div>
+                <div
+                  className="pagination-heading"
+                >
+                  Statements
+                </div>
+              </div>
+              <div
+                className="dropdown-menu-wrap-list"
+              >
+                <div
+                  className="dropdown-menu-list"
+                >
+                  <div
+                    className="dropdown-menu-item"
+                    key="dropdown-item-6"
+                    onClick={[Function]}
+                  >
+                    <span
+                      className="dropdown-menu-item-text"
+                      dangerouslySetInnerHTML={
+                        Object {
+                          "__html": "<b class=\\"text-mark\\">the</b> test phrase for filter",
+                        }
+                      }
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="row-expand"
+  >
+    <div
+      className="col-expand-left"
+    >
+      <div
+        className="form-group hidden-not-expand visible-expand"
+      >
+        <label
+          className="control-label"
+          htmlFor=""
+        >
+          Statements
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control form-contenteditable textarea-big"
+          >
+            <div
+              className="select-option"
+              key="select-option-6"
+              onClick={[Function]}
+            >
+              <span
+                className="select-option-text"
+                dangerouslySetInnerHTML={
+                  Object {
+                    "__html": "<b class=\\"text-mark\\">the</b> test phrase for filter",
+                  }
+                }
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-expand-right"
+    >
+      <div
+        className="form-group"
+      >
+        <label
+          className="control-label"
+          htmlFor="clinicalNote"
+        >
+          Clinical Note
+        </label>
+        <div
+          className="input-holder"
+        >
+          <div
+            className="form-control textarea-big input-sm contenteditable-resize"
+            contentEditable={true}
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<span id=\\"temp\\" contentEditable={false}",
+              }
+            }
+            id="clinicalNote"
+            onBlur={[Function]}
+            onInput={[Function]}
+            tabIndex="0"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

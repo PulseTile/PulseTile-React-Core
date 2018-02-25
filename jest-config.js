@@ -1,6 +1,5 @@
 module.exports = {
   roots: ['<rootDir>/src/components'],
-  // roots: ['<rootDir>/src/components/pages/ClinicalStatements'],
   verbose: false,
   // testEnvironment: 'jsdom',
   moduleNameMapper: {
@@ -20,8 +19,6 @@ module.exports = {
     '**/src/components/containers/**.{js,jsx}',
     '**/src/components/plugin-page-component/**.{js,jsx}',
     '**/src/components/pages/**.{js,jsx}',
-
-    // '**/src/components/pages/ClinicalStatements/**.{js,jsx}',
 
     // Temporarily ignore coverage files
     // '!**/src/components/pages/_name_/**.{js}',
