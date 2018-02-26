@@ -327,8 +327,7 @@ export default class ClinicalNoteField extends PureComponent {
                      contentEditable
                      onInput={this.handleChangeContentEditable}
                      onBlur={this.handleBlurContentEditable}
-                     dangerouslySetInnerHTML={{__html: '<span id="temp" contentEditable={false}'}}
-                />
+                ><span id="temp" contentEditable={false} /></div>
               </div>
               {showError && <span className="required-label">{error}</span>}
             </div>

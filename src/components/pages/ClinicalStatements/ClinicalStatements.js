@@ -23,7 +23,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ClinicalStatementsDetail from './ClinicalStatementsDetail/ClinicalStatementsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ClinicalStatementsCreateForm from './ClinicalStatementsCreate/ClinicalStatementsCreateForm'
-import {getDDMMMYYYY} from "../../../utils/time-helpers.utils";
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const CLINICAL_STATEMENTS_MAIN = 'clinicalStatementsMain';
 const CLINICAL_STATEMENTS_DETAIL = 'clinicalStatementsDetail';
