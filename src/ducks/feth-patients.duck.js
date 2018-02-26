@@ -19,7 +19,7 @@ export const fetchPatientsEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchPatientsSuccess)
-        .catch(error => Observable.of(fetchPatientsFailure(error)))
+        // .catch(error => Observable.of(fetchPatientsFailure(error)))
     );
 
 export default function reducer(patients = {}, action) {

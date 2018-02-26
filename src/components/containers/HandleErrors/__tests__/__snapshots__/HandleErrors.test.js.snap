@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains 400 error 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Connection Error"
+  >
+    <span>
+      Current request is invalid.
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains 403 error 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={true}
+    isShowOkButton={true}
+    onCancel={[Function]}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Your token has been expired. Please reload the page.
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains 500 error 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={true}
+    isShowOkButton={true}
+    onCancel={[Function]}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Something is wrong with the server. Please try again later.
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains initialiseError 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Some connection error has occurred. Please check your connection and try again.
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> testing methods 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Reload Page"
+    title="Connection Error"
+  >
+    <span>
+      Some connection error has occurred. Please check your connection and try again.
+    </span>
+  </ConfirmationModal>
+</div>
+`;

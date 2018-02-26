@@ -1,0 +1,319 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PatientsSummary /> should renders with Disclaimer Modal correctly 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <div
+        className="panel panel-primary panel-dashboard"
+      >
+        <PatientsSummaryListHeader
+          onCategorySelected={[Function]}
+          onViewOfBoardsSelected={[Function]}
+          selectedCategory={
+            Object {
+              "allergies": true,
+              "contacts": true,
+              "medications": true,
+              "problems": true,
+              "topThreeThings": true,
+              "vaccinations": true,
+            }
+          }
+          selectedViewOfBoards={
+            Object {
+              "full": true,
+              "list": false,
+              "preview": false,
+            }
+          }
+          title="Patient Summary"
+        />
+        <div
+          className="panel-body"
+        >
+          <div
+            className="dashboard"
+          >
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="0"
+              navigateTo={[Function]}
+              srcPrevirew="problems.jpg"
+              state="diagnoses"
+              title="Problems / Diagnosis"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="1"
+              navigateTo={[Function]}
+              srcPrevirew="contacts.jpg"
+              state="contacts"
+              title="Contacts"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="2"
+              navigateTo={[Function]}
+              srcPrevirew="allergies.jpg"
+              state="allergies"
+              title="Allergies"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="3"
+              navigateTo={[Function]}
+              srcPrevirew="medications.jpg"
+              state="medications"
+              title="Medications"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="4"
+              navigateTo={[Function]}
+              srcPrevirew="vaccinations.jpg"
+              state="vaccinations"
+              title="Vaccinations"
+            />
+          </div>
+        </div>
+      </div>
+    </Col>
+  </Row>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Notification"
+  >
+    <span>
+      You was redirected to your home page because you are logged in as a PHR user.
+    </span>
+  </ConfirmationModal>
+</section>
+`;
+
+exports[`Component <PatientsSummary /> should renders with all props correctly 1`] = `
+<section
+  className="page-wrapper"
+>
+  <Row
+    bsClass="row"
+    componentClass="div"
+  >
+    <Col
+      bsClass="col"
+      componentClass="div"
+      xs={12}
+    >
+      <div
+        className="panel panel-primary panel-dashboard"
+      >
+        <PatientsSummaryListHeader
+          onCategorySelected={[Function]}
+          onViewOfBoardsSelected={[Function]}
+          selectedCategory={
+            Object {
+              "allergies": true,
+              "contacts": true,
+              "medications": true,
+              "problems": true,
+              "topThreeThings": true,
+              "vaccinations": true,
+            }
+          }
+          selectedViewOfBoards={
+            Object {
+              "full": true,
+              "list": false,
+              "preview": false,
+            }
+          }
+          title="Patient Summary"
+        />
+        <div
+          className="panel-body"
+        >
+          <div
+            className="dashboard"
+          >
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="0"
+              navigateTo={[Function]}
+              srcPrevirew="problems.jpg"
+              state="diagnoses"
+              title="Problems / Diagnosis"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="1"
+              navigateTo={[Function]}
+              srcPrevirew="contacts.jpg"
+              state="contacts"
+              title="Contacts"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="2"
+              navigateTo={[Function]}
+              srcPrevirew="allergies.jpg"
+              state="allergies"
+              title="Allergies"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="3"
+              navigateTo={[Function]}
+              srcPrevirew="medications.jpg"
+              state="medications"
+              title="Medications"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="4"
+              navigateTo={[Function]}
+              srcPrevirew="vaccinations.jpg"
+              state="vaccinations"
+              title="Vaccinations"
+            />
+          </div>
+        </div>
+      </div>
+    </Col>
+  </Row>
+</section>
+`;

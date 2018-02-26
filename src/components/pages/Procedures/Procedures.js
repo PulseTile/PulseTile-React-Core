@@ -263,7 +263,7 @@ export default class Procedures extends PureComponent {
     const filteredProcedures = this.formToShowCollection(allProcedures);
 
     let sourceId;
-    if (!_.isEmpty(procedureDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(procedureDetail)) {
       sourceId = procedureDetail.sourceId;
     }
 

@@ -91,10 +91,12 @@
 .rc-slider-track {
   background: $base-color;
   height: 7px;
+  transition: background .3s ease;
 }
 
 .rc-slider-dot-active {
   border-color: $base-color;
+  transition: border .3s ease;
 }
 
 .rc-slider-dot {
@@ -105,6 +107,7 @@
   background-color: $base-color;
   cursor: pointer;
   border-radius: 0;
+  transition: background .3s ease, border .3s ease;
 }
 
 .rc-slider-handle {
@@ -115,6 +118,7 @@
   background-color: $base-color;
   outline: none !important;
   margin-top: -3px;
+  transition: background .3s ease, border .3s ease, box-shadow .3s ease;
 }
 
 .rc-slider-handle {
@@ -230,3 +234,40 @@
 
 }
 .rc-slider-tooltip-arrow { display: none; }
+
+$sliderColor: (
+        warning: #ffbf00,
+        danger: #ff2626,
+        success: #00cc78
+);
+.rc-slider-indent {
+  padding: 0 10px;
+}
+@each $className, $color in $sliderColor {
+  .rc-slider--#{$className} {
+    height: 30px;
+    .rc-slider-track { background: $color; }
+    .rc-slider-dot-active { border-color: $color; }
+
+    .rc-slider-dot {
+      border: 0 solid $color;
+      background-color: $color;
+    }
+
+    .rc-slider-handle {
+      border: solid 2px $color;
+      background-color: $color;
+    }
+
+    .rc-slider-handle {
+      &:active {
+        background-color: lighten($color, 15%);
+        border: none;
+        box-shadow: 0 0 0 lighten($color, 15%);
+      }
+      &:hover {
+        border-color: $color;
+      }
+    }
+  }
+}

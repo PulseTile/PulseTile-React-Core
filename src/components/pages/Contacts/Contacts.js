@@ -9,6 +9,7 @@ import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
@@ -25,6 +26,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
+import imgBanner from '../../../assets/images/banners/contacts.jpg';
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -234,21 +236,24 @@ export default class Contacts extends PureComponent {
     const isPanelMain = (expandedPanel === CONTACTS_MAIN);
     const isPanelCreate = (expandedPanel === CONTACTS_CREATE);
 
-    /* istanbul ignore next */
-    const fixedAllContacts = operationsOnCollection.modificate(allContacts, [{
-      key: valuesNames.NEXT_OF_KIN,
-      fn: el => (el || false),
-    }]);
-    const filteredContacts = this.formToShowCollection(fixedAllContacts);
+    const filteredContacts = this.formToShowCollection(allContacts);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     let sourceId;
-    if (!_.isEmpty(contactDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(contactDetail)) {
       sourceId = contactDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title="Contacts"
+          subTitle="Short blurb containing a few words to describe this section"
+          img={imgBanner}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
@@ -264,7 +269,7 @@ export default class Contacts extends PureComponent {
               />
               <PluginMainPanel
                 headers={columnsToShowConfig}
-                resourceData={fixedAllContacts}
+                resourceData={allContacts}
                 emptyDataMessage="No contacts"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailContactsClick}

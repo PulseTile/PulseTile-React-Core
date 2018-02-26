@@ -4,6 +4,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_DOCUMENTS_DETAIL_REQUEST = 'FETCH_PATIENT_DOCUMENTS_DETAIL_REQUEST';
 export const FETCH_PATIENT_DOCUMENTS_DETAIL_SUCCESS = 'FETCH_PATIENT_DOCUMENTS_DETAIL_SUCCESS';
@@ -24,7 +25,7 @@ export const fetchPatientDocumentsDetailEpic = (action$, store) =>
           userId: payload.userId,
           documentsDetail: response,
         }))
-        .catch(error => Observable.of(fetchPatientDocumentsDetailFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(documentsDetail = {}, action) {

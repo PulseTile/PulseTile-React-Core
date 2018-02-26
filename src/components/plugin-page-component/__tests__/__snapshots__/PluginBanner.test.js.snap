@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PluginBanner /> should renders with all props correctly 1`] = `
+<div
+  className="page-banner"
+>
+  <div
+    className="page-banner__title "
+  >
+    test title
+  </div>
+  <div
+    className="page-banner__subtitle "
+  >
+    test subTitle
+  </div>
+  <img
+    alt=""
+    className="page-banner__img"
+    src="test img"
+  />
+</div>
+`;
+
+exports[`Component <PluginBanner /> should renders with all props correctly 2`] = `
+<div
+  className="page-banner"
+>
+  <div
+    className="page-banner__title page-banner__title--right"
+  >
+    test title
+  </div>
+  <div
+    className="page-banner__subtitle page-banner__subtitle--right"
+  >
+    test subTitle
+  </div>
+  <img
+    alt=""
+    className="page-banner__img"
+    src="test img"
+  />
+</div>
+`;
+
+exports[`Component <PluginBanner /> should renders with all props correctly 3`] = `<div />`;

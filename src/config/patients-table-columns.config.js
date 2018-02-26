@@ -8,6 +8,8 @@ export const patientsColumnsConfig = [
   { key: 'name', title: 'Name', width: 150 },
   { key: 'address', title: 'Address', width: 300 },
   { key: 'dateOfBirth', title: 'Born', transformer: getDDMMMYYYY, width: 105 },
+  { key: 'promsCount', title: 'PROM ', icon: <span>#</span>, width: 100 },
+  { key: 'promsDate', title: 'PROM', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
   { key: 'gender', title: 'Gender', width: 90 },
   { key: 'id', title: 'NHS No.', width: 115 },
   { key: 'ordersDate', title: 'Orders', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
@@ -36,4 +38,6 @@ export const defaultColumnsSelected = {
   vitalsCount: false,
   diagnosesCount: false,
   viewPatientNavigation: true,
+  promsCount: false,
+  promsDate: false,
 };

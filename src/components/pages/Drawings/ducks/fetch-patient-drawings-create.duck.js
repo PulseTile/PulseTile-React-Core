@@ -4,6 +4,7 @@ import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientDrawingsRequest } from './fetch-patient-drawings.duck'
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_DRAWINGS_CREATE_REQUEST = 'FETCH_PATIENT_DRAWINGS_CREATE_REQUEST';
 export const FETCH_PATIENT_DRAWINGS_CREATE_SUCCESS = 'FETCH_PATIENT_DRAWINGS_CREATE_SUCCESS';
@@ -28,7 +29,7 @@ export const fetchPatientDrawingsCreateEpic = (action$, store) =>
             fetchPatientDrawingsRequest({ userId }),
           ];
         })
-        .catch(error => Observable.of(fetchPatientDrawingsCreateFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientDrawingsCreate = {}, action) {

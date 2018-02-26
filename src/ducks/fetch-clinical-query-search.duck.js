@@ -20,7 +20,7 @@ export const fetchClinicalQuerySearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchClinicalQuerySearchSuccess(response))
-        .catch(error => Observable.of(fetchClinicalQuerySearchFailure(error)))
+        // .catch(error => Observable.of(fetchClinicalQuerySearchFailure(error)))
     );
 
 export default function reducer(clinicalQuerySearch = {}, action) {

@@ -20,7 +20,7 @@ export default class FileInput extends PureComponent {
     const file = event.target.files[0];
 
     event.preventDefault();
-    reader.onloadend = () => input.onChange(reader.result);
+    reader.onloadend = /* istanbul ignore next */ () => input.onChange(reader.result);
     reader.readAsDataURL(file);
   };
 

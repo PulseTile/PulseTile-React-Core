@@ -50,14 +50,14 @@ export default class VitalsListHeader extends PureComponent {
 
   render() {
     const { isFilterInputVisible, openedPanel } = this.state;
-    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility, isChartOpen, nameShouldInclude } = this.props;
+    const { onFilterChange, panelTitle, isBtnExpandVisible, onExpand, name, currentPanel, activeView, toggleViewVisibility } = this.props;
 
     return (
       <div className="panel-heading" ref={node => this.node = node}>
         <div className="control-group right">
-          { !isChartOpen ? <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
+          <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
             <i className="btn-icon fa fa-filter" />
-          </PTButton> : null }
+          </PTButton>
         </div>
         <div className="control-group right" >
           { isBtnExpandVisible ? <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name, currentPanel)}>
@@ -89,12 +89,12 @@ export default class VitalsListHeader extends PureComponent {
           </div>
         </div>
         <h3 className="panel-title">{panelTitle}</h3>
-        { (isFilterInputVisible && !isChartOpen) ? <div className="panel-filter">
+        { (isFilterInputVisible) ? <div className="panel-filter">
           <div className="inner-addon addon-left">
             <div className="addon">
               <i className="fa fa-filter" />
             </div>
-            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} onClick={() => this.handleClickFilterFocus()} value={nameShouldInclude} autoFocus />
+            <input className="form-control" placeholder="Filter..." onChange={onFilterChange} onClick={() => this.handleClickFilterFocus()} autoFocus />
           </div>
         </div> : null}
       </div>

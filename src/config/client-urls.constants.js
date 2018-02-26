@@ -1,3 +1,5 @@
+import { themeConfigs } from '../themes.config';
+
 export const clientUrls = {
   ROOT: '/',
   CHARTS: '/charts',
@@ -24,6 +26,11 @@ export const clientUrls = {
   DRAWINGS: 'drawings',
   VITALS: 'vitals',
   DOCUMENTS: 'documents',
+  IMAGES: 'images',
+  TRANSFERS_OF_CARE: 'transfer-of-care',
+  TOP_THREE_THINGS: 'topThreeThings',
+  CLINICAL_STATEMENTS: 'clinicalStatements',
+  PROMS: 'proms',
 };
 
 const pluginsPages = {
@@ -129,6 +136,36 @@ const pluginsPages = {
       state: '/documents',
     }],
   },
+  'images': {
+    breadcrumbs: [{
+      title: 'Images',
+      state: '/images',
+    }],
+  },
+  'transfer-of-care': {
+    breadcrumbs: [{
+      title: 'Transfers Of Care',
+      state: '/transfers-of-care',
+    }],
+  },
+  'topThreeThings': {
+    breadcrumbs: [{
+      title: 'Top 3 Things',
+      state: '/topThreeThings',
+    }],
+  },
+  'clinicalStatements': {
+    breadcrumbs: [{
+      title: 'Clinical Statements',
+      state: '/clinicalStatements',
+    }],
+  },
+  'proms': {
+    breadcrumbs: [{
+      title: 'PROMs',
+      state: '/proms',
+    }],
+  },
 };
 
 
@@ -186,7 +223,7 @@ export const mainPagesTitles = {
       title: 'Patient Listings',
       state: '/patients',
     }, {
-      title: 'Patient Summary',
+      title: themeConfigs.patientsSummaryPageName,
       state: '/patients-summary',
     }],
   },
@@ -199,7 +236,7 @@ addPluginsPagesToLists(mainPagesTitles, [{
   title: 'Patient Listings',
   state: '/patients',
 }, {
-  title: 'Patient Summary',
+  title: themeConfigs.patientsSummaryPageName,
   state: '/patients-summary',
 }]);
 
@@ -221,12 +258,12 @@ export const mainPagesTitlesForPatients = {
   },
   'patients-summary': {
     breadcrumbs: [{
-      title: 'Patient Summary',
+      title: themeConfigs.patientsSummaryPageName,
       state: '/patients-summary',
     }],
   },
 };
 addPluginsPagesToLists(mainPagesTitlesForPatients, [{
-  title: 'Patient Summary',
+  title: themeConfigs.patientsSummaryPageName,
   state: '/patients-summary',
 }]);

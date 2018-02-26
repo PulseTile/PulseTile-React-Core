@@ -12,6 +12,7 @@ const toolbarSelector = createSelector(
     const patientSummary = _.getOr({}, userId, patientsSummaries);
     const { name = '', gpName = '', gpAddress = '', dateOfBirth = '', gender = '', telephone = '' } = patientSummary;
     return ({
+      patientsSummaries,
       isSidebarVisible,
       name,
       gpName,

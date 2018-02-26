@@ -5,6 +5,7 @@ import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientGenericPluginDetailRequest } from './fetch-patient-generic-plugin-detail.duck';
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_GENERIC_PLUGIN_REQUEST = 'FETCH_PATIENT_GENERIC_PLUGIN_REQUEST';
 export const FETCH_PATIENT_GENERIC_PLUGIN_SUCCESS = 'FETCH_PATIENT_GENERIC_PLUGIN_SUCCESS';
@@ -26,7 +27,7 @@ export const fetchPatientGenericPluginEpic = (action$, store) =>
           userId: payload.userId,
           genericPlugin: response,
         }))
-        .catch(error => Observable.of(fetchPatientGenericPluginFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export const fetchPatientGenericPluginUpdateEpic = (action$, store) =>
@@ -44,7 +45,7 @@ export const fetchPatientGenericPluginUpdateEpic = (action$, store) =>
             fetchPatientGenericPluginDetailRequest({ userId, sourceId }),
           ]
         })
-        .catch(error => Observable.of(fetchPatientGenericPluginFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientsGenericPlugin = {}, action) {

@@ -1,0 +1,275 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  />
+</div>
+`;
+
+exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel="TEST_PANEL"
+      editedPanel={Object {}}
+      isOpen={true}
+      isShowControlPanel={true}
+      name="TEST_PANEL"
+      onExpand={[Function]}
+      onShow={[Function]}
+      title="Test Title Panel"
+    >
+      <div>
+        children
+        <div
+          className="panel-control"
+        >
+          <div
+            className="wrap-control-group"
+          >
+            <div
+              className="control-group right"
+            >
+              <PTButton
+                className="btn btn-danger"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-ban"
+                />
+                 Cancel
+              </PTButton>
+              <PTButton
+                className="btn btn-success"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-check"
+                />
+                 Complete
+              </PTButton>
+            </div>
+            <div
+              className="control-group with-indent left"
+            >
+              <PTButton
+                className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
+                onClick={[Function]}
+              >
+                <i
+                  className="btn-icon fa fa-caret-left"
+                />
+                 
+                <span
+                  className="btn-text"
+                >
+                  Back to Documents
+                </span>
+              </PTButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PluginCreate /> should renders with all props correctly 1`] = `
+<PluginCreate
+  currentPanel="TEST_PANEL"
+  expandedPanel="another panel"
+  formValues={
+    Object {
+      "prop_1": "value_1",
+      "prop_2": "value_2",
+      "prop_3": "value_3",
+    }
+  }
+  isImport={false}
+  name="TEST_PANEL"
+  onCancel={[Function]}
+  onExpand={[Function]}
+  onSaveSettings={[Function]}
+  onShow={[Function]}
+  openedPanel="TEST_PANEL"
+  title="Test Title Panel"
+>
+  <div
+    className="section-detail"
+  >
+    <div
+      className="panel-group accordion"
+    />
+  </div>
+</PluginCreate>
+`;
+
+exports[`Component <PluginCreate /> should renders with all props correctly 2`] = `
+<PluginCreate
+  componentForm="children"
+  currentPanel="TEST_PANEL"
+  expandedPanel="TEST_PANEL"
+  formValues={
+    Object {
+      "prop_1": "value_1",
+      "prop_2": "value_2",
+      "prop_3": "value_3",
+    }
+  }
+  isImport={false}
+  name="TEST_PANEL"
+  onCancel={[Function]}
+  onExpand={[Function]}
+  onSaveSettings={[Function]}
+  onShow={[Function]}
+  openedPanel="TEST_PANEL"
+  title="Test Title Panel"
+>
+  <div
+    className="section-detail"
+  >
+    <div
+      className="panel-group accordion"
+    >
+      <PluginDetailPanel
+        currentPanel="TEST_PANEL"
+        editedPanel={Object {}}
+        isOpen={true}
+        isShowControlPanel={true}
+        name="TEST_PANEL"
+        onExpand={[Function]}
+        onShow={[Function]}
+        title="Test Title Panel"
+      >
+        <div
+          className="panel panel-secondary open"
+        >
+          <PluginDetailHeader
+            currentPanel="TEST_PANEL"
+            name="TEST_PANEL"
+            onExpand={[Function]}
+            onShow={[Function]}
+            title="Test Title Panel"
+          >
+            <div
+              className="panel-heading"
+            >
+              <div
+                className="control-group right"
+              >
+                <PTButton
+                  className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+                  onClick={[Function]}
+                >
+                  <button
+                    className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon fa fa-expand"
+                    />
+                    <i
+                      className="btn-icon fa fa-compress"
+                    />
+                  </button>
+                </PTButton>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Test Title Panel
+              </h3>
+            </div>
+          </PluginDetailHeader>
+          <div
+            className="panel-body"
+          >
+            <div>
+              children
+              <div
+                className="panel-control"
+              >
+                <div
+                  className="wrap-control-group"
+                >
+                  <div
+                    className="control-group right"
+                  >
+                    <PTButton
+                      className="btn btn-danger"
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="btn btn-danger"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="fa fa-ban"
+                        />
+                         Cancel
+                      </button>
+                    </PTButton>
+                    <PTButton
+                      className="btn btn-success"
+                      onClick={[Function]}
+                    >
+                      <button
+                        className="btn btn-success"
+                        onClick={[Function]}
+                      >
+                        <i
+                          className="fa fa-check"
+                        />
+                         Complete
+                      </button>
+                    </PTButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="panel-control"
+            >
+              <div
+                className="wrap-control-group"
+              >
+                <div
+                  className="control-group right"
+                >
+                  <PTButton
+                    className="btn btn-success btn-inverse btn-edit"
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="btn btn-success btn-inverse btn-edit"
+                      onClick={[Function]}
+                    >
+                      <i
+                        className="btn-icon fa fa-edit"
+                      />
+                      <span
+                        className="btn-text"
+                      >
+                         Edit
+                      </span>
+                    </button>
+                  </PTButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </PluginDetailPanel>
+    </div>
+  </div>
+</PluginCreate>
+`;

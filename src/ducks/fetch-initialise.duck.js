@@ -19,7 +19,10 @@ export const fetchInitialiseEpic = action$ =>
       ajax.getJSON(apiUrls.INITIALISE)
         .do(setCookieSessiionId)
         .map(fetchInitialiseSuccess)
-        .catch(error => Observable.of(fetchInitialiseFailure(error)))
+        // .catch((error) => {
+        //   error.initialiseError = true;
+        //   return Observable.of(fetchInitialiseFailure(error))
+        // })
     );
 
 export default function reducer(initialiseData = {}, action) {

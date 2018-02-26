@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <App /> should renders correctly when props is empty 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <MainSpinner />
+</div>
+`;
+
+exports[`Component <App /> should renders correctly when props not empty 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <MainSpinner />
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="wrapper touch-device"
+    >
+      <header
+        className="header"
+      >
+        <Connect(Connect(TopHeader))
+          isHasSearch={true}
+        >
+          <div />
+        </Connect(Connect(TopHeader))>
+        <Header />
+      </header>
+      <withRouter(Connect(Connect(Main))) />
+    </div>
+    <Footer
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <App /> should renders correctly with context 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <MainSpinner />
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="wrapper touch-device"
+    >
+      <header
+        className="header"
+      >
+        <Connect(Connect(TopHeader))
+          isHasSearch={true}
+        >
+          <div />
+        </Connect(Connect(TopHeader))>
+        <Header />
+      </header>
+      <withRouter(Connect(Connect(Main))) />
+    </div>
+    <Footer
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
+    />
+  </div>
+</div>
+`;
+
+exports[`Component <App /> should renders correctly with is not touch device and requestError not empty 1`] = `
+<div
+  className="page"
+>
+  <Connect(LoadingBar)
+    className="loading-bar"
+  />
+  <Connect(HandleErrors) />
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
+    <div
+      className="wrapper is-not-touch-device"
+    >
+      <header
+        className="header"
+      >
+        <Connect(Connect(TopHeader))
+          isHasSearch={true}
+        >
+          <div />
+        </Connect(Connect(TopHeader))>
+        <Header />
+      </header>
+      <withRouter(Connect(Connect(Main))) />
+    </div>
+    <Footer
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
+    />
+  </div>
+</div>
+`;

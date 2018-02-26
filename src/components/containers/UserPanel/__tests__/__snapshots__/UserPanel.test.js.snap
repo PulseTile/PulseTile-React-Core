@@ -1,0 +1,489 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <UserPanel /> should renders with props correctly 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <StaticRouter
+    basename=""
+    context={Object {}}
+    location="someLocation"
+  >
+    <Router
+      history={
+        Object {
+          "action": "POP",
+          "block": [Function],
+          "createHref": [Function],
+          "go": [Function],
+          "goBack": [Function],
+          "goForward": [Function],
+          "listen": [Function],
+          "location": Object {
+            "hash": "",
+            "pathname": "someLocation",
+            "search": "",
+          },
+          "push": [Function],
+          "replace": [Function],
+        }
+      }
+    >
+      <UserPanel
+        addUserPanels={Array []}
+        isNotifications={true}
+        isQuestions={true}
+        isSearch={true}
+        isUserPanel={true}
+        openedPanel="userAccountPanel"
+      >
+        <ul
+          className="user-panel"
+          role="tablist"
+        >
+          <UserPanelItem
+            className="user-panel-item visible-xs"
+          >
+            <li
+              className="user-panel-item visible-xs"
+            >
+              <PTButton
+                className="btn-header"
+              >
+                <button
+                  className="btn-header"
+                >
+                  <i
+                    className="fa fa-search"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
+            className="user-panel-item"
+          >
+            <li
+              className="user-panel-item"
+            >
+              <PTButton
+                className="btn-header"
+              >
+                <button
+                  className="btn-header"
+                >
+                  <i
+                    className="fa fa-question-circle"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
+            className="user-panel-item dropdown"
+          >
+            <li
+              className="user-panel-item dropdown"
+            >
+              <NotificationContent>
+                <div
+                  className="notifications-drop dropdown-menu dropdown-menu-right"
+                  id="tab-notifications"
+                >
+                  <div
+                    className="notifications-header"
+                  >
+                    Notifications (2)
+                  </div>
+                  <div
+                    className="notifications-body"
+                  >
+                    <ul
+                      className="notifications-list"
+                    >
+                      <li
+                        className="notifications-list-item"
+                      >
+                        <div
+                          className="notification-info"
+                        >
+                          Information from Liquid Logic (Social Care) is currently unavailable.
+                        </div>
+                        <div
+                          className="notification-time"
+                        >
+                          <em>
+                            10 minutes ago
+                          </em>
+                        </div>
+                      </li>
+                      <li
+                        className="notifications-list-item"
+                      >
+                        <div
+                          className="notification-info"
+                        >
+                          Information from Liquid Logic (Social Care) is currently unavailable.
+                        </div>
+                        <div
+                          className="notification-time"
+                        >
+                          <em>
+                            15 minutes ago
+                          </em>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </NotificationContent>
+              <PTButton
+                className="btn-header btn-notification"
+                onClick={[Function]}
+              >
+                <button
+                  className="btn-header btn-notification"
+                  onClick={[Function]}
+                >
+                  <div>
+                    <i
+                      className="fa fa-bell-o"
+                    />
+                    <span
+                      className="count"
+                    >
+                      2
+                    </span>
+                  </div>
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
+            className="user-panel-item dropdown"
+          >
+            <li
+              className="user-panel-item dropdown"
+            >
+              <Connect(lifecycle(UserAccountPanel))
+                onClick={[Function]}
+              >
+                <lifecycle(UserAccountPanel)
+                  actions={
+                    Object {
+                      "logoutStart": [Function],
+                    }
+                  }
+                  onClick={[Function]}
+                  user={
+                    Object {
+                      "email": "bob.smith@gmail.com",
+                      "family_name": "Smith",
+                      "given_name": "Bob",
+                      "role": "IDCR",
+                      "roles": Array [
+                        "IDCR",
+                      ],
+                      "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                      "tenant": null,
+                    }
+                  }
+                >
+                  <UserAccountPanel
+                    actions={
+                      Object {
+                        "logoutStart": [Function],
+                      }
+                    }
+                    onClick={[Function]}
+                    user={
+                      Object {
+                        "email": "bob.smith@gmail.com",
+                        "family_name": "Smith",
+                        "given_name": "Bob",
+                        "role": "IDCR",
+                        "roles": Array [
+                          "IDCR",
+                        ],
+                        "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                        "tenant": null,
+                      }
+                    }
+                  >
+                    <div
+                      className="dropdown-user dropdown-menu-right dropdown-menu"
+                    >
+                      <div
+                        className="user-profile-image"
+                        onClick={[Function]}
+                      >
+                        <div
+                          className="img"
+                        >
+                          <img
+                            alt=""
+                            src="user.jpg"
+                          />
+                        </div>
+                      </div>
+                      <div
+                        className="user-profile-info"
+                      >
+                        <div
+                          className="name"
+                          onClick={[Function]}
+                        >
+                          Bob
+                           
+                          Smith
+                        </div>
+                        <div
+                          className="specification"
+                        >
+                          <div
+                            className="item"
+                          >
+                            <em>
+                              IDCR
+                            </em>
+                          </div>
+                          <div
+                            className="item"
+                          >
+                            bob.smith@gmail.com
+                          </div>
+                          <div
+                            className="item gray"
+                          >
+                            <em>
+                              10/05/2099
+                            </em>
+                          </div>
+                          <div
+                            className="item"
+                          >
+                            <em>
+                              About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
+                            </em>
+                          </div>
+                        </div>
+                        <PTButton
+                          className="btn btn-success btn-block btn-signout"
+                        >
+                          <button
+                            className="btn btn-success btn-block btn-signout"
+                          >
+                            <div
+                              onClick={[Function]}
+                            >
+                              <span
+                                className="brn-text"
+                              >
+                                Sign Out
+                              </span>
+                               
+                              <i
+                                className="btn-icon fa fa-sign-out"
+                              />
+                            </div>
+                          </button>
+                        </PTButton>
+                      </div>
+                    </div>
+                  </UserAccountPanel>
+                </lifecycle(UserAccountPanel)>
+              </Connect(lifecycle(UserAccountPanel))>
+              <PTButton
+                className="btn-header btn-user"
+                onClick={[Function]}
+              >
+                <button
+                  className="btn-header btn-user"
+                  onClick={[Function]}
+                >
+                  <i
+                    className="fa fa-user"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+        </ul>
+      </UserPanel>
+    </Router>
+  </StaticRouter>
+</Provider>
+`;
+
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 1`] = `
+<ul
+  className="user-panel"
+  role="tablist"
+>
+  <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <Connect(lifecycle(UserAccountPanel))
+      onClick={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
+      />
+    </PTButton>
+  </UserPanelItem>
+</ul>
+`;
+
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 2`] = `
+<ul
+  className="user-panel"
+  role="tablist"
+>
+  <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown open"
+  >
+    <Connect(lifecycle(UserAccountPanel))
+      onClick={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
+      />
+    </PTButton>
+  </UserPanelItem>
+</ul>
+`;
+
+exports[`Component <UserPanel /> should renders with props correctly shallow testing 3`] = `
+<ul
+  className="user-panel"
+  role="tablist"
+>
+  <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    test
+  </UserPanelItem>
+</ul>
+`;

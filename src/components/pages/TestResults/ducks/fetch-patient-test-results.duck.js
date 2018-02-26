@@ -4,6 +4,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_TEST_RESULTS_REQUEST = 'FETCH_PATIENT_TEST_RESULTS_REQUEST';
 export const FETCH_PATIENT_TEST_RESULTS_SUCCESS = 'FETCH_PATIENT_TEST_RESULTS_SUCCESS';
@@ -23,7 +24,7 @@ export const fetchPatientTestResultsEpic = (action$, store) =>
           userId: payload.userId,
           testResults: response,
         }))
-        .catch(error => Observable.of(fetchPatientTestResultsFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 

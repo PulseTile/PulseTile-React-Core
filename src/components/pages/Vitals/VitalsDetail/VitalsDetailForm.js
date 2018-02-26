@@ -169,7 +169,7 @@ export default class VitalsDetailForm extends PureComponent {
                               component={Switch}
                               type="radio"
                               props={{ isSubmit }}
-                              value="Verbal"
+                              value="Voice"
                               editOrCreate
                               transitionValue={detail[valuesNames.LEVEL_OF_CONSCIOUSNESS]}
                               text="V"

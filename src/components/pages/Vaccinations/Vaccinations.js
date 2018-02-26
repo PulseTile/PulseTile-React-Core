@@ -10,6 +10,7 @@ import moment from 'moment';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
+import PluginBanner from '../../plugin-page-component/PluginBanner';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientVaccinationsRequest } from './ducks/fetch-patient-vaccinations.duck';
@@ -24,6 +25,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
+// import imgBanner from '../../../assets/images/banners/vaccinations.jpg';
 
 const VACCINATIONS_MAIN = 'vaccinationsMain';
 const VACCINATIONS_DETAIL = 'vaccinationsDetail';
@@ -237,11 +239,19 @@ export default class Vaccination extends PureComponent {
     const filteredVaccinations = this.formToShowCollection(allVaccinations);
 
     let sourceId;
-    if (!_.isEmpty(vaccinationDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(vaccinationDetail)) {
       sourceId = vaccinationDetail[valuesNames.SOURCE_ID];
     }
 
     return (<section className="page-wrapper">
+      {!(isDetailPanelVisible || isCreatePanelVisible) ?
+        <PluginBanner
+          title='Vaccinations'
+          subTitle='Short blurb containing a few words to describe this section'
+          img={'http://via.placeholder.com/1920x305'}
+        />
+        : null
+      }
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

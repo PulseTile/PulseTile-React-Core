@@ -7,7 +7,7 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 
 import Breadcrumbs from '../Breadcumbs/Breadcrumbs';
-import { sidebarAndUserSelector, mainSelector, initialiseSelector } from './selectors';
+import { sidebarAndUserSelector, mainSelector } from './selectors';
 import { PatientsLists, SystemDashboard, PatientsFullDetailsSearch, UserProfile, PatientsSummary, SearchReport } from '../../pages';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { routersPluginConfig } from '../../../plugins.config';
@@ -19,7 +19,6 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSideb
 @withRouter
 @connect(sidebarAndUserSelector, mapDispatchToProps)
 @connect(mainSelector)
-@connect(initialiseSelector)
 export default class Main extends PureComponent {
     static propTypes = {
       isSidebarVisible: PropTypes.bool.isRequired,
@@ -39,7 +38,7 @@ export default class Main extends PureComponent {
     }
 
     render() {
-      const { isSidebarVisible, userAccount, patientSummeriesParams, initialiseData } = this.props;
+      const { isSidebarVisible, userAccount, patientSummeriesParams } = this.props;
       const patientSummeries = _.head(_.values(patientSummeriesParams));
       return (
         <main className={classNames('main', { showSidebar: isSidebarVisible })}>
@@ -47,7 +46,7 @@ export default class Main extends PureComponent {
             userAccount={userAccount}
             patientSummeries={patientSummeries}
           />
-          {!_.isEmpty(initialiseData) ? <Switch>
+          <Switch>
             <Route exact path={clientUrls.USER_PROFILE} component={UserProfile} />
             <Route exact path={`${clientUrls.PATIENTS}/:userId/${clientUrls.PATIENTS_SUMMARY}`} component={PatientsSummary} />
             <Route exact path={clientUrls.PATIENTS} component={PatientsLists} userAccount={userAccount} />
@@ -55,8 +54,8 @@ export default class Main extends PureComponent {
             <Route exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={clientUrls.SEARCH_REPORT} component={SearchReport} userAccount={userAccount} />
-            {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} key={item.key} />)}
-          </Switch> : null }
+            {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} />)}
+          </Switch>
         </main>
       )
     }

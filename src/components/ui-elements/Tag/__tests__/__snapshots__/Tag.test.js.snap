@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Tag /> should renders correctly 1`] = `
+<span
+  className="label label-test-style"
+  restProps="restProps"
+>
+  test-children
+</span>
+`;

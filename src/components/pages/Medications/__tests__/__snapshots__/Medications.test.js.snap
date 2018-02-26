@@ -1,0 +1,1474 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Medications /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <MedicationsDetail
+          currentPanel="medicationsDetail"
+          detail={
+            Object {
+              "author": "",
+              "dateCreated": 1507020019000,
+              "doseAmount": "test",
+              "doseDirections": "test",
+              "doseTiming": "test",
+              "medicationCode": "",
+              "medicationTerminology": "",
+              "name": "test",
+              "route": "test",
+              "source": "marand",
+              "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+              "startDate": 1507020019000,
+              "startTime": null,
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isOpenHourlySchedule={true}
+          isSubmit={false}
+          name="medicationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="medicationsCreate"
+          toggleHourlySchedule={[Function]}
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly when data take from Documents how "import" 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with all store is empty 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="http://via.placeholder.com/1920x305"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Medications"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with medicationsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="medicationsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="medicationsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onGoBack={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="medicationsCreate"
+          title="Create Medication"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with medicationsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="medicationsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="medicationsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onGoBack={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="medicationsCreate"
+          title="Create Medication"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with medicationsDetail and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="medicationsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="medicationsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="All Medications"
+          />
+          <PluginMainPanel
+            columnNameSortBy="name"
+            emptyDataMessage="No medications"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name",
+                  "width": "23%",
+                },
+                Object {
+                  "key": "doseAmount",
+                  "title": "Dose",
+                  "width": "33%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Supply",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "name",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+                Object {
+                  "dateCreated": 1507020019000,
+                  "dateCreatedConvert": "03-Oct-2017",
+                  "doseAmount": "test2",
+                  "highlighters": Array [
+                    Object {
+                      "name": "name",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "name2",
+                  "source": "marand",
+                  "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="medications"
+            totalEntriesAmount={2}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <MedicationsDetail
+          currentPanel="medicationsDetail"
+          detail={
+            Object {
+              "author": "",
+              "dateCreated": 1507020019000,
+              "doseAmount": "test",
+              "doseDirections": "test",
+              "doseTiming": "test",
+              "medicationCode": "",
+              "medicationTerminology": "",
+              "name": "test",
+              "route": "test",
+              "source": "marand",
+              "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+              "startDate": 1507020019000,
+              "startTime": null,
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isOpenHourlySchedule={true}
+          isSubmit={false}
+          name="medicationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="medicationPanel"
+          toggleHourlySchedule={[Function]}
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with medicationsDetail and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <MedicationsDetail
+          currentPanel="medicationsDetail"
+          detail={
+            Object {
+              "author": "",
+              "dateCreated": 1507020019000,
+              "doseAmount": "test",
+              "doseDirections": "test",
+              "doseTiming": "test",
+              "medicationCode": "",
+              "medicationTerminology": "",
+              "name": "test",
+              "route": "test",
+              "source": "marand",
+              "sourceId": "a7007401-837f-471c-8f73-cbb53c0eb1a1",
+              "startDate": 1507020019000,
+              "startTime": null,
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="medicationPanel"
+          isOpenHourlySchedule={true}
+          isSubmit={false}
+          name="medicationsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="medicationPanel"
+          toggleHourlySchedule={[Function]}
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Medications /> should renders correctly with medicationsDetail and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;

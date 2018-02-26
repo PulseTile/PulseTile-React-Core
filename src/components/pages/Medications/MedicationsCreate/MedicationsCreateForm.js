@@ -36,6 +36,12 @@ export default class MedicationsCreateForm extends PureComponent {
         ...defaultFormValues,
         ...historyState.importData
       };
+      if (!historyState.importData[valuesNames.MEDICATION_CODE]) {
+        dataToInitialize[valuesNames.MEDICATION_CODE] = defaultFormValues[valuesNames.MEDICATION_CODE];
+      }
+      if (!historyState.importData[valuesNames.MEDICATION_TERMINOLOGY]) {
+        dataToInitialize[valuesNames.MEDICATION_TERMINOLOGY] = defaultFormValues[valuesNames.MEDICATION_TERMINOLOGY];
+      }
       this.props.initialize(dataToInitialize);
       this.setState({isImport: true})
 

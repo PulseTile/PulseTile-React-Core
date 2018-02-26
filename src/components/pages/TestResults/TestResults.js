@@ -170,7 +170,7 @@ export default class TestResults extends PureComponent {
     const filteredTestResults = this.formToShowCollection(allTestResults);
 
     let sourceId;
-    if (!_.isEmpty(testResultDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(testResultDetail)) {
       sourceId = testResultDetail.sourceId;
     }
 

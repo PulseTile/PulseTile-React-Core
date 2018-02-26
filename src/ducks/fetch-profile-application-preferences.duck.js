@@ -1,4 +1,3 @@
-import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';

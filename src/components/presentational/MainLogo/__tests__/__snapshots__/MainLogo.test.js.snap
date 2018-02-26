@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <MainLogo /> should renders when the role of doctor 1`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    >
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="logo"
+          className="img logo-img "
+          src="testLogo"
+        />
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <MainLogo /> should renders when the role of doctor 2`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    >
+      <Link
+        replace={false}
+        to="/"
+      >
+        <img
+          alt="logo"
+          className="img"
+          src="test"
+        />
+        <img
+          alt="logo"
+          className="img logo-img hidden"
+          src="testLogo"
+        />
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <MainLogo /> should renders when the role of the patient 1`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    >
+      <Link
+        replace={false}
+        to="/patients/9999999000/patients-summary"
+      >
+        <img
+          alt="logo"
+          className="img logo-img "
+          src="testLogo"
+        />
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <MainLogo /> should renders when the role of the patient 2`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    >
+      <Link
+        replace={false}
+        to="/patients/9999999000/patients-summary"
+      >
+        <img
+          alt="logo"
+          className="img"
+          src="test"
+        />
+        <img
+          alt="logo"
+          className="img logo-img hidden"
+          src="testLogo"
+        />
+      </Link>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <MainLogo /> should renders without role 1`] = `
+<div
+  className="wrap-logo"
+>
+  <div
+    className="logo"
+  >
+    <div
+      className="logo-icon"
+    />
+  </div>
+</div>
+`;

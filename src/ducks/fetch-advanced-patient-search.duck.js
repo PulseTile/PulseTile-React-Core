@@ -21,7 +21,7 @@ export const fetchAdvancedPatientSearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchAdvancedPatientSearchSuccess(response))
-        .catch(error => Observable.of(fetchAdvancedPatientSearchFailure(error)))
+        // .catch(error => Observable.of(fetchAdvancedPatientSearchFailure(error)))
     );
 
 export default function reducer(advancedSearchPatient = {}, action) {

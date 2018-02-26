@@ -17,7 +17,10 @@ export default class SortableTableHoveredRow extends PureComponent {
     onMouseEnter: PropTypes.func.isRequired,
     onMouseLeave: PropTypes.func.isRequired,
     columnNameSortBy: PropTypes.string.isRequired,
-    hoveredRowIndex: PropTypes.number,
+    hoveredRowIndex: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
   };
 
   render() {
@@ -35,7 +38,7 @@ export default class SortableTableHoveredRow extends PureComponent {
       return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableHoveredRow__')} name={rowItem.name} onClick={() => onCellClick(userId, rowItem.name, sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy, 'text-center': (table === 'patientsList' && rowItem.name !== 'name' && rowItem.name !== 'address') })}>{rowItem.value}</td>
     });
 
-    return (<tr onMouseEnter={() => onMouseEnter(index)} onMouseLeave={() => onMouseLeave()} className={classNames({ hovered: hoveredRowIndex === index })}>
+    return (<tr onMouseOver={() => onMouseEnter(index)} onMouseOut={() => onMouseLeave()} className={classNames({ hovered: hoveredRowIndex === index })}>
       {rowDataItem}
     </tr>)
   }

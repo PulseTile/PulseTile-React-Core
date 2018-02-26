@@ -1,0 +1,92 @@
+.table {
+  &__head {
+    background-color: map-get($colored-table, 'header-bg');
+    color: map-get($colored-table, 'header-color');
+  }
+  &__head &__col.selected {
+    background-color: map-get($colored-table, 'header-highlighted-bg');
+    color: map-get($colored-table, 'header-highlighted-color');
+  }
+  &__body &__col.selected {
+    background-color: map-get($colored-table, 'row-highlighted-bg');
+    color: map-get($colored-table, 'row-highlighted-color');
+  }
+}
+
+.table-striped {
+  background-color: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
+  .table__body {
+    .table__row:nth-of-type(odd) {
+      background-color: map-get($colored-table, 'row-odd-bg');
+      color: map-get($colored-table, 'row-odd-color');
+    }
+    .table__row-holder:nth-of-type(even) .table__row {
+      background-color: map-get($colored-table, 'row-bg');
+      color: map-get($colored-table, 'row-color');
+    }
+  }
+}
+.table-striped.table-hover {
+  background: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
+  &.table__body {
+    .table__row {
+      &:hover .table__col[data-table-hover] {
+        background: map-get($colored-table, 'row-hover-bg');
+        color: map-get($colored-table, 'row-hover-color');
+      }
+      &.hovered .table__col[data-table-hover] {
+        background: map-get($colored-table, 'row-hover-bg');
+        color: map-get($colored-table, 'row-hover-color');
+      }
+    }
+  }
+}
+.is-not-touch-device .table-hover > .table__body .table__row:hover > .table__col,
+.is-not-touch-device .table-hover > .table__body .table__row.hovered {
+  background: map-get($colored-table, 'row-hover-bg');
+  color: map-get($colored-table, 'row-hover-color');
+}
+
+@include respond-from(xs) {
+  .table-sorted {
+    .table__head .table__col {
+      &.sorted {
+        background-color: map-get($colored-table, 'header-highlighted-bg');
+        color: map-get($colored-table, 'header-highlighted-color');
+        &.asc:after {
+          border-color: #303030 transparent transparent;
+        }
+        &.desc:after {
+          border-color: transparent transparent #303030;
+        }
+      }
+    }
+    .table__body .table__col.sorted {
+      background: map-get($colored-table, 'row-sorted-bg');
+      color: map-get($colored-table, 'row-sorted-color');
+    }
+    &.table-striped {
+      .table__body {
+        .table__row:nth-of-type(odd) .table__col.sorted {
+          background: map-get($colored-table, 'row-sorted-odd-bg');
+          color: map-get($colored-table, 'row-sorted-odd-color');
+        }
+        .table__row-holder:nth-of-type(even) .table__row .table__col.sorted {
+          background: map-get($colored-table, 'bg');
+          color: map-get($colored-table, 'color');
+        }
+      }
+    }
+    &.table-striped.table-hover {
+      .table__body {
+        .table__row.hovered .table__col.sorted,
+        .table__row:hover .table__col.sorted {
+          background: map-get($colored-table, 'row-hover-bg');
+          color: map-get($colored-table, 'row-hover-color');
+        }
+      }
+    }
+  }
+}

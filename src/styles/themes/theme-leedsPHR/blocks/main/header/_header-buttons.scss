@@ -1,0 +1,10 @@
+.btn-header {
+  height: $header-height;
+  line-height: $header-height;
+  @include respond-from(xs) {
+    width: $header-height;
+  }
+}
+.btn-header-prev {
+  width: $header-height;
+}

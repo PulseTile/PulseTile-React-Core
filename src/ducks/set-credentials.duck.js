@@ -12,7 +12,7 @@ export const setCredentialsFailure = createAction(SET_CREDENTIALS_FAILURE);
 export const setCredentialsEpic = (action$, store) =>
   action$.ofType(SET_CREDENTIALS_START)
     .map(action => setCredentialsSuccess(action.payload))
-    .catch(error => Observable.of(setCredentialsFailure(error)));
+    .catch(error => Observable.of(setCredentialsFailure(error)))
 
 export default function reducer(credentials = {}, action) {
   switch (action.type) {

@@ -10,7 +10,7 @@ body {
 }
 
 body {
-  background: #fff;
+  background: $body-bg;
   font-family: $font-family-main;
   min-width: $min-width; 
 }
@@ -111,9 +111,9 @@ label:focus,
 
 .page-wrapper {
   background-color: transparent;
-  padding: 10px 0;
+  padding: map-get($page-wrapper-padding, 'small-tb') map-get($page-wrapper-padding, 'small-rl');
   @include respond-from(xs) {
-    padding: $indent-wrapper-big;
+    padding: map-get($page-wrapper-padding, 'main-tb') map-get($page-wrapper-padding, 'main-rl');
   }
 }
 
@@ -123,10 +123,17 @@ body {
     opacity: 1;
     visibility: visible;
   }
-  .main-spinner { 
+  .main-spinner {
+    display: block;
+    position: fixed;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+    z-index: 9999;
+    background: #fff;
+
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease, visibility 1s ease, background 1s ease,;
+    transition: opacity 1s ease, visibility 1s ease, background 1s ease;
   }
   &.loading {
     .footer, .wrapper {
@@ -134,12 +141,6 @@ body {
       visibility: hidden;
     }
     .main-spinner {
-      display: block;
-      position: fixed;
-      top: 0; bottom: 0;
-      left: 0; right: 0;
-      z-index: 9999;
-      background: #fff;
       opacity: 1;
       visibility: visible;
     }

@@ -5,6 +5,7 @@ import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientPersonalNotesDetailRequest } from './fetch-patient-personal-notes-detail.duck';
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_PERSONAL_NOTES_REQUEST = 'FETCH_PATIENT_PERSONAL_NOTES_REQUEST';
 export const FETCH_PATIENT_PERSONAL_NOTES_SUCCESS = 'FETCH_PATIENT_PERSONAL_NOTES_SUCCESS';
@@ -26,7 +27,7 @@ export const fetchPatientPersonalNotesEpic = (action$, store) =>
           userId: payload.userId,
           personalNotes: response,
         }))
-        .catch(error => Observable.of(fetchPatientPersonalNotesFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export const fetchPatientPersonalNotesUpdateEpic = (action$, store) =>
@@ -44,7 +45,7 @@ export const fetchPatientPersonalNotesUpdateEpic = (action$, store) =>
             fetchPatientPersonalNotesDetailRequest({ userId, sourceId }),
           ]
         })
-        .catch(error => Observable.of(fetchPatientPersonalNotesFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientsPersonalNotes = {}, action) {

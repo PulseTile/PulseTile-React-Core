@@ -1,4 +1,3 @@
-import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
@@ -20,7 +19,7 @@ export const fetchPatientsInfoEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchPatientsInfoSuccess)
-        .catch(error => Observable.of(fetchPatientsInfoFailure(error)))
+        // .catch(error => Observable.of(fetchPatientsInfoFailure(error)))
     );
 
 export default function reducer(patientsInfo = {}, action) {

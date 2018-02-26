@@ -18,7 +18,14 @@
     cursor: pointer;
     font-weight: 600;
   }
-  & > .editable { border-bottom: none; }
+  & > .editable {
+    border-bottom: none;
+    color: #428bca;
+  }
+
+  & > .editable-empty {
+    color: #DD1144;
+  }
 
   .popover-title { font-weight: 700; }
   .editable-submit,

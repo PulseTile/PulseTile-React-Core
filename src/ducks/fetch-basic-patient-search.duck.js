@@ -1,4 +1,3 @@
-import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
@@ -21,7 +20,7 @@ export const fetchBasicPatientSearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchBasicPatientSearchSuccess(response))
-        .catch(error => Observable.of(fetchBasicPatientSearchFailure(error)))
+        // .catch(error => Observable.of(fetchBasicPatientSearchFailure(error)))
     );
 
 export default function reducer(basicSearchPatient = {}, action) {

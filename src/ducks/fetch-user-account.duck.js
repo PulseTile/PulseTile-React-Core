@@ -19,7 +19,7 @@ export const fetchUserAccountEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchUserAccountSuccess)
-        .catch(error => Observable.of(fetchUserAccountFailure(error)))
+        // .catch(error => Observable.of(fetchUserAccountFailure(error)))
     );
 
 export default function reducer(userAccount = {}, action) {

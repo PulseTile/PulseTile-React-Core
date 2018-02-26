@@ -1,23 +1,38 @@
 import { combineEpics } from 'redux-observable';
 
+import GenericPlugin from './GenericPlugin';
+import { clientUrls } from '../../../config/client-urls.constants';
+
 import { fetchPatientGenericPluginEpic } from './ducks/fetch-patient-generic-plugin.duck';
 import { fetchPatientGenericPluginUpdateEpic } from './ducks/fetch-patient-generic-plugin.duck';
 import { fetchPatientGenericPluginDetailEpic } from './ducks/fetch-patient-generic-plugin-detail.duck';
 import { fetchPatientGenericPluginDetailEditEpic } from './ducks/fetch-patient-generic-plugin-detail-edit.duck';
 import { fetchPatientGenericPluginCreateEpic } from './ducks/fetch-patient-generic-plugin-create.duck';
 
-import patientsGenericPlugin from './ducks/fetch-patient-generic-plugin.duck'
-import genericPluginDetail from './ducks/fetch-patient-generic-plugin-detail.duck'
-import genericPluginDetailEdit from './ducks/fetch-patient-generic-plugin-detail-edit.duck'
-import genericPluginCreate from './ducks/fetch-patient-generic-plugin-create.duck'
+import patientsGenericPlugin from './ducks/fetch-patient-generic-plugin.duck';
+import genericPluginDetail from './ducks/fetch-patient-generic-plugin-detail.duck';
+import genericPluginDetailEdit from './ducks/fetch-patient-generic-plugin-detail-edit.duck';
+import genericPluginCreate from './ducks/fetch-patient-generic-plugin-create.duck';
 
-const genericPluginEpic = combineEpics(fetchPatientGenericPluginEpic, fetchPatientGenericPluginDetailEpic, fetchPatientGenericPluginDetailEditEpic, fetchPatientGenericPluginCreateEpic, fetchPatientGenericPluginUpdateEpic);
+const epics = combineEpics(fetchPatientGenericPluginEpic, fetchPatientGenericPluginDetailEpic, fetchPatientGenericPluginDetailEditEpic, fetchPatientGenericPluginCreateEpic, fetchPatientGenericPluginUpdateEpic);
 
-const genericPluginReducer = {
+const reducers = {
   patientsGenericPlugin,
   genericPluginDetail,
   genericPluginDetailEdit,
   genericPluginCreate,
 };
 
-export { genericPluginEpic, genericPluginReducer }
+const sidebarConfig = { key: 'genericPlugin', pathToTransition: '/genericPlugin', name: 'Generic Plugin', isVisible: false };
+
+const routers = [
+  { key: 'genericPlugin', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}` },
+  { key: 'genericPluginCreate', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/create` },
+  { key: 'genericPluginDetail', component: GenericPlugin, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.GENERIC_PLUGIN}/:sourceId` },
+];
+
+export default {
+  component: GenericPlugin,
+  epics, reducers, sidebarConfig, routers,
+}
+

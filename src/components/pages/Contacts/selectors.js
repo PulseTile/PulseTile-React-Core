@@ -1,15 +1,21 @@
 import { createSelector } from 'reselect';
 import _ from 'lodash/fp';
 
-const contactsCreateFormSelector = _.getOr({}, 'form.contactsCreateFormSelector')
-const contactsDetailFormSelector = _.getOr({}, 'form.contactsDetailFormSelector')
-const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
+import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { valuesNames } from './forms.config';
+
+const contactsCreateFormSelector = _.getOr({}, 'form.contactsCreateFormSelector');
+const contactsDetailFormSelector = _.getOr({}, 'form.contactsDetailFormSelector');
+const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector');
 
 const patientContactsSelector = createSelector(
   ({ patientsContacts }) => patientsContacts,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsContacts, userId) => {
-    const allContacts = patientsContacts[userId];
+    const allContacts = operationsOnCollection.modificate(patientsContacts[userId], [{
+      key: valuesNames.NEXT_OF_KIN,
+      fn: el => (el || false),
+    }]);
     return ({ allContacts, userId });
   }
 );

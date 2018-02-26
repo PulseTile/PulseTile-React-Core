@@ -16,3 +16,7 @@ export const valuesLabels = {
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',
 };
+
+export const defaultValue = {
+  SOURCE: 'qewdDB',
+};

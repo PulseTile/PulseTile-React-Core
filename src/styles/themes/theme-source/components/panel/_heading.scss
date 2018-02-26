@@ -1,33 +1,19 @@
-.panel-default > .panel-heading {
-  background-color: $base-color;
-  color: $base-color;
+.panel-title { color: $text-color; }
+
+@each $label, $panel in $panels {
+  .#{$label} {
+    & > .panel-heading {
+      background-color: map-get($panel, 'heading-bg');
+      color: map-get($panel, 'heading-color');
+      border-radius: map-get($panel, 'border-radius') map-get($panel, 'border-radius') 0 0;
+      @include clearfix;
+    }
+    & .panel-title { color: map-get($panel, 'heading-color'); }
+  }
 }
-.panel-title {
-  color: $text-color;
-}
-.panel-default .panel-title { color: $base-color; }
+
 .panel-primary {
   .panel-heading {
-    background: #E8E8E8;
-    border-color: #D8D8D8;
-    color: $text-color;
-  }
-}
-.panel-secondary {
-  .panel-heading {
-    background: #E8E8E8;
-    color: $text-color;
-  }
-}
-.panel-small {
-  .panel-heading {
-    background: #E8E8E8;
-    color: $text-color;
-  }
-}
-.panel-subaccordion {
-  .panel-heading {
-    background: #E8E8E8;
-    color: $text-color;
+    border: map-get(map-get($panels, 'panel-primary'), 'border-width') solid map-get(map-get($panels, 'panel-primary'), 'border-color');
   }
 }

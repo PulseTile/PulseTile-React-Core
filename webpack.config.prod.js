@@ -43,6 +43,13 @@ const config = {
       'process.env': {
         'NODE_ENV': JSON.stringify('production')
       }
+    }),
+
+    new webpack.ProvidePlugin({
+      '_': 'lodash/fp',
+      '$': 'jquery',
+      'jQuery': 'jquery',
+      'window.jQuery': 'jquery',
     })
   ],
 

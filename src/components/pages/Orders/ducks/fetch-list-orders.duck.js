@@ -4,6 +4,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_LIST_ORDERS_REQUEST = 'FETCH_LIST_ORDERS_REQUEST';
 export const FETCH_LIST_ORDERS_SUCCESS = 'FETCH_LIST_ORDERS_SUCCESS';
@@ -20,7 +21,7 @@ export const fetchListOrdersEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchListOrdersSuccess)
-        .catch(error => Observable.of(fetchListOrdersFailure(error)))
+        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(listOrders = {}, action) {
