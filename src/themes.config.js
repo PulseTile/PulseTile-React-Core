@@ -46,7 +46,7 @@ const leedsPHRThemeConfigs = {
     'vaccinations': true,
     'topThreeThings': true,
   },
-  dashboardBeing: { topThreeThings: true }
+  dashboardBeing: { topThreeThings: true },
 };
 
 // - In config - ./plugins.config.js when you will change sidebarConfig

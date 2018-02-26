@@ -19,7 +19,13 @@ exports[`Component <App /> should renders correctly when props not empty 1`] = `
     className="loading-bar"
   />
   <MainSpinner />
-  <div>
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
     <div
       className="wrapper touch-device"
     >
@@ -51,7 +57,13 @@ exports[`Component <App /> should renders correctly with context 1`] = `
     className="loading-bar"
   />
   <MainSpinner />
-  <div>
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
     <div
       className="wrapper touch-device"
     >
@@ -83,7 +95,13 @@ exports[`Component <App /> should renders correctly with is not touch device and
     className="loading-bar"
   />
   <Connect(HandleErrors) />
-  <div>
+  <div
+    style={
+      Object {
+        "height": "100%",
+      }
+    }
+  >
     <div
       className="wrapper is-not-touch-device"
     >

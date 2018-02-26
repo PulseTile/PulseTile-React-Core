@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
+import _ from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import 'bootstrap';
@@ -39,7 +40,7 @@ export default class ClinicalNoteField extends PureComponent {
     offset: 0,
     listPerPageAmount: 5,
 
-    isChanged : false,
+    isChanged: false,
 
     queryFilter: '',
     clinicalTag: '',
@@ -79,14 +80,14 @@ export default class ClinicalNoteField extends PureComponent {
       : list)
   };
 
-  filterTags = (tags) => tags.filter(item => {
+  filterTags = tags => tags.filter((item) => {
     const { queryFilter } = this.state;
     const str = item ? `${item.toString().toLowerCase()} ` : '';
 
     return str.indexOf(queryFilter.trim().toLowerCase() || '') !== -1
   });
 
-  getQueryFilter = event => { this.setState({ queryFilter: event.target.value }) };
+  getQueryFilter = (event) => { this.setState({ queryFilter: event.target.value }) };
 
   setTag = clinicalTag => () => {
     this.setState({ offset: 0, clinicalTag, queryFilter: '' });
@@ -104,17 +105,17 @@ export default class ClinicalNoteField extends PureComponent {
 
   filterStatements = (statements) => {
     const { queryFilter } = this.state;
-    return operationsOnCollection.filter(statements, queryFilter.trim(), ['phrase'],);
+    return operationsOnCollection.filter(statements, queryFilter.trim(), ['phrase']);
   };
 
-  setStatement = statement => () => {
-    // console.log('statement', statement);
+
+  setStatement = statement => /* istanbul ignore next */ () => {
     const { clinicalTag, contentEditableFocus, tempPhrases } = this.state;
 
     const tagId = new Date().getTime();
     const phraseItem = {
       id: statement.id,
-      tag: clinicalTag
+      tag: clinicalTag,
     };
 
     tempPhrases[tagId] = phraseItem;
@@ -123,7 +124,7 @@ export default class ClinicalNoteField extends PureComponent {
       /(.*)(\{|\|)([^~|])(\}|\|)(.*)/,
       '$1<span class="editable" contenteditable="false" data-arr-subject="$1" editable-text data-arr-unit="$3" data-arr-value="$5">$3</span> $5'
     );
-    const html = '<span class="tag" data-tag-id="' + tagId + '" data-id="' + statement.id + '" data-phrase="' + statement.phrase + '" contenteditable="false">' + inner + '. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>';
+    const html = `<span class="tag" data-tag-id="${tagId}" data-id="${statement.id}" data-phrase="${statement.phrase}" contenteditable="false">${inner}. <a class="remove" contenteditable="false"><i class="fa fa-close" contenteditable="false"></i></a></span>`;
 
     helper.pasteHtmlAtCaret(html, ID_FIELD, contentEditableFocus);
     this.handleChangeContentEditable();
@@ -148,14 +149,15 @@ export default class ClinicalNoteField extends PureComponent {
   };
 
   createMarkup = (text, queryFilter) => {
-    const regular = new RegExp(`(${queryFilter.trim() })`, 'gi');
-    return {__html: text.replace(regular, '<b class="text-mark">$1</b>')}
+    const regular = new RegExp(`(${queryFilter.trim()})`, 'gi');
+    return { __html: text.replace(regular, '<b class="text-mark">$1</b>') }
   };
 
   handleBlurContentEditable = () => {
+    /* istanbul ignore next */
     if (window.getSelection) {
       const sel = window.getSelection();
-      this.setState({contentEditableFocus: { offset: sel.focusOffset, node: sel.focusNode }});
+      this.setState({ contentEditableFocus: { offset: sel.focusOffset, node: sel.focusNode } });
     }
   };
 
@@ -163,6 +165,7 @@ export default class ClinicalNoteField extends PureComponent {
     let emptyFieldsLength = field.find(valuesNames.EDITABLE_EMPTY_CLASS).length;
     const editableFilds = field.find(valuesNames.EDITABLE_CLASS);
 
+    /* istanbul ignore next */
     editableFilds.each((i, el) => {
       const contentText = $(el).text();
       if (contentText.indexOf('?') !== -1) {
@@ -179,10 +182,8 @@ export default class ClinicalNoteField extends PureComponent {
     const contentEditableEl = $(`#${ID_FIELD}`);
     const phrases = [];
 
-    for (var key in tempPhrases) {
-      if (tempPhrases[key]) {
-        phrases.push(tempPhrases[key])
-      }
+    for (const key in tempPhrases) {
+      phrases.push(tempPhrases[key])
     }
 
     const tempEl = $('<div>');
@@ -194,8 +195,8 @@ export default class ClinicalNoteField extends PureComponent {
       [valuesNames.EDITABLE_EMPTY_FIELDS]: this.getEmptyFieldsAmount(tempEl),
       [valuesNames.NOTE_CONTENT]: {
         name: 'ts',
-        phrases
-      }
+        phrases,
+      },
     };
 
     this.setState({ isChanged: true });
@@ -213,7 +214,7 @@ export default class ClinicalNoteField extends PureComponent {
     const filteredTags = this.filterTags(clinicalStatementsTags || []);
     const listTagsOnPage = this.getListItemsOnPage(filteredTags);
 
-    const filteredStatements = this.filterStatements(statements || []);
+    const filteredStatements = this.filterStatements(statements);
     const listStatementsOnPage = this.getListItemsOnPage(filteredStatements);
 
     return (
@@ -227,9 +228,9 @@ export default class ClinicalNoteField extends PureComponent {
                   <div className="form-control input-sm input-container" id="clinicalTags">
                     {clinicalTag ?
                       <span className="input-tag">
-                            <span>{ clinicalTag }</span>
-                            <i className="fa fa-times" onClick={this.removeTag} />
-                          </span> : null }
+                        <span>{ clinicalTag }</span>
+                        <i className="fa fa-times" onClick={this.removeTag} />
+                      </span> : null }
                     <div className="wrap-overflow">
                       <input
                         className="input-contenteditable"
@@ -250,15 +251,15 @@ export default class ClinicalNoteField extends PureComponent {
                             totalEntriesAmount={filteredTags.length}
                             offset={offset}
                             setOffset={this.handleSetOffset}
-                            isShortView={true}
+                            isShortView
                           /> : null }
                         </div>
                         <div className="pagination-heading">{valuesLabels.TAGS}</div>
                       </div>
                       <div className="dropdown-menu-wrap-list">
                         <div className="dropdown-menu-list">
-                          {listTagsOnPage ?
-                            listTagsOnPage.map(tag => {
+                          {listTagsOnPage.length ?
+                            listTagsOnPage.map((tag) => {
                               return <div className="dropdown-menu-item" key={`dropdown-item-${tag}`} onClick={this.setTag(tag)}>
                                 <span className="dropdown-menu-item-text" dangerouslySetInnerHTML={this.createMarkup(tag, queryFilter)} />
                               </div>
@@ -276,15 +277,15 @@ export default class ClinicalNoteField extends PureComponent {
                             totalEntriesAmount={filteredStatements.length}
                             offset={offset}
                             setOffset={this.handleSetOffset}
-                            isShortView={true}
+                            isShortView
                           /> : null }
                         </div>
                         <div className="pagination-heading">{valuesLabels.STATEMENTS}</div>
                       </div>
                       <div className="dropdown-menu-wrap-list">
                         <div className="dropdown-menu-list">
-                          {listStatementsOnPage ?
-                            listStatementsOnPage.map(statement => {
+                          {listStatementsOnPage.length ?
+                            listStatementsOnPage.map((statement) => {
                               return <div className="dropdown-menu-item" key={`dropdown-item-${statement.id}`} onClick={this.setStatement(statement)}>
                                 <span className="dropdown-menu-item-text" dangerouslySetInnerHTML={this.createMarkup(statement.phrase, queryFilter)} />
                               </div>
@@ -306,8 +307,8 @@ export default class ClinicalNoteField extends PureComponent {
               <label htmlFor="" className="control-label">{valuesLabels.STATEMENTS}</label>
               <div className="input-holder">
                 <div className="form-control form-contenteditable textarea-big">
-                  {filteredStatements ?
-                    filteredStatements.map(statement => {
+                  {filteredStatements.length ?
+                    filteredStatements.map((statement) => {
                       return <div className="select-option" key={`select-option-${statement.id}`} onClick={this.setStatement(statement)}>
                         <span className="select-option-text" dangerouslySetInnerHTML={this.createMarkup(statement.phrase, queryFilter)} />
                       </div>
@@ -321,12 +322,13 @@ export default class ClinicalNoteField extends PureComponent {
             <div className={classNames('form-group', { 'has-error': showError }, { 'has-success': !showError && active })}>
               <label htmlFor={ID_FIELD} className="control-label">{valuesLabels.NOTE}</label>
               <div className="input-holder">
-                <div className="form-control textarea-big input-sm contenteditable-resize"
-                     tabIndex="0"
-                     id={ID_FIELD}
-                     contentEditable
-                     onInput={this.handleChangeContentEditable}
-                     onBlur={this.handleBlurContentEditable}
+                <div
+                  className="form-control textarea-big input-sm contenteditable-resize"
+                  tabIndex="0"
+                  id={ID_FIELD}
+                  contentEditable
+                  onInput={this.handleChangeContentEditable}
+                  onBlur={this.handleBlurContentEditable}
                 ><span id="temp" contentEditable={false} /></div>
               </div>
               {showError && <span className="required-label">{error}</span>}

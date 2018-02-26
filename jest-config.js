@@ -10,6 +10,7 @@ module.exports = {
     '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/fileTransformer.js',
     '^.+\\.js$': 'babel-jest',
   },
+  setupFiles: ['./test-configs/setup-jest.js'],
   collectCoverageFrom: [
     // Coverage files
     '**/src/components/presentational/**.{js,jsx}',
@@ -20,10 +21,11 @@ module.exports = {
     '**/src/components/pages/**.{js,jsx}',
 
     // Temporarily ignore coverage files
-    '!**/src/components/pages/ClinicalStatements/**.{js}',
+    // '!**/src/components/pages/_name_/**.{js}',
 
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
+    '!**/src/components/**{clinical-statements-helper.js}',
     '!**/src/components/**{viltals-helpers.utils.js}',
     '!**/src/components/**{proms-helpers.utils.js}',
     '!**/src/components/**{events-helpers.utils.js}',

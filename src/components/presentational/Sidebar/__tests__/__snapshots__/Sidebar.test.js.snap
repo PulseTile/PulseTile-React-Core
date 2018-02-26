@@ -131,6 +131,16 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
+              href="/patients/9999999000/clinicalStatements"
+            >
+              Clinical Statements
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
               href="/patients/9999999000/personalNotes"
             >
               Personal Notes
@@ -204,6 +214,16 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               href="/patients/9999999000/transfer-of-care"
             >
               Transfers of Care
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/proms"
+            >
+              PROMs
             </a>
           </li>
         </ul>
