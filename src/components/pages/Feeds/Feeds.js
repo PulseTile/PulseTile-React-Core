@@ -267,7 +267,7 @@ export default class Feeds extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle=""
+                panelTitle="List"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={FEEDS_MAIN}

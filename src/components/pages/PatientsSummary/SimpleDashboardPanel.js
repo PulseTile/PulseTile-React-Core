@@ -23,7 +23,7 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
         {isHasList
           ? <ul className="board-list">
             {items.map(item =>
-              <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`)}>
+              <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`, item.rssPostUrl)}>
                 {item.text ? <span className="board-list-link">{item.text}</span> : null}
               </li>)}
           </ul>

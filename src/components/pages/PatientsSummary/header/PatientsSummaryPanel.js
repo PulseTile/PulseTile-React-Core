@@ -11,6 +11,34 @@ import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
 
+const feeds = [
+  {
+    name: 'BBC Health',
+    landingPageUrl: 'http://www.bbc.co.uk/news/health',
+    sourceId: 'testSourceID1',
+  },
+  {
+    name: 'NHS Choices',
+    landingPageUrl: 'https://www.nhs.uk/news/',
+    sourceId: 'testSourceID2',
+  },
+  {
+    name: 'Public Health',
+    landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
+    sourceId: 'testSourceID3',
+  },
+  {
+    name: 'Leeds Live - Whats on',
+    landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+    sourceId: 'testSourceID4',
+  },
+  {
+    name: 'Leeds CC Local News',
+    landingPageUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+    sourceId: 'testSourceID5',
+  },
+];
+
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -70,6 +98,27 @@ export default class PatientsSummaryPanel extends PureComponent {
                 })}
               </Row>
             </div>
+            {themeConfigs.isLeedsPHRTheme ?
+              <div>
+                <div className="heading">FEEDS</div>
+                <div className="form-group">
+                  <Row>
+                    {feeds.map((item) => {
+                      return dashboardBeing[item.name] !== false ?
+                        <Col xs={6} sm={4} key={item.name}>
+                          <PTCustomInput
+                            type="checkbox"
+                            title={item.name}
+                            id={item.name}
+                            name={item.name}
+                            isChecked={selected[item.name]}
+                            onChange={this.toggleCheckbox}
+                          />
+                        </Col> : null
+                    })}
+                  </Row>
+                </div>
+              </div> : null }
             {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
               <div>
                 <div className="heading">VIEW OF BOARDS</div>
