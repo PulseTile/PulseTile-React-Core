@@ -11,24 +11,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="allergies"
-      path="/patients/:userId/allergies"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="allergiesCreate"
-      path="/patients/:userId/allergies/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="allergiesDetail"
-      path="/patients/:userId/allergies/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
       key="problems"
       path="/patients/:userId/diagnoses"
     />
@@ -43,78 +25,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
       exact={true}
       key="problemsDetail"
       path="/patients/:userId/diagnoses/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="clinicalNotes"
-      path="/patients/:userId/clinicalNotes"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="clinicalNotesCreate"
-      path="/patients/:userId/clinicalNotes/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="clinicalNotesDetail"
-      path="/patients/:userId/clinicalNotes/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="personalNotes"
-      path="/patients/:userId/personalNotes"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="personalNotesCreate"
-      path="/patients/:userId/personalNotes/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="personalNotesDetail"
-      path="/patients/:userId/personalNotes/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="contacts"
-      path="/patients/:userId/contacts"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="contactsCreate"
-      path="/patients/:userId/contacts/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="contactsDetail"
-      path="/patients/:userId/contacts/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="vaccinations"
-      path="/patients/:userId/vaccinations"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="vaccinationsCreate"
-      path="/patients/:userId/vaccinations/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="vaccinationsDetail"
-      path="/patients/:userId/vaccinations/:sourceId"
     />
     <Route
       component={[Function]}
@@ -137,38 +47,38 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="genericPlugin"
-      path="/patients/:userId/genericPlugin"
+      key="allergies"
+      path="/patients/:userId/allergies"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="genericPluginCreate"
-      path="/patients/:userId/genericPlugin/create"
+      key="allergiesCreate"
+      path="/patients/:userId/allergies/create"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="genericPluginDetail"
-      path="/patients/:userId/genericPlugin/:sourceId"
+      key="allergiesDetail"
+      path="/patients/:userId/allergies/:sourceId"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="procedures"
-      path="/patients/:userId/procedures"
+      key="contacts"
+      path="/patients/:userId/contacts"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="proceduresCreate"
-      path="/patients/:userId/procedures/create"
+      key="contactsCreate"
+      path="/patients/:userId/contacts/create"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="proceduresDetail"
-      path="/patients/:userId/procedures/:sourceId"
+      key="contactsDetail"
+      path="/patients/:userId/contacts/:sourceId"
     />
     <Route
       component={[Function]}
@@ -191,32 +101,14 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="testResults"
-      path="/patients/:userId/results"
+      key="documents"
+      path="/patients/:userId/documents"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="testResultsDetail"
-      path="/patients/:userId/results/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="referrals"
-      path="/patients/:userId/referrals"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="referralsCreate"
-      path="/patients/:userId/referrals/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="referralsDetail"
-      path="/patients/:userId/referrals/:sourceId"
+      key="documentsDetail"
+      path="/patients/:userId/documents/:sourceId"
     />
     <Route
       component={[Function]}
@@ -239,38 +131,104 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="mdts"
-      path="/patients/:userId/mdt"
+      key="testResults"
+      path="/patients/:userId/results"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="mdtsCreate"
-      path="/patients/:userId/mdt/create"
+      key="testResultsDetail"
+      path="/patients/:userId/results/:sourceId"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="mdtsDetail"
-      path="/patients/:userId/mdt/:sourceId"
+      key="procedures"
+      path="/patients/:userId/procedures"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="drawings"
-      path="/patients/:userId/drawings"
+      key="proceduresCreate"
+      path="/patients/:userId/procedures/create"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="drawingsCreate"
-      path="/patients/:userId/drawings/create"
+      key="proceduresDetail"
+      path="/patients/:userId/procedures/:sourceId"
     />
     <Route
       component={[Function]}
       exact={true}
-      key="drawingsDetail"
-      path="/patients/:userId/drawings/:sourceId"
+      key="clinicalNotes"
+      path="/patients/:userId/clinicalNotes"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="clinicalNotesCreate"
+      path="/patients/:userId/clinicalNotes/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="clinicalNotesDetail"
+      path="/patients/:userId/clinicalNotes/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="clinicalStatements"
+      path="/patients/:userId/clinicalStatements"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="clinicalStatementsCreate"
+      path="/patients/:userId/clinicalStatements/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="clinicalStatementsDetail"
+      path="/patients/:userId/clinicalStatements/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="personalNotes"
+      path="/patients/:userId/personalNotes"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="personalNotesCreate"
+      path="/patients/:userId/personalNotes/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="personalNotesDetail"
+      path="/patients/:userId/personalNotes/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="vaccinations"
+      path="/patients/:userId/vaccinations"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="vaccinationsCreate"
+      path="/patients/:userId/vaccinations/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="vaccinationsDetail"
+      path="/patients/:userId/vaccinations/:sourceId"
     />
     <Route
       component={[Function]}
@@ -293,18 +251,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="documents"
-      path="/patients/:userId/documents"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="documentsDetail"
-      path="/patients/:userId/documents/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
       key="images"
       path="/patients/:userId/images"
     />
@@ -313,6 +259,60 @@ exports[`Component <Header /> should renders correctly 1`] = `
       exact={true}
       key="imagesDetail"
       path="/patients/:userId/images/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="drawings"
+      path="/patients/:userId/drawings"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="drawingsCreate"
+      path="/patients/:userId/drawings/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="drawingsDetail"
+      path="/patients/:userId/drawings/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="referrals"
+      path="/patients/:userId/referrals"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="referralsCreate"
+      path="/patients/:userId/referrals/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="referralsDetail"
+      path="/patients/:userId/referrals/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="mdts"
+      path="/patients/:userId/mdt"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="mdtsCreate"
+      path="/patients/:userId/mdt/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="mdtsDetail"
+      path="/patients/:userId/mdt/:sourceId"
     />
     <Route
       component={[Function]}
@@ -335,6 +335,24 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
+      key="proms"
+      path="/patients/:userId/proms"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="promsCreate"
+      path="/patients/:userId/proms/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="promsDetail"
+      path="/patients/:userId/proms/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
       key="topThreeThings"
       path="/patients/:userId/topThreeThings"
     />
@@ -343,6 +361,24 @@ exports[`Component <Header /> should renders correctly 1`] = `
       exact={true}
       key="topThreeThingsDetail"
       path="/patients/:userId/topThreeThings/:sourceId"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="genericPlugin"
+      path="/patients/:userId/genericPlugin"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="genericPluginCreate"
+      path="/patients/:userId/genericPlugin/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="genericPluginDetail"
+      path="/patients/:userId/genericPlugin/:sourceId"
     />
     <Route
       component={[Function]}

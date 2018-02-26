@@ -46,11 +46,11 @@ const leedsPHRThemeConfigs = {
     'vaccinations': true,
     'topThreeThings': true,
   },
-  dashboardBeing: { topThreeThings: true }
+  dashboardBeing: { topThreeThings: true },
 };
 
 // - In config - ./plugins.config.js when you will change sidebarConfig
 // - You should set 'true' only for:
 // - patients-summary, diagnoses, medications, allergies, contacts, vaccinations, topThreeThings
 
-export const themeConfigs = leedsPHRThemeConfigs;
+export const themeConfigs = mainThemeConfigs;
