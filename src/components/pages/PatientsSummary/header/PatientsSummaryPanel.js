@@ -104,7 +104,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                 <div className="form-group">
                   <Row>
                     {feeds.map((item) => {
-                      return dashboardBeing[item.name] !== false ?
+                      return (
                         <Col xs={6} sm={4} key={item.name}>
                           <PTCustomInput
                             type="checkbox"
@@ -114,7 +114,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                             isChecked={selected[item.name]}
                             onChange={this.toggleCheckbox}
                           />
-                        </Col> : null
+                        </Col>)
                     })}
                   </Row>
                 </div>

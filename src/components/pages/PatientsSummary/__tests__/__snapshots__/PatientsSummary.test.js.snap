@@ -47,7 +47,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -67,7 +67,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -87,7 +87,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -107,7 +107,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -127,7 +127,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {

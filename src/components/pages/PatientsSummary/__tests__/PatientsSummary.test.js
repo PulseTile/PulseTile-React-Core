@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
 import PatientsSummary from '../PatientsSummary';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -112,6 +113,14 @@ describe('Component <PatientsSummary />', () => {
     component.instance().handleViewOfBoardsSelected({ preview: true });
 
     expect(component.find('SimpleDashboardPanel')).toHaveLength(0);
+
+    themeConfigs.isLeedsPHRTheme = true;
+    themeConfigs.patientsSummaryHasPreviewSettings = true;
+    component.setState({ selectedCategory: { 'BBC Health': true } });
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(1);
+
+    component.instance().handleGoToState('http://www.bbc.co.uk/news/health');
+    component.instance().handleGoToState('http://www.bbc.co.uk/news/health', 'http://testUrl1');
   });
 
   it('should renders with Disclaimer Modal correctly', () => {

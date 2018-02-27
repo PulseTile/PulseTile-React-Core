@@ -2,9 +2,8 @@ import React from 'react';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15';
 
-configure({ adapter: new Adapter() });
-
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
+import { themeConfigs } from '../../../../themes.config';
 
 const testProps = {
   onCategorySelected: () => {},
@@ -15,6 +14,8 @@ const testProps = {
     medications: true,
   },
 };
+
+configure({ adapter: new Adapter() });
 
 describe('Component <PatientsSummaryPanel />', () => {
   it('should renders with all props correctly', () => {
@@ -49,7 +50,7 @@ describe('Component <PatientsSummaryPanel />', () => {
     } });
     expect(component.find('PTCustomInput')).toHaveLength(5);
 
-    component.instance().toggleRadio('test')
+    component.instance().toggleRadio('test');
 
     component.setState({
       selectedViewOptions: {
@@ -61,5 +62,18 @@ describe('Component <PatientsSummaryPanel />', () => {
     component.setProps({
       patientsSummaryHasPreviewSettings: true,
     })
+  });
+
+  it('should renders with all props correctly with LeedsPHRTheme', () => {
+    themeConfigs.isLeedsPHRTheme = true;
+    const component = shallow(
+      <PatientsSummaryPanel
+        onCategorySelected={testProps.onCategorySelected}
+        selectedCategory={testProps.selectedCategory}
+        onViewOfBoardsSelected={() => {}}
+      />).dive();
+
+    expect(component).toMatchSnapshot();
+
   });
 });
