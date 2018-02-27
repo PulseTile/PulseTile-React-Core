@@ -90,7 +90,7 @@ describe('Component <ClinicalNoteField />', () => {
 
     expect(component.find('PaginationBlock')).toHaveLength(1);
     expect(component.find('.form-group')).toHaveLength(3);
-    expect(component.find('[contentEditable]')).toHaveLength(1);
+    expect(component.find('[contentEditable]')).toHaveLength(2);
 
     // Testing setTag method
     expect(component.state().clinicalTag).toEqual('');

@@ -158,8 +158,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className="hovered"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
         <SortableTableHoveredRow
@@ -210,8 +210,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
       </tbody>
@@ -393,8 +393,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className="hovered"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           >
             <td
               className="sorted text-center"
@@ -491,8 +491,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           >
             <td
               className="sorted text-center"
@@ -627,8 +627,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className="hovered"
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
         <SortableTableHoveredRow
@@ -679,8 +679,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
       </tbody>
@@ -847,8 +847,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
         <SortableTableHoveredRow
@@ -899,8 +899,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
       </tbody>
@@ -1082,8 +1082,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           >
             <td
               className="sorted text-center"
@@ -1180,8 +1180,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           >
             <td
               className="sorted text-center"
@@ -1316,8 +1316,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
         <SortableTableHoveredRow
@@ -1368,8 +1368,8 @@ exports[`Component <SortableTablePatients /> should renders mount with props cor
         >
           <tr
             className=""
-            onMouseEnter={[Function]}
-            onMouseLeave={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
           />
         </SortableTableHoveredRow>
       </tbody>

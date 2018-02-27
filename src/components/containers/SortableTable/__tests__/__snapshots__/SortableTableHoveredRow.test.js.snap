@@ -79,8 +79,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 1`] = `
 >
   <tr
     className=""
-    onMouseEnter={[Function]}
-    onMouseLeave={[Function]}
+    onMouseOut={[Function]}
+    onMouseOver={[Function]}
   >
     <td
       className="sorted"
@@ -139,8 +139,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 1`] = `
 exports[`Component <SortableTableHoveredRow /> should renders correctly 2`] = `
 <tr
   className=""
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <td
     className="sorted"
@@ -198,8 +198,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 2`] = `
 exports[`Component <SortableTableHoveredRow /> should renders correctly 3`] = `
 <tr
   className=""
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <td
     className="sorted"
@@ -257,8 +257,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 3`] = `
 exports[`Component <SortableTableHoveredRow /> should renders correctly 4`] = `
 <tr
   className=""
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <td
     className="sorted"
@@ -316,8 +316,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 4`] = `
 exports[`Component <SortableTableHoveredRow /> should renders correctly 5`] = `
 <tr
   className=""
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <td
     className="sorted"
@@ -375,8 +375,8 @@ exports[`Component <SortableTableHoveredRow /> should renders correctly 5`] = `
 exports[`Component <SortableTableHoveredRow /> should renders correctly 6`] = `
 <tr
   className=""
-  onMouseEnter={[Function]}
-  onMouseLeave={[Function]}
+  onMouseOut={[Function]}
+  onMouseOver={[Function]}
 >
   <td
     className="sorted"

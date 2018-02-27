@@ -544,7 +544,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo={null}
+    logo="logo-leedsPHR.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -577,7 +577,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo={null}
+    logo="logo-leedsPHR.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -615,7 +615,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
     />
   </PTButton>
   <MainLogo
-    logo={null}
+    logo="logo-leedsPHR.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",

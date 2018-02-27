@@ -6,6 +6,7 @@ import { StaticRouter } from 'react-router'
 import configureStore from 'redux-mock-store';
 
 import TopHeader from '../TopHeader';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -55,6 +56,7 @@ describe('Component <TopHeader />', () => {
           />
         </StaticRouter>
       </Provider>)
+    themeConfigs.isLeedsPHRTheme = true;
     expect(component).toMatchSnapshot();
   });
 
@@ -80,6 +82,7 @@ describe('Component <TopHeader />', () => {
     expect(component).toMatchSnapshot();
 
     component.setProps({ children: undefined });
+    themeConfigs.isLeedsPHRTheme = true;
     expect(component).toMatchSnapshot();
   });
 });

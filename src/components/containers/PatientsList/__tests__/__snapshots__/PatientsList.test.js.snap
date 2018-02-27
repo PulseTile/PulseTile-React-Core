@@ -1415,8 +1415,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr
                       className=""
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <td
                         className=""
@@ -1992,8 +1992,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr
                       className=""
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <td
                         className=""
@@ -2345,8 +2345,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr
                       className=""
-                      onMouseEnter={[Function]}
-                      onMouseLeave={[Function]}
+                      onMouseOut={[Function]}
+                      onMouseOver={[Function]}
                     >
                       <td
                         className="patient-control"

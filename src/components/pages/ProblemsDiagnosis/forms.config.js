@@ -9,7 +9,7 @@ export const valuesNames = {
   DATE_CREATED: 'dateCreated',
 
   IMPORT: 'originalSource',
-  ISIMPORT: 'isImport',
+  IS_IMPORT: 'isImport',
   ORIGINAL_SOURCE: 'originalSource',
   ORIGINAL_COMPOSITION: 'originalComposition',
 
