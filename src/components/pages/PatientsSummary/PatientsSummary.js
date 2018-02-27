@@ -14,8 +14,37 @@ import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-s
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
+import imgRss from '../../../assets/images/patients-summary/rss.jpg';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
+
+const feeds = [
+  {
+    name: 'BBC Health',
+    landingPageUrl: 'http://www.bbc.co.uk/news/health',
+    sourceId: 'testSourceID1',
+  },
+  {
+    name: 'NHS Choices',
+    landingPageUrl: 'https://www.nhs.uk/news/',
+    sourceId: 'testSourceID2',
+  },
+  {
+    name: 'Public Health',
+    landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
+    sourceId: 'testSourceID3',
+  },
+  {
+    name: 'Leeds Live - Whats on',
+    landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+    sourceId: 'testSourceID4',
+  },
+  {
+    name: 'Leeds CC Local News',
+    landingPageUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+    sourceId: 'testSourceID5',
+  },
+];
 
 @connect(patientSummarySelector, mapDispatchToProps)
 @lifecycle(fetchPatientSummaryOnMount)
@@ -34,7 +63,7 @@ export default class PatientsSummary extends PureComponent {
       selectedCategory: [],
       selectedViewOfBoards: defaultViewOfBoardsSelected,
       isDisclaimerModalVisible: false,
-      isCategory: {}
+      isCategory: {},
     };
 
     componentWillMount() {
@@ -42,10 +71,10 @@ export default class PatientsSummary extends PureComponent {
       localStorage.removeItem('isShowDisclaimerOfRedirect');
 
       if (isShowDisclaimerOfRedirect) {
-        this.setState({isDisclaimerModalVisible: true});
+        this.setState({ isDisclaimerModalVisible: true });
       }
 
-      this.setState({selectedCategory: this.getDefaultCategorySelected()});
+      this.setState({ selectedCategory: this.getDefaultCategorySelected() });
     }
 
     getDefaultCategorySelected = () => {
@@ -62,14 +91,29 @@ export default class PatientsSummary extends PureComponent {
       return defaultCategorySelected;
     };
 
-    closeDisclaimer = () => this.setState({isDisclaimerModalVisible: false});
+    closeDisclaimer = () => this.setState({ isDisclaimerModalVisible: false });
 
     handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
 
     handleViewOfBoardsSelected = selectedViewOfBoards => this.setState({ selectedViewOfBoards });
 
-    handleGoToState = (state) => {
-      this.context.router.history.push(state);
+    handleGoToState = (state, externalTransitionUrl) => {
+      let isExternalTransition;
+      if (state.indexOf('http://') !== -1 || state.indexOf('https://') !== -1 || state.indexOf('www.') !== -1) {
+        isExternalTransition = true;
+      } else {
+        isExternalTransition = false;
+      }
+
+      if (isExternalTransition) {
+        if (externalTransitionUrl) {
+          window.open(externalTransitionUrl)
+        } else {
+          window.open(state)
+        }
+      } else {
+        this.context.router.history.push(state)
+      }
     };
 
     render() {
@@ -78,7 +122,7 @@ export default class PatientsSummary extends PureComponent {
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
 
-      if (!themeConfigs.patientsSummaryHasPreviewSettings) {isHasPreview = false;}
+      if (!themeConfigs.patientsSummaryHasPreviewSettings) { isHasPreview = false; }
 
       return (<section className="page-wrapper">
         <Row>
@@ -108,6 +152,37 @@ export default class PatientsSummary extends PureComponent {
                       />
                       : null)
                   })}
+                  {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
+                    return (selectedCategory[item.name] ?
+                      <SimpleDashboardPanel
+                        key={item.name}
+                        title={item.name}
+                        state={item.landingPageUrl}
+                        goToState={this.handleGoToState}
+                        items={[
+                          {
+                            text: 'testUrl1',
+                            rssPostUrl: 'http://testUrl1',
+                          },
+                          {
+                            text: 'testUrl2',
+                            rssPostUrl: 'http://testUrl2',
+                          },
+                          {
+                            text: 'testUrl3',
+                            rssPostUrl: 'http://testUrl3',
+                          },
+                          {
+                            text: 'testUrl4',
+                            rssPostUrl: 'http://testUrl4',
+                          },
+                        ]}
+                        srcPrevirew={imgRss}
+                        isHasPreview={isHasPreview}
+                        isHasList={isHasList}
+                      />
+                      : null)
+                  }) : null}
                 </div>
               </div>
             </div>
@@ -115,7 +190,7 @@ export default class PatientsSummary extends PureComponent {
         </Row>
         {isDisclaimerModalVisible && <ConfirmationModal
           title={'Notification'}
-          isShow={true}
+          isShow
           onOk={this.closeDisclaimer}
           onHide={this.closeDisclaimer}
           isShowOkButton

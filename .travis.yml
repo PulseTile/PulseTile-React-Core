@@ -9,7 +9,7 @@ cache:
 
 branches:
   only:
-    - master
+    - feature/LeedsPhr-Feeds
 
 node_js:
   - 8
@@ -29,3 +29,9 @@ script:
 after_success:
   - npm run report-coverage
   - npm run semantic-release
+
+notifications:
+  email:
+    recipients: dima.polishuk.1995@gmail.com
+    on_success: always
+    on_failure: always
