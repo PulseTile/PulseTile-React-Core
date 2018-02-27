@@ -48,6 +48,10 @@ export default class UserPanel extends PureComponent {
     })
   };
 
+  closePanel = () => {
+    this.setState({openedPanel: ''});
+  };
+
   getUserPanelsItems = (addUserPanels) => {
     if (addUserPanels.length) {
       return addUserPanels.map((el) => {
@@ -89,7 +93,7 @@ export default class UserPanel extends PureComponent {
           </PTButton>
         </UserPanelItem> : null}
         {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
-          <UserAccountPanel onClick={this.handleMouseDown} />
+          <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
           <PTButton className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>
