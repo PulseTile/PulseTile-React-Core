@@ -183,7 +183,10 @@ export default class ClinicalNoteField extends PureComponent {
     const phrases = [];
 
     for (const key in tempPhrases) {
-      phrases.push(tempPhrases[key])
+      // it condition need that don't take null to phrases
+      if (tempPhrases[key]) {
+        phrases.push(tempPhrases[key])
+      }
     }
 
     const tempEl = $('<div>');
