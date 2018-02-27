@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ApplicationPreferencesPanel /> should renders with all props correctly 1`] = `
+<div>
+  <ControlPanel
+    editedPanel={Object {}}
+    isOpen={true}
+    isSaveButton={true}
+    isShowControlPanel={true}
+    name="applicationPreferences"
+    onCancel={[Function]}
+    onEdit={[Function]}
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Application Preferences"
+  >
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="form"
+      >
+        <div
+          className="form-group-wrapper"
+        >
+          <Row
+            bsClass="row"
+            componentClass="div"
+          >
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Row
+                bsClass="row"
+                componentClass="div"
+              >
+                <div
+                  className="col-md-11"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Application Title
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      ripple
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Application Logo File
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      <img
+                        alt="Logo Example"
+                        src="data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw=="
+                      />
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Application Theme
+                    </label>
+                    <div
+                      className="palette-color"
+                    >
+                      <span
+                        className="palette-color-icon"
+                        style={
+                          Object {
+                            "background": "#0D672F",
+                          }
+                        }
+                      />
+                      <span
+                        className="palette-color-name"
+                      >
+                        Green Theme
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Browser Window title
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      PulseTile
+                    </div>
+                  </div>
+                </div>
+              </Row>
+            </Col>
+          </Row>
+        </div>
+      </div>
+    </div>
+  </ControlPanel>
+</div>
+`;
+
+exports[`Component <ApplicationPreferencesPanel /> should renders with all props correctly 2`] = `
+<div>
+  <ControlPanel
+    editedPanel={
+      Object {
+        "applicationPreferences": true,
+      }
+    }
+    formValues={Object {}}
+    isOpen={true}
+    isSaveButton={true}
+    isShowControlPanel={true}
+    name="applicationPreferences"
+    onCancel={[Function]}
+    onEdit={[Function]}
+    onExpand={[Function]}
+    onSaveSettings={[Function]}
+    onShow={[Function]}
+    title="Application Preferences"
+  >
+    <ReduxForm
+      patientsInfo={
+        Object {
+          "browserTitle": "PulseTile",
+          "logoB64": "data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==",
+          "themeColor": "green",
+          "title": "ripple",
+        }
+      }
+    />
+  </ControlPanel>
+</div>
+`;

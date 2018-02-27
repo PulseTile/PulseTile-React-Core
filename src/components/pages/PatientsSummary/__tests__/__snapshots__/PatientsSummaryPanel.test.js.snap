@@ -103,3 +103,198 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
   </div>
 </div>
 `;
+
+exports[`Component <PatientsSummaryPanel /> should renders with all props correctly with LeedsPHRTheme 1`] = `
+<div
+  className="dropdown-menu dropdown-menu-panel dropdown-menu-summary"
+>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="heading"
+    >
+      SHOW
+    </div>
+    <div
+      className="form-group"
+    >
+      <Row
+        bsClass="row"
+        componentClass="div"
+      >
+        <Col
+          bsClass="col"
+          componentClass="div"
+          key="problems"
+          sm={4}
+          xs={6}
+        >
+          <PTCustomInput
+            id="problems"
+            isChecked={true}
+            name="problems"
+            onChange={[Function]}
+            title="Problems"
+            type="checkbox"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          key="contacts"
+          sm={4}
+          xs={6}
+        >
+          <PTCustomInput
+            id="contacts"
+            isChecked={true}
+            name="contacts"
+            onChange={[Function]}
+            title="Contacts"
+            type="checkbox"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          key="allergies"
+          sm={4}
+          xs={6}
+        >
+          <PTCustomInput
+            id="allergies"
+            isChecked={true}
+            name="allergies"
+            onChange={[Function]}
+            title="Allergies"
+            type="checkbox"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          key="medications"
+          sm={4}
+          xs={6}
+        >
+          <PTCustomInput
+            id="medications"
+            isChecked={true}
+            name="medications"
+            onChange={[Function]}
+            title="Medications"
+            type="checkbox"
+          />
+        </Col>
+        <Col
+          bsClass="col"
+          componentClass="div"
+          key="vaccinations"
+          sm={4}
+          xs={6}
+        >
+          <PTCustomInput
+            id="vaccinations"
+            name="vaccinations"
+            onChange={[Function]}
+            title="Vaccinations"
+            type="checkbox"
+          />
+        </Col>
+      </Row>
+    </div>
+    <div>
+      <div
+        className="heading"
+      >
+        FEEDS
+      </div>
+      <div
+        className="form-group"
+      >
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            key="BBC Health"
+            sm={4}
+            xs={6}
+          >
+            <PTCustomInput
+              id="BBC Health"
+              name="BBC Health"
+              onChange={[Function]}
+              title="BBC Health"
+              type="checkbox"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            key="NHS Choices"
+            sm={4}
+            xs={6}
+          >
+            <PTCustomInput
+              id="NHS Choices"
+              name="NHS Choices"
+              onChange={[Function]}
+              title="NHS Choices"
+              type="checkbox"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            key="Public Health"
+            sm={4}
+            xs={6}
+          >
+            <PTCustomInput
+              id="Public Health"
+              name="Public Health"
+              onChange={[Function]}
+              title="Public Health"
+              type="checkbox"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            key="Leeds Live - Whats on"
+            sm={4}
+            xs={6}
+          >
+            <PTCustomInput
+              id="Leeds Live - Whats on"
+              name="Leeds Live - Whats on"
+              onChange={[Function]}
+              title="Leeds Live - Whats on"
+              type="checkbox"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            key="Leeds CC Local News"
+            sm={4}
+            xs={6}
+          >
+            <PTCustomInput
+              id="Leeds CC Local News"
+              name="Leeds CC Local News"
+              onChange={[Function]}
+              title="Leeds CC Local News"
+              type="checkbox"
+            />
+          </Col>
+        </Row>
+      </div>
+    </div>
+  </div>
+</div>
+`;

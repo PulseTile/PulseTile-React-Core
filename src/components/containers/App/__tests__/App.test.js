@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import { JSDOM } from 'jsdom';
 
 import { App } from '../App';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -43,6 +44,7 @@ describe('Component <App />', () => {
     expect(component.find('HandleErrors')).toHaveLength(0);
     expect(component.find('.wrapper')).toHaveLength(1);
     expect(component.find('Connect(Connect(TopHeader))')).toHaveLength(1);
+    themeConfigs.isLeedsPHRHeaderList = true;
     expect(component.find('Header')).toHaveLength(1);
     expect(component.find('.wrapper').hasClass('touch-device')).toEqual(true);
 

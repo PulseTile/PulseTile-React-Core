@@ -1,6 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import _ from 'lodash/fp';
@@ -21,7 +19,6 @@ import { setTheme } from '../../../ducks/set-theme.duck';
 import { changeUserProfileTab } from '../../../ducks/user-profile-tab.duck';
 import themes from './theme-config';
 import { themeConfigs } from '../../../themes.config';
-import PropTypes from "prop-types";
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 

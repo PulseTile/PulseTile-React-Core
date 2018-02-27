@@ -311,3 +311,171 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
   </form>
 </div>
 `;
+
+exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props correctly with is import 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="diagnosesPanelForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="problem"
+            label="Problem / Diagnosis"
+            name="problem"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateOfOnset"
+            label="Date of Onset"
+            name="dateOfOnset"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="description"
+            label="Description"
+            name="description"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="NHS Choices Web Page URL"
+            placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
+            props={
+              Object {
+                "isNotValidate": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Terminology"
+            name="terminology"
+            props={
+              Object {
+                "className": "non-edit-value",
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            label="Terminology Code"
+            name="code"
+            props={
+              Object {
+                "className": "non-edit-value",
+              }
+            }
+          />
+        </div>
+      </div>
+      <Field
+        component={[Function]}
+        id="originalSource"
+        label="Import URL"
+        name="originalSource"
+        props={
+          Object {
+            "disabled": true,
+            "isSubmit": true,
+          }
+        }
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="date"
+            label="Date"
+            name="date"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

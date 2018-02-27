@@ -68,9 +68,9 @@ describe('Component <SortableTablePatients />', () => {
         table="patientsList"
       />)
     window.dispatchEvent(resizeEvent);
-    sortableTablePatients.find('tr').at(1).simulate('mouseEnter');
+    sortableTablePatients.find('tr').at(1).simulate('mouseOver');
     expect(sortableTablePatients).toMatchSnapshot();
-    sortableTablePatients.find('tr').at(1).simulate('mouseLeave');
+    sortableTablePatients.find('tr').at(1).simulate('mouseOut');
     expect(sortableTablePatients).toMatchSnapshot();
   });
 

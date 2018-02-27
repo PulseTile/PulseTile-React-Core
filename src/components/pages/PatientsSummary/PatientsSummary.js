@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {compose, lifecycle} from 'recompose';
-import { themeConfigs } from '../../../themes.config';
+import { compose, lifecycle } from 'recompose';
 
+import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
