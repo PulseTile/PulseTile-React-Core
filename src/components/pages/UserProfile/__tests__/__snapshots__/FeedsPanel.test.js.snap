@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FeedsPanel /> should renders with all props correctly 1`] = `
+<div>
+  <ControlPanel
+    editedPanel={Object {}}
+    isOpen={true}
+    isSaveButton={false}
+    isShowControlPanel={false}
+    name="feeds"
+    onCancel={[Function]}
+    onEdit={[Function]}
+    onExpand={[Function]}
+    onShow={[Function]}
+    title="Feeds"
+  >
+    <Connect(Connect(Connect(Connect(lifecycle(lifecycle(Feeds)))))) />
+  </ControlPanel>
+</div>
+`;
