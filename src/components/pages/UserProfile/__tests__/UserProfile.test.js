@@ -33,9 +33,20 @@ const userAccount = {
   ],
 };
 
+const userProfileTabs = {
+  openedPanel: 'applicationPreferences',
+  expandedPanel: 'applicationPreferences',
+};
+
+const userProfileTabsAnother = {
+  openedPanel: '',
+  expandedPanel: 'all',
+};
+
 const mockStore = configureStore();
-const store = mockStore({ patientsInfo, userAccount });
-const storeForPurpleTheme = mockStore({ patientsInfo: patientsInfoForPurpleTheme, userAccount });
+const store = mockStore({ patientsInfo, userAccount, userProfileTabs });
+const storeForPurpleTheme = mockStore({ patientsInfo: patientsInfoForPurpleTheme, userAccount, userProfileTabs });
+const storeAnother = mockStore({ patientsInfo, userAccount, userProfileTabs: userProfileTabsAnother });
 
 const DATE_TO_USE = new Date('2017');
 const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
@@ -68,7 +79,7 @@ describe('Component <UserProfile />', () => {
       <UserProfile
         store={store}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 
@@ -80,7 +91,7 @@ describe('Component <UserProfile />', () => {
     expect(component.find('FeedsPanel')).toHaveLength(0);
 
     expect(component.find('ApplicationPreferencesPanel').props().openedPanel).toEqual('applicationPreferences');
-    expect(component.find('ApplicationPreferencesPanel').props().expandedPanel).toEqual('all');
+    expect(component.find('ApplicationPreferencesPanel').props().expandedPanel).toEqual('applicationPreferences');
     expect(component.find('ApplicationPreferencesPanel').props().theme).toEqual({ baseColor: '#0D672F', name: colorName });
     expect(component.find('ApplicationPreferencesPanel').props().isShowControlPanel).toEqual(true);
     expect(component.find('ApplicationPreferencesPanel').props().isSaveButton).toEqual(true);
@@ -102,24 +113,16 @@ describe('Component <UserProfile />', () => {
       <UserProfile
         store={store}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     component.instance().handleShow('applicationPreferences');
-    expect(component.state().openedPanel).toEqual('applicationPreferences');
     component.instance().handleShow('personalInformation');
-    expect(component.state().openedPanel).toEqual('personalInformation');
 
-    expect(component.state().expandedPanel).toEqual('all');
     component.instance().handleExpand('applicationPreferences');
-    expect(component.state().expandedPanel).toEqual('applicationPreferences');
     component.instance().handleExpand('applicationPreferences');
-    expect(component.state().expandedPanel).toEqual('all');
 
-    expect(!!component.state().editedPanel.applicationPreferences).toEqual(false);
     component.instance().handleEdit('applicationPreferences');
-    expect(component.state().editedPanel.applicationPreferences).toEqual(true);
     component.instance().handleCancel('applicationPreferences');
-    expect(component.state().editedPanel.applicationPreferences).toEqual(false);
 
     component.setProps({ formState: { syncErrors: { title: 'title' } } });
     component.instance().handleSaveSettingsForm(patientsInfo, 'applicationPreferences');
@@ -129,12 +132,23 @@ describe('Component <UserProfile />', () => {
     component.instance().handleSaveSettingsForm(patientsInfo, 'applicationPreferences');
   });
 
+  it('should work all methods of component with another props', () => {
+    const component = shallow(
+      <UserProfile
+        store={storeAnother}
+        match={match}
+      />, { context }).dive().dive().dive().dive();
+
+    component.instance().handleExpand('applicationPreferences');
+    component.unmount();
+  });
+
   it('should renders correctly when theme is Purple', () => {
     const component = shallow(
       <UserProfile
         store={storeForPurpleTheme}
         match={match}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive();
 
     expect(component.find('ApplicationPreferencesPanel').props().theme).toEqual({ baseColor: '#461a5a', name: 'Purple Theme' });
     expect(component).toMatchSnapshot();

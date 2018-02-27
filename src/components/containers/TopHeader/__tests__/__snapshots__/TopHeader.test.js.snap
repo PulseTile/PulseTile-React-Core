@@ -281,6 +281,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     >
                       <Connect(lifecycle(UserAccountPanel))
                         onClick={[Function]}
+                        onClose={[Function]}
                       >
                         <lifecycle(UserAccountPanel)
                           actions={
@@ -289,6 +290,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                             }
                           }
                           onClick={[Function]}
+                          onClose={[Function]}
                           user={
                             Object {
                               "role": "IDCR",
@@ -302,6 +304,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                               }
                             }
                             onClick={[Function]}
+                            onClose={[Function]}
                             user={
                               Object {
                                 "role": "IDCR",
@@ -328,44 +331,47 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                 className="user-profile-info"
                               >
                                 <div
-                                  className="name"
+                                  className="user-profile-info__item name"
                                   onClick={[Function]}
                                 >
                                    
                                 </div>
                                 <div
+                                  class="user-profile-info__descr"
+                                >
+                                  <div
+                                    className="user-profile-info__item role"
+                                  >
+                                    IDCR
+                                  </div>
+                                  <div
+                                    className="user-profile-info__item email"
+                                  />
+                                  <div
+                                    className="user-profile-info__item time"
+                                  >
+                                    10/05/2099
+                                  </div>
+                                </div>
+                                <div
                                   className="specification"
                                 >
                                   <div
-                                    className="item"
+                                    className="user-profile-info__title registered"
                                   >
-                                    <em>
-                                      IDCR
-                                    </em>
+                                    Registered GP
                                   </div>
                                   <div
-                                    className="item"
-                                  />
-                                  <div
-                                    className="item gray"
+                                    className="user-profile-info__item address"
                                   >
-                                    <em>
-                                      10/05/2099
-                                    </em>
-                                  </div>
-                                  <div
-                                    className="item"
-                                  >
-                                    <em>
-                                      About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
-                                    </em>
+                                    About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
                                   </div>
                                 </div>
                                 <PTButton
-                                  className="btn btn-success btn-block btn-signout"
+                                  className="btn btn-theme btn-block btn-signout"
                                 >
                                   <button
-                                    className="btn btn-success btn-block btn-signout"
+                                    className="btn btn-theme btn-block btn-signout"
                                   >
                                     <div
                                       onClick={[Function]}
