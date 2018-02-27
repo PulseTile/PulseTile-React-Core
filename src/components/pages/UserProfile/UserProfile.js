@@ -51,7 +51,7 @@ class UserProfile extends PureComponent {
   };
 
   handleShow = (name) => {
-    this.changeTabsSettings({ expandedPanel: 'all', openedPanel: name });
+    this.changeTabsSettings({ expandedPanel: this.props.userProfileTabs.expandedPanel, openedPanel: name });
   };
 
   handleExpand = (name) => {

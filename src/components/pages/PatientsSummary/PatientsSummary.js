@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { lifecycle } from 'recompose';
+import {compose, lifecycle} from 'recompose';
 import { themeConfigs } from '../../../themes.config';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
+import rssFeedsSelector from '../../../selectors/rss-feeds';
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
-import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientSummaryOnMount, fetchGetRssFeedsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchGetRssFeedsRequest } from '../../../ducks/fetch-get-rss-feeds.duck';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import imgRss from '../../../assets/images/patients-summary/rss.jpg';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest, fetchGetRssFeedsRequest }, dispatch) });
 
 const feeds = [
   {
@@ -46,8 +48,9 @@ const feeds = [
   },
 ];
 
+@connect(rssFeedsSelector)
 @connect(patientSummarySelector, mapDispatchToProps)
-@lifecycle(fetchPatientSummaryOnMount)
+@compose(lifecycle(fetchPatientSummaryOnMount), lifecycle(fetchGetRssFeedsOnMount))
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
       boards: PropTypes.object.isRequired,
@@ -117,10 +120,12 @@ export default class PatientsSummary extends PureComponent {
     };
 
     render() {
-      const { boards } = this.props;
+      const { boards, rssFeeds } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
+
+      console.log('rssFeeds', rssFeeds);
 
       if (!themeConfigs.patientsSummaryHasPreviewSettings) { isHasPreview = false; }
 
