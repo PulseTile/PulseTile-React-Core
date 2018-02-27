@@ -47,6 +47,7 @@ const leedsPHRThemeConfigs = {
     'topThreeThings': true,
   },
   dashboardBeing: { topThreeThings: true },
+  isShowUserProfileSettings: true,
 };
 
 // - In config - ./plugins.config.js when you will change sidebarConfig
