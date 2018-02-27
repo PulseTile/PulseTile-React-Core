@@ -64,5 +64,9 @@ describe('Component <UserPanel />', () => {
     expect(component).toMatchSnapshot();
 
     component.setProps({ addUserPanels: [] });
+
+    component.instance().closePanel();
+    expect(component.state().openedPanel).toEqual('');
+    component.setProps({ isSearch: false });
   });
 });

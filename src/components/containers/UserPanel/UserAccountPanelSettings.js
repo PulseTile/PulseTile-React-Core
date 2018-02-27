@@ -25,7 +25,7 @@ export default class UserAccountPanelSettings extends PureComponent {
   };
 
   state = {
-    openedUserMenu: false
+    openedUserMenu: false,
   };
 
   /* istanbul ignore next */
@@ -38,19 +38,19 @@ export default class UserAccountPanelSettings extends PureComponent {
     document.removeEventListener('click', this.closeOpenedUserMenu);
   }
 
-  closeOpenedUserMenu = (e) => {
+  closeOpenedUserMenu = /* istanbul ignore next */ (e) => {
     if (!this.node.contains(e.target)) {
       this.setState({ openedUserMenu: false });
     }
   };
 
   toggleOpenedUserMenu = (e) => {
-    this.setState({openedUserMenu: !this.state.openedUserMenu})
+    this.setState({ openedUserMenu: !this.state.openedUserMenu })
   };
 
-  handleClickMenuItem = (nameAccordionTab) => () => {
+  handleClickMenuItem = nameAccordionTab => () => {
     this.props.actions.changeUserProfileTab({ openedPanel: nameAccordionTab, expandedPanel: 'all' });
-    this.context.router.history.push({ pathname: `/profile` });
+    this.context.router.history.push({ pathname: '/profile' });
   };
 
   render() {
