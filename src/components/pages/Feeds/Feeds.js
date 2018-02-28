@@ -182,7 +182,7 @@ export default class Feeds extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { feedsDetail } = this.props;
+    // const { feedsDetail } = this.props;
     const sendData = {};
 
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
