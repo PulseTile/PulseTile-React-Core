@@ -50,6 +50,8 @@ export default class UserAccountPanelSettings extends PureComponent {
 
   handleClickMenuItem = nameAccordionTab => () => {
     this.props.actions.changeUserProfileTab({ openedPanel: nameAccordionTab, expandedPanel: 'all' });
+    this.setState({ openedUserMenu: false });
+    this.props.onClose();
     this.context.router.history.push({ pathname: '/profile' });
   };
 
