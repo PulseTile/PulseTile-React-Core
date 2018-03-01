@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
+import { Row, Col } from 'react-bootstrap';
 import _ from 'lodash/fp';
 
 import ApplicationPreferencesPanel from './panels/ApplicationPreferencesPanel';
@@ -21,6 +22,10 @@ import themes from './theme-config';
 import { themeConfigs } from '../../../themes.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
+const PERSONAL_INFORMATION = 'personalInformation';
+const CONTACT_INFORMATION = 'contactInformation';
+const CHANGE_HISTORY = 'changeHistory';
+const FEEDS = 'feeds';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme, changeUserProfileTab }, dispatch) });
 
@@ -106,74 +111,85 @@ class UserProfile extends PureComponent {
     const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
 
     return (<section className="page-wrapper">
-      <div className="panel-group accordion">
+      <div className="section">
+        <Row>
+          <Col xs={12}>
+            <div className="section-main">
+              <div className="panel-group accordion">
+                {(expandedPanel === APPLICATION_PREFERENCES || expandedPanel === 'all') ?
+                  <ApplicationPreferencesPanel
+                    formState={formState}
+                    patientsInfo={patientsInfo}
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    theme={theme}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    onSaveSettings={this.handleSaveSettingsForm}
+                    isShowControlPanel
+                    isSaveButton
+                  /> : null }
 
-        <ApplicationPreferencesPanel
-          formState={formState}
-          patientsInfo={patientsInfo}
-          openedPanel={openedPanel}
-          expandedPanel={expandedPanel}
-          editedPanel={editedPanel}
-          theme={theme}
-          onShow={this.handleShow}
-          onExpand={this.handleExpand}
-          onEdit={this.handleEdit}
-          onCancel={this.handleCancel}
-          onSaveSettings={this.handleSaveSettingsForm}
-          isShowControlPanel
-          isSaveButton
-        />
+                {(expandedPanel === PERSONAL_INFORMATION || expandedPanel === 'all') ?
+                  <PersonalInformationPanel
+                    user={user}
+                    openedPanel={openedPanel}
+                    expandedPanel={expandedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel
+                    isSaveButton={false}
+                  /> : null }
 
-        <PersonalInformationPanel
-          user={user}
-          openedPanel={openedPanel}
-          expandedPanel={expandedPanel}
-          editedPanel={editedPanel}
-          onShow={this.handleShow}
-          onExpand={this.handleExpand}
-          onEdit={this.handleEdit}
-          onCancel={this.handleCancel}
-          isShowControlPanel
-          isSaveButton={false}
-        />
+                {(expandedPanel === CONTACT_INFORMATION || expandedPanel === 'all') ?
+                  <ContactInformationPanel
+                    user={user}
+                    openedPanel={openedPanel}
+                    expandedPanel={expandedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel
+                    isSaveButton={false}
+                  /> : null }
 
-        <ContactInformationPanel
-          user={user}
-          openedPanel={openedPanel}
-          expandedPanel={expandedPanel}
-          editedPanel={editedPanel}
-          onShow={this.handleShow}
-          onExpand={this.handleExpand}
-          onEdit={this.handleEdit}
-          onCancel={this.handleCancel}
-          isShowControlPanel
-          isSaveButton={false}
-        />
+                {(expandedPanel === CHANGE_HISTORY || expandedPanel === 'all') ?
+                  <ChangeHistoryPanel
+                    openedPanel={openedPanel}
+                    expandedPanel={expandedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel={false}
+                    isSaveButton={false}
+                  /> : null }
 
-        <ChangeHistoryPanel
-          openedPanel={openedPanel}
-          expandedPanel={expandedPanel}
-          editedPanel={editedPanel}
-          onShow={this.handleShow}
-          onExpand={this.handleExpand}
-          onEdit={this.handleEdit}
-          onCancel={this.handleCancel}
-          isShowControlPanel={false}
-          isSaveButton={false}
-        />
+                {(expandedPanel === FEEDS || expandedPanel === 'all') && themeConfigs.isLeedsPHRTheme ?
+                  <FeedsPanel
+                    openedPanel={openedPanel}
+                    expandedPanel={expandedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel={false}
+                    isSaveButton={false}
+                  /> : null }
 
-        { themeConfigs.isLeedsPHRTheme ? <FeedsPanel
-          openedPanel={openedPanel}
-          expandedPanel={expandedPanel}
-          editedPanel={editedPanel}
-          onShow={this.handleShow}
-          onExpand={this.handleExpand}
-          onEdit={this.handleEdit}
-          onCancel={this.handleCancel}
-          isShowControlPanel={false}
-          isSaveButton={false}
-        /> : null }
-
+              </div>
+            </div>
+          </Col>
+        </Row>
       </div>
     </section>)
   }

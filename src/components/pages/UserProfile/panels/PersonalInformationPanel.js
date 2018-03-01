@@ -27,85 +27,75 @@ export default class PersonalInformationPanel extends PureComponent {
     const CONVERT_CURRENT_DATE = moment(currentDate).format('DD-MMM-YYYY');
 
     return (
-      <div>
-        {(expandedPanel === PERSONAL_INFORMATION || expandedPanel === 'all') && !editedPanel[PERSONAL_INFORMATION] ? <ControlPanel
-          name={PERSONAL_INFORMATION}
-          title="Personal Information"
-          isOpen={openedPanel === PERSONAL_INFORMATION}
-          onShow={onShow}
-          onExpand={onExpand}
-          onEdit={onEdit}
-          editedPanel={editedPanel}
-          onCancel={onCancel}
-          isShowControlPanel={isShowControlPanel}
-          isSaveButton={isSaveButton}
-        >
-          <div className="panel-body-inner">
-            <div className="form">
-              <div className="form-group-wrapper">
-                <Row>
-                  <Col xs={12} md={6}>
-                    <Row>
-                      <Col md={11}>
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.FIRST_NAME}</label>
-                          <div className="form-control-static">{user.given_name}</div>
-                        </div>
+      <ControlPanel
+        name={PERSONAL_INFORMATION}
+        title="Personal Information"
+        isOpen={openedPanel === PERSONAL_INFORMATION}
+        onShow={onShow}
+        onExpand={onExpand}
+        onEdit={onEdit}
+        editedPanel={editedPanel}
+        onCancel={onCancel}
+        onSaveSettings={() => {}}
+        isShowControlPanel={isShowControlPanel}
+        isSaveButton={isSaveButton}
+      >
+        <div>
+          {editedPanel[PERSONAL_INFORMATION] ?
+            <PersonalForm/> :
+            <div className="panel-body-inner">
+              <div className="form">
+                <div className="form-group-wrapper">
+                  <Row>
+                    <Col xs={12} md={6}>
+                      <Row>
+                        <Col md={11}>
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.FIRST_NAME}</label>
+                            <div className="form-control-static">{user.given_name}</div>
+                          </div>
 
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.LAST_NAME}</label>
-                          <div className="form-control-static">{user.family_name}</div>
-                        </div>
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.LAST_NAME}</label>
+                            <div className="form-control-static">{user.family_name}</div>
+                          </div>
 
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.NHS_NUMBER}</label>
-                          {user.role === 'IDCR'
-                            ? <div className="form-control-static" />
-                            : <div className="form-control-static">{user.nhsNumber}</div> }
-                        </div>
-                      </Col>
-                    </Row>
-                  </Col>
-                  <Col xs={12} md={6}>
-                    <Row>
-                      <div className="col-md-11 col-md-offset-1">
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.DATE_OF_BIRTH}</label>
-                          <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE}</div>
-                        </div>
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.NHS_NUMBER}</label>
+                            {user.role === 'IDCR'
+                              ? <div className="form-control-static" />
+                              : <div className="form-control-static">{user.nhsNumber}</div> }
+                          </div>
+                        </Col>
+                      </Row>
+                    </Col>
+                    <Col xs={12} md={6}>
+                      <Row>
+                        <div className="col-md-11 col-md-offset-1">
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.DATE_OF_BIRTH}</label>
+                            <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE}</div>
+                          </div>
 
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.SELECT_GENDER}</label>
-                          <div className="form-control-static ng-binding">Female</div>
-                        </div>
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.SELECT_GENDER}</label>
+                            <div className="form-control-static ng-binding">Female</div>
+                          </div>
 
-                        <div className="form-group">
-                          <label className="control-label">{valuesPersonalFormLabels.DOCTOR}</label>
-                          <div className="form-control-static ng-binding">Dr Emma Huston</div>
+                          <div className="form-group">
+                            <label className="control-label">{valuesPersonalFormLabels.DOCTOR}</label>
+                            <div className="form-control-static ng-binding">Dr Emma Huston</div>
+                          </div>
                         </div>
-                      </div>
-                    </Row>
-                  </Col>
-                </Row>
+                      </Row>
+                    </Col>
+                  </Row>
+                </div>
               </div>
             </div>
-          </div>
-        </ControlPanel> : null }
-        {(expandedPanel === PERSONAL_INFORMATION || expandedPanel === 'all') && editedPanel[PERSONAL_INFORMATION] ? <ControlPanel
-          name={PERSONAL_INFORMATION}
-          title="Personal Information"
-          isOpen={openedPanel === PERSONAL_INFORMATION}
-          onShow={onShow}
-          onExpand={onExpand}
-          onEdit={onEdit}
-          editedPanel={editedPanel}
-          onCancel={onCancel}
-          isShowControlPanel={isShowControlPanel}
-          isSaveButton={isSaveButton}
-        >
-          <PersonalForm />
-        </ControlPanel> : null }
-      </div>
+          }
+        </div>
+      </ControlPanel>
     )
   }
 }
