@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FeedsDetailForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="feedsPanelForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="landingPageUrl"
+            label="Landing page URL"
+            name="landingPageUrl"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="rssFeedUrl"
+            label="RSS feed URL"
+            name="rssFeedUrl"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1514764800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <FeedsDetailForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="feedsPanelForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="landingPageUrl"
+            label="Landing page URL"
+            name="landingPageUrl"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="rssFeedUrl"
+            label="RSS feed URL"
+            name="rssFeedUrl"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1514764800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
