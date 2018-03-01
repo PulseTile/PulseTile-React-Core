@@ -14,6 +14,11 @@ const mainThemeConfigs = {
 
   patientsSummaryPageName: 'Patient Summary',
   patientsSummaryHasPreviewSettings: false,
+
+  dashboardBeing: {
+    vaccinations: false,
+    topThreeThings: false,
+  },
 };
 
 // - In config - ./plugins.config.js when you will change sidebarConfig
