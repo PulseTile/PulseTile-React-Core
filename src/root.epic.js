@@ -24,7 +24,15 @@ import { fetchGetRssFeedsEpic } from './ducks/fetch-get-rss-feeds.duck';
 
 import { handleErrors } from './ducks/handle-errors.duck';
 
-const allEpics = combineEpics(
+const wrapEpic = epic => (...args) =>
+  epic(...args)
+    .map((params) => {
+      console.log(params)
+      return params
+    })
+    .catch(error => Observable.of(handleErrors(error)));
+
+const rootEpic = combineEpics(...[
   initialiseEpic,
   loginEpic,
   loginURLEpic,
@@ -46,13 +54,6 @@ const allEpics = combineEpics(
   setTitleEpic,
   fetchGetRssFeedsEpic,
   ...pluginsEpicConfig,
-);
-
-const rootEpic = (action$, store) =>
-  combineEpics(allEpics)(action$, store)
-    .map((params) => {
-      return params
-    })
-    // .catch(error => Observable.of(handleErrors(error)));
+].map(wrapEpic));
 
 export default rootEpic;
