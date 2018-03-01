@@ -69,6 +69,7 @@ export default class ProblemsDiagnosisDetailForm extends PureComponent {
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.NHS_WEB_PAGE_URL}
+                  name={valuesNames.NHS_WEB_PAGE_URL}
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}

@@ -108,6 +108,17 @@ export default class MedicationsDetailForm extends PureComponent {
               </div>
             </div>
 
+            {detail[valuesNames.ISIMPORT] ?
+              <Field
+                label={valuesLabels.IMPORT}
+                name={valuesNames.IMPORT}
+                id={valuesNames.IMPORT}
+                component={ValidatedInput}
+                props={{ disabled: true, isSubmit }}
+              />
+              : null
+            }
+
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field

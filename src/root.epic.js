@@ -27,7 +27,7 @@ import { handleErrors } from './ducks/handle-errors.duck';
 const wrapEpic = epic => (...args) =>
   epic(...args)
     .map((params) => {
-      console.log(params)
+      // console.log(params);
       return params
     })
     .catch(error => Observable.of(handleErrors(error)));

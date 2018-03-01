@@ -215,6 +215,13 @@ export default class Medications extends PureComponent {
     sendData[valuesNames.START_DATE] = new Date().getTime();
     sendData[valuesNames.START_TIME] = startTime;
 
+    sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+    // add data about source from Documents Heading
+    if (sendData[valuesNames.ISIMPORT]) {
+      sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+    }
+
     if (formName === 'edit') {
       sendData[valuesNames.DATE_CREATED] = new Date(medicationDetail[valuesNames.DATE_CREATED]);
       sendData[valuesNames.MEDICATION_TERMINOLOGY] = formValues[valuesNames.MEDICATION_TERMINOLOGY];
@@ -223,14 +230,6 @@ export default class Medications extends PureComponent {
 
     if (formName === 'create') {
       sendData[valuesNames.SOURCE_ID] = '';
-      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
-
-      // add data about source from documentations
-      if (sendData[valuesNames.ISIMPORT]) {
-        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
-        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
-        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
-      }
     }
 
     operationsOnCollection.propsToString(sendData, valuesNames.DOSE_TIMING, valuesNames.START_DATE, valuesNames.START_TIME, valuesNames.DATE_CREATED);

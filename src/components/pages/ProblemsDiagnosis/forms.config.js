@@ -2,6 +2,7 @@ export const valuesNames = {
   PROBLEM: 'problem',
   DATE_OF_ONSET: 'dateOfOnset',
   DESCRIPTION: 'description',
+  NHS_WEB_PAGE_URL: 'nhsURL',
   TERMINOLOGY: 'terminology',
   CODE: 'code',
   AUTHOR: 'author',
@@ -26,7 +27,10 @@ export const valuesLabels = {
   CODE: 'Terminology Code',
   AUTHOR: 'Author',
   DATE: 'Date',
+
   IMPORT: 'Import URL',
+  IS_IMPORT: 'Is Imported',
+  ORIGINAL_SOURCE: 'Original Source',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

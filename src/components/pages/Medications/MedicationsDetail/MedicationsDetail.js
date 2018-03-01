@@ -75,6 +75,29 @@ export default class MedicationsDetail extends PureComponent {
                     </div>
                   </div>
 
+                  {detail[valuesNames.ISIMPORT] ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.ORIGINAL_SOURCE}</label>
+                          <div className="form-control-static">{detail[valuesNames.ORIGINAL_SOURCE]}</div>
+                        </div>
+                      </div>
+                      <div className="col-expand-right">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.ISIMPORT}</label>
+                          <div className="input-holder">
+                            <Switch
+                              id="isImport" name="isImport" type="checkbox"
+                              value={true} chacked={true}
+                              disabled
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div> : null
+                  }
+
                   <div className="row-expand">
                     <div className="col-expand-left">
                       <div className="form-group">
