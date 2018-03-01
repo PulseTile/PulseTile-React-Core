@@ -17,13 +17,15 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
   action$.ofType(FETCH_GET_RSS_FEEDS_REQUEST)
     .mergeMap(({ payload }) =>
       ajax({
-        url: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-        // responseType: 'application/rss+xml'
-        responseType: 'text/xml'
+        url: payload.rssFeedUrl,
+        responseType: 'application/rss+xml',
+        // responseType: 'text/xml',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        crossDomain: true,
       })
         .map(response => response.xhr.responseXML)
         .map(xmlDocument => fetchGetRssFeedsSuccess({
-          feedsName: payload.userId,
+          rssFeedName: payload.rssFeedName,
           feeds: getRssFeedsListFromXML(xmlDocument),
         }))
       // .catch(error => Observable.of(handleErrors(error)))
@@ -33,7 +35,7 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
 export default function reducer(rssFeeds = {}, action) {
   switch (action.type) {
     case FETCH_GET_RSS_FEEDS_SUCCESS:
-      return _.set(action.payload.feedsName, action.payload.feeds, rssFeeds);
+      return _.set(action.payload.rssFeedName, action.payload.feeds, rssFeeds);
     default:
       return rssFeeds;
   }

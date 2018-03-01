@@ -55,12 +55,12 @@ export default class UserAccountPanel extends PureComponent {
           <div class="user-profile-info__descr">
             <div className="user-profile-info__item role">{user.role}</div>
             <div className="user-profile-info__item email">{user.email}</div>
-            <div className="user-profile-info__item time">10/05/2099</div>
+            <div className="user-profile-info__item birthday">10/05/2099</div>
           </div>
           <div className="specification">
             <div className="user-profile-info__title registered">Registered GP</div>
-            <div className="user-profile-info__item address">About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0</div>
-            <div className="user-profile-info__item version">React</div>
+            <div className="user-profile-info__item version-back">About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0</div>
+            <div className="user-profile-info__item version-front">React</div>
           </div>
           <PTButton className="btn btn-theme btn-block btn-signout">
             <div onClick={actions.logoutStart}>

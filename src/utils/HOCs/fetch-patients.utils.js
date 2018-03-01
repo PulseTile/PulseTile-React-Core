@@ -74,23 +74,6 @@ export const fetchListOrdersOnMount = ({
 });
 
 export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
-export const fetchGetRssFeedsOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-
-    if (userId) actions['fetchGetRssFeedsRequest']({ userId })
-  },
-  // componentWillReceiveProps(nextProps) {
-  //   const { actions, match } = this.props;
-  //   const nextUserId = _.get('match.params.userId', nextProps);
-  //   const userId = _.get('params.userId', match);
-  //
-  //   if (nextUserId !== userId) {
-  //     actions[fetchRequest]({ userId: nextUserId })
-  //   }
-  // },
-});
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
 export const fetchPatientAllergiesDetailOnMount = (generateFetchDetailOnMount('fetchPatientAllergiesDetailRequest'));

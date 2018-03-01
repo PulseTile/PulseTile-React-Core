@@ -10,31 +10,38 @@ import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
+import { getNameFromUrl } from '../../../../utils/rss-helpers';
 
 const feeds = [
   {
+    name: 'NYTimes.com',
+    landingPageUrl: 'https://www.nytimes.com/?action=click&contentCollection=Europe&region=TopBar&module=HomePage-Button&pgtype=article',
+    rssFeedUrl: 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml',
+    sourceId: 'testSourceID6'
+  }, {
     name: 'BBC Health',
     landingPageUrl: 'http://www.bbc.co.uk/news/health',
+    rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
     sourceId: 'testSourceID1',
-  },
-  {
+  }, {
     name: 'NHS Choices',
     landingPageUrl: 'https://www.nhs.uk/news/',
+    rssFeedUrl: 'https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News',
     sourceId: 'testSourceID2',
-  },
-  {
+  }, {
     name: 'Public Health',
     landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
+    rssFeedUrl: 'https://www.gov.uk/government/organisations/public-health-england.atom',
     sourceId: 'testSourceID3',
-  },
-  {
+  }, {
     name: 'Leeds Live - Whats on',
     landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+    rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
     sourceId: 'testSourceID4',
-  },
-  {
+  }, {
     name: 'Leeds CC Local News',
-    landingPageUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+    landingPageUrl: 'https://news.leeds.gov.uk',
+    rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
     sourceId: 'testSourceID5',
   },
 ];
@@ -104,14 +111,15 @@ export default class PatientsSummaryPanel extends PureComponent {
                 <div className="form-group">
                   <Row>
                     {feeds.map((item) => {
+                      const nameItem = getNameFromUrl(item.landingPageUrl);
                       return (
-                        <Col xs={6} sm={4} key={item.name}>
+                        <Col xs={6} sm={4} key={nameItem}>
                           <PTCustomInput
                             type="checkbox"
                             title={item.name}
-                            id={item.name}
-                            name={item.name}
-                            isChecked={selected[item.name]}
+                            id={nameItem}
+                            name={nameItem}
+                            isChecked={selected[nameItem] || false}
                             onChange={this.toggleCheckbox}
                           />
                         </Col>)

@@ -7,50 +7,55 @@ import { compose, lifecycle } from 'recompose';
 
 import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
+import RssDashboardPanel from './RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import patientSummarySelector from './selectors';
-import rssFeedsSelector from '../../../selectors/rss-feeds';
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
-import { fetchPatientSummaryOnMount, fetchGetRssFeedsOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { fetchGetRssFeedsRequest } from '../../../ducks/fetch-get-rss-feeds.duck';
+import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
-import imgRss from '../../../assets/images/patients-summary/rss.jpg';
+import { getNameFromUrl } from '../../../utils/rss-helpers';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest, fetchGetRssFeedsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
 
 const feeds = [
   {
+    name: 'NYTimes.com',
+    landingPageUrl: 'https://www.nytimes.com/section/health',
+    rssFeedUrl: 'http://rss.nytimes.com/services/xml/rss/nyt/Health.xml',
+    sourceId: 'testSourceID6'
+  }, {
     name: 'BBC Health',
     landingPageUrl: 'http://www.bbc.co.uk/news/health',
+    rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
     sourceId: 'testSourceID1',
-  },
-  {
+  }, {
     name: 'NHS Choices',
     landingPageUrl: 'https://www.nhs.uk/news/',
+    rssFeedUrl: 'https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News',
     sourceId: 'testSourceID2',
-  },
-  {
+  }, {
     name: 'Public Health',
     landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
+    rssFeedUrl: 'https://www.gov.uk/government/organisations/public-health-england.atom',
     sourceId: 'testSourceID3',
-  },
-  {
+  }, {
     name: 'Leeds Live - Whats on',
     landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+    rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
     sourceId: 'testSourceID4',
-  },
-  {
+  }, {
     name: 'Leeds CC Local News',
-    landingPageUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+    landingPageUrl: 'https://news.leeds.gov.uk',
+    rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
     sourceId: 'testSourceID5',
   },
 ];
 
-@connect(rssFeedsSelector)
+
 @connect(patientSummarySelector, mapDispatchToProps)
-@compose(lifecycle(fetchPatientSummaryOnMount), lifecycle(fetchGetRssFeedsOnMount))
+@compose(lifecycle(fetchPatientSummaryOnMount))
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
       boards: PropTypes.object.isRequired,
@@ -101,31 +106,26 @@ export default class PatientsSummary extends PureComponent {
     handleViewOfBoardsSelected = selectedViewOfBoards => this.setState({ selectedViewOfBoards });
 
     handleGoToState = (state, externalTransitionUrl) => {
-      let isExternalTransition;
-      if (state.indexOf('http://') !== -1 || state.indexOf('https://') !== -1 || state.indexOf('www.') !== -1) {
-        isExternalTransition = true;
-      } else {
-        isExternalTransition = false;
-      }
+      if (state.indexOf('http://') !== -1 ||
+          state.indexOf('https://') !== -1 ||
+          state.indexOf('www.') !== -1) {
 
-      if (isExternalTransition) {
         if (externalTransitionUrl) {
           window.open(externalTransitionUrl)
         } else {
           window.open(state)
         }
+
       } else {
         this.context.router.history.push(state)
       }
     };
 
     render() {
-      const { boards, rssFeeds } = this.props;
+      const { boards } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
-
-      console.log('rssFeeds', rssFeeds);
 
       if (!themeConfigs.patientsSummaryHasPreviewSettings) { isHasPreview = false; }
 
@@ -148,7 +148,6 @@ export default class PatientsSummary extends PureComponent {
                         key={index}
                         title={item.title}
                         items={boards[item.key]}
-                        navigateTo={console.log}
                         state={item.state}
                         goToState={this.handleGoToState}
                         srcPrevirew={item.imgPreview}
@@ -158,31 +157,15 @@ export default class PatientsSummary extends PureComponent {
                       : null)
                   })}
                   {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
-                    return (selectedCategory[item.name] ?
-                      <SimpleDashboardPanel
-                        key={item.name}
+                    const nameItem = getNameFromUrl(item.landingPageUrl);
+                    return (selectedCategory[nameItem] ?
+                      <RssDashboardPanel
+                        key={nameItem}
                         title={item.name}
                         state={item.landingPageUrl}
                         goToState={this.handleGoToState}
-                        items={[
-                          {
-                            text: 'testUrl1',
-                            rssPostUrl: 'http://testUrl1',
-                          },
-                          {
-                            text: 'testUrl2',
-                            rssPostUrl: 'http://testUrl2',
-                          },
-                          {
-                            text: 'testUrl3',
-                            rssPostUrl: 'http://testUrl3',
-                          },
-                          {
-                            text: 'testUrl4',
-                            rssPostUrl: 'http://testUrl4',
-                          },
-                        ]}
-                        srcPrevirew={imgRss}
+                        rssFeedName={nameItem}
+                        rssFeedUrl={item.rssFeedUrl}
                         isHasPreview={isHasPreview}
                         isHasList={isHasList}
                       />

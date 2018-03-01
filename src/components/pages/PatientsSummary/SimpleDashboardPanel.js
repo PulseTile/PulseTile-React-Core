@@ -23,8 +23,8 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
         {isHasList
           ? <ul className="board-list">
             {items.map(item =>
-              <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')} onClick={() => goToState(`${state}/${item.sourceId}`, item.rssPostUrl)}>
-                {item.text ? <span className="board-list-link">{item.text}</span> : null}
+              <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
+                {item.text ? <span className="board-list-link" onClick={() => goToState(`${state}/${item.sourceId}`, item.link)}>{item.text}</span> : null}
               </li>)}
           </ul>
           : null}
@@ -36,7 +36,6 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
 SimpleDashboardPanel.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  navigateTo: PropTypes.func.isRequired,
 };
 
 export default SimpleDashboardPanel

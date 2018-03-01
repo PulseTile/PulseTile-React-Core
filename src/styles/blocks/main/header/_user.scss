@@ -47,8 +47,8 @@
       font-weight: 600;
     }
     &.role,
-    &.address { font-style: italic; }
-    &.time {
+    &.version-back { font-style: italic; }
+    &.birthday {
       font-style: italic;
       color: lighten($text-color, 40%);
     }
