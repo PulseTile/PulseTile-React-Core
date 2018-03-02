@@ -35,12 +35,12 @@ const userAccount = {
 
 const userProfileTabs = {
   openedPanel: 'applicationPreferences',
-  expandedPanel: 'applicationPreferences',
+  expandedPanel: 'all',
 };
 
 const userProfileTabsAnother = {
   openedPanel: '',
-  expandedPanel: 'all',
+  expandedPanel: 'test',
 };
 
 const mockStore = configureStore();
@@ -91,7 +91,6 @@ describe('Component <UserProfile />', () => {
     expect(component.find('FeedsPanel')).toHaveLength(0);
 
     expect(component.find('ApplicationPreferencesPanel').props().openedPanel).toEqual('applicationPreferences');
-    expect(component.find('ApplicationPreferencesPanel').props().expandedPanel).toEqual('applicationPreferences');
     expect(component.find('ApplicationPreferencesPanel').props().theme).toEqual({ baseColor: '#0D672F', name: colorName });
     expect(component.find('ApplicationPreferencesPanel').props().isShowControlPanel).toEqual(true);
     expect(component.find('ApplicationPreferencesPanel').props().isSaveButton).toEqual(true);

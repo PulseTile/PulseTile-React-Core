@@ -30,6 +30,7 @@ describe('Component <UserAccountPanelSettings />', () => {
     const component = shallow(
       <UserAccountPanelSettings
         store={store}
+        onClose={() => {}}
       />, { context }).dive();
     expect(component).toMatchSnapshot();
     component.setContext(context);

@@ -69,6 +69,12 @@ describe('Component <AllergiesDetail />', () => {
     expect(component.find('.form-control-static').at(5).text()).toEqual(propsForAllergiePanel.detail.causeCode);
     expect(component.find('.form-control-static').at(6).text()).toEqual(propsForAllergiePanel.detail.causeTerminology);
     expect(component).toMatchSnapshot();
+
+    component.setProps({ detail: { [valuesNames.ISIMPORT]: true } });
+    expect(component.find('.form-control-static').at(5).text()).toEqual(propsForAllergiePanel.detail[valuesNames.ORIGINAL_SOURCE]);
+    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
+    expect(component.find('.control-label').at(6).text()).toEqual(valuesLabels.ISIMPORT);
+    expect(component.find('Switch')).toHaveLength(1);
   });
 
   it('should renders correctly with different state of props', () => {

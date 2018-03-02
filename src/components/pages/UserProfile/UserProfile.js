@@ -136,7 +136,6 @@ class UserProfile extends PureComponent {
                   <PersonalInformationPanel
                     user={user}
                     openedPanel={openedPanel}
-                    expandedPanel={expandedPanel}
                     editedPanel={editedPanel}
                     onShow={this.handleShow}
                     onExpand={this.handleExpand}
@@ -150,7 +149,6 @@ class UserProfile extends PureComponent {
                   <ContactInformationPanel
                     user={user}
                     openedPanel={openedPanel}
-                    expandedPanel={expandedPanel}
                     editedPanel={editedPanel}
                     onShow={this.handleShow}
                     onExpand={this.handleExpand}
@@ -163,7 +161,6 @@ class UserProfile extends PureComponent {
                 {(expandedPanel === CHANGE_HISTORY || expandedPanel === 'all') ?
                   <ChangeHistoryPanel
                     openedPanel={openedPanel}
-                    expandedPanel={expandedPanel}
                     editedPanel={editedPanel}
                     onShow={this.handleShow}
                     onExpand={this.handleExpand}
@@ -176,7 +173,6 @@ class UserProfile extends PureComponent {
                 {(expandedPanel === FEEDS || expandedPanel === 'all') && themeConfigs.isLeedsPHRTheme ?
                   <FeedsPanel
                     openedPanel={openedPanel}
-                    expandedPanel={expandedPanel}
                     editedPanel={editedPanel}
                     onShow={this.handleShow}
                     onExpand={this.handleExpand}

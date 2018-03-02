@@ -7,6 +7,7 @@ import MedicationsPrescriptionForm from './MedicationsPrescriptionForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
+import Switch from '../../../form-fields/Switch';
 
 const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
@@ -88,8 +89,11 @@ export default class MedicationsDetail extends PureComponent {
                           <label className="control-label">{valuesLabels.ISIMPORT}</label>
                           <div className="input-holder">
                             <Switch
-                              id="isImport" name="isImport" type="checkbox"
-                              value={true} chacked={true}
+                              id="isImport"
+                              name="isImport"
+                              type="checkbox"
+                              value
+                              chacked
                               disabled
                             />
                           </div>

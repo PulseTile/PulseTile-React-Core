@@ -17,7 +17,6 @@ const CONVERT_CURRENT_DATE_WITH_TIME = moment(DATE_TO_USE).format('YYYY-MM-DD HH
 
 const testProps = {
   openedPanel: CHANGE_HISTORY,
-  expandedPanel: 'all',
   editedPanel: {},
   onShow: () => {},
   onExpand: () => {},
@@ -32,7 +31,6 @@ describe('Component <ChangeHistoryPanel />', () => {
     const component = shallow(
       <ChangeHistoryPanel
         openedPanel={testProps.openedPanel}
-        expandedPanel={testProps.expandedPanel}
         editedPanel={testProps.editedPanel}
         onShow={testProps.onShow}
         onExpand={testProps.onExpand}
@@ -57,9 +55,6 @@ describe('Component <ChangeHistoryPanel />', () => {
 
 
     expect(component).toMatchSnapshot();
-
-    component.setProps({ expandedPanel: 'anotherPanel' });
-    expect(component.find('ControlPanel')).toHaveLength(0);
 
   });
 });

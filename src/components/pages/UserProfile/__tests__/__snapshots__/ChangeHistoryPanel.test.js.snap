@@ -1,127 +1,125 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component <ChangeHistoryPanel /> should renders with all props correctly 1`] = `
-<div>
-  <ControlPanel
-    editedPanel={Object {}}
-    isOpen={true}
-    isSaveButton={false}
-    isShowControlPanel={false}
-    name="changeHistory"
-    onCancel={[Function]}
-    onEdit={[Function]}
-    onExpand={[Function]}
-    onShow={[Function]}
-    title="Change History"
+<ControlPanel
+  editedPanel={Object {}}
+  isOpen={true}
+  isSaveButton={false}
+  isShowControlPanel={false}
+  name="changeHistory"
+  onCancel={[Function]}
+  onEdit={[Function]}
+  onExpand={[Function]}
+  onShow={[Function]}
+  title="Change History"
+>
+  <div
+    className="panel-body-inner"
   >
     <div
-      className="panel-body-inner"
+      className="form"
     >
       <div
-        className="form"
+        className="form-group-wrapper"
       >
         <div
-          className="form-group-wrapper"
+          className="form-group"
         >
-          <div
-            className="form-group"
+          <label
+            className="control-label ng-binding"
           >
-            <label
-              className="control-label ng-binding"
-            >
-              Change #1 Date
-            </label>
-            <div
-              className="form-control-static ng-binding"
-            >
-              2018-01-01 02:00
-            </div>
+            Change #1 Date
+          </label>
+          <div
+            className="form-control-static ng-binding"
+          >
+            2018-01-01 02:00
           </div>
-          <div
-            className="form-group"
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
           >
-            <label
-              className="control-label"
+            Changes
+          </label>
+          <div
+            className="form-control-static ng-binding"
+          >
+            Last Name: 
+            <em
+              className="ng-binding"
             >
-              Changes
-            </label>
-            <div
-              className="form-control-static ng-binding"
+              White
+            </em>
+             
+            <span
+              className="next-separate"
             >
-              Last Name: 
-              <em
-                className="ng-binding"
-              >
-                White
-              </em>
-               
-              <span
-                className="next-separate"
-              >
-                <i
-                  className="fa fa-caret-right"
-                />
-              </span>
-               Blackwell
-            </div>
+              <i
+                className="fa fa-caret-right"
+              />
+            </span>
+             Blackwell
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="panel-body-inner"
+  >
     <div
-      className="panel-body-inner"
+      className="form"
     >
       <div
-        className="form"
+        className="form-group-wrapper"
       >
         <div
-          className="form-group-wrapper"
+          className="form-group"
         >
-          <div
-            className="form-group"
+          <label
+            className="control-label ng-binding"
           >
-            <label
-              className="control-label ng-binding"
-            >
-              Change #2 Date
-            </label>
-            <div
-              className="form-control-static ng-binding"
-            >
-              2018-01-01 02:00
-            </div>
+            Change #2 Date
+          </label>
+          <div
+            className="form-control-static ng-binding"
+          >
+            2018-01-01 02:00
           </div>
-          <div
-            className="form-group"
+        </div>
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
           >
-            <label
-              className="control-label"
+            Changes
+          </label>
+          <div
+            className="form-control-static ng-binding"
+          >
+            Address: 
+            <em
+              className="ng-binding"
             >
-              Changes
-            </label>
-            <div
-              className="form-control-static ng-binding"
+              Flower Street
+            </em>
+             
+            <span
+              className="next-separate"
             >
-              Address: 
-              <em
-                className="ng-binding"
-              >
-                Flower Street
-              </em>
-               
-              <span
-                className="next-separate"
-              >
-                <i
-                  className="fa fa-caret-right"
-                />
-              </span>
-               6801 Tellus Street
-            </div>
+              <i
+                className="fa fa-caret-right"
+              />
+            </span>
+             6801 Tellus Street
           </div>
         </div>
       </div>
     </div>
-  </ControlPanel>
-</div>
+  </div>
+</ControlPanel>
 `;

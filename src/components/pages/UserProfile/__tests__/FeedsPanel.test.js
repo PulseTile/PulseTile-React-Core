@@ -10,7 +10,6 @@ const FEEDS = 'feeds';
 
 const testProps = {
   openedPanel: FEEDS,
-  expandedPanel: 'all',
   editedPanel: {},
   onShow: () => {},
   onExpand: () => {},
@@ -25,7 +24,6 @@ describe('Component <FeedsPanel />', () => {
     const component = shallow(
       <FeedsPanel
         openedPanel={testProps.openedPanel}
-        expandedPanel={testProps.expandedPanel}
         editedPanel={testProps.editedPanel}
         onShow={testProps.onShow}
         onExpand={testProps.onExpand}
@@ -42,8 +40,6 @@ describe('Component <FeedsPanel />', () => {
 
     expect(component).toMatchSnapshot();
 
-    component.setProps({ expandedPanel: 'anotherPanel' });
-    expect(component.find('ControlPanel')).toHaveLength(0);
   });
 });
 

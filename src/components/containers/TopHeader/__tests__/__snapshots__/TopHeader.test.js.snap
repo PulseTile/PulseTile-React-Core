@@ -348,7 +348,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     className="user-profile-info__item email"
                                   />
                                   <div
-                                    className="user-profile-info__item time"
+                                    className="user-profile-info__item birthday"
                                   >
                                     10/05/2099
                                   </div>
@@ -362,12 +362,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     Registered GP
                                   </div>
                                   <div
-                                    className="user-profile-info__item address"
+                                    className="user-profile-info__item version-back"
                                   >
                                     About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
                                   </div>
                                   <div
-                                    className="user-profile-info__item version"
+                                    className="user-profile-info__item version-front"
                                   >
                                     React
                                   </div>

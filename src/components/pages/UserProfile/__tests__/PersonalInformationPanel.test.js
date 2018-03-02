@@ -30,7 +30,6 @@ const testProps = {
     ],
   },
   openedPanel: PERSONAL_INFORMATION,
-  expandedPanel: 'all',
   editedPanel: {},
   onShow: () => {},
   onExpand: () => {},
@@ -46,7 +45,6 @@ describe('Component <PersonalInformationPanel />', () => {
       <PersonalInformationPanel
         user={testProps.user}
         openedPanel={testProps.openedPanel}
-        expandedPanel={testProps.expandedPanel}
         editedPanel={testProps.editedPanel}
         onShow={testProps.onShow}
         onExpand={testProps.onExpand}

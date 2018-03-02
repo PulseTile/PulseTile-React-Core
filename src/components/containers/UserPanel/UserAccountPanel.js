@@ -68,7 +68,7 @@ export default class UserAccountPanel extends PureComponent {
             </div>
           </PTButton>
         </div>
-        { themeConfigs.isShowUserProfileSettings && <UserAccountPanelSettings onClose={onClose}/> }
+        { themeConfigs.isShowUserProfileSettings && <UserAccountPanelSettings onClose={onClose} /> }
       </div>
     )
   }

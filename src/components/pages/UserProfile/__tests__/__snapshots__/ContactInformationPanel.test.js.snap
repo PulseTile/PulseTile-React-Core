@@ -1,19 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Component <ContactInformationPanel /> should renders with all props correctly 1`] = `
-<div>
-  <ControlPanel
-    editedPanel={Object {}}
-    isOpen={true}
-    isSaveButton={false}
-    isShowControlPanel={true}
-    name="contactInformation"
-    onCancel={[Function]}
-    onEdit={[Function]}
-    onExpand={[Function]}
-    onShow={[Function]}
-    title="Contact Information"
-  >
+<ControlPanel
+  editedPanel={Object {}}
+  isOpen={true}
+  isSaveButton={false}
+  isShowControlPanel={true}
+  name="contactInformation"
+  onCancel={[Function]}
+  onEdit={[Function]}
+  onExpand={[Function]}
+  onShow={[Function]}
+  title="Contact Information"
+>
+  <div>
     <div
       className="panel-body-inner"
     >
@@ -152,6 +152,6 @@ exports[`Component <ContactInformationPanel /> should renders with all props cor
         </div>
       </div>
     </div>
-  </ControlPanel>
-</div>
+  </div>
+</ControlPanel>
 `;

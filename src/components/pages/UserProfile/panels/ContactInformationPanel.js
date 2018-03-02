@@ -30,7 +30,6 @@ export default class ContactInformationPanel extends PureComponent {
         onEdit={onEdit}
         editedPanel={editedPanel}
         onCancel={onCancel}
-        onSaveSettings={() => {}}
         isShowControlPanel={isShowControlPanel}
         isSaveButton={isSaveButton}
       >

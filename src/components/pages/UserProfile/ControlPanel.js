@@ -17,7 +17,7 @@ export default class ControlPanel extends PureComponent {
       onExpand: PropTypes.func.isRequired,
       onEdit: PropTypes.func.isRequired,
       onCancel: PropTypes.func.isRequired,
-      onSaveSettings: PropTypes.func.isRequired,
+      onSaveSettings: PropTypes.func,
       editedPanel: PropTypes.object,
     };
 

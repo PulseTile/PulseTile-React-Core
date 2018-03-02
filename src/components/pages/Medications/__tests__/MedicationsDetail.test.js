@@ -137,6 +137,13 @@ describe('Component <MedicationsDetail />', () => {
     component.find('.btn-primary').simulate('click');
     component.find('.btn-schedule').simulate('click');
     expect(component).toMatchSnapshot();
+
+
+    component.setProps({ detail: { [valuesNames.ISIMPORT]: true } });
+    expect(component.find('.form-control-static').at(4).text()).toEqual('');
+    expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
+    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.ISIMPORT);
+    expect(component.find('Switch')).toHaveLength(1);
   });
 
   it('should renders correctly with different state of props', () => {

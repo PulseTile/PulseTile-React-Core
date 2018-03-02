@@ -70,6 +70,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders correctly when
           <Field
             component={[Function]}
             label="NHS Choices Web Page URL"
+            name="nhsURL"
             placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
             props={
               Object {
@@ -226,6 +227,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
           <Field
             component={[Function]}
             label="NHS Choices Web Page URL"
+            name="nhsURL"
             placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
             props={
               Object {
@@ -382,6 +384,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
           <Field
             component={[Function]}
             label="NHS Choices Web Page URL"
+            name="nhsURL"
             placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
             props={
               Object {

@@ -7,7 +7,6 @@ import Switch from '../../../form-fields/Switch';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
-
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
 
@@ -76,8 +75,11 @@ export default class AllergiesDetail extends PureComponent {
                           <label className="control-label">{valuesLabels.ISIMPORT}</label>
                           <div className="input-holder">
                             <Switch
-                              id="isImport" name="isImport" type="checkbox"
-                              value={true} chacked={true}
+                              id="isImport"
+                              name="isImport"
+                              type="checkbox"
+                              value
+                              chacked
                               disabled
                             />
                           </div>

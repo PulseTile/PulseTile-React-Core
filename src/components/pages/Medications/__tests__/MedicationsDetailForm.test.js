@@ -79,6 +79,28 @@ describe('Component <MedicationsDetailForm />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('should renders with props correctly with is import', () => {
+    const component = shallow(
+      <MedicationsDetailForm
+        store={store}
+        isSubmit
+        detail={{
+          dateCreated: 1507020019000,
+          isImport: true,
+        }}
+      />).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(8);
+
+    expect(component.find('Field').at(5).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(5).props().id).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(5).props().props.isSubmit).toEqual(true);
+    expect(component.find('Field').at(5).props().props.disabled).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
+
   it('should renders correctly when form is submitted', () => {
     const component = shallow(
       <MedicationsDetailForm

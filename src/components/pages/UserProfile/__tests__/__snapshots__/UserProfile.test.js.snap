@@ -5,105 +5,119 @@ exports[`Component <UserProfile /> should renders correctly when theme is Purple
   className="page-wrapper"
 >
   <div
-    className="panel-group accordion"
+    className="section"
   >
-    <ApplicationPreferencesPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      formState={Object {}}
-      isSaveButton={true}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onSaveSettings={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      patientsInfo={
-        Object {
-          "browserTitle": "PulseTile",
-          "logoB64": "",
-          "themeColor": "purple",
-          "title": "ripple",
-        }
-      }
-      theme={
-        Object {
-          "baseColor": "#461a5a",
-          "name": "Purple Theme",
-        }
-      }
-    />
-    <PersonalInformationPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      user={
-        Object {
-          "email": "bob.smith@gmail.com",
-          "family_name": "Smith",
-          "given_name": "Bob",
-          "role": "IDCR",
-          "roles": Array [
-            "IDCR",
-          ],
-          "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
-          "tenant": null,
-        }
-      }
-    />
-    <ContactInformationPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      user={
-        Object {
-          "email": "bob.smith@gmail.com",
-          "family_name": "Smith",
-          "given_name": "Bob",
-          "role": "IDCR",
-          "roles": Array [
-            "IDCR",
-          ],
-          "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
-          "tenant": null,
-        }
-      }
-    />
-    <ChangeHistoryPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={false}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-    />
-    <FeedsPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={false}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-    />
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="section-main"
+        >
+          <div
+            className="panel-group accordion"
+          >
+            <ApplicationPreferencesPanel
+              editedPanel={Object {}}
+              formState={Object {}}
+              isSaveButton={true}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onSaveSettings={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              patientsInfo={
+                Object {
+                  "browserTitle": "PulseTile",
+                  "logoB64": "",
+                  "themeColor": "purple",
+                  "title": "ripple",
+                }
+              }
+              theme={
+                Object {
+                  "baseColor": "#461a5a",
+                  "name": "Purple Theme",
+                }
+              }
+            />
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              user={
+                Object {
+                  "email": "bob.smith@gmail.com",
+                  "family_name": "Smith",
+                  "given_name": "Bob",
+                  "role": "IDCR",
+                  "roles": Array [
+                    "IDCR",
+                  ],
+                  "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                  "tenant": null,
+                }
+              }
+            />
+            <ContactInformationPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              user={
+                Object {
+                  "email": "bob.smith@gmail.com",
+                  "family_name": "Smith",
+                  "given_name": "Bob",
+                  "role": "IDCR",
+                  "roles": Array [
+                    "IDCR",
+                  ],
+                  "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                  "tenant": null,
+                }
+              }
+            />
+            <ChangeHistoryPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={false}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+            />
+            <FeedsPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={false}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+            />
+          </div>
+        </div>
+      </Col>
+    </Row>
   </div>
 </section>
 `;
@@ -113,94 +127,109 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
   className="page-wrapper"
 >
   <div
-    className="panel-group accordion"
+    className="section"
   >
-    <ApplicationPreferencesPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      formState={Object {}}
-      isSaveButton={true}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onSaveSettings={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      patientsInfo={
-        Object {
-          "browserTitle": "PulseTile",
-          "logoB64": "data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==",
-          "themeColor": "green",
-          "title": "ripple",
-        }
-      }
-      theme={
-        Object {
-          "baseColor": "#0D672F",
-          "name": "Green Theme",
-        }
-      }
-    />
-    <PersonalInformationPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      user={
-        Object {
-          "email": "bob.smith@gmail.com",
-          "family_name": "Smith",
-          "given_name": "Bob",
-          "role": "IDCR",
-          "roles": Array [
-            "IDCR",
-          ],
-          "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
-          "tenant": null,
-        }
-      }
-    />
-    <ContactInformationPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={true}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-      user={
-        Object {
-          "email": "bob.smith@gmail.com",
-          "family_name": "Smith",
-          "given_name": "Bob",
-          "role": "IDCR",
-          "roles": Array [
-            "IDCR",
-          ],
-          "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
-          "tenant": null,
-        }
-      }
-    />
-    <ChangeHistoryPanel
-      editedPanel={Object {}}
-      expandedPanel="applicationPreferences"
-      isSaveButton={false}
-      isShowControlPanel={false}
-      onCancel={[Function]}
-      onEdit={[Function]}
-      onExpand={[Function]}
-      onShow={[Function]}
-      openedPanel="applicationPreferences"
-    />
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="section-main"
+        >
+          <div
+            className="panel-group accordion"
+          >
+            <ApplicationPreferencesPanel
+              editedPanel={Object {}}
+              formState={Object {}}
+              isSaveButton={true}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onSaveSettings={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              patientsInfo={
+                Object {
+                  "browserTitle": "PulseTile",
+                  "logoB64": "data:image/gif;base64,R0lGODlhDwAPAKECAAAAzMzM/////wAAACwAAAAADwAPAAACIISPeQHsrZ5ModrLlN48CXF8m2iQ3YmmKqVlRtW4MLwWACH+H09wdGltaXplZCBieSBVbGVhZCBTbWFydFNhdmVyIQAAOw==",
+                  "themeColor": "green",
+                  "title": "ripple",
+                }
+              }
+              theme={
+                Object {
+                  "baseColor": "#0D672F",
+                  "name": "Green Theme",
+                }
+              }
+            />
+            <PersonalInformationPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              user={
+                Object {
+                  "email": "bob.smith@gmail.com",
+                  "family_name": "Smith",
+                  "given_name": "Bob",
+                  "role": "IDCR",
+                  "roles": Array [
+                    "IDCR",
+                  ],
+                  "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                  "tenant": null,
+                }
+              }
+            />
+            <ContactInformationPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={true}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+              user={
+                Object {
+                  "email": "bob.smith@gmail.com",
+                  "family_name": "Smith",
+                  "given_name": "Bob",
+                  "role": "IDCR",
+                  "roles": Array [
+                    "IDCR",
+                  ],
+                  "sub": "28AD8576-1948-4C84-8B5E-55FB7EE027CE",
+                  "tenant": null,
+                }
+              }
+            />
+            <ChangeHistoryPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={false}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+            />
+          </div>
+        </div>
+      </Col>
+    </Row>
   </div>
 </section>
 `;

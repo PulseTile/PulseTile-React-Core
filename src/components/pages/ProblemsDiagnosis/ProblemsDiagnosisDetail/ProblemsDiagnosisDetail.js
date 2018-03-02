@@ -4,6 +4,7 @@ import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import ProblemsDiagnosisDetailForm from './ProblemsDiagnosisDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
+import Switch from '../../../form-fields/Switch';
 
 const DIAGNOSES_PANEL = 'diagnosesPanel';
 
@@ -82,8 +83,11 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
                           <label className="control-label">{valuesLabels.IS_IMPORT}</label>
                           <div className="input-holder">
                             <Switch
-                              id="isImport" name="isImport" type="checkbox"
-                              value={true} chacked={true}
+                              id="isImport"
+                              name="isImport"
+                              type="checkbox"
+                              value
+                              chacked
                               disabled
                             />
                           </div>
