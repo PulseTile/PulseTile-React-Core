@@ -26,9 +26,14 @@ import { handleErrors } from './ducks/handle-errors.duck';
 
 const wrapEpic = epic => (...args) =>
   epic(...args)
-    .map((params) => {
-      // console.log(params);
-      return params
+    .map((response) => {
+      const token = document.cookie.split('JSESSIONID=')[1];
+      const payloadToken = response.payload.data.token;
+      if (payloadToken !== undefined && payloadToken !== token) {
+        console.log('replace the token');
+        document.cookie = `JSESSIONID=${payloadToken}`
+      }
+      return response
     })
     .catch(error => Observable.of(handleErrors(error)));
 
