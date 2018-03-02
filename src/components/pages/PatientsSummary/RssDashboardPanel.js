@@ -32,8 +32,8 @@ export default class RssDashboardPanel extends PureComponent {
       actions['fetchGetRssFeedsRequest']({ rssFeedName, rssFeedUrl })
     }
 
-    const indexItemForPreview = getRandomInt(0, 3);
-    this.setState({indexItemForPreview});
+    // const indexItemForPreview = getRandomInt(0, 3);
+    // this.setState({indexItemForPreview});
   }
 
   getRssItems = rssFeeds => {
