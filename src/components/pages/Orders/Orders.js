@@ -140,28 +140,17 @@ export default class Orders extends PureComponent {
   formValuesToString = (formValues, formName) => {
     const { userId } = this.props;
     const { chosenOrders } = this.state;
-    const myArray = [
-      {
-        'code': 'order1',
-        'name': 'Xray Chest X-ray',
-      },
-      {
-        'code': 'order2',
-        'name': 'Radiology-CT Head',
-      },
-    ];
+    const formatedChosenOrders = chosenOrders.map((item) => {
+      return {
+        code: item.code,
+        name: item.text,
+      }
+    });
 
-    const sendData = [
-      ...myArray,
-    ];
-
-    sendData.push(userId);
-    // const sendData = {
-    //   userId,
-    //   ...chosenOrders,
-    // };
-
-    return sendData;
+    return {
+      data: formatedChosenOrders,
+      userId,
+    };
   };
 
   hideCreateForm = () => {
