@@ -22,14 +22,11 @@ export const redirectAccordingRole = (user) => {
       if (locationHrefBeforeLogin &&
          (locationHrefBeforeLogin.indexOf(user.nhsNumber) > -1 ||
           locationHrefBeforeLogin.indexOf('profile') > -1)) {
-
         location.href = locationHrefBeforeLogin;
-
       } else if ((location.href.indexOf(user.nhsNumber) === -1) &&
                 (location.href.indexOf('profile') === -1)) {
-
         if (locationHrefBeforeLogin) {
-          let path = locationHrefBeforeLogin.split('#/')[1];
+          const path = locationHrefBeforeLogin.split('#/')[1];
           if (path !== '' ||
             path !== 'charts') {
             localStorage.setItem('isShowDisclaimerOfRedirect', 'true');
@@ -49,5 +46,7 @@ export const redirectAccordingRole = (user) => {
     }
   }
 
-  window.document.getElementsByTagName('body')[0].classList.remove('loading');
+  setTimeout(() => {
+    window.document.getElementsByTagName('body')[0].classList.remove('loading');
+  }, 1000)
 };
