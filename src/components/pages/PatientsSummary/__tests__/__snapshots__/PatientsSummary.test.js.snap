@@ -59,7 +59,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="0"
-              navigateTo={[Function]}
               srcPrevirew="problems.jpg"
               state="diagnoses"
               title="Problems / Diagnosis"
@@ -79,7 +78,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="1"
-              navigateTo={[Function]}
               srcPrevirew="contacts.jpg"
               state="contacts"
               title="Contacts"
@@ -99,7 +97,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="2"
-              navigateTo={[Function]}
               srcPrevirew="allergies.jpg"
               state="allergies"
               title="Allergies"
@@ -119,30 +116,9 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="3"
-              navigateTo={[Function]}
               srcPrevirew="medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              navigateTo={[Function]}
-              srcPrevirew="vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
             />
           </div>
         </div>
@@ -225,7 +201,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="0"
-              navigateTo={[Function]}
               srcPrevirew="problems.jpg"
               state="diagnoses"
               title="Problems / Diagnosis"
@@ -245,7 +220,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="1"
-              navigateTo={[Function]}
               srcPrevirew="contacts.jpg"
               state="contacts"
               title="Contacts"
@@ -265,7 +239,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="2"
-              navigateTo={[Function]}
               srcPrevirew="allergies.jpg"
               state="allergies"
               title="Allergies"
@@ -285,30 +258,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="3"
-              navigateTo={[Function]}
               srcPrevirew="medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={false}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              navigateTo={[Function]}
-              srcPrevirew="vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
             />
           </div>
         </div>

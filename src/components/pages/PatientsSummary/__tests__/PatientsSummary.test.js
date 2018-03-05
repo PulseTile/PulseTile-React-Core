@@ -80,7 +80,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive();
 
     expect(component).toMatchSnapshot();
 
@@ -90,7 +90,7 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('.page-wrapper')).toHaveLength(1);
     expect(component.find('PatientsSummaryListHeader')).toHaveLength(1);
     expect(component.find('.dashboard')).toHaveLength(1);
-    expect(component.find('SimpleDashboardPanel')).toHaveLength(5);
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(4);
     expect(component.find('ConfirmationModal')).toHaveLength(0);
 
 
@@ -117,7 +117,7 @@ describe('Component <PatientsSummary />', () => {
     themeConfigs.isLeedsPHRTheme = true;
     themeConfigs.patientsSummaryHasPreviewSettings = true;
     component.setState({ selectedCategory: { 'BBC Health': true } });
-    expect(component.find('SimpleDashboardPanel')).toHaveLength(1);
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(0);
 
     component.instance().handleGoToState('http://www.bbc.co.uk/news/health');
     component.instance().handleGoToState('http://www.bbc.co.uk/news/health', 'http://testUrl1');
@@ -132,7 +132,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive();
+      />, { context }).dive().dive();
 
     expect(component).toMatchSnapshot();
 

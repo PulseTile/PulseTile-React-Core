@@ -10,16 +10,17 @@ const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
 
 export default class UserPanel extends PureComponent {
-  state = {
-    openedPanel: '',
-  };
 
   static defaultProps = {
     isSearch: true,
-    isQuestions: true,
+    isQuestions: false,
     isNotifications: true,
     isUserPanel: true,
-    addUserPanels: []
+    addUserPanels: [],
+  };
+
+  state = {
+    openedPanel: '',
   };
 
   /* istanbul ignore next */
@@ -49,7 +50,7 @@ export default class UserPanel extends PureComponent {
   };
 
   closePanel = () => {
-    this.setState({openedPanel: ''});
+    this.setState({ openedPanel: '' });
   };
 
   getUserPanelsItems = (addUserPanels) => {

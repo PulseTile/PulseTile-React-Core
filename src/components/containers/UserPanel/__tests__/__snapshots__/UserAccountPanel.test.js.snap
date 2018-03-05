@@ -29,7 +29,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       Smith
     </div>
     <div
-      class="user-profile-info__descr"
+      className="user-profile-info__descr"
     >
       <div
         className="user-profile-info__item role"
@@ -58,12 +58,16 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       <div
         className="user-profile-info__item version-back"
       >
-        About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
+        About Showcase Stack; PulseTile version 
+        0.0.1
+        /QEWD_Ripple version 
+        2.32.1
       </div>
       <div
         className="user-profile-info__item version-front"
       >
-        React
+        React version 
+        15.6.2
       </div>
     </div>
     <PTButton
@@ -116,7 +120,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
       Smith
     </div>
     <div
-      class="user-profile-info__descr"
+      className="user-profile-info__descr"
     >
       <div
         className="user-profile-info__item role"
@@ -145,12 +149,16 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
       <div
         className="user-profile-info__item version-back"
       >
-        About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
+        About Showcase Stack; PulseTile version 
+        0.0.1
+        /QEWD_Ripple version 
+        2.32.1
       </div>
       <div
         className="user-profile-info__item version-front"
       >
-        React
+        React version 
+        15.6.2
       </div>
     </div>
     <PTButton

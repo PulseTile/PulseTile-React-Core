@@ -1,15 +1,13 @@
 import React, {PureComponent} from 'react';
-import _ from "lodash/fp";
+import _ from 'lodash/fp';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import { rssFeedsSelector } from '../../../selectors/rss-feeds';
-
 import { fetchGetRssFeedsRequest } from '../../../ducks/fetch-get-rss-feeds.duck';
 import { patientsSummaryLoading } from './patients-summary.config';
-import { getRandomInt } from '../../../utils/rss-helpers';
 import imgRss from '../../../assets/images/patients-summary/rss.jpg';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchGetRssFeedsRequest }, dispatch) });
@@ -23,7 +21,7 @@ export default class RssDashboardPanel extends PureComponent {
   };
 
   state = {
-    indexItemForPreview: 0
+    indexItemForPreview: 0,
   };
 
   componentDidMount() {
@@ -41,7 +39,7 @@ export default class RssDashboardPanel extends PureComponent {
     const rssList = rssFeeds[rssFeedName];
 
     if (!rssList) {
-      return [{text: patientsSummaryLoading}, '', '', ''];
+      return [{ text: patientsSummaryLoading }, '', '', ''];
     }
 
     return _.flow(

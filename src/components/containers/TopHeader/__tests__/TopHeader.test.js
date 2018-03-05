@@ -21,6 +21,11 @@ const storeResource = {
     themeColor: 'green',
     title: 'PulseTile',
   },
+  initialiseData: {
+    token: 'd4281221-3950-4019-b207-18e49086dab8',
+    mode: 'demo',
+    version: '2.32.1',
+  },
 };
 const context = {
   router: {

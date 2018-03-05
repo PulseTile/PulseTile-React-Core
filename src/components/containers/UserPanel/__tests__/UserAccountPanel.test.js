@@ -27,6 +27,11 @@ const storeResource = {
     themeColor: 'green',
     title: 'PulseTile',
   },
+  initialiseData: {
+    token: 'd4281221-3950-4019-b207-18e49086dab8',
+    mode: 'demo',
+    version: '2.32.1',
+  },
 };
 const context = {
   router: {
@@ -52,7 +57,7 @@ describe('Component <UserAccountPanel />', () => {
       <UserAccountPanel
         store={storeProfilePage}
         onClick={onClick}
-      />, { context }).dive().dive();
+      />, { context }).dive().dive().dive();
     expect(component).toMatchSnapshot();
     component.setContext(context);
     component.find('.user-profile-image').simulate('click');
@@ -65,7 +70,7 @@ describe('Component <UserAccountPanel />', () => {
       <UserAccountPanel
         store={storeProfilePage}
         onClick={onClick}
-      />, { context }).dive().dive();
+      />, { context }).dive().dive().dive();
     component.setContext(context);
     expect(component.find('Connect(UserAccountPanelSettings)')).toHaveLength(1);
     expect(component).toMatchSnapshot();

@@ -33,7 +33,7 @@ describe('Component <PatientsSummaryPanel />', () => {
     expect(component.find('.heading')).toHaveLength(1);
     expect(component.find('.heading').text()).toEqual('SHOW');
     expect(component.find('.form-group')).toHaveLength(1);
-    expect(component.find('PTCustomInput')).toHaveLength(5);
+    expect(component.find('PTCustomInput')).toHaveLength(4);
 
     component.instance().toggleCheckbox('dashboard-name');
     component.setState({ selected: {
@@ -48,7 +48,7 @@ describe('Component <PatientsSummaryPanel />', () => {
       allergies: true,
       medications: false,
     } });
-    expect(component.find('PTCustomInput')).toHaveLength(5);
+    expect(component.find('PTCustomInput')).toHaveLength(4);
 
     component.instance().toggleRadio('test');
 

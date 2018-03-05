@@ -7,7 +7,7 @@ import configureStore from 'redux-mock-store';
 
 import UserPanel from '../UserPanel';
 
-Enzyme.configure({ adapter: new Adapter() })
+Enzyme.configure({ adapter: new Adapter() });
 
 const mockStore = configureStore();
 const store = mockStore({
@@ -22,6 +22,11 @@ const store = mockStore({
     roles: [
       'IDCR',
     ],
+  },
+  initialiseData: {
+    token: 'd4281221-3950-4019-b207-18e49086dab8',
+    mode: 'demo',
+    version: '2.32.1',
   },
 });
 const context = {};
@@ -67,6 +72,8 @@ describe('Component <UserPanel />', () => {
 
     component.instance().closePanel();
     expect(component.state().openedPanel).toEqual('');
-    component.setProps({ isSearch: false });
+    component.setProps({ isSearch: false, isQuestions: true });
+
+    expect(component).toMatchSnapshot();
   });
 });
