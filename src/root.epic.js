@@ -1,5 +1,6 @@
 import { combineEpics } from 'redux-observable';
 import { Observable } from 'rxjs';
+import _ from 'lodash/fp';
 
 import { pluginsEpicConfig } from './plugins.config';
 import { initialiseEpic } from './ducks/initialise-app.duck';
@@ -27,11 +28,14 @@ import { handleErrors } from './ducks/handle-errors.duck';
 const wrapEpic = epic => (...args) =>
   epic(...args)
     .map((response) => {
-      const token = document.cookie.split('JSESSIONID=')[1];
-      const payloadToken = response.payload.data.token;
-      if (payloadToken !== undefined && payloadToken !== token) {
-        console.log('replace the token');
-        document.cookie = `JSESSIONID=${payloadToken}`
+      const payloadToken = _.get(response, 'payload.data.token');
+
+      if (payloadToken) {
+        const token = document.cookie.split('JSESSIONID=')[1];
+        if (payloadToken !== token) {
+          console.log('replace the token');
+          document.cookie = `JSESSIONID=${payloadToken}`
+        }
       }
       return response
     })
