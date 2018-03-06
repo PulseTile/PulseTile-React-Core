@@ -1,0 +1,1730 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Proms /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="testSourceID1"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PromsDetail
+          changeScoreStatus={[Function]}
+          currentPanel="promsDetail"
+          detail={
+            Object {
+              "author": "DR Mary Jones",
+              "dateCreated": 1482170593395,
+              "name": "test Proms 1",
+              "records": Array [
+                Object {
+                  "date": 1482190593395,
+                  "name": "test records",
+                  "source": "test records source",
+                  "sourceId": "test records sourceId",
+                  "type": "test records type",
+                  "typeTitle": "test records typeTitle",
+                },
+              ],
+              "score": 9,
+              "source": "openehr",
+              "sourceId": "testSourceID1",
+              "specific_Q1": "No Pain",
+              "specific_Q2": "No limitations",
+              "specific_Q3": "Around the house",
+              "specific_Q4": "No difficulty",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="promsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promsCreate"
+          status=""
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with promPanel and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="testSourceID1"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PromsDetail
+          changeScoreStatus={[Function]}
+          currentPanel="promsDetail"
+          detail={
+            Object {
+              "author": "DR Mary Jones",
+              "dateCreated": 1482170593395,
+              "name": "test Proms 1",
+              "records": Array [
+                Object {
+                  "date": 1482190593395,
+                  "name": "test records",
+                  "source": "test records source",
+                  "sourceId": "test records sourceId",
+                  "type": "test records type",
+                  "typeTitle": "test records typeTitle",
+                },
+              ],
+              "score": 9,
+              "source": "openehr",
+              "sourceId": "testSourceID1",
+              "specific_Q1": "No Pain",
+              "specific_Q2": "No limitations",
+              "specific_Q3": "Around the house",
+              "specific_Q4": "No difficulty",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="promsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promPanel"
+          status=""
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with promPanel and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PromsDetail
+          changeScoreStatus={[Function]}
+          currentPanel="promsDetail"
+          detail={
+            Object {
+              "author": "DR Mary Jones",
+              "dateCreated": 1482170593395,
+              "name": "test Proms 1",
+              "records": Array [
+                Object {
+                  "date": 1482190593395,
+                  "name": "test records",
+                  "source": "test records source",
+                  "sourceId": "test records sourceId",
+                  "type": "test records type",
+                  "typeTitle": "test records typeTitle",
+                },
+              ],
+              "score": 9,
+              "source": "openehr",
+              "sourceId": "testSourceID1",
+              "specific_Q1": "No Pain",
+              "specific_Q2": "No limitations",
+              "specific_Q3": "Around the house",
+              "specific_Q4": "No difficulty",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="promPanel"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="promsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promPanel"
+          status=""
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with promPanel and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            id="testSourceID1"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PromsDetail
+          changeScoreStatus={[Function]}
+          currentPanel="promsDetail"
+          detail={
+            Object {
+              "author": "DR Mary Jones",
+              "dateCreated": 1482170593395,
+              "name": "test Proms 1",
+              "records": Array [
+                Object {
+                  "date": 1482190593395,
+                  "name": "test records",
+                  "source": "test records source",
+                  "sourceId": "test records sourceId",
+                  "type": "test records type",
+                  "typeTitle": "test records typeTitle",
+                },
+              ],
+              "score": 9,
+              "source": "openehr",
+              "sourceId": "testSourceID1",
+              "specific_Q1": "No Pain",
+              "specific_Q2": "No limitations",
+              "specific_Q3": "Around the house",
+              "specific_Q4": "No difficulty",
+            }
+          }
+          editedPanel={
+            Object {
+              "promPanel": false,
+            }
+          }
+          expandedPanel="all"
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          name="promsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promPanel"
+          status="danger"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with promsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              changeScoreStatus={[Function]}
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+              status=""
+            />
+          }
+          currentPanel="promsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="promsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promsCreate"
+          title="Create PROM"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Proms /> should renders correctly with promsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PromsListHeader
+            activeView="tableNews"
+            currentPanel="promsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="promsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="PROMs"
+            toggleViewVisibility={[Function]}
+          />
+          <PromsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="name"
+            emptyDataMessage="No proms"
+            filteredData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "name",
+                  "title": "Name of PROM",
+                  "width": "25%",
+                },
+                Object {
+                  "key": "score",
+                  "title": "Score",
+                  "width": "28%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "28%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "sourceId",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "dateCreated": 1482170593395,
+                  "dateCreatedConvert": "19-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "danger",
+                    },
+                  ],
+                  "name": "test Proms 1",
+                  "score": 9,
+                  "source": "openehr",
+                  "sourceId": "testSourceID1",
+                },
+                Object {
+                  "dateCreated": 1482190593395,
+                  "dateCreatedConvert": "20-Dec-2016",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "success",
+                    },
+                  ],
+                  "name": "test Proms 2",
+                  "score": 3,
+                  "source": "openehr",
+                  "sourceId": "testSourceID2",
+                },
+                Object {
+                  "dateCreated": 1492170593395,
+                  "dateCreatedConvert": "14-Apr-2017",
+                  "highlighters": Array [
+                    Object {
+                      "name": "score",
+                      "status": "warning",
+                    },
+                  ],
+                  "name": "test Proms 3",
+                  "score": 6,
+                  "source": "openehr",
+                  "sourceId": "testSourceID3",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="proms"
+            totalEntriesAmount={3}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              changeScoreStatus={[Function]}
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+              status=""
+            />
+          }
+          currentPanel="promsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="promsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="promsCreate"
+          title="Create PROM"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;

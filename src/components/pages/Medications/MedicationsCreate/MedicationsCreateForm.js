@@ -52,7 +52,7 @@ export default class MedicationsCreateForm extends PureComponent {
 
   render() {
     const { isSubmit } = this.props;
-    const {isImport} = this.state;
+    const { isImport } = this.state;
 
     const date = new Date();
     const dateCreated = getDDMMMYYYY(date.getTime());
@@ -86,7 +86,7 @@ export default class MedicationsCreateForm extends PureComponent {
                   </div>
                   <div className="col-xs-12 col-md-6">
                     <div className="form-group">
-                      <label className="control-label"></label>
+                      <label className="control-label" />
                       <div className="input-holder">
                         <Field
                           label="Variable"

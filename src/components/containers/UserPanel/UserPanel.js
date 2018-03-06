@@ -10,16 +10,17 @@ const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
 
 export default class UserPanel extends PureComponent {
-  state = {
-    openedPanel: '',
-  };
 
   static defaultProps = {
     isSearch: true,
-    isQuestions: true,
+    isQuestions: false,
     isNotifications: true,
     isUserPanel: true,
-    addUserPanels: []
+    addUserPanels: [],
+  };
+
+  state = {
+    openedPanel: '',
   };
 
   /* istanbul ignore next */
@@ -46,6 +47,10 @@ export default class UserPanel extends PureComponent {
       }
       return ({ openedPanel: '' })
     })
+  };
+
+  closePanel = () => {
+    this.setState({ openedPanel: '' });
   };
 
   getUserPanelsItems = (addUserPanels) => {
@@ -89,7 +94,7 @@ export default class UserPanel extends PureComponent {
           </PTButton>
         </UserPanelItem> : null}
         {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
-          <UserAccountPanel onClick={this.handleMouseDown} />
+          <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
           <PTButton className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>

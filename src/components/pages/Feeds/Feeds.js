@@ -182,7 +182,7 @@ export default class Feeds extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { feedsDetail } = this.props;
+    // const { feedsDetail } = this.props;
     const sendData = {};
 
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
@@ -267,7 +267,7 @@ export default class Feeds extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle=""
+                panelTitle="List"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={FEEDS_MAIN}

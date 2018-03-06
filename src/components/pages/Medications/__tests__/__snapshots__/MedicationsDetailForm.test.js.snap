@@ -518,3 +518,188 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
   </form>
 </div>
 `;
+
+exports[`Component <MedicationsDetailForm /> should renders with props correctly with is import 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="medicationsDetailForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <Field
+                component={[Function]}
+                id="doseAmount"
+                label="Dose Amount"
+                name="doseAmount"
+                props={
+                  Object {
+                    "isSubmit": true,
+                  }
+                }
+                type="text"
+              />
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                />
+                <div
+                  className="input-holder"
+                >
+                  <Field
+                    className="fcustominp-label"
+                    component={[Function]}
+                    id="doseAmountVariable"
+                    label="Variable"
+                    name="doseAmountVariable"
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            label="Dose Timing"
+            name="doseTiming"
+            props={
+              Object {
+                "className": "form-control-static",
+              }
+            }
+          />
+          <div
+            className="form-group"
+          >
+            <div
+              className="wrap-control-group"
+            >
+              <div
+                className="control-group left"
+              >
+                <button
+                  className="btn btn-primary btn-inverse"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <span
+                    className="btn-text"
+                  >
+                    Prescription
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <Field
+            component={[Function]}
+            id="doseDirections"
+            label="Dose Directions"
+            name="doseDirections"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <Field
+        component={[Function]}
+        id="originalSource"
+        label="Import URL"
+        name="originalSource"
+        props={
+          Object {
+            "disabled": true,
+            "isSubmit": true,
+          }
+        }
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

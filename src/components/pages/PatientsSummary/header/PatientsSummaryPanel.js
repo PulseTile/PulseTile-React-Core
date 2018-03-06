@@ -10,7 +10,7 @@ import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
-
+import { getNameFromUrl } from '../../../../utils/rss-helpers';
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -47,7 +47,7 @@ export default class PatientsSummaryPanel extends PureComponent {
 
     render() {
       const { selected, selectedViewOptions } = this.state;
-      const { patientsSummaryHasPreviewSettings } = this.props;
+      const { patientsSummaryHasPreviewSettings, feeds } = this.props;
 
       return (
         <div className="dropdown-menu dropdown-menu-panel dropdown-menu-summary">
@@ -70,6 +70,28 @@ export default class PatientsSummaryPanel extends PureComponent {
                 })}
               </Row>
             </div>
+            {themeConfigs.isLeedsPHRTheme ?
+              <div>
+                <div className="heading">FEEDS</div>
+                <div className="form-group">
+                  <Row>
+                    {feeds.map((item) => {
+                      const nameItem = getNameFromUrl(item.landingPageUrl);
+                      return (
+                        <Col xs={6} sm={4} key={nameItem}>
+                          <PTCustomInput
+                            type="checkbox"
+                            title={item.name}
+                            id={nameItem}
+                            name={nameItem}
+                            isChecked={selected[nameItem] || false}
+                            onChange={this.toggleCheckbox}
+                          />
+                        </Col>)
+                    })}
+                  </Row>
+                </div>
+              </div> : null }
             {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
               <div>
                 <div className="heading">VIEW OF BOARDS</div>

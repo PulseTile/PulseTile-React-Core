@@ -52,6 +52,7 @@ describe('Component <SimpleDashboardPanel />', () => {
 
     expect(component.find('.board-preview')).toHaveLength(1);
     component.find('.board-preview').simulate('click');
+    component.find('.board-list-link').at(0).simulate('click');
 
     expect(component.find('.board-list')).toHaveLength(1);
     component.find('.board-preview').simulate('click');

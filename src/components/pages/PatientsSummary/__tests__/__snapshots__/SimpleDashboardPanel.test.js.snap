@@ -46,10 +46,11 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
         <li
           className="board-list-item"
           key="__SimpleDashboardPanel__item__1"
-          onClick={[Function]}
         >
           <span
             className="board-list-link"
+            onClick={[Function]}
+            title="John Smithy"
           >
             John Smithy
           </span>
@@ -57,10 +58,11 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
         <li
           className="board-list-item"
           key="__SimpleDashboardPanel__item__2"
-          onClick={[Function]}
         >
           <span
             className="board-list-link"
+            onClick={[Function]}
+            title="Andrew Finch"
           >
             Andrew Finch
           </span>

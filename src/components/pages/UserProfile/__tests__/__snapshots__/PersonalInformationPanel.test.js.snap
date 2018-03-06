@@ -1,253 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <ControlPanel /> should renders with all props correctly 1`] = `
-<div
-  className="panel panel-secondary open"
+exports[`Component <PersonalInformationPanel /> should renders with all props correctly 1`] = `
+<ControlPanel
+  editedPanel={Object {}}
+  isOpen={true}
+  isSaveButton={false}
+  isShowControlPanel={true}
+  name="personalInformation"
+  onCancel={[Function]}
+  onEdit={[Function]}
+  onExpand={[Function]}
+  onShow={[Function]}
+  title="Personal Information"
 >
-  <div
-    className="panel-heading"
-  >
+  <div>
     <div
-      className="control-group right"
-    >
-      <PTButton
-        className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-expand"
-        />
-        <i
-          className="btn-icon fa fa-compress"
-        />
-      </PTButton>
-      <PTButton
-        className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-chevron-up"
-        />
-      </PTButton>
-    </div>
-    <h3
-      className="panel-title"
-    >
-      Test tile
-    </h3>
-  </div>
-  <div
-    className="panel-body"
-  />
-</div>
-`;
-
-exports[`Component <ControlPanel /> should renders with all props correctly 2`] = `
-<div
-  className="panel panel-secondary open"
->
-  <div
-    className="panel-heading"
-  >
-    <div
-      className="control-group right"
-    >
-      <PTButton
-        className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-expand"
-        />
-        <i
-          className="btn-icon fa fa-compress"
-        />
-      </PTButton>
-      <PTButton
-        className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-chevron-up"
-        />
-      </PTButton>
-    </div>
-    <h3
-      className="panel-title"
-    >
-      Test tile
-    </h3>
-  </div>
-  <div
-    className="panel-body"
-  >
-    <div
-      className="panel-control"
+      className="panel-body-inner"
     >
       <div
-        className="wrap-control-group"
+        className="form"
       >
         <div
-          className="control-group right"
+          className="form-group-wrapper"
         >
-          <PTButton
-            className="btn btn-success btn-inverse btn-edit"
-            onClick={[Function]}
+          <Row
+            bsClass="row"
+            componentClass="div"
           >
-            <i
-              className="fa fa-edit"
-            />
-             Edit
-          </PTButton>
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Row
+                bsClass="row"
+                componentClass="div"
+              >
+                <Col
+                  bsClass="col"
+                  componentClass="div"
+                  md={11}
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      First Name
+                    </label>
+                    <div
+                      className="form-control-static"
+                    />
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Last Name
+                    </label>
+                    <div
+                      className="form-control-static"
+                    />
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      NHS No
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      99999999
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Col>
+            <Col
+              bsClass="col"
+              componentClass="div"
+              md={6}
+              xs={12}
+            >
+              <Row
+                bsClass="row"
+                componentClass="div"
+              >
+                <div
+                  className="col-md-11 col-md-offset-1"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Date of Birth
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      01-Jan-2018
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Gender
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      Female
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Doctor
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      Dr Emma Huston
+                    </div>
+                  </div>
+                </div>
+              </Row>
+            </Col>
+          </Row>
         </div>
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`Component <ControlPanel /> should renders with all props correctly 3`] = `
-<div
-  className="panel panel-secondary open"
->
-  <div
-    className="panel-heading"
-  >
-    <div
-      className="control-group right"
-    >
-      <PTButton
-        className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-expand"
-        />
-        <i
-          className="btn-icon fa fa-compress"
-        />
-      </PTButton>
-      <PTButton
-        className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-chevron-up"
-        />
-      </PTButton>
-    </div>
-    <h3
-      className="panel-title"
-    >
-      Test tile
-    </h3>
-  </div>
-  <div
-    className="panel-body"
-  >
-    <div
-      className="panel-control"
-    >
-      <div
-        className="wrap-control-group"
-      >
-        <div
-          className="control-group right"
-        >
-          <PTButton
-            className="btn btn-danger"
-            onClick={[Function]}
-          >
-            <i
-              className="fa fa-ban"
-            />
-             Cancel
-          </PTButton>
-          <PTButton
-            className="btn btn-success"
-            onClick={[Function]}
-          >
-            <i
-              className="fa fa-check"
-            />
-             Complete
-          </PTButton>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Component <ControlPanel /> should renders with all props correctly 4`] = `
-<div
-  className="panel panel-secondary open"
->
-  <div
-    className="panel-heading"
-  >
-    <div
-      className="control-group right"
-    >
-      <PTButton
-        className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-expand"
-        />
-        <i
-          className="btn-icon fa fa-compress"
-        />
-      </PTButton>
-      <PTButton
-        className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
-        onClick={[Function]}
-      >
-        <i
-          className="btn-icon fa fa-chevron-up"
-        />
-      </PTButton>
-    </div>
-    <h3
-      className="panel-title"
-    >
-      Test tile
-    </h3>
-  </div>
-  <div
-    className="panel-body"
-  >
-    <div
-      className="panel-control"
-    >
-      <div
-        className="wrap-control-group"
-      >
-        <div
-          className="control-group right"
-        >
-          <PTButton
-            className="btn btn-danger"
-            onClick={[Function]}
-          >
-            <i
-              className="fa fa-ban"
-            />
-             Cancel
-          </PTButton>
-          <PTButton
-            className="btn btn-success"
-            onClick={[Function]}
-          >
-            <i
-              className="fa fa-check"
-            />
-             Complete
-          </PTButton>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</ControlPanel>
 `;

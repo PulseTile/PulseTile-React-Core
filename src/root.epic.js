@@ -1,5 +1,6 @@
 import { combineEpics } from 'redux-observable';
 import { Observable } from 'rxjs';
+import _ from 'lodash/fp';
 
 import { pluginsEpicConfig } from './plugins.config';
 import { initialiseEpic } from './ducks/initialise-app.duck';
@@ -20,10 +21,27 @@ import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
 import { setLogoEpic } from './ducks/set-logo.duck';
 import { setTitleEpic } from './ducks/set-title.duck';
+import { fetchGetRssFeedsEpic } from './ducks/fetch-get-rss-feeds.duck';
 
 import { handleErrors } from './ducks/handle-errors.duck';
 
-const allEpics = combineEpics(
+const wrapEpic = epic => (...args) =>
+  epic(...args)
+    .map((response) => {
+      const payloadToken = _.get(response, 'payload.data.token');
+
+      if (payloadToken) {
+        const token = document.cookie.split('JSESSIONID=')[1];
+        if (payloadToken !== token) {
+          console.log('replace the token');
+          document.cookie = `JSESSIONID=${payloadToken}`
+        }
+      }
+      return response
+    })
+    .catch(error => Observable.of(handleErrors(error)));
+
+const rootEpic = combineEpics(...[
   initialiseEpic,
   loginEpic,
   loginURLEpic,
@@ -43,14 +61,8 @@ const allEpics = combineEpics(
   setThemeEpic,
   setLogoEpic,
   setTitleEpic,
+  fetchGetRssFeedsEpic,
   ...pluginsEpicConfig,
-);
-
-const rootEpic = (action$, store) =>
-  combineEpics(allEpics)(action$, store)
-    .map((params) => {
-      return params
-    })
-    // .catch(error => Observable.of(handleErrors(error)));
+].map(wrapEpic));
 
 export default rootEpic;

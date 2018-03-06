@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
 import UserAccountPanel from '../UserAccountPanel';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() })
 
@@ -26,6 +27,11 @@ const storeResource = {
     themeColor: 'green',
     title: 'PulseTile',
   },
+  initialiseData: {
+    token: 'd4281221-3950-4019-b207-18e49086dab8',
+    mode: 'demo',
+    version: '2.32.1',
+  },
 };
 const context = {
   router: {
@@ -47,14 +53,26 @@ const storeProfilePage = mockStore(Object.assign({
   } }, storeResource));
 describe('Component <UserAccountPanel />', () => {
   it('should renders with props correctly', () => {
-    const userAccountPanel = shallow(
+    const component = shallow(
       <UserAccountPanel
         store={storeProfilePage}
         onClick={onClick}
-      />, { context }).dive().dive();
-    expect(userAccountPanel).toMatchSnapshot();
-    userAccountPanel.setContext(context);
-    userAccountPanel.find('.user-profile-image').simulate('click');
-    userAccountPanel.find('.name').simulate('click');
+      />, { context }).dive().dive().dive();
+    expect(component).toMatchSnapshot();
+    component.setContext(context);
+    component.find('.user-profile-image').simulate('click');
+    component.find('.name').simulate('click');
+  });
+
+  it('should renders with props correctly with isShowUserProfileSettings ', () => {
+    themeConfigs.isShowUserProfileSettings = true;
+    const component = shallow(
+      <UserAccountPanel
+        store={storeProfilePage}
+        onClick={onClick}
+      />, { context }).dive().dive().dive();
+    component.setContext(context);
+    expect(component.find('Connect(UserAccountPanelSettings)')).toHaveLength(1);
+    expect(component).toMatchSnapshot();
   });
 });

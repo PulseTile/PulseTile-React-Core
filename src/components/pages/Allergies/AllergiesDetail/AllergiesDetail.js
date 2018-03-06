@@ -3,9 +3,9 @@ import { Row, Col } from 'react-bootstrap';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
 import AllergyDetailMainForm from './AllergyDetailMainForm';
+import Switch from '../../../form-fields/Switch';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
-
 
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
@@ -37,38 +37,56 @@ export default class AllergiesDetail extends PureComponent {
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper">
-                  <Row>
-                    <Col xs={12} md={6}>
-                      <Row>
-                        <div className="col-md-11">
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.CAUSE}</label>
-                            <div className="form-control-static">{detail[valuesNames.CAUSE]}</div>
-                          </div>
+                  <div className="form-group">
+                    <label className="control-label">{valuesLabels.CAUSE}</label>
+                    <div className="form-control-static">{detail[valuesNames.CAUSE]}</div>
+                  </div>
 
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.REACTION}</label>
-                            <div className="form-control-static">{detail[valuesNames.REACTION]}</div>
-                          </div>
+                  <div className="form-group">
+                    <label className="control-label">{valuesLabels.REACTION}</label>
+                    <div className="form-control-static">{detail[valuesNames.REACTION]}</div>
+                  </div>
 
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.AUTHOR}</label>
-                            <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
-                          </div>
+                  <div className="form-group">
+                    <label className="control-label">{valuesLabels.AUTHOR}</label>
+                    <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                  </div>
 
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
-                            <div className="form-control-static">{dateCreated}</div>
-                          </div>
+                  <div className="form-group">
+                    <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                    <div className="form-control-static">{dateCreated}</div>
+                  </div>
 
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.SOURCE}</label>
-                            <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
+                  <div className="form-group">
+                    <label className="control-label">{valuesLabels.SOURCE}</label>
+                    <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
+                  </div>
+
+                  {detail[valuesNames.ISIMPORT] ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.ORIGINAL_SOURCE}</label>
+                          <div className="form-control-static">{detail[valuesNames.ORIGINAL_SOURCE]}</div>
+                        </div>
+                      </div>
+                      <div className="col-expand-right">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.ISIMPORT}</label>
+                          <div className="input-holder">
+                            <Switch
+                              id="isImport"
+                              name="isImport"
+                              type="checkbox"
+                              value
+                              chacked
+                              disabled
+                            />
                           </div>
                         </div>
-                      </Row>
-                    </Col>
-                  </Row>
+                      </div>
+                    </div> : null
+                  }
                 </div>
               </div>
             </div>
