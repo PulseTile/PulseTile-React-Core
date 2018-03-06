@@ -40,6 +40,8 @@ export const valuesLabels = {
   FINISH_DATE: 'Finish',
 
   IMPORT: 'Import URL',
+  ISIMPORT: 'Is Imported',
+  ORIGINAL_SOURCE: 'Original Source',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

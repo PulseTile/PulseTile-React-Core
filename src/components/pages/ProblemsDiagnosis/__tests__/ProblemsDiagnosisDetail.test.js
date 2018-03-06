@@ -62,6 +62,12 @@ describe('Component <ProblemsDiagnosisDetail />', () => {
     expect(component.find('.form-control-static').at(7).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.SOURCE]);
 
     expect(component).toMatchSnapshot();
+
+    component.setProps({ detail: { [valuesNames.IS_IMPORT]: true } });
+    expect(component.find('.form-control-static').at(5).text()).toEqual('');
+    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
+    expect(component.find('.control-label').at(6).text()).toEqual(valuesLabels.IS_IMPORT);
+    expect(component.find('Switch')).toHaveLength(1);
   });
 
   it('should renders correctly with different state of props', () => {

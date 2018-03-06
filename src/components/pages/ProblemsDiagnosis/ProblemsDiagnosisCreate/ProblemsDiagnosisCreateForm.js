@@ -41,7 +41,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
         dataToInitialize[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
       }
       this.props.initialize(dataToInitialize);
-      this.setState({isImport: true})
+      this.setState({ isImport: true })
 
     } else {
       this.props.initialize(defaultFormValues);
@@ -49,8 +49,8 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
   }
 
   render() {
-    const {isSubmit} = this.props;
-    const {isImport} = this.state;
+    const { isSubmit } = this.props;
+    const { isImport } = this.state;
 
     const isNotValidate = true;
     const date = new Date();
@@ -95,6 +95,7 @@ export default class ProblemsDiagnosisCreateForm extends PureComponent {
               <div className="col-expand-right">
                 <Field
                   label={valuesLabels.NHS_WEB_PAGE_URL}
+                  name={valuesNames.NHS_WEB_PAGE_URL}
                   placeholder="https://www.nhs.co.uk/Conditions/Hay-fever/Pages"
                   type="text"
                   component={ValidatedInput}

@@ -35,7 +35,3 @@ notifications:
     recipients: dima.polishuk.1995@gmail.com
     on_success: always
     on_failure: always
-#  slack:
-#    secure: "<secret>"
-#    on_success: always
-#    on_failure: always

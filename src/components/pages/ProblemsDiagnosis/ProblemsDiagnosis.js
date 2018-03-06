@@ -192,16 +192,15 @@ export default class ProblemsDiagnosis extends PureComponent {
     sendData[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
     sendData[valuesNames.CODE] = defaultFormValues[valuesNames.CODE];
 
-    if (formName === 'create') {
-      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
-      sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
+    sendData[valuesNames.IS_IMPORT] = formValues[valuesNames.IS_IMPORT];
+    // add data about source from Documents Heading
+    if (sendData[valuesNames.IS_IMPORT]) {
+      sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+    }
 
-      // add data about source from documentations
-      if (sendData[valuesNames.ISIMPORT]) {
-        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
-        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
-        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
-      }
+    if (formName === 'create') {
+      sendData[valuesNames.SOURCE_ID] = formValues[valuesNames.SOURCE_ID];
     }
 
     if (formName === 'edit') {

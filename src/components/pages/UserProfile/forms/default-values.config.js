@@ -1,4 +1,4 @@
-import { valuesSettingsForm, valuesPersonalForm, valuesContactForm } from './values-names.config';
+import { valuesSettingsForm, valuesPersonalForm, valuesContactForm } from '../forms.config';
 
 const defaultPersonalFormValues = {
   [valuesPersonalForm.FIRST_NAME]: 'Bob',

@@ -6,8 +6,8 @@ import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import DateInput from '../../../form-fields/DateInput';
 import { optionsForGenderField } from './options-for-select.config';
 import Select from '../../../form-fields/SelectFormGroup';
-import { validatePersonalForm } from './validation';
-import { valuesPersonalForm, valuesPersonalFormLabels } from './values-names.config';
+import { validatePersonalForm } from '../forms.validation';
+import { valuesPersonalForm, valuesPersonalFormLabels } from '../forms.config';
 import { defaultPersonalFormValues } from './default-values.config';
 
 @reduxForm({

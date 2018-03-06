@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
 import ContactForm from '../forms/ContactForm';
-import { valuesContactForm, valuesContactFormLabels } from '../forms/values-names.config';
+import { valuesContactForm, valuesContactFormLabels } from '../forms.config';
 import { optionsForCountryField } from '../forms/options-for-select.config';
 
 Enzyme.configure({ adapter: new Adapter() });

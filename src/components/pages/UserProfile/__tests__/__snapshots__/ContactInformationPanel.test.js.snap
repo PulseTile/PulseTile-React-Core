@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ContactInformationPanel /> should renders with all props correctly 1`] = `
+<ControlPanel
+  editedPanel={Object {}}
+  isOpen={true}
+  isSaveButton={false}
+  isShowControlPanel={true}
+  name="contactInformation"
+  onCancel={[Function]}
+  onEdit={[Function]}
+  onExpand={[Function]}
+  onShow={[Function]}
+  title="Contact Information"
+>
+  <div>
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="form"
+      >
+        <div
+          className="form-group-wrapper"
+        >
+          <div
+            className="row"
+          >
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-11"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Address
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      6801 Tellus Street
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      City
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      Westmorland
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      State
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      Westmorland
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Postal Code
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      Box 306
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Country
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      USA
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-xs-12 col-md-6"
+            >
+              <div
+                className="row"
+              >
+                <div
+                  className="col-md-11 col-md-offset-1"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Phone Number
+                    </label>
+                    <div
+                      className="form-control-static ng-binding"
+                    >
+                      07624 647524
+                    </div>
+                  </div>
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Email
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      bob.smith@gmail.com
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ControlPanel>
+`;

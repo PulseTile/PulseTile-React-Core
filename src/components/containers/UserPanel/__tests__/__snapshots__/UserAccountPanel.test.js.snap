@@ -21,7 +21,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
     className="user-profile-info"
   >
     <div
-      className="name"
+      className="user-profile-info__item name"
       onClick={[Function]}
     >
       Bob
@@ -29,37 +29,49 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       Smith
     </div>
     <div
-      className="specification"
+      className="user-profile-info__descr"
     >
       <div
-        className="item"
+        className="user-profile-info__item role"
       >
-        <em>
-          IDCR
-        </em>
+        IDCR
       </div>
       <div
-        className="item"
+        className="user-profile-info__item email"
       >
         bob.smith@gmail.com
       </div>
       <div
-        className="item gray"
+        className="user-profile-info__item birthday"
       >
-        <em>
-          10/05/2099
-        </em>
+        10/05/2099
+      </div>
+    </div>
+    <div
+      className="specification"
+    >
+      <div
+        className="user-profile-info__title registered"
+      >
+        Registered GP
       </div>
       <div
-        className="item"
+        className="user-profile-info__item version-back"
       >
-        <em>
-          About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
-        </em>
+        About Showcase Stack; PulseTile version 
+        0.0.1
+        /QEWD_Ripple version 
+        2.32.1
+      </div>
+      <div
+        className="user-profile-info__item version-front"
+      >
+        React version 
+        15.6.2
       </div>
     </div>
     <PTButton
-      className="btn btn-success btn-block btn-signout"
+      className="btn btn-theme btn-block btn-signout"
     >
       <div
         onClick={[Function]}
@@ -76,5 +88,97 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       </div>
     </PTButton>
   </div>
+</div>
+`;
+
+exports[`Component <UserAccountPanel /> should renders with props correctly with isShowUserProfileSettings  1`] = `
+<div
+  className="dropdown-user dropdown-menu-right dropdown-menu"
+>
+  <div
+    className="user-profile-image"
+    onClick={[Function]}
+  >
+    <div
+      className="img"
+    >
+      <img
+        alt=""
+        src="user.jpg"
+      />
+    </div>
+  </div>
+  <div
+    className="user-profile-info"
+  >
+    <div
+      className="user-profile-info__item name"
+      onClick={[Function]}
+    >
+      Bob
+       
+      Smith
+    </div>
+    <div
+      className="user-profile-info__descr"
+    >
+      <div
+        className="user-profile-info__item role"
+      >
+        IDCR
+      </div>
+      <div
+        className="user-profile-info__item email"
+      >
+        bob.smith@gmail.com
+      </div>
+      <div
+        className="user-profile-info__item birthday"
+      >
+        10/05/2099
+      </div>
+    </div>
+    <div
+      className="specification"
+    >
+      <div
+        className="user-profile-info__title registered"
+      >
+        Registered GP
+      </div>
+      <div
+        className="user-profile-info__item version-back"
+      >
+        About Showcase Stack; PulseTile version 
+        0.0.1
+        /QEWD_Ripple version 
+        2.32.1
+      </div>
+      <div
+        className="user-profile-info__item version-front"
+      >
+        React version 
+        15.6.2
+      </div>
+    </div>
+    <PTButton
+      className="btn btn-theme btn-block btn-signout"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <span
+          className="brn-text"
+        >
+          Sign Out
+        </span>
+         
+        <i
+          className="btn-icon fa fa-sign-out"
+        />
+      </div>
+    </PTButton>
+  </div>
+  <Connect(UserAccountPanelSettings) />
 </div>
 `;

@@ -12,4 +12,5 @@ export const usersUrls = {
   LIST_ORDERS: '/api/terminology/list/order',
   PICTURES: '/api/pictures',
   CLINICAL_QUERY_SEARCH: '/api/patients/querySearch',
+  FEEDS: '/api/feeds',
 };
