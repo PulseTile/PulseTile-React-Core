@@ -80,7 +80,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive();
+      />, { context }).dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 
@@ -116,7 +116,7 @@ describe('Component <PatientsSummary />', () => {
 
     themeConfigs.isLeedsPHRTheme = true;
     themeConfigs.patientsSummaryHasPreviewSettings = true;
-    component.setState({ selectedCategory: { 'BBC Health': true } });
+    component.setState({ selectedCategory: { 'nytimes_com': true } });
     expect(component.find('SimpleDashboardPanel')).toHaveLength(0);
 
     component.instance().handleGoToState('http://www.bbc.co.uk/news/health');
@@ -132,7 +132,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive();
+      />, { context }).dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 

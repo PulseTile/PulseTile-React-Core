@@ -15,16 +15,18 @@ import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-s
 import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
+import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
+import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest, fetchFeedsRequest }, dispatch) });
 
 const feeds = [
   {
     name: 'NYTimes.com',
     landingPageUrl: 'https://www.nytimes.com/section/health',
     rssFeedUrl: 'http://rss.nytimes.com/services/xml/rss/nyt/Health.xml',
-    sourceId: 'testSourceID6'
+    sourceId: 'testSourceID6',
   }, {
     name: 'BBC Health',
     landingPageUrl: 'http://www.bbc.co.uk/news/health',
@@ -55,6 +57,7 @@ const feeds = [
 
 
 @connect(patientSummarySelector, mapDispatchToProps)
+@connect(feedsSelector)
 @compose(lifecycle(fetchPatientSummaryOnMount))
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
@@ -85,6 +88,11 @@ export default class PatientsSummary extends PureComponent {
       this.setState({ selectedCategory: this.getDefaultCategorySelected() });
     }
 
+    componentDidMount() {
+      const { actions } = this.props;
+      themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
+    }
+
     getDefaultCategorySelected = () => {
       const defaultCategorySelected = {};
 
@@ -109,13 +117,11 @@ export default class PatientsSummary extends PureComponent {
       if (state.indexOf('http://') !== -1 ||
           state.indexOf('https://') !== -1 ||
           state.indexOf('www.') !== -1) {
-
         if (externalTransitionUrl) {
           window.open(externalTransitionUrl)
         } else {
           window.open(state)
         }
-
       } else {
         this.context.router.history.push(state)
       }
@@ -123,6 +129,7 @@ export default class PatientsSummary extends PureComponent {
 
     render() {
       const { boards } = this.props;
+      // const { feeds } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
       const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
@@ -139,6 +146,7 @@ export default class PatientsSummary extends PureComponent {
                 selectedCategory={selectedCategory}
                 selectedViewOfBoards={selectedViewOfBoards}
                 title={themeConfigs.patientsSummaryPageName}
+                feeds={feeds}
               />
               <div className="panel-body">
                 <div className="dashboard">

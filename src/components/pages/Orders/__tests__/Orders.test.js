@@ -282,6 +282,7 @@ describe('Component <Orders />', () => {
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive().dive().dive();
 
+    component.setState({ chosenOrders: [{ code: 'test', text: 'test' }] });
     component.instance().handleSaveSettingsCreateForm(formValuesCreate);
 
     expect(component).toMatchSnapshot();

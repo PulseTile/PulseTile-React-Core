@@ -165,6 +165,11 @@ describe('Component <ClinicalNoteField />', () => {
     }});
     component.instance().handleChangeContentEditable();
 
+    component.setState({ tempPhrases: {
+      'test': null,
+      } });
+    component.instance().handleChangeContentEditable();
+
     expect(component).toMatchSnapshot();
 
     // Testing unmount method
