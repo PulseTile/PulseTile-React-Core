@@ -33,7 +33,6 @@ const wrapEpic = epic => (...args) =>
       if (payloadToken) {
         const token = document.cookie.split('JSESSIONID=')[1];
         if (payloadToken !== token) {
-          console.log('replace the token');
           document.cookie = `JSESSIONID=${payloadToken}`
         }
       }

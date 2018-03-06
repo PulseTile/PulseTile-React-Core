@@ -6,7 +6,6 @@
   "scripts": {
     "start": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --config webpack.config.dev.js",
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
-    "build:optimization": "./node_modules/.bin/cross-env NODE_ENV=production-optimization ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
     "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.dev.js",
     "before-test": "node ./test-configs/timeZoneService.js",
     "jest": "jest --runInBand --silent --config ./jest-config.js",
