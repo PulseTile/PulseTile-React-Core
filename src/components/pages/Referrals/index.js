@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
-import Referrals from './Referrals';
+import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientReferralsDetailEpic } from './ducks/fetch-patient-referrals-detail.duck';
@@ -15,6 +15,7 @@ import referralsDetail from './ducks/fetch-patient-referrals-detail.duck';
 import referralsDetailEdit from './ducks/fetch-patient-referrals-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientReferralsDetailEpic, fetchPatientReferralsDetailEditEpic, fetchPatientReferralsEpic, fetchPatientReferralsCreateEpic, fetchPatientReferralsUpdateEpic);
+const Referrals = asyncComponent(() => import(/* webpackChunkName: "referrals" */ './Referrals').then(module => module.default));
 
 const reducers = {
   patientsReferrals,

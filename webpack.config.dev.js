@@ -36,6 +36,7 @@ module.exports = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/',
   },
 

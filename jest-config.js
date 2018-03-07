@@ -25,6 +25,7 @@ module.exports = {
 
     // Ignore coverage files
     '!**/src/components/pages/Drawings/drawings-page-component/**.{js}',
+    '!**/src/components/containers/AsyncComponent/**{AsyncComponent.js}',
     '!**/src/components/**{clinical-statements-helper.js}',
     '!**/src/components/**{viltals-helpers.utils.js}',
     '!**/src/components/**{proms-helpers.utils.js}',

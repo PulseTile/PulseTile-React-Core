@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
-import GenericPlugin from './GenericPlugin';
+import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientGenericPluginEpic } from './ducks/fetch-patient-generic-plugin.duck';
@@ -15,6 +15,7 @@ import genericPluginDetailEdit from './ducks/fetch-patient-generic-plugin-detail
 import genericPluginCreate from './ducks/fetch-patient-generic-plugin-create.duck';
 
 const epics = combineEpics(fetchPatientGenericPluginEpic, fetchPatientGenericPluginDetailEpic, fetchPatientGenericPluginDetailEditEpic, fetchPatientGenericPluginCreateEpic, fetchPatientGenericPluginUpdateEpic);
+const GenericPlugin = asyncComponent(() => import(/* webpackChunkName: "generic" */ './GenericPlugin').then(module => module.default));
 
 const reducers = {
   patientsGenericPlugin,
