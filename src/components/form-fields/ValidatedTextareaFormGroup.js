@@ -18,7 +18,7 @@ export default class ValidatedTextareaFormGroup extends PureComponent {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.meta.dirty) {
-      this.setState({ isChanged: true })
+      this.setState({ isChanged: true });
     }
   }
 

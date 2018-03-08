@@ -5,7 +5,7 @@ const generateFetchListOnMount = (fetchRequest) => {
     componentDidMount() {
       const { actions, match } = this.props;
       const userId = _.get('params.userId', match);
-      if (userId) actions[fetchRequest]({ userId })
+      if (userId) actions[fetchRequest]({ userId });
     },
     componentWillReceiveProps(nextProps) {
       const { actions, match } = this.props;
@@ -13,7 +13,7 @@ const generateFetchListOnMount = (fetchRequest) => {
       const userId = _.get('params.userId', match);
 
       if (nextUserId !== userId) {
-        actions[fetchRequest]({ userId: nextUserId })
+        actions[fetchRequest]({ userId: nextUserId });
       }
     },
   }
@@ -25,14 +25,14 @@ const generateFetchDetailOnMount = (fetchRequest) => {
       const { actions, match } = this.props;
       const userId = _.get('params.userId', match);
       const sourceId = _.get('params.sourceId', match);
-      if (userId && sourceId) actions[fetchRequest]({ userId, sourceId })
+      if (userId && sourceId) actions[fetchRequest]({ userId, sourceId });
     },
   }
 };
 
 export const fetchPatientsOnMount = ({
   componentDidMount() {
-    this.props.actions.fetchPatientsRequest()
+    this.props.actions.fetchPatientsRequest();
   },
 });
 
@@ -54,7 +54,7 @@ export const fetchHeaderToolbarOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
-    if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
+    if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId });
   },
   componentWillReceiveProps(nextProps) {
     const { actions, match } = this.props;
@@ -62,14 +62,14 @@ export const fetchHeaderToolbarOnMount = ({
     const userId = _.get('params.userId', match);
 
     if (nextUserId !== userId) {
-      actions.fetchPatientSummaryRequest({ userId: nextUserId })
+      actions.fetchPatientSummaryRequest({ userId: nextUserId });
     }
   },
 });
 
 export const fetchListOrdersOnMount = ({
   componentDidMount() {
-    this.props.actions.fetchListOrdersRequest()
+    this.props.actions.fetchListOrdersRequest();
   },
 });
 
@@ -133,7 +133,7 @@ export const fetchSeriesOnMount = ({
     const userId = _.get('params.userId', match);
     const sourceId = _.get('params.sourceId', match);
     const source = 'orthanc';
-    if (userId && sourceId) actions.fetchSeriesRequest({ userId, studyId: sourceId, source })
+    if (userId && sourceId) actions.fetchSeriesRequest({ userId, studyId: sourceId, source });
   },
 });
 
@@ -167,6 +167,6 @@ export const fetchFeedsDetailOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const sourceId = _.get('params.sourceId', match);
-    if (sourceId) actions.fetchFeedsDetailRequest({ sourceId })
+    if (sourceId) actions.fetchFeedsDetailRequest({ sourceId });
   },
 });

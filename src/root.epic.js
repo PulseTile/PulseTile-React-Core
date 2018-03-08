@@ -33,10 +33,10 @@ const wrapEpic = epic => (...args) =>
       if (payloadToken) {
         const token = document.cookie.split('JSESSIONID=')[1];
         if (payloadToken !== token) {
-          document.cookie = `JSESSIONID=${payloadToken}`
+          document.cookie = `JSESSIONID=${payloadToken}`;
         }
       }
-      return response
+      return response;
     })
     .catch(error => Observable.of(handleErrors(error)));
 

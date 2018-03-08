@@ -1,5 +1,3 @@
-import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -21,7 +19,6 @@ export const fetchAdvancedPatientSearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchAdvancedPatientSearchSuccess(response))
-        // .catch(error => Observable.of(fetchAdvancedPatientSearchFailure(error)))
     );
 
 export default function reducer(advancedSearchPatient = {}, action) {
@@ -29,6 +26,6 @@ export default function reducer(advancedSearchPatient = {}, action) {
     case FETCH_ADVANCED_PATIENT_SEARCH_SUCCESS:
       return action.payload;
     default:
-      return advancedSearchPatient
+      return advancedSearchPatient;
   }
 }

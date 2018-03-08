@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../config/server-urls.constants'
+import { usersUrls } from '../config/server-urls.constants';
 
 export const FETCH_USER_ACCOUNT_REQUEST = 'FETCH_USER_ACCOUNT_REQUEST';
 export const FETCH_USER_ACCOUNT_SUCCESS = 'FETCH_USER_ACCOUNT_SUCCESS';
@@ -19,7 +18,6 @@ export const fetchUserAccountEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchUserAccountSuccess)
-        // .catch(error => Observable.of(fetchUserAccountFailure(error)))
     );
 
 export default function reducer(userAccount = {}, action) {
