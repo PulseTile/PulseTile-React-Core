@@ -110,16 +110,16 @@ exports[`Component <ClinicalNoteField /> should renders with empty props correct
           <div
             className="form-control textarea-big input-sm contenteditable-resize"
             contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "<span id=\\"temp\\" contentEditable={false}",
-              }
-            }
             id="clinicalNote"
             onBlur={[Function]}
             onInput={[Function]}
             tabIndex="0"
-          />
+          >
+            <span
+              contentEditable={false}
+              id="temp"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -288,16 +288,16 @@ exports[`Component <ClinicalNoteField /> should renders with error message 1`] =
           <div
             className="form-control textarea-big input-sm contenteditable-resize"
             contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "<span id=\\"temp\\" contentEditable={false}",
-              }
-            }
             id="clinicalNote"
             onBlur={[Function]}
             onInput={[Function]}
             tabIndex="0"
-          />
+          >
+            <span
+              contentEditable={false}
+              id="temp"
+            />
+          </div>
         </div>
         <span
           className="required-label"
@@ -458,16 +458,16 @@ exports[`Component <ClinicalNoteField /> should renders with props correctly sha
           <div
             className="form-control textarea-big input-sm contenteditable-resize"
             contentEditable={true}
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "<span id=\\"temp\\" contentEditable={false}",
-              }
-            }
             id="clinicalNote"
             onBlur={[Function]}
             onInput={[Function]}
             tabIndex="0"
-          />
+          >
+            <span
+              contentEditable={false}
+              id="temp"
+            />
+          </div>
         </div>
       </div>
     </div>

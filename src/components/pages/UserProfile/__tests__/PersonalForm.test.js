@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
 import PersonalForm from '../forms/PersonalForm';
-import { valuesPersonalForm, valuesPersonalFormLabels } from '../forms/values-names.config';
+import { valuesPersonalForm, valuesPersonalFormLabels } from '../forms.config';
 import { optionsForGenderField } from '../forms/options-for-select.config';
 
 Enzyme.configure({ adapter: new Adapter() });

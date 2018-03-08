@@ -28,151 +28,149 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
           <div
             className="form-group-wrapper"
           >
-            <div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="row-expand"
+                className="col-expand-left"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Problem / Diagnosis
-                    </label>
-                    <div
-                      className="form-control-static"
-                    />
-                  </div>
-                </div>
-                <div
-                  className="col-expand-right"
-                >
+                    Problem / Diagnosis
+                  </label>
                   <div
-                    className="form-group"
-                  >
-                    <label
-                      className="control-label"
-                    >
-                      Date of Onset
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      25-Nov-2017
-                    </div>
-                  </div>
+                    className="form-control-static"
+                  />
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Description
-                    </label>
-                    <div
-                      className="form-control-static"
-                    />
+                    Date of Onset
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    25-Nov-2017
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Terminology
-                    </label>
-                    <div
-                      className="form-control-static"
-                    />
-                  </div>
+                    Terminology Code
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
                 </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
                 <div
-                  className="col-expand-right"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Terminology Code
-                    </label>
-                    <div
-                      className="form-control-static"
-                    />
-                  </div>
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Author
-                    </label>
-                    <div
-                      className="form-control-static"
-                    />
-                  </div>
-                </div>
-                <div
-                  className="col-expand-right"
-                >
+                    Date
+                  </label>
                   <div
-                    className="form-group"
+                    className="form-control-static"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Date
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      03-Oct-2017
-                    </div>
+                    03-Oct-2017
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
+              >
+                Source
+              </label>
               <div
-                className="form-group"
-              >
-                <label
-                  className="control-label"
-                >
-                  Source
-                </label>
-                <div
-                  className="form-control-static"
-                />
-              </div>
+                className="form-control-static"
+              />
             </div>
           </div>
         </div>
@@ -249,162 +247,160 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders with props correct
           <div
             className="form-group-wrapper"
           >
-            <div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="row-expand"
+                className="col-expand-left"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Problem / Diagnosis
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      1.0
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-expand-right"
-                >
+                    Problem / Diagnosis
+                  </label>
                   <div
-                    className="form-group"
+                    className="form-control-static"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Date of Onset
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      25-Nov-2017
-                    </div>
+                    1.0
                   </div>
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Description
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      sdadasdasd
-                    </div>
+                    Date of Onset
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    25-Nov-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Description
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    sdadasdasd
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    yyyy
                   </div>
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Terminology
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      yyyy
-                    </div>
+                    Terminology Code
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    1.239389E7
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
                 <div
-                  className="col-expand-right"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Terminology Code
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      1.239389E7
-                    </div>
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Dr Tony Shannon
                   </div>
                 </div>
               </div>
               <div
-                className="row-expand"
+                className="col-expand-right"
               >
                 <div
-                  className="col-expand-left"
+                  className="form-group"
                 >
-                  <div
-                    className="form-group"
+                  <label
+                    className="control-label"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Author
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      Dr Tony Shannon
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className="col-expand-right"
-                >
+                    Date
+                  </label>
                   <div
-                    className="form-group"
+                    className="form-control-static"
                   >
-                    <label
-                      className="control-label"
-                    >
-                      Date
-                    </label>
-                    <div
-                      className="form-control-static"
-                    >
-                      06-Dec-2017
-                    </div>
+                    06-Dec-2017
                   </div>
                 </div>
               </div>
-              <div
-                className="form-group"
+            </div>
+            <div
+              className="form-group"
+            >
+              <label
+                className="control-label"
               >
-                <label
-                  className="control-label"
-                >
-                  Source
-                </label>
-                <div
-                  className="form-control-static"
-                >
-                  ethercis
-                </div>
+                Source
+              </label>
+              <div
+                className="form-control-static"
+              >
+                ethercis
               </div>
             </div>
           </div>

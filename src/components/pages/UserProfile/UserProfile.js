@@ -1,51 +1,66 @@
 import React, { PureComponent } from 'react';
-import { Row, Col } from 'react-bootstrap';
-import classNames from 'classnames';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
+import { Row, Col } from 'react-bootstrap';
 import _ from 'lodash/fp';
-import moment from 'moment';
 
-import PersonalInformationPanel from './PersonalInformationPanel';
-import AppSettingsForm from './forms/AppSettingsForm';
-import PersonalForm from './forms/PersonalForm';
-import ContactForm from './forms/ContactForm';
+import ApplicationPreferencesPanel from './panels/ApplicationPreferencesPanel';
+import PersonalInformationPanel from './panels/PersonalInformationPanel';
+import ContactInformationPanel from './panels/ContactInformationPanel';
+import ChangeHistoryPanel from './panels/ChangeHistoryPanel';
+import FeedsPanel from './panels/FeedsPanel';
+
 import { formStateSelector, patientInfoSelector, userAccountSelector } from './selectors';
+import { userProfileTabSelector } from '../../../selectors/user-profile-tab';
 import { fetchProfileAppPreferencesRequest } from '../../../ducks/fetch-profile-application-preferences.duck';
 import { fetchPatientsInfoRequest } from '../../../ducks/fetch-patients-info.duck';
 import { setLogo } from '../../../ducks/set-logo.duck';
 import { setTitle } from '../../../ducks/set-title.duck';
 import { setTheme } from '../../../ducks/set-theme.duck';
-import { valuesSettingsFormLabels, valuesPersonalFormLabels, valuesContactFormLabels } from './forms/values-names.config';
+import { changeUserProfileTab } from '../../../ducks/user-profile-tab.duck';
 import themes from './theme-config';
+import { themeConfigs } from '../../../themes.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
 const CONTACT_INFORMATION = 'contactInformation';
 const CHANGE_HISTORY = 'changeHistory';
+const FEEDS = 'feeds';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme }, dispatch) });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchProfileAppPreferencesRequest, fetchPatientsInfoRequest, setLogo, setTitle, setTheme, changeUserProfileTab }, dispatch) });
 
 @connect(formStateSelector)
 @connect(userAccountSelector)
+@connect(userProfileTabSelector)
 @connect(patientInfoSelector, mapDispatchToProps)
 class UserProfile extends PureComponent {
   state = {
-    openedPanel: APPLICATION_PREFERENCES,
-    expandedPanel: 'all',
-    isAllPanelsVisible: false,
     editedPanel: {},
   };
 
+  componentDidMount() {
+    if (!this.props.userProfileTabs.openedPanel) {
+      this.changeTabsSettings({ expandedPanel: 'all', openedPanel: APPLICATION_PREFERENCES });
+    }
+  }
+
+  componentWillUnmount() {
+    this.changeTabsSettings({ expandedPanel: 'all', openedPanel: '' });
+  }
+
+  changeTabsSettings = (tabsSettings) => {
+    this.props.dispatch(changeUserProfileTab(tabsSettings));
+  };
+
   handleShow = (name) => {
-    this.setState({ openedPanel: name })
+    this.changeTabsSettings({ expandedPanel: this.props.userProfileTabs.expandedPanel, openedPanel: name });
   };
 
   handleExpand = (name) => {
-    if (this.state.expandedPanel === 'all') {
-      this.setState(prevState => ({ expandedPanel: name, openedPanel: name, isAllPanelsVisible: !prevState.isAllPanelsVisible }));
+    if (this.props.userProfileTabs.expandedPanel === 'all') {
+      this.changeTabsSettings({ expandedPanel: name, openedPanel: name });
     } else {
-      this.setState(prevState => ({ expandedPanel: 'all', isAllPanelsVisible: !prevState.isAllPanelsVisible }));
+      this.changeTabsSettings({ expandedPanel: 'all', openedPanel: name });
     }
   };
 
@@ -88,285 +103,91 @@ class UserProfile extends PureComponent {
   };
 
   render() {
-    const { openedPanel, expandedPanel, isAllPanelsVisible, editedPanel } = this.state;
-    const { formState, patientsInfo, user } = this.props;
+    const { editedPanel } = this.state;
+    const { formState, patientsInfo, user, userProfileTabs } = this.props;
+    const openedPanel = userProfileTabs.openedPanel;
+    const expandedPanel = userProfileTabs.expandedPanel;
 
     const theme = themes[patientsInfo.themeColor] ? themes[patientsInfo.themeColor] : themes.default;
-    const currentDate = (new Date()).getTime();
-    const CONVERT_CURRENT_DATE = moment(currentDate).format('DD-MMM-YYYY');
-    const CONVERT_CURRENT_DATE_WITH_TIME = moment(currentDate).format('YYYY-MM-DD HH:mm');
 
     return (<section className="page-wrapper">
-      <div className={classNames('section', { 'full-panel full-panel-main': isAllPanelsVisible })}>
+      <div className="section">
         <Row>
           <Col xs={12}>
             <div className="section-main">
               <div className="panel-group accordion">
-                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && !editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
-                  name={APPLICATION_PREFERENCES}
-                  title="Application Preferences"
-                  isOpen={openedPanel === APPLICATION_PREFERENCES}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                >
-                  <div className="panel-body-inner">
-                    <div className="form">
-                      <div className="form-group-wrapper">
-                        <Row>
-                          <Col xs={12} md={6}>
-                            <Row>
-                              <div className="col-md-11">
-                                <div className="form-group">
-                                  <label className="control-label">{valuesSettingsFormLabels.APP_TITLE}</label>
-                                  <div className="form-control-static">{patientsInfo.title}</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesSettingsFormLabels.LOGO_PATH}</label>
-                                  <div className="form-control-static">
-                                    <img src={patientsInfo.logoB64} alt="Logo Example" />
-                                  </div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesSettingsFormLabels.SELECT_THEME_ONE}</label>
-                                  <div className="palette-color">
-                                    <span className="palette-color-icon" style={{ background: theme.baseColor }}></span>
-                                    <span className="palette-color-name">{theme.name}</span>
-                                  </div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesSettingsFormLabels.BROWSER_TITLE}</label>
-                                  <div className="form-control-static">{patientsInfo.browserTitle}</div>
-                                </div>
-                              </div>
-                            </Row>
-                          </Col>
-                        </Row>
-                      </div>
-                    </div>
-                  </div>
-                </PersonalInformationPanel> : null }
-                {(expandedPanel === 'applicationPreferences' || expandedPanel === 'all') && editedPanel[APPLICATION_PREFERENCES] ? <PersonalInformationPanel
-                  name={APPLICATION_PREFERENCES}
-                  title="Application Preferences"
-                  isOpen={openedPanel === APPLICATION_PREFERENCES}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                  onSaveSettings={this.handleSaveSettingsForm}
-                  formValues={formState.values}
-                >
-                  <AppSettingsForm
+                {(expandedPanel === APPLICATION_PREFERENCES || expandedPanel === 'all') ?
+                  <ApplicationPreferencesPanel
+                    formState={formState}
                     patientsInfo={patientsInfo}
-                  />
-                </PersonalInformationPanel> : null }
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    theme={theme}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    onSaveSettings={this.handleSaveSettingsForm}
+                    isShowControlPanel
+                    isSaveButton
+                  /> : null }
 
-                {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && !editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
-                  name={PERSONAL_INFORMATION}
-                  title="Personal Information"
-                  isOpen={openedPanel === PERSONAL_INFORMATION}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                >
-                  <div className="panel-body-inner">
-                    <div className="form">
-                      <div className="form-group-wrapper">
-                        <Row>
-                          <Col xs={12} md={6}>
-                            <Row>
-                              <Col md={11}>
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.FIRST_NAME}</label>
-                                  <div className="form-control-static">{user.given_name}</div>
-                                </div>
+                {(expandedPanel === PERSONAL_INFORMATION || expandedPanel === 'all') ?
+                  <PersonalInformationPanel
+                    user={user}
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel
+                    isSaveButton={false}
+                  /> : null }
 
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.LAST_NAME}</label>
-                                  <div className="form-control-static">{user.family_name}</div>
-                                </div>
+                {(expandedPanel === CONTACT_INFORMATION || expandedPanel === 'all') ?
+                  <ContactInformationPanel
+                    user={user}
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel
+                    isSaveButton={false}
+                  /> : null }
 
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.NHS_NUMBER}</label>
-                                  {user.role === 'IDCR'
-                                    ? <div className="form-control-static" />
-                                    : <div className="form-control-static">{user.nhsNumber}</div> }
-                                </div>
-                              </Col>
-                            </Row>
-                          </Col>
-                          <Col xs={12} md={6}>
-                            <Row>
-                              <div className="col-md-11 col-md-offset-1">
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.DATE_OF_BIRTH}</label>
-                                  <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE}</div>
-                                </div>
+                {(expandedPanel === CHANGE_HISTORY || expandedPanel === 'all') ?
+                  <ChangeHistoryPanel
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel={false}
+                    isSaveButton={false}
+                  /> : null }
 
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.SELECT_GENDER}</label>
-                                  <div className="form-control-static ng-binding">Female</div>
-                                </div>
+                {(expandedPanel === FEEDS || expandedPanel === 'all') && themeConfigs.isLeedsPHRTheme ?
+                  <FeedsPanel
+                    openedPanel={openedPanel}
+                    editedPanel={editedPanel}
+                    onShow={this.handleShow}
+                    onExpand={this.handleExpand}
+                    onEdit={this.handleEdit}
+                    onCancel={this.handleCancel}
+                    isShowControlPanel={false}
+                    isSaveButton={false}
+                  /> : null }
 
-                                <div className="form-group">
-                                  <label className="control-label">{valuesPersonalFormLabels.DOCTOR}</label>
-                                  <div className="form-control-static ng-binding">Dr Emma Huston</div>
-                                </div>
-                              </div>
-                            </Row>
-                          </Col>
-                        </Row>
-                      </div>
-                    </div>
-                  </div>
-                </PersonalInformationPanel> : null }
-                {(expandedPanel === 'personalInformation' || expandedPanel === 'all') && editedPanel[PERSONAL_INFORMATION] ? <PersonalInformationPanel
-                  name={PERSONAL_INFORMATION}
-                  title="Personal Information"
-                  isOpen={openedPanel === PERSONAL_INFORMATION}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                  onClick={this.handleClick}
-                >
-                  <PersonalForm />
-                </PersonalInformationPanel> : null }
-
-                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && !editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
-                  name={CONTACT_INFORMATION}
-                  title="Contact Information"
-                  isOpen={openedPanel === CONTACT_INFORMATION}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                >
-                  <div className="panel-body-inner">
-                    <div className="form">
-                      <div className="form-group-wrapper">
-                        <div className="row">
-                          <div className="col-xs-12 col-md-6">
-                            <div className="row">
-                              <div className="col-md-11">
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.ADDRESS}</label>
-                                  <div className="form-control-static ng-binding">6801 Tellus Street</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.CITY}</label>
-                                  <div className="form-control-static ng-binding">Westmorland</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.STATE}</label>
-                                  <div className="form-control-static ng-binding">Westmorland</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.POSTAL_CODE}</label>
-                                  <div className="form-control-static ng-binding">Box 306</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.SELECT_COUNTRY}</label>
-                                  <div className="form-control-static ng-binding">USA</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div className="col-xs-12 col-md-6">
-                            <div className="row">
-                              <div className="col-md-11 col-md-offset-1">
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.PHONE}</label>
-                                  <div className="form-control-static ng-binding">07624 647524</div>
-                                </div>
-
-                                <div className="form-group">
-                                  <label className="control-label">{valuesContactFormLabels.EMAIL}</label>
-                                  <div className="form-control-static">{user.email}</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </PersonalInformationPanel> : null }
-                {(expandedPanel === 'contactInformation' || expandedPanel === 'all') && editedPanel[CONTACT_INFORMATION] ? <PersonalInformationPanel
-                  name={CONTACT_INFORMATION}
-                  title="Contact Information"
-                  isOpen={openedPanel === CONTACT_INFORMATION}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                  onClick={this.handleClick}
-                >
-                  <ContactForm />
-                </PersonalInformationPanel> : null }
-
-                {expandedPanel === 'changeHistory' || expandedPanel === 'all' ? <PersonalInformationPanel
-                  name={CHANGE_HISTORY}
-                  title="Change History"
-                  isOpen={openedPanel === CHANGE_HISTORY}
-                  onShow={this.handleShow}
-                  onExpand={this.handleExpand}
-                  onEdit={this.handleEdit}
-                  editedPanel={editedPanel}
-                  onCancel={this.handleCancel}
-                >
-                  <div className="panel-body-inner">
-                    <div className="form">
-                      <div className="form-group-wrapper">
-                        <div className="form-group">
-                          <label className="control-label ng-binding">Change #1 Date</label>
-                          <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE_WITH_TIME}</div>
-                        </div>
-                        <div className="form-group">
-                          <label className="control-label">Changes</label>
-                          <div className="form-control-static ng-binding">Last Name: <em className="ng-binding">White</em> <span className="next-separate"><i className="fa fa-caret-right" /></span> Blackwell</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="panel-body-inner">
-                    <div className="form">
-                      <div className="form-group-wrapper">
-                        <div className="form-group">
-                          <label className="control-label ng-binding">Change #2 Date</label>
-                          <div className="form-control-static ng-binding">{CONVERT_CURRENT_DATE_WITH_TIME}</div>
-                        </div>
-                        <div className="form-group">
-                          <label className="control-label">Changes</label>
-                          <div className="form-control-static ng-binding">Address: <em className="ng-binding">Flower Street</em> <span className="next-separate"><i className="fa fa-caret-right" /></span> 6801 Tellus Street</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </PersonalInformationPanel> : null }
               </div>
             </div>
           </Col>
         </Row>
       </div>
-    </section>
-    )
+    </section>)
   }
 }
 

@@ -6,17 +6,14 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
 
-const NODE_ENV = process.env.NODE_ENV;
-const ENV_PRODUCTION_OPTIMIZATION = NODE_ENV === 'production-optimization';
-
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(sourcePath, 'index.html'),
   filename: path.resolve(buildPath, 'index.html'),
   inject: 'body',
 });
 
-const config = {
-  devtool: 'source-map',
+module.exports = {
+  devtool: 'cheap-module-source-map',
 
   entry: [
     path.resolve(sourcePath, 'index.js'),
@@ -25,6 +22,7 @@ const config = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/',
   },
 
@@ -41,8 +39,8 @@ const config = {
 
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
+        'NODE_ENV': JSON.stringify('production'),
+      },
     }),
 
     new webpack.ProvidePlugin({
@@ -50,7 +48,20 @@ const config = {
       '$': 'jquery',
       'jQuery': 'jquery',
       'window.jQuery': 'jquery',
-    })
+    }),
+
+    new webpack.optimize.DedupePlugin(),
+
+    new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      exclude: [/node_modules/],
+      parallel: 4,
+      compress: {
+        warnings: false,
+      },
+    }),
+
+
   ],
 
   module: {
@@ -75,21 +86,3 @@ const config = {
     ],
   },
 };
-
-if (ENV_PRODUCTION_OPTIMIZATION) {
-  // for optimizing of code
-  config.devtool = 'cheap-module-source-map';
-  config.plugins.push(
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      comments: false,
-      exclude: [/node_modules/],
-      parallel: 4,
-      compress: {
-        warnings: false
-      }
-    })
-  )
-}
-
-module.exports = config;

@@ -22,7 +22,7 @@ export default class DateInput extends PureComponent {
 
     componentWillReceiveProps(nextProps) {
       if (nextProps.meta.dirty) {
-        this.setState({ isChanged: true })
+        this.setState({ isChanged: true });
       }
     }
 

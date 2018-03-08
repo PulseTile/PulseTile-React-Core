@@ -136,11 +136,12 @@ const formValuesEdit = {
   [valuesNames.TERMINOLOGY]: 'dadadyuio',
   [valuesNames.CODE]: '1.239389E7',
   [valuesNames.AUTHOR]: 'Dr Tony Shannon',
+  [valuesNames.IS_IMPORT]: true,
 };
 const formValuesCreate = {
   [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
   [valuesNames.SOURCE_ID]: '',
-  [valuesNames.ISIMPORT]: false,
+  [valuesNames.IS_IMPORT]: false,
   [valuesNames.CODE]: '12393890',
   [valuesNames.TERMINOLOGY]: 'SNOMED-CT',
   [valuesNames.PROBLEM]: 'test',
@@ -150,7 +151,7 @@ const formValuesCreate = {
 const formValuesImportCreate = {
   [valuesNames.AUTHOR]: 'bob.smith@gmail.com',
   [valuesNames.SOURCE_ID]: '',
-  [valuesNames.ISIMPORT]: true,
+  [valuesNames.IS_IMPORT]: true,
   [valuesNames.IMPORT]: 'domen.com/documents/documents_id',
   [valuesNames.CODE]: '12393890',
   [valuesNames.TERMINOLOGY]: 'SNOMED-CT',

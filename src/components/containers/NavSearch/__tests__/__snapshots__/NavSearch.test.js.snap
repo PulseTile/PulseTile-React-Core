@@ -2695,19 +2695,76 @@ exports[`Component <NavSearch /> should renders mount correctly 3`] = `
             <div
               className="control-group left control-search-select dropdown open"
             >
-              <PTButton
-                className="btn btn-dropdown-toggle btn-search-toggle"
-                onClick={[Function]}
-              >
-                <button
+              <div>
+                <SearchContent
+                  ADVANCED_SEARCH="advancedSearch"
+                  BASIC_SEARCH="basicSearch"
+                  SEARCH_CONTENT="searchContent"
+                  onSelect={[Function]}
+                  selected="basicSearch"
+                >
+                  <div
+                    className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size"
+                  >
+                    <div
+                      className="heading"
+                    >
+                      Search Options
+                    </div>
+                    <div
+                      className="dropdown-menu-wrap-list"
+                    >
+                      <div
+                        className="dropdown-menu-list"
+                      >
+                        <div
+                          className="dropdown-menu-item active"
+                          onClick={[Function]}
+                        >
+                          <span
+                            className="dropdown-menu-item-text"
+                          >
+                            Patient Search - Basic
+                          </span>
+                        </div>
+                        <div
+                          className="dropdown-menu-item"
+                          onClick={[Function]}
+                        >
+                          <span
+                            className="dropdown-menu-item-text"
+                          >
+                            Patient Search - Advanced
+                          </span>
+                        </div>
+                        <div
+                          className="dropdown-menu-item"
+                          onClick={[Function]}
+                        >
+                          <span
+                            className="dropdown-menu-item-text"
+                          >
+                            Clinical Query
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SearchContent>
+                <PTButton
                   className="btn btn-dropdown-toggle btn-search-toggle"
                   onClick={[Function]}
                 >
-                  <i
-                    className="btn-icon fa fa-bars"
-                  />
-                </button>
-              </PTButton>
+                  <button
+                    className="btn btn-dropdown-toggle btn-search-toggle"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="btn-icon fa fa-bars"
+                    />
+                  </button>
+                </PTButton>
+              </div>
             </div>
             <BasicPatientSearch>
               <div>

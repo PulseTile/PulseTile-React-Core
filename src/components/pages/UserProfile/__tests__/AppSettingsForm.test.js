@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
 import AppSettingsForm from '../forms/AppSettingsForm';
-import { valuesSettingsForm, valuesSettingsFormLabels } from '../forms/values-names.config';
+import { valuesSettingsForm, valuesSettingsFormLabels } from '../forms.config';
 import { optionsForThemesField } from '../forms/options-for-select.config';
 
 Enzyme.configure({ adapter: new Adapter() });

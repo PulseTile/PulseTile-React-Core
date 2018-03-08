@@ -207,6 +207,13 @@ export default class Allergies extends PureComponent {
     sendData[valuesNames.TERMINOLOGY] = formValues[valuesNames.TERMINOLOGY];
     sendData[valuesNames.CAUSECODE] = formValues[valuesNames.CAUSECODE];
 
+    sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
+    // add data about source from Documents Heading
+    if (sendData[valuesNames.ISIMPORT]) {
+      sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
+      sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
+    }
+
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = allergieDetail[valuesNames.SOURCE_ID];
       sendData[valuesNames.SOURCE] = 'ethercis';
@@ -214,14 +221,6 @@ export default class Allergies extends PureComponent {
 
     if (formName === 'create') {
       sendData[valuesNames.SOURCE_ID] = '';
-      sendData[valuesNames.ISIMPORT] = formValues[valuesNames.ISIMPORT];
-
-      // add data about source from documentations
-      if (sendData[valuesNames.ISIMPORT]) {
-        sendData[valuesNames.IMPORT] = formValues[valuesNames.IMPORT];
-        sendData[valuesNames.ORIGINAL_SOURCE] = formValues[valuesNames.ORIGINAL_SOURCE];
-        sendData[valuesNames.ORIGINAL_COMPOSITION] = formValues[valuesNames.ORIGINAL_COMPOSITION];
-      }
     }
 
     operationsOnCollection.propsToString(sendData);

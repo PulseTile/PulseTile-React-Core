@@ -22,6 +22,7 @@ import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';
 import proms from './components/pages/PROMs/index';
+import feeds from './components/pages/Feeds/index';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -47,6 +48,7 @@ export const plugins = [
   proms,
 
   topThreeThings,
+  feeds,
 
   genericPlugin,
 ];
@@ -62,7 +64,9 @@ export const pluginsReducerConfig = [];
 export const routersPluginConfig = [];
 
 plugins.forEach((plugin) => {
-  sidebarConfig.push(plugin.sidebarConfig);
+  if (plugin.sidebarConfig !== undefined) {
+    sidebarConfig.push(plugin.sidebarConfig);
+  };
   pluginsEpicConfig.push(plugin.epics);
   pluginsReducerConfig.push(plugin.reducers);
 

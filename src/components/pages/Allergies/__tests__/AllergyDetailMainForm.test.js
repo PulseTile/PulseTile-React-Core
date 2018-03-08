@@ -52,6 +52,27 @@ describe('Component <AllergyDetailMainForm />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('should renders with props correctly with is import', () => {
+    const component = shallow(
+      <AllergyDetailMainForm
+        store={store}
+        isSubmit
+        detail={{
+          dateCreated: 1507020019000,
+          isImport: true,
+        }}
+      />).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(5);
+
+    expect(component.find('Field').at(2).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(2).props().id).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(2).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(2).props().props.isSubmit).toEqual(true);
+    expect(component.find('Field').at(2).props().props.disabled).toEqual(true);
+
+    expect(component).toMatchSnapshot();
+  });
+
   it('should renders correctly when form is submitted', () => {
     const component = shallow(
       <AllergyDetailMainForm

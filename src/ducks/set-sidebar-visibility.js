@@ -9,6 +9,6 @@ export default function reducer(isSidebarVisible = false, action) {
     case SET_SIDEBAR_VISIBILITY:
       return action.payload;
     default:
-      return isSidebarVisible
+      return isSidebarVisible;
   }
 }

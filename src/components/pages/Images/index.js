@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
-import Images from './Images';
+import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientImagesEpic } from './ducks/fetch-patient-images.duck';
@@ -14,6 +14,7 @@ import allSeries from './ducks/fetch-all-series.duck';
 import seriesDetail from './ducks/fetch-series-detail.duck';
 
 const epics = combineEpics(fetchPatientImagesEpic, fetchPatientImagesDetailEpic, fetchSeriesEpic, fetchSeriesDetailEpic);
+const Images = asyncComponent(() => import(/* webpackChunkName: "images" */ './Images').then(module => module.default));
 
 const reducers = {
   patientsImages,

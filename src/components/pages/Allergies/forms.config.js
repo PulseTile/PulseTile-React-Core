@@ -26,7 +26,10 @@ export const valuesLabels = {
   AUTHOR: 'Author',
   DATE: 'Date',
   DATE_CREATED: 'Date',
+
   IMPORT: 'Import URL',
+  ISIMPORT: 'Is Imported',
+  ORIGINAL_SOURCE: 'Original Source',
 
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',

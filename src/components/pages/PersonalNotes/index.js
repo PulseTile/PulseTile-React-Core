@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
-import PersonalNotes from './PersonalNotes';
+import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientPersonalNotesEpic } from './ducks/fetch-patient-personal-notes.duck';
@@ -15,6 +15,7 @@ import personalNotesDetailEdit from './ducks/fetch-patient-personal-notes-detail
 import personalNotesCreate from './ducks/fetch-patient-personal-notes-create.duck';
 
 const epics = combineEpics(fetchPatientPersonalNotesEpic, fetchPatientPersonalNotesDetailEpic, fetchPatientPersonalNotesDetailEditEpic, fetchPatientPersonalNotesCreateEpic, fetchPatientPersonalNotesUpdateEpic);
+const PersonalNotes = asyncComponent(() => import(/* webpackChunkName: "personalNotes" */ './PersonalNotes').then(module => module.default));
 
 const reducers = {
   patientsPersonalNotes,
