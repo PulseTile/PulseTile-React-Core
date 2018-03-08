@@ -6,7 +6,6 @@ import PTButton from '../../ui-elements/PTButton/PTButton';
 import BasicPatientSearch from '../BasicPatientSearch/BasicPatientSearch';
 import AdvancedPatientSearch from '../AdvancedPatientSearch/AdvancedPatientSearch';
 import ClinicalQuerySearch from '../ClinicalQuerySearch/ClinicalQuerySearch';
-import { isIDCRRole } from '../../../utils/auth/auth-check-permissions';
 
 const BASIC_SEARCH = 'basicSearch';
 const ADVANCED_SEARCH = 'advancedSearch';
@@ -50,23 +49,16 @@ export default class NavSearch extends PureComponent {
 
   render() {
     const { selected, openedPanel } = this.state;
-    const { userAccount } = this.props;
 
     return <div className="wrap-search wrap-header-search" ref={node => this.node = node}>
       <div className="header-search">
         <div className={classNames('control-group left control-search-select dropdown', { 'open': openedPanel === SEARCH_CONTENT })}>
-          {isIDCRRole(userAccount) ?
-            <div>
-              <SearchOptions onSelect={this.handleSelect} {...{ selected, BASIC_SEARCH, ADVANCED_SEARCH, SEARCH_CONTENT }} />
-              <PTButton className="btn btn-dropdown-toggle btn-search-toggle" onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
-                <i className="btn-icon fa fa-bars" />
-              </PTButton>
-            </div>
-            :
+          <div>
+            <SearchOptions onSelect={this.handleSelect} {...{ selected, BASIC_SEARCH, ADVANCED_SEARCH, SEARCH_CONTENT }} />
             <PTButton className="btn btn-dropdown-toggle btn-search-toggle" onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
               <i className="btn-icon fa fa-bars" />
             </PTButton>
-          }
+          </div>
         </div>
         { selected === BASIC_SEARCH && <BasicPatientSearch /> }
         { selected === ADVANCED_SEARCH && <AdvancedPatientSearch className="advanced-search" onClose={() => this.handleSelect(BASIC_SEARCH)} /> }
