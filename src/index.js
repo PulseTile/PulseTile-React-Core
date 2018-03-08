@@ -51,8 +51,7 @@ const initialState = {
 //create store and enhance with middleware
 let store;
 if (process.env.NODE_ENV === 'production') {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] }))))
+  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] })))
 } else {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] }))));

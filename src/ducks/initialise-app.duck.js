@@ -27,8 +27,6 @@ export const initialiseEpic = (action$, store) => Observable.merge(
   action$
     .ofType(FETCH_INITIALISE_SUCCESS)
     .map((action) => {
-      // TODO: remove console
-      console.log('if is redirectURL');
       if (action.payload.redirectURL) return redirectToLoginUrl(action.payload);
       if (_.flow(_.get('payload.redirectTo'), _.eq('auth0'))(action)) return redirectToLogin(action.payload);
       return fetchUserAccountRequest(action)

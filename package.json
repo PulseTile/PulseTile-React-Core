@@ -1,12 +1,11 @@
 {
   "name": "pulsetile-react",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "'PulseTile framework - developed with ReactJS'",
   "main": "index.js",
   "scripts": {
     "start": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack-dev-server --progress --config webpack.config.dev.js",
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
-    "build:optimization": "./node_modules/.bin/cross-env NODE_ENV=production-optimization ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.prod.js",
     "build:dev": "./node_modules/.bin/cross-env NODE_ENV=development ./node_modules/.bin/webpack --display-chunks --progress --config webpack.config.dev.js",
     "before-test": "node ./test-configs/timeZoneService.js",
     "jest": "jest --runInBand --silent --config ./jest-config.js",
@@ -44,6 +43,7 @@
     "babel-eslint": "7.2.3",
     "babel-jest": "20.0.3",
     "babel-loader": "7.1.2",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-lodash": "3.2.11",
     "babel-plugin-react-transform": "2.0.2",
     "babel-plugin-transform-class-properties": "6.24.1",
@@ -84,12 +84,6 @@
     "jest": "22.2.2",
     "jquery": "3.3.1",
     "jsdom": "11.2.0",
-    "karma": "1.7.1",
-    "karma-chai": "^0.1.0",
-    "karma-htmlfile-reporter": "0.3.5",
-    "karma-mocha": "1.3.0",
-    "karma-webpack": "2.0.4",
-    "mocha": "3.5.3",
     "node-sass": "4.5.3",
     "nyc": "11.2.1",
     "preload-webpack-plugin": "1.2.3",
@@ -116,6 +110,7 @@
     "webpack-hot-middleware": "2.19.1"
   },
   "dependencies": {
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "bootstrap": "3.3.7",
     "bootstrap-sass": "3.3.7",
     "chart.js": "2.7.0",

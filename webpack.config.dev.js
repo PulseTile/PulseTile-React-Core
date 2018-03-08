@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -14,7 +13,6 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 const DEV_SERVER_URL = 'http://46.101.95.245';
-// const DEV_SERVER_URL = 'https://securedev.ripple.foundation';
 
 module.exports = {
   devtool: 'source-map',
@@ -36,6 +34,7 @@ module.exports = {
   output: {
     path: path.resolve(buildPath),
     filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/',
   },
 
@@ -52,8 +51,6 @@ module.exports = {
     // do not emit compiled assets that include errors
 
     new ExtractTextPlugin('styles.css'),
-
-    // new BundleAnalyzerPlugin()
 
     new webpack.ProvidePlugin({
       '_': 'lodash/fp',

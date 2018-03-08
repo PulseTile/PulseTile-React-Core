@@ -57,8 +57,6 @@ export default class RssDashboardPanel extends PureComponent {
     const { rssFeeds, title, state, goToState, isHasPreview, isHasList, rssFeedName } = this.props;
     const { indexItemForPreview } = this.state;
 
-    console.log('rssFeeds', rssFeeds);
-
     const items = this.getRssItems(rssFeeds);
 
     let srcPrevirew;

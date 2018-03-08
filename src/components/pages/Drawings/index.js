@@ -1,6 +1,6 @@
 import { combineEpics } from 'redux-observable';
 
-import Drawings from './Drawings';
+import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientDrawingsDetailEpic } from './ducks/fetch-patient-drawings-detail.duck';
@@ -15,6 +15,7 @@ import drawingsDetail from './ducks/fetch-patient-drawings-detail.duck';
 import drawingsDetailEdit from './ducks/fetch-patient-drawings-detail-edit.duck';
 
 const epics = combineEpics(fetchPatientDrawingsDetailEpic, fetchPatientDrawingsDetailEditEpic, fetchPatientDrawingsEpic, fetchPatientDrawingsCreateEpic, fetchPatientDrawingsUpdateEpic);
+const Drawings = asyncComponent(() => import(/* webpackChunkName: "drawings" */ './Drawings').then(module => module.default));
 
 const reducers = {
   patientsDrawings,

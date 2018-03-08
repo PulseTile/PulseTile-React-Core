@@ -32,6 +32,6 @@ after_success:
 
 notifications:
   email:
-    recipients: dima.polishuk.1995@gmail.com
+    recipients: tony.shannon@ripple.foundation
     on_success: always
     on_failure: always
