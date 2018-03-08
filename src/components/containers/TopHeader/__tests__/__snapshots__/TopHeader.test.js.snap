@@ -393,7 +393,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                       className="user-profile-info__item version-back"
                                     >
                                       About Showcase Stack; PulseTile version 
-                                      0.0.1
+                                      1.0.0
                                       /QEWD_Ripple version 
                                       2.32.1
                                     </div>

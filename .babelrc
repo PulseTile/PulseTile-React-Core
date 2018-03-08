@@ -14,5 +14,23 @@
     "syntax-dynamic-import",
     ["lodash", { "id": ["lodash", "recompose"] }]
   ],
+  "env": {
+    "test": {
+      "presets": [
+        "es2017",
+        "react",
+        "react-es2015",
+        "es2015",
+        "es2015-ie"
+      ],
+      "plugins": [
+        "transform-decorators-legacy",
+        "transform-runtime",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "dynamic-import-node",
+      ]
+    }
+  },
   "sourceRoot": "./src"
 }

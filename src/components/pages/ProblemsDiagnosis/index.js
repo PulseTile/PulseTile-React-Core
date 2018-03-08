@@ -15,7 +15,7 @@ import diagnosesDetailEdit from './ducks/fetch-patient-diagnoses-detail-edit.duc
 import patientDiagnosesCreate from './ducks/fetch-patient-diagnoses-create.duck';
 
 const epics = combineEpics(fetchPatientDiagnosesEpic, fetchPatientDiagnosesDetailEpic, fetchPatientDiagnosesDetailEditEpic, fetchPatientDiagnosesCreateEpic, fetchPatientDiagnosesUpdateEpic);
-const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnosis" */ './ProblemsDiagnosis').then(module => module.default));
+const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnoses" */ './ProblemsDiagnosis').then(module => module.default));
 
 const reducers = {
   patientsDiagnoses,
