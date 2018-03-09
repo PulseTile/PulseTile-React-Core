@@ -1,11 +1,10 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchSeriesDetailRequest } from '../../Images/ducks/fetch-series-detail.duck';
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_SERIES_REQUEST = 'FETCH_SERIES_REQUEST';
 export const FETCH_SERIES_SUCCESS = 'FETCH_SERIES_SUCCESS';
@@ -25,13 +24,13 @@ export const fetchSeriesEpic = (action$, store) =>
           const userId = payload.userId;
           const seriesId = response.seriesIds[0];
           const source = 'orthanc';
+          const token = hasTokenInResponse(response);
 
           return [
-            fetchSeriesSuccess({ userId, allSeries: response }),
+            fetchSeriesSuccess({ userId, allSeries: response, token }),
             fetchSeriesDetailRequest({ userId, seriesId, source }),
           ]
         })
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(allSeries = {}, action) {

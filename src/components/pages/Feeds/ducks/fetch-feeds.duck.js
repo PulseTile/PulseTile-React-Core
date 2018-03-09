@@ -1,11 +1,10 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchFeedsDetailRequest } from './fetch-feeds-detail.duck';
-import { handleErrors } from '../../../../ducks/handle-errors.duck';
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils'
 
 export const FETCH_FEEDS_REQUEST = 'FETCH_FEEDS_REQUEST';
 export const FETCH_FEEDS_SUCCESS = 'FETCH_FEEDS_SUCCESS';
@@ -23,10 +22,13 @@ export const fetchFeedsEpic = (action$, store) =>
       ajax.getJSON(`${usersUrls.FEEDS}`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchFeedsSuccess({
-          feeds: response,
-        }))
-        // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchFeedsSuccess({
+            feeds: response,
+            token,
+          })
+        })
     );
 
 export const fetchFeedsUpdateEpic = (action$, store) =>
@@ -43,7 +45,7 @@ export const fetchFeedsUpdateEpic = (action$, store) =>
             fetchFeedsDetailRequest({ sourceId }),
           ]
         })
-        // .catch(error => Observable.of(handleErrors(error)))
+
     );
 
 export default function reducer(feeds = {}, action) {

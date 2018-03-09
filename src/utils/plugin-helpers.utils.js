@@ -133,7 +133,7 @@ export const operationsOnCollection = {
     const labels = [];
 
     if (!_.isEmpty(collection)) {
-      collection.forEach(item => {
+      collection.forEach((item) => {
         tempDate = operationsOnCollection.formatDateForCharts(new Date(+item[key]));
 
         if (lastDate === tempDate.date) {
@@ -151,4 +151,15 @@ export const operationsOnCollection = {
 
 export const hasClass = (element, cls) => {
   if (element !== null) return (` ${element.className} `).indexOf(` ${cls} `) > -1;
+};
+
+export const hasTokenInResponse = (response) => {
+  let token;
+  response.map((item) => {
+    if (item.token) {
+      token = item.token;
+    }
+  });
+
+  return token;
 };
