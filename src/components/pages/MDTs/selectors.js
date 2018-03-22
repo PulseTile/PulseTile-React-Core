@@ -11,13 +11,8 @@ const patientMDTsSelector = createSelector(
   ({ patientsMDTs }) => patientsMDTs,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsMDTs, userId) => {
-    const allMDTs = operationsOnCollection.modificate(patientsMDTs[userId], [{
-      key: valuesNames.DATE_OF_REQUEST,
-      fn: item => new Date(item).getTime(),
-    }, {
-      key: valuesNames.DATE_OF_MEETING,
-      fn: item => new Date(item).getTime(),
-    }]);
+    let allMDTs = operationsOnCollection.modificateDateForTable(patientsMDTs[userId], valuesNames.DATE_OF_REQUEST);
+    allMDTs = operationsOnCollection.modificateDateForTable(allMDTs, valuesNames.DATE_OF_MEETING);
     return ({ allMDTs, userId });
   }
 );

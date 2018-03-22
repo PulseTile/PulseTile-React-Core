@@ -10,10 +10,7 @@ const patientTopThreeThingsSelector = createSelector(
   ({ patientsTopThreeThings }) => patientsTopThreeThings,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsTopThreeThings, userId) => {
-    const allTopThreeThings = operationsOnCollection.modificate(patientsTopThreeThings[userId], [{
-      key: valuesNames.DATE,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allTopThreeThings = operationsOnCollection.modificateDateForTable(patientsTopThreeThings[userId], valuesNames.DATE);
     return ({ allTopThreeThings, userId });
   }
 );

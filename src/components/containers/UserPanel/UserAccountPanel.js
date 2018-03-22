@@ -34,7 +34,7 @@ export default class UserAccountPanel extends PureComponent {
 
   render() {
     const { user, actions, onClick, onClose, initialiseData } = this.props;
-    console.log(packageJSON);
+    // console.log(packageJSON);
     const varsionOfPulseTile = packageJSON.version;
     const varsionOfReact = packageJSON.dependencies.react;
 

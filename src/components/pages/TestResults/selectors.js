@@ -8,13 +8,8 @@ const patientTestResultsSelector = createSelector(
   ({ patientsTestResults }) => patientsTestResults,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsTestResults, userId) => {
-    const allTestResults = operationsOnCollection.modificate(patientsTestResults[userId], [{
-      key: valuesNames.TAKEN,
-      fn: item => new Date(item).getTime(),
-    }, {
-      key: valuesNames.DATE,
-      fn: item => new Date(item).getTime(),
-    }]);
+    let allTestResults = operationsOnCollection.modificateDateForTable(patientsTestResults[userId], valuesNames.TAKEN);
+    allTestResults = operationsOnCollection.modificateDateForTable(allTestResults, valuesNames.DATE);
     return ({ allTestResults, userId });
   }
 );

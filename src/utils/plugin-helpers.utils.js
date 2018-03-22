@@ -33,6 +33,13 @@ export const operationsOnCollection = {
     return collection;
   },
 
+  modificateDateForTable: (collection, key) => {
+    return operationsOnCollection.modificate(collection, [{
+      key: key,
+      fn: item => item ? new Date(item).getTime() : '-',
+    }])
+  },
+
   filter: (collection, filterBy, filterKeys) => collection.filter((item) => {
     let str = '';
 

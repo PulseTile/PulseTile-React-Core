@@ -11,10 +11,7 @@ const patientGenericPluginSelector = createSelector(
   ({ patientsGenericPlugin }) => patientsGenericPlugin,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsGenericPlugin, userId) => {
-    const allGenericPlugin = operationsOnCollection.modificate(patientsGenericPlugin[userId], [{
-      key: valuesNames.DATE_CREATED,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allGenericPlugin = operationsOnCollection.modificateDateForTable(patientsGenericPlugin[userId], valuesNames.DATE_CREATED);
     return ({ allGenericPlugin, userId });
   }
 );

@@ -11,10 +11,8 @@ const patientTransfersOfCareSelector = createSelector(
   ({ patientsTransfersOfCare }) => patientsTransfersOfCare,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsTransfersOfCare, userId) => {
-    const allTransfersOfCare = operationsOnCollection.modificate(patientsTransfersOfCare[userId], [{
-      key: valuesNames.DATE_TIME,
-      fn: item => new Date(item).getTime(),
-    }, {
+    let allTransfersOfCare = operationsOnCollection.modificateDateForTable(patientsTransfersOfCare[userId], valuesNames.DATE_TIME);
+    allTransfersOfCare = operationsOnCollection.modificate(allTransfersOfCare, [{
       key: valuesNames.NUMBER_TEXT,
       fn: (el, index) => `Transfer #${index + 1}`,
     }, {
