@@ -45,6 +45,8 @@ const mapDispatchToProps = dispatch => ({
 export default class RecordsOfTable extends PureComponent {
   static defaultProps = {
     typesOptions: defaultTypesOptions,
+    isNotDragAndDropOfRaws: false,
+    isOnlyOneRecord: false
   };
 
   state = {
@@ -54,6 +56,7 @@ export default class RecordsOfTable extends PureComponent {
     waitingDataOf: '',
     isRecordsLoading: false,
     indexOfOpenedPopover: null,
+    isDisplayTypeSelect: true,
 
     typesRecords: {
       diagnosis: {
@@ -102,6 +105,14 @@ export default class RecordsOfTable extends PureComponent {
   };
 
   componentWillMount() {
+    const { typesOptions } = this.props;
+
+    if (typesOptions.length === 1) {
+      valuesLabels.RECORDS = typesOptions[0].title;
+      this.setState({ isDisplayTypeSelect: false });
+      this.handleGetHeadingsLists({ target: { value: typesOptions[0].value } });
+    }
+
     window.addEventListener('resize', this.handleClosePopover);
     window.addEventListener('orientationchange', this.handleClosePopover);
     document.addEventListener('click', this.handleDocumentClick);
@@ -234,7 +245,7 @@ export default class RecordsOfTable extends PureComponent {
     this.setState(toSetState);
   };
   handleGetHeadingsItems = (ev) => {
-    const { input: { onChange, value } } = this.props;
+    const { input: { onChange, value }, isOnlyOneRecord} = this.props;
     const records = value || [];
     const indexOfSelectedRecord = parseInt(ev.target.value);
     const { typeRecords, typesRecords, indexOfTypeEvents } = this.state;
@@ -260,7 +271,13 @@ export default class RecordsOfTable extends PureComponent {
       // if (typeRecords === 'events') {
       //   record.typeTitle = typesRecords[typeRecords].records[indexOfTypeEvents].title;
       // }
-      newRecords.push(record);
+
+      if (isOnlyOneRecord) {
+        newRecords[0] = record;
+      } else {
+        newRecords.push(record);
+      }
+
 
       onChange(newRecords);
       this.setState({ indexOfSelectedRecord });
@@ -324,24 +341,26 @@ export default class RecordsOfTable extends PureComponent {
 
   render() {
     const { typesOptions, isSubmit, input: { value }, match } = this.props;
+    const { isNotDragAndDropOfRaws } = this.props;
     const records = value;
     const { typesRecords, typeRecords, indexOfSelectedRecord,
-      isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover } = this.state;
+      isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover, isDisplayTypeSelect } = this.state;
 
     return (
       <div>
         {isRecordsLoading ? <Spinner /> : null }
-        <SelectFormGroup
-          label={valuesLabels.TYPE}
-          name={valuesNames.TYPE}
-          id={valuesNames.TYPE}
-          options={typesOptions}
-          component={SelectFormGroup}
-          placeholder="-- Select type --"
-          meta={{ error: false, touched: false }}
-          input={{ value: typeRecords }}
-          onChange={this.handleGetHeadingsLists}
-        />
+        {isDisplayTypeSelect ?
+          <SelectFormGroup
+            label={valuesLabels.TYPE}
+            name={valuesNames.TYPE}
+            id={valuesNames.TYPE}
+            options={typesOptions}
+            component={SelectFormGroup}
+            placeholder="-- Select type --"
+            meta={{ error: false, touched: false }}
+            input={{ value: typeRecords }}
+            onChange={this.handleGetHeadingsLists}
+          /> : null}
 
         {(typeRecords === 'diagnosis' ||
           typeRecords === 'medications' ||
@@ -429,12 +448,15 @@ export default class RecordsOfTable extends PureComponent {
                                   onClick={ /* istanbul ignore next */ () => { this.handleTogglePopover(index) }}
                                 >
                                   <div
-                                    className="table__col dnd-handle-wrapper"
+                                    className={`table__col ${!isNotDragAndDropOfRaws ? 'dnd-handle-wrapper' : ''}`}
                                     data-th={valuesLabels.RECORDS_NAME}
                                   >
-                                    <div className="dnd-handle" {...provided.dragHandleProps}>
-                                      <i className="fa fa-bars" />
-                                    </div>
+                                    { !isNotDragAndDropOfRaws ?
+                                      <div className="dnd-handle" {...provided.dragHandleProps}>
+                                        <i className="fa fa-bars" />
+                                      </div>
+                                      : null
+                                    }
                                     <span>{record[valuesNames.RECORDS_NAME]}</span>
                                   </div>
                                   <div className="table__col table__col-type" data-th={valuesLabels.RECORDS_TYPE}><span>{record[valuesNames.RECORDS_TYPE]}</span></div>
