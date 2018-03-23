@@ -30,7 +30,7 @@ export default class PromsDetail extends PureComponent {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
 
-    if (userId && detail[valuesNames.PROCEDURE_ID]) {
+    if (userId && detail && detail[valuesNames.PROCEDURE_ID]) {
       let procedureId = detail[valuesNames.PROCEDURE_ID];
       procedureId = procedureId.replace(/ehr:\/\/\//, '');
       procedureId = procedureId.replace(/::.*$/, '');

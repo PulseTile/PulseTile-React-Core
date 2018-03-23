@@ -67,7 +67,7 @@ export default class PromsCreateForm extends PureComponent {
                   id={valuesNames.SPECIFIC_Q1}
                   options={questionOptions1}
                   component={SelectFormGroup}
-                  placeholder="-- Select pain --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
@@ -78,7 +78,7 @@ export default class PromsCreateForm extends PureComponent {
                   id={valuesNames.SPECIFIC_Q2}
                   options={questionOptions2}
                   component={SelectFormGroup}
-                  placeholder="-- Select limitations --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
@@ -91,7 +91,7 @@ export default class PromsCreateForm extends PureComponent {
                   id={valuesNames.SPECIFIC_Q3}
                   options={questionOptions3}
                   component={SelectFormGroup}
-                  placeholder="-- Select walking --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
@@ -102,7 +102,7 @@ export default class PromsCreateForm extends PureComponent {
                   id={valuesNames.SPECIFIC_Q4}
                   options={questionOptions4}
                   component={SelectFormGroup}
-                  placeholder="-- Select walking surfaces --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
@@ -115,7 +115,7 @@ export default class PromsCreateForm extends PureComponent {
                 id={valuesNames.SPECIFIC_Q5}
                 options={questionOptions5}
                 component={SelectFormGroup}
-                placeholder="-- Select walking surfaces --"
+                placeholder="-- Select --"
                 props={{ isSubmit }}
               />
             </div>
