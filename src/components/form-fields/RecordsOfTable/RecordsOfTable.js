@@ -57,6 +57,7 @@ export default class RecordsOfTable extends PureComponent {
     isRecordsLoading: false,
     indexOfOpenedPopover: null,
     isDisplayTypeSelect: true,
+    isOnlyOneTypeOfRecords: false,
 
     typesRecords: {
       diagnosis: {
@@ -109,7 +110,7 @@ export default class RecordsOfTable extends PureComponent {
 
     if (typesOptions.length === 1) {
       valuesLabels.RECORDS = typesOptions[0].title;
-      this.setState({ isDisplayTypeSelect: false });
+      this.setState({ isDisplayTypeSelect: false, isOnlyOneTypeOfRecords: true });
       this.handleGetHeadingsLists({ target: { value: typesOptions[0].value } });
     }
 
@@ -219,6 +220,7 @@ export default class RecordsOfTable extends PureComponent {
 
       if (!_.isEmpty(props[stateName]) && _.isEmpty(newTypesRecords[key].records)) {
         newTypesRecords[key].records = this[newTypesRecords[key].setMethodName](props[stateName]);
+        this.selectRecordOptionForUpdate(newTypesRecords[key].records);
         isShouldUpdate = true;
       }
     }
@@ -227,6 +229,25 @@ export default class RecordsOfTable extends PureComponent {
       this.setState({ typesRecords: newTypesRecords });
     }
   };
+  selectRecordOptionForUpdate = (typeRecords) => {
+    const { isOnlyOneTypeOfRecords } = this.state;
+    const { isOnlyOneRecord, input: { value } } = this.props;
+    const records = value || [];
+
+    if (isOnlyOneTypeOfRecords && isOnlyOneRecord &&
+        typeRecords.length && records.length) {
+      const sourceId = records[0].sourceId;
+
+      if (sourceId) {
+        for (let i = 0; i < typeRecords.length; i++) {
+          if (typeRecords[i].record.sourceId === sourceId) {
+            this.setState({ indexOfSelectedRecord: typeRecords[i].value});
+            break;
+          }
+        }
+      }
+    }
+  }
 
   // Functionality of Add and Remove Records items
   handleGetHeadingsLists = (ev) => {

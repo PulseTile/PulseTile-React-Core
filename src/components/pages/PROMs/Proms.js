@@ -79,7 +79,6 @@ export default class Proms extends PureComponent {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { promDetail } = this.props;
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -94,7 +93,7 @@ export default class Proms extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROM_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
-    if(!_.isEmpty(nextProps.promDetail)) {
+    if(!_.isEmpty(nextProps.promDetail) && !this.state.isCreatePanelVisible) {
       this.changeScoreStatus(nextProps.promDetail.score);
     }
 
