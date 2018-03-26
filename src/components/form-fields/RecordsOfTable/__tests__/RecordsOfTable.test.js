@@ -108,8 +108,25 @@ const storeResource = {
       },
     ],
   },
-}
+};
+
+const ProcedureSourceId = 'fa7408c3-7d69-4f50-84ac-cbf735a0ab18';
+const procedureValue = [{
+  name: 'Cauterisation of wart of skin',
+  type: 'procedures',
+  typeTitle: 'Procedures',
+  sourceId: ProcedureSourceId,
+}];
+const storeEmptyResource = {
+  patientsDiagnoses: {},
+  patientsMedications: {},
+  patientsReferrals: {},
+  patientsVitals: {},
+  patientsEvents: {},
+  patientsProcedures: {}
+};
 const store = mockStore(Object.assign({}, storeResource));
+const storeEmpty = mockStore(Object.assign({}, storeEmptyResource));
 
 const DATE_TO_USE = new Date('2017');
 const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
@@ -155,10 +172,7 @@ describe('Component <RecordsOfTable />', () => {
         input={testProps.input}
         allReferrals={testProps.allReferrals}
         match={match}
-      />).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
     expect(component.find('SelectFormGroup')).toHaveLength(1);
@@ -359,5 +373,160 @@ describe('Component <RecordsOfTable />', () => {
     component.instance().handleGetHeadingsItems({ target: { value: 0 }})
     expect(component).toMatchSnapshot();
   });
-});
 
+  it('should renders with props correctly with 1 type of Records', () => {
+    let component = shallow(
+      <RecordsOfTable
+        store={storeEmpty}
+        input={{
+          value: procedureValue,
+          onChange: (value) => value,
+        }}
+        match={match}
+        isSubmit={false}
+        typesOptions={[
+          { value: 'procedures', title: 'Procedures' },
+        ]}
+        isOnlyOneRecord
+        isNotDragAndDropOfRaws
+      />).dive().dive().dive().dive().dive().dive();
+
+    component.setProps({ allProcedures: [{
+        name: 'total replacement of hip',
+        date: 1436969493829,
+        time: 54693829,
+        source: 'ethercis',
+        sourceId: ProcedureSourceId,
+        dateConvert: '15-Jul-2015',
+        timeConvert: '17:11',
+      }] });
+
+    component.instance().handleGetHeadingsItems({ target: { value: 0 } });
+
+
+    component = shallow(
+      <RecordsOfTable
+        store={storeEmpty}
+        input={{
+          value: undefined,
+          onChange: (value) => value,
+        }}
+        match={match}
+        isSubmit={false}
+        typesOptions={[
+          { value: 'procedures', title: 'Procedures' },
+        ]}
+        isOnlyOneRecord
+        isNotDragAndDropOfRaws
+      />).dive().dive().dive().dive().dive().dive();
+
+    component.setProps({ allProcedures: [{
+        name: 'total replacement of hip',
+        date: 1436969493829,
+        time: 54693829,
+        source: 'ethercis',
+        sourceId: ProcedureSourceId,
+        dateConvert: '15-Jul-2015',
+        timeConvert: '17:11',
+      }] });
+
+
+    component = shallow(
+      <RecordsOfTable
+        store={storeEmpty}
+        input={{
+          value: procedureValue,
+          onChange: (value) => value,
+        }}
+        match={match}
+        isSubmit={false}
+        typesOptions={[
+          { value: 'procedures', title: 'Procedures' },
+        ]}
+        isOnlyOneRecord
+      />).dive().dive().dive().dive().dive().dive();
+
+    component.setProps({ allProcedures: [{
+        name: 'total replacement of hip',
+        date: 1436969493829,
+        time: 54693829,
+        source: 'ethercis',
+        sourceId: 'anotherSourceId',
+        dateConvert: '15-Jul-2015',
+        timeConvert: '17:11',
+      }] });
+
+
+    component = shallow(
+      <RecordsOfTable
+        store={storeEmpty}
+        input={{
+          value: procedureValue,
+          onChange: (value) => value,
+        }}
+        match={match}
+        isSubmit={false}
+        typesOptions={[
+          { value: 'procedures', title: 'Procedures' },
+        ]}
+        isOnlyOneRecord
+        isNotDragAndDropOfRaws
+      />).dive().dive().dive().dive().dive().dive();
+
+    component.setProps({ allProcedures: [{
+        name: 'total replacement of hip',
+        date: 1436969493829,
+        time: 54693829,
+        source: 'ethercis',
+        sourceId: 'anitherSourceId',
+        dateConvert: '15-Jul-2015',
+        timeConvert: '17:11',
+      }] });
+  });
+
+  it('should renders with props correctly without DragAndDrop functionality', () => {
+    let component = mount(
+      <RecordsOfTable
+        store={storeEmpty}
+        input={{
+          value: procedureValue,
+          onChange: (value) => value,
+        }}
+        match={match}
+        isSubmit={false}
+        typesOptions={[
+          { value: 'procedures', title: 'Procedures' },
+        ]}
+        isOnlyOneRecord
+        isNotDragAndDropOfRaws
+      />);
+
+    component.setProps({ allProcedures: [{
+        name: 'total replacement of hip',
+        date: 1436969493829,
+        time: 54693829,
+        source: 'ethercis',
+        sourceId: ProcedureSourceId,
+        dateConvert: '15-Jul-2015',
+        timeConvert: '17:11',
+      }] });
+
+    component.setState({
+      typesRecords: {
+        procedures: {
+          records: [{
+            record: {
+              tableName: 'test',
+              date: 1512432000000,
+              source: 'test Source',
+              sourceId: ProcedureSourceId,
+            }
+          }]
+        }
+      },
+      typeRecords: 'procedures'
+    });
+
+    expect(component).toMatchSnapshot();
+  });
+});

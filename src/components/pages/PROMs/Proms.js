@@ -202,19 +202,15 @@ export default class Proms extends PureComponent {
     sendData.userId = userId;
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
     // sendData[valuesNames.RECORDS] = formValues[valuesNames.RECORDS];
-    sendData[valuesNames.PROCEDURE_ID] = formValues[valuesNames.RECORDS][0].sourceId;
+    if (formValues[valuesNames.RECORDS] && formValues[valuesNames.RECORDS].length) {
+      sendData[valuesNames.PROCEDURE_ID] = formValues[valuesNames.RECORDS][0].sourceId;
+    }
     sendData[valuesNames.SCORE] = score;
     sendData[valuesNames.SPECIFIC_Q1] = formValues[valuesNames.SPECIFIC_Q1];
     sendData[valuesNames.SPECIFIC_Q2] = formValues[valuesNames.SPECIFIC_Q2];
     sendData[valuesNames.SPECIFIC_Q3] = formValues[valuesNames.SPECIFIC_Q3];
     sendData[valuesNames.SPECIFIC_Q4] = formValues[valuesNames.SPECIFIC_Q4];
     sendData[valuesNames.SPECIFIC_Q5] = formValues[valuesNames.SPECIFIC_Q5];
-
-    // sendData[valuesNames.SPECIFIC_Q1] = 'at0009';
-    // sendData[valuesNames.SPECIFIC_Q2] = 'at0017';
-    // sendData[valuesNames.SPECIFIC_Q3] = 'at0022';
-    // sendData[valuesNames.SPECIFIC_Q4] = 'at0027';
-    // sendData[valuesNames.SPECIFIC_Q5] = 'at0030';
 
     sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];

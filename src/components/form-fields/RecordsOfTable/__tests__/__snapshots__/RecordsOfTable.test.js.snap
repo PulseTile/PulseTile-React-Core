@@ -928,6 +928,8 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                   ],
                 }
               }
+              isNotDragAndDropOfRaws={false}
+              isOnlyOneRecord={false}
               match={
                 Object {
                   "params": Object {
@@ -1869,4 +1871,1274 @@ exports[`Component <RecordsOfTable /> should renders with props correctly when i
     </div>
   </div>
 </div>
+`;
+
+exports[`Component <RecordsOfTable /> should renders with props correctly without DragAndDrop functionality 1`] = `
+<Connect(Connect(Connect(Connect(Connect(Connect(RecordsOfTable))))))
+  allProcedures={
+    Array [
+      Object {
+        "date": 1436969493829,
+        "dateConvert": "15-Jul-2015",
+        "name": "total replacement of hip",
+        "source": "ethercis",
+        "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+        "time": 54693829,
+        "timeConvert": "17:11",
+      },
+    ]
+  }
+  input={
+    Object {
+      "onChange": [Function],
+      "value": Array [
+        Object {
+          "name": "Cauterisation of wart of skin",
+          "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+          "type": "procedures",
+          "typeTitle": "Procedures",
+        },
+      ],
+    }
+  }
+  isNotDragAndDropOfRaws={true}
+  isOnlyOneRecord={true}
+  isSubmit={false}
+  match={
+    Object {
+      "params": Object {
+        "userId": "9999999000",
+      },
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  typesOptions={
+    Array [
+      Object {
+        "title": "Procedures",
+        "value": "procedures",
+      },
+    ]
+  }
+>
+  <Connect(Connect(Connect(Connect(Connect(RecordsOfTable)))))
+    actions={
+      Object {
+        "fetchPatientDiagnosesRequest": [Function],
+        "fetchPatientEventsRequest": [Function],
+        "fetchPatientMedicationsRequest": [Function],
+        "fetchPatientProceduresRequest": [Function],
+        "fetchPatientReferralsRequest": [Function],
+        "fetchPatientVitalsRequest": [Function],
+      }
+    }
+    allProcedures={
+      Array [
+        Object {
+          "date": 1436969493829,
+          "dateConvert": "15-Jul-2015",
+          "name": "total replacement of hip",
+          "source": "ethercis",
+          "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+          "time": 54693829,
+          "timeConvert": "17:11",
+        },
+      ]
+    }
+    input={
+      Object {
+        "onChange": [Function],
+        "value": Array [
+          Object {
+            "name": "Cauterisation of wart of skin",
+            "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+            "type": "procedures",
+            "typeTitle": "Procedures",
+          },
+        ],
+      }
+    }
+    isNotDragAndDropOfRaws={true}
+    isOnlyOneRecord={true}
+    isSubmit={false}
+    match={
+      Object {
+        "params": Object {
+          "userId": "9999999000",
+        },
+      }
+    }
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    storeSubscription={
+      Subscription {
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        },
+        "unsubscribe": [Function],
+      }
+    }
+    typesOptions={
+      Array [
+        Object {
+          "title": "Procedures",
+          "value": "procedures",
+        },
+      ]
+    }
+    userId="9999999000"
+  >
+    <Connect(Connect(Connect(Connect(RecordsOfTable))))
+      actions={
+        Object {
+          "fetchPatientDiagnosesRequest": [Function],
+          "fetchPatientEventsRequest": [Function],
+          "fetchPatientMedicationsRequest": [Function],
+          "fetchPatientProceduresRequest": [Function],
+          "fetchPatientReferralsRequest": [Function],
+          "fetchPatientVitalsRequest": [Function],
+        }
+      }
+      allProcedures={
+        Array [
+          Object {
+            "date": 1436969493829,
+            "dateConvert": "15-Jul-2015",
+            "name": "total replacement of hip",
+            "source": "ethercis",
+            "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+            "time": 54693829,
+            "timeConvert": "17:11",
+          },
+        ]
+      }
+      dispatch={[Function]}
+      input={
+        Object {
+          "onChange": [Function],
+          "value": Array [
+            Object {
+              "name": "Cauterisation of wart of skin",
+              "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+              "type": "procedures",
+              "typeTitle": "Procedures",
+            },
+          ],
+        }
+      }
+      isNotDragAndDropOfRaws={true}
+      isOnlyOneRecord={true}
+      isSubmit={false}
+      match={
+        Object {
+          "params": Object {
+            "userId": "9999999000",
+          },
+        }
+      }
+      store={
+        Object {
+          "clearActions": [Function],
+          "dispatch": [Function],
+          "getActions": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+        }
+      }
+      storeSubscription={
+        Subscription {
+          "listeners": Object {
+            "clear": [Function],
+            "get": [Function],
+            "notify": [Function],
+            "subscribe": [Function],
+          },
+          "onStateChange": [Function],
+          "parentSub": Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": undefined,
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          },
+          "store": Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          },
+          "unsubscribe": [Function],
+        }
+      }
+      typesOptions={
+        Array [
+          Object {
+            "title": "Procedures",
+            "value": "procedures",
+          },
+        ]
+      }
+      userId="9999999000"
+    >
+      <Connect(Connect(Connect(RecordsOfTable)))
+        actions={
+          Object {
+            "fetchPatientDiagnosesRequest": [Function],
+            "fetchPatientEventsRequest": [Function],
+            "fetchPatientMedicationsRequest": [Function],
+            "fetchPatientProceduresRequest": [Function],
+            "fetchPatientReferralsRequest": [Function],
+            "fetchPatientVitalsRequest": [Function],
+          }
+        }
+        allProcedures={
+          Array [
+            Object {
+              "date": 1436969493829,
+              "dateConvert": "15-Jul-2015",
+              "name": "total replacement of hip",
+              "source": "ethercis",
+              "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+              "time": 54693829,
+              "timeConvert": "17:11",
+            },
+          ]
+        }
+        dispatch={[Function]}
+        input={
+          Object {
+            "onChange": [Function],
+            "value": Array [
+              Object {
+                "name": "Cauterisation of wart of skin",
+                "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                "type": "procedures",
+                "typeTitle": "Procedures",
+              },
+            ],
+          }
+        }
+        isNotDragAndDropOfRaws={true}
+        isOnlyOneRecord={true}
+        isSubmit={false}
+        match={
+          Object {
+            "params": Object {
+              "userId": "9999999000",
+            },
+          }
+        }
+        store={
+          Object {
+            "clearActions": [Function],
+            "dispatch": [Function],
+            "getActions": [Function],
+            "getState": [Function],
+            "replaceReducer": [Function],
+            "subscribe": [Function],
+          }
+        }
+        storeSubscription={
+          Subscription {
+            "listeners": Object {
+              "clear": [Function],
+              "get": [Function],
+              "notify": [Function],
+              "subscribe": [Function],
+            },
+            "onStateChange": [Function],
+            "parentSub": Subscription {
+              "listeners": Object {
+                "clear": [Function],
+                "get": [Function],
+                "notify": [Function],
+                "subscribe": [Function],
+              },
+              "onStateChange": [Function],
+              "parentSub": Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": undefined,
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              },
+              "store": Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              },
+              "unsubscribe": [Function],
+            },
+            "store": Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            },
+            "unsubscribe": [Function],
+          }
+        }
+        typesOptions={
+          Array [
+            Object {
+              "title": "Procedures",
+              "value": "procedures",
+            },
+          ]
+        }
+        userId="9999999000"
+      >
+        <Connect(Connect(RecordsOfTable))
+          actions={
+            Object {
+              "fetchPatientDiagnosesRequest": [Function],
+              "fetchPatientEventsRequest": [Function],
+              "fetchPatientMedicationsRequest": [Function],
+              "fetchPatientProceduresRequest": [Function],
+              "fetchPatientReferralsRequest": [Function],
+              "fetchPatientVitalsRequest": [Function],
+            }
+          }
+          allProcedures={
+            Array [
+              Object {
+                "date": 1436969493829,
+                "dateConvert": "15-Jul-2015",
+                "name": "total replacement of hip",
+                "source": "ethercis",
+                "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                "time": 54693829,
+                "timeConvert": "17:11",
+              },
+            ]
+          }
+          dispatch={[Function]}
+          input={
+            Object {
+              "onChange": [Function],
+              "value": Array [
+                Object {
+                  "name": "Cauterisation of wart of skin",
+                  "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                  "type": "procedures",
+                  "typeTitle": "Procedures",
+                },
+              ],
+            }
+          }
+          isNotDragAndDropOfRaws={true}
+          isOnlyOneRecord={true}
+          isSubmit={false}
+          match={
+            Object {
+              "params": Object {
+                "userId": "9999999000",
+              },
+            }
+          }
+          store={
+            Object {
+              "clearActions": [Function],
+              "dispatch": [Function],
+              "getActions": [Function],
+              "getState": [Function],
+              "replaceReducer": [Function],
+              "subscribe": [Function],
+            }
+          }
+          storeSubscription={
+            Subscription {
+              "listeners": Object {
+                "clear": [Function],
+                "get": [Function],
+                "notify": [Function],
+                "subscribe": [Function],
+              },
+              "onStateChange": [Function],
+              "parentSub": Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": undefined,
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                },
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              },
+              "store": Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              },
+              "unsubscribe": [Function],
+            }
+          }
+          typesOptions={
+            Array [
+              Object {
+                "title": "Procedures",
+                "value": "procedures",
+              },
+            ]
+          }
+          userId="9999999000"
+        >
+          <Connect(RecordsOfTable)
+            actions={
+              Object {
+                "fetchPatientDiagnosesRequest": [Function],
+                "fetchPatientEventsRequest": [Function],
+                "fetchPatientMedicationsRequest": [Function],
+                "fetchPatientProceduresRequest": [Function],
+                "fetchPatientReferralsRequest": [Function],
+                "fetchPatientVitalsRequest": [Function],
+              }
+            }
+            allProcedures={
+              Array [
+                Object {
+                  "date": 1436969493829,
+                  "dateConvert": "15-Jul-2015",
+                  "name": "total replacement of hip",
+                  "source": "ethercis",
+                  "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                  "time": 54693829,
+                  "timeConvert": "17:11",
+                },
+              ]
+            }
+            dispatch={[Function]}
+            input={
+              Object {
+                "onChange": [Function],
+                "value": Array [
+                  Object {
+                    "name": "Cauterisation of wart of skin",
+                    "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                    "type": "procedures",
+                    "typeTitle": "Procedures",
+                  },
+                ],
+              }
+            }
+            isNotDragAndDropOfRaws={true}
+            isOnlyOneRecord={true}
+            isSubmit={false}
+            match={
+              Object {
+                "params": Object {
+                  "userId": "9999999000",
+                },
+              }
+            }
+            store={
+              Object {
+                "clearActions": [Function],
+                "dispatch": [Function],
+                "getActions": [Function],
+                "getState": [Function],
+                "replaceReducer": [Function],
+                "subscribe": [Function],
+              }
+            }
+            storeSubscription={
+              Subscription {
+                "listeners": Object {
+                  "clear": [Function],
+                  "get": [Function],
+                  "notify": [Function],
+                  "subscribe": [Function],
+                },
+                "onStateChange": [Function],
+                "parentSub": Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": Subscription {
+                      "listeners": Object {
+                        "clear": [Function],
+                        "get": [Function],
+                        "notify": [Function],
+                        "subscribe": [Function],
+                      },
+                      "onStateChange": [Function],
+                      "parentSub": Subscription {
+                        "listeners": Object {
+                          "clear": [Function],
+                          "get": [Function],
+                          "notify": [Function],
+                          "subscribe": [Function],
+                        },
+                        "onStateChange": [Function],
+                        "parentSub": undefined,
+                        "store": Object {
+                          "clearActions": [Function],
+                          "dispatch": [Function],
+                          "getActions": [Function],
+                          "getState": [Function],
+                          "replaceReducer": [Function],
+                          "subscribe": [Function],
+                        },
+                        "unsubscribe": [Function],
+                      },
+                      "store": Object {
+                        "clearActions": [Function],
+                        "dispatch": [Function],
+                        "getActions": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                      "unsubscribe": [Function],
+                    },
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                },
+                "store": Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                },
+                "unsubscribe": [Function],
+              }
+            }
+            typesOptions={
+              Array [
+                Object {
+                  "title": "Procedures",
+                  "value": "procedures",
+                },
+              ]
+            }
+            userId="9999999000"
+          >
+            <RecordsOfTable
+              actions={
+                Object {
+                  "fetchPatientDiagnosesRequest": [Function],
+                  "fetchPatientEventsRequest": [Function],
+                  "fetchPatientMedicationsRequest": [Function],
+                  "fetchPatientProceduresRequest": [Function],
+                  "fetchPatientReferralsRequest": [Function],
+                  "fetchPatientVitalsRequest": [Function],
+                }
+              }
+              dispatch={[Function]}
+              input={
+                Object {
+                  "onChange": [Function],
+                  "value": Array [
+                    Object {
+                      "name": "Cauterisation of wart of skin",
+                      "sourceId": "fa7408c3-7d69-4f50-84ac-cbf735a0ab18",
+                      "type": "procedures",
+                      "typeTitle": "Procedures",
+                    },
+                  ],
+                }
+              }
+              isNotDragAndDropOfRaws={true}
+              isOnlyOneRecord={true}
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+              store={
+                Object {
+                  "clearActions": [Function],
+                  "dispatch": [Function],
+                  "getActions": [Function],
+                  "getState": [Function],
+                  "replaceReducer": [Function],
+                  "subscribe": [Function],
+                }
+              }
+              storeSubscription={
+                Subscription {
+                  "listeners": Object {
+                    "clear": [Function],
+                    "get": [Function],
+                    "notify": [Function],
+                    "subscribe": [Function],
+                  },
+                  "onStateChange": [Function],
+                  "parentSub": Subscription {
+                    "listeners": Object {
+                      "clear": [Function],
+                      "get": [Function],
+                      "notify": [Function],
+                      "subscribe": [Function],
+                    },
+                    "onStateChange": [Function],
+                    "parentSub": Subscription {
+                      "listeners": Object {
+                        "clear": [Function],
+                        "get": [Function],
+                        "notify": [Function],
+                        "subscribe": [Function],
+                      },
+                      "onStateChange": [Function],
+                      "parentSub": Subscription {
+                        "listeners": Object {
+                          "clear": [Function],
+                          "get": [Function],
+                          "notify": [Function],
+                          "subscribe": [Function],
+                        },
+                        "onStateChange": [Function],
+                        "parentSub": Subscription {
+                          "listeners": Object {
+                            "clear": [Function],
+                            "get": [Function],
+                            "notify": [Function],
+                            "subscribe": [Function],
+                          },
+                          "onStateChange": [Function],
+                          "parentSub": Subscription {
+                            "listeners": Object {
+                              "clear": [Function],
+                              "get": [Function],
+                              "notify": [Function],
+                              "subscribe": [Function],
+                            },
+                            "onStateChange": [Function],
+                            "parentSub": undefined,
+                            "store": Object {
+                              "clearActions": [Function],
+                              "dispatch": [Function],
+                              "getActions": [Function],
+                              "getState": [Function],
+                              "replaceReducer": [Function],
+                              "subscribe": [Function],
+                            },
+                            "unsubscribe": [Function],
+                          },
+                          "store": Object {
+                            "clearActions": [Function],
+                            "dispatch": [Function],
+                            "getActions": [Function],
+                            "getState": [Function],
+                            "replaceReducer": [Function],
+                            "subscribe": [Function],
+                          },
+                          "unsubscribe": [Function],
+                        },
+                        "store": Object {
+                          "clearActions": [Function],
+                          "dispatch": [Function],
+                          "getActions": [Function],
+                          "getState": [Function],
+                          "replaceReducer": [Function],
+                          "subscribe": [Function],
+                        },
+                        "unsubscribe": [Function],
+                      },
+                      "store": Object {
+                        "clearActions": [Function],
+                        "dispatch": [Function],
+                        "getActions": [Function],
+                        "getState": [Function],
+                        "replaceReducer": [Function],
+                        "subscribe": [Function],
+                      },
+                      "unsubscribe": [Function],
+                    },
+                    "store": Object {
+                      "clearActions": [Function],
+                      "dispatch": [Function],
+                      "getActions": [Function],
+                      "getState": [Function],
+                      "replaceReducer": [Function],
+                      "subscribe": [Function],
+                    },
+                    "unsubscribe": [Function],
+                  },
+                  "store": Object {
+                    "clearActions": [Function],
+                    "dispatch": [Function],
+                    "getActions": [Function],
+                    "getState": [Function],
+                    "replaceReducer": [Function],
+                    "subscribe": [Function],
+                  },
+                  "unsubscribe": [Function],
+                }
+              }
+              typesOptions={
+                Array [
+                  Object {
+                    "title": "Procedures",
+                    "value": "procedures",
+                  },
+                ]
+              }
+              userId="9999999000"
+            >
+              <div>
+                <SelectFormGroup
+                  component={[Function]}
+                  id="records"
+                  input={
+                    Object {
+                      "value": "",
+                    }
+                  }
+                  label="Procedures"
+                  meta={
+                    Object {
+                      "error": false,
+                      "touched": false,
+                    }
+                  }
+                  name="records"
+                  onChange={[Function]}
+                  options={Array []}
+                  placeholder="-- Select Procedures --"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                      htmlFor="records"
+                    >
+                      Procedures
+                    </label>
+                    <select
+                      className="form-control input-sm"
+                      id="records"
+                      name="records"
+                      onChange={[Function]}
+                      value=""
+                    >
+                      <option>
+                        -- Select Procedures --
+                      </option>
+                    </select>
+                  </div>
+                </SelectFormGroup>
+                <DragDropContext
+                  onDragEnd={[Function]}
+                  onDragStart={[Function]}
+                >
+                  <Connect(Droppable)
+                    droppableId="droppable"
+                  >
+                    <Droppable
+                      direction="vertical"
+                      dispatch={[Function]}
+                      droppableId="droppable"
+                      ignoreContainerClipping={false}
+                      isDraggingOver={false}
+                      isDropDisabled={false}
+                      placeholder={null}
+                      type="DEFAULT"
+                    >
+                      <DroppableDimensionPublisher
+                        direction="vertical"
+                        droppableId="droppable"
+                        ignoreContainerClipping={false}
+                        isDropDisabled={false}
+                        targetRef={
+                          <div
+                            class="panel-body-inner-table"
+                          >
+                            <div
+                              class="form-group"
+                            >
+                              <div
+                                class="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable"
+                              >
+                                <div
+                                  class="table__head"
+                                >
+                                  <div
+                                    class="table__row"
+                                  >
+                                    <div
+                                      class="table__col"
+                                    >
+                                      Name
+                                    </div>
+                                    <div
+                                      class="table__col table__col-type"
+                                    >
+                                      Type
+                                    </div>
+                                    <div
+                                      class="table__col table__col-date"
+                                    >
+                                      Date
+                                    </div>
+                                    <div
+                                      class="table__col table__col-source"
+                                    >
+                                      Source
+                                    </div>
+                                    <div
+                                      class="table__col table__col-control"
+                                    />
+                                  </div>
+                                </div>
+                                <div
+                                  class="table__body"
+                                >
+                                  <div
+                                    class="table__row-holder record-popover-wrapper"
+                                  >
+                                    <div
+                                      class="table__row"
+                                      data-react-beautiful-dnd-draggable="1"
+                                      style="opacity: 1;"
+                                    >
+                                      <div
+                                        class="table__col "
+                                        data-th="Name"
+                                      >
+                                        <span>
+                                          Cauterisation of wart of skin
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-type"
+                                        data-th="Type"
+                                      >
+                                        <span>
+                                          Procedures
+                                        </span>
+                                      </div>
+                                      <div
+                                        class="table__col table__col-date"
+                                        data-th="Date"
+                                      >
+                                        <span />
+                                      </div>
+                                      <div
+                                        class="table__col table__col-source"
+                                        data-th="Source"
+                                      >
+                                        <span />
+                                      </div>
+                                      <div
+                                        class="table__col table__col-control table-records-editable__control"
+                                        data-th=""
+                                      >
+                                        <div
+                                          class="btn btn-smaller btn-danger btn-icon-normal"
+                                        >
+                                          <i
+                                            class="btn-icon fa fa-times"
+                                          />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        }
+                        type="DEFAULT"
+                      >
+                        <div
+                          className="panel-body-inner-table"
+                        >
+                          <div
+                            className="form-group"
+                          >
+                            <div
+                              className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-records-editable"
+                            >
+                              <div
+                                className="table__head"
+                              >
+                                <div
+                                  className="table__row"
+                                >
+                                  <div
+                                    className="table__col"
+                                  >
+                                    Name
+                                  </div>
+                                  <div
+                                    className="table__col table__col-type"
+                                  >
+                                    Type
+                                  </div>
+                                  <div
+                                    className="table__col table__col-date"
+                                  >
+                                    Date
+                                  </div>
+                                  <div
+                                    className="table__col table__col-source"
+                                  >
+                                    Source
+                                  </div>
+                                  <div
+                                    className="table__col table__col-control"
+                                  />
+                                </div>
+                              </div>
+                              <div
+                                className="table__body"
+                              >
+                                <Connect(Draggable)
+                                  draggableId="record-0"
+                                  index={0}
+                                  key="record-0"
+                                >
+                                  <Draggable
+                                    cancel={[Function]}
+                                    crossAxisMoveBackward={[Function]}
+                                    crossAxisMoveForward={[Function]}
+                                    dimension={null}
+                                    direction={null}
+                                    disableInteractiveElementBlocking={false}
+                                    draggableId="record-0"
+                                    drop={[Function]}
+                                    dropAnimationFinished={[Function]}
+                                    index={0}
+                                    isDragDisabled={false}
+                                    isDragging={false}
+                                    isDropAnimating={false}
+                                    lift={[Function]}
+                                    move={[Function]}
+                                    moveBackward={[Function]}
+                                    moveByWindowScroll={[Function]}
+                                    moveForward={[Function]}
+                                    offset={
+                                      Object {
+                                        "x": 0,
+                                        "y": 0,
+                                      }
+                                    }
+                                    shouldAnimateDisplacement={true}
+                                    shouldAnimateDragMovement={false}
+                                  >
+                                    <DraggableDimensionPublisher
+                                      draggableId="record-0"
+                                      droppableId="droppable"
+                                      index={0}
+                                      targetRef={
+                                        <div
+                                          class="table__row"
+                                          data-react-beautiful-dnd-draggable="1"
+                                          style="opacity: 1;"
+                                        >
+                                          <div
+                                            class="table__col "
+                                            data-th="Name"
+                                          >
+                                            <span>
+                                              Cauterisation of wart of skin
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-type"
+                                            data-th="Type"
+                                          >
+                                            <span>
+                                              Procedures
+                                            </span>
+                                          </div>
+                                          <div
+                                            class="table__col table__col-date"
+                                            data-th="Date"
+                                          >
+                                            <span />
+                                          </div>
+                                          <div
+                                            class="table__col table__col-source"
+                                            data-th="Source"
+                                          >
+                                            <span />
+                                          </div>
+                                          <div
+                                            class="table__col table__col-control table-records-editable__control"
+                                            data-th=""
+                                          >
+                                            <div
+                                              class="btn btn-smaller btn-danger btn-icon-normal"
+                                            >
+                                              <i
+                                                class="btn-icon fa fa-times"
+                                              />
+                                            </div>
+                                          </div>
+                                        </div>
+                                      }
+                                    >
+                                      <Movable
+                                        destination={
+                                          Object {
+                                            "x": 0,
+                                            "y": 0,
+                                          }
+                                        }
+                                        onMoveEnd={[Function]}
+                                        speed="INSTANT"
+                                      >
+                                        <Motion
+                                          defaultStyle={
+                                            Object {
+                                              "x": 0,
+                                              "y": 0,
+                                            }
+                                          }
+                                          onRest={[Function]}
+                                          style={
+                                            Object {
+                                              "x": 0,
+                                              "y": 0,
+                                            }
+                                          }
+                                        >
+                                          <DragHandle
+                                            callbacks={
+                                              Object {
+                                                "onCancel": [Function],
+                                                "onCrossAxisMoveBackward": [Function],
+                                                "onCrossAxisMoveForward": [Function],
+                                                "onDrop": [Function],
+                                                "onLift": [Function],
+                                                "onMove": [Function],
+                                                "onMoveBackward": [Function],
+                                                "onMoveForward": [Function],
+                                                "onWindowScroll": [Function],
+                                              }
+                                            }
+                                            canDragInteractiveElements={false}
+                                            direction={null}
+                                            draggableId="record-0"
+                                            getDraggableRef={[Function]}
+                                            isDragging={false}
+                                            isEnabled={true}
+                                          >
+                                            <div
+                                              className="table__row-holder record-popover-wrapper"
+                                            >
+                                              <div
+                                                className="table__row"
+                                                data-react-beautiful-dnd-draggable="1"
+                                                onClick={[Function]}
+                                                style={
+                                                  Object {
+                                                    "opacity": 1,
+                                                    "transform": null,
+                                                    "transition": null,
+                                                  }
+                                                }
+                                              >
+                                                <div
+                                                  className="table__col "
+                                                  data-th="Name"
+                                                >
+                                                  <span>
+                                                    Cauterisation of wart of skin
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-type"
+                                                  data-th="Type"
+                                                >
+                                                  <span>
+                                                    Procedures
+                                                  </span>
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-date"
+                                                  data-th="Date"
+                                                >
+                                                  <span />
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-source"
+                                                  data-th="Source"
+                                                >
+                                                  <span />
+                                                </div>
+                                                <div
+                                                  className="table__col table__col-control table-records-editable__control"
+                                                  data-th=""
+                                                >
+                                                  <div
+                                                    className="btn btn-smaller btn-danger btn-icon-normal"
+                                                    onClick={[Function]}
+                                                  >
+                                                    <i
+                                                      className="btn-icon fa fa-times"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </DragHandle>
+                                        </Motion>
+                                      </Movable>
+                                    </DraggableDimensionPublisher>
+                                  </Draggable>
+                                </Connect(Draggable)>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </DroppableDimensionPublisher>
+                    </Droppable>
+                  </Connect(Droppable)>
+                </DragDropContext>
+              </div>
+            </RecordsOfTable>
+          </Connect(RecordsOfTable)>
+        </Connect(Connect(RecordsOfTable))>
+      </Connect(Connect(Connect(RecordsOfTable)))>
+    </Connect(Connect(Connect(Connect(RecordsOfTable))))>
+  </Connect(Connect(Connect(Connect(Connect(RecordsOfTable)))))>
+</Connect(Connect(Connect(Connect(Connect(Connect(RecordsOfTable))))))>
 `;

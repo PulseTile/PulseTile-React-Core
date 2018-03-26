@@ -63,7 +63,7 @@ exports[`Component <PromsDetail /> should renders correctly with different state
                   <label
                     className="control-label"
                   >
-                    Q1 Pain
+                    1. In general, would you say your health is:
                   </label>
                   <div
                     className="form-control-static"
@@ -79,7 +79,7 @@ exports[`Component <PromsDetail /> should renders correctly with different state
                   <label
                     className="control-label"
                   >
-                    Q2 Activity limitations / support
+                    2. Compared to one year ago, how would you rate your health in general now?
                   </label>
                   <div
                     className="form-control-static"
@@ -99,7 +99,7 @@ exports[`Component <PromsDetail /> should renders correctly with different state
                   <label
                     className="control-label"
                   >
-                    Q3 Walking
+                    3. Does your health now limit you in vigorous activities?
                   </label>
                   <div
                     className="form-control-static"
@@ -115,12 +115,28 @@ exports[`Component <PromsDetail /> should renders correctly with different state
                   <label
                     className="control-label"
                   >
-                    Q4 Walking Surfaces
+                    4. Does your health now limit you in moderate activities?
                   </label>
                   <div
                     className="form-control-static"
                   />
                 </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  5. Does your health now limit you in lifting or carrying groceries?
+                </label>
+                <div
+                  className="form-control-static"
+                />
               </div>
             </div>
             <FormTitle
@@ -130,7 +146,7 @@ exports[`Component <PromsDetail /> should renders correctly with different state
               className="form-group"
             >
               <div>
-                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+                Pain severity on a scale of 0 to 100, where 0 indicates no pain and 100 indicates severe pain.
               </div>
             </div>
             <div
@@ -231,23 +247,32 @@ exports[`Component <PromsDetail /> should renders correctly with different state
             "author": "DR Mary Jones",
             "dateCreated": 1482170593395,
             "name": "test Proms 1",
+            "procedureSourceId": "testSourceID1",
             "records": Array [
               Object {
-                "date": 1482190593395,
-                "name": "test records",
-                "source": "test records source",
-                "sourceId": "test records sourceId",
-                "type": "test records type",
-                "undefined": "test records typeTitle",
+                "date": "01-Feb-2018",
+                "name": "123b",
+                "source": "ethercis",
+                "sourceId": "08102813-e8d0-4f45-aa95-ac0d633e69fd",
+                "type": "procedures",
+                "typeTitle": "Procedures",
               },
             ],
-            "score": "9",
+            "score": "90",
             "source": "openehr",
             "sourceId": "testSourceID1",
-            "specific_Q1": "No Pain",
-            "specific_Q2": "No limitations",
-            "specific_Q3": "Around the house",
-            "specific_Q4": "No difficulty",
+            "specific_q1": "at0009",
+            "specific_q2": "at0015",
+            "specific_q3": "at0021",
+            "specific_q4": "at0025",
+            "specific_q5": "at0030",
+          }
+        }
+        match={
+          Object {
+            "params": Object {
+              "userId": "9999999000",
+            },
           }
         }
       />
@@ -309,12 +334,12 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
               records={
                 Array [
                   Object {
-                    "date": 1482190593395,
-                    "name": "test records",
-                    "source": "test records source",
-                    "sourceId": "test records sourceId",
-                    "type": "test records type",
-                    "undefined": "test records typeTitle",
+                    "date": "01-Feb-2018",
+                    "name": "123b",
+                    "source": "ethercis",
+                    "sourceId": "08102813-e8d0-4f45-aa95-ac0d633e69fd",
+                    "type": "procedures",
+                    "typeTitle": "Procedures",
                   },
                 ]
               }
@@ -334,12 +359,12 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
                   <label
                     className="control-label"
                   >
-                    Q1 Pain
+                    1. In general, would you say your health is:
                   </label>
                   <div
                     className="form-control-static"
                   >
-                    No Pain
+                    Excellent
                   </div>
                 </div>
               </div>
@@ -352,12 +377,12 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
                   <label
                     className="control-label"
                   >
-                    Q2 Activity limitations / support
+                    2. Compared to one year ago, how would you rate your health in general now?
                   </label>
                   <div
                     className="form-control-static"
                   >
-                    No limitations
+                    Much better
                   </div>
                 </div>
               </div>
@@ -374,12 +399,12 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
                   <label
                     className="control-label"
                   >
-                    Q3 Walking
+                    3. Does your health now limit you in vigorous activities?
                   </label>
                   <div
                     className="form-control-static"
                   >
-                    Around the house
+                    Yes, limited a lot
                   </div>
                 </div>
               </div>
@@ -392,13 +417,31 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
                   <label
                     className="control-label"
                   >
-                    Q4 Walking Surfaces
+                    4. Does your health now limit you in moderate activities?
                   </label>
                   <div
                     className="form-control-static"
                   >
-                    No difficulty
+                    Yes, limited a lot
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  5. Does your health now limit you in lifting or carrying groceries?
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Yes, limited a lot
                 </div>
               </div>
             </div>
@@ -409,7 +452,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
               className="form-group"
             >
               <div>
-                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+                Pain severity on a scale of 0 to 100, where 0 indicates no pain and 100 indicates severe pain.
               </div>
             </div>
             <div
@@ -435,7 +478,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 1`] = `
                     <div
                       className="form-control input-sm"
                     >
-                      9
+                      90
                     </div>
                   </div>
                 </div>
@@ -552,7 +595,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
                   <label
                     className="control-label"
                   >
-                    Q1 Pain
+                    1. In general, would you say your health is:
                   </label>
                   <div
                     className="form-control-static"
@@ -568,7 +611,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
                   <label
                     className="control-label"
                   >
-                    Q2 Activity limitations / support
+                    2. Compared to one year ago, how would you rate your health in general now?
                   </label>
                   <div
                     className="form-control-static"
@@ -588,7 +631,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
                   <label
                     className="control-label"
                   >
-                    Q3 Walking
+                    3. Does your health now limit you in vigorous activities?
                   </label>
                   <div
                     className="form-control-static"
@@ -604,12 +647,28 @@ exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
                   <label
                     className="control-label"
                   >
-                    Q4 Walking Surfaces
+                    4. Does your health now limit you in moderate activities?
                   </label>
                   <div
                     className="form-control-static"
                   />
                 </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  5. Does your health now limit you in lifting or carrying groceries?
+                </label>
+                <div
+                  className="form-control-static"
+                />
               </div>
             </div>
             <FormTitle
@@ -619,7 +678,7 @@ exports[`Component <PromsDetail /> should renders with props correctly 2`] = `
               className="form-group"
             >
               <div>
-                Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.
+                Pain severity on a scale of 0 to 100, where 0 indicates no pain and 100 indicates severe pain.
               </div>
             </div>
             <div

@@ -31,7 +31,7 @@ describe('Component <PromsDetailForm />', () => {
         isSubmit={testProps.isSubmit}
         detail={testProps.detail}
       />).dive().dive().dive();
-    expect(component.find('Field')).toHaveLength(9);
+    expect(component.find('Field')).toHaveLength(10);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
 
@@ -46,43 +46,49 @@ describe('Component <PromsDetailForm />', () => {
 
     expect(component.find('Field').at(2).props().name).toEqual(valuesNames.SPECIFIC_Q1);
     expect(component.find('Field').at(2).props().id).toEqual(valuesNames.SPECIFIC_Q1);
-    expect(component.find('Field').at(2).props().label).toEqual(valuesLabels.QUESTION_PAIN);
-    expect(component.find('Field').at(2).props().placeholder).toEqual('-- Select pain --');
+    expect(component.find('Field').at(2).props().label).toEqual(valuesLabels.QUESTION_1);
+    expect(component.find('Field').at(2).props().placeholder).toEqual('-- Select --');
     expect(component.find('Field').at(2).props().props.isSubmit).toEqual(false);
 
     expect(component.find('Field').at(3).props().name).toEqual(valuesNames.SPECIFIC_Q2);
     expect(component.find('Field').at(3).props().id).toEqual(valuesNames.SPECIFIC_Q2);
-    expect(component.find('Field').at(3).props().label).toEqual(valuesLabels.QUESTION_LIMITATIONS);
-    expect(component.find('Field').at(3).props().placeholder).toEqual('-- Select limitations --');
+    expect(component.find('Field').at(3).props().label).toEqual(valuesLabels.QUESTION_2);
+    expect(component.find('Field').at(3).props().placeholder).toEqual('-- Select --');
     expect(component.find('Field').at(3).props().props.isSubmit).toEqual(false);
 
     expect(component.find('Field').at(4).props().name).toEqual(valuesNames.SPECIFIC_Q3);
     expect(component.find('Field').at(4).props().id).toEqual(valuesNames.SPECIFIC_Q3);
-    expect(component.find('Field').at(4).props().label).toEqual(valuesLabels.QUESTION_WALKING);
-    expect(component.find('Field').at(4).props().placeholder).toEqual('-- Select walking --');
+    expect(component.find('Field').at(4).props().label).toEqual(valuesLabels.QUESTION_3);
+    expect(component.find('Field').at(4).props().placeholder).toEqual('-- Select --');
     expect(component.find('Field').at(4).props().props.isSubmit).toEqual(false);
 
     expect(component.find('Field').at(5).props().name).toEqual(valuesNames.SPECIFIC_Q4);
     expect(component.find('Field').at(5).props().id).toEqual(valuesNames.SPECIFIC_Q4);
-    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.QUESTION_WALKING_SURFACES);
-    expect(component.find('Field').at(5).props().placeholder).toEqual('-- Select walking surfaces --');
+    expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.QUESTION_4);
+    expect(component.find('Field').at(5).props().placeholder).toEqual('-- Select --');
     expect(component.find('Field').at(5).props().props.isSubmit).toEqual(false);
 
-    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.SCORE);
-    expect(component.find('Field').at(6).props().props.min).toEqual(0);
-    expect(component.find('Field').at(6).props().props.max).toEqual(10);
+    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.SPECIFIC_Q5);
+    expect(component.find('Field').at(6).props().id).toEqual(valuesNames.SPECIFIC_Q5);
+    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.QUESTION_5);
+    expect(component.find('Field').at(6).props().placeholder).toEqual('-- Select --');
+    expect(component.find('Field').at(6).props().props.isSubmit).toEqual(false);
 
-    expect(component.find('Field').at(7).props().name).toEqual(valuesNames.AUTHOR);
-    expect(component.find('Field').at(7).props().id).toEqual(valuesNames.AUTHOR);
-    expect(component.find('Field').at(7).props().label).toEqual(valuesLabels.AUTHOR);
-    expect(component.find('Field').at(7).props().props.disabled).toEqual(true);
+    expect(component.find('Field').at(7).props().name).toEqual(valuesNames.SCORE);
+    expect(component.find('Field').at(7).props().props.min).toEqual(0);
+    expect(component.find('Field').at(7).props().props.max).toEqual(100);
 
-    expect(component.find('Field').at(8).props().name).toEqual(valuesNames.DATE_CREATED);
-    expect(component.find('Field').at(8).props().id).toEqual(valuesNames.DATE_CREATED);
-    expect(component.find('Field').at(8).props().label).toEqual(valuesLabels.DATE_CREATED);
-    expect(component.find('Field').at(8).props().props.isSubmit).toEqual(false);
+    expect(component.find('Field').at(8).props().name).toEqual(valuesNames.AUTHOR);
+    expect(component.find('Field').at(8).props().id).toEqual(valuesNames.AUTHOR);
+    expect(component.find('Field').at(8).props().label).toEqual(valuesLabels.AUTHOR);
     expect(component.find('Field').at(8).props().props.disabled).toEqual(true);
-    expect(component.find('Field').at(8).props().props.format).toEqual(DATE_FORMAT);
+
+    expect(component.find('Field').at(9).props().name).toEqual(valuesNames.DATE_CREATED);
+    expect(component.find('Field').at(9).props().id).toEqual(valuesNames.DATE_CREATED);
+    expect(component.find('Field').at(9).props().label).toEqual(valuesLabels.DATE_CREATED);
+    expect(component.find('Field').at(9).props().props.isSubmit).toEqual(false);
+    expect(component.find('Field').at(9).props().props.disabled).toEqual(true);
+    expect(component.find('Field').at(9).props().props.format).toEqual(DATE_FORMAT);
 
     expect(component.find('FormTitle').at(0).props().text).toEqual('Specific Question');
     expect(component.find('FormTitle').at(1).props().text).toEqual('General Score');
@@ -97,7 +103,7 @@ describe('Component <PromsDetailForm />', () => {
         isSubmit
         detail={testProps.detail}
       />).dive().dive().dive();
-    expect(component.find('Field')).toHaveLength(9);
+    expect(component.find('Field')).toHaveLength(10);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
 

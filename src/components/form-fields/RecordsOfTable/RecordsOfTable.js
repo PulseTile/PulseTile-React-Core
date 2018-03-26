@@ -238,16 +238,14 @@ export default class RecordsOfTable extends PureComponent {
         typeRecords.length && records.length) {
       const sourceId = records[0].sourceId;
 
-      if (sourceId) {
-        for (let i = 0; i < typeRecords.length; i++) {
-          if (typeRecords[i].record.sourceId === sourceId) {
-            this.setState({ indexOfSelectedRecord: typeRecords[i].value});
-            break;
-          }
+      for (let i = 0; i < typeRecords.length; i++) {
+        if (typeRecords[i].record.sourceId === sourceId) {
+          this.setState({ indexOfSelectedRecord: typeRecords[i].value});
+          break;
         }
       }
     }
-  }
+  };
 
   // Functionality of Add and Remove Records items
   handleGetHeadingsLists = (ev) => {
