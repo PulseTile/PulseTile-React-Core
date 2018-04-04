@@ -220,9 +220,9 @@ export default class RecordsOfTable extends PureComponent {
 
       if (!_.isEmpty(props[stateName]) && _.isEmpty(newTypesRecords[key].records)) {
         newTypesRecords[key].records = this[newTypesRecords[key].setMethodName](props[stateName]);
-        this.selectRecordOptionForUpdate(newTypesRecords[key].records);
         isShouldUpdate = true;
       }
+      this.selectRecordOptionForUpdate(newTypesRecords[key].records);
     }
 
     if (isShouldUpdate) {
@@ -235,7 +235,8 @@ export default class RecordsOfTable extends PureComponent {
     const records = value || [];
 
     if (isOnlyOneTypeOfRecords && isOnlyOneRecord &&
-        typeRecords.length && records.length) {
+      typeRecords && typeRecords.length && records.length) {
+
       const sourceId = records[0].sourceId;
 
       for (let i = 0; i < typeRecords.length; i++) {
