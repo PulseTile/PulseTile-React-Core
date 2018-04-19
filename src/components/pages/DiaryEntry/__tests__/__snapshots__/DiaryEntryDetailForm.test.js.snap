@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <DiaryEntryPanelForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="diaryEntryPanelForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="noteType"
+            label="Type"
+            name="noteType"
+            options={
+              Array [
+                Object {
+                  "title": "Exam Report",
+                  "value": "Exam Report",
+                },
+                Object {
+                  "title": "Note",
+                  "value": "Note",
+                },
+                Object {
+                  "title": "Hypothesis",
+                  "value": "Hypothesis",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="control-group right"
+            style={
+              Object {
+                "marginTop": "23px",
+                "position": "absolute",
+                "right": "10px",
+                "zIndex": 9999,
+              }
+            }
+          >
+            <button
+              className="btn btn-success btn-inverse btn-square"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-microphone"
+              />
+            </button>
+          </div>
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="currentDate"
+            label="Date"
+            name="currentDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <DiaryEntryPanelForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="diaryEntryPanelForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="noteType"
+            label="Type"
+            name="noteType"
+            options={
+              Array [
+                Object {
+                  "title": "Exam Report",
+                  "value": "Exam Report",
+                },
+                Object {
+                  "title": "Note",
+                  "value": "Note",
+                },
+                Object {
+                  "title": "Hypothesis",
+                  "value": "Hypothesis",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <div
+            className="control-group right"
+            style={
+              Object {
+                "marginTop": "23px",
+                "position": "absolute",
+                "right": "10px",
+                "zIndex": 9999,
+              }
+            }
+          >
+            <button
+              className="btn btn-success btn-inverse btn-square"
+              onClick={[Function]}
+            >
+              <i
+                className="fa fa-microphone"
+              />
+            </button>
+          </div>
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="currentDate"
+            label="Date"
+            name="currentDate"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
