@@ -4,6 +4,12 @@ $control-indent: 5px;
   @include clearfix;
   &.hide-indent-bottom { margin-bottom: -$control-indent; }
 }
+.buttoned-control-group {
+  margin-top: 23px;
+  z-index: 9999;
+  position: absolute;
+  right: 10px;
+}
 .control-group {
   margin-right: -$control-indent;
   & > * { margin-right: $control-indent; }

@@ -9,6 +9,7 @@ import DateInput from '../../../form-fields/DateInput';
 import { validateForm } from '../forms.validation';
 import { valuesNames, valuesLabels, noteTypeOptions, formSelectorNames } from '../forms.config';
 import { defaultFormValues } from './default-values.config';
+import TextareaWithButton from '../../../form-fields/TextareaWithButton';
 
 @reduxForm({
   form: formSelectorNames.DIARY_ENTRIES_CREATE,
@@ -34,20 +35,6 @@ class DiaryEntryCreateForm extends PureComponent {
     }
 
     if (this.hasSpeechRecognition) {
-      this.recognition.onstart = () => {
-        console.log('Voice recognition activated. Try speaking into the microphone.');
-      }
-
-      this.recognition.onspeechend = () => {
-        console.log('You were quiet for a while so voice recognition turned itself off.');
-      }
-
-      this.recognition.onerror = (event) => {
-        if (event.error === 'no-speech') {
-          console.log('No speech was detected. Try again.');
-        }
-      }
-
       this.recognition.onresult = (event) => {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
@@ -82,12 +69,6 @@ class DiaryEntryCreateForm extends PureComponent {
     const { isSubmit } = this.props;
     const date = new Date();
     const dateCreated = date.getTime();
-    const speechButtonsStyle = {
-      marginTop: '23px',
-      zIndex: 9999,
-      position: 'absolute',
-      right: '10px',
-    };
 
     return (
       <div className="panel-body-inner">
@@ -107,19 +88,25 @@ class DiaryEntryCreateForm extends PureComponent {
             </div>
             <div className="row-expand">
               <div className="col-expand-left">
-                <div className="control-group right" style={speechButtonsStyle}>
-                  {!this.state.recognitionStarted ? (
-                    <button className="btn btn-success btn-inverse btn-square" onClick={this.startSpeach}><i className="fa fa-microphone"></i></button>
-                  ) : (
-                    <button className="btn btn-success btn-inverse btn-square active" onClick={this.stopSpeach}><i className="fa fa-microphone"></i></button>
-                  )}
-                </div>
-                <Field
-                  label={valuesLabels.NOTE}
-                  name={valuesNames.NOTE}
-                  id={valuesNames.NOTE}
-                  component={ValidatedTextareaFormGroup}
-                  props={{ isSubmit }}
+                <TextareaWithButton
+                  button={
+                    !this.state.recognitionStarted ? (
+                      <button className="btn btn-success btn-inverse btn-square" onClick={this.startSpeach}><i
+                        className="fa fa-microphone"></i></button>
+                    ) : (
+                      <button className="btn btn-success btn-inverse btn-square active" onClick={this.stopSpeach}><i
+                        className="fa fa-microphone"></i></button>
+                    )
+                  }
+                  fieldProps={
+                    {
+                      label: valuesLabels.NOTE,
+                      name: valuesNames.NOTE,
+                      id: valuesNames.NOTE,
+                      component: ValidatedTextareaFormGroup,
+                      props: { isSubmit },
+                    }
+                  }
                 />
               </div>
             </div>

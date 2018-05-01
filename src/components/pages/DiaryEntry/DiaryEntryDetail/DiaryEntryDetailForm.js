@@ -1,13 +1,14 @@
-import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { Field, reduxForm, change, formValueSelector } from 'redux-form'
+import React, {PureComponent} from 'react';
+import {connect} from 'react-redux';
+import {Field, reduxForm, change, formValueSelector} from 'redux-form'
 
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import SelectFormGroup from '../../../form-fields/SelectFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import { valuesNames, valuesLabels, noteTypeOptions, formSelectorNames } from '../forms.config';
-import { validateForm } from '../forms.validation';
+import {valuesNames, valuesLabels, noteTypeOptions, formSelectorNames} from '../forms.config';
+import {validateForm} from '../forms.validation';
+import TextareaWithButton from '../../../form-fields/TextareaWithButton';
 
 @reduxForm({
   form: formSelectorNames.DIARY_ENTRIES_DETAIL,
@@ -33,20 +34,6 @@ class DiaryEntryPanelForm extends PureComponent {
     }
 
     if (this.hasSpeechRecognition) {
-      this.recognition.onstart = () => {
-        console.log('Voice recognition activated. Try speaking into the microphone.');
-      }
-
-      this.recognition.onspeechend = () => {
-        console.log('You were quiet for a while so voice recognition turned itself off.');
-      }
-
-      this.recognition.onerror = (event) => {
-        if (event.error === 'no-speech') {
-          console.log('No speech was detected. Try again.');
-        }
-      }
-
       this.recognition.onresult = (event) => {
         const current = event.resultIndex;
         const transcript = event.results[current][0].transcript;
@@ -60,7 +47,7 @@ class DiaryEntryPanelForm extends PureComponent {
   }
 
   componentDidMount() {
-    const { detail, initialize } = this.props;
+    const {detail, initialize} = this.props;
     initialize(this.defaultValuesForm(detail));
   }
 
@@ -77,27 +64,21 @@ class DiaryEntryPanelForm extends PureComponent {
   startSpeach(event) {
     event.preventDefault();
     if (this.hasSpeechRecognition && !this.state.recognitionStarted) {
-      this.setState({ recognitionStarted: true }, () => this.recognition.start());
+      this.setState({recognitionStarted: true}, () => this.recognition.start());
     }
   }
 
   stopSpeach(event) {
     event.preventDefault();
     if (this.hasSpeechRecognition && this.state.recognitionStarted) {
-      this.setState({ recognitionStarted: false }, () => this.recognition.stop());
+      this.setState({recognitionStarted: false}, () => this.recognition.stop());
     }
   }
 
   render() {
-    const { detail, isSubmit } = this.props;
+    const {detail, isSubmit} = this.props;
 
-    const speechButtonsStyle = {
-      marginTop: '23px',
-      zIndex: 9999,
-      position: 'absolute',
-      right: '10px',
-    };
-
+    console.log(this.props);
     return (
       <div className="panel-body-inner">
         <form name="diaryEntryPanelForm" className="form">
@@ -110,25 +91,31 @@ class DiaryEntryPanelForm extends PureComponent {
                   id={valuesNames.TYPE}
                   options={noteTypeOptions}
                   component={SelectFormGroup}
-                  props={{ isSubmit }}
+                  props={{isSubmit}}
                 />
               </div>
             </div>
             <div className="row-expand">
               <div className="col-expand-left">
-                <div className="control-group right" style={speechButtonsStyle}>
-                  {!this.state.recognitionStarted ? (
-                    <button className="btn btn-success btn-inverse btn-square" onClick={this.startSpeach}><i className="fa fa-microphone"></i></button>
-                  ) : (
-                    <button className="btn btn-success btn-inverse btn-square active" onClick={this.stopSpeach}><i className="fa fa-microphone"></i></button>
-                  )}
-                </div>
-                <Field
-                  label={valuesLabels.NOTE}
-                  name={valuesNames.NOTE}
-                  id={valuesNames.NOTE}
-                  component={ValidatedTextareaFormGroup}
-                  props={{ isSubmit }}
+                <TextareaWithButton
+                  button={
+                    !this.state.recognitionStarted ? (
+                      <button className="btn btn-success btn-inverse btn-square" onClick={this.startSpeach}><i
+                        className="fa fa-microphone"></i></button>
+                    ) : (
+                      <button className="btn btn-success btn-inverse btn-square active" onClick={this.stopSpeach}><i
+                        className="fa fa-microphone"></i></button>
+                    )
+                  }
+                  fieldProps={
+                    {
+                      label: valuesLabels.NOTE,
+                      name: valuesNames.NOTE,
+                      id: valuesNames.NOTE,
+                      component: ValidatedTextareaFormGroup,
+                      props: { isSubmit },
+                    }
+                  }
                 />
               </div>
             </div>
@@ -139,7 +126,7 @@ class DiaryEntryPanelForm extends PureComponent {
                   name={valuesNames.AUTHOR}
                   id={valuesNames.AUTHOR}
                   component={ValidatedInput}
-                  props={{ disabled: true }}
+                  props={{disabled: true}}
                 />
               </div>
               <div className="col-expand-right">
@@ -148,7 +135,7 @@ class DiaryEntryPanelForm extends PureComponent {
                   name={valuesNames.DATE}
                   id={valuesNames.DATE}
                   component={DateInput}
-                  props={{ disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY' }}
+                  props={{disabled: true, value: detail[valuesNames.DATE_CREATED], format: 'DD-MMM-YYYY'}}
                 />
               </div>
             </div>
