@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <GenericPluginCreateForm /> should renders correctly when form is submitted 1`] = `
+exports[`Component <GenericPluginCreateForm /> should render correctly when form is submitted 1`] = `
 <div
   className="panel-body-inner"
 >
