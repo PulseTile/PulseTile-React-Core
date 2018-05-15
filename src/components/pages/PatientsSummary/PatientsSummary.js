@@ -10,16 +10,44 @@ import SimpleDashboardPanel from './SimpleDashboardPanel';
 import RssDashboardPanel from './RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
-import patientSummarySelector from './selectors';
+import {
+    patientProblemsSelector,
+    patientContactsSelector,
+    patientAllergiesSelector,
+    patientMedicationsSelector,
+    patientVaccinationsSelector,
+    patientTopThreeThingsSelector,
+} from './separate-selectors';
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
-import { fetchPatientSummaryRequest } from '../../../ducks/fetch-patient-summary.duck';
-import { fetchPatientSummaryOnMount } from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientDiagnosesSynopsisRequest } from '../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
+import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
+import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-patient-allergies.duck';
+import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
+import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
+import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
+import {
+    fetchPatientProblemsSynopsisOnMount,
+    fetchPatientContactsSynopsisOnMount,
+    fetchPatientAllergiesSynopsisOnMount,
+    fetchPatientMedicationsSynopsisOnMount,
+    fetchPatientVaccinationsSynopsisOnMount,
+    fetchPatientTopThreeThingsSynopsisOnMount,
+} from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
 import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientSummaryRequest, fetchFeedsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators({
+        fetchPatientDiagnosesSynopsisRequest,
+        fetchPatientContactsSynopsisRequest,
+        fetchPatientAllergiesSynopsisRequest,
+        fetchPatientMedicationsSynopsisRequest,
+        fetchPatientVaccinationsSynopsisRequest,
+        fetchPatientTopThreeThingsSynopsisRequest,
+        fetchFeedsRequest
+    }, dispatch) });
 
 const feeds = [
   {
@@ -55,13 +83,29 @@ const feeds = [
   },
 ];
 
-
-@connect(patientSummarySelector, mapDispatchToProps)
+@connect(patientProblemsSelector, mapDispatchToProps)
+@connect(patientContactsSelector, mapDispatchToProps)
+@connect(patientAllergiesSelector, mapDispatchToProps)
+@connect(patientMedicationsSelector, mapDispatchToProps)
+@connect(patientVaccinationsSelector, mapDispatchToProps)
+@connect(patientTopThreeThingsSelector, mapDispatchToProps)
 @connect(feedsSelector)
-@compose(lifecycle(fetchPatientSummaryOnMount))
+
+@compose(lifecycle(fetchPatientProblemsSynopsisOnMount))
+@compose(lifecycle(fetchPatientContactsSynopsisOnMount))
+@compose(lifecycle(fetchPatientAllergiesSynopsisOnMount))
+@compose(lifecycle(fetchPatientMedicationsSynopsisOnMount))
+@compose(lifecycle(fetchPatientVaccinationsSynopsisOnMount))
+@compose(lifecycle(fetchPatientTopThreeThingsSynopsisOnMount))
+
 export default class PatientsSummary extends PureComponent {
     static propTypes = {
-      boards: PropTypes.object.isRequired,
+        problems: PropTypes.array.isRequired,
+        contacts: PropTypes.array.isRequired,
+        allergies: PropTypes.array.isRequired,
+        medications: PropTypes.array.isRequired,
+        vaccinations: PropTypes.array.isRequired,
+        topThreeThings: PropTypes.array.isRequired,
     };
 
     static contextTypes = {
@@ -128,7 +172,18 @@ export default class PatientsSummary extends PureComponent {
     };
 
     render() {
-      const { boards } = this.props;
+
+      const { problems, contacts, allergies, medications, vaccinations, topThreeThings } = this.props;
+
+        const boards = {
+            problems: problems,
+            contacts: contacts,
+            allergies: allergies,
+            medications: medications,
+            vaccinations: vaccinations,
+            topThreeThings: topThreeThings,
+        };
+
       // const { feeds } = this.props;
       const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
       let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;

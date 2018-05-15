@@ -3,7 +3,7 @@ import { combineEpics } from 'redux-observable';
 import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
-import { fetchPatientVaccinationsEpic } from './ducks/fetch-patient-vaccinations.duck';
+import { fetchPatientVaccinationsEpic, fetchPatientVaccinationsSynopsisEpic } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsUpdateEpic } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsDetailEpic } from './ducks/fetch-patient-vaccinations-detail.duck';
 import { fetchPatientVaccinationsDetailEditEpic } from './ducks/fetch-patient-vaccinations-detail-edit.duck';
@@ -14,7 +14,7 @@ import vaccinationsDetail from './ducks/fetch-patient-vaccinations-detail.duck';
 import vaccinationsDetailEdit from './ducks/fetch-patient-vaccinations-detail-edit.duck';
 import patientVaccinationsCreate from './ducks/fetch-patient-vaccinations-create.duck';
 
-const epics = combineEpics(fetchPatientVaccinationsEpic, fetchPatientVaccinationsDetailEpic, fetchPatientVaccinationsDetailEditEpic, fetchPatientVaccinationsCreateEpic, fetchPatientVaccinationsUpdateEpic);
+const epics = combineEpics(fetchPatientVaccinationsEpic, fetchPatientVaccinationsSynopsisEpic, fetchPatientVaccinationsDetailEpic, fetchPatientVaccinationsDetailEditEpic, fetchPatientVaccinationsCreateEpic, fetchPatientVaccinationsUpdateEpic);
 const Vaccinations = asyncComponent(() => import(/* webpackChunkName: "vaccinations" */ './Vaccinations').then(module => module.default));
 
 const reducers = {
