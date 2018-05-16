@@ -173,7 +173,7 @@ export default class PatientsSummary extends PureComponent {
 
     render() {
 
-      const { problems, contacts, allergies, medications, vaccinations, topThreeThings } = this.props;
+        const { problems, contacts, allergies, medications, vaccinations, topThreeThings } = this.props;
 
         const boards = {
             problems: problems,

@@ -2,6 +2,7 @@ import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
+import { get } from 'lodash';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientMedicationsDetailRequest } from './fetch-patient-medications-detail.duck';
@@ -27,7 +28,7 @@ export const fetchPatientMedicationsEpic = (action$, store) =>
       })
         .map(response => fetchPatientMedicationsSuccess({
           userId: payload.userId,
-          medications: response,
+          medications: get(response, 'synopsis', []),
         }))
         // .catch(error => Observable.of(handleErrors(error)))
     );
@@ -38,9 +39,8 @@ export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>
 
                 // FOR TESTING
                 // ajax.getJSON(`http://dev.ripple.foundation:8000/api/patients/${payload.userId}/synopsis/medications`, {
-                //     Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjYzODk3NzYsImlhdCI6MTUyNjM4NjE3NiwiaXNzIjoicWV3ZC5qd3QiLCJhcHBsaWNhdGlvbiI6InJpcHBsZS1jZHItb3BlbmVociIsInRpbWVvdXQiOjM2MDAsInFld2QiOiJmMTU3MjQ0NWYxZmM3MWUwYTJkMzE1MTIxOGJmY2Q0ZWEzM2MwYjg1ZGY5MTFkMThhMTMyNjdkZWMzZDE2ODI5ZWYyNGQ1NWZkMzFiNjQzZjk3OGRhZDRkYmJmYjJhNGRiYTNjMjlkMDYxOGFjYWY1NmQ0NGI2MTU1NjUyYTZmYjQxMDhiZDE0ZWE1MzEyZWYwMDNkODVkMGNmZjI2YjJmNzQwZWQ3OGJiZWZiZGJlYzM4ZjJhYjFlZjg0MDI2MGMiLCJuaHNOdW1iZXIiOjk5OTk5OTkwMDAsImVtYWlsIjoiaXZvci5jb3hAcGhyLmxlZWRzLm5ocyIsInJvbGUiOiJwaHJVc2VyIiwidWlkIjoiODhiODM1NzNlOWY0NDYyNTRkNTViOGRmOGE1OGIzN2FmNjM1ZjgxYTE0OTg2NjFhNmM5NjM2Zjc2ZjZiMjliNS42YmQxMGYzM2YyNDFjOTk2Iiwib3BlbmlkIjp7ImVtYWlsIjoiaXZvci5jb3hAcGhyLmxlZWRzLm5ocyIsIm5oc051bWJlciI6OTk5OTk5OTAwMCwic3ViIjoiZGY0ZTVjYzQtM2UzOC00NDllLThkNDQtOGMwYzQ3NDg4OTMxIiwiYXRfaGFzaCI6IllhdDFBY08wNTVOMmxnUTUxWW05dEEiLCJhdWQiOiJmb28iLCJleHAiOjE1MjYzODk3NDgsImlhdCI6MTUyNjM4NjE0OCwiaXNzIjoiaHR0cDovL3d3dy5tZ2F0ZXdheS5jb206ODA4OSIsImlkX3Rva2VuIjoiZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJbFoxY0V4eGRIWmhjbXR1UmtsNFgzVkNPRWRDY2tsWlRDMU5SbWQzZWxvM1lYUkpZMUZzWDNWWVVtOGlmUS5leUpsYldGcGJDSTZJbWwyYjNJdVkyOTRRSEJvY2k1c1pXVmtjeTV1YUhNaUxDSnVhSE5PZFcxaVpYSWlPams1T1RrNU9Ua3dNREFzSW5OMVlpSTZJbVJtTkdVMVkyTTBMVE5sTXpndE5EUTVaUzA0WkRRMExUaGpNR00wTnpRNE9Ea3pNU0lzSW1GMFgyaGhjMmdpT2lKWllYUXhRV05QTURVMVRqSnNaMUUxTVZsdE9YUkJJaXdpWVhWa0lqb2labTl2SWl3aVpYaHdJam94TlRJMk16ZzVOelE0TENKcFlYUWlPakUxTWpZek9EWXhORGdzSW1semN5STZJbWgwZEhBNkx5OTNkM2N1YldkaGRHVjNZWGt1WTI5dE9qZ3dPRGtpZlEuR2dVUzZYb21MVFVSQUtwUWd5WFNfZ2VYNEZfUWR2Z0pVTmtRLWhFNG05Y2hRbDFFNEVwbmljRUp0QWVHYUNub2o0bU5UbDNSc2hzQmw5WHMxZVpJVmpKYXlEeEI3cmtUNFVKb1phdF9rRGczc1JoTEpkTU02ZE9EM3lDU3Q3aHYtY0d2d0ZuUkpwTURUa2JKWHE2bjByS0tCYUxYOVhYZnRtamNNZUN4LV91M1VaQk9yaER2dE1lUGx6Z2NfaVQzT1AyekduMmRmOXpoMVJWY0FVa1FWT0VPLUo4UXpDOWI3R3haa1daVGQ1dXlfOXBISE9zR0ZoUWRZSXVvSmxSMDNXejZnQ0oyaEJNajNaS2xpcGVQVG1qTUpVczl0cExIRlhLT1dKWEZUZnI3TlNVMFdLTHhGamRheEtyeGdzVlowZ1FtcVFLMmVtX3FDVkhRNHlHZ3VRIn19.MXpvTKmCua3WQKiwRNW3_5R7uSf3fYfXQO5NJaYGwt0'
+                //     Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjY0Njg3ODAsImlhdCI6MTUyNjQ2NTE4MCwiaXNzIjoicWV3ZC5qd3QiLCJhcHBsaWNhdGlvbiI6InJpcHBsZS1jZHItb3BlbmVociIsInRpbWVvdXQiOjM2MDAsInFld2QiOiJmMTU3MjQ0NWYxZmM3MWUwYTJkMzE1MTIxOGJmY2Q0ZWEzM2MwYjg1ZGY5MTFkMThhMTMyNjdkZWMzZDE2ODI5ZWYyNGQ1NWZkMzFiNjQzZjk3OGRhZDRkYmJmYjJhNGRiYTNjMjlkMDYxOGFjYWY1NmQ0NGI2MTU1NjUyYTZmYjQxMDhiZDE0ZWE1MzEyZWYwMDNkODVkMGNmZjI2YjJmNzQwZWQ3OGJiZWZiZGJlYzM4ZjJhYjFlZjg0MDI2MGMiLCJuaHNOdW1iZXIiOjk5OTk5OTkwMDAsImVtYWlsIjoiaXZvci5jb3hAcGhyLmxlZWRzLm5ocyIsInJvbGUiOiJwaHJVc2VyIiwidWlkIjoiZGJiYWM5ODY1NWFjN2I2MmE3MzQ0OWQ2ZDJlMDM3NTQyNjc3OGZkM2I3NWMyYWQwMzllZjVjZDA0NmY0MDdmOC4xMDAwZWM3MzVhYjQxNGIxIiwib3BlbmlkIjp7ImVtYWlsIjoiaXZvci5jb3hAcGhyLmxlZWRzLm5ocyIsIm5oc051bWJlciI6OTk5OTk5OTAwMCwic3ViIjoiZGY0ZTVjYzQtM2UzOC00NDllLThkNDQtOGMwYzQ3NDg4OTMxIiwiYXRfaGFzaCI6ImZOSmJVdWdSSV8tTFZrYm5FdlpQX2ciLCJhdWQiOiJmb28iLCJleHAiOjE1MjY0Njg2MzAsImlhdCI6MTUyNjQ2NTAzMCwiaXNzIjoiaHR0cDovL3d3dy5tZ2F0ZXdheS5jb206ODA4OSIsImlkX3Rva2VuIjoiZXlKaGJHY2lPaUpTVXpJMU5pSXNJblI1Y0NJNklrcFhWQ0lzSW10cFpDSTZJbFoxY0V4eGRIWmhjbXR1UmtsNFgzVkNPRWRDY2tsWlRDMU5SbWQzZWxvM1lYUkpZMUZzWDNWWVVtOGlmUS5leUpsYldGcGJDSTZJbWwyYjNJdVkyOTRRSEJvY2k1c1pXVmtjeTV1YUhNaUxDSnVhSE5PZFcxaVpYSWlPams1T1RrNU9Ua3dNREFzSW5OMVlpSTZJbVJtTkdVMVkyTTBMVE5sTXpndE5EUTVaUzA0WkRRMExUaGpNR00wTnpRNE9Ea3pNU0lzSW1GMFgyaGhjMmdpT2lKbVRrcGlWWFZuVWtsZkxVeFdhMkp1UlhaYVVGOW5JaXdpWVhWa0lqb2labTl2SWl3aVpYaHdJam94TlRJMk5EWTROak13TENKcFlYUWlPakUxTWpZME5qVXdNekFzSW1semN5STZJbWgwZEhBNkx5OTNkM2N1YldkaGRHVjNZWGt1WTI5dE9qZ3dPRGtpZlEuTEotQWVsT2JHdHcwMHVlbXB4YWQ0RDgzekNIamwtZnhYSmV4SWRuUE43bWFjaUFKSEVfX05OcVgtbDdvNGl4QjhPelRUeGpFbks4bkVCSkhFZ0RLZG5HVzZMSDJvdzg2aklSYUM1Q05qWVJuR3F5b2NISEljR2ZUYWJObEhlMGpTejE0WGVpZ1kweGhLTy1SU3cyaXB2UnlHUjRUVTZjN1pld2ExUFhhenhIVnVEWk5na2FMUVhqYkpJSURfbGJHblh1UFZVODdNYWlVaEJZaW9wZllVVGpmVENQQnA5czhUYzZtUmZfTDZvUXNJbVY0LVZkdmpSX1dlaFE5VXYtVXRPcVFnQXAtd3NnSFBTUWNZdUhDaDF1SVVucHNZUEtmUTViakVmZnVaOGR1NVloYlZMWXRlMHdIX2hHRXpMRk56LVZySkNiNFVoVmhKM2hiclJoMExnIn19.2Y_jHIGmGOP8j3ddJu22DpYzooT_33SQ8RZdgoKlFDI'
                 // })
-
                 ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/medications`, {
                     headers: { Cookie: store.getState().credentials.cookie },
                 })
