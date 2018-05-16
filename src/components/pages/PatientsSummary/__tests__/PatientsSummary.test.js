@@ -34,7 +34,12 @@ global.localStorage = new LocalStorageMock();
 const mockStore = configureStore();
 const store = mockStore({
   userId: '9999999000',
-  patientsSummaries: {},
+  patientsDiagnoses: {},
+  patientsContacts: {},
+  patientsAllergies: {},
+  patientsMedications: {},
+  patientsVaccinations: {},
+  patientsTopThreeThings: {},
 });
 const match = {
   params: {},
