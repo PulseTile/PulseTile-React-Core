@@ -2,23 +2,13 @@ import _ from 'lodash/fp';
 import { createSelector } from 'reselect';
 import { patientsSummaryLoading } from './patients-summary.config';
 
-function getContentForTable(currentArray, userId) {
-    let result = {};
-    if (currentArray[userId]) {
-        result = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(currentArray);
-    } else {
-        result = [{text: patientsSummaryLoading}, '', '', ''];
-    }
-    return { result, userId };
-}
-
 export const patientProblemsSelector = createSelector(
     ({ patientsDiagnoses }) => patientsDiagnoses,
     (state, props) => _.getOr(null, 'match.params.userId', props),
     (patientsDiagnoses, userId) => {
         let problems = {};
         if (patientsDiagnoses[userId]) {
-            problems = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsDiagnoses);
+            problems = patientsDiagnoses[userId];
         } else {
             problems = [{text: patientsSummaryLoading}, '', '', ''];
         }
@@ -32,7 +22,7 @@ export const patientContactsSelector = createSelector(
     (patientsContacts, userId) => {
         let contacts = {};
         if (patientsContacts[userId]) {
-            contacts = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsContacts);
+            contacts = patientsContacts[userId];
         } else {
             contacts = [{text: patientsSummaryLoading}, '', '', ''];
         }
@@ -46,7 +36,7 @@ export const patientAllergiesSelector = createSelector(
     (patientsAllergies, userId) => {
         let allergies = {};
         if (patientsAllergies[userId]) {
-            allergies = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsAllergies);
+            allergies = patientsAllergies[userId];
         } else {
             allergies = [{text: patientsSummaryLoading}, '', '', ''];
         }
@@ -60,7 +50,7 @@ export const patientMedicationsSelector = createSelector(
     (patientsMedications, userId) => {
         let medications = {};
         if (patientsMedications[userId]) {
-            medications = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsMedications);
+            medications = patientsMedications[userId];
         } else {
             medications = [{text: patientsSummaryLoading}, '', '', ''];
         }
@@ -74,7 +64,7 @@ export const patientVaccinationsSelector = createSelector(
     (patientsVaccinations, userId) => {
         let vaccinations = {};
         if (patientsVaccinations[userId]) {
-            vaccinations = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsVaccinations);
+            vaccinations = patientsVaccinations[userId];
         } else {
             vaccinations = [{text: patientsSummaryLoading}, '', '', ''];
         }
@@ -88,7 +78,7 @@ export const patientTopThreeThingsSelector = createSelector(
     (patientsTopThreeThings, userId) => {
         let topThreeThings = {};
         if (patientsTopThreeThings[userId]) {
-            topThreeThings = _.flow(_.getOr([], [userId]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsTopThreeThings);
+            topThreeThings = patientsTopThreeThings[userId];
         } else {
             topThreeThings = [{text: patientsSummaryLoading}, '', '', ''];
         }
