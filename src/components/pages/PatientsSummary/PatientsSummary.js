@@ -10,14 +10,9 @@ import SimpleDashboardPanel from './SimpleDashboardPanel';
 import RssDashboardPanel from './RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
-import {
-  patientProblemsSelector,
-  patientContactsSelector,
-  patientAllergiesSelector,
-  patientMedicationsSelector,
-  patientVaccinationsSelector,
-  patientTopThreeThingsSelector,
-} from './separate-selectors';
+
+import { summarySynopsisSelector } from './separate-selectors';
+
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientDiagnosesSynopsisRequest } from '../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
@@ -83,12 +78,8 @@ const feeds = [
   },
 ];
 
-@connect(patientProblemsSelector, mapDispatchToProps)
-@connect(patientContactsSelector, mapDispatchToProps)
-@connect(patientAllergiesSelector, mapDispatchToProps)
-@connect(patientMedicationsSelector, mapDispatchToProps)
-@connect(patientVaccinationsSelector, mapDispatchToProps)
-@connect(patientTopThreeThingsSelector, mapDispatchToProps)
+@connect(summarySynopsisSelector, mapDispatchToProps)
+
 @connect(feedsSelector)
 
 @compose(lifecycle(fetchPatientProblemsSynopsisOnMount))
@@ -99,155 +90,141 @@ const feeds = [
 @compose(lifecycle(fetchPatientTopThreeThingsSynopsisOnMount))
 
 export default class PatientsSummary extends PureComponent {
-    static propTypes = {
-        problems: PropTypes.array.isRequired,
-        contacts: PropTypes.array.isRequired,
-        allergies: PropTypes.array.isRequired,
-        medications: PropTypes.array.isRequired,
-        vaccinations: PropTypes.array.isRequired,
-        topThreeThings: PropTypes.array.isRequired,
-    };
+  static propTypes = {
+    boards: PropTypes.shape({}).isRequired,
+  };
 
-    static contextTypes = {
-      router: PropTypes.shape({
-        history: PropTypes.object,
-      }),
-    };
+  static contextTypes = {
+    router: PropTypes.shape({
+      history: PropTypes.object,
+    }),
+  };
 
-    state = {
-      selectedCategory: [],
-      selectedViewOfBoards: defaultViewOfBoardsSelected,
-      isDisclaimerModalVisible: false,
-      isCategory: {},
-    };
+  state = {
+    selectedCategory: [],
+    selectedViewOfBoards: defaultViewOfBoardsSelected,
+    isDisclaimerModalVisible: false,
+    isCategory: {},
+  };
 
-    componentWillMount() {
-      const isShowDisclaimerOfRedirect = localStorage.getItem('isShowDisclaimerOfRedirect');
-      localStorage.removeItem('isShowDisclaimerOfRedirect');
+  componentWillMount() {
+    const isShowDisclaimerOfRedirect = localStorage.getItem('isShowDisclaimerOfRedirect');
+    localStorage.removeItem('isShowDisclaimerOfRedirect');
 
-      if (isShowDisclaimerOfRedirect) {
-        this.setState({ isDisclaimerModalVisible: true });
-      }
-
-      this.setState({ selectedCategory: this.getDefaultCategorySelected() });
+    if (isShowDisclaimerOfRedirect) {
+      this.setState({ isDisclaimerModalVisible: true });
     }
 
-    componentDidMount() {
-      const { actions } = this.props;
-      themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
-    }
+    this.setState({ selectedCategory: this.getDefaultCategorySelected() });
+  }
 
-    getDefaultCategorySelected = () => {
-      const defaultCategorySelected = {};
+  componentDidMount() {
+    const { actions } = this.props;
+    themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
+  }
 
-      patientsSummaryConfig.forEach((item) => {
-        if (dashboardVisible[item.key] !== undefined) {
-          defaultCategorySelected[item.key] = dashboardVisible[item.key];
-        } else {
-          defaultCategorySelected[item.key] = item.isDefaultSelected;
-        }
-      });
+  getDefaultCategorySelected = () => {
+    const defaultCategorySelected = {};
 
-      return defaultCategorySelected;
-    };
-
-    closeDisclaimer = () => this.setState({ isDisclaimerModalVisible: false });
-
-    handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
-
-    handleViewOfBoardsSelected = selectedViewOfBoards => this.setState({ selectedViewOfBoards });
-
-    handleGoToState = (state, externalTransitionUrl) => {
-      if (state.indexOf('http://') !== -1 ||
-          state.indexOf('https://') !== -1 ||
-          state.indexOf('www.') !== -1) {
-        if (externalTransitionUrl) {
-          window.open(externalTransitionUrl)
-        } else {
-          window.open(state)
-        }
+    patientsSummaryConfig.forEach((item) => {
+      if (dashboardVisible[item.key] !== undefined) {
+        defaultCategorySelected[item.key] = dashboardVisible[item.key];
       } else {
-        this.context.router.history.push(state)
+        defaultCategorySelected[item.key] = item.isDefaultSelected;
       }
-    };
+    });
 
-    render() {
+    return defaultCategorySelected;
+  };
 
-      const { problems, contacts, allergies, medications, vaccinations, topThreeThings } = this.props;
+  closeDisclaimer = () => this.setState({ isDisclaimerModalVisible: false });
 
-      const boards = {
-        problems: problems,
-        contacts: contacts,
-        allergies: allergies,
-        medications: medications,
-        vaccinations: vaccinations,
-        topThreeThings: topThreeThings,
-      };
+  handleCategorySelected = selectedCategory => this.setState({ selectedCategory });
 
-      // const { feeds } = this.props;
-      const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
-      let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
-      const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
+  handleViewOfBoardsSelected = selectedViewOfBoards => this.setState({ selectedViewOfBoards });
 
-      if (!themeConfigs.patientsSummaryHasPreviewSettings) { isHasPreview = false; }
+  handleGoToState = (state, externalTransitionUrl) => {
+    if (state.indexOf('http://') !== -1 ||
+        state.indexOf('https://') !== -1 ||
+        state.indexOf('www.') !== -1) {
+      if (externalTransitionUrl) {
+        window.open(externalTransitionUrl)
+      } else {
+        window.open(state)
+      }
+    } else {
+      this.context.router.history.push(state)
+    }
+  };
 
-      return (<section className="page-wrapper">
-        <Row>
-          <Col xs={12}>
-            <div className="panel panel-primary panel-dashboard">
-              <PatientsSummaryListHeader
-                onCategorySelected={this.handleCategorySelected}
-                onViewOfBoardsSelected={this.handleViewOfBoardsSelected}
-                selectedCategory={selectedCategory}
-                selectedViewOfBoards={selectedViewOfBoards}
-                title={themeConfigs.patientsSummaryPageName}
-                feeds={feeds}
-              />
-              <div className="panel-body">
-                <div className="dashboard">
-                  {patientsSummaryConfig.map((item, index) => {
-                    return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
-                      <SimpleDashboardPanel
-                        key={index}
-                        title={item.title}
-                        items={boards[item.key]}
-                        state={item.state}
-                        goToState={this.handleGoToState}
-                        srcPrevirew={item.imgPreview}
-                        isHasPreview={isHasPreview}
-                        isHasList={isHasList}
-                      />
-                      : null)
-                  })}
-                  {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
-                    const nameItem = getNameFromUrl(item.landingPageUrl);
-                    return (selectedCategory[nameItem] ?
-                      <RssDashboardPanel
-                        key={nameItem}
-                        title={item.name}
-                        state={item.landingPageUrl}
-                        goToState={this.handleGoToState}
-                        rssFeedName={nameItem}
-                        rssFeedUrl={item.rssFeedUrl}
-                        isHasPreview={isHasPreview}
-                        isHasList={isHasList}
-                      />
-                      : null)
-                  }) : null}
-                </div>
+  render() {
+
+    const { boards } = this.props;
+    // const { feeds } = this.props;
+
+    const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
+    let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
+    const isHasList = selectedViewOfBoards.full || selectedViewOfBoards.list;
+
+    if (!themeConfigs.patientsSummaryHasPreviewSettings) { isHasPreview = false; }
+
+    return (<section className="page-wrapper">
+      <Row>
+        <Col xs={12}>
+          <div className="panel panel-primary panel-dashboard">
+            <PatientsSummaryListHeader
+              onCategorySelected={this.handleCategorySelected}
+              onViewOfBoardsSelected={this.handleViewOfBoardsSelected}
+              selectedCategory={selectedCategory}
+              selectedViewOfBoards={selectedViewOfBoards}
+              title={themeConfigs.patientsSummaryPageName}
+              feeds={feeds}
+            />
+            <div className="panel-body">
+              <div className="dashboard">
+                {patientsSummaryConfig.map((item, index) => {
+                  return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
+                    <SimpleDashboardPanel
+                      key={index}
+                      title={item.title}
+                      items={boards[item.key]}
+                      state={item.state}
+                      goToState={this.handleGoToState}
+                      srcPrevirew={item.imgPreview}
+                      isHasPreview={isHasPreview}
+                      isHasList={isHasList}
+                    />
+                    : null)
+                })}
+                {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
+                  const nameItem = getNameFromUrl(item.landingPageUrl);
+                  return (selectedCategory[nameItem] ?
+                    <RssDashboardPanel
+                      key={nameItem}
+                      title={item.name}
+                      state={item.landingPageUrl}
+                      goToState={this.handleGoToState}
+                      rssFeedName={nameItem}
+                      rssFeedUrl={item.rssFeedUrl}
+                      isHasPreview={isHasPreview}
+                      isHasList={isHasList}
+                    />
+                    : null)
+                }) : null}
               </div>
             </div>
-          </Col>
-        </Row>
-        {isDisclaimerModalVisible && <ConfirmationModal
-          title={'Notification'}
-          isShow
-          onOk={this.closeDisclaimer}
-          onHide={this.closeDisclaimer}
-          isShowOkButton
-        >
-          <span>You was redirected to your home page because you are logged in as a PHR user.</span>
-        </ConfirmationModal>}
-      </section>)
-    }
+          </div>
+        </Col>
+      </Row>
+      {isDisclaimerModalVisible && <ConfirmationModal
+        title={'Notification'}
+        isShow
+        onOk={this.closeDisclaimer}
+        onHide={this.closeDisclaimer}
+        isShowOkButton
+      >
+        <span>You was redirected to your home page because you are logged in as a PHR user.</span>
+      </ConfirmationModal>}
+    </section>)
+  }
 }

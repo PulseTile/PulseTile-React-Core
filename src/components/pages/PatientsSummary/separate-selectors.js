@@ -1,8 +1,7 @@
 import _ from 'lodash/fp';
 import { createSelector } from 'reselect';
-import { patientsSummaryLoading } from './patients-summary.config';
 
-export const patientProblemsSelector = createSelector(
+const patientProblemsSelector = createSelector(
   ({ patientsDiagnoses }) => patientsDiagnoses,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsDiagnoses, userId) => {
@@ -10,13 +9,13 @@ export const patientProblemsSelector = createSelector(
     if (patientsDiagnoses[userId]) {
       problems = patientsDiagnoses[userId];
       } else {
-        problems = [{text: patientsSummaryLoading}, '', '', ''];
+        problems = [{text: 'Loading ...'}, '', '', ''];
       }
-      return { problems, userId };
+      return problems;
   }
 );
 
-export const patientContactsSelector = createSelector(
+const patientContactsSelector = createSelector(
   ({ patientsContacts }) => patientsContacts,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsContacts, userId) => {
@@ -24,13 +23,13 @@ export const patientContactsSelector = createSelector(
     if (patientsContacts[userId]) {
       contacts = patientsContacts[userId];
       } else {
-        contacts = [{text: patientsSummaryLoading}, '', '', ''];
+        contacts = [{text: 'Loading ...'}, '', '', ''];
       }
-      return { contacts, userId };
+      return contacts;
   }
 );
 
-export const patientAllergiesSelector = createSelector(
+const patientAllergiesSelector = createSelector(
   ({ patientsAllergies }) => patientsAllergies,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsAllergies, userId) => {
@@ -38,13 +37,13 @@ export const patientAllergiesSelector = createSelector(
     if (patientsAllergies[userId]) {
       allergies = patientsAllergies[userId];
     } else {
-      allergies = [{text: patientsSummaryLoading}, '', '', ''];
+      allergies = [{text: 'Loading ...'}, '', '', ''];
     }
-    return { allergies, userId };
+    return allergies;
   }
 );
 
-export const patientMedicationsSelector = createSelector(
+const patientMedicationsSelector = createSelector(
   ({ patientsMedications }) => patientsMedications,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsMedications, userId) => {
@@ -52,13 +51,13 @@ export const patientMedicationsSelector = createSelector(
     if (patientsMedications[userId]) {
       medications = patientsMedications[userId];
     } else {
-      medications = [{text: patientsSummaryLoading}, '', '', ''];
+      medications = [{text: 'Loading ...'}, '', '', ''];
     }
-    return { medications, userId };
+    return medications;
   }
 );
 
-export const patientVaccinationsSelector = createSelector(
+const patientVaccinationsSelector = createSelector(
   ({ patientsVaccinations }) => patientsVaccinations,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsVaccinations, userId) => {
@@ -66,13 +65,13 @@ export const patientVaccinationsSelector = createSelector(
     if (patientsVaccinations[userId]) {
       vaccinations = patientsVaccinations[userId];
     } else {
-      vaccinations = [{text: patientsSummaryLoading}, '', '', ''];
+      vaccinations = [{text: 'Loading ...'}, '', '', ''];
     }
-    return { vaccinations, userId };
+    return vaccinations;
   }
 );
 
-export const patientTopThreeThingsSelector = createSelector(
+const patientTopThreeThingsSelector = createSelector(
   ({ patientsTopThreeThings }) => patientsTopThreeThings,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsTopThreeThings, userId) => {
@@ -80,8 +79,30 @@ export const patientTopThreeThingsSelector = createSelector(
     if (patientsTopThreeThings[userId]) {
       topThreeThings = patientsTopThreeThings[userId];
     } else {
-      topThreeThings = [{text: patientsSummaryLoading}, '', '', ''];
+      topThreeThings = [{text: 'Loading ...'}, '', '', ''];
     }
-    return { topThreeThings, userId };
+    return topThreeThings;
   }
 );
+
+export const summarySynopsisSelector  = createSelector(
+  patientProblemsSelector,
+  patientContactsSelector,
+  patientAllergiesSelector,
+  patientMedicationsSelector,
+  patientVaccinationsSelector,
+  patientTopThreeThingsSelector,
+  (problems, contacts, allergies, medications, vaccinations, topThree) => {
+    return {
+      boards: {
+        problems: problems,
+        contacts: contacts,
+        allergies: allergies,
+        medications: medications,
+        vaccinations: vaccinations,
+        topThreeThings: topThree,
+      }
+    };
+  }
+);
+
