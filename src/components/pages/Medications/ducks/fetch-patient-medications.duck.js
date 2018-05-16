@@ -34,17 +34,17 @@ export const fetchPatientMedicationsEpic = (action$, store) =>
     );
 
 export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>
-    action$.ofType(FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST)
-        .mergeMap(({ payload }) =>
-                ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/medications`, {
-                    headers: { Cookie: store.getState().credentials.cookie },
-                })
-                    .map(response => fetchPatientMedicationsSuccess({
-                        userId: payload.userId,
-                        medications: get(response, 'synopsis', []),
-                    }))
-            // .catch(error => Observable.of(handleErrors(error)))
-        );
+  action$.ofType(FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST)
+    .mergeMap(({ payload }) =>
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/medications`, {
+        headers: { Cookie: store.getState().credentials.cookie },
+      })
+        .map(response => fetchPatientMedicationsSuccess({
+          userId: payload.userId,
+          medications: get(response, 'synopsis', []),
+        }))
+        .catch(error => Observable.of(handleErrors(error)))
+    );
 
 export const fetchPatientMedicationsUpdateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_MEDICATIONS_UPDATE_REQUEST)

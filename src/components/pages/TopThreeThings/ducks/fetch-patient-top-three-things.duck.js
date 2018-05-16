@@ -33,18 +33,17 @@ export const fetchPatientTopThreeThingsEpic = (action$, store) =>
     );
 
 export const fetchPatientTopThreeThingsSynopsisEpic = (action$, store) =>
-    action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST)
-        .mergeMap(({ payload }) =>
-            ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/top3Things`, {
-                headers: { Cookie: store.getState().credentials.cookie },
-            })
-                .map(response => fetchPatientTopThreeThingsSuccess({
-                    userId: payload.userId,
-                    topThreeThings: get(response, 'synopsis', []),
-                }))
-                .catch(error => Observable.of(fetchPatientTopThreeThingsFailure(error)))
-        );
-
+  action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST)
+    .mergeMap(({ payload }) =>
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/top3Things`, {
+        headers: { Cookie: store.getState().credentials.cookie },
+      })
+        .map(response => fetchPatientTopThreeThingsSuccess({
+          userId: payload.userId,
+          topThreeThings: get(response, 'synopsis', []),
+        }))
+        .catch(error => Observable.of(fetchPatientTopThreeThingsFailure(error)))
+    );
 
 export const fetchPatientTopThreeThingsUpdateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_UPDATE_REQUEST)
