@@ -16,21 +16,21 @@ export const fetchPatientDemographicsSuccess = createAction(FETCH_PATIENT_DEMOGR
 export const fetchPatientDemographicsFailure = createAction(FETCH_PATIENT_DEMOGRAPHICS_FAILURE);
 
 export const fetchPatientDemographicsEpic = (action$, store) =>
-    action$.ofType(FETCH_PATIENT_DEMOGRAPHICS_REQUEST)
-        .mergeMap(({ payload }) =>
-            ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {})
-                .map(response => fetchPatientDemographicsSuccess({
-                    userId: payload.userId,
-                    demographics: get(response, 'demographics', {}),
-                }))
-                .catch(error => Observable.of(fetchPatientDemographicsFailure(error)))
-        );
+  action$.ofType(FETCH_PATIENT_DEMOGRAPHICS_REQUEST)
+    .mergeMap(({ payload }) =>
+      ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {})
+        .map(response => fetchPatientDemographicsSuccess({
+          userId: payload.userId,
+          demographics: get(response, 'demographics', {}),
+        }))
+        .catch(error => Observable.of(fetchPatientDemographicsFailure(error)))
+  );
 
 export default function reducer(patientsDemographics = {}, action) {
-    switch (action.type) {
-        case FETCH_PATIENT_DEMOGRAPHICS_SUCCESS:
-            return _.set(action.payload.userId, action.payload.demographics, patientsDemographics);
-        default:
-            return patientsDemographics;
-    }
+  switch (action.type) {
+    case FETCH_PATIENT_DEMOGRAPHICS_SUCCESS:
+      return _.set(action.payload.userId, action.payload.demographics, patientsDemographics);
+    default:
+      return patientsDemographics;
+  }
 }
