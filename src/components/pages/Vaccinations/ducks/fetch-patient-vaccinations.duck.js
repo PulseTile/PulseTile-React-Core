@@ -38,9 +38,7 @@ export const fetchPatientVaccinationsEpic = (action$, store) =>
 export const fetchPatientVaccinationsSynopsisEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_VACCINATIONS_SYNOPSIS_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/vaccinations`, {
-        headers: { Cookie: store.getState().credentials.cookie },
-      })
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/vaccinations`, {})
         .map(response => fetchPatientVaccinationsSuccess({
           userId: payload.userId,
           vaccinations: get(response, 'synopsis', []),

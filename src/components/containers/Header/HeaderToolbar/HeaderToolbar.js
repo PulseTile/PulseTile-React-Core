@@ -19,13 +19,11 @@ import { mainPagesTitles } from '../../../../config/client-urls.constants'
 import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
 import { fetchHeaderToolbarOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
 
-// import { fetchPatientSummaryRequest } from '../../../../ducks/fetch-patient-summary.duck';
 import { fetchPatientDemographicsRequest } from '../../../../ducks/fetch-patient-demographics.duck';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     setSidebarVisibility,
-    // fetchPatientSummaryRequest,
     fetchPatientDemographicsRequest
   }, dispatch)
 });

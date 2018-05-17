@@ -18,9 +18,7 @@ export const fetchPatientDemographicsFailure = createAction(FETCH_PATIENT_DEMOGR
 export const fetchPatientDemographicsEpic = (action$, store) =>
     action$.ofType(FETCH_PATIENT_DEMOGRAPHICS_REQUEST)
         .mergeMap(({ payload }) =>
-            ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {
-                headers: { Cookie: store.getState().credentials.cookie },
-            })
+            ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {})
                 .map(response => fetchPatientDemographicsSuccess({
                     userId: payload.userId,
                     demographics: get(response, 'demographics', {}),

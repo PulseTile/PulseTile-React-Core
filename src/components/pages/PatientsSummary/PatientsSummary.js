@@ -20,29 +20,14 @@ import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-p
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
 import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
-import {
-  fetchPatientProblemsSynopsisOnMount,
-  fetchPatientContactsSynopsisOnMount,
-  fetchPatientAllergiesSynopsisOnMount,
-  fetchPatientMedicationsSynopsisOnMount,
-  fetchPatientVaccinationsSynopsisOnMount,
-  fetchPatientTopThreeThingsSynopsisOnMount,
-} from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientProblemsSynopsisOnMount, fetchPatientContactsSynopsisOnMount, fetchPatientAllergiesSynopsisOnMount, fetchPatientMedicationsSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount, fetchPatientTopThreeThingsSynopsisOnMount} from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
 import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
-    fetchPatientDiagnosesSynopsisRequest,
-    fetchPatientContactsSynopsisRequest,
-    fetchPatientAllergiesSynopsisRequest,
-    fetchPatientMedicationsSynopsisRequest,
-    fetchPatientVaccinationsSynopsisRequest,
-    fetchPatientTopThreeThingsSynopsisRequest,
-    fetchFeedsRequest
-  }, dispatch) });
+  actions: bindActionCreators({fetchPatientDiagnosesSynopsisRequest, fetchPatientContactsSynopsisRequest, fetchPatientAllergiesSynopsisRequest, fetchPatientMedicationsSynopsisRequest, fetchPatientVaccinationsSynopsisRequest, fetchPatientTopThreeThingsSynopsisRequest, fetchFeedsRequest}, dispatch) });
 
 const feeds = [
   {
@@ -82,14 +67,7 @@ const feeds = [
 
 @connect(feedsSelector)
 
-@compose(
-  lifecycle(fetchPatientProblemsSynopsisOnMount),
-  lifecycle(fetchPatientContactsSynopsisOnMount),
-  lifecycle(fetchPatientAllergiesSynopsisOnMount),
-  lifecycle(fetchPatientMedicationsSynopsisOnMount),
-  lifecycle(fetchPatientVaccinationsSynopsisOnMount),
-  lifecycle(fetchPatientTopThreeThingsSynopsisOnMount)
-)
+@compose(lifecycle(fetchPatientProblemsSynopsisOnMount), lifecycle(fetchPatientContactsSynopsisOnMount), lifecycle(fetchPatientAllergiesSynopsisOnMount), lifecycle(fetchPatientMedicationsSynopsisOnMount), lifecycle(fetchPatientVaccinationsSynopsisOnMount), lifecycle(fetchPatientTopThreeThingsSynopsisOnMount))
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {
