@@ -17,6 +17,7 @@ export const clientUrls = {
   VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
+  DIARY_ENTRY: 'diaryEntry',
   PROCEDURES: 'procedures',
   EVENTS: 'events',
   TEST_RESULTS: 'results',
@@ -75,6 +76,12 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Generic Plugin',
       state: '/genericPlugin',
+    }],
+  },
+  'diaryEntry': {
+    breadcrumbs: [{
+      title: 'Diary Entry',
+      state: '/diaryEntry',
     }],
   },
   'medications': {

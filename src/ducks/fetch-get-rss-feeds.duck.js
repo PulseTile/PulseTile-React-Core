@@ -1,9 +1,8 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
+
 import { getRssFeedsListFromXML } from '../utils/rss-helpers';
-import { handleErrors } from './handle-errors.duck';
 
 export const FETCH_GET_RSS_FEEDS_REQUEST = 'FETCH_GET_RSS_FEEDS_REQUEST';
 export const FETCH_GET_RSS_FEEDS_SUCCESS = 'FETCH_GET_RSS_FEEDS_SUCCESS';
@@ -19,7 +18,6 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
       ajax({
         url: payload.rssFeedUrl,
         responseType: 'application/rss+xml',
-        // responseType: 'text/xml',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         crossDomain: true,
       })
@@ -28,7 +26,6 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
           rssFeedName: payload.rssFeedName,
           feeds: getRssFeedsListFromXML(xmlDocument),
         }))
-      // .catch(error => Observable.of(handleErrors(error)))
     );
 
 

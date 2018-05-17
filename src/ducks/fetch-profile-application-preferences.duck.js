@@ -28,6 +28,6 @@ export default function reducer(profileAppPreferences = {}, action) {
     case FETCH_PROFILE_APP_PREFERENCES_SUCCESS:
       return action.payload;
     default:
-      return profileAppPreferences
+      return profileAppPreferences;
   }
 }

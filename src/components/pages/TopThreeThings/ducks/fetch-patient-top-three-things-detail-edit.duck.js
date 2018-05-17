@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -29,7 +28,6 @@ export const fetchPatientTopThreeThingsDetailEditEpic = (action$, store) =>
             fetchPatientTopThreeThingsUpdateRequest({ userId, sourceId }),
           ];
         })
-        .catch(error => Observable.of(fetchPatientTopThreeThingsDetailEditFailure(error)))
     );
 
 export default function reducer(topThreeThingsDetailEdit = {}, action) {

@@ -1,11 +1,9 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { handleErrors } from '../../../../ducks/handle-errors.duck';
-
 export const FETCH_PATIENT_ALLERGIES_DETAIL_REQUEST = 'FETCH_PATIENT_ALLERGIES_DETAIL_REQUEST';
 export const FETCH_PATIENT_ALLERGIES_DETAIL_SUCCESS = 'FETCH_PATIENT_ALLERGIES_DETAIL_SUCCESS';
 export const FETCH_PATIENT_ALLERGIES_DETAIL_FAILURE = 'FETCH_PATIENT_ALLERGIES_DETAIL_FAILURE';
@@ -23,8 +21,8 @@ export const fetchPatientAllergiesDetailEpic = (action$, store) =>
         .map(response => fetchPatientAllergiesDetailSuccess({
           userId: payload.userId,
           allergiesDetail: response,
+          token: response.token,
         }))
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(allergiesDetail = {}, action) {

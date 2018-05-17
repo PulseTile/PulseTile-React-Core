@@ -1,11 +1,10 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientReferralsDetailRequest } from './fetch-patient-referrals-detail.duck';
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_REFERRALS_REQUEST = 'FETCH_PATIENT_REFERRALS_REQUEST';
 export const FETCH_PATIENT_REFERRALS_SUCCESS = 'FETCH_PATIENT_REFERRALS_SUCCESS';
@@ -23,11 +22,14 @@ export const fetchPatientReferralsEpic = (action$, store) =>
       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/referrals`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchPatientReferralsSuccess({
-          userId: payload.userId,
-          referrals: response,
-        }))
-        // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchPatientReferralsSuccess({
+            userId: payload.userId,
+            referrals: response,
+            token,
+          })
+        })
     );
 
 export const fetchPatientReferralsUpdateEpic = (action$, store) =>
@@ -45,7 +47,7 @@ export const fetchPatientReferralsUpdateEpic = (action$, store) =>
             fetchPatientReferralsDetailRequest({ userId, sourceId }),
           ]
         })
-        // .catch(error => Observable.of(handleErrors(error)))
+        
     );
 
 export default function reducer(patientsReferrals = {}, action) {

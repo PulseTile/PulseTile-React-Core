@@ -1,5 +1,5 @@
-import _ from 'lodash/fp'
-import { findDOMNode } from 'react-dom'
+import _ from 'lodash/fp';
+import { findDOMNode } from 'react-dom';
 
 export const unmountOnBlur = ({
   componentDidMount() {
