@@ -1,5 +1,6 @@
 import { createAction } from 'redux-actions';
 import { Observable } from 'rxjs/Rx';
+import { get } from 'lodash';
 
 import { fetchLogoutRequest, FETCH_LOGOUT_SUCCESS } from './fetch-logout.duck';
 
@@ -18,10 +19,15 @@ export const logoutEpic = (action$, store) => Observable.merge(
       return fetchLogoutRequest();
     }),
   action$.ofType(FETCH_LOGOUT_SUCCESS)
-    .map(() => {
+    .map(response => {
+      const redirectUrl = get(response, 'payload.redirectURL', '');
       clearCookie();
-      window.location = ''; // TO REFRESH THE PAGE
-      return logoutFinish();
-    })
+      return logoutFinish(redirectUrl);
+    }),
+  action$.ofType(LOGOUT_FINISH)
+    .map(response => {
+      window.location = get(response, 'payload', '');
+      return true;
+    }),
 );
 
