@@ -54,7 +54,8 @@ export const fetchHeaderToolbarOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
-    if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
+    // if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
+    if (userId && _.isEmpty(this.props.patientsDemographics[userId])) actions.fetchPatientDemographicsRequest({ userId })
   },
   componentWillReceiveProps(nextProps) {
     const { actions, match } = this.props;
@@ -62,7 +63,8 @@ export const fetchHeaderToolbarOnMount = ({
     const userId = _.get('params.userId', match);
 
     if (nextUserId !== userId) {
-      actions.fetchPatientSummaryRequest({ userId: nextUserId })
+        actions.fetchPatientDemographicsRequest({ userId: nextUserId })
+      // actions.fetchPatientSummaryRequest({ userId: nextUserId })
     }
   },
 });
@@ -73,7 +75,8 @@ export const fetchListOrdersOnMount = ({
   },
 });
 
-export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
+// export const fetchPatientSummaryOnMount = (generateFetchListOnMount('fetchPatientSummaryRequest'));
+export const fetchPatientDemographicsOnMount = (generateFetchListOnMount('fetchPatientDemographicsRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));
 export const fetchPatientAllergiesSynopsisOnMount = (generateFetchListOnMount('fetchPatientAllergiesSynopsisRequest'));

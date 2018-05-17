@@ -82,12 +82,14 @@ const feeds = [
 
 @connect(feedsSelector)
 
-@compose(lifecycle(fetchPatientProblemsSynopsisOnMount))
-@compose(lifecycle(fetchPatientContactsSynopsisOnMount))
-@compose(lifecycle(fetchPatientAllergiesSynopsisOnMount))
-@compose(lifecycle(fetchPatientMedicationsSynopsisOnMount))
-@compose(lifecycle(fetchPatientVaccinationsSynopsisOnMount))
-@compose(lifecycle(fetchPatientTopThreeThingsSynopsisOnMount))
+@compose(
+  lifecycle(fetchPatientProblemsSynopsisOnMount),
+  lifecycle(fetchPatientContactsSynopsisOnMount),
+  lifecycle(fetchPatientAllergiesSynopsisOnMount),
+  lifecycle(fetchPatientMedicationsSynopsisOnMount),
+  lifecycle(fetchPatientVaccinationsSynopsisOnMount),
+  lifecycle(fetchPatientTopThreeThingsSynopsisOnMount)
+)
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {
