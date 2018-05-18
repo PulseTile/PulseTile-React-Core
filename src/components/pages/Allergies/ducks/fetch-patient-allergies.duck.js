@@ -40,7 +40,8 @@ export const fetchPatientAllergiesEpic = (action$, store) =>
 export const fetchPatientAllergiesSynopsisEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_ALLERGIES_SYNOPSIS_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/allergies`, {})
+      ajax.getJSON(`http://dev.ripple.foundation:8000/api/patients/${payload.userId}/synopsis/allergies`, { Authorization: 'Bearer '+testConstants.token })
+      // ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/allergies`, {})
         .map(response => fetchPatientAllergiesSuccess({
           userId: payload.userId,
           allergies: get(response, 'synopsis', []),
