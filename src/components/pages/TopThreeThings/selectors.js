@@ -6,6 +6,7 @@ import { valuesNames } from './forms.config';
 
 const topThreeThingsCreateFormSelector = _.getOr({}, 'form.topThreeThingsCreateFormSelector');
 const topThreeThingsPanelFormSelector = _.getOr({}, 'form.topThreeThingsPanelFormSelector');
+const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
 
 const topThreeThingsCreateFormStateSelector = createSelector(topThreeThingsCreateFormSelector,
     topThreeThingsCreateFormState => ({ topThreeThingsCreateFormState }));
@@ -19,6 +20,9 @@ const patientTopThreeThingsSelector = createSelector(
   }
 );
 
+const metaPanelFormStateSelector = createSelector(metaPanelFormSelector,
+    metaPanelFormState => ({ metaPanelFormState }));
+
 const patientTopThreeThingsDetailSelector = createSelector(
   ({ topThreeThingsDetail }) => topThreeThingsDetail,
   (state, props) => _.getOr(null, 'match.params.userId', props),
@@ -31,4 +35,4 @@ const patientTopThreeThingsDetailSelector = createSelector(
 const topThreeThingPanelFormSelector = createSelector(topThreeThingsPanelFormSelector,
   topThreeThingFormState => ({ topThreeThingFormState }));
 
-export { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingsCreateFormStateSelector, topThreeThingPanelFormSelector }
+export { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingsCreateFormStateSelector, metaPanelFormStateSelector, topThreeThingPanelFormSelector }

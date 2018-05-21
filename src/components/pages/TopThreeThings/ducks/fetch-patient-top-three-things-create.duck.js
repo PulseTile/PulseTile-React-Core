@@ -15,7 +15,7 @@ export const fetchPatientTopThreeThingsCreateFailure = createAction(FETCH_PATIEN
 export const fetchPatientTopThreeThingsCreateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_CREATE_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.post(`${usersUrls.PATIENTS_URL}/${payload.userId}/top3things`, payload, {
+      ajax.post(`${usersUrls.PATIENTS_URL}/${payload.userId}/top3Things`, payload, {
         Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })

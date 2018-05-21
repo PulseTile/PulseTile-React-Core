@@ -19,7 +19,7 @@ import { fetchPatientTopThreeThingsCreateRequest } from './ducks/fetch-patient-t
 import { fetchPatientTopThreeThingsDetailRequest } from './ducks/fetch-patient-top-three-things-detail.duck';
 import { fetchPatientTopThreeThingsDetailEditRequest } from './ducks/fetch-patient-top-three-things-detail-edit.duck';
 import { fetchPatientTopThreeThingsOnMount, fetchPatientTopThreeThingsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
-import { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingPanelFormSelector, topThreeThingsCreateFormStateSelector } from './selectors';
+import { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingPanelFormSelector, metaPanelFormStateSelector, topThreeThingsCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import TopThreeThingsDetail from './TopThreeThingsDetail/TopThreeThingsDetail';
 import TopThreeThingsCreateForm from './TopThreeThingsCreate/TopThreeThingsCreateForm';
@@ -38,6 +38,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(patientTopThreeThingsDetailSelector, mapDispatchToProps)
 @connect(topThreeThingPanelFormSelector)
 @connect(topThreeThingsCreateFormStateSelector)
+@connect(metaPanelFormStateSelector)
 @compose(lifecycle(fetchPatientTopThreeThingsOnMount), lifecycle(fetchPatientTopThreeThingsDetailOnMount))
 export default class TopThreeThings extends PureComponent {
   static propTypes = {
@@ -105,8 +106,8 @@ export default class TopThreeThings extends PureComponent {
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
-    const { actions, userId, topThreeThingsFormState } = this.props;
-      if (checkIsValidateForm(topThreeThingsFormState)) {
+    const { actions, userId, topThreeThingsCreateFormState } = this.props;
+      if (checkIsValidateForm(topThreeThingsCreateFormState)) {
         actions.fetchPatientTopThreeThingsCreateRequest(this.formValuesToString(formValues, 'create'));
         this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.TOP_THREE_THINGS}`);
         this.hideCreateForm();
@@ -231,7 +232,7 @@ export default class TopThreeThings extends PureComponent {
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isCreatePanelVisible, isBtnExpandVisible, isBtnCreateVisible, expandedPanel, openedPanel, editedPanel, offset, isSubmit, isLoading } = this.state;
-    const { allTopThreeThings, topThreeThingDetail, topThreeThingFormState } = this.props;
+    const { allTopThreeThings, topThreeThingDetail, topThreeThingFormState, topThreeThingsCreateFormState, metaPanelFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === TOP_THREE_THINGS_DETAIL || expandedPanel === TOP_THREE_THINGS_PANEL);
     const isPanelMain = (expandedPanel === TOP_THREE_THINGS_MAIN);
@@ -302,6 +303,7 @@ export default class TopThreeThings extends PureComponent {
               onCancel={this.handleTopThreeThingsDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
               topThreeThingFormValues={topThreeThingFormState.values}
+              metaPanelFormValues={metaPanelFormState.values}
               isSubmit={isSubmit}
             />
           </Col> : null}
@@ -314,7 +316,7 @@ export default class TopThreeThings extends PureComponent {
               expandedPanel={expandedPanel}
               currentPanel={TOP_THREE_THINGS_CREATE}
               onSaveSettings={this.handleSaveSettingsCreateForm}
-              formValues={topThreeThingFormState.values}
+              formValues={topThreeThingsCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
               isImport={isImportFromDocuments}
