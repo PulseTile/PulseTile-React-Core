@@ -18,8 +18,7 @@ export const fetchPatientDemographicsFailure = createAction(FETCH_PATIENT_DEMOGR
 export const fetchPatientDemographicsEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_DEMOGRAPHICS_REQUEST)
     .mergeMap(({ payload }) =>
-        ajax.getJSON(`http://dev.ripple.foundation:8000/api/demographics/${payload.userId}`, { Authorization: 'Bearer '+testConstants.token })
-      // ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {})
+      ajax.getJSON(`${usersUrls.PATIENTS_DEMOGRAPHICS_URL}/${payload.userId}`, {})
         .map(response => fetchPatientDemographicsSuccess({
           userId: payload.userId,
           demographics: get(response, 'demographics', {}),
