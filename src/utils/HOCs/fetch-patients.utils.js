@@ -54,7 +54,6 @@ export const fetchHeaderToolbarOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
-    // if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
     if (userId && _.isEmpty(this.props.patientsDemographics[userId])) actions.fetchPatientDemographicsRequest({ userId })
   },
   componentWillReceiveProps(nextProps) {
@@ -64,7 +63,6 @@ export const fetchHeaderToolbarOnMount = ({
 
     if (nextUserId !== userId) {
         actions.fetchPatientDemographicsRequest({ userId: nextUserId })
-      // actions.fetchPatientSummaryRequest({ userId: nextUserId })
     }
   },
 });
