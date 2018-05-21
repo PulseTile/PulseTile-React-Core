@@ -87,12 +87,12 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
                 },
               ]
             }
-            id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -202,11 +202,12 @@ exports[`Component <TopThreeThings /> should renders correctly and testing conte
               ]
             }
             id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -353,11 +354,12 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
                 },
               ]
             }
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -472,12 +474,12 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
                 },
               ]
             }
-            id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -587,11 +589,12 @@ exports[`Component <TopThreeThings /> should renders correctly with topThreeThin
               ]
             }
             id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [

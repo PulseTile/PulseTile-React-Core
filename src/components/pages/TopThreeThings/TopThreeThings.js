@@ -6,6 +6,7 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
+import { get } from 'lodash';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
@@ -31,6 +32,7 @@ const TOP_THREE_THINGS_MAIN = 'topThreeThingsMain';
 const TOP_THREE_THINGS_CREATE = 'topThreeThingsCreate';
 const TOP_THREE_THINGS_DETAIL = 'topThreeThingsDetail';
 const TOP_THREE_THINGS_PANEL = 'topThreeThingsPanel';
+const META_PANEL = 'metaPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientTopThreeThingsRequest, fetchPatientTopThreeThingsCreateRequest, fetchPatientTopThreeThingsDetailRequest, fetchPatientTopThreeThingsDetailEditRequest }, dispatch) });
 
@@ -61,7 +63,7 @@ export default class TopThreeThings extends PureComponent {
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isBtnCreateVisible: true,
-    isDetailPanelVisible: true,
+    isDetailPanelVisible: false,
     isCreatePanelVisible: false,
     isSecondPanel: false,
     editedPanel: {},
@@ -76,7 +78,7 @@ export default class TopThreeThings extends PureComponent {
 
     //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TOP_THREE_THINGS}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: false })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.TOP_THREE_THINGS}/create`) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: TOP_THREE_THINGS_CREATE, isDetailPanelVisible: false })
@@ -234,20 +236,22 @@ export default class TopThreeThings extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isCreatePanelVisible, isBtnExpandVisible, isBtnCreateVisible, expandedPanel, openedPanel, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allTopThreeThings, topThreeThingDetail, topThreeThingFormState, topThreeThingsCreateFormState, metaPanelFormState } = this.props;
 
-    const isPanelDetails = (expandedPanel === TOP_THREE_THINGS_DETAIL || expandedPanel === TOP_THREE_THINGS_PANEL);
+    const isPanelDetails = (expandedPanel === TOP_THREE_THINGS_DETAIL || expandedPanel === TOP_THREE_THINGS_PANEL || expandedPanel === META_PANEL);
     const isPanelMain = (expandedPanel === TOP_THREE_THINGS_MAIN);
+    const isPanelCreate = (expandedPanel === TOP_THREE_THINGS_CREATE);
 
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
 
     const filteredTopThreeThings = this.formToShowCollection(allTopThreeThings);
 
     let sourceId;
-    if (!_.isEmpty(topThreeThingDetail)) {
+    if (isDetailPanelVisible && !_.isEmpty(topThreeThingDetail)) {
       sourceId = topThreeThingDetail[valuesNames.SOURCE_ID];
     }
 
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
+    const isPatientHasTopThreeThings = (get(allTopThreeThings, 'length', 0) > 0) ? true : false;
 
     return (<section className="page-wrapper">
       {!isDetailPanelVisible  || isCreatePanelVisible ?
@@ -283,7 +287,7 @@ export default class TopThreeThings extends PureComponent {
                 totalEntriesAmount={_.size(filteredTopThreeThings)}
                 offset={offset}
                 setOffset={this.handleSetOffset}
-                isBtnCreateVisible={isBtnCreateVisible}
+                isBtnCreateVisible={!isPatientHasTopThreeThings}
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
@@ -327,7 +331,6 @@ export default class TopThreeThings extends PureComponent {
               title="Create Top Three Things"
             />
             </Col> : null}
-
         </Row>
       </div>
     </section>)

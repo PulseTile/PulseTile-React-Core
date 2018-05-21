@@ -127,12 +127,13 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailTopThreeThingsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
     expect(component.find('TopThreeThingsDetail')).toHaveLength(0);
+    expect(component.find('PluginCreate')).toHaveLength(0);
 
     component.instance().handleDetailTopThreeThingsClick('065d85e3-3cd5-4604-bb94-5685fffb193d');
     const componentStateAfterMethod = component.state();
@@ -181,7 +182,7 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleFilterChange methods
     expect(component.state().nameShouldInclude).toEqual('');
@@ -210,7 +211,7 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
     component.setContext(contextDetail);
@@ -224,7 +225,7 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'topThreeThingsPanel');
 
@@ -236,7 +237,7 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
   });
