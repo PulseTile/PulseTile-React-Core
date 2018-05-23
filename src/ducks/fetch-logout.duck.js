@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -15,9 +14,6 @@ export const fetchLogoutFailure = createAction(FETCH_LOGOUT_FAILURE);
 export const fetchLogoutEpic = action$ =>
   action$.ofType(FETCH_LOGOUT_REQUEST)
     .mergeMap(() =>
-      ajax.getJSON(apiUrls.LOGOUT)
+      ajax.getJSON(apiUrls.LOGOUT, {})
         .map(fetchLogoutSuccess)
-        // .catch((error) => {
-        //   return Observable.of(fetchLogoutFailure(error))
-        // })
     );

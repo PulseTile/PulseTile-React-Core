@@ -1,10 +1,8 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../../../../config/server-urls.constants'
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_DOCUMENTS_REQUEST = 'FETCH_PATIENT_DOCUMENTS_REQUEST';
 export const FETCH_PATIENT_DOCUMENTS_SUCCESS = 'FETCH_PATIENT_DOCUMENTS_SUCCESS';
@@ -20,11 +18,14 @@ export const fetchPatientDocumentsEpic = (action$, store) =>
       ajax.getJSON(`/api/documents/patient/${payload.userId}`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchPatientDocumentsSuccess({
-          userId: payload.userId,
-          documents: response,
-        }))
-        // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchPatientDocumentsSuccess({
+            userId: payload.userId,
+            documents: response,
+            token,
+          })
+        })
     );
 
 

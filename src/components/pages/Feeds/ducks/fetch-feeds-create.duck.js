@@ -1,10 +1,8 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchFeedsRequest } from './fetch-feeds.duck'
-import { handleErrors } from '../../../../ducks/handle-errors.duck';
 
 export const FETCH_FEEDS_CREATE_REQUEST = 'FETCH_FEEDS_CREATE_REQUEST';
 export const FETCH_FEEDS_CREATE_SUCCESS = 'FETCH_FEEDS_CREATE_SUCCESS';
@@ -28,7 +26,6 @@ export const fetchFeedsCreateEpic = (action$, store) =>
             fetchFeedsRequest(),
           ];
         })
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(feedsCreate = {}, action) {

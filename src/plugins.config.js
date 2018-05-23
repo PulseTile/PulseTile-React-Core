@@ -21,6 +21,7 @@ import mdts from './components/pages/MDTs/index';
 import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';
+import diaryEntry from './components/pages/DiaryEntry/index';
 import proms from './components/pages/PROMs/index';
 import feeds from './components/pages/Feeds/index';
 
@@ -51,6 +52,7 @@ export const plugins = [
   feeds,
 
   genericPlugin,
+  diaryEntry,
 ];
 
 export const sidebarConfig = [

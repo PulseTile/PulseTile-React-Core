@@ -1,11 +1,10 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientTransfersOfCareDetailRequest } from './fetch-patient-transfers-of-care-detail.duck';
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_TRANSFERS_OF_CARE_REQUEST = 'FETCH_PATIENT_TRANSFERS_OF_CARE_REQUEST';
 export const FETCH_PATIENT_TRANSFERS_OF_CARE_SUCCESS = 'FETCH_PATIENT_TRANSFERS_OF_CARE_SUCCESS';
@@ -23,11 +22,14 @@ export const fetchPatientTransfersOfCareEpic = (action$, store) =>
       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/events/toc`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchPatientTransfersOfCareSuccess({
-          userId: payload.userId,
-          transfersOfCare: response,
-        }))
-        // // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchPatientTransfersOfCareSuccess({
+            userId: payload.userId,
+            transfersOfCare: response,
+            token,
+          })
+        })
     );
 
 export const fetchPatientTransfersOfCareUpdateEpic = (action$, store) =>
@@ -45,7 +47,7 @@ export const fetchPatientTransfersOfCareUpdateEpic = (action$, store) =>
             fetchPatientTransfersOfCareDetailRequest({ userId, sourceId }),
           ]
         })
-        // .catch(error => Observable.of(handleErrors(error)))
+        
     );
 
 export default function reducer(patientsTransfersOfCare = {}, action) {

@@ -16,7 +16,7 @@ export default class SelectFormGroup extends PureComponent {
   };
 
   state={
-    isChanged: false
+    isChanged: false,
   };
 
   defaultProps={

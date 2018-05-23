@@ -1,10 +1,8 @@
 import _ from 'lodash/fp';
-// import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-// import { handleErrors } from '../../../../ducks/handle-errors.duck';
 
 export const FETCH_FEEDS_DETAIL_REQUEST = 'FETCH_FEEDS_DETAIL_REQUEST';
 export const FETCH_FEEDS_DETAIL_SUCCESS = 'FETCH_FEEDS_DETAIL_SUCCESS';
@@ -22,8 +20,9 @@ export const fetchFeedsDetailEpic = (action$, store) =>
       })
         .map(response => fetchFeedsDetailSuccess({
           feedsDetail: response,
+          token: response.token,
         }))
-        // .catch(error => Observable.of(handleErrors(error)))
+
     );
 
 export default function reducer(feedsDetail = {}, action) {

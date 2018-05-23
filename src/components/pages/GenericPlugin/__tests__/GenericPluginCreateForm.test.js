@@ -57,7 +57,7 @@ describe('Component <GenericPluginCreateForm />', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('should renders correctly when form is submitted', () => {
+  it('should render correctly when form is submitted', () => {
     const component = shallow(
       <GenericPluginCreateForm
         store={store}
