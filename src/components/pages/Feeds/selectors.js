@@ -7,7 +7,12 @@ const feedsPanelFormSelector = _.getOr({}, 'form.feedsPanelFormSelector');
 const feedsCreateFormSelector = _.getOr({}, 'form.feedsCreateFormSelector');
 
 const feedsSelector = createSelector(
-  feeds => ({ feeds })
+    state => state.feeds,
+    feeds => {
+        return {
+            feeds: feeds.length > 0 ? feeds : [],
+        };
+    }
 );
 
 const feedsDetailSelector = createSelector(

@@ -66,7 +66,6 @@ export default class RssDashboardPanel extends PureComponent {
       srcPrevirew = items[indexItemForPreview].thumbnail ? items[indexItemForPreview].thumbnail : imgRss;
     }
 
-
     return (
       <SimpleDashboardPanel
         title={title}

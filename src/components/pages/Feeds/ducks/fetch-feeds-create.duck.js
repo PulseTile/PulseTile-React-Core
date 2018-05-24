@@ -15,12 +15,8 @@ export const fetchFeedsCreateFailure = createAction(FETCH_FEEDS_CREATE_FAILURE);
 export const fetchFeedsCreateEpic = (action$, store) =>
   action$.ofType(FETCH_FEEDS_CREATE_REQUEST)
     .mergeMap(({ payload }) =>
-      ajax.post(`${usersUrls.FEEDS}`, payload, {
-        Cookie: store.getState().credentials.cookie,
-        'Content-Type': 'application/json',
-      })
+      ajax.post(`${usersUrls.FEEDS}`, payload, {})
         .flatMap(({ response }) => {
-
           return [
             fetchFeedsCreateSuccess(response),
             fetchFeedsRequest(),

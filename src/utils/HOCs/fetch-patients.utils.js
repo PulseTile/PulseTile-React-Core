@@ -11,7 +11,6 @@ const generateFetchListOnMount = (fetchRequest) => {
       const { actions, match } = this.props;
       const nextUserId = _.get('match.params.userId', nextProps);
       const userId = _.get('params.userId', match);
-
       if (nextUserId !== userId) {
         actions[fetchRequest]({ userId: nextUserId });
       }
@@ -54,17 +53,14 @@ export const fetchHeaderToolbarOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
     const userId = _.get('params.userId', match);
-    // if (userId && _.isEmpty(this.props.patientsSummaries[userId])) actions.fetchPatientSummaryRequest({ userId })
     if (userId && _.isEmpty(this.props.patientsDemographics[userId])) actions.fetchPatientDemographicsRequest({ userId })
   },
   componentWillReceiveProps(nextProps) {
     const { actions, match } = this.props;
     const nextUserId = _.get('match.params.userId', nextProps);
     const userId = _.get('params.userId', match);
-
     if (nextUserId !== userId) {
         actions.fetchPatientDemographicsRequest({ userId: nextUserId })
-      // actions.fetchPatientSummaryRequest({ userId: nextUserId })
     }
   },
 });
@@ -168,7 +164,6 @@ export const fetchPatientClinicalStatementsTagsOnMount = ({
 
 export const fetchPatientPromsOnMount = (generateFetchListOnMount('fetchPatientPromsRequest'));
 export const fetchPatientPromsDetailOnMount = (generateFetchDetailOnMount('fetchPatientPromsDetailRequest'));
-
 
 export const fetchFeedsOnMount = ({
   componentDidMount() {
