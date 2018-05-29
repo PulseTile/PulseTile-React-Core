@@ -23,7 +23,7 @@ export const fetchFeedsEpic = (action$, store) =>
     .mergeMap(({ payload }) =>
       ajax.getJSON(`${usersUrls.FEEDS}`, {})
         .map((response) => {
-          return fetchFeedsSuccess({ feeds: feeds })
+          return fetchFeedsSuccess({ feeds: response })
         })
     );
 

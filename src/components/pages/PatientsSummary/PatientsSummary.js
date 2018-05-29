@@ -146,7 +146,8 @@ export default class PatientsSummary extends PureComponent {
                 })}
                 {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
                   const nameItem = getNameFromUrl(item.landingPageUrl);
-                  return (selectedCategory[nameItem] ?
+                  const isShow = ('true' == localStorage.getItem('isShow_'+nameItem));
+                  return (isShow ?
                     <RssDashboardPanel
                       key={nameItem}
                       title={item.name}

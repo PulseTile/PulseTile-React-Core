@@ -33,6 +33,8 @@ export default class PatientsSummaryPanel extends PureComponent {
 
     toggleCheckbox = key => this.setState((prevState) => {
       const newValue = !_.get(['selected', key])(prevState);
+      const keyName = 'isShow_' + key;
+      localStorage.setItem(keyName, newValue);
       return _.set(['selected', key], newValue)(prevState);
     });
 
@@ -77,6 +79,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                   <Row>
                     {feeds.map((item) => {
                       const nameItem = getNameFromUrl(item.landingPageUrl);
+                      const isChecked = ('true' == localStorage.getItem('isShow_'+nameItem));
                       return (
                         <Col xs={6} sm={4} key={nameItem}>
                           <PTCustomInput
@@ -84,7 +87,7 @@ export default class PatientsSummaryPanel extends PureComponent {
                             title={item.name}
                             id={nameItem}
                             name={nameItem}
-                            isChecked={selected[nameItem] || false}
+                            isChecked={isChecked}
                             onChange={this.toggleCheckbox}
                           />
                         </Col>)

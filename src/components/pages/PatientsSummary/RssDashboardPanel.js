@@ -65,7 +65,6 @@ export default class RssDashboardPanel extends PureComponent {
     } else {
       srcPrevirew = items[indexItemForPreview].thumbnail ? items[indexItemForPreview].thumbnail : imgRss;
     }
-
     return (
       <SimpleDashboardPanel
         title={title}
@@ -75,6 +74,7 @@ export default class RssDashboardPanel extends PureComponent {
         isHasList={isHasList}
         items={items}
         srcPrevirew={srcPrevirew}
+        isFeeds={true}
       />
     )
   }

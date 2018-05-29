@@ -116,14 +116,14 @@ export default class Feeds extends PureComponent {
     const { actions } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchFeedsDetailRequest({ sourceId });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/${sourceId}`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
 
   handleCreate = () => {
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: FEEDS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/create`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/create`);
   };
 
   handleEdit = (name) => {
@@ -166,14 +166,14 @@ export default class Feeds extends PureComponent {
 
   handleCreateCancel = () => {
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
+    // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
     const { actions, feedCreateFormState } = this.props;
     if (checkIsValidateForm(feedCreateFormState)) {
       actions.fetchFeedsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
+      // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}`);
       this.hideCreateForm();
       this.setState({ isLoading: true });
     } else {
@@ -183,12 +183,13 @@ export default class Feeds extends PureComponent {
 
   formValuesToString = (formValues, formName) => {
     // const { feedsDetail } = this.props;
+    const date = new Date();
     const sendData = {};
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
     sendData[valuesNames.LANDING_PAGE_URL] = formValues[valuesNames.LANDING_PAGE_URL];
     sendData[valuesNames.RSS_FEED_URL] = formValues[valuesNames.RSS_FEED_URL];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData[valuesNames.DATE_CREATED] = formValues[valuesNames.DATE_CREATED];
+    sendData[valuesNames.DATE_CREATED] = date.getTime();
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = feedsDetail[valuesNames.SOURCE_ID];
     }
