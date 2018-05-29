@@ -28,15 +28,6 @@ const FEEDS_DETAIL = 'feedsDetail';
 const FEEDS_CREATE = 'feedsCreate';
 const FEEDS_PANEL = 'feedsPanel';
 
-const feedsDetail = {
-  name: 'BBC Health',
-  landingPageUrl: 'http://www.bbc.co.uk/news/health',
-  rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
-  sourceId: 'testSourceID1',
-  dateCreated: 1482170593395,
-  author: 'bob.smith@gmail.com',
-};
-
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchFeedsRequest, fetchFeedsDetailRequest, fetchFeedsDetailEditRequest, fetchFeedsCreateRequest }, dispatch) });
 
 @connect(feedsSelector, mapDispatchToProps)
@@ -47,6 +38,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchFee
 export default class Feeds extends PureComponent {
   static propTypes = {
     feeds: PropTypes.arrayOf(PropTypes.object),
+    feedsDetail: PropTypes.arrayOf(PropTypes.object),
   };
 
   static contextTypes = {
@@ -114,7 +106,7 @@ export default class Feeds extends PureComponent {
 
   handleDetailFeedsClick = (sourceId) => {
     const { actions } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: FEEDS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: false });
     actions.fetchFeedsDetailRequest({ sourceId });
     // this.context.router.history.push(`${clientUrls.USER_PROFILE}/${clientUrls.FEEDS}/${sourceId}`);
   };
@@ -182,14 +174,12 @@ export default class Feeds extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    // const { feedsDetail } = this.props;
-    const date = new Date();
+    const { feedsDetail } = this.props;
     const sendData = {};
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
     sendData[valuesNames.LANDING_PAGE_URL] = formValues[valuesNames.LANDING_PAGE_URL];
     sendData[valuesNames.RSS_FEED_URL] = formValues[valuesNames.RSS_FEED_URL];
     sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
-    sendData[valuesNames.DATE_CREATED] = date.getTime();
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = feedsDetail[valuesNames.SOURCE_ID];
     }
@@ -215,15 +205,13 @@ export default class Feeds extends PureComponent {
   };
 
   render() {
+
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { feeds, feedsDetail, feedFormState, feedCreateFormState } = this.props;
-
     const isPanelDetails = (expandedPanel === FEEDS_DETAIL || expandedPanel === FEEDS_PANEL);
     const isPanelMain = (expandedPanel === FEEDS_MAIN);
     const isPanelCreate = (expandedPanel === FEEDS_CREATE);
-
     const columnsToShowConfig = columnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-
     const filteredFeeds = this.formToShowCollection(feeds);
 
     let sourceId;

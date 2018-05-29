@@ -16,7 +16,12 @@ const feedsSelector = createSelector(
 );
 
 const feedsDetailSelector = createSelector(
-  feedsDetail => ({ feedsDetail })
+    state => state.feedsDetail,
+    feedsDetail => {
+        return {
+            feedsDetail: feedsDetail ? feedsDetail : [],
+        };
+    }
 );
 
 const feedPanelFormSelector = createSelector(feedsPanelFormSelector,
