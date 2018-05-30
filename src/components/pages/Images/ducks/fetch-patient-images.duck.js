@@ -1,11 +1,8 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-import { fetchPatientImagesDetailRequest } from './fetch-patient-images-detail.duck';
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_IMAGES_REQUEST = 'FETCH_PATIENT_IMAGES_REQUEST';
 export const FETCH_PATIENT_IMAGES_SUCCESS = 'FETCH_PATIENT_IMAGES_SUCCESS';
@@ -25,7 +22,6 @@ export const fetchPatientImagesEpic = (action$, store) =>
           userId: payload.userId,
           images: response,
         }))
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(patientsImages = {}, action) {

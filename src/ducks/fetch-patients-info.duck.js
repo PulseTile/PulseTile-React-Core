@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../config/server-urls.constants'
+import { usersUrls } from '../config/server-urls.constants';
 
 export const FETCH_PATIENTS_INFO_REQUEST = 'FETCH_PATIENTS_INFO_REQUEST';
 export const FETCH_PATIENTS_INFO_SUCCESS = 'FETCH_PATIENTS_INFO_SUCCESS';
@@ -19,7 +18,6 @@ export const fetchPatientsInfoEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchPatientsInfoSuccess)
-        // .catch(error => Observable.of(fetchPatientsInfoFailure(error)))
     );
 
 export default function reducer(patientsInfo = {}, action) {
@@ -27,6 +25,6 @@ export default function reducer(patientsInfo = {}, action) {
     case FETCH_PATIENTS_INFO_SUCCESS:
       return action.payload;
     default:
-      return patientsInfo
+      return patientsInfo;
   }
 }

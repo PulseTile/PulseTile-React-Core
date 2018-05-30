@@ -54,7 +54,7 @@ export default class Main extends PureComponent {
             <Route exact path={clientUrls.CHARTS} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={clientUrls.ROOT} component={SystemDashboard} userAccount={userAccount} />
             <Route exact path={clientUrls.SEARCH_REPORT} component={SearchReport} userAccount={userAccount} />
-            {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} />)}
+            {routersPluginConfig.map(item => <Route exact path={item.path} component={item.component} key={item.key} />)}
           </Switch>
         </main>
       )

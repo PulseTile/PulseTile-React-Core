@@ -1,8 +1,7 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
-import { usersUrls } from '../config/server-urls.constants'
+import { usersUrls } from '../config/server-urls.constants';
 
 export const FETCH_BASIC_PATIENT_SEARCH_REQUEST = 'FETCH_BASIC_PATIENT_SEARCH_REQUEST';
 export const FETCH_BASIC_PATIENT_SEARCH_SUCCESS = 'FETCH_BASIC_PATIENT_SEARCH_SUCCESS';
@@ -20,7 +19,6 @@ export const fetchBasicPatientSearchEpic = (action$, store) =>
         'Content-Type': 'application/json',
       })
         .map(({ response }) => fetchBasicPatientSearchSuccess(response))
-        // .catch(error => Observable.of(fetchBasicPatientSearchFailure(error)))
     );
 
 export default function reducer(basicSearchPatient = {}, action) {
@@ -28,6 +26,6 @@ export default function reducer(basicSearchPatient = {}, action) {
     case FETCH_BASIC_PATIENT_SEARCH_SUCCESS:
       return action.payload;
     default:
-      return basicSearchPatient
+      return basicSearchPatient;
   }
 }

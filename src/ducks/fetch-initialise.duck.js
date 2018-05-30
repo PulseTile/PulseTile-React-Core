@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -19,10 +18,6 @@ export const fetchInitialiseEpic = action$ =>
       ajax.getJSON(apiUrls.INITIALISE)
         .do(setCookieSessiionId)
         .map(fetchInitialiseSuccess)
-        // .catch((error) => {
-        //   error.initialiseError = true;
-        //   return Observable.of(fetchInitialiseFailure(error))
-        // })
     );
 
 export default function reducer(initialiseData = {}, action) {
@@ -30,6 +25,6 @@ export default function reducer(initialiseData = {}, action) {
     case FETCH_INITIALISE_SUCCESS:
       return action.payload;
     default:
-      return initialiseData
+      return initialiseData;
   }
 }
