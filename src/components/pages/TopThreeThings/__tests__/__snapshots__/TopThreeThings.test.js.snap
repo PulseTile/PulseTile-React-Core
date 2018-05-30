@@ -87,7 +87,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -202,7 +202,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing conte
               ]
             }
             id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -354,7 +354,7 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -474,7 +474,7 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -589,7 +589,7 @@ exports[`Component <TopThreeThings /> should renders correctly with topThreeThin
               ]
             }
             id="26566e17-0ede-4818-8453-728ea0aa142c"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

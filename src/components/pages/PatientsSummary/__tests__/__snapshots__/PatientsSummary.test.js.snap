@@ -76,7 +76,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -159,44 +159,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               srcPrevirew="medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              srcPrevirew="vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="5"
-              srcPrevirew="top3.jpg"
-              state="topThreeThings"
-              title="Top 3 Things"
             />
           </div>
         </div>
@@ -296,7 +258,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -307,7 +269,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -326,7 +288,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -345,7 +307,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -364,7 +326,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
             <SimpleDashboardPanel
               goToState={[Function]}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -379,44 +341,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               srcPrevirew="medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              srcPrevirew="vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="5"
-              srcPrevirew="top3.jpg"
-              state="topThreeThings"
-              title="Top 3 Things"
             />
           </div>
         </div>
