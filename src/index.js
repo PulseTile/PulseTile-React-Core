@@ -1,20 +1,19 @@
-import 'rxjs'
-import React from 'react'
-import createHistory from 'history/createBrowserHistory'
-import { createLogger } from 'redux-logger'
-import { render } from 'react-dom'
-import { HashRouter as Router } from 'react-router-dom'
-import { ConnectedRouter, routerMiddleware } from 'react-router-redux'
-import { createStore, applyMiddleware, compose } from 'redux'
-import { createEpicMiddleware } from 'redux-observable'
-import { Provider } from 'react-redux'
-import { loadingBarMiddleware } from 'react-redux-loading-bar'
+import 'rxjs';
+import React from 'react';
+import createHistory from 'history/createBrowserHistory';
+import { render } from 'react-dom';
+import { HashRouter as Router } from 'react-router-dom';
+import { ConnectedRouter, routerMiddleware } from 'react-router-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import { createEpicMiddleware } from 'redux-observable';
+import { Provider } from 'react-redux';
+import { loadingBarMiddleware } from 'react-redux-loading-bar';
 
 import './polyfills';
-import App from './components/containers/App/App'
-import rootReducer from './root.reducer'
-import rootEpic from './root.epic'
-import { initialiseStart } from './ducks/initialise-app.duck'
+import App from './components/containers/App/App';
+import rootReducer from './root.reducer';
+import rootEpic from './root.epic';
+import { initialiseStart } from './ducks/initialise-app.duck';
 
 console.log(`App started in ${process.env.NODE_ENV} mode`);
 
@@ -51,7 +50,7 @@ const initialState = {
 //create store and enhance with middleware
 let store;
 if (process.env.NODE_ENV === 'production') {
-  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] })))
+  store = createStore(rootReducer, initialState, applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] })));
 } else {
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   store = createStore(rootReducer, initialState, composeEnhancers(applyMiddleware(epicMiddleware, routerMiddlewareInstance, loadingBarMiddleware({ promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'] }))));

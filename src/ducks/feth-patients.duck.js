@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -19,7 +18,6 @@ export const fetchPatientsEpic = (action$, store) =>
         headers: { Cookie: store.getState().credentials.cookie },
       })
         .map(fetchPatientsSuccess)
-        // .catch(error => Observable.of(fetchPatientsFailure(error)))
     );
 
 export default function reducer(patients = {}, action) {
@@ -27,6 +25,6 @@ export default function reducer(patients = {}, action) {
     case FETCH_PATIENTS_SUCCESS:
       return action.payload;
     default:
-      return patients
+      return patients;
   }
 }

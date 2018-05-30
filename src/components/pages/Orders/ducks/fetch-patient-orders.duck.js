@@ -1,10 +1,9 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_ORDERS_REQUEST = 'FETCH_PATIENT_ORDERS_REQUEST';
 export const FETCH_PATIENT_ORDERS_SUCCESS = 'FETCH_PATIENT_ORDERS_SUCCESS';
@@ -20,11 +19,14 @@ export const fetchPatientOrdersEpic = (action$, store) =>
       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/laborders`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchPatientOrdersSuccess({
-          userId: payload.userId,
-          orders: response,
-        }))
-        // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchPatientOrdersSuccess({
+            userId: payload.userId,
+            orders: response,
+            token,
+          })
+        })
     );
 
 export default function reducer(patientsOrders = {}, action) {

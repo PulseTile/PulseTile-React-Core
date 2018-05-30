@@ -14,5 +14,5 @@ export const setTitleEpic = (action$, store) =>
   action$.ofType(SET_TITLE)
     .map(({ payload }) => {
       setTitleOnBrowser(payload);
-      return setTitleSuccess(payload)
+      return setTitleSuccess(payload);
     });

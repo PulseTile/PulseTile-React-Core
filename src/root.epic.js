@@ -28,15 +28,11 @@ import { handleErrors } from './ducks/handle-errors.duck';
 const wrapEpic = epic => (...args) =>
   epic(...args)
     .map((response) => {
-      const payloadToken = _.get(response, 'payload.data.token');
-
+      const payloadToken = _.get(response, 'payload.token');
       if (payloadToken) {
-        const token = document.cookie.split('JSESSIONID=')[1];
-        if (payloadToken !== token) {
-          document.cookie = `JSESSIONID=${payloadToken}`
-        }
+        document.cookie = `JSESSIONID=${payloadToken}`;
       }
-      return response
+      return response;
     })
     .catch(error => Observable.of(handleErrors(error)));
 

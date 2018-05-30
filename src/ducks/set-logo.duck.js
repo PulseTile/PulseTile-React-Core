@@ -14,7 +14,7 @@ const setLogoOnImage = (logo) => {
     if (logo) {
       image.src = logo
     } else {
-      const wrapLogo = _.head(window.document.getElementsByClassName('wrap-logo'))
+      const wrapLogo = _.head(window.document.getElementsByClassName('wrap-logo'));
       wrapLogo.remove();
     }
   }
@@ -24,5 +24,5 @@ export const setLogoEpic = (action$, store) =>
   action$.ofType(SET_LOGO)
     .map(({ payload }) => {
       setLogoOnImage(payload);
-      return setLogoSuccess(payload)
+      return setLogoSuccess(payload);
     });

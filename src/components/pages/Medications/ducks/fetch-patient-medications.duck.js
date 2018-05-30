@@ -28,11 +28,14 @@ export const fetchPatientMedicationsEpic = (action$, store) =>
       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/medications`, {
         headers: { Cookie: store.getState().credentials.cookie },
       })
-        .map(response => fetchPatientMedicationsSuccess({
-          userId: payload.userId,
-          medications: get(response, 'synopsis', []),
-        }))
-        // .catch(error => Observable.of(handleErrors(error)))
+        .map((response) => {
+          const token = hasTokenInResponse(response);
+          return fetchPatientMedicationsSuccess({
+            userId: payload.userId,
+            medications: response,
+            token,
+          })
+        })
     );
 
 export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>

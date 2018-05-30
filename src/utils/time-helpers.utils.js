@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-export const getUTCDate = date => moment(date).utc()
+export const getUTCDate = date => moment(date).utc();
 
 export const getAgeYears = date => moment().diff(date, 'years');
 

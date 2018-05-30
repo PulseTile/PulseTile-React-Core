@@ -32,5 +32,5 @@ export const setThemeEpic = (action$, store) =>
   action$.ofType(SET_THEME)
     .map(({ payload }) => {
       setThemeOnBody(payload);
-      return setThemeSuccess(payload)
+      return setThemeSuccess(payload);
     });

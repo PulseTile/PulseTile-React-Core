@@ -37,6 +37,6 @@ export default function reducer(loginStatus = {}, action) {
   switch (action.type) {
     case LOGIN_PENDING:
     default:
-      return loginStatus
+      return loginStatus;
   }
 }
