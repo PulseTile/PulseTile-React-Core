@@ -5,6 +5,29 @@ import Adapter from 'enzyme-adapter-react-15';
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
 
+class LocalStorageMock {
+    constructor() {
+        this.store = {};
+    }
+
+    clear() {
+        this.store = {};
+    }
+
+    getItem(key) {
+        return this.store[key] || null;
+    }
+
+    setItem(key, value) {
+        this.store[key] = value.toString();
+    }
+
+    removeItem(key) {
+        delete this.store[key];
+    }
+}
+global.localStorage = new LocalStorageMock();
+
 const testProps = {
   onCategorySelected: () => {},
   selectedCategory: {

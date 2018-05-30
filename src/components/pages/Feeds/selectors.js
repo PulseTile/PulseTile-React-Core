@@ -10,7 +10,7 @@ const feedsSelector = createSelector(
     state => state.feeds,
     feeds => {
         return {
-            feeds: feeds.length > 0 ? feeds : [],
+            feeds: Array.isArray(feeds) ? feeds : [],
         };
     }
 );

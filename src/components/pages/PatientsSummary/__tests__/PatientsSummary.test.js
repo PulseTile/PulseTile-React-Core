@@ -85,7 +85,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 
@@ -137,7 +137,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 
