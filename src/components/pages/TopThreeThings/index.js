@@ -3,7 +3,7 @@ import { combineEpics } from 'redux-observable';
 import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
-import { fetchPatientTopThreeThingsEpic } from './ducks/fetch-patient-top-three-things.duck';
+import { fetchPatientTopThreeThingsEpic, fetchPatientTopThreeThingsSynopsisEpic } from './ducks/fetch-patient-top-three-things.duck';
 import { fetchPatientTopThreeThingsUpdateEpic } from './ducks/fetch-patient-top-three-things.duck';
 import { fetchPatientTopThreeThingsDetailEpic } from './ducks/fetch-patient-top-three-things-detail.duck';
 import { fetchPatientTopThreeThingsDetailEditEpic } from './ducks/fetch-patient-top-three-things-detail-edit.duck';
@@ -12,7 +12,7 @@ import patientsTopThreeThings from './ducks/fetch-patient-top-three-things.duck'
 import topThreeThingsDetail from './ducks/fetch-patient-top-three-things-detail.duck';
 import topThreeThingsDetailEdit from './ducks/fetch-patient-top-three-things-detail-edit.duck';
 
-const epics = combineEpics(fetchPatientTopThreeThingsEpic, fetchPatientTopThreeThingsDetailEpic, fetchPatientTopThreeThingsDetailEditEpic, fetchPatientTopThreeThingsUpdateEpic);
+const epics = combineEpics(fetchPatientTopThreeThingsEpic, fetchPatientTopThreeThingsSynopsisEpic, fetchPatientTopThreeThingsDetailEpic, fetchPatientTopThreeThingsDetailEditEpic, fetchPatientTopThreeThingsUpdateEpic);
 const TopThreeThings = asyncComponent(() => import(/* webpackChunkName: "topThreeThings" */ './TopThreeThings').then(module => module.default));
 
 const reducers = {
@@ -32,4 +32,3 @@ export default {
   component: TopThreeThings,
   epics, reducers, sidebarConfig, routers,
 }
-

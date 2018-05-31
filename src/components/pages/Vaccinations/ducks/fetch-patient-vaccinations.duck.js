@@ -1,17 +1,22 @@
 import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
+import { get } from 'lodash';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { testConstants } from '../../../../config/for-test.constants';
+
 import { fetchPatientVaccinationsDetailRequest } from './fetch-patient-vaccinations-detail.duck';
 import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_VACCINATIONS_REQUEST = 'FETCH_PATIENT_VACCINATIONS_REQUEST';
+export const FETCH_PATIENT_VACCINATIONS_SYNOPSIS_REQUEST = 'FETCH_PATIENT_VACCINATIONS_SYNOPSIS_REQUEST';
 export const FETCH_PATIENT_VACCINATIONS_SUCCESS = 'FETCH_PATIENT_VACCINATIONS_SUCCESS';
 export const FETCH_PATIENT_VACCINATIONS_FAILURE = 'FETCH_PATIENT_VACCINATIONS_FAILURE';
 export const FETCH_PATIENT_VACCINATIONS_UPDATE_REQUEST = 'FETCH_PATIENT_VACCINATIONS_UPDATE_REQUEST';
 
 export const fetchPatientVaccinationsRequest = createAction(FETCH_PATIENT_VACCINATIONS_REQUEST);
+export const fetchPatientVaccinationsSynopsisRequest = createAction(FETCH_PATIENT_VACCINATIONS_SYNOPSIS_REQUEST);
 export const fetchPatientVaccinationsSuccess = createAction(FETCH_PATIENT_VACCINATIONS_SUCCESS);
 export const fetchPatientVaccinationsFailure = createAction(FETCH_PATIENT_VACCINATIONS_FAILURE);
 export const fetchPatientVaccinationsUpdateRequest = createAction(FETCH_PATIENT_VACCINATIONS_UPDATE_REQUEST);
@@ -30,6 +35,17 @@ export const fetchPatientVaccinationsEpic = (action$, store) =>
             token,
           })
         })
+    );
+
+export const fetchPatientVaccinationsSynopsisEpic = (action$, store) =>
+  action$.ofType(FETCH_PATIENT_VACCINATIONS_SYNOPSIS_REQUEST)
+    .mergeMap(({ payload }) =>
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/vaccinations`, {})
+        .map(response => fetchPatientVaccinationsSuccess({
+          userId: payload.userId,
+          vaccinations: get(response, 'synopsis', []),
+        }))
+        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export const fetchPatientVaccinationsUpdateEpic = (action$, store) =>

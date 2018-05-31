@@ -34,7 +34,12 @@ global.localStorage = new LocalStorageMock();
 const mockStore = configureStore();
 const store = mockStore({
   userId: '9999999000',
-  patientsSummaries: {},
+  patientsDiagnoses: {},
+  patientsContacts: {},
+  patientsAllergies: {},
+  patientsMedications: {},
+  patientsVaccinations: {},
+  patientsTopThreeThings: {},
 });
 const match = {
   params: {},
@@ -80,7 +85,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 
@@ -132,7 +137,7 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive();
 
     expect(component).toMatchSnapshot();
 

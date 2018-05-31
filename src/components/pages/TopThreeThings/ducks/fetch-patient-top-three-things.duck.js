@@ -1,17 +1,22 @@
 import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
+import { get } from 'lodash';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
+import { testConstants } from '../../../../config/for-test.constants';
+
 import { fetchPatientTopThreeThingsDetailRequest } from './fetch-patient-top-three-things-detail.duck';
 import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_TOP_THREE_THINGS_REQUEST = 'FETCH_PATIENT_TOP_THREE_THINGS_REQUEST';
+export const FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST = 'FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST';
 export const FETCH_PATIENT_TOP_THREE_THINGS_SUCCESS = 'FETCH_PATIENT_TOP_THREE_THINGS_SUCCESS';
 export const FETCH_PATIENT_TOP_THREE_THINGS_FAILURE = 'FETCH_PATIENT_TOP_THREE_THINGS_FAILURE';
 export const FETCH_PATIENT_TOP_THREE_THINGS_UPDATE_REQUEST = 'FETCH_PATIENT_TOP_THREE_THINGS_UPDATE_REQUEST';
 
 export const fetchPatientTopThreeThingsRequest = createAction(FETCH_PATIENT_TOP_THREE_THINGS_REQUEST);
+export const fetchPatientTopThreeThingsSynopsisRequest = createAction(FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST);
 export const fetchPatientTopThreeThingsSuccess = createAction(FETCH_PATIENT_TOP_THREE_THINGS_SUCCESS);
 export const fetchPatientTopThreeThingsFailure = createAction(FETCH_PATIENT_TOP_THREE_THINGS_FAILURE);
 export const fetchPatientTopThreeThingsUpdateRequest = createAction(FETCH_PATIENT_TOP_THREE_THINGS_UPDATE_REQUEST);
@@ -30,6 +35,17 @@ export const fetchPatientTopThreeThingsEpic = (action$, store) =>
             token,
           })
         })
+    );
+
+export const fetchPatientTopThreeThingsSynopsisEpic = (action$, store) =>
+  action$.ofType(FETCH_PATIENT_TOP_THREE_THINGS_SYNOPSIS_REQUEST)
+    .mergeMap(({ payload }) =>
+      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/top3Things`, {})
+        .map(response => fetchPatientTopThreeThingsSuccess({
+          userId: payload.userId,
+          topThreeThings: get(response, 'synopsis', []),
+        }))
+        .catch(error => Observable.of(fetchPatientTopThreeThingsFailure(error)))
     );
 
 export const fetchPatientTopThreeThingsUpdateEpic = (action$, store) =>
