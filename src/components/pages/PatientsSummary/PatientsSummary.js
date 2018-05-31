@@ -93,8 +93,8 @@ export default class PatientsSummary extends PureComponent {
 
   handleGoToState = (state, externalTransitionUrl) => {
     if (state.indexOf('http://') !== -1 ||
-        state.indexOf('https://') !== -1 ||
-        state.indexOf('www.') !== -1) {
+      state.indexOf('https://') !== -1 ||
+      state.indexOf('www.') !== -1) {
       if (externalTransitionUrl) {
         window.open(externalTransitionUrl)
       } else {

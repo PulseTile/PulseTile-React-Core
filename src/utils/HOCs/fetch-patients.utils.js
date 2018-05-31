@@ -60,7 +60,7 @@ export const fetchHeaderToolbarOnMount = ({
     const nextUserId = _.get('match.params.userId', nextProps);
     const userId = _.get('params.userId', match);
     if (nextUserId !== userId) {
-        actions.fetchPatientDemographicsRequest({ userId: nextUserId })
+      actions.fetchPatientDemographicsRequest({ userId: nextUserId })
     }
   },
 });

@@ -16,7 +16,7 @@ export const fetchFeedsCreateEpic = (action$, store) =>
   action$.ofType(FETCH_FEEDS_CREATE_REQUEST)
     .mergeMap(({ payload }) =>
       ajax.post(`${usersUrls.FEEDS}`, payload, {
-          'Content-Type': 'application/json',
+        'Content-Type': 'application/json',
       })
         .flatMap(({ response }) => {
           return [

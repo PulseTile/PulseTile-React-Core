@@ -63,7 +63,7 @@ export default class Sidebar extends PureComponent {
       const scrollPageTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
       let sidebarTop = headerHeight - scrollPageTop;
 
-      if (0 === scrollPageTop) {
+      if (scrollPageTop === 0) {
         sidebarTop = 140;
       } else {
         sidebarTop = sidebarTop > 0 ? sidebarTop : 0;

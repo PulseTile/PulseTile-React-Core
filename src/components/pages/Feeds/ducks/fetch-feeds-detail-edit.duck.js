@@ -20,7 +20,6 @@ export const fetchFeedsDetailEditEpic = (action$, store) =>
       })
         .flatMap(({ response }) => {
           const sourceId = payload.sourceId;
-
           return [
             fetchFeedsDetailEditSuccess(response),
             fetchFeedsUpdateRequest({ sourceId }),

@@ -7,21 +7,21 @@ const feedsPanelFormSelector = _.getOr({}, 'form.feedsPanelFormSelector');
 const feedsCreateFormSelector = _.getOr({}, 'form.feedsCreateFormSelector');
 
 const feedsSelector = createSelector(
-    state => state.feeds,
-    feeds => {
-        return {
-            feeds: Array.isArray(feeds) ? feeds : [],
-        };
-    }
+  state => state.feeds,
+  feeds => {
+    return {
+      feeds: Array.isArray(feeds) ? feeds : [],
+    };
+  }
 );
 
 const feedsDetailSelector = createSelector(
-    state => state.feedsDetail,
-    feedsDetail => {
-        return {
-            feedsDetail: feedsDetail ? feedsDetail : [],
-        };
-    }
+  state => state.feedsDetail,
+  feedsDetail => {
+    return {
+      feedsDetail: feedsDetail ? feedsDetail : [],
+    };
+  }
 );
 
 const feedPanelFormSelector = createSelector(feedsPanelFormSelector,
