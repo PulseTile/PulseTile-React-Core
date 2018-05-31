@@ -5,7 +5,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 
 import { fetchPatientMedicationsDetailEpic } from './ducks/fetch-patient-medications-detail.duck';
 import { fetchPatientMedicationsDetailEditEpic } from './ducks/fetch-patient-medications-detail-edit.duck';
-import { fetchPatientMedicationsEpic } from './ducks/fetch-patient-medications.duck';
+import { fetchPatientMedicationsEpic, fetchPatientMedicationsSynopsisEpic } from './ducks/fetch-patient-medications.duck';
 import { fetchPatientMedicationsUpdateEpic } from './ducks/fetch-patient-medications.duck';
 import { fetchPatientMedicationsCreateEpic } from './ducks/fetch-patient-medications-create.duck';
 
@@ -14,7 +14,7 @@ import patientMedicationsCreate from './ducks/fetch-patient-medications-create.d
 import medicationsDetail from './ducks/fetch-patient-medications-detail.duck';
 import medicationsDetailEdit from './ducks/fetch-patient-medications-detail-edit.duck';
 
-const epics = combineEpics(fetchPatientMedicationsDetailEpic, fetchPatientMedicationsDetailEditEpic, fetchPatientMedicationsEpic, fetchPatientMedicationsCreateEpic, fetchPatientMedicationsUpdateEpic);
+const epics = combineEpics(fetchPatientMedicationsDetailEpic, fetchPatientMedicationsDetailEditEpic, fetchPatientMedicationsEpic, fetchPatientMedicationsSynopsisEpic, fetchPatientMedicationsCreateEpic, fetchPatientMedicationsUpdateEpic);
 const Medications = asyncComponent(() => import(/* webpackChunkName: "medications" */ './Medications').then(module => module.default));
 
 const reducers = {

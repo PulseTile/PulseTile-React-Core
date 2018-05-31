@@ -3,7 +3,7 @@ import { combineEpics } from 'redux-observable';
 import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
 
-import { fetchPatientDiagnosesEpic } from './ducks/fetch-patient-diagnoses.duck';
+import { fetchPatientDiagnosesEpic, fetchPatientDiagnosesSynopsisEpic } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesUpdateEpic } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailEpic } from './ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientDiagnosesDetailEditEpic } from './ducks/fetch-patient-diagnoses-detail-edit.duck';
@@ -14,7 +14,7 @@ import diagnosesDetail from './ducks/fetch-patient-diagnoses-detail.duck';
 import diagnosesDetailEdit from './ducks/fetch-patient-diagnoses-detail-edit.duck';
 import patientDiagnosesCreate from './ducks/fetch-patient-diagnoses-create.duck';
 
-const epics = combineEpics(fetchPatientDiagnosesEpic, fetchPatientDiagnosesDetailEpic, fetchPatientDiagnosesDetailEditEpic, fetchPatientDiagnosesCreateEpic, fetchPatientDiagnosesUpdateEpic);
+const epics = combineEpics(fetchPatientDiagnosesEpic, fetchPatientDiagnosesSynopsisEpic, fetchPatientDiagnosesDetailEpic, fetchPatientDiagnosesDetailEditEpic, fetchPatientDiagnosesCreateEpic, fetchPatientDiagnosesUpdateEpic);
 const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnoses" */ './ProblemsDiagnosis').then(module => module.default));
 
 const reducers = {

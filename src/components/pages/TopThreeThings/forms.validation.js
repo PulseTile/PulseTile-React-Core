@@ -1,6 +1,6 @@
 import { valuesNames } from './forms.config';
 
-const validateForm = (values) => {
+const validateTopThreeThingsCreateForm = (values) => {
   const errors = {};
   errors[valuesNames.NAME1] = !values[valuesNames.NAME1] ? 'You must enter a value.' : null;
   errors[valuesNames.NAME2] = !values[valuesNames.NAME2] ? 'You must enter a value.' : null;
@@ -11,4 +11,4 @@ const validateForm = (values) => {
   return errors
 };
 
-export { validateForm }
+export { validateTopThreeThingsCreateForm }

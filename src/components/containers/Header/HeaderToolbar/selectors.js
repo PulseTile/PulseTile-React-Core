@@ -5,14 +5,13 @@ import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
 const toolbarSelector = createSelector(
   ({ isSidebarVisible }) => isSidebarVisible,
-  ({ patientsSummaries }) => patientsSummaries,
+  ({ patientsDemographics }) => patientsDemographics,
   (state, props) => _.getOr(null, 'match.params.userId', props),
-
-  (isSidebarVisible, patientsSummaries, userId) => {
-    const patientSummary = _.getOr({}, userId, patientsSummaries);
-    const { name = '', gpName = '', gpAddress = '', dateOfBirth = '', gender = '', telephone = '' } = patientSummary;
+  (isSidebarVisible, patientsDemographics, userId) => {
+    const patientsInfo = _.getOr({}, userId, patientsDemographics);
+    const { name = '', gpName = '', gpAddress = '', dateOfBirth = '', gender = '', telephone = '' } = patientsInfo;
     return ({
-      patientsSummaries,
+      patientsDemographics,
       isSidebarVisible,
       name,
       gpName,

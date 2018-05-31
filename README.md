@@ -17,6 +17,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
+This repository has the latest stable version of application in master branch.
+All the new functionality and features are developed and added to develop branch and afterwards to master branch.
+Please note that master branch consists of custom logic for LeedsPHR theme, so it shouldn't be merged to develop branch not to overlap it.
+
 To develop and run the application locally you must have the following installed:
 
 ```
