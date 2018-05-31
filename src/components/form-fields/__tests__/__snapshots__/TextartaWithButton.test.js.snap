@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <TextareaWithButton /> should renders with all props correctly 1`] = `
+<div>
+  <div
+    className="control-group right buttoned-control-group"
+  >
+    <button>
+      test
+    </button>
+  </div>
+  <Field
+    id="noteType"
+    label="Type"
+    name="noteType"
+  />
+</div>
+`;

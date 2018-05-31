@@ -19,6 +19,6 @@ export default function reducer(credentials = {}, action) {
     case SET_CREDENTIALS_SUCCESS:
       return action.payload;
     default:
-      return credentials
+      return credentials;
   }
 }

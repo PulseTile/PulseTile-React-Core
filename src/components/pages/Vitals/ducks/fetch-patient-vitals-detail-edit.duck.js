@@ -1,10 +1,8 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientVitalsUpdateRequest } from './fetch-patient-vitals.duck'
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_VITALS_DETAIL_EDIT_REQUEST = 'FETCH_PATIENT_VITALS_DETAIL_EDIT_REQUEST';
 export const FETCH_PATIENT_VITALS_DETAIL_EDIT_SUCCESS = 'FETCH_PATIENT_VITALS_DETAIL_EDIT_SUCCESS';
@@ -30,7 +28,6 @@ export const fetchPatientVitalsDetailEditEpic = (action$, store) =>
             fetchPatientVitalsUpdateRequest({ userId, sourceId }),
           ];
         })
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(vitalsDetailEdit = {}, action) {

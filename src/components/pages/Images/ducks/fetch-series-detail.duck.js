@@ -1,10 +1,8 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_SERIES_DETAIL_REQUEST = 'FETCH_SERIES_DETAIL_REQUEST';
 export const FETCH_SERIES_DETAIL_SUCCESS = 'FETCH_SERIES_DETAIL_SUCCESS';
@@ -24,7 +22,6 @@ export const fetchSeriesDetailEpic = (action$, store) =>
           userId: payload.userId,
           seriesDetail: response,
         }))
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(seriesDetail = {}, action) {

@@ -1,5 +1,4 @@
 import _ from 'lodash/fp';
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
@@ -22,8 +21,8 @@ export const fetchPatientTopThreeThingsDetailEpic = (action$, store) =>
         .map(response => fetchPatientTopThreeThingsDetailSuccess({
           userId: payload.userId,
           topThreeThingsDetail: response,
+          token: response.token,
         }))
-        .catch(error => Observable.of(fetchPatientTopThreeThingsDetailFailure(error)))
     );
 
 export default function reducer(topThreeThingsDetail = {}, action) {

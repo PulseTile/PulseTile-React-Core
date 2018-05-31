@@ -1,10 +1,8 @@
-import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchPatientDrawingsUpdateRequest } from './fetch-patient-drawings.duck'
-import {handleErrors} from "../../../../ducks/handle-errors.duck";
 
 export const FETCH_PATIENT_DRAWINGS_DETAIL_EDIT_REQUEST = 'FETCH_PATIENT_DRAWINGS_DETAIL_EDIT_REQUEST';
 export const FETCH_PATIENT_DRAWINGS_DETAIL_EDIT_SUCCESS = 'FETCH_PATIENT_DRAWINGS_DETAIL_EDIT_SUCCESS';
@@ -30,7 +28,6 @@ export const fetchPatientDrawingsDetailEditEpic = (action$, store) =>
             fetchPatientDrawingsUpdateRequest({ userId, sourceId }),
           ];
         })
-        // .catch(error => Observable.of(handleErrors(error)))
     );
 
 export default function reducer(drawingsDetailEdit = {}, action) {
