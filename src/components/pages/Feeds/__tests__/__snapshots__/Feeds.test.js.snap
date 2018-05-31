@@ -40,24 +40,9 @@ exports[`Component <Feeds /> should renders correctly and testing another method
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -99,27 +84,12 @@ exports[`Component <Feeds /> should renders correctly and testing another method
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -168,24 +138,9 @@ exports[`Component <Feeds /> should renders correctly and testing context and li
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -228,27 +183,12 @@ exports[`Component <Feeds /> should renders correctly and testing context and li
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -326,24 +266,9 @@ exports[`Component <Feeds /> should renders correctly with empty store 1`] = `
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -385,27 +310,12 @@ exports[`Component <Feeds /> should renders correctly with empty store 1`] = `
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -454,24 +364,9 @@ exports[`Component <Feeds /> should renders correctly with feedsDetail and testi
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -514,27 +409,12 @@ exports[`Component <Feeds /> should renders correctly with feedsDetail and testi
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -607,24 +487,9 @@ exports[`Component <Feeds /> should renders correctly with feedsDetail and testi
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -667,27 +532,12 @@ exports[`Component <Feeds /> should renders correctly with feedsDetail and testi
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -760,24 +610,9 @@ exports[`Component <Feeds /> should renders correctly with feedsPanel and testin
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -803,7 +638,7 @@ exports[`Component <Feeds /> should renders correctly with feedsPanel and testin
             }
             id="testSourceID1"
             isBtnCreateVisible={true}
-            isLoading={true}
+            isLoading={false}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
@@ -821,27 +656,12 @@ exports[`Component <Feeds /> should renders correctly with feedsPanel and testin
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -979,24 +799,9 @@ exports[`Component <Feeds /> should renders correctly with forms error 1`] = `
                   "sourceId": "testSourceID1",
                 },
                 Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
                   "landingPageUrl": "https://www.nhs.uk/news/",
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -1038,27 +843,12 @@ exports[`Component <Feeds /> should renders correctly with forms error 1`] = `
                   "name": "NHS Choices",
                   "sourceId": "testSourceID2",
                 },
-                Object {
-                  "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                  "name": "Public Health",
-                  "sourceId": "testSourceID3",
-                },
-                Object {
-                  "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                  "name": "Leeds Live - Whats on",
-                  "sourceId": "testSourceID4",
-                },
-                Object {
-                  "landingPageUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                  "name": "Leeds CC Local News",
-                  "sourceId": "testSourceID5",
-                },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="feeds"
-            totalEntriesAmount={5}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>

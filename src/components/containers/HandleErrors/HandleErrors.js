@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { get } from 'lodash';
 import requestErrorSelector from './selectors';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 
@@ -27,6 +27,13 @@ export class HandleErrors extends Component {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
+      case ('application/rss+xml' === get(requestError, 'payload.request.responseType', '')):
+        return {
+          eventOk: this.closeModal,
+          eventHide: this.closeModal,
+          textButton: 'Ok',
+          textMessage: 'Cross-Origin Request Blocked: reading of remote resource is disallowed',
+        };
       case (requestError.initialiseError || requestErrorStatus === 0):
         return {
           eventOk: this.reloadPage,

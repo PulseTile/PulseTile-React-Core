@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
+import { get } from 'lodash';
 
 import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
@@ -20,7 +21,7 @@ import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-p
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
 import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
-import { fetchPatientProblemsSynopsisOnMount, fetchPatientContactsSynopsisOnMount, fetchPatientAllergiesSynopsisOnMount, fetchPatientMedicationsSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount, fetchPatientTopThreeThingsSynopsisOnMount} from '../../../utils/HOCs/fetch-patients.utils';
+import { fetchPatientProblemsSynopsisOnMount, fetchPatientContactsSynopsisOnMount, fetchPatientAllergiesSynopsisOnMount, fetchPatientMedicationsSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount, fetchPatientTopThreeThingsSynopsisOnMount, fetchFeedsOnMount} from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
 import { feedsSelector } from '../Feeds/selectors';
@@ -29,49 +30,16 @@ import { getNameFromUrl } from '../../../utils/rss-helpers';
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({fetchPatientDiagnosesSynopsisRequest, fetchPatientContactsSynopsisRequest, fetchPatientAllergiesSynopsisRequest, fetchPatientMedicationsSynopsisRequest, fetchPatientVaccinationsSynopsisRequest, fetchPatientTopThreeThingsSynopsisRequest, fetchFeedsRequest}, dispatch) });
 
-const feeds = [
-  {
-    name: 'NYTimes.com',
-    landingPageUrl: 'https://www.nytimes.com/section/health',
-    rssFeedUrl: 'http://rss.nytimes.com/services/xml/rss/nyt/Health.xml',
-    sourceId: 'testSourceID6',
-  }, {
-    name: 'BBC Health',
-    landingPageUrl: 'http://www.bbc.co.uk/news/health',
-    rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
-    sourceId: 'testSourceID1',
-  }, {
-    name: 'NHS Choices',
-    landingPageUrl: 'https://www.nhs.uk/news/',
-    rssFeedUrl: 'https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News',
-    sourceId: 'testSourceID2',
-  }, {
-    name: 'Public Health',
-    landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
-    rssFeedUrl: 'https://www.gov.uk/government/organisations/public-health-england.atom',
-    sourceId: 'testSourceID3',
-  }, {
-    name: 'Leeds Live - Whats on',
-    landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-    rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-    sourceId: 'testSourceID4',
-  }, {
-    name: 'Leeds CC Local News',
-    landingPageUrl: 'https://news.leeds.gov.uk',
-    rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-    sourceId: 'testSourceID5',
-  },
-];
-
 @connect(summarySynopsisSelector, mapDispatchToProps)
 
-@connect(feedsSelector)
+@connect(feedsSelector, mapDispatchToProps)
 
-@compose(lifecycle(fetchPatientProblemsSynopsisOnMount), lifecycle(fetchPatientContactsSynopsisOnMount), lifecycle(fetchPatientAllergiesSynopsisOnMount), lifecycle(fetchPatientMedicationsSynopsisOnMount), lifecycle(fetchPatientVaccinationsSynopsisOnMount), lifecycle(fetchPatientTopThreeThingsSynopsisOnMount))
+@compose(lifecycle(fetchPatientProblemsSynopsisOnMount), lifecycle(fetchPatientContactsSynopsisOnMount), lifecycle(fetchPatientAllergiesSynopsisOnMount), lifecycle(fetchPatientMedicationsSynopsisOnMount), lifecycle(fetchPatientVaccinationsSynopsisOnMount), lifecycle(fetchPatientTopThreeThingsSynopsisOnMount), lifecycle(fetchFeedsOnMount))
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {
     boards: PropTypes.shape({}).isRequired,
+    feeds: PropTypes.array.isRequired,
   };
 
   static contextTypes = {
@@ -125,8 +93,8 @@ export default class PatientsSummary extends PureComponent {
 
   handleGoToState = (state, externalTransitionUrl) => {
     if (state.indexOf('http://') !== -1 ||
-        state.indexOf('https://') !== -1 ||
-        state.indexOf('www.') !== -1) {
+      state.indexOf('https://') !== -1 ||
+      state.indexOf('www.') !== -1) {
       if (externalTransitionUrl) {
         window.open(externalTransitionUrl)
       } else {
@@ -140,7 +108,7 @@ export default class PatientsSummary extends PureComponent {
   render() {
 
     const { boards } = this.props;
-    // const { feeds } = this.props;
+    const feeds = get(this.props, 'feeds', []);
 
     const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
     let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
@@ -178,7 +146,8 @@ export default class PatientsSummary extends PureComponent {
                 })}
                 {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
                   const nameItem = getNameFromUrl(item.landingPageUrl);
-                  return (selectedCategory[nameItem] ?
+                  const isShow = ('true' == localStorage.getItem('isShow_'+nameItem));
+                  return (isShow ?
                     <RssDashboardPanel
                       key={nameItem}
                       title={item.name}
