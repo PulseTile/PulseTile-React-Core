@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import requestErrorSelector from './selectors';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
-
 export class HandleErrors extends Component {
   static propTypes = {
     requestError: PropTypes.object.isRequired,
@@ -23,10 +22,20 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
+  isTokenExpired = (requestError) => {
+      const requestErrorStatus = requestError.payload.status;
+      const errorMessage = get(requestError, 'payload.xhr.response.error', '');
+      return (requestErrorStatus === 400 && errorMessage === 'Invalid JWT: Error: Token expired') || requestErrorStatus === 403;
+  };
+
   getErrorConfig = () => {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
+      case (this.isTokenExpired(requestError)):
+        document.cookie = 'JSESSIONID=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+        window.location.replace('/');
+        return null;
       case ('application/rss+xml' === get(requestError, 'payload.request.responseType', '')):
         return {
           eventOk: this.closeModal,
@@ -49,15 +58,6 @@ export class HandleErrors extends Component {
           isShowCancelButton: true,
           textButton: 'Reload Page',
           textMessage: 'Something is wrong with the server. Please try again later.',
-        };
-      case requestErrorStatus === 403:
-        return {
-          eventOk: this.reloadPage,
-          eventHide: this.closeModal,
-          eventCancel: this.closeModal,
-          isShowCancelButton: true,
-          textButton: 'Reload Page',
-          textMessage: 'Your token has been expired. Please reload the page.',
         };
       case (requestErrorStatus === 400 || requestErrorStatus === 404):
         return {
@@ -87,22 +87,26 @@ export class HandleErrors extends Component {
   render() {
     const { isOpenModal } = this.state;
     const config = this.getErrorConfig();
-    return (
-      <div>
-        {isOpenModal && <ConfirmationModal
-          title={'Connection Error'}
-          onOk={config.eventOk}
-          onHide={config.eventHide}
-          onCancel={config.eventCancel}
-          isShow
-          textOkButton={config.textButton}
-          isShowOkButton
-          isShowCancelButton={config.isShowCancelButton}
-        >
-          <span>{config.textMessage}</span>
-        </ConfirmationModal> }
-      </div>
-    )
+    if (config) {
+      return (
+        <div>
+          {isOpenModal &&
+            <ConfirmationModal
+              title={'Connection Error'}
+              onOk={config.eventOk}
+              onHide={config.eventHide}
+              onCancel={config.eventCancel}
+              isShow
+              textOkButton={config.textButton}
+              isShowOkButton
+              isShowCancelButton={config.isShowCancelButton}
+            >
+            <span>{config.textMessage}</span>
+          </ConfirmationModal> }
+        </div>
+        )
+    }
+    return null;
   }
 }
 

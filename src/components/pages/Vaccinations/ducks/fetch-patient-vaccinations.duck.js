@@ -45,7 +45,6 @@ export const fetchPatientVaccinationsSynopsisEpic = (action$, store) =>
           userId: payload.userId,
           vaccinations: get(response, 'synopsis', []),
         }))
-        .catch(error => Observable.of(handleErrors(error)))
     );
 
 export const fetchPatientVaccinationsUpdateEpic = (action$, store) =>

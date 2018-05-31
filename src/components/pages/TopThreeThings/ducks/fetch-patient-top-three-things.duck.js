@@ -45,7 +45,6 @@ export const fetchPatientTopThreeThingsSynopsisEpic = (action$, store) =>
           userId: payload.userId,
           topThreeThings: get(response, 'synopsis', []),
         }))
-        .catch(error => Observable.of(fetchPatientTopThreeThingsFailure(error)))
     );
 
 export const fetchPatientTopThreeThingsUpdateEpic = (action$, store) =>
