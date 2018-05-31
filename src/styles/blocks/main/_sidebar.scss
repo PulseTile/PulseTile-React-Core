@@ -70,7 +70,7 @@
 @include respond-from(xs) {
   .btn-toggle-sidebar,
   .btn-toggle-sidebar:focus,
-  .btn-toggle-sidebar:hover, {
+  .btn-toggle-sidebar:hover {
     margin-right: 18px;
     padding: 6px 14px 6px 11px;
     .btn-icon { margin-right: 9px; }
@@ -80,7 +80,7 @@
 @include respond-from(sm) {
   .btn-toggle-sidebar,
   .btn-toggle-sidebar:focus,
-  .btn-toggle-sidebar:hover, {
+  .btn-toggle-sidebar:hover {
     left: 0;
     margin-right: 0;
     position: absolute;

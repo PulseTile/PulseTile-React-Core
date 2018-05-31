@@ -9,12 +9,11 @@ export const setLogoSuccess = createAction(SET_LOGO_SUCCESS);
 
 const setLogoOnImage = (logo) => {
   const image = _.head(window.document.getElementsByClassName('logo-img'));
-
   if (image) {
     if (logo) {
       image.src = logo
     } else {
-      const wrapLogo = _.head(window.document.getElementsByClassName('wrap-logo'));
+      const wrapLogo = _.head(window.document.getElementsByClassName('logo-icon'));
       wrapLogo.remove();
     }
   }
