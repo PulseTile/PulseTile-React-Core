@@ -87,12 +87,12 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
                 },
               ]
             }
-            id="26566e17-0ede-4818-8453-728ea0aa142c"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -207,6 +207,7 @@ exports[`Component <TopThreeThings /> should renders correctly and testing conte
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -358,6 +359,7 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -472,12 +474,12 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
                 },
               ]
             }
-            id="26566e17-0ede-4818-8453-728ea0aa142c"
             isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [
@@ -592,6 +594,7 @@ exports[`Component <TopThreeThings /> should renders correctly with topThreeThin
             listPerPageAmount={10}
             offset={0}
             onCellClick={[Function]}
+            onCreate={[Function]}
             onHeaderCellClick={[Function]}
             resourceData={
               Array [

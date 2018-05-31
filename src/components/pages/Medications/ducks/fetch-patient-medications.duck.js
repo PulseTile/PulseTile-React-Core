@@ -6,9 +6,9 @@ import { get } from 'lodash';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { testConstants } from '../../../../config/for-test.constants';
-
 import { fetchPatientMedicationsDetailRequest } from './fetch-patient-medications-detail.duck';
 import {handleErrors} from "../../../../ducks/handle-errors.duck";
+import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_MEDICATIONS_REQUEST = 'FETCH_PATIENT_MEDICATIONS_REQUEST';
 export const FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST = 'FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST';
@@ -63,7 +63,6 @@ export const fetchPatientMedicationsUpdateEpic = (action$, store) =>
             fetchPatientMedicationsDetailRequest({ userId, sourceId }),
           ]
         })
-        
     );
 
 export default function reducer(patientsMedications = {}, action) {

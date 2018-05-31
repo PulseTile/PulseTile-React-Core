@@ -4,7 +4,12 @@ import _ from 'lodash/fp';
 import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import { valuesNames } from './forms.config';
 
+const topThreeThingsCreateFormSelector = _.getOr({}, 'form.topThreeThingsCreateFormSelector');
 const topThreeThingsPanelFormSelector = _.getOr({}, 'form.topThreeThingsPanelFormSelector');
+const metaPanelFormSelector = _.getOr({}, 'form.metaPanelFormSelector')
+
+const topThreeThingsCreateFormStateSelector = createSelector(topThreeThingsCreateFormSelector,
+    topThreeThingsCreateFormState => ({ topThreeThingsCreateFormState }));
 
 const patientTopThreeThingsSelector = createSelector(
   ({ patientsTopThreeThings }) => patientsTopThreeThings,
@@ -14,6 +19,9 @@ const patientTopThreeThingsSelector = createSelector(
     return ({ allTopThreeThings, userId });
   }
 );
+
+const metaPanelFormStateSelector = createSelector(metaPanelFormSelector,
+    metaPanelFormState => ({ metaPanelFormState }));
 
 const patientTopThreeThingsDetailSelector = createSelector(
   ({ topThreeThingsDetail }) => topThreeThingsDetail,
@@ -27,4 +35,4 @@ const patientTopThreeThingsDetailSelector = createSelector(
 const topThreeThingPanelFormSelector = createSelector(topThreeThingsPanelFormSelector,
   topThreeThingFormState => ({ topThreeThingFormState }));
 
-export { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingPanelFormSelector }
+export { patientTopThreeThingsSelector, patientTopThreeThingsDetailSelector, topThreeThingsCreateFormStateSelector, metaPanelFormStateSelector, topThreeThingPanelFormSelector }
