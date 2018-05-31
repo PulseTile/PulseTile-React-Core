@@ -6,25 +6,25 @@ import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
 
 class LocalStorageMock {
-    constructor() {
-        this.store = {};
-    }
+  constructor() {
+    this.store = {};
+  }
 
-    clear() {
-        this.store = {};
-    }
+  clear() {
+    this.store = {};
+  }
 
-    getItem(key) {
-        return this.store[key] || null;
-    }
+  getItem(key) {
+    return this.store[key] || null;
+  }
 
-    setItem(key, value) {
-        this.store[key] = value.toString();
-    }
+  setItem(key, value) {
+    this.store[key] = value.toString();
+  }
 
-    removeItem(key) {
-        delete this.store[key];
-    }
+  removeItem(key) {
+    delete this.store[key];
+  }
 }
 global.localStorage = new LocalStorageMock();
 
@@ -114,7 +114,7 @@ describe('Component <PatientsSummaryPanel />', () => {
         full: false,
         preview: true,
       },
-    })
+    });
 
     component.setProps({
       patientsSummaryHasPreviewSettings: true,
@@ -132,6 +132,5 @@ describe('Component <PatientsSummaryPanel />', () => {
       />).dive();
 
     expect(component).toMatchSnapshot();
-
   });
 });
