@@ -8,10 +8,7 @@ const patientImagesSelector = createSelector(
   ({ patientsImages }) => patientsImages,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsImages, userId) => {
-    const allImages = operationsOnCollection.modificate(patientsImages[userId], [{
-      key: valuesNames.DATE_RECORDED,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allImages = operationsOnCollection.modificateDateForTable(patientsImages[userId], valuesNames.DATE_RECORDED);
     if (!_.isEmpty(allImages)) {
       allImages.map(item => item.sourceId = item.studyId);
     }

@@ -50,7 +50,21 @@ const storeWithFormsError = mockStore(Object.assign({
     topThreeThingsPanelFormSelector: {
       syncErrors: {
         [valuesNames.NAME1]: 'You must enter a value.',
+        [valuesNames.DESCRIPTION1]: 'You must enter a value.',
+        [valuesNames.NAME2]: 'You must enter a value.',
         [valuesNames.DESCRIPTION2]: 'You must enter a value.',
+        [valuesNames.NAME3]: 'You must enter a value.',
+        [valuesNames.DESCRIPTION3]: 'You must enter a value.',
+      },
+    },
+    topThreeThingsCreateFormSelector: {
+      syncErrors: {
+        [valuesNames.NAME1]: 'You must enter a value.',
+        [valuesNames.DESCRIPTION1]: 'You must enter a value.',
+        [valuesNames.NAME2]: 'You must enter a value.',
+        [valuesNames.DESCRIPTION2]: 'You must enter a value.',
+        [valuesNames.NAME3]: 'You must enter a value.',
+        [valuesNames.DESCRIPTION3]: 'You must enter a value.',
       },
     },
   },
@@ -89,6 +103,7 @@ const context = {
     history: {
       push: () => {},
       replace: () => {},
+      goBack: () => {},
       location: {
         pathname: `/patients/${userId}/topThreeThings`,
       },
@@ -103,9 +118,19 @@ const context = {
     },
   },
 };
+const contextCreate = generateNewContext(context, `/patients/${userId}/topThreeThings/create`);
 const contextDetail = generateNewContext(context, `/patients/${userId}/topThreeThings/${sourceId}`);
 
 // configuration of forms for testing methods
+const formValuesCreate = {
+  [valuesNames.SOURCE]: 'QEWDDB',
+  [valuesNames.NAME1]: 'Item 1',
+  [valuesNames.DESCRIPTION1]: 'My first problem',
+  [valuesNames.NAME2]: 'Item 2',
+  [valuesNames.DESCRIPTION2]: 'My second problem',
+  [valuesNames.NAME3]: 'Item 3',
+  [valuesNames.DESCRIPTION3]: 'My third problem',
+};
 const formValuesEdit = {
   [valuesNames.SOURCE]: 'QEWDDB',
   [valuesNames.NAME1]: 'Item 1',
@@ -127,12 +152,20 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleDetailTopThreeThingsClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
     expect(component.find('TopThreeThingsDetail')).toHaveLength(0);
+    expect(component.find('PluginCreate')).toHaveLength(0);
+
+    // Testing component handleShow methods
+    expect(component.state().openedPanel).toEqual('topThreeThingsPanel');
+    component.instance().handleShow('metaPanel');
+    expect(component.state().openedPanel).toEqual('metaPanel');
+    component.instance().handleShow('topThreeThingsPanel');
+    expect(component.state().openedPanel).toEqual('topThreeThingsPanel');
 
     component.instance().handleDetailTopThreeThingsClick('065d85e3-3cd5-4604-bb94-5685fffb193d');
     const componentStateAfterMethod = component.state();
@@ -176,12 +209,38 @@ describe('Component <TopThreeThings />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('should renders correctly with TopThreeThingsDetail and testing Create Panel', () => {
+    const component = shallow(
+      <TopThreeThings
+        store={storeWithDetail}
+        match={match}
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
+
+      expect(component.find('PluginListHeader')).toHaveLength(1);
+      expect(component.find('PluginMainPanel')).toHaveLength(1);
+      expect(component.find('TopThreeThingsDetail')).toHaveLength(0);
+      expect(component.find('PluginCreate')).toHaveLength(0);
+
+      // Testing component create panel methods
+      component.instance().handleCreate();
+      const componentStateAfterMethod = component.state();
+      component.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: 'topThreeThingsCreate', isSecondPanel: true, isDetailPanelVisible: false, isLoading: true, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false })
+      const componentStateAfterSetState = component.state();
+      expect(componentStateAfterMethod).toEqual(componentStateAfterSetState);
+      expect(component.find('PluginCreate')).toHaveLength(1);
+      expect(component).toMatchSnapshot();
+      component.instance().handleCreateCancel();
+      component.instance().handleSaveSettingsCreateForm(formValuesCreate);
+
+      expect(component).toMatchSnapshot();
+  });
+
   it('should renders correctly and testing another methods', () => {
     const component = shallow(
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     // Testing component handleFilterChange methods
     expect(component.state().nameShouldInclude).toEqual('');
@@ -210,9 +269,11 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithDetail}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.setProps({ test: 'testing context' });
+    component.setContext(contextCreate);
+    component.setProps({ test: 'testing create context' });
     component.setContext(contextDetail);
     component.setProps({ test: 'testing edit context' });
 
@@ -224,9 +285,10 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeWithFormsError}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
 
     component.instance().handleSaveSettingsDetailForm(formValuesEdit, 'topThreeThingsPanel');
+    component.instance().handleSaveSettingsCreateForm(formValuesCreate);
 
     expect(component).toMatchSnapshot();
   });
@@ -236,7 +298,9 @@ describe('Component <TopThreeThings />', () => {
       <TopThreeThings
         store={storeEmpty}
         match={match}
-      />, { context }).dive().dive().dive().dive().dive();
+      />, { context }).dive().dive().dive().dive().dive().dive().dive();
+
+    component.instance().goBack();
 
     expect(component).toMatchSnapshot();
   });

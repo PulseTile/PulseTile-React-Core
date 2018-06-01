@@ -8,7 +8,10 @@ import DateInput from '../../../form-fields/DateInput';
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import FormTitle from '../../../ui-elements/FormTitle/FormTitle';
 import { validateForm } from '../forms.validation';
-import { valuesNames, valuesLabels, questionPainOptions, questionLimitationsOptions, questionWalkingOptions, questionWalkingSurfacesOptions, marksForPromsRange, typesOfRecordsOptions } from '../forms.config';
+import {
+  valuesNames, valuesLabels, questionOptions1, questionOptions2, questionOptions3,
+  questionOptions4, questionOptions5, marksForPromsRange, typesOfRecordsOptions,
+} from '../forms.config';
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 
 @reduxForm({
@@ -29,6 +32,7 @@ export default class PromsDetailForm extends PureComponent {
       [valuesNames.SPECIFIC_Q2]: value[valuesNames.SPECIFIC_Q2],
       [valuesNames.SPECIFIC_Q3]: value[valuesNames.SPECIFIC_Q3],
       [valuesNames.SPECIFIC_Q4]: value[valuesNames.SPECIFIC_Q4],
+      [valuesNames.SPECIFIC_Q5]: value[valuesNames.SPECIFIC_Q5],
       [valuesNames.AUTHOR]: value[valuesNames.AUTHOR],
       [valuesNames.DATE_CREATED]: value[valuesNames.DATE_CREATED],
     };
@@ -60,30 +64,35 @@ export default class PromsDetailForm extends PureComponent {
               name={valuesNames.RECORDS}
               id={valuesNames.RECORDS}
               component={RecordsOfTable}
-              props={{ match, isSubmit, typesOptions: typesOfRecordsOptions }}
+              props={{
+                match, isSubmit,
+                typesOptions: typesOfRecordsOptions,
+                isNotDragAndDropOfRaws: true,
+                isOnlyOneRecord: true,
+              }}
             />
 
             <FormTitle text="Specific Question" />
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.QUESTION_PAIN}
+                  label={valuesLabels.QUESTION_1}
                   name={valuesNames.SPECIFIC_Q1}
                   id={valuesNames.SPECIFIC_Q1}
-                  options={questionPainOptions}
+                  options={questionOptions1}
                   component={SelectFormGroup}
-                  placeholder="-- Select pain --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.QUESTION_LIMITATIONS}
+                  label={valuesLabels.QUESTION_2}
                   name={valuesNames.SPECIFIC_Q2}
                   id={valuesNames.SPECIFIC_Q2}
-                  options={questionLimitationsOptions}
+                  options={questionOptions2}
                   component={SelectFormGroup}
-                  placeholder="-- Select limitations --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
@@ -91,37 +100,49 @@ export default class PromsDetailForm extends PureComponent {
             <div className="row-expand">
               <div className="col-expand-left">
                 <Field
-                  label={valuesLabels.QUESTION_WALKING}
+                  label={valuesLabels.QUESTION_3}
                   name={valuesNames.SPECIFIC_Q3}
                   id={valuesNames.SPECIFIC_Q3}
-                  options={questionWalkingOptions}
+                  options={questionOptions3}
                   component={SelectFormGroup}
-                  placeholder="-- Select walking --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
               <div className="col-expand-right">
                 <Field
-                  label={valuesLabels.QUESTION_WALKING_SURFACES}
+                  label={valuesLabels.QUESTION_4}
                   name={valuesNames.SPECIFIC_Q4}
                   id={valuesNames.SPECIFIC_Q4}
-                  options={questionWalkingSurfacesOptions}
+                  options={questionOptions4}
                   component={SelectFormGroup}
-                  placeholder="-- Select walking surfaces --"
+                  placeholder="-- Select --"
                   props={{ isSubmit }}
                 />
               </div>
             </div>
 
+            <div className="col-expand-right">
+              <Field
+                label={valuesLabels.QUESTION_5}
+                name={valuesNames.SPECIFIC_Q5}
+                id={valuesNames.SPECIFIC_Q5}
+                options={questionOptions5}
+                component={SelectFormGroup}
+                placeholder="-- Select --"
+                props={{ isSubmit }}
+              />
+            </div>
+
             <FormTitle text="General Score" />
             <div className="form-group">
-              <div>Pain severity on a scale of 0 to 10, where 0 indicates no pain and 10 indicates severe pain.</div>
+              <div>Pain severity on a scale of 0 to 100, where 0 indicates no pain and 100 indicates severe pain.</div>
               <div className={`rc-slider--${status}`}>
                 <div className="rc-slider-indent">
                   <Field
                     name={valuesNames.SCORE}
                     component={Slider}
-                    props={{ marks: marksForPromsRange, min: 0, max: 10, defaultValue: detail[valuesNames.SCORE], onChange: changeScoreStatus }}
+                    props={{ marks: marksForPromsRange, min: 0, max: 100, defaultValue: detail[valuesNames.SCORE], onChange: changeScoreStatus }}
                   />
                 </div>
               </div>

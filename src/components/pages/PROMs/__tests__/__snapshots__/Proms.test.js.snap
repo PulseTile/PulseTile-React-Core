@@ -49,9 +49,9 @@ exports[`Component <Proms /> should renders correctly and testing another method
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -63,23 +63,9 @@ exports[`Component <Proms /> should renders correctly and testing another method
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -133,9 +119,9 @@ exports[`Component <Proms /> should renders correctly and testing another method
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -147,30 +133,16 @@ exports[`Component <Proms /> should renders correctly and testing another method
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -228,9 +200,9 @@ exports[`Component <Proms /> should renders correctly and testing context and li
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -242,23 +214,9 @@ exports[`Component <Proms /> should renders correctly and testing context and li
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -313,9 +271,9 @@ exports[`Component <Proms /> should renders correctly and testing context and li
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -327,30 +285,16 @@ exports[`Component <Proms /> should renders correctly and testing context and li
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -360,7 +304,7 @@ exports[`Component <Proms /> should renders correctly and testing context and li
         componentClass="div"
         xs={12}
       >
-        <PromsDetail
+        <Connect(PromsDetail)
           changeScoreStatus={[Function]}
           currentPanel="promsDetail"
           detail={
@@ -378,13 +322,13 @@ exports[`Component <Proms /> should renders correctly and testing context and li
                   "typeTitle": "test records typeTitle",
                 },
               ],
-              "score": 9,
+              "score": 90,
               "source": "openehr",
               "sourceId": "testSourceID1",
-              "specific_Q1": "No Pain",
-              "specific_Q2": "No limitations",
-              "specific_Q3": "Around the house",
-              "specific_Q4": "No difficulty",
+              "specific_q1": "No Pain",
+              "specific_q2": "No limitations",
+              "specific_q3": "Around the house",
+              "specific_q4": "No difficulty",
             }
           }
           editedPanel={Object {}}
@@ -403,7 +347,7 @@ exports[`Component <Proms /> should renders correctly and testing context and li
           onExpand={[Function]}
           onSaveSettings={[Function]}
           openedPanel="promsCreate"
-          status=""
+          status="danger"
         />
       </Col>
     </Row>
@@ -460,9 +404,9 @@ exports[`Component <Proms /> should renders correctly with empty store 1`] = `
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -474,23 +418,9 @@ exports[`Component <Proms /> should renders correctly with empty store 1`] = `
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -544,9 +474,9 @@ exports[`Component <Proms /> should renders correctly with empty store 1`] = `
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -558,30 +488,16 @@ exports[`Component <Proms /> should renders correctly with empty store 1`] = `
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -639,9 +555,9 @@ exports[`Component <Proms /> should renders correctly with forms error 1`] = `
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -653,23 +569,9 @@ exports[`Component <Proms /> should renders correctly with forms error 1`] = `
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -723,9 +625,9 @@ exports[`Component <Proms /> should renders correctly with forms error 1`] = `
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -737,30 +639,16 @@ exports[`Component <Proms /> should renders correctly with forms error 1`] = `
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -818,9 +706,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -832,23 +720,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -903,9 +777,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -917,30 +791,16 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -950,7 +810,7 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
         componentClass="div"
         xs={12}
       >
-        <PromsDetail
+        <Connect(PromsDetail)
           changeScoreStatus={[Function]}
           currentPanel="promsDetail"
           detail={
@@ -968,13 +828,13 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                   "typeTitle": "test records typeTitle",
                 },
               ],
-              "score": 9,
+              "score": 90,
               "source": "openehr",
               "sourceId": "testSourceID1",
-              "specific_Q1": "No Pain",
-              "specific_Q2": "No limitations",
-              "specific_Q3": "Around the house",
-              "specific_Q4": "No difficulty",
+              "specific_q1": "No Pain",
+              "specific_q2": "No limitations",
+              "specific_q3": "Around the house",
+              "specific_q4": "No difficulty",
             }
           }
           editedPanel={Object {}}
@@ -1018,7 +878,7 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
         componentClass="div"
         xs={12}
       >
-        <PromsDetail
+        <Connect(PromsDetail)
           changeScoreStatus={[Function]}
           currentPanel="promsDetail"
           detail={
@@ -1036,13 +896,13 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                   "typeTitle": "test records typeTitle",
                 },
               ],
-              "score": 9,
+              "score": 90,
               "source": "openehr",
               "sourceId": "testSourceID1",
-              "specific_Q1": "No Pain",
-              "specific_Q2": "No limitations",
-              "specific_Q3": "Around the house",
-              "specific_Q4": "No difficulty",
+              "specific_q1": "No Pain",
+              "specific_q2": "No limitations",
+              "specific_q3": "Around the house",
+              "specific_q4": "No difficulty",
             }
           }
           editedPanel={Object {}}
@@ -1118,9 +978,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1132,23 +992,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -1203,9 +1049,9 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1217,30 +1063,16 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -1250,7 +1082,7 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
         componentClass="div"
         xs={12}
       >
-        <PromsDetail
+        <Connect(PromsDetail)
           changeScoreStatus={[Function]}
           currentPanel="promsDetail"
           detail={
@@ -1268,13 +1100,13 @@ exports[`Component <Proms /> should renders correctly with promPanel and testing
                   "typeTitle": "test records typeTitle",
                 },
               ],
-              "score": 9,
+              "score": 90,
               "source": "openehr",
               "sourceId": "testSourceID1",
-              "specific_Q1": "No Pain",
-              "specific_Q2": "No limitations",
-              "specific_Q3": "Around the house",
-              "specific_Q4": "No difficulty",
+              "specific_q1": "No Pain",
+              "specific_q2": "No limitations",
+              "specific_q3": "Around the house",
+              "specific_q4": "No difficulty",
             }
           }
           editedPanel={
@@ -1354,9 +1186,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1368,23 +1200,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -1438,9 +1256,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1452,30 +1270,16 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>
@@ -1566,9 +1370,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1580,23 +1384,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
@@ -1650,9 +1440,9 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 1",
-                  "score": 9,
+                  "score": 90,
                   "source": "openehr",
-                  "sourceId": "testSourceID1",
+                  "sourceId": "acb0eaf2-d1df-4c7a-9382-619b31935f2b",
                 },
                 Object {
                   "dateCreated": 1482190593395,
@@ -1664,30 +1454,16 @@ exports[`Component <Proms /> should renders correctly with promsDetail and testi
                     },
                   ],
                   "name": "test Proms 2",
-                  "score": 3,
+                  "score": 30,
                   "source": "openehr",
                   "sourceId": "testSourceID2",
-                },
-                Object {
-                  "dateCreated": 1492170593395,
-                  "dateCreatedConvert": "14-Apr-2017",
-                  "highlighters": Array [
-                    Object {
-                      "name": "score",
-                      "status": "warning",
-                    },
-                  ],
-                  "name": "test Proms 3",
-                  "score": 6,
-                  "source": "openehr",
-                  "sourceId": "testSourceID3",
                 },
               ]
             }
             setOffset={[Function]}
             sortingOrder="asc"
             table="proms"
-            totalEntriesAmount={3}
+            totalEntriesAmount={2}
           />
         </div>
       </Col>

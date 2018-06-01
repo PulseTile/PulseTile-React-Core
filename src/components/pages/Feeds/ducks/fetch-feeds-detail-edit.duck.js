@@ -1,6 +1,6 @@
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
-
+import { testConstants } from '../../../../config/for-test.constants';
 import { usersUrls } from '../../../../config/server-urls.constants'
 import { fetchFeedsUpdateRequest } from './fetch-feeds.duck'
 
@@ -16,12 +16,10 @@ export const fetchFeedsDetailEditEpic = (action$, store) =>
   action$.ofType(FETCH_FEEDS_DETAIL_EDIT_REQUEST)
     .mergeMap(({ payload }) =>
       ajax.put(`${usersUrls.FEEDS}/${payload.sourceId}`, payload, {
-        Cookie: store.getState().credentials.cookie,
         'Content-Type': 'application/json',
       })
         .flatMap(({ response }) => {
           const sourceId = payload.sourceId;
-
           return [
             fetchFeedsDetailEditSuccess(response),
             fetchFeedsUpdateRequest({ sourceId }),

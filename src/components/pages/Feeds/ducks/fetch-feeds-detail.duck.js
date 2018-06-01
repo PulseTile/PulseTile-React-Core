@@ -1,7 +1,7 @@
 import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
-
+import { testConstants } from '../../../../config/for-test.constants';
 import { usersUrls } from '../../../../config/server-urls.constants'
 
 export const FETCH_FEEDS_DETAIL_REQUEST = 'FETCH_FEEDS_DETAIL_REQUEST';
@@ -28,7 +28,7 @@ export const fetchFeedsDetailEpic = (action$, store) =>
 export default function reducer(feedsDetail = {}, action) {
   switch (action.type) {
     case FETCH_FEEDS_DETAIL_SUCCESS:
-      return _.set(action.payload.feedsDetail, feedsDetail);
+      return action.payload.feedsDetail;
     default:
       return feedsDetail;
   }

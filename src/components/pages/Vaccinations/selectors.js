@@ -11,10 +11,7 @@ const patientVaccinationsSelector = createSelector(
   ({ patientsVaccinations }) => patientsVaccinations,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsVaccinations, userId) => {
-    const allVaccinations = operationsOnCollection.modificate(patientsVaccinations[userId], [{
-      key: valuesNames.DATE,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allVaccinations = operationsOnCollection.modificateDateForTable(patientsVaccinations[userId], valuesNames.DATE);
     return ({ allVaccinations, userId });
   }
 );

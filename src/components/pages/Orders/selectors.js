@@ -11,10 +11,7 @@ const patientOrdersSelector = createSelector(
   ({ patientsOrders }) => patientsOrders,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsOrders, userId) => {
-    const allOrders = operationsOnCollection.modificate(patientsOrders[userId], [{
-      key: valuesNames.ORDER_DATE,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allOrders = operationsOnCollection.modificateDateForTable(patientsOrders[userId], valuesNames.ORDER_DATE);
     return ({ allOrders, userId });
   }
 );

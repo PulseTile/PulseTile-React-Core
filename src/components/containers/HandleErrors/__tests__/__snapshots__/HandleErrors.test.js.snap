@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <HandleErrors /> RSS feeds error testing 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Connection Error"
+  >
+    <span>
+      Cross-Origin Request Blocked: reading of remote resource is disallowed
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> Token expired error testing 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Login Again"
+    title="Connection Error"
+  >
+    <span>
+      Your session has expired. Click the button to log in again
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
 exports[`Component <HandleErrors /> should renders correctly when requestError contains 400 error 1`] = `
 <div>
   <ConfirmationModal
@@ -23,17 +61,16 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
 <div>
   <ConfirmationModal
     isShow={true}
-    isShowCancelButton={true}
+    isShowCancelButton={false}
     isShowOkButton={true}
-    onCancel={[Function]}
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
-    textOkButton="Reload Page"
+    textOkButton="Login Again"
     title="Connection Error"
   >
     <span>
-      Your token has been expired. Please reload the page.
+      Your session has expired. Click the button to log in again
     </span>
   </ConfirmationModal>
 </div>

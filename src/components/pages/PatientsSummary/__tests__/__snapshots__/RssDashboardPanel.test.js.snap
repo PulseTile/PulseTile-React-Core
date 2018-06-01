@@ -3,6 +3,7 @@
 exports[`Component <RssDashboardPanel /> should renders with all props correctly 1`] = `
 <SimpleDashboardPanel
   goToState={[Function]}
+  isFeeds={true}
   isHasList={true}
   isHasPreview={true}
   items={
@@ -24,6 +25,7 @@ exports[`Component <RssDashboardPanel /> should renders with all props correctly
 exports[`Component <RssDashboardPanel /> should renders with all props correctly 2`] = `
 <SimpleDashboardPanel
   goToState={[Function]}
+  isFeeds={true}
   isHasList={true}
   isHasPreview={true}
   items={
@@ -45,6 +47,7 @@ exports[`Component <RssDashboardPanel /> should renders with all props correctly
 exports[`Component <RssDashboardPanel /> should renders with all props correctly 3`] = `
 <SimpleDashboardPanel
   goToState={[Function]}
+  isFeeds={true}
   isHasList={true}
   isHasPreview={true}
   items={

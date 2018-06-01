@@ -12,10 +12,7 @@ const patientReferralsSelector = createSelector(
   ({ patientsReferrals }) => patientsReferrals,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsReferrals, userId) => {
-    const allReferrals = operationsOnCollection.modificate(patientsReferrals[userId], [{
-      key: valuesNames.DATE,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allReferrals = operationsOnCollection.modificateDateForTable(patientsReferrals[userId], valuesNames.DATE);
     return ({ allReferrals, userId });
   }
 );

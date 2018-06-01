@@ -2,13 +2,13 @@ export const serviceProms = {
   getStatusOnValue: (value) => {
     let status = '';
     switch (true) {
-      case (value > -1 && value < 5) :
+      case (value > -1 && value < 50) :
         status = 'success';
         break;
-      case (value > 4 && value < 8) :
+      case (value > 49 && value < 80) :
         status = 'warning';
         break;
-      case (value > 7 && value < 11) :
+      case (value > 79 && value < 101) :
         status = 'danger';
         break;
     }

@@ -8,10 +8,7 @@ const patientDocumentsSelector = createSelector(
   ({ patientsDocuments }) => patientsDocuments,
   (state, props) => _.getOr(null, 'match.params.userId', props),
   (patientsDocuments, userId) => {
-    const allDocuments = operationsOnCollection.modificate(patientsDocuments[userId], [{
-      key: valuesNames.DATE_CREATED,
-      fn: item => new Date(item).getTime(),
-    }]);
+    const allDocuments = operationsOnCollection.modificateDateForTable(patientsDocuments[userId], valuesNames.DATE_CREATED);
     return ({ allDocuments, userId });
   }
 );

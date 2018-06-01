@@ -2,7 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew }) => {
+const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew, isFeeds }) => {
+
+  const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
+
   return (<div className="dashboard-item">
     <div className="board">
       <div className="board-header">
@@ -16,7 +19,7 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
           ? <div
             className="board-preview"
             style={{ backgroundImage: `url(${srcPrevirew})` }}
-            onClick={() => goToState(state)}
+            onClick={() => goToState(imageLink)}
           />
           : null
         }
@@ -36,6 +39,10 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
 SimpleDashboardPanel.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
+  isFeeds: PropTypes.bool,
+};
+SimpleDashboardPanel.defaultProps = {
+    isFeeds: false,
 };
 
 export default SimpleDashboardPanel

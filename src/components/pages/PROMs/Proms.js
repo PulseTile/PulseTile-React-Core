@@ -32,29 +32,6 @@ const PROMS_DETAIL = 'promsDetail';
 const PROMS_CREATE = 'promsCreate';
 const PROM_PANEL = 'promPanel';
 
-const promDetail = {
-  name: 'test Proms 1',
-  records: [
-    {
-      date: 1482190593395,
-      name: 'test records',
-      source: 'test records source',
-      sourceId: 'test records sourceId',
-      type: 'test records type',
-      typeTitle: 'test records typeTitle',
-    },
-  ],
-  score: 9,
-  dateCreated: 1482170593395,
-  specific_Q1: 'No Pain',
-  specific_Q2: 'No limitations',
-  specific_Q3: 'Around the house',
-  specific_Q4: 'No difficulty',
-  author: 'DR Mary Jones',
-  source: 'openehr',
-  sourceId: 'testSourceID1',
-};
-
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     fetchPatientPromsRequest,
@@ -68,7 +45,6 @@ const mapDispatchToProps = dispatch => ({
 @connect(promsDetailFormStateSelector)
 @connect(promsCreateFormStateSelector)
 @compose(lifecycle(fetchPatientPromsOnMount), lifecycle(fetchPatientPromsDetailOnMount))
-
 export default class Proms extends PureComponent {
   static propTypes = {
     allProms: PropTypes.arrayOf(PropTypes.object),
@@ -99,10 +75,10 @@ export default class Proms extends PureComponent {
     isLoading: true,
     activeView: 'tableNews',
     scoreStatus: '',
+    score: 0,
   };
 
   componentWillReceiveProps(nextProps) {
-    // const { promDetail } = this.props;
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
 
@@ -117,19 +93,9 @@ export default class Proms extends PureComponent {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: PROM_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
-    // if (!_.isEmpty(nextProps.promDetail) || !_.isEmpty(nextProps.promsCreateFormState)) {
-    //   if (!_.isEmpty(nextProps.promsDetailFormState.values)) {
-    //     this.setVitalStatuses(nextProps.promsDetailFormState.values)
-    //   } else if (!_.isEmpty(nextProps.promsCreateFormState.values)) {
-    //     this.setVitalStatuses(nextProps.promsCreateFormState.values)
-    //   } else {
-    //     this.setVitalStatuses(nextProps.promDetail)
-    //   }
-    // }
-
-    // if(!_.isEmpty(promDetail)) {
-    //   this.setState({ scoreStatus: serviceProms.getStatusOnValue(promDetail.score) })
-    // }
+    if(!_.isEmpty(nextProps.promDetail) && !this.state.isCreatePanelVisible) {
+      this.changeScoreStatus(nextProps.promDetail.score);
+    }
 
     /* istanbul ignore next */
     setTimeout(() => {
@@ -228,27 +194,33 @@ export default class Proms extends PureComponent {
   };
 
   formValuesToString = (formValues, formName) => {
-    const { userId } = this.props;
-    // const { userId, promDetail } = this.props;
+    const { userId, promDetail } = this.props;
+    const { score } = this.state;
     const sendData = {};
     const currentDate = new Date().getTime();
 
     sendData.userId = userId;
     sendData[valuesNames.NAME] = formValues[valuesNames.NAME];
-    sendData[valuesNames.RECORDS] = formValues[valuesNames.RECORDS];
-    sendData[valuesNames.SCORE] = formValues[valuesNames.SCORE];
+    // sendData[valuesNames.RECORDS] = formValues[valuesNames.RECORDS];
+    if (formValues[valuesNames.RECORDS] && formValues[valuesNames.RECORDS].length) {
+      sendData[valuesNames.PROCEDURE_ID] = formValues[valuesNames.RECORDS][0].sourceId;
+    }
+    sendData[valuesNames.SCORE] = score;
     sendData[valuesNames.SPECIFIC_Q1] = formValues[valuesNames.SPECIFIC_Q1];
     sendData[valuesNames.SPECIFIC_Q2] = formValues[valuesNames.SPECIFIC_Q2];
     sendData[valuesNames.SPECIFIC_Q3] = formValues[valuesNames.SPECIFIC_Q3];
     sendData[valuesNames.SPECIFIC_Q4] = formValues[valuesNames.SPECIFIC_Q4];
+    sendData[valuesNames.SPECIFIC_Q5] = formValues[valuesNames.SPECIFIC_Q5];
+
     sendData[valuesNames.SOURCE] = formValues[valuesNames.SOURCE];
+    sendData[valuesNames.AUTHOR] = formValues[valuesNames.AUTHOR];
     sendData[valuesNames.DATE_CREATED] = currentDate;
 
     if (formName === 'edit') {
       sendData[valuesNames.SOURCE_ID] = promDetail[valuesNames.SOURCE_ID];
     }
 
-    operationsOnCollection.propsToString(sendData, valuesNames.RECORDS, valuesNames.DATE_CREATED);
+    operationsOnCollection.propsToString(sendData, valuesNames.RECORDS, valuesNames.SCORE, valuesNames.DATE_CREATED);
 
     return sendData;
   };
@@ -311,36 +283,11 @@ export default class Proms extends PureComponent {
     return proms
   };
 
-  changeScoreStatus = value => this.setState({ scoreStatus: serviceProms.getStatusOnValue(value) });
+  changeScoreStatus = value => this.setState({ scoreStatus: serviceProms.getStatusOnValue(value), score: value });
 
   render() {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, activeView, nameShouldInclude, scoreStatus } = this.state;
-    // const { allProms, promsDetailFormState, promsCreateFormState, promDetail } = this.props;
-    const { promsDetailFormState, promsCreateFormState, match } = this.props;
-
-    const allProms = [
-      {
-        name: 'test Proms 1',
-        score: 9,
-        dateCreated: 1482170593395,
-        source: 'openehr',
-        sourceId: 'testSourceID1',
-      },
-      {
-        name: 'test Proms 2',
-        score: 3,
-        dateCreated: 1482190593395,
-        source: 'openehr',
-        sourceId: 'testSourceID2',
-      },
-      {
-        name: 'test Proms 3',
-        score: 6,
-        dateCreated: 1492170593395,
-        source: 'openehr',
-        sourceId: 'testSourceID3',
-      },
-    ];
+    const { allProms, promsDetailFormState, promsCreateFormState, promDetail, match } = this.props;
 
     const isPanelDetails = (expandedPanel === PROMS_DETAIL || expandedPanel === PROM_PANEL);
     const isPanelMain = (expandedPanel === PROMS_MAIN);
