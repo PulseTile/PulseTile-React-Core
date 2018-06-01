@@ -1,14 +1,10 @@
 import React, { PureComponent } from 'react';
 import { Field, reduxForm } from 'redux-form'
-import { Row, Col } from 'react-bootstrap';
-
 import ValidatedInput from '../../../form-fields/ValidatedInputFormGroup';
 import ValidatedTextareaFormGroup from '../../../form-fields/ValidatedTextareaFormGroup';
 import DateInput from '../../../form-fields/DateInput';
-import StaticFormField from '../../../form-fields/StaticFormField';
 import { validateTopThreeThingsCreateForm } from '../forms.validation';
 import { valuesNames, valuesLabels } from '../forms.config';
-import { defaultFormValues } from './default-values.config';
 import PropTypes from "prop-types";
 import FormSectionList from '../../../form-fields/FormSectionList';
 import FormSection from '../../../form-fields/FormSection';
@@ -31,23 +27,12 @@ export default class TopThreeThingsCreateForm extends PureComponent {
 
   componentDidMount() {
     const historyState = this.context.router.history.location.state;
-
     if (historyState && historyState.importData) {
       const dataToInitialize = {
-        ...defaultFormValues,
         ...historyState.importData
       };
-      if (!historyState.importData[valuesNames.TERMINOLOGY]) {
-        dataToInitialize[valuesNames.TERMINOLOGY] = defaultFormValues[valuesNames.TERMINOLOGY];
-      }
-      if (!historyState.importData[valuesNames.TERMINOLOGYCODE]) {
-        dataToInitialize[valuesNames.TERMINOLOGYCODE] = defaultFormValues[valuesNames.TERMINOLOGYCODE];
-      }
       this.props.initialize(dataToInitialize);
       this.setState({isImport: true})
-
-    } else {
-      this.props.initialize(defaultFormValues);
     }
   }
 
