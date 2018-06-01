@@ -25,7 +25,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
-// import imgBanner from '../../../assets/images/banners/vaccinations.jpg';
+import imgBanner from '../../../assets/images/banners/vaccinations.jpg';
 
 const VACCINATIONS_MAIN = 'vaccinationsMain';
 const VACCINATIONS_DETAIL = 'vaccinationsDetail';
@@ -248,7 +248,7 @@ export default class Vaccination extends PureComponent {
         <PluginBanner
           title='Vaccinations'
           subTitle='Short blurb containing a few words to describe this section'
-          img={'http://via.placeholder.com/1920x305'}
+          img={imgBanner}
         />
         : null
       }

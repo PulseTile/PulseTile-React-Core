@@ -25,7 +25,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-// import imgBanner from '../../../assets/images/banners/medications.jpg';
+import imgBanner from '../../../assets/images/banners/medications.jpg';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -314,7 +314,7 @@ export default class Medications extends PureComponent {
         <PluginBanner
           title='Medications'
           subTitle='Short blurb containing a few words to describe this section'
-          img={'http://via.placeholder.com/1920x305'}
+          img={imgBanner}
         />
         : null
       }
