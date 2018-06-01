@@ -33,9 +33,12 @@ export class HandleErrors extends Component {
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
       case (this.isTokenExpired(requestError)):
-        document.cookie = 'JSESSIONID=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
-        window.location.replace('/');
-        return null;
+        return {
+          eventOk: this.redirectIndexPage,
+          eventHide: this.redirectIndexPage,
+          textButton: 'Login Again',
+          textMessage: 'Your session has expired.  Click the button to log in again',
+        };
       case ('application/rss+xml' === get(requestError, 'payload.request.responseType', '')):
         return {
           eventOk: this.closeModal,
@@ -84,29 +87,31 @@ export class HandleErrors extends Component {
     location.reload()
   };
 
+  redirectIndexPage = () => {
+    document.cookie = 'JSESSIONID=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
+    window.location.replace('/');
+  };
+
   render() {
     const { isOpenModal } = this.state;
     const config = this.getErrorConfig();
-    if (config) {
-      return (
-        <div>
-          {isOpenModal &&
-            <ConfirmationModal
-              title={'Connection Error'}
-              onOk={config.eventOk}
-              onHide={config.eventHide}
-              onCancel={config.eventCancel}
-              isShow
-              textOkButton={config.textButton}
-              isShowOkButton
-              isShowCancelButton={config.isShowCancelButton}
-            >
-            <span>{config.textMessage}</span>
-          </ConfirmationModal> }
-        </div>
-        )
-    }
-    return null;
+    return (
+      <div>
+        {isOpenModal &&
+        <ConfirmationModal
+          title={'Connection Error'}
+          onOk={config.eventOk}
+          onHide={config.eventHide}
+          onCancel={config.eventCancel}
+          isShow
+          textOkButton={config.textButton}
+          isShowOkButton
+          isShowCancelButton={config.isShowCancelButton}
+        >
+          <span>{config.textMessage}</span>
+        </ConfirmationModal> }
+      </div>
+    )
   }
 }
 
