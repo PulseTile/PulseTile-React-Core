@@ -23,17 +23,16 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
 <div>
   <ConfirmationModal
     isShow={true}
-    isShowCancelButton={true}
+    isShowCancelButton={false}
     isShowOkButton={true}
-    onCancel={[Function]}
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
-    textOkButton="Reload Page"
+    textOkButton="Login Again"
     title="Connection Error"
   >
     <span>
-      Your token has been expired. Please reload the page.
+      Your session has expired. Click the button to log in again
     </span>
   </ConfirmationModal>
 </div>
