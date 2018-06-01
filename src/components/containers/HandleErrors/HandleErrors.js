@@ -37,7 +37,7 @@ export class HandleErrors extends Component {
           eventOk: this.redirectIndexPage,
           eventHide: this.redirectIndexPage,
           textButton: 'Login Again',
-          textMessage: 'Your session has expired.  Click the button to log in again',
+          textMessage: 'Your session has expired. Click the button to log in again',
         };
       case ('application/rss+xml' === get(requestError, 'payload.request.responseType', '')):
         return {

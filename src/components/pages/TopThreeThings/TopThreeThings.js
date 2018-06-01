@@ -155,7 +155,7 @@ export default class TopThreeThings extends PureComponent {
   };
 
   handleShow = (name) => {
-        this.setState({ openedPanel: name })
+    this.setState({ openedPanel: name })
   };
 
   handleTopThreeThingsDetailCancel = (name) => {
