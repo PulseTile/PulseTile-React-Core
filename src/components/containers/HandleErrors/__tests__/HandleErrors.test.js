@@ -92,6 +92,56 @@ describe('Component <HandleErrors />', () => {
     expect(component).toMatchSnapshot();
   });
 
+  it('RSS feeds error testing', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+            request: {
+              responseType: 'application/rss+xml',
+            },
+          }
+        }
+      }
+      />);
+      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
+      expect(component.state().isOpenModal).toEqual(true);
+      expect(component.state().countErrorRequest).toEqual(1);
+      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
+      expect(confirmationModalComponentProps.isShow).toEqual(true);
+      expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
+      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
+      expect(confirmationModalComponentProps.children.props.children).toEqual('Cross-Origin Request Blocked: reading of remote resource is disallowed');
+
+      expect(component).toMatchSnapshot();
+  });
+
+  it('Token expired error testing', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+            status: 400,
+              xhr: {
+                response: {
+                  error: 'Invalid JWT: Error: Token expired',
+                },
+              },
+            }
+          }
+        }
+      />);
+      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
+      expect(component.state().isOpenModal).toEqual(true);
+      expect(component.state().countErrorRequest).toEqual(1);
+      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
+      expect(confirmationModalComponentProps.isShow).toEqual(true);
+      expect(confirmationModalComponentProps.textOkButton).toEqual('Login Again');
+      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
+      expect(confirmationModalComponentProps.children.props.children).toEqual('Your session has expired. Click the button to log in again');
+      expect(component).toMatchSnapshot();
+  });
+
   it('testing methods', () => {
     const component = shallow(
       <HandleErrors
@@ -120,7 +170,8 @@ describe('Component <HandleErrors />', () => {
     component.instance().closeModal();
     expect(component.state().isOpenModal).toEqual(false);
 
-    component.instance().reloadPage()
+    component.instance().reloadPage();
+    component.instance().redirectIndexPage();
 
     expect(component).toMatchSnapshot();
   });
