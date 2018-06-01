@@ -23,7 +23,6 @@ export const fetchPatientDemographicsEpic = (action$, store) =>
           userId: payload.userId,
           demographics: get(response, 'demographics', {}),
         }))
-        .catch(error => Observable.of(fetchPatientDemographicsFailure(error)))
   );
 
 export default function reducer(patientsDemographics = {}, action) {
