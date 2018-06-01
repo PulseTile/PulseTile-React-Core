@@ -23,9 +23,9 @@ export class HandleErrors extends Component {
   }
 
   isTokenExpired = (requestError) => {
-      const requestErrorStatus = requestError.payload.status;
-      const errorMessage = get(requestError, 'payload.xhr.response.error', '');
-      return (requestErrorStatus === 400 && errorMessage === 'Invalid JWT: Error: Token expired') || requestErrorStatus === 403;
+    const requestErrorStatus = requestError.payload.status;
+    const errorMessage = get(requestError, 'payload.xhr.response.error', '');
+    return (requestErrorStatus === 400 && errorMessage === 'Invalid JWT: Error: Token expired') || requestErrorStatus === 403;
   };
 
   getErrorConfig = () => {
