@@ -7,7 +7,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import moment from 'moment';
-
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
@@ -26,7 +25,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm'
-import imgBanner from '../../../assets/images/banners/problems.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -258,12 +257,15 @@ export default class ProblemsDiagnosis extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const imageLocation = '/images/banners/problems.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Problems / Diagnoses'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={imgBanner}
+          subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
+          img={imageSource}
         />
         : null
       }

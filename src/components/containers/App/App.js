@@ -15,7 +15,6 @@ import Footer from '../../presentational/Footer/Footer';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
-import headerImg1 from '../../../assets/images/leeds.png'
 import headerImg2 from '../../../assets/images/nhs.png'
 
 import '../../../styles/main.scss';
@@ -36,7 +35,6 @@ export class App extends Component {
               >
                 {themeConfigs.isLeedsPHRHeaderList ?
                   <HeaderList items={[
-                    <img src={headerImg1} alt="header img 1" />,
                     <img src={headerImg2} alt="header img 2" />,
                   ]}
                   />

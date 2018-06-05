@@ -25,7 +25,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-// import imgBanner from '../../../assets/images/banners/medications.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -309,12 +309,15 @@ export default class Medications extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const imageLocation = '/images/banners/medications.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Medications'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={'http://via.placeholder.com/1920x305'}
+          subTitle='The medical tablets and other medications that you take regularly for your health care'
+          img={imageSource}
         />
         : null
       }

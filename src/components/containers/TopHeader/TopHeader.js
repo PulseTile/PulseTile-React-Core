@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-
 import { themeConfigs } from '../../../themes.config';
 import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
@@ -11,7 +10,7 @@ import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import headerLogoLeedsPHR from '../../../assets/images/logo-leedsPHR.png';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -37,7 +36,9 @@ class TopHeader extends PureComponent {
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
 
-    const headerLogo = themeConfigs.isLeedsPHRTheme ? headerLogoLeedsPHR : null;
+    const headerLogoLeedsPHR = '/images/helm-logo.png';
+    const imageSource = isDevMode ? (testConstants.hostName + headerLogoLeedsPHR) : headerLogoLeedsPHR;
+    const headerLogo = themeConfigs.isLeedsPHRTheme ? imageSource : null;
     return (
       <div className="navbar">
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>

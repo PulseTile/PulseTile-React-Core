@@ -40,12 +40,7 @@ export class HandleErrors extends Component {
           textMessage: 'Your session has expired. Click the button to log in again',
         };
       case ('application/rss+xml' === get(requestError, 'payload.request.responseType', '')):
-        return {
-          eventOk: this.closeModal,
-          eventHide: this.closeModal,
-          textButton: 'Ok',
-          textMessage: 'Cross-Origin Request Blocked: reading of remote resource is disallowed',
-        };
+        return null;
       case (requestError.initialiseError || requestErrorStatus === 0):
         return {
           eventOk: this.reloadPage,
@@ -95,23 +90,27 @@ export class HandleErrors extends Component {
   render() {
     const { isOpenModal } = this.state;
     const config = this.getErrorConfig();
-    return (
-      <div>
-        {isOpenModal &&
-        <ConfirmationModal
-          title={'Connection Error'}
-          onOk={config.eventOk}
-          onHide={config.eventHide}
-          onCancel={config.eventCancel}
-          isShow
-          textOkButton={config.textButton}
-          isShowOkButton
-          isShowCancelButton={config.isShowCancelButton}
-        >
-          <span>{config.textMessage}</span>
-        </ConfirmationModal> }
-      </div>
-    )
+    if (config) {
+      return (
+        <div>
+          {isOpenModal &&
+            <ConfirmationModal
+              title={'Connection Error'}
+              onOk={config.eventOk}
+              onHide={config.eventHide}
+              onCancel={config.eventCancel}
+              isShow
+              textOkButton={config.textButton}
+              isShowOkButton
+              isShowCancelButton={config.isShowCancelButton}
+            >
+              <span>{config.textMessage}</span>
+            </ConfirmationModal> }
+        </div>
+      );
+    }
+    return null;
+
   }
 }
 

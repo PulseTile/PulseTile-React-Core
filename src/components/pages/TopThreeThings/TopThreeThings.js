@@ -7,12 +7,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 import { get } from 'lodash';
-
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientTopThreeThingsRequest } from './ducks/fetch-patient-top-three-things.duck';
@@ -26,7 +24,7 @@ import TopThreeThingsDetail from './TopThreeThingsDetail/TopThreeThingsDetail';
 import TopThreeThingsCreateForm from './TopThreeThingsCreate/TopThreeThingsCreateForm';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
-import imgBanner from '../../../assets/images/banners/top3.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const TOP_THREE_THINGS_MAIN = 'topThreeThingsMain';
 const TOP_THREE_THINGS_CREATE = 'topThreeThingsCreate';
@@ -253,12 +251,15 @@ export default class TopThreeThings extends PureComponent {
     const isImportFromDocuments = historyState && historyState.importData;
     const isPatientHasTopThreeThings = (get(allTopThreeThings, 'length', 0) > 0) ? true : false;
 
+    const imageLocation = '/images/banners/top3.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!isDetailPanelVisible  || isCreatePanelVisible ?
         <PluginBanner
           title='Top 3 Things'
-          subTitle='Top 3 things to know about my care'
-          img={imgBanner}
+          subTitle='A place to record the top 3 issues that concern you today'
+          img={imageSource}
         />
         : null
       }
