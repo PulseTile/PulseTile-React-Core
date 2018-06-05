@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { lifecycle } from 'recompose';
 import packageJSON from '../../../../package.json';
-
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserAccountPanelSettings from './UserAccountPanelSettings';
 import userAccountSelector from './selectors';
 import { initialiseSelector } from '../App/selectors';
-import userImage from '../../../assets/images/user.jpg'
 import { clientUrls } from '../../../config/client-urls.constants';
 import { unmountOnBlur } from '../../../utils/HOCs/unmount-on-blur.utils';
 import { logoutStart } from '../../../ducks/logout.duck';
@@ -36,7 +35,8 @@ export default class UserAccountPanel extends PureComponent {
     const { user, actions, onClick, onClose, initialiseData } = this.props;
     const varsionOfPulseTile = packageJSON.version;
     const varsionOfReact = packageJSON.dependencies.react;
-
+    const imageLocation = '/images/user.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
     return (
       <div className="dropdown-user dropdown-menu-right dropdown-menu">
         <div
@@ -47,7 +47,7 @@ export default class UserAccountPanel extends PureComponent {
           }}
         >
           <div className="img">
-            <img src={userImage} alt="" />
+            <img src={imageSource} alt="" />
           </div>
         </div>
         <div className="user-profile-info">

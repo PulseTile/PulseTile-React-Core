@@ -104,15 +104,6 @@ describe('Component <HandleErrors />', () => {
         }
       }
       />);
-      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
-      expect(component.state().isOpenModal).toEqual(true);
-      expect(component.state().countErrorRequest).toEqual(1);
-      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
-      expect(confirmationModalComponentProps.isShow).toEqual(true);
-      expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
-      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-      expect(confirmationModalComponentProps.children.props.children).toEqual('Cross-Origin Request Blocked: reading of remote resource is disallowed');
-
       expect(component).toMatchSnapshot();
   });
 

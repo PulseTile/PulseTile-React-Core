@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <HandleErrors /> RSS feeds error testing 1`] = `
-<div>
-  <ConfirmationModal
-    isShow={true}
-    isShowCancelButton={false}
-    isShowOkButton={true}
-    onHide={[Function]}
-    onOk={[Function]}
-    textCancelButton="Cancel"
-    textOkButton="Ok"
-    title="Connection Error"
-  >
-    <span>
-      Cross-Origin Request Blocked: reading of remote resource is disallowed
-    </span>
-  </ConfirmationModal>
-</div>
-`;
+exports[`Component <HandleErrors /> RSS feeds error testing 1`] = `""`;
 
 exports[`Component <HandleErrors /> Token expired error testing 1`] = `
 <div>

@@ -77,10 +77,6 @@ exports[`Component <App /> should renders correctly with context 1`] = `
             items={
               Array [
                 <img
-                  alt="header img 1"
-                  src="leeds.png"
-                />,
-                <img
                   alt="header img 2"
                   src="nhs.png"
                 />,
@@ -127,10 +123,6 @@ exports[`Component <App /> should renders correctly with is not touch device and
           <HeaderList
             items={
               Array [
-                <img
-                  alt="header img 1"
-                  src="leeds.png"
-                />,
                 <img
                   alt="header img 2"
                   src="nhs.png"
