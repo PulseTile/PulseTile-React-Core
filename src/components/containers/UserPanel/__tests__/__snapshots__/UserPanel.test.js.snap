@@ -243,7 +243,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                           >
                             <img
                               alt=""
-                              src="user.jpg"
+                              src="/images/user.jpg"
                             />
                           </div>
                         </div>

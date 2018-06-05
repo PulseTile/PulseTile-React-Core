@@ -58,7 +58,6 @@ describe('Component <VitalsPopover />', () => {
     expect(component.find('.vitals-addon').text()).toEqual(testProps.vitalsAddon);
     expect(component.find('.place-1').text()).toEqual(testProps.popoverLabels[0].text);
     expect(component.find('.place-3').text()).toEqual(testProps.popoverLabels[1].text);
-    expect(component.find('img').props().src).toEqual('range-vital.jpg');
     expect(component.find('.help-block').text()).toEqual('test error');
     expect(component.find('.help-block')).toHaveLength(1);
     component.instance().togglePopover();
