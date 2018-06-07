@@ -5,8 +5,8 @@ exports[`Component <Medications /> should renders correctly and testing another 
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/medications.jpg"
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
   />
@@ -341,8 +341,8 @@ exports[`Component <Medications /> should renders correctly when data take from 
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/medications.jpg"
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
   />
@@ -492,8 +492,8 @@ exports[`Component <Medications /> should renders correctly with all store is em
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/medications.jpg"
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
   />
@@ -579,8 +579,8 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/medications.jpg"
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
   />
@@ -730,8 +730,8 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/medications.jpg"
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
   />

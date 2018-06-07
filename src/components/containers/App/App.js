@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash/fp';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
-
 import { themeConfigs } from '../../../themes.config';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 import { requestErrorSelector, patientInfoSelector } from './selectors';
 import TopHeader from '../TopHeader/TopHeader';
 import Header from '../Header/Header';
@@ -15,8 +15,6 @@ import Footer from '../../presentational/Footer/Footer';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
-import headerImg1 from '../../../assets/images/leeds.png'
-import headerImg2 from '../../../assets/images/nhs.png'
 
 import '../../../styles/main.scss';
 
@@ -24,6 +22,8 @@ export class App extends Component {
   render() {
     const { requestError, patientsInfo } = this.props;
     const isTouchDevice = (this.props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
+    const headerImg2 = '/images/nhs.png';
+    const imageSource = isDevMode ? (testConstants.hostName + headerImg2) : headerImg2;
     return (
       <div className="page">
         <LoadingBar className="loading-bar" />
@@ -36,8 +36,7 @@ export class App extends Component {
               >
                 {themeConfigs.isLeedsPHRHeaderList ?
                   <HeaderList items={[
-                    <img src={headerImg1} alt="header img 1" />,
-                    <img src={headerImg2} alt="header img 2" />,
+                    <img src={imageSource} alt="header img 2" />,
                   ]}
                   />
                   : <div />}

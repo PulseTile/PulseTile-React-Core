@@ -5,15 +5,12 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { compose, lifecycle } from 'recompose';
 import { get } from 'lodash';
-
 import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import RssDashboardPanel from './RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
-
 import { summarySynopsisSelector } from './separate-selectors';
-
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientDiagnosesSynopsisRequest } from '../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
@@ -26,6 +23,7 @@ import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
 import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({fetchPatientDiagnosesSynopsisRequest, fetchPatientContactsSynopsisRequest, fetchPatientAllergiesSynopsisRequest, fetchPatientMedicationsSynopsisRequest, fetchPatientVaccinationsSynopsisRequest, fetchPatientTopThreeThingsSynopsisRequest, fetchFeedsRequest}, dispatch) });
@@ -131,6 +129,7 @@ export default class PatientsSummary extends PureComponent {
             <div className="panel-body">
               <div className="dashboard">
                 {patientsSummaryConfig.map((item, index) => {
+                  const imageSource = isDevMode ? (testConstants.hostName + item.imgPreview) : item.imgPreview;
                   return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
                     <SimpleDashboardPanel
                       key={index}
@@ -138,7 +137,7 @@ export default class PatientsSummary extends PureComponent {
                       items={boards[item.key]}
                       state={item.state}
                       goToState={this.handleGoToState}
-                      srcPrevirew={item.imgPreview}
+                      srcPrevirew={imageSource}
                       isHasPreview={isHasPreview}
                       isHasList={isHasList}
                     />

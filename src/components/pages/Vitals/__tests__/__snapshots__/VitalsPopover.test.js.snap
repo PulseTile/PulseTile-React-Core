@@ -75,7 +75,7 @@ exports[`Component <VitalsPopover /> should renders with props correctly mount t
               </div>
               <img
                 alt=""
-                src="range-vital.jpg"
+                src="/images/range-vital.jpg"
               />
             </div>
           </div>
@@ -135,7 +135,7 @@ exports[`Component <VitalsPopover /> should renders with props correctly shallow
             </div>
             <img
               alt=""
-              src="range-vital.jpg"
+              src="/images/range-vital.jpg"
             />
           </div>
         </div>
@@ -199,7 +199,7 @@ exports[`Component <VitalsPopover /> should renders with props correctly shallow
             </div>
             <img
               alt=""
-              src="range-vital.jpg"
+              src="/images/range-vital.jpg"
             />
           </div>
         </div>

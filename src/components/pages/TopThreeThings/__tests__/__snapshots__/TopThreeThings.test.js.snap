@@ -5,8 +5,8 @@ exports[`Component <TopThreeThings /> should renders correctly and testing anoth
   className="page-wrapper"
 >
   <PluginBanner
-    img="top3.jpg"
-    subTitle="Top 3 things to know about my care"
+    img="/images/banners/top3.jpg"
+    subTitle="A place to record the top 3 issues that concern you today"
     title="Top 3 Things"
     toRight={false}
   />
@@ -272,8 +272,8 @@ exports[`Component <TopThreeThings /> should renders correctly with TopThreeThin
   className="page-wrapper"
 >
   <PluginBanner
-    img="top3.jpg"
-    subTitle="Top 3 things to know about my care"
+    img="/images/banners/top3.jpg"
+    subTitle="A place to record the top 3 issues that concern you today"
     title="Top 3 Things"
     toRight={false}
   />
@@ -418,8 +418,8 @@ exports[`Component <TopThreeThings /> should renders correctly with TopThreeThin
   className="page-wrapper"
 >
   <PluginBanner
-    img="top3.jpg"
-    subTitle="Top 3 things to know about my care"
+    img="/images/banners/top3.jpg"
+    subTitle="A place to record the top 3 issues that concern you today"
     title="Top 3 Things"
     toRight={false}
   />
@@ -564,8 +564,8 @@ exports[`Component <TopThreeThings /> should renders correctly with empty store 
   className="page-wrapper"
 >
   <PluginBanner
-    img="top3.jpg"
-    subTitle="Top 3 things to know about my care"
+    img="/images/banners/top3.jpg"
+    subTitle="A place to record the top 3 issues that concern you today"
     title="Top 3 Things"
     toRight={false}
   />
@@ -684,8 +684,8 @@ exports[`Component <TopThreeThings /> should renders correctly with forms error 
   className="page-wrapper"
 >
   <PluginBanner
-    img="top3.jpg"
-    subTitle="Top 3 things to know about my care"
+    img="/images/banners/top3.jpg"
+    subTitle="A place to record the top 3 issues that concern you today"
     title="Top 3 Things"
     toRight={false}
   />

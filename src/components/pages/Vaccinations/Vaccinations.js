@@ -6,8 +6,6 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
-import moment from 'moment';
-
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
@@ -24,8 +22,8 @@ import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm'
-// import imgBanner from '../../../assets/images/banners/vaccinations.jpg';
+import VaccinationCreateForm from './VaccinationCreate/VaccinationCreateForm';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const VACCINATIONS_MAIN = 'vaccinationsMain';
 const VACCINATIONS_DETAIL = 'vaccinationsDetail';
@@ -243,12 +241,15 @@ export default class Vaccination extends PureComponent {
       sourceId = vaccinationDetail[valuesNames.SOURCE_ID];
     }
 
+    const imageLocation = '/images/banners/vaccinations.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Vaccinations'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={'http://via.placeholder.com/1920x305'}
+          subTitle='A record of the immunisations/vaccines you have had to help you avoid ill health'
+          img={imageSource}
         />
         : null
       }

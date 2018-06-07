@@ -24,7 +24,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
-import imgBanner from '../../../assets/images/banners/allergies.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -268,12 +268,15 @@ export default class Allergies extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const imageLocation = '/images/banners/allergies.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Allergies'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={imgBanner}
+          subTitle='Those things that your body reacts against , that you have an allergy to'
+          img={imageSource}
         />
         : null
       }

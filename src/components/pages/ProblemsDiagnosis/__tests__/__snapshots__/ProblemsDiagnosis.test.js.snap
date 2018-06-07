@@ -5,8 +5,8 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
   className="page-wrapper"
 >
   <PluginBanner
-    img="problems.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/problems.jpg"
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Problems / Diagnoses"
     toRight={false}
   />
@@ -198,8 +198,8 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
   className="page-wrapper"
 >
   <PluginBanner
-    img="problems.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/problems.jpg"
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Problems / Diagnoses"
     toRight={false}
   />
@@ -658,8 +658,8 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
   className="page-wrapper"
 >
   <PluginBanner
-    img="problems.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/problems.jpg"
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Problems / Diagnoses"
     toRight={false}
   />
@@ -741,8 +741,8 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
   className="page-wrapper"
 >
   <PluginBanner
-    img="problems.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/problems.jpg"
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Problems / Diagnoses"
     toRight={false}
   />

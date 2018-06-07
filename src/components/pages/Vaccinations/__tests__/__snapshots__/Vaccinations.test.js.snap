@@ -5,8 +5,8 @@ exports[`Component <Vaccinations /> should renders correctly and testing another
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/vaccinations.jpg"
+    subTitle="A record of the immunisations/vaccines you have had to help you avoid ill health"
     title="Vaccinations"
     toRight={false}
   />
@@ -197,8 +197,8 @@ exports[`Component <Vaccinations /> should renders correctly with empty store 1`
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/vaccinations.jpg"
+    subTitle="A record of the immunisations/vaccines you have had to help you avoid ill health"
     title="Vaccinations"
     toRight={false}
   />
@@ -280,8 +280,8 @@ exports[`Component <Vaccinations /> should renders correctly with forms error 1`
   className="page-wrapper"
 >
   <PluginBanner
-    img="http://via.placeholder.com/1920x305"
-    subTitle="Short blurb containing a few words to describe this section"
+    img="/images/banners/vaccinations.jpg"
+    subTitle="A record of the immunisations/vaccines you have had to help you avoid ill health"
     title="Vaccinations"
     toRight={false}
   />

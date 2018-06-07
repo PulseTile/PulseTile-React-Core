@@ -351,7 +351,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                   >
                                     <img
                                       alt=""
-                                      src="user.jpg"
+                                      src="/images/user.jpg"
                                     />
                                   </div>
                                 </div>
@@ -588,7 +588,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo="logo-leedsPHR.png"
+    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -621,7 +621,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo="logo-leedsPHR.png"
+    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -659,7 +659,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
     />
   </PTButton>
   <MainLogo
-    logo="logo-leedsPHR.png"
+    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",

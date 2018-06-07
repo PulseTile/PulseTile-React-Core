@@ -16,7 +16,7 @@ exports[`Component <RssDashboardPanel /> should renders with all props correctly
       "",
     ]
   }
-  srcPrevirew="rss.jpg"
+  srcPrevirew="/images/patients-summary/rss.jpg"
   state="https://www.nytimes.com/section/health"
   title="NYTimes.com"
 />
@@ -38,7 +38,7 @@ exports[`Component <RssDashboardPanel /> should renders with all props correctly
       "",
     ]
   }
-  srcPrevirew="rss.jpg"
+  srcPrevirew="/images/patients-summary/rss.jpg"
   state="https://www.nytimes.com/section/health"
   title="NYTimes.com"
 />
@@ -60,7 +60,7 @@ exports[`Component <RssDashboardPanel /> should renders with all props correctly
       "",
     ]
   }
-  srcPrevirew="rss.jpg"
+  srcPrevirew="/images/patients-summary/rss.jpg"
   state="https://www.nytimes.com/section/health"
   title="NYTimes.com"
 />

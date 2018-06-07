@@ -76,7 +76,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
               title="Problems / Diagnosis"
             />
@@ -96,7 +96,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
+              srcPrevirew="/images/patients-summary/contacts.jpg"
               state="contacts"
               title="Contacts"
             />
@@ -116,7 +116,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew="/images/patients-summary/allergies.jpg"
               state="allergies"
               title="Allergies"
             />
@@ -136,7 +136,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
+              srcPrevirew="/images/patients-summary/medications.jpg"
               state="medications"
               title="Medications"
             />
@@ -224,7 +224,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
               title="Problems / Diagnosis"
             />
@@ -244,7 +244,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
+              srcPrevirew="/images/patients-summary/contacts.jpg"
               state="contacts"
               title="Contacts"
             />
@@ -264,7 +264,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew="/images/patients-summary/allergies.jpg"
               state="allergies"
               title="Allergies"
             />
@@ -284,7 +284,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
+              srcPrevirew="/images/patients-summary/medications.jpg"
               state="medications"
               title="Medications"
             />
@@ -386,7 +386,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
               title="Problems / Diagnosis"
             />
@@ -406,7 +406,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
+              srcPrevirew="/images/patients-summary/contacts.jpg"
               state="contacts"
               title="Contacts"
             />
@@ -426,7 +426,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew="/images/patients-summary/allergies.jpg"
               state="allergies"
               title="Allergies"
             />
@@ -446,7 +446,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
+              srcPrevirew="/images/patients-summary/medications.jpg"
               state="medications"
               title="Medications"
             />

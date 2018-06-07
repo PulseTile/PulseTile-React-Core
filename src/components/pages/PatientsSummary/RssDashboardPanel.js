@@ -3,12 +3,11 @@ import _ from 'lodash/fp';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import { rssFeedsSelector } from '../../../selectors/rss-feeds';
 import { fetchGetRssFeedsRequest } from '../../../ducks/fetch-get-rss-feeds.duck';
 import { patientsSummaryLoading } from './patients-summary.config';
-import imgRss from '../../../assets/images/patients-summary/rss.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchGetRssFeedsRequest }, dispatch) });
 
@@ -60,6 +59,8 @@ export default class RssDashboardPanel extends PureComponent {
     const items = this.getRssItems(rssFeeds);
 
     let srcPrevirew;
+    const imgRssLocation = '/images/patients-summary/rss.jpg';
+    const imgRss = isDevMode ? (testConstants.hostName + imgRssLocation) : imgRssLocation;
     if (!rssFeeds[rssFeedName]) {
       srcPrevirew = imgRss;
     } else {

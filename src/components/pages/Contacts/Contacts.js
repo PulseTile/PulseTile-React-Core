@@ -6,15 +6,12 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
-
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
-
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { defaultFormValues } from './ContactsCreate/default-values.config';
-
 import { fetchPatientContactsRequest } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contacts-create.duck';
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
@@ -26,7 +23,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
-import imgBanner from '../../../assets/images/banners/contacts.jpg';
+import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -245,12 +242,15 @@ export default class Contacts extends PureComponent {
       sourceId = contactDetail[valuesNames.SOURCE_ID];
     }
 
+    const imageLocation = '/images/banners/contacts.jpg';
+    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title="Contacts"
-          subTitle="Short blurb containing a few words to describe this section"
-          img={imgBanner}
+          subTitle="The key people in your life, that you keep in contact with on a regular basis"
+          img={imageSource}
         />
         : null
       }

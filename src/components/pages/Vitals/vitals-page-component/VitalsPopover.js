@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import _ from 'lodash/fp';
 import classNames from 'classnames';
-
-import rangeVital from '../../../../assets/images/range-vital.jpg';
+import { testConstants, isDevMode } from '../../../../config/for-test.constants';
 import { hasClass } from '../../../../utils/plugin-helpers.utils';
 
 const POPOVER_WIDTH = 266;
@@ -71,6 +70,8 @@ export default class VitalsPopover extends PureComponent {
 
     render() {
       const { title, popoverLabels, vitalStatusesType, detailValue, vitalsAddon, isInput, placeholder, input, id, type, disabled, showError, isNotValidate, error } = this.props;
+      const rangeVital = '/images/range-vital.jpg';
+      const imageSource = isDevMode ? (testConstants.hostName + rangeVital) : rangeVital;
       return (
         <div>
           <div className={`input-group vitals-holder popover-wrap ${vitalStatusesType}`} id={`popover-wrap-${id}`}>
@@ -91,7 +92,7 @@ export default class VitalsPopover extends PureComponent {
                 <div className="popover-content">
                   <div className="range-vital-labels">
                     { popoverLabels.map(label => <div className={`range-vital-label place-${label.place}`}>{label.text}</div>)}
-                    <img src={rangeVital} alt="" />
+                    <img src={imageSource} alt="" />
                   </div>
                 </div>
               </div>
