@@ -1,7 +1,7 @@
 import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
-
+import { get } from 'lodash';
 import { getRssFeedsListFromXML } from '../utils/rss-helpers';
 
 export const FETCH_GET_RSS_FEEDS_REQUEST = 'FETCH_GET_RSS_FEEDS_REQUEST';
@@ -16,18 +16,21 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
   action$.ofType(FETCH_GET_RSS_FEEDS_REQUEST)
     .mergeMap(({ payload }) =>
       ajax({
-        url: payload.rssFeedUrl,
+        url: 'https://cors.io/?' + payload.rssFeedUrl,
         responseType: 'application/rss+xml',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         crossDomain: true,
       })
-        .map(response => response.xhr.responseXML)
-        .map(xmlDocument => fetchGetRssFeedsSuccess({
-          rssFeedName: payload.rssFeedName,
-          feeds: getRssFeedsListFromXML(xmlDocument),
-        }))
+        .map(response => {
+          const responseString = get(response, 'response', '');
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(responseString, 'text/xml');
+          return fetchGetRssFeedsSuccess({
+            rssFeedName: payload.rssFeedName,
+            feeds: getRssFeedsListFromXML(xmlDoc),
+          })
+        })
     );
-
 
 export default function reducer(rssFeeds = {}, action) {
   switch (action.type) {
