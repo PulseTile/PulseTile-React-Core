@@ -30,11 +30,11 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
-    textOkButton="Ok"
+    textOkButton="Login Again"
     title="Connection Error"
   >
     <span>
-      Current request is invalid.
+      Your session has expired. Click the button to log in again
     </span>
   </ConfirmationModal>
 </div>
@@ -49,11 +49,30 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
-    textOkButton="Login Again"
+    textOkButton="Ok"
     title="Connection Error"
   >
     <span>
-      Your session has expired. Click the button to log in again
+      Something wrong
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains 404 error 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Connection Error"
+  >
+    <span>
+      Current request is invalid.
     </span>
   </ConfirmationModal>
 </div>
@@ -107,11 +126,11 @@ exports[`Component <HandleErrors /> testing methods 1`] = `
     onHide={[Function]}
     onOk={[Function]}
     textCancelButton="Cancel"
-    textOkButton="Reload Page"
+    textOkButton="Login Again"
     title="Connection Error"
   >
     <span>
-      Some connection error has occurred. Please check your connection and try again.
+      Your session has expired. Click the button to log in again
     </span>
   </ConfirmationModal>
 </div>

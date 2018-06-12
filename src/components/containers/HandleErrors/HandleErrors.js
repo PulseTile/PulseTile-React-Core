@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import requestErrorSelector from './selectors';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
+
 export class HandleErrors extends Component {
   static propTypes = {
     requestError: PropTypes.object.isRequired,
@@ -22,17 +23,11 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
-  isTokenExpired = (requestError) => {
-    const requestErrorStatus = requestError.payload.status;
-    const errorMessage = get(requestError, 'payload.xhr.response.error', '');
-    return (requestErrorStatus === 400 && errorMessage === 'Invalid JWT: Error: Token expired') || requestErrorStatus === 403;
-  };
-
   getErrorConfig = () => {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
-      case (this.isTokenExpired(requestError)):
+      case requestErrorStatus === 400:
         return {
           eventOk: this.redirectIndexPage,
           eventHide: this.redirectIndexPage,
@@ -57,7 +52,7 @@ export class HandleErrors extends Component {
           textButton: 'Reload Page',
           textMessage: 'Something is wrong with the server. Please try again later.',
         };
-      case (requestErrorStatus === 400 || requestErrorStatus === 404):
+      case requestErrorStatus === 404:
         return {
           eventOk: this.closeModal,
           eventHide: this.closeModal,
