@@ -34,7 +34,7 @@ export const fetchGetRssFeedsEpic = (action$, store) =>
 
 export default function reducer(rssFeeds = {}, action) {
   switch (action.type) {
-      case FETCH_GET_RSS_FEEDS_SUCCESS:
+    case FETCH_GET_RSS_FEEDS_SUCCESS:
       return _.set(action.payload.rssFeedName, action.payload.feeds, rssFeeds);
     default:
       return rssFeeds;
