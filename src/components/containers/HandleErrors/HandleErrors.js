@@ -25,7 +25,7 @@ export class HandleErrors extends Component {
 
   isSessionExpired = requestError => {
 
-    const errorsMessages = [
+    const errorMessages = [
       'Authorization Header missing or JWT not found in header (expected format: Bearer {{JWT}}',
       'Invalid JWT: Error: Token expired',
       'synopsis has not yet been added to middle-tier processing',
@@ -34,7 +34,7 @@ export class HandleErrors extends Component {
     const requestErrorStatus = get(requestError, 'payload.status', '');
     const requestErrorMessage = get(requestError, 'payload.xhr.response.error', '');
 
-    return (requestErrorStatus === 400 && errorsMessages.indexOf(requestErrorMessage) !== -1) || requestErrorStatus === 403;
+    return (requestErrorStatus === 400 && errorMessages.indexOf(requestErrorMessage) !== -1) || requestErrorStatus === 403;
   };
 
   getErrorConfig = () => {
