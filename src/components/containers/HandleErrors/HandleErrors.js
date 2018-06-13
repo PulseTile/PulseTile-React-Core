@@ -23,11 +23,25 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
+    isSessionExpired = requestError => {
+
+    const errorsMessages = [
+      'Authorization Header missing or JWT not found in header (expected format: Bearer {{JWT}}',
+      'Invalid JWT: Error: Token expired',
+      'synopsis has not yet been added to middle-tier processing',
+    ];
+
+    const requestErrorStatus = get(requestError, 'payload.status', '');
+    const requestErrorMessage = get(requestError, 'payload.xhr.response.error', '');
+
+    return (requestErrorStatus === 400 && errorsMessages.indexOf(requestErrorMessage) !== -1) || requestErrorStatus === 403;
+  };
+
   getErrorConfig = () => {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
-      case requestErrorStatus === 400:
+      case (this.isSessionExpired(requestError)):
         return {
           eventOk: this.redirectIndexPage,
           eventHide: this.redirectIndexPage,
@@ -52,12 +66,19 @@ export class HandleErrors extends Component {
           textButton: 'Reload Page',
           textMessage: 'Something is wrong with the server. Please try again later.',
         };
+      case requestErrorStatus === 400:
+        return {
+          eventOk: this.closeModal,
+          eventHide: this.closeModal,
+          textButton: 'Ok',
+          textMessage: 'API request is invalid',
+        };
       case requestErrorStatus === 404:
         return {
           eventOk: this.closeModal,
           eventHide: this.closeModal,
           textButton: 'Ok',
-          textMessage: 'Current request is invalid.',
+          textMessage: 'API is currently unavailable',
         };
       default:
         return {
