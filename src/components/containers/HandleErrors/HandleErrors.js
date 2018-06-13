@@ -23,7 +23,7 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
-    isSessionExpired = requestError => {
+  isSessionExpired = requestError => {
 
     const errorsMessages = [
       'Authorization Header missing or JWT not found in header (expected format: Bearer {{JWT}}',
