@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import requestErrorSelector from './selectors';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
+
 export class HandleErrors extends Component {
   static propTypes = {
     requestError: PropTypes.object.isRequired,
@@ -22,17 +23,25 @@ export class HandleErrors extends Component {
     this.setState({ countErrorRequest: this.state.countErrorRequest + 1, isOpenModal: true })
   }
 
-  isTokenExpired = (requestError) => {
-    const requestErrorStatus = requestError.payload.status;
-    const errorMessage = get(requestError, 'payload.xhr.response.error', '');
-    return (requestErrorStatus === 400 && errorMessage === 'Invalid JWT: Error: Token expired') || requestErrorStatus === 403;
+  isSessionExpired = requestError => {
+
+    const errorMessages = [
+      'Authorization Header missing or JWT not found in header (expected format: Bearer {{JWT}}',
+      'Invalid JWT: Error: Token expired',
+      'synopsis has not yet been added to middle-tier processing',
+    ];
+
+    const requestErrorStatus = get(requestError, 'payload.status', '');
+    const requestErrorMessage = get(requestError, 'payload.xhr.response.error', '');
+
+    return (requestErrorStatus === 400 && errorMessages.indexOf(requestErrorMessage) !== -1) || requestErrorStatus === 403;
   };
 
   getErrorConfig = () => {
     const { requestError } = this.props;
     const requestErrorStatus = requestError.payload.status;
     switch (true) {
-      case (this.isTokenExpired(requestError)):
+      case (this.isSessionExpired(requestError)):
         return {
           eventOk: this.redirectIndexPage,
           eventHide: this.redirectIndexPage,
@@ -57,12 +66,19 @@ export class HandleErrors extends Component {
           textButton: 'Reload Page',
           textMessage: 'Something is wrong with the server. Please try again later.',
         };
-      case (requestErrorStatus === 400 || requestErrorStatus === 404):
+      case requestErrorStatus === 400:
         return {
           eventOk: this.closeModal,
           eventHide: this.closeModal,
           textButton: 'Ok',
-          textMessage: 'Current request is invalid.',
+          textMessage: 'API request is invalid',
+        };
+      case requestErrorStatus === 404:
+        return {
+          eventOk: this.closeModal,
+          eventHide: this.closeModal,
+          textButton: 'Ok',
+          textMessage: 'API is currently unavailable',
         };
       default:
         return {

@@ -45,9 +45,29 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children.props.children).toEqual('Current request is invalid.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('API request is invalid');
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when requestError contains 404 error', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+          status: 404,
+        } }}
+      />);
+
+      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
+      expect(component.state().isOpenModal).toEqual(true);
+      expect(component.state().countErrorRequest).toEqual(1);
+      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
+      expect(confirmationModalComponentProps.isShow).toEqual(true);
+      expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
+      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
+      expect(confirmationModalComponentProps.children.props.children).toEqual('API is currently unavailable');
+      expect(component).toMatchSnapshot();
   });
 
   it('should renders correctly when requestError contains 403 error', () => {
