@@ -43,9 +43,9 @@ describe('Component <HandleErrors />', () => {
     expect(component.state().countErrorRequest).toEqual(1);
     expect(confirmationModalComponentProps.title).toEqual('Connection Error');
     expect(confirmationModalComponentProps.isShow).toEqual(true);
-    expect(confirmationModalComponentProps.textOkButton).toEqual('Login Again');
+    expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children.props.children).toEqual('Your session has expired. Click the button to log in again');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('API request is invalid');
 
     expect(component).toMatchSnapshot();
   });
@@ -66,7 +66,7 @@ describe('Component <HandleErrors />', () => {
       expect(confirmationModalComponentProps.isShow).toEqual(true);
       expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
       expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-      expect(confirmationModalComponentProps.children.props.children).toEqual('Current request is invalid.');
+      expect(confirmationModalComponentProps.children.props.children).toEqual('API is currently unavailable');
       expect(component).toMatchSnapshot();
   });
 
@@ -84,9 +84,9 @@ describe('Component <HandleErrors />', () => {
     expect(component.state().countErrorRequest).toEqual(1);
     expect(confirmationModalComponentProps.title).toEqual('Connection Error');
     expect(confirmationModalComponentProps.isShow).toEqual(true);
-    expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
+    expect(confirmationModalComponentProps.textOkButton).toEqual('Login Again');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children.props.children).toEqual('Something wrong');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Your session has expired. Click the button to log in again');
 
     expect(component).toMatchSnapshot();
   });
