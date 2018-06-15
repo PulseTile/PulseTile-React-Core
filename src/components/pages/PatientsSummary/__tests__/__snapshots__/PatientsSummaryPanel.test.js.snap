@@ -31,7 +31,7 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems"
+            title="Diagnosis"
             type="checkbox"
           />
         </Col>
@@ -120,7 +120,7 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems"
+            title="Diagnosis"
             type="checkbox"
           />
         </Col>

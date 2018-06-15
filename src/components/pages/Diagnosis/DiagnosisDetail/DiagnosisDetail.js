@@ -1,14 +1,13 @@
 import React, { PureComponent } from 'react';
-
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import ProblemsDiagnosisDetailForm from './ProblemsDiagnosisDetailForm'
+import DiagnosisDetailForm from './DiagnosisDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import Switch from '../../../form-fields/Switch';
 
 const DIAGNOSES_PANEL = 'diagnosesPanel';
 
-export default class ProblemsDiagnosisDetail extends PureComponent {
+export default class DiagnosisDetail extends PureComponent {
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, diagnosisPanelFormValues, isSubmit } = this.props;
     let { detail } = this.props;
@@ -21,7 +20,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
           {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && !editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
-            title="Problem / Diagnosis"
+            title="Diagnosis"
             isOpen={openedPanel === DIAGNOSES_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}
@@ -120,7 +119,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
           {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
-            title="Edit Problem / Diagnosis"
+            title="Edit Diagnosis"
             isOpen={openedPanel === DIAGNOSES_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}
@@ -130,7 +129,7 @@ export default class ProblemsDiagnosisDetail extends PureComponent {
             formValues={diagnosisPanelFormValues}
             isBtnShowPanel={false}
           >
-            <ProblemsDiagnosisDetailForm
+            <DiagnosisDetailForm
               detail={detail}
               isSubmit={isSubmit}
             />

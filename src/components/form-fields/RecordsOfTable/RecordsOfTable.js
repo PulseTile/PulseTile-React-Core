@@ -15,9 +15,9 @@ import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-
 import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
 import { fetchPatientEventsRequest } from '../../pages/Events/ducks/fetch-patient-events.duck';
 import { fetchPatientMedicationsRequest } from '../../pages/Medications/ducks/fetch-patient-medications.duck';
-import { fetchPatientDiagnosesRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
+import { fetchPatientDiagnosesRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientProceduresRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures.duck';
-import { patientDiagnosesSelector } from '../../pages/ProblemsDiagnosis/selectors';
+import { patientDiagnosesSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsSelector } from '../../pages/Medications/selectors';
 import { patientVitalsSelector } from '../../pages/Vitals/selectors';
 import { patientEventsSelector } from '../../pages/Events/selectors';

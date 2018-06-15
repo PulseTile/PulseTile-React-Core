@@ -78,7 +78,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
               key="0"
               srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
@@ -226,7 +226,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               key="0"
               srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
@@ -388,7 +388,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               key="0"
               srcPrevirew="/images/patients-summary/problems.jpg"
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}

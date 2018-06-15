@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with different state of props 1`] = `
+exports[`Component <DiagnosisDetail /> should renders correctly with different state of props 1`] = `
 <div
   className="section-detail"
 >
@@ -17,7 +17,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problem / Diagnosis"
+      title="Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -40,7 +40,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
                   <label
                     className="control-label"
                   >
-                    Problem / Diagnosis
+                    Diagnosis
                   </label>
                   <div
                     className="form-control-static"
@@ -180,7 +180,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with different state of props 2`] = `
+exports[`Component <DiagnosisDetail /> should renders correctly with different state of props 2`] = `
 <div
   className="section-detail"
 >
@@ -197,7 +197,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Problem / Diagnosis"
+      title="Edit Diagnosis"
     >
       <ReduxForm
         detail={
@@ -219,7 +219,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders correctly with dif
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisDetail /> should renders with props correctly 1`] = `
+exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] = `
 <div
   className="section-detail"
 >
@@ -236,7 +236,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders with props correct
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problem / Diagnosis"
+      title="Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -259,7 +259,7 @@ exports[`Component <ProblemsDiagnosisDetail /> should renders with props correct
                   <label
                     className="control-label"
                   >
-                    Problem / Diagnosis
+                    Diagnosis
                   </label>
                   <div
                     className="form-control-static"

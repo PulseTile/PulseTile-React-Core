@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import moment from 'moment';
 
 import RecordsOfTablePopoverDiagnosis from '../../../form-fields/RecordsOfTable/RecordsOfTablePopoverDiagnosis';
-import { valuesLabels, valuesNames } from '../../../pages/ProblemsDiagnosis/forms.config';
+import { valuesLabels, valuesNames } from '../../../pages/Diagnosis/forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 

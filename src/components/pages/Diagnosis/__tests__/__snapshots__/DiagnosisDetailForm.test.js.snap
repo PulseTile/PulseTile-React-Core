@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <ProblemsDiagnosisDetailForm /> should renders correctly when form is submitted 1`] = `
+exports[`Component <DiagnosisDetailForm /> should renders correctly when form is submitted 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -20,7 +20,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders correctly when
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             props={
               Object {
@@ -157,7 +157,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders correctly when
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props correctly 1`] = `
+exports[`Component <DiagnosisDetailForm /> should renders with props correctly 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -177,7 +177,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             props={
               Object {
@@ -314,7 +314,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props correctly with is import 1`] = `
+exports[`Component <DiagnosisDetailForm /> should renders with props correctly with is import 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -334,7 +334,7 @@ exports[`Component <ProblemsDiagnosisDetailForm /> should renders with props cor
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             props={
               Object {

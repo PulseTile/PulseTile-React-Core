@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when data take from Documents how "import" 1`] = `
+exports[`Component <DiagnosisCreateForm /> should renders correctly when data take from Documents how "import" 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -20,7 +20,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -173,7 +173,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when data take from Documents how "import" with Terminology 1`] = `
+exports[`Component <DiagnosisCreateForm /> should renders correctly when data take from Documents how "import" with Terminology 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -193,7 +193,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -346,7 +346,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when form is submitted 1`] = `
+exports[`Component <DiagnosisCreateForm /> should renders correctly when form is submitted 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -366,7 +366,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -507,7 +507,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders correctly when
 </div>
 `;
 
-exports[`Component <ProblemsDiagnosisCreateForm /> should renders with props correctly 1`] = `
+exports[`Component <DiagnosisCreateForm /> should renders with props correctly 1`] = `
 <div
   className="panel-body-inner"
 >
@@ -527,7 +527,7 @@ exports[`Component <ProblemsDiagnosisCreateForm /> should renders with props cor
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Diagnosis"
             name="problem"
             placeholder=""
             props={

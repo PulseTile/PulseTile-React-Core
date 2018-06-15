@@ -1,8 +1,7 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
-
-import ProblemsDiagnosisDetail from '../ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
+import DiagnosisDetail from '../DiagnosisDetail/DiagnosisDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
@@ -26,9 +25,9 @@ const DIAGNOSES_PANEL = 'diagnosesPanel';
 const CONVERT_DATE_CREATED = getDDMMMYYYY(propsForDiagnosisPanel.detail[valuesNames.DATE_CREATED]);
 const CONVERT_DATE_OF_ONSET = getDDMMMYYYY(propsForDiagnosisPanel.detail[valuesNames.DATE_OF_ONSET]);
 
-describe('Component <ProblemsDiagnosisDetail />', () => {
+describe('Component <DiagnosisDetail />', () => {
   it('should renders with props correctly', () => {
-    const component = shallow(<ProblemsDiagnosisDetail />);
+    const component = shallow(<DiagnosisDetail />);
 
     // Testing component when detail filled object, expandedPanel is all, and panel not edited
     component.setProps({ detail: propsForDiagnosisPanel.detail, expandedPanel: 'all', editedPanel: { [DIAGNOSES_PANEL]: false } });
@@ -37,7 +36,7 @@ describe('Component <ProblemsDiagnosisDetail />', () => {
 
     // Testing diagnosesPanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(DIAGNOSES_PANEL);
-    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual('Problem / Diagnosis');
+    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual('Diagnosis');
     expect(component.find('PluginDetailPanel').at(0).props().isOpen).toEqual(false);
     expect(component.find('PluginDetailPanel').at(0).props().editedPanel).toEqual({diagnosesPanel: false});
     expect(component.find('PluginDetailPanel').at(0).props().isBtnShowPanel).toEqual(false);
@@ -72,7 +71,7 @@ describe('Component <ProblemsDiagnosisDetail />', () => {
 
   it('should renders correctly with different state of props', () => {
     const component = shallow(
-      <ProblemsDiagnosisDetail />);
+      <DiagnosisDetail />);
     // Testing component when detail empty object, expandedPanel is diagnosesPanel
     component.setProps({ detail: { [valuesNames.DATE_CREATED]: 1507020019000, [valuesNames.DATE_OF_ONSET]: 1511568000000 }, expandedPanel: DIAGNOSES_PANEL, editedPanel: { [DIAGNOSES_PANEL]: false } });
     expect(component.find('PluginDetailPanel')).toHaveLength(1);

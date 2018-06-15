@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
-import ProblemsDiagnosis from '../ProblemsDiagnosis';
+import Diagnosis from '../Diagnosis';
 import { valuesNames } from '../forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -165,10 +165,10 @@ const match = {
   },
 };
 
-describe('Component <ProblemsDiagnosis />', () => {
+describe('Component <Diagnosis />', () => {
   it('should renders correctly with diagnosisDetail and testing Detail Panel', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeWithDetail}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
@@ -176,7 +176,7 @@ describe('Component <ProblemsDiagnosis />', () => {
     // Testing component handleDetailDiagnosesClick methods
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
-    expect(component.find('ProblemsDiagnosisDetail')).toHaveLength(0);
+    expect(component.find('DiagnosisDetail')).toHaveLength(0);
     expect(component.find('PluginCreate')).toHaveLength(0);
 
     component.instance().handleDetailDiagnosesClick('065d85e3-3cd5-4604-bb94-5685fffb193d');
@@ -185,7 +185,7 @@ describe('Component <ProblemsDiagnosis />', () => {
     const componentStateAfterSetState = component.state();
 
     expect(componentStateAfterMethod).toEqual(componentStateAfterSetState);
-    expect(component.find('ProblemsDiagnosisDetail')).toHaveLength(1);
+    expect(component.find('DiagnosisDetail')).toHaveLength(1);
     expect(component.find('PluginCreate')).toHaveLength(0);
     expect(component).toMatchSnapshot();
 
@@ -227,14 +227,14 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly with diagnosesDetail and testing Create Panel', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeWithDetail}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
 
     expect(component.find('PluginListHeader')).toHaveLength(1);
     expect(component.find('PluginMainPanel')).toHaveLength(1);
-    expect(component.find('ProblemsDiagnosisDetail')).toHaveLength(0);
+    expect(component.find('DiagnosisDetail')).toHaveLength(0);
     expect(component.find('PluginCreate')).toHaveLength(0);
 
     // Testing component create panel methods
@@ -253,7 +253,7 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly and testing another methods', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeWithDetail}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
@@ -291,7 +291,7 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly and testing context and lifecycle componentWillReceiveProps', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeWithDetail}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
@@ -307,7 +307,7 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly with forms error', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeWithFormsError}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
@@ -320,7 +320,7 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly with empty store', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeEmpty}
         match={match}
       />, { context }).dive().dive().dive().dive().dive().dive();
@@ -330,7 +330,7 @@ describe('Component <ProblemsDiagnosis />', () => {
 
   it('should renders correctly when data take from Documents how "import"', () => {
     const component = shallow(
-      <ProblemsDiagnosis
+      <Diagnosis
         store={storeEmpty}
         match={match}
       />, { context: contextImport }).dive().dive().dive().dive().dive().dive();

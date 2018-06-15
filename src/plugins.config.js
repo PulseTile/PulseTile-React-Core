@@ -1,6 +1,6 @@
 import { themeConfigs } from './themes.config';
 
-import diagnoses from './components/pages/ProblemsDiagnosis/index';
+import diagnoses from './components/pages/Diagnosis/index';
 import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
