@@ -122,7 +122,7 @@ const pluginsPages = {
   },
   'mdt': {
     breadcrumbs: [{
-      title: 'MDT',
+      title: 'Generic MDT',
       state: '/mdt',
     }],
   },

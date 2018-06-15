@@ -61,7 +61,7 @@ export default class RecordsOfTable extends PureComponent {
 
     typesRecords: {
       diagnosis: {
-        title: 'Problems / Diagnosis',
+        title: 'Diagnosis',
         fetchList: 'fetchPatientDiagnosesRequest',
         stateName: 'allDiagnoses',
         setMethodName: 'setDiagnosisRecords',

@@ -194,7 +194,7 @@ describe('Component <RecordsOfTablePopover />', () => {
     expect(component.find('.record-popover')).toHaveLength(1);
 
     expect(component.find('.record-popover-title')).toHaveLength(1);
-    expect(component.find('.record-popover-title').at(0).text()).toEqual('Problems / Diagnosis');
+    expect(component.find('.record-popover-title').at(0).text()).toEqual('Diagnosis');
 
     expect(component.find('Spinner')).toHaveLength(1);
     expect(component.find('RecordsOfTablePopoverDiagnosis')).toHaveLength(1);

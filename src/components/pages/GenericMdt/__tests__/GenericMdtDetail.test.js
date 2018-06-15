@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 
-import MDTsDetail from '../MDTsDetail/MDTsDetail';
+import MDTsDetail from '../GenericMdtDetail/GenericMdtDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 
@@ -37,7 +37,7 @@ describe('Component <MDTsDetail />', () => {
 
     // Testing mdtsPanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(MDTS_PANEL);
-    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual('MDT Meeting');
+    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual('Generic MDT Meeting');
     expect(component.find('PluginDetailPanel').at(0).props().isOpen).toEqual(false);
     expect(component.find('PluginDetailPanel').at(0).props().editedPanel).toEqual({ mdtsPanel: false });
     expect(component.find('PluginDetailPanel').at(0).props().isShowControlPanel).toEqual(true);

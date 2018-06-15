@@ -1,8 +1,7 @@
 import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
-
-import { usersUrls } from '../../../../config/server-urls.constants'
+import { usersUrls } from '../../../../config/server-urls.constants';
 
 export const FETCH_PATIENT_MDTS_DETAIL_REQUEST = 'FETCH_PATIENT_MDTS_DETAIL_REQUEST';
 export const FETCH_PATIENT_MDTS_DETAIL_SUCCESS = 'FETCH_PATIENT_MDTS_DETAIL_SUCCESS';

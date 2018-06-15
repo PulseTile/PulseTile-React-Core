@@ -17,7 +17,7 @@ exports[`Component <MDTsDetail /> should renders correctly with different state 
       isOpen={false}
       isShowControlPanel={true}
       name="mdtsPanel"
-      title="MDT Meeting"
+      title="Generic MDT Meeting"
     >
       <div
         className="panel-body-inner"
@@ -232,7 +232,7 @@ exports[`Component <MDTsDetail /> should renders with props correctly 1`] = `
       isOpen={false}
       isShowControlPanel={true}
       name="mdtsPanel"
-      title="MDT Meeting"
+      title="Generic MDT Meeting"
     >
       <div
         className="panel-body-inner"

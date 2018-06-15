@@ -15,7 +15,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     <div
       className="record-popover-title"
     >
-      Problems / Diagnosis
+      Diagnosis
     </div>
   </div>
   <div

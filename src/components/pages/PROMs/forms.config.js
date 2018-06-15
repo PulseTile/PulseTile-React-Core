@@ -106,5 +106,5 @@ export const marksForPromsRange = {
 
 export const typesOfRecordsOptions = [
   { value: 'procedures',   title: 'Procedures' },
-  // { value: 'diagnosis',   title: 'Problems / Diagnosis' },
+  // { value: 'diagnosis',   title: 'Diagnosis' },
 ];
