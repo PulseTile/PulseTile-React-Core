@@ -168,12 +168,12 @@ const pluginsPages = {
       state: '/clinicalStatements',
     }],
   },
-  'proms': {
-    breadcrumbs: [{
-      title: 'PROMs',
-      state: '/proms',
-    }],
-  },
+  // 'proms': {
+  //   breadcrumbs: [{
+  //     title: 'PROMs',
+  //     state: '/proms',
+  //   }],
+  // },
 };
 
 

@@ -216,16 +216,6 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               Transfers of Care
             </a>
           </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/proms"
-            >
-              PROMs
-            </a>
-          </li>
         </ul>
       </div>
     </div>
