@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly and testing another methods 1`] = `
+exports[`Component <Diagnosis /> should renders correctly and testing another methods 1`] = `
 <section
   className="page-wrapper"
 >
   <PluginBanner
     img="/images/banners/problems.jpg"
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Problems / Diagnoses"
+    title="Diagnoses"
     toRight={false}
   />
   <div
@@ -33,7 +33,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -42,7 +42,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -83,7 +83,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing an
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+exports[`Component <Diagnosis /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
 <section
   className="page-wrapper"
 >
@@ -110,7 +110,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing co
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -119,7 +119,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing co
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -162,7 +162,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing co
         componentClass="div"
         xs={12}
       >
-        <ProblemsDiagnosisDetail
+        <DiagnosisDetail
           currentPanel="diagnosesDetail"
           detail={
             Object {
@@ -193,14 +193,14 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly and testing co
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly when data take from Documents how "import" 1`] = `
+exports[`Component <Diagnosis /> should renders correctly when data take from Documents how "import" 1`] = `
 <section
   className="page-wrapper"
 >
   <PluginBanner
     img="/images/banners/problems.jpg"
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Problems / Diagnoses"
+    title="Diagnoses"
     toRight={false}
   />
   <div
@@ -226,7 +226,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -235,7 +235,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -276,7 +276,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly when data take
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 1`] = `
+exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 1`] = `
 <section
   className="page-wrapper"
 >
@@ -303,7 +303,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -312,7 +312,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -370,7 +370,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
           onGoBack={[Function]}
           onSaveSettings={[Function]}
           openedPanel="diagnosesCreate"
-          title="Create Problem and Diagnosis"
+          title="Create Diagnosis"
         />
       </Col>
     </Row>
@@ -378,7 +378,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 2`] = `
+exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 2`] = `
 <section
   className="page-wrapper"
 >
@@ -405,7 +405,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -414,7 +414,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -472,7 +472,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
           onGoBack={[Function]}
           onSaveSettings={[Function]}
           openedPanel="diagnosesCreate"
-          title="Create Problem and Diagnosis"
+          title="Create Diagnosis"
         />
       </Col>
     </Row>
@@ -480,7 +480,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnoses
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 1`] = `
+exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 1`] = `
 <section
   className="page-wrapper"
 >
@@ -507,7 +507,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -516,7 +516,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -559,7 +559,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
         componentClass="div"
         xs={12}
       >
-        <ProblemsDiagnosisDetail
+        <DiagnosisDetail
           currentPanel="diagnosesDetail"
           detail={
             Object {
@@ -590,7 +590,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 2`] = `
+exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 2`] = `
 <section
   className="page-wrapper"
 >
@@ -607,7 +607,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
         componentClass="div"
         xs={12}
       >
-        <ProblemsDiagnosisDetail
+        <DiagnosisDetail
           currentPanel="diagnosesDetail"
           detail={
             Object {
@@ -638,7 +638,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 3`] = `
+exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 3`] = `
 <section
   className="page-wrapper"
 >
@@ -653,14 +653,14 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosis
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with empty store 1`] = `
+exports[`Component <Diagnosis /> should renders correctly with empty store 1`] = `
 <section
   className="page-wrapper"
 >
   <PluginBanner
     img="/images/banners/problems.jpg"
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Problems / Diagnoses"
+    title="Diagnoses"
     toRight={false}
   />
   <div
@@ -686,7 +686,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -695,7 +695,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {
@@ -736,14 +736,14 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with empty sto
 </section>
 `;
 
-exports[`Component <ProblemsDiagnosis /> should renders correctly with forms error 1`] = `
+exports[`Component <Diagnosis /> should renders correctly with forms error 1`] = `
 <section
   className="page-wrapper"
 >
   <PluginBanner
     img="/images/banners/problems.jpg"
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Problems / Diagnoses"
+    title="Diagnoses"
     toRight={false}
   />
   <div
@@ -769,7 +769,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Problems / Diagnoses"
+            panelTitle="Diagnoses"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
@@ -778,7 +778,7 @@ exports[`Component <ProblemsDiagnosis /> should renders correctly with forms err
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Problems / Diagnoses",
+                  "title": "Diagnoses",
                   "width": "56%",
                 },
                 Object {

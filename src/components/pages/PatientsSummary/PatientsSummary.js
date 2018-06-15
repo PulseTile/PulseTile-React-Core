@@ -12,7 +12,7 @@ import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationM
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import { summarySynopsisSelector } from './separate-selectors';
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
-import { fetchPatientDiagnosesSynopsisRequest } from '../ProblemsDiagnosis/ducks/fetch-patient-diagnoses.duck';
+import { fetchPatientDiagnosesSynopsisRequest } from '../Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
 import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-patient-allergies.duck';
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';

@@ -19,7 +19,7 @@ export const valuesNames = {
 };
 
 export const valuesLabels = {
-  PROBLEM: 'Problem / Diagnosis',
+  PROBLEM: 'Diagnosis',
   DATE_OF_ONSET: 'Date of Onset',
   DESCRIPTION: 'Description',
   NHS_WEB_PAGE_URL: 'NHS Choices Web Page URL',

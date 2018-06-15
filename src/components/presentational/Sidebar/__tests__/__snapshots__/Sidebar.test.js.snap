@@ -33,7 +33,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               class="sidebar-nav-link"
               href="/patients/9999999000/diagnoses"
             >
-              Problems / Diagnosis
+              Diagnosis
             </a>
           </li>
           <li

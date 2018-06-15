@@ -2,96 +2,33 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-
-import ProblemsDiagnosisCreateForm from '../ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm';
+import DiagnosisDetailForm from '../DiagnosisDetail/DiagnosisDetailForm';
 import { valuesNames, valuesLabels } from '../forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 const mockStore = configureStore();
 const store = mockStore({});
-const DATE_TO_USE = new Date('2017');
-const DATE_TO_USE_TIME = DATE_TO_USE.getTime();
-global.Date = jest.fn(() => DATE_TO_USE);
-Date.now = jest.fn(() => DATE_TO_USE_TIME);
-
-const FORM_NAME = 'diagnosesCreateForm';
-const DATE_FORMAT = 'DD-MMM-YYYY';
+const FORM_NAME = 'diagnosesPanelForm';
 const NHS_PLACEHOLDER = 'https://www.nhs.co.uk/Conditions/Hay-fever/Pages';
+const DATE_FORMAT = 'DD-MMM-YYYY';
 const IS_NOT_VALIDATE = true;
 
 const testProps = {
+  detail: {
+    dateCreated: 1507020019000,
+  },
   isSubmit: false,
 };
 
-const userId = '9999999000';
-const pathname = `/patients/${userId}/diagnoses/create`;
-const route = {
-  match: {
-    params: { userId },
-  },
-};
-const context = {
-  router: {
-    route,
-    history: {
-      push: () => {},
-      replace: () => {},
-      location: { pathname },
-    },
-  },
-};
-
-const contextImport = {
-  router: {
-    route,
-    history: {
-      push: () => {},
-      replace: () => {},
-      location: {
-        pathname,
-        state: {
-          importData: {
-            isImport: true,
-            originalSource: 'domen.com/documents/documents_id',
-            name: 'name',
-          }
-        }
-      },
-    }
-  },
-};
-
-const contextImportWithTerminology = {
-  router: {
-    route,
-    history: {
-      push: () => {},
-      replace: () => {},
-      location: {
-        pathname,
-        state: {
-          importData: {
-            isImport: true,
-            originalSource: 'domen.com/documents/documents_id',
-            cause: 'cause',
-            code: 'code',
-            terminology: 'terminology',
-          },
-        },
-      },
-    },
-  },
-};
-
-describe('Component <ProblemsDiagnosisCreateForm />', () => {
+describe('Component <DiagnosisDetailForm />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(
-      <ProblemsDiagnosisCreateForm
+      <DiagnosisDetailForm
         store={store}
         isSubmit={testProps.isSubmit}
-      />, { context }).dive().dive().dive();
-
+        detail={testProps.detail}
+      />).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
@@ -114,7 +51,6 @@ describe('Component <ProblemsDiagnosisCreateForm />', () => {
 
     expect(component.find('Field').at(3).props().placeholder).toEqual(NHS_PLACEHOLDER);
     expect(component.find('Field').at(3).props().label).toEqual(valuesLabels.NHS_WEB_PAGE_URL);
-    expect(component.find('Field').at(3).props().props.isSubmit).toEqual(false);
     expect(component.find('Field').at(3).props().props.isNotValidate).toEqual(IS_NOT_VALIDATE);
 
     expect(component.find('Field').at(4).props().name).toEqual(valuesNames.TERMINOLOGY);
@@ -124,7 +60,6 @@ describe('Component <ProblemsDiagnosisCreateForm />', () => {
 
     expect(component.find('Field').at(5).props().name).toEqual(valuesNames.CODE);
     expect(component.find('Field').at(5).props().label).toEqual(valuesLabels.CODE);
-    expect(component.find('Field').at(5).props().props.isSubmit).toEqual(false);
     expect(component.find('Field').at(5).props().props.className).toEqual('non-edit-value');
 
     expect(component.find('Field').at(6).props().name).toEqual(valuesNames.AUTHOR);
@@ -138,18 +73,40 @@ describe('Component <ProblemsDiagnosisCreateForm />', () => {
     expect(component.find('Field').at(7).props().label).toEqual(valuesLabels.DATE);
     expect(component.find('Field').at(7).props().props.isSubmit).toEqual(false);
     expect(component.find('Field').at(7).props().props.disabled).toEqual(true);
-    expect(component.find('Field').at(7).props().props.value).toEqual(DATE_TO_USE_TIME);
+    expect(component.find('Field').at(7).props().props.value).toEqual(testProps.detail.dateCreated);
     expect(component.find('Field').at(7).props().props.format).toEqual(DATE_FORMAT);
+
+    expect(component).toMatchSnapshot();
+  });
+
+  it('should renders with props correctly with is import', () => {
+    const component = shallow(
+      <DiagnosisDetailForm
+        store={store}
+        isSubmit
+        detail={{
+          dateCreated: 1507020019000,
+          isImport: true,
+        }}
+      />).dive().dive().dive();
+    expect(component.find('Field')).toHaveLength(9);
+
+    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(6).props().id).toEqual(valuesNames.IMPORT);
+    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.IMPORT);
+    expect(component.find('Field').at(6).props().props.isSubmit).toEqual(true);
+    expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
 
     expect(component).toMatchSnapshot();
   });
 
   it('should renders correctly when form is submitted', () => {
     const component = shallow(
-      <ProblemsDiagnosisCreateForm
+      <DiagnosisDetailForm
         store={store}
         isSubmit
-      />, { context }).dive().dive().dive();
+        detail={testProps.detail}
+      />).dive().dive().dive();
     expect(component.find('Field')).toHaveLength(8);
     expect(component.find('form')).toHaveLength(1);
     expect(component.find('form').prop('name')).toEqual(FORM_NAME);
@@ -157,39 +114,9 @@ describe('Component <ProblemsDiagnosisCreateForm />', () => {
     expect(component.find('Field').at(0).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(1).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(2).props().props.isSubmit).toEqual(true);
-    expect(component.find('Field').at(3).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(4).props().props.isSubmit).toEqual(true);
-    expect(component.find('Field').at(5).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(6).props().props.isSubmit).toEqual(true);
     expect(component.find('Field').at(7).props().props.isSubmit).toEqual(true);
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should renders correctly when data take from Documents how "import"', () => {
-    const component = shallow(
-      <ProblemsDiagnosisCreateForm
-        store={store}
-      />, { context: contextImport }).dive().dive().dive();
-    expect(component.find('Field')).toHaveLength(9);
-
-    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);
-    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.IMPORT);
-    expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should renders correctly when data take from Documents how "import" with Terminology', () => {
-    const component = shallow(
-      <ProblemsDiagnosisCreateForm
-        store={store}
-      />, { context: contextImportWithTerminology }).dive().dive().dive();
-    expect(component.find('Field')).toHaveLength(9);
-
-    expect(component.find('Field').at(6).props().name).toEqual(valuesNames.IMPORT);
-    expect(component.find('Field').at(6).props().label).toEqual(valuesLabels.IMPORT);
-    expect(component.find('Field').at(6).props().props.disabled).toEqual(true);
 
     expect(component).toMatchSnapshot();
   });

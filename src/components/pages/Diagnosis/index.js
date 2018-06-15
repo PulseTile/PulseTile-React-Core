@@ -15,7 +15,7 @@ import diagnosesDetailEdit from './ducks/fetch-patient-diagnoses-detail-edit.duc
 import patientDiagnosesCreate from './ducks/fetch-patient-diagnoses-create.duck';
 
 const epics = combineEpics(fetchPatientDiagnosesEpic, fetchPatientDiagnosesSynopsisEpic, fetchPatientDiagnosesDetailEpic, fetchPatientDiagnosesDetailEditEpic, fetchPatientDiagnosesCreateEpic, fetchPatientDiagnosesUpdateEpic);
-const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnoses" */ './ProblemsDiagnosis').then(module => module.default));
+const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnoses" */ './Diagnosis').then(module => module.default));
 
 const reducers = {
   patientsDiagnoses,
@@ -24,7 +24,7 @@ const reducers = {
   patientDiagnosesCreate,
 };
 
-const sidebarConfig = { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Problems / Diagnosis', isVisible: true };
+const sidebarConfig = { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Diagnosis', isVisible: true };
 
 const routers = [
   { key: 'problems', component: ProblemsDiagnosis, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DIAGNOSES}` },

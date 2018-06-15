@@ -3,9 +3,9 @@ import React from 'react';
 export const patientsSummaryConfig = [
   {
     key: 'problems',
-    title: 'Problems / Diagnosis',
+    title: 'Diagnosis',
     state: 'diagnoses',
-    titleCheckboxes: 'Problems',
+    titleCheckboxes: 'Diagnosis',
     nameCheckboxes: 'problems',
     imgPreview: '/images/patients-summary/problems.jpg',
     isDefaultSelected: true,

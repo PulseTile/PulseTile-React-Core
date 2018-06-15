@@ -13,14 +13,14 @@ import RecordsOfTablePopoverVitals from './RecordsOfTablePopoverVitals';
 import RecordsOfTablePopoverProcedures from './RecordsOfTablePopoverProcedures';
 
 
-import { fetchPatientDiagnosesDetailRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
+import { fetchPatientDiagnosesDetailRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientMedicationsDetailRequest } from '../../pages/Medications/ducks/fetch-patient-medications-detail.duck';
 import { fetchPatientReferralsDetailRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals-detail.duck';
 import { fetchPatientEventsDetailRequest } from '../../pages/Events/ducks/fetch-patient-events-detail.duck';
 import { fetchPatientVitalsDetailRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals-detail.duck';
 import { fetchPatientProceduresDetailRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures-detail.duck';
 
-import { patientDiagnosesDetailSelector } from '../../pages/ProblemsDiagnosis/selectors';
+import { patientDiagnosesDetailSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsDetailSelector } from '../../pages/Medications/selectors';
 import { patientReferralsDetailSelector } from '../../pages/Referrals/selectors';
 import { patientEventsDetailSelector } from '../../pages/Events/selectors';

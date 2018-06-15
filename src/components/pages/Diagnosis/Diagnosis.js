@@ -11,7 +11,7 @@ import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
-import { defaultFormValues } from './ProblemsDiagnosisCreate/default-values.config'
+import { defaultFormValues } from './DiagnosisCreate/default-values.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientDiagnosesRequest } from './ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientDiagnosesDetailRequest } from './ducks/fetch-patient-diagnoses-detail.duck';
@@ -22,9 +22,9 @@ import { patientDiagnosesSelector, patientDiagnosesDetailSelector, diagnosisPane
 import { clientUrls } from '../../../config/client-urls.constants';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
-import ProblemsDiagnosisDetail from './ProblemsDiagnosisDetail/ProblemsDiagnosisDetail';
+import DiagnosisDetail from './DiagnosisDetail/DiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
-import ProblemsDiagnosisCreateForm from './ProblemsDiagnosisCreate/ProblemsDiagnosisCreateForm'
+import DiagnosisCreateForm from './DiagnosisCreate/DiagnosisCreateForm'
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
@@ -263,7 +263,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
-          title='Problems / Diagnoses'
+          title='Diagnoses'
           subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
           img={imageSource}
         />
@@ -275,7 +275,7 @@ export default class ProblemsDiagnosis extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Problems / Diagnoses"
+                panelTitle="Diagnoses"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={DIAGNOSES_MAIN}
@@ -303,7 +303,7 @@ export default class ProblemsDiagnosis extends PureComponent {
             </div>
           </Col> : null }
           {(expandedPanel === 'all' || isPanelDetails) && isDetailPanelVisible && !isCreatePanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
-            <ProblemsDiagnosisDetail
+            <DiagnosisDetail
               onExpand={this.handleExpand}
               name={DIAGNOSES_DETAIL}
               openedPanel={openedPanel}
@@ -320,7 +320,7 @@ export default class ProblemsDiagnosis extends PureComponent {
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
-              title="Create Problem and Diagnosis"
+              title="Create Diagnosis"
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}
@@ -334,7 +334,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={
-                <ProblemsDiagnosisCreateForm isSubmit={isSubmit} />
+                <DiagnosisCreateForm isSubmit={isSubmit} />
               }
             />
           </Col> : null}
