@@ -3,7 +3,7 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 
-import TestResults from '../TestResults';
+import TestResults from '../Results';
 import { valuesNames } from '../forms.config';
 
 Enzyme.configure({ adapter: new Adapter() });

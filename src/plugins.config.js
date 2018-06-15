@@ -7,7 +7,7 @@ import contacts from './components/pages/Contacts/index';
 import events from './components/pages/Events/index';
 import documents from './components/pages/Documents/index';
 import orders from './components/pages/Orders/index';
-import testResults from './components/pages/TestResults/index';
+import testResults from './components/pages/Results/index';
 import procedures from './components/pages/Procedures/index';
 import clinicalNotes from './components/pages/ClinicalNotes/index';
 import clinicalStatements from './components/pages/ClinicalStatements/index';

@@ -25,7 +25,7 @@ export const valuesLabels = {
   AUTHOR: 'Author',
   DATE: 'Date',
 
-  TR: 'Test Results',
+  TR: 'Results',
   TR_RESULT: 'Results',
   TR_VALUE: 'Value',
   TR_UNIT: 'Unit',

@@ -104,7 +104,7 @@ const pluginsPages = {
   },
   'results': {
     breadcrumbs: [{
-      title: 'Test Results',
+      title: 'Results',
       state: '/results',
     }],
   },

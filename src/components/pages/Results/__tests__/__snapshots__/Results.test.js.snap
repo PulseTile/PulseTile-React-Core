@@ -27,7 +27,7 @@ exports[`Component <TestResults /> should renders correctly and testing another 
             name="testResultsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Test Results"
+            panelTitle="Results"
           />
           <PluginMainPanel
             columnNameSortBy="testName"
@@ -108,7 +108,7 @@ exports[`Component <TestResults /> should renders correctly and testing context 
             name="testResultsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Test Results"
+            panelTitle="Results"
           />
           <PluginMainPanel
             columnNameSortBy="testName"
@@ -231,7 +231,7 @@ exports[`Component <TestResults /> should renders correctly with empty store 1`]
             name="testResultsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Test Results"
+            panelTitle="Results"
           />
           <PluginMainPanel
             columnNameSortBy="testName"
@@ -312,7 +312,7 @@ exports[`Component <TestResults /> should renders correctly with testResultPanel
             name="testResultsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Test Results"
+            panelTitle="Results"
           />
           <PluginMainPanel
             columnNameSortBy="testName"

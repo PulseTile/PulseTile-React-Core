@@ -18,7 +18,7 @@ import { fetchPatientTestResultsOnMount, fetchPatientTestResultsDetailOnMount } 
 import { patientTestResultsSelector, patientTestResultsDetailSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
-import TestResultsDetail from './TestResultsDetail/TestResultsDetail';
+import TestResultsDetail from './ResultsDetail/ResultsDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const TEST_RESULTS_MAIN = 'testResultsMain';
@@ -182,7 +182,7 @@ export default class TestResults extends PureComponent {
               <div className="panel panel-primary">
                 <PluginListHeader
                   onFilterChange={this.handleFilterChange}
-                  panelTitle="Test Results"
+                  panelTitle="Results"
                   isBtnExpandVisible={isBtnExpandVisible}
                   isBtnTableVisible={false}
                   name={TEST_RESULTS_MAIN}
