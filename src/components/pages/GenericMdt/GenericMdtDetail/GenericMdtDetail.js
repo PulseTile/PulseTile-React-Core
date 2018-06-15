@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
-
-import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
-import MDTsDetailForm from './MDTsDetailForm'
+import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel';
+import MDTsDetailForm from './GenericMdtDetailForm';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 
@@ -21,7 +20,7 @@ export default class MDTsDetail extends PureComponent {
           {(expandedPanel === MDTS_PANEL || expandedPanel === 'all') && !editedPanel[MDTS_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={MDTS_PANEL}
-            title="MDT Meeting"
+            title="Generic MDT Meeting"
             isOpen={openedPanel === MDTS_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}

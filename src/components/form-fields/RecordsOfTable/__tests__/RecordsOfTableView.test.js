@@ -18,7 +18,7 @@ const testProps = {
       [valuesNames.RECORDS_SOURCE]: 'ethercis',
       [valuesNames.SOURCE_ID]: '0234fbd6-bfb5-49b0-bf02-9759a22f471f',
       [valuesNames.TYPE]: 'diagnosis',
-      [valuesNames.RECORDS_TYPE]: 'Problems / Diagnosis',
+      [valuesNames.RECORDS_TYPE]: 'Diagnosis',
     },
     {
       [valuesNames.RECORDS_DATE]: '10-Oct-2017',

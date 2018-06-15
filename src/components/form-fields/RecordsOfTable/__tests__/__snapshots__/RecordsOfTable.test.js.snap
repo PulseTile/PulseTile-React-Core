@@ -23,7 +23,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
           "name": "Too bad desease ddd",
           "source": "ethercis",
           "type": "diagnosis",
-          "typeTitle": "Problems / Diagnosis",
+          "typeTitle": "Diagnosis",
           "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
         },
       ],
@@ -90,7 +90,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
             "name": "Too bad desease ddd",
             "source": "ethercis",
             "type": "diagnosis",
-            "typeTitle": "Problems / Diagnosis",
+            "typeTitle": "Diagnosis",
             "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
           },
         ],
@@ -198,7 +198,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
               "name": "Too bad desease ddd",
               "source": "ethercis",
               "type": "diagnosis",
-              "typeTitle": "Problems / Diagnosis",
+              "typeTitle": "Diagnosis",
               "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
             },
           ],
@@ -324,7 +324,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                 "name": "Too bad desease ddd",
                 "source": "ethercis",
                 "type": "diagnosis",
-                "typeTitle": "Problems / Diagnosis",
+                "typeTitle": "Diagnosis",
                 "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
               },
             ],
@@ -483,7 +483,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                   "name": "Too bad desease ddd",
                   "source": "ethercis",
                   "type": "diagnosis",
-                  "typeTitle": "Problems / Diagnosis",
+                  "typeTitle": "Diagnosis",
                   "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
                 },
               ],
@@ -687,7 +687,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                     "name": "Too bad desease ddd",
                     "source": "ethercis",
                     "type": "diagnosis",
-                    "typeTitle": "Problems / Diagnosis",
+                    "typeTitle": "Diagnosis",
                     "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
                   },
                 ],
@@ -922,7 +922,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                       "name": "Too bad desease ddd",
                       "source": "ethercis",
                       "type": "diagnosis",
-                      "typeTitle": "Problems / Diagnosis",
+                      "typeTitle": "Diagnosis",
                       "undefined": "0234fbd6-bfb5-49b0-bf02-9759a22f471f",
                     },
                   ],
@@ -1061,7 +1061,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
               typesOptions={
                 Array [
                   Object {
-                    "title": "Problems / Diagnosis",
+                    "title": "Diagnosis",
                     "value": "diagnosis",
                   },
                   Object {
@@ -1109,7 +1109,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                   options={
                     Array [
                       Object {
-                        "title": "Problems / Diagnosis",
+                        "title": "Diagnosis",
                         "value": "diagnosis",
                       },
                       Object {
@@ -1159,7 +1159,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                         key="__SelectFormGroupOption__1"
                         value="diagnosis"
                       >
-                        Problems / Diagnosis
+                        Diagnosis
                       </option>
                       <option
                         key="__SelectFormGroupOption__2"
@@ -1292,7 +1292,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                                         data-th="Type"
                                       >
                                         <span>
-                                          Problems / Diagnosis
+                                          Diagnosis
                                         </span>
                                       </div>
                                       <div
@@ -1442,7 +1442,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                                             data-th="Type"
                                           >
                                             <span>
-                                              Problems / Diagnosis
+                                              Diagnosis
                                             </span>
                                           </div>
                                           <div
@@ -1568,7 +1568,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly mount 
                                                   data-th="Type"
                                                 >
                                                   <span>
-                                                    Problems / Diagnosis
+                                                    Diagnosis
                                                   </span>
                                                 </div>
                                                 <div
@@ -1649,7 +1649,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly shallo
     options={
       Array [
         Object {
-          "title": "Problems / Diagnosis",
+          "title": "Diagnosis",
           "value": "diagnosis",
         },
         Object {
@@ -1737,7 +1737,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly when i
     options={
       Array [
         Object {
-          "title": "Problems / Diagnosis",
+          "title": "Diagnosis",
           "value": "diagnosis",
         },
         Object {
@@ -1803,7 +1803,7 @@ exports[`Component <RecordsOfTable /> should renders with props correctly when i
     options={
       Array [
         Object {
-          "title": "Problems / Diagnosis",
+          "title": "Diagnosis",
           "value": "diagnosis",
         },
         Object {

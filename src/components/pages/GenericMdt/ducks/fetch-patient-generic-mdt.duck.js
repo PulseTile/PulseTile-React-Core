@@ -3,7 +3,7 @@ import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 
 import { usersUrls } from '../../../../config/server-urls.constants'
-import { fetchPatientMDTsDetailRequest } from './fetch-patient-mdts-detail.duck';
+import { fetchPatientMDTsDetailRequest } from './fetch-patient-generic-mdt-detail.duck';
 import { hasTokenInResponse } from '../../../../utils/plugin-helpers.utils';
 
 export const FETCH_PATIENT_MDTS_REQUEST = 'FETCH_PATIENT_MDTS_REQUEST';

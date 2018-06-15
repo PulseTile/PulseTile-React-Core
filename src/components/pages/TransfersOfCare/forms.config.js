@@ -39,7 +39,7 @@ export const citiesOptions = [
 ];
 
 export const typesOfRecordsOptions = [
-  { value: 'diagnosis',   title: 'Problems / Diagnosis' },
+  { value: 'diagnosis',   title: 'Diagnosis' },
   { value: 'medications', title: 'Medications' },
   { value: 'referrals',   title: 'Referrals' },
   { value: 'events',      title: 'Events' },

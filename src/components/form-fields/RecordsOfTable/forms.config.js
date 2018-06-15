@@ -22,7 +22,7 @@ export const valuesLabels = {
 };
 
 export const defaultTypesOptions = [
-  { value: 'diagnosis',   title: 'Problems / Diagnosis' },
+  { value: 'diagnosis',   title: 'Diagnosis' },
   { value: 'medications', title: 'Medications' },
   { value: 'referrals',   title: 'Referrals' },
   { value: 'events',      title: 'Events' },

@@ -10,17 +10,17 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
-import MDTsCreateForm from './MDTsCreate/MDTsCreateForm';
+import MDTsCreateForm from './GenericMdtCreate/GenericMdtCreateForm';
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
-import { fetchPatientMDTsRequest } from './ducks/fetch-patient-mdts.duck';
-import { fetchPatientMDTsDetailRequest } from './ducks/fetch-patient-mdts-detail.duck';
-import { fetchPatientMDTsDetailEditRequest } from './ducks/fetch-patient-mdts-detail-edit.duck';
-import { fetchPatientMDTsCreateRequest } from './ducks/fetch-patient-mdts-create.duck';
+import { fetchPatientMDTsRequest } from './ducks/fetch-patient-generic-mdt.duck';
+import { fetchPatientMDTsDetailRequest } from './ducks/fetch-patient-generic-mdt-detail.duck';
+import { fetchPatientMDTsDetailEditRequest } from './ducks/fetch-patient-generic-mdt-detail-edit.duck';
+import { fetchPatientMDTsCreateRequest } from './ducks/fetch-patient-generic-mdt-create.duck';
 import { fetchPatientMDTsOnMount, fetchPatientMDTsDetailOnMount } from '../../../utils/HOCs/fetch-patients.utils';
 import { patientMDTsSelector, patientMDTsDetailSelector, mdtPanelFormSelector, mdtCreateFormStateSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import MDTsDetail from './MDTsDetail/MDTsDetail';
+import MDTsDetail from './GenericMdtDetail/GenericMdtDetail';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 

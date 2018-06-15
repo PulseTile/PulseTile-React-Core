@@ -23,7 +23,7 @@ const propsForTransfersOfCarePanel = {
         [valuesNames.RECORDS_SOURCE]: 'ethercis',
         [valuesNames.SOURCE_ID]: '0318e94e-1803-46fe-a92a-647eca029323',
         [valuesNames.TYPE]: 'diagnosis',
-        [valuesNames.RECORDS_TYPE]: 'Problems / Diagnosis',
+        [valuesNames.RECORDS_TYPE]: 'Diagnosis',
       },
       {
         [valuesNames.RECORDS_DATE]: '11-Feb-2015',

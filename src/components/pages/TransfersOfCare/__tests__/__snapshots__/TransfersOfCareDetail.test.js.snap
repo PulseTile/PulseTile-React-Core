@@ -190,7 +190,7 @@ exports[`Component <TransfersOfCareDetail /> should renders correctly with diffe
               Object {
                 "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
                 "type": "diagnosis",
-                "undefined": "Problems / Diagnosis",
+                "undefined": "Diagnosis",
               },
               Object {
                 "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",
@@ -297,7 +297,7 @@ exports[`Component <TransfersOfCareDetail /> should renders with props correctly
                   Object {
                     "sourceId": "0318e94e-1803-46fe-a92a-647eca029323",
                     "type": "diagnosis",
-                    "undefined": "Problems / Diagnosis",
+                    "undefined": "Diagnosis",
                   },
                   Object {
                     "sourceId": "3a994bec-2f41-4dc0-aae6-f7e69e573f7a",

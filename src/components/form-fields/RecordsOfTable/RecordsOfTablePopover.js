@@ -51,7 +51,7 @@ export default class RecordsOfTablePopover extends PureComponent {
   state = {
     typesRecords: {
       diagnosis: {
-        title: 'Problems / Diagnosis',
+        title: 'Diagnosis',
         fetchDetail: 'fetchPatientDiagnosesDetailRequest',
         stateName: 'diagnosisDetail',
       },

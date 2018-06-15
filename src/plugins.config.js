@@ -17,7 +17,7 @@ import vitals from './components/pages/Vitals/index';
 import images from './components/pages/Images/index';
 import drawings from './components/pages/Drawings/index';
 import referrals from './components/pages/Referrals/index';
-import mdts from './components/pages/MDTs/index';
+import mdts from './components/pages/GenericMdt/index';
 import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';

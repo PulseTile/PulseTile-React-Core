@@ -32,7 +32,7 @@ export const optionsForAgeField = [{
 
 export const optionsForSearchType = [
   { title: 'Allergies', value: 'allergies' },
-  { title: 'Problems / Diagnosis', value: 'diagnosis' },
+  { title: 'Diagnosis', value: 'diagnosis' },
   { title: 'Procedures', value: 'procedures' },
   { title: 'Medications', value: 'medications' },
 ];

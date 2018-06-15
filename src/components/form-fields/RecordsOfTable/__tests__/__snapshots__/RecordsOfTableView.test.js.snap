@@ -67,7 +67,7 @@ exports[`Component <RecordsOfTableView /> should renders with props correctly 1`
           data-th="Type"
         >
           <span>
-            Problems / Diagnosis
+            Diagnosis
           </span>
         </td>
         <td
