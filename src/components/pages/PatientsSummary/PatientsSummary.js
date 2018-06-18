@@ -17,14 +17,14 @@ import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-pat
 import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-patient-allergies.duck';
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
 
-import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
+
 import {
   fetchPatientProblemsSynopsisOnMount,
   fetchPatientContactsSynopsisOnMount,
   fetchPatientAllergiesSynopsisOnMount,
   fetchPatientMedicationsSynopsisOnMount,
   // fetchPatientVaccinationsSynopsisOnMount,
-  fetchPatientTopThreeThingsSynopsisOnMount,
+  // fetchPatientTopThreeThingsSynopsisOnMount,
   fetchFeedsOnMount
 } from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
@@ -33,7 +33,8 @@ import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
-// Components were commented because of plugins were extracted from the main repository
+// Plugins were commented because of plugins were extracted from the main repository
+// import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
 // import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
 
 const mapDispatchToProps = dispatch => ({
@@ -43,7 +44,7 @@ const mapDispatchToProps = dispatch => ({
       fetchPatientAllergiesSynopsisRequest,
       fetchPatientMedicationsSynopsisRequest,
       // fetchPatientVaccinationsSynopsisRequest,
-      fetchPatientTopThreeThingsSynopsisRequest,
+      // fetchPatientTopThreeThingsSynopsisRequest,
       fetchFeedsRequest
   }, dispatch) });
 
@@ -57,7 +58,7 @@ const mapDispatchToProps = dispatch => ({
   lifecycle(fetchPatientAllergiesSynopsisOnMount),
   lifecycle(fetchPatientMedicationsSynopsisOnMount),
   // lifecycle(fetchPatientVaccinationsSynopsisOnMount),
-  lifecycle(fetchPatientTopThreeThingsSynopsisOnMount),
+  // lifecycle(fetchPatientTopThreeThingsSynopsisOnMount),
   lifecycle(fetchFeedsOnMount)
 )
 

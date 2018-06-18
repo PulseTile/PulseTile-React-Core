@@ -14,10 +14,7 @@ export const clientUrls = {
   CONTACTS: 'contacts',
   CLINICAL_NOTES: 'clinicalNotes',
   PERSONAL_NOTES: 'personalNotes',
-  // VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
-  GENERIC_PLUGIN: 'genericPlugin',
-  DIARY_ENTRY: 'diaryEntry',
   PROCEDURES: 'procedures',
   EVENTS: 'events',
   TEST_RESULTS: 'results',
@@ -29,10 +26,17 @@ export const clientUrls = {
   DOCUMENTS: 'documents',
   IMAGES: 'images',
   TRANSFERS_OF_CARE: 'transfer-of-care',
-  TOP_THREE_THINGS: 'topThreeThings',
-  CLINICAL_STATEMENTS: 'clinicalStatements',
-  PROMS: 'proms',
   FEEDS: 'feeds',
+  CLINICAL_STATEMENTS: 'clinicalStatements',
+
+  // These plugins were extracted and relocated to SILVER
+  // TOP_THREE_THINGS: 'topThreeThings',
+  // VACCINATIONS: 'vaccinations',
+
+  // These plugins were extracted and relocated to BRONZE
+  // PROMS: 'proms',
+  // GENERIC_PLUGIN: 'genericPlugin',
+  // DIARY_ENTRY: 'diaryEntry',
 };
 
 const pluginsPages = {
@@ -54,6 +58,12 @@ const pluginsPages = {
       state: '/clinicalNotes',
     }],
   },
+  'clinicalStatements': {
+    breadcrumbs: [{
+      title: 'Clinical Statements',
+      state: '/clinicalStatements',
+      }],
+  },
   'personalNotes': {
     breadcrumbs: [{
       title: 'Personal Notes',
@@ -64,24 +74,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Contacts',
       state: '/contacts',
-    }],
-  },
-  // 'vaccinations': {
-  //   breadcrumbs: [{
-  //     title: 'Vaccinations',
-  //     state: '/vaccinations',
-  //   }],
-  // },
-  'genericPlugin': {
-    breadcrumbs: [{
-      title: 'Generic Plugin',
-      state: '/genericPlugin',
-    }],
-  },
-  'diaryEntry': {
-    breadcrumbs: [{
-      title: 'Diary Entry',
-      state: '/diaryEntry',
     }],
   },
   'medications': {
@@ -156,22 +148,38 @@ const pluginsPages = {
       state: '/transfers-of-care',
     }],
   },
-  'topThreeThings': {
-    breadcrumbs: [{
-      title: 'Top 3 Things',
-      state: '/topThreeThings',
-    }],
-  },
-  'clinicalStatements': {
-    breadcrumbs: [{
-      title: 'Clinical Statements',
-      state: '/clinicalStatements',
-    }],
-  },
+
+  // These plugins were extracted and relocated to SILVER
+  // 'vaccinations': {
+  //   breadcrumbs: [{
+  //     title: 'Vaccinations',
+  //     state: '/vaccinations',
+  //   }],
+  // },
+  // 'topThreeThings': {
+  //   breadcrumbs: [{
+  //     title: 'Top 3 Things',
+  //     state: '/topThreeThings',
+  //   }],
+  // },
+
+  // These plugins were extracted and relocated to BRONZE
   // 'proms': {
   //   breadcrumbs: [{
   //     title: 'PROMs',
   //     state: '/proms',
+  //   }],
+  // },
+  // 'genericPlugin': {
+  //   breadcrumbs: [{
+  //     title: 'Generic Plugin',
+  //     state: '/genericPlugin',
+  //   }],
+  // },
+  // 'diaryEntry': {
+  //   breadcrumbs: [{
+  //     title: 'Diary Entry',
+  //     state: '/diaryEntry',
   //   }],
   // },
 };

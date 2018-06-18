@@ -16,8 +16,9 @@ const mainThemeConfigs = {
   patientsSummaryHasPreviewSettings: false,
 
   dashboardBeing: {
-    vaccinations: false,
-    topThreeThings: false,
+    // Plugins were extracted and relocated to SILVER-plugins
+    // vaccinations: false,
+    // topThreeThings: false,
   },
 };
 
@@ -48,10 +49,15 @@ const leedsPHRThemeConfigs = {
     'medications': true,
     'allergies': true,
     'contacts': true,
-    'vaccinations': true,
-    'topThreeThings': true,
+
+    // Plugins were extracted and relocated to SILVER-plugins
+    // 'vaccinations': true,
+    // 'topThreeThings': true,
   },
-  dashboardBeing: { topThreeThings: true },
+  dashboardBeing: {
+    // Plugin was extracted and relocated to SILVER-plugins
+    // topThreeThings: true
+  },
   isShowUserProfileSettings: true,
 };
 

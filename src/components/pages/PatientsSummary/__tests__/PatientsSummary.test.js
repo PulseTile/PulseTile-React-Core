@@ -39,7 +39,7 @@ const store = mockStore({
   patientsAllergies: {},
   patientsMedications: {},
   // patientsVaccinations: {},
-  patientsTopThreeThings: {},
+  // patientsTopThreeThings: {},
   feeds: [{
     name: 'Leeds Live - Whats on',
     landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
@@ -103,7 +103,7 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()  // For TopThreeThings-plugin
         // .dive()  // For Vaccinations-plugin
         .dive();
 
@@ -163,7 +163,7 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()  // For TopThreeThings-plugin
         // .dive()  // For Vaccinations-plugin
         .dive();
 
@@ -190,7 +190,7 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()  // For TopThreeThings-plugin
         // .dive()  // For Vaccinations-plugin
         .dive();
 

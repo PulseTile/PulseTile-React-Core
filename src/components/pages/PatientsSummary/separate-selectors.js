@@ -71,35 +71,40 @@ const patientMedicationsSelector = createSelector(
 //     return vaccinations;
 //   }
 // );
-
-const patientTopThreeThingsSelector = createSelector(
-  ({ patientsTopThreeThings }) => patientsTopThreeThings,
-  (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsTopThreeThings, userId) => {
-    let topThreeThings = {};
-    if (patientsTopThreeThings[userId]) {
-      topThreeThings = patientsTopThreeThings[userId];
-    } else {
-      topThreeThings = [{text: 'Loading ...'}, '', '', ''];
-    }
-    return topThreeThings;
-  }
-);
+// const patientTopThreeThingsSelector = createSelector(
+//   ({ patientsTopThreeThings }) => patientsTopThreeThings,
+//   (state, props) => _.getOr(null, 'match.params.userId', props),
+//   (patientsTopThreeThings, userId) => {
+//     let topThreeThings = {};
+//     if (patientsTopThreeThings[userId]) {
+//       topThreeThings = patientsTopThreeThings[userId];
+//     } else {
+//       topThreeThings = [{text: 'Loading ...'}, '', '', ''];
+//     }
+//     return topThreeThings;
+//   }
+// );
 
 export const summarySynopsisSelector  = createSelector(
   patientProblemsSelector,
   patientContactsSelector,
   patientAllergiesSelector,
   patientMedicationsSelector,
+
+  // Plugins were extracted and relocated to SILVER-plugins
   // patientVaccinationsSelector,
-  patientTopThreeThingsSelector,
+  // patientTopThreeThingsSelector,
+
   (
     problems,
     contacts,
     allergies,
     medications,
+
+    // Plugins were extracted and relocated to SILVER-plugins
     // vaccinations,
-    topThree
+    // topThree
+
   ) => {
     return {
       boards: {
@@ -107,8 +112,10 @@ export const summarySynopsisSelector  = createSelector(
         contacts: contacts,
         allergies: allergies,
         medications: medications,
+
+        // Plugins were extracted and relocated to SILVER-plugins
         // vaccinations: vaccinations,
-        topThreeThings: topThree,
+        // topThreeThings: topThree,
       }
     };
   }
