@@ -20,7 +20,7 @@ const testProps = {
   expandedPanel: 'all',
   currentPanel: '',
   editedPanel: '',
-  testResultsDetailFormValues: '',
+  // testResultsDetailFormValues: '', // For plugin Results (Test Results)
 };
 const userId = '9999999000';
 const sourceId = 'cde19270-2c62-46e2-8443-4b28e7ee8b71';
@@ -58,7 +58,7 @@ describe('Component <DocumentsDetail />', () => {
         expandedPanel={testProps.expandedPanel}
         currentPanel={testProps.currentPanel}
         editedPanel={testProps.editedPanel}
-        testResultsDetailFormValues={testProps.testResultsDetailFormValues}
+        // testResultsDetailFormValues={testProps.testResultsDetailFormValues} // For plugin Results (Test Results)
       />, {context});
 
     expect(component).toMatchSnapshot();
@@ -96,7 +96,7 @@ describe('Component <DocumentsDetail />', () => {
         expandedPanel={testProps.expandedPanel}
         currentPanel={testProps.currentPanel}
         editedPanel={testProps.editedPanel}
-        testResultsDetailFormValues={testProps.testResultsDetailFormValues}
+        // testResultsDetailFormValues={testProps.testResultsDetailFormValues} // For plugin Results (Test Results)
       />, {context});
 
     expect(component.find('DocumentsDetailDischarge')).toHaveLength(0);

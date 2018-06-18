@@ -10,7 +10,6 @@ exports[`Component <DocumentsDetail /> should renders with different document Ty
     <PluginDetailPanel
       currentPanel=""
       editedPanel=""
-      formValues=""
       isBtnShowPanel={false}
       isOpen={false}
       isShowControlPanel={false}
@@ -58,7 +57,6 @@ exports[`Component <DocumentsDetail /> should renders with different document Ty
     <PluginDetailPanel
       currentPanel=""
       editedPanel=""
-      formValues=""
       isBtnShowPanel={false}
       isOpen={false}
       isShowControlPanel={false}
@@ -97,7 +95,6 @@ exports[`Component <DocumentsDetail /> should renders with different document Ty
     <PluginDetailPanel
       currentPanel=""
       editedPanel=""
-      formValues=""
       isBtnShowPanel={false}
       isOpen={false}
       isShowControlPanel={false}
@@ -136,7 +133,6 @@ exports[`Component <DocumentsDetail /> should renders with props and states corr
     <PluginDetailPanel
       currentPanel=""
       editedPanel=""
-      formValues=""
       isBtnShowPanel={false}
       isOpen={false}
       isShowControlPanel={false}
@@ -184,7 +180,6 @@ exports[`Component <DocumentsDetail /> should renders with props and states corr
     <PluginDetailPanel
       currentPanel=""
       editedPanel=""
-      formValues=""
       isBtnShowPanel={false}
       isOpen={false}
       isShowControlPanel={false}

@@ -131,18 +131,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
     <Route
       component={[Function]}
       exact={true}
-      key="testResults"
-      path="/patients/:userId/results"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="testResultsDetail"
-      path="/patients/:userId/results/:sourceId"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
       key="procedures"
       path="/patients/:userId/procedures"
     />

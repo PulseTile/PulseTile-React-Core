@@ -8,7 +8,6 @@ export const clientUrls = {
   SEARCH_REPORT: '/search-report',
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
-  RESULTS: 'results',
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
@@ -17,7 +16,6 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
   EVENTS: 'events',
-  TEST_RESULTS: 'results',
   REFERRALS: 'referrals',
   ORDERS: 'orders',
   MDTS: 'mdt',
@@ -25,12 +23,13 @@ export const clientUrls = {
   VITALS: 'vitals',
   DOCUMENTS: 'documents',
   IMAGES: 'images',
-  TRANSFERS_OF_CARE: 'transfer-of-care',
   FEEDS: 'feeds',
   CLINICAL_STATEMENTS: 'clinicalStatements',
 
   // These plugins were extracted and relocated to SILVER
+  // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
+  // TRANSFERS_OF_CARE: 'transfer-of-care',
   // VACCINATIONS: 'vaccinations',
 
   // These plugins were extracted and relocated to BRONZE
@@ -94,12 +93,6 @@ const pluginsPages = {
       state: '/events',
     }],
   },
-  'results': {
-    breadcrumbs: [{
-      title: 'Results',
-      state: '/results',
-    }],
-  },
   'referrals': {
     breadcrumbs: [{
       title: 'Referrals',
@@ -144,6 +137,18 @@ const pluginsPages = {
   },
 
   // These plugins were extracted and relocated to SILVER
+  // 'results': {
+  //   breadcrumbs: [{
+  //     title: 'Results',
+  //     state: '/results',
+  //   }],
+  // },
+  // 'topThreeThings': {
+  //   breadcrumbs: [{
+  //     title: 'Top 3 Things',
+  //     state: '/topThreeThings',
+  //   }],
+  // },
   // 'transfer-of-care': {
   //   breadcrumbs: [{
   //     title: 'Transfers Of Care',
@@ -154,12 +159,6 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Vaccinations',
   //     state: '/vaccinations',
-  //   }],
-  // },
-  // 'topThreeThings': {
-  //   breadcrumbs: [{
-  //     title: 'Top 3 Things',
-  //     state: '/topThreeThings',
   //   }],
   // },
 

@@ -71,7 +71,21 @@ export default class DocumentsDetail extends PureComponent {
   };
 
   render() {
-    const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, testResultsDetailFormValues } = this.props;
+    const {
+      onExpand,
+      onShow,
+      openedPanel,
+      expandedPanel,
+      currentPanel,
+      onEdit,
+      editedPanel,
+      onCancel,
+      onSaveSettings,
+
+      // For plugin Results (Test Results)
+      // testResultsDetailFormValues
+
+    } = this.props;
     let { detail } = this.props;
     const { isOpenModal } = this.state;
     const typeOfDocument = this.getTypeOfDocument();
@@ -91,7 +105,7 @@ export default class DocumentsDetail extends PureComponent {
             editedPanel={editedPanel}
             onCancel={onCancel}
             onSaveSettings={onSaveSettings}
-            formValues={testResultsDetailFormValues}
+            // formValues={testResultsDetailFormValues}  // For plugin Results (Test Results)
             isBtnShowPanel={false}
             isShowControlPanel={false}
           >

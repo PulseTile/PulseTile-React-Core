@@ -14,8 +14,11 @@ export const patientsColumnsConfig = [
   { key: 'id', title: 'NHS No.', width: 115 },
   { key: 'ordersDate', title: 'Orders', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
   { key: 'ordersCount', title: 'Orders ', icon: <span>#</span>, width: 100 },
-  { key: 'resultsDate', title: 'Results', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
-  { key: 'resultsCount', title: 'Results ', icon: <span>#</span>, width: 100 },
+
+  // For plugin Result (Test Result)
+  // { key: 'resultsDate', title: 'Results', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
+  // { key: 'resultsCount', title: 'Results ', icon: <span>#</span>, width: 100 },
+
   { key: 'vitalsDate', title: 'Vitals', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 110 },
   { key: 'vitalsCount', title: 'Vitals ', icon: <span>#</span>, width: 100 },
   { key: 'diagnosesDate', title: 'Diagnosis', icon: <CalendarIcon />, transformer: getDDMMMYYYY, width: 130 },
@@ -30,11 +33,14 @@ export const defaultColumnsSelected = {
   address: true,
   id: true,
   ordersDate: true,
-  resultsDate: true,
+
+  // For plugin Result (Test Result)
+  // resultsDate: true,
+  // resultsCount: true,
+
   vitalsDate: false,
   diagnosesDate: false,
   ordersCount: true,
-  resultsCount: true,
   vitalsCount: false,
   diagnosesCount: false,
   viewPatientNavigation: true,
