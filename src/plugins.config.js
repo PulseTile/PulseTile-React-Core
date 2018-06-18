@@ -8,7 +8,6 @@ import events from './components/pages/Events/index';
 import documents from './components/pages/Documents/index';
 import orders from './components/pages/Orders/index';
 import procedures from './components/pages/Procedures/index';
-import clinicalNotes from './components/pages/ClinicalNotes/index';
 import clinicalStatements from './components/pages/ClinicalStatements/index';
 import personalNotes from './components/pages/PersonalNotes/index';
 import vitals from './components/pages/Vitals/index';
@@ -25,6 +24,7 @@ import feeds from './components/pages/Feeds/index';
 // import proms from './components/pages/PROMs/index';
 
 // WERE REMOVED TO SILVER PLUGINS
+// import clinicalNotes from './components/pages/ClinicalNotes/index';
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import vaccinations from './components/pages/Vaccinations/index';
 // import transfersOfCare from './components/pages/TransfersOfCare/index';
@@ -39,9 +39,7 @@ export const plugins = [
   events,
   documents,
   orders,
-
   procedures,
-  clinicalNotes,
   clinicalStatements,
   personalNotes,
   vitals,
@@ -57,6 +55,7 @@ export const plugins = [
   // proms,
 
   // WERE REMOVED TO SILVER PLUGINS
+  // clinicalNotes,
   // topThreeThings,
   // transfersOfCare,
   // testResults,

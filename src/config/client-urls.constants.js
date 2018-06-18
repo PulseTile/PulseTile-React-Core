@@ -11,7 +11,7 @@ export const clientUrls = {
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
-  CLINICAL_NOTES: 'clinicalNotes',
+
   PERSONAL_NOTES: 'personalNotes',
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
@@ -27,6 +27,7 @@ export const clientUrls = {
   CLINICAL_STATEMENTS: 'clinicalStatements',
 
   // These plugins were extracted and relocated to SILVER
+  // CLINICAL_NOTES: 'clinicalNotes',
   // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
@@ -49,12 +50,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Problems / Diagnoses',
       state: '/diagnoses',
-    }],
-  },
-  'clinicalNotes': {
-    breadcrumbs: [{
-      title: 'Clinical Notes',
-      state: '/clinicalNotes',
     }],
   },
   'clinicalStatements': {
@@ -137,6 +132,12 @@ const pluginsPages = {
   },
 
   // These plugins were extracted and relocated to SILVER
+  // 'clinicalNotes': {
+  //   breadcrumbs: [{
+  //     title: 'Clinical Notes',
+  //     state: '/clinicalNotes',
+  //   }],
+  // },
   // 'results': {
   //   breadcrumbs: [{
   //     title: 'Results',
