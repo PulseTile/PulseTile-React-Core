@@ -172,7 +172,13 @@ describe('Component <RecordsOfTable />', () => {
         input={testProps.input}
         allReferrals={testProps.allReferrals}
         match={match}
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
     expect(component.find('SelectFormGroup')).toHaveLength(1);
@@ -187,8 +193,9 @@ describe('Component <RecordsOfTable />', () => {
     expect(component.state().indexOfSelectedRecord).toEqual('');
     expect(component.state().indexOfTypeEvents).toEqual('');
 
-    component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
-    expect(component.state().typeRecords).toEqual('events');
+    // For Events-plugin
+    // component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
+    // expect(component.state().typeRecords).toEqual('events');
 
     component.instance().handleGetHeadingsLists({ target: { value: 'diagnosis' }});
 
@@ -328,10 +335,13 @@ describe('Component <RecordsOfTable />', () => {
         allReferrals={testProps.allReferrals}
         match={match}
         isSubmit
-      />).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     expect(component.find('.has-error')).toHaveLength(1);
     expect(component.find('.form-control-static').text()).toEqual('No records added');
@@ -350,10 +360,13 @@ describe('Component <RecordsOfTable />', () => {
         }}
         match={match}
         isSubmit={false}
-      />).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     component.setState({
       typesRecords: {
@@ -389,7 +402,13 @@ describe('Component <RecordsOfTable />', () => {
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     component.setProps({ allProcedures: [{
         name: 'total replacement of hip',
@@ -418,7 +437,13 @@ describe('Component <RecordsOfTable />', () => {
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive() // For Silver-plugin Events
+        .dive();
 
     component.setProps({ allProcedures: [{
         name: 'total replacement of hip',
@@ -444,7 +469,13 @@ describe('Component <RecordsOfTable />', () => {
           { value: 'procedures', title: 'Procedures' },
         ]}
         isOnlyOneRecord
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive() // For Silver-plugin Events
+        .dive();
 
     component.setProps({ allProcedures: [{
         name: 'total replacement of hip',
@@ -471,7 +502,13 @@ describe('Component <RecordsOfTable />', () => {
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     component.setProps({ allProcedures: [{
         name: 'total replacement of hip',

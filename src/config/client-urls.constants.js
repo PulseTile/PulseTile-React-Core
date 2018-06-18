@@ -1,6 +1,7 @@
 import { themeConfigs } from '../themes.config';
 
 export const clientUrls = {
+
   ROOT: '/',
   CHARTS: '/charts',
   PATIENTS: '/patients',
@@ -14,7 +15,6 @@ export const clientUrls = {
   PERSONAL_NOTES: 'personalNotes',
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
-  EVENTS: 'events',
   REFERRALS: 'referrals',
   ORDERS: 'orders',
   MDTS: 'mdt',
@@ -28,6 +28,7 @@ export const clientUrls = {
   // CLINICAL_STATEMENTS: 'clinicalStatements',
   // DOCUMENTS: 'documents',
   // DRAWINGS: 'drawings',
+  // EVENTS: 'events',
   // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
@@ -74,12 +75,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Procedures',
       state: '/procedures',
-    }],
-  },
-  'events': {
-    breadcrumbs: [{
-      title: 'Events',
-      state: '/events',
     }],
   },
   'referrals': {
@@ -136,6 +131,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Drawings',
   //     state: '/drawings',
+  //   }],
+  // },
+  // 'events': {
+  //   breadcrumbs: [{
+  //     title: 'Events',
+  //     state: '/events',
   //   }],
   // },
   // 'results': {

@@ -159,9 +159,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -186,9 +189,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -213,9 +219,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -240,15 +249,19 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
-
     expect(component.find('.record-popover-title')).toHaveLength(1);
-    expect(component.find('.record-popover-title').at(0).text()).toEqual('Events');
+
+    // For Events-plugin
+    // expect(component.find('.record-popover-title').at(0).text()).toEqual('Events');
 
     expect(component.find('Spinner')).toHaveLength(1);
     expect(component.find('RecordsOfTablePopoverEvents')).toHaveLength(1);
@@ -267,9 +280,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -294,9 +310,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -321,9 +340,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
 
@@ -341,9 +363,12 @@ describe('Component <RecordsOfTablePopover />', () => {
           }
         }
         match={match}
-      />).dive().dive().dive()
+      />)
       .dive()
       .dive()
+      .dive()
+      .dive()
+      // .dive() // For Events-plugin
       .dive();
 
 

@@ -61,9 +61,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Events
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -73,18 +71,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverEvents
-        detail={
-          Object {
-            "author": "bob.smith@gmail.com",
-            "dateCreated": 1517845806000,
-            "dateTime": 1517845805981,
-            "description": "- Procedure",
-            "name": "- Procedure",
-            "source": "ethercis",
-            "sourceId": "773c2b67-9a88-4bfd-9f0d-04e78dc5721e",
-            "type": "Admission",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
