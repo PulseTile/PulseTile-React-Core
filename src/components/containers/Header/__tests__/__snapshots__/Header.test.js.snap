@@ -346,24 +346,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
     />
     <Route
       component={[Function]}
-      exact={true}
-      key="genericPlugin"
-      path="/patients/:userId/genericPlugin"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="genericPluginCreate"
-      path="/patients/:userId/genericPlugin/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="genericPluginDetail"
-      path="/patients/:userId/genericPlugin/:sourceId"
-    />
-    <Route
-      component={[Function]}
       path="/"
     />
   </Switch>

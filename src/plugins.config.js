@@ -20,12 +20,15 @@ import referrals from './components/pages/Referrals/index';
 import mdts from './components/pages/GenericMdt/index';
 import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
-import genericPlugin from './components/pages/GenericPlugin/index';
+
 import feeds from './components/pages/Feeds/index';
 
 // These plugins were removed from the main repository
+// BRONZE PLUGINS
 // import diaryEntry from './components/pages/DiaryEntry/index';
+// import genericPlugin from './components/pages/GenericPlugin/index';
 // import proms from './components/pages/PROMs/index';
+// SILVER PLUGINS
 
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
@@ -51,11 +54,14 @@ export const plugins = [
   transfersOfCare,
   topThreeThings,
   feeds,
-  genericPlugin,
+
 
   // These plugins were removed from the main repository
-  // proms,
+  // BRONZE PLUGINS
   // diaryEntry,
+  // genericPlugin,
+  // proms,
+  // SILVER PLUGINS
 ];
 
 export const sidebarConfig = [
