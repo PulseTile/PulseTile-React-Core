@@ -184,24 +184,6 @@ exports[`Component <Header /> should renders correctly 1`] = `
     />
     <Route
       component={[Function]}
-      exact={true}
-      key="mdts"
-      path="/patients/:userId/mdt"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="mdtsCreate"
-      path="/patients/:userId/mdt/create"
-    />
-    <Route
-      component={[Function]}
-      exact={true}
-      key="mdtsDetail"
-      path="/patients/:userId/mdt/:sourceId"
-    />
-    <Route
-      component={[Function]}
       path="/"
     />
   </Switch>
