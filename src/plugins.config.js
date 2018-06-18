@@ -4,7 +4,6 @@ import diagnoses from './components/pages/Diagnosis/index';
 import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
-import orders from './components/pages/Orders/index';
 import procedures from './components/pages/Procedures/index';
 import personalNotes from './components/pages/PersonalNotes/index';
 import vitals from './components/pages/Vitals/index';
@@ -24,6 +23,7 @@ import feeds from './components/pages/Feeds/index';
 // import drawings from './components/pages/Drawings/index';
 // import events from './components/pages/Events/index';
 // import mdts from './components/pages/GenericMdt/index';
+// import orders from './components/pages/Orders/index';
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import vaccinations from './components/pages/Vaccinations/index';
 // import transfersOfCare from './components/pages/TransfersOfCare/index';
@@ -36,7 +36,6 @@ export const plugins = [
   medications,
   allergies,
   contacts,
-  orders,
   procedures,
   personalNotes,
   vitals,
@@ -56,6 +55,7 @@ export const plugins = [
   // drawings,
   // events,
   // mdts,
+  // orders,
   // topThreeThings,
   // transfersOfCare,
   // testResults,

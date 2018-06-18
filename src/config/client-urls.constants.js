@@ -16,7 +16,6 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
   REFERRALS: 'referrals',
-  ORDERS: 'orders',
   VITALS: 'vitals',
   IMAGES: 'images',
   FEEDS: 'feeds',
@@ -29,6 +28,7 @@ export const clientUrls = {
   // DRAWINGS: 'drawings',
   // EVENTS: 'events',
   // MDTS: 'mdt',
+  // ORDERS: 'orders',
   // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
@@ -83,12 +83,6 @@ const pluginsPages = {
       state: '/referrals',
     }],
   },
-  'orders': {
-    breadcrumbs: [{
-      title: 'Orders',
-      state: '/orders',
-    }],
-  },
   'vitals': {
     breadcrumbs: [{
       title: 'Vitals - NEWS',
@@ -137,6 +131,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Generic MDT',
   //     state: '/mdt',
+  //   }],
+  // },
+  // 'orders': {
+  //   breadcrumbs: [{
+  //     title: 'Orders',
+  //     state: '/orders',
   //   }],
   // },
   // 'results': {
