@@ -14,7 +14,7 @@ export const clientUrls = {
   CONTACTS: 'contacts',
   CLINICAL_NOTES: 'clinicalNotes',
   PERSONAL_NOTES: 'personalNotes',
-  VACCINATIONS: 'vaccinations',
+  // VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
   GENERIC_PLUGIN: 'genericPlugin',
   DIARY_ENTRY: 'diaryEntry',
@@ -66,12 +66,12 @@ const pluginsPages = {
       state: '/contacts',
     }],
   },
-  'vaccinations': {
-    breadcrumbs: [{
-      title: 'Vaccinations',
-      state: '/vaccinations',
-    }],
-  },
+  // 'vaccinations': {
+  //   breadcrumbs: [{
+  //     title: 'Vaccinations',
+  //     state: '/vaccinations',
+  //   }],
+  // },
   'genericPlugin': {
     breadcrumbs: [{
       title: 'Generic Plugin',

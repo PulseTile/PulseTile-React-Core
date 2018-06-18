@@ -42,7 +42,6 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
               "medications": true,
               "problems": true,
               "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -190,7 +189,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "medications": true,
               "problems": true,
               "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -352,7 +350,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "medications": true,
               "problems": true,
               "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={

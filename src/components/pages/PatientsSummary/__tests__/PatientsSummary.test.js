@@ -38,7 +38,7 @@ const store = mockStore({
   patientsContacts: {},
   patientsAllergies: {},
   patientsMedications: {},
-  patientsVaccinations: {},
+  // patientsVaccinations: {},
   patientsTopThreeThings: {},
   feeds: [{
     name: 'Leeds Live - Whats on',
@@ -96,7 +96,16 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Vaccinations-plugin
+        .dive();
 
     expect(component).toMatchSnapshot();
 
@@ -108,7 +117,6 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('.dashboard')).toHaveLength(1);
     expect(component.find('SimpleDashboardPanel')).toHaveLength(4);
     expect(component.find('ConfirmationModal')).toHaveLength(0);
-
 
     component.instance().handleGoToState('contacts');
 
@@ -148,7 +156,16 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Vaccinations-plugin
+        .dive();
 
     expect(component).toMatchSnapshot();
 
@@ -166,7 +183,16 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()  // For Vaccinations-plugin
+        .dive();
 
     expect(component).toMatchSnapshot();
   });

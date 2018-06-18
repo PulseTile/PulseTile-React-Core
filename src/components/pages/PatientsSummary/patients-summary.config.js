@@ -33,15 +33,17 @@ export const patientsSummaryConfig = [
     nameCheckboxes: 'medications',
     imgPreview: '/images/patients-summary/medications.jpg',
     isDefaultSelected: true,
-  }, {
-    key: 'vaccinations',
-    title: 'Vaccinations',
-    titleCheckboxes: 'Vaccinations',
-    state: 'vaccinations',
-    nameCheckboxes: 'vaccinations',
-    imgPreview: '/images/patients-summary/vaccinations.jpg',
-    isDefaultSelected: true,
-  }, {
+  },
+  // {
+  //   key: 'vaccinations',
+  //   title: 'Vaccinations',
+  //   titleCheckboxes: 'Vaccinations',
+  //   state: 'vaccinations',
+  //   nameCheckboxes: 'vaccinations',
+  //   imgPreview: '/images/patients-summary/vaccinations.jpg',
+  //   isDefaultSelected: true,
+  // },
+    {
     key: 'topThreeThings',
     title: 'Top 3 Things',
     titleCheckboxes: 'Top 3 Things',

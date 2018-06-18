@@ -98,9 +98,10 @@ export const fetchPatientContactsOnMount = (generateFetchListOnMount('fetchPatie
 export const fetchPatientContactsSynopsisOnMount = (generateFetchListOnMount('fetchPatientContactsSynopsisRequest'));
 export const fetchPatientContactsDetailOnMount = (generateFetchDetailOnMount('fetchPatientContactsDetailRequest'));
 
-export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
-export const fetchPatientVaccinationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientVaccinationsSynopsisRequest'));
-export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
+// For plugin Vaccinations: it was extracted and relocated to the Silver plugins
+// export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
+// export const fetchPatientVaccinationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientVaccinationsSynopsisRequest'));
+// export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
 
 export const fetchPatientMedicationsOnMount = (generateFetchListOnMount('fetchPatientMedicationsRequest'));
 export const fetchPatientMedicationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientMedicationsSynopsisRequest'));

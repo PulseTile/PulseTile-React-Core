@@ -57,19 +57,20 @@ const patientMedicationsSelector = createSelector(
   }
 );
 
-const patientVaccinationsSelector = createSelector(
-  ({ patientsVaccinations }) => patientsVaccinations,
-  (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsVaccinations, userId) => {
-    let vaccinations = {};
-    if (patientsVaccinations[userId]) {
-      vaccinations = patientsVaccinations[userId];
-    } else {
-      vaccinations = [{text: 'Loading ...'}, '', '', ''];
-    }
-    return vaccinations;
-  }
-);
+// Plugin Vaccinations wer3e extracted from the main repository and located in Silver-plugins
+// const patientVaccinationsSelector = createSelector(
+//   ({ patientsVaccinations }) => patientsVaccinations,
+//   (state, props) => _.getOr(null, 'match.params.userId', props),
+//   (patientsVaccinations, userId) => {
+//     let vaccinations = {};
+//     if (patientsVaccinations[userId]) {
+//       vaccinations = patientsVaccinations[userId];
+//     } else {
+//       vaccinations = [{text: 'Loading ...'}, '', '', ''];
+//     }
+//     return vaccinations;
+//   }
+// );
 
 const patientTopThreeThingsSelector = createSelector(
   ({ patientsTopThreeThings }) => patientsTopThreeThings,
@@ -90,16 +91,23 @@ export const summarySynopsisSelector  = createSelector(
   patientContactsSelector,
   patientAllergiesSelector,
   patientMedicationsSelector,
-  patientVaccinationsSelector,
+  // patientVaccinationsSelector,
   patientTopThreeThingsSelector,
-  (problems, contacts, allergies, medications, vaccinations, topThree) => {
+  (
+    problems,
+    contacts,
+    allergies,
+    medications,
+    // vaccinations,
+    topThree
+  ) => {
     return {
       boards: {
         problems: problems,
         contacts: contacts,
         allergies: allergies,
         medications: medications,
-        vaccinations: vaccinations,
+        // vaccinations: vaccinations,
         topThreeThings: topThree,
       }
     };

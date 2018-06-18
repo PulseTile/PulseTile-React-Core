@@ -12,7 +12,6 @@ import procedures from './components/pages/Procedures/index';
 import clinicalNotes from './components/pages/ClinicalNotes/index';
 import clinicalStatements from './components/pages/ClinicalStatements/index';
 import personalNotes from './components/pages/PersonalNotes/index';
-import vaccinations from './components/pages/Vaccinations/index';
 import vitals from './components/pages/Vitals/index';
 import images from './components/pages/Images/index';
 import drawings from './components/pages/Drawings/index';
@@ -24,12 +23,14 @@ import topThreeThings from './components/pages/TopThreeThings/index';
 import feeds from './components/pages/Feeds/index';
 
 // These plugins were removed from the main repository
+
 // BRONZE PLUGINS
 // import diaryEntry from './components/pages/DiaryEntry/index';
 // import genericPlugin from './components/pages/GenericPlugin/index';
 // import proms from './components/pages/PROMs/index';
 // SILVER PLUGINS
 
+// import vaccinations from './components/pages/Vaccinations/index';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -45,7 +46,6 @@ export const plugins = [
   clinicalNotes,
   clinicalStatements,
   personalNotes,
-  vaccinations,
   vitals,
   images,
   drawings,
@@ -62,6 +62,7 @@ export const plugins = [
   // genericPlugin,
   // proms,
   // SILVER PLUGINS
+  // vaccinations,
 ];
 
 export const sidebarConfig = [

@@ -16,23 +16,50 @@ import { fetchPatientDiagnosesSynopsisRequest } from '../Diagnosis/ducks/fetch-p
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
 import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-patient-allergies.duck';
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
-import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
+
 import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
-import { fetchPatientProblemsSynopsisOnMount, fetchPatientContactsSynopsisOnMount, fetchPatientAllergiesSynopsisOnMount, fetchPatientMedicationsSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount, fetchPatientTopThreeThingsSynopsisOnMount, fetchFeedsOnMount} from '../../../utils/HOCs/fetch-patients.utils';
+import {
+  fetchPatientProblemsSynopsisOnMount,
+  fetchPatientContactsSynopsisOnMount,
+  fetchPatientAllergiesSynopsisOnMount,
+  fetchPatientMedicationsSynopsisOnMount,
+  // fetchPatientVaccinationsSynopsisOnMount,
+  fetchPatientTopThreeThingsSynopsisOnMount,
+  fetchFeedsOnMount
+} from '../../../utils/HOCs/fetch-patients.utils';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
 import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
+// Components were commented because of plugins were extracted from the main repository
+// import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
+
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({fetchPatientDiagnosesSynopsisRequest, fetchPatientContactsSynopsisRequest, fetchPatientAllergiesSynopsisRequest, fetchPatientMedicationsSynopsisRequest, fetchPatientVaccinationsSynopsisRequest, fetchPatientTopThreeThingsSynopsisRequest, fetchFeedsRequest}, dispatch) });
+  actions: bindActionCreators({
+      fetchPatientDiagnosesSynopsisRequest,
+      fetchPatientContactsSynopsisRequest,
+      fetchPatientAllergiesSynopsisRequest,
+      fetchPatientMedicationsSynopsisRequest,
+      // fetchPatientVaccinationsSynopsisRequest,
+      fetchPatientTopThreeThingsSynopsisRequest,
+      fetchFeedsRequest
+  }, dispatch) });
 
 @connect(summarySynopsisSelector, mapDispatchToProps)
 
 @connect(feedsSelector, mapDispatchToProps)
 
-@compose(lifecycle(fetchPatientProblemsSynopsisOnMount), lifecycle(fetchPatientContactsSynopsisOnMount), lifecycle(fetchPatientAllergiesSynopsisOnMount), lifecycle(fetchPatientMedicationsSynopsisOnMount), lifecycle(fetchPatientVaccinationsSynopsisOnMount), lifecycle(fetchPatientTopThreeThingsSynopsisOnMount), lifecycle(fetchFeedsOnMount))
+@compose(
+  lifecycle(fetchPatientProblemsSynopsisOnMount),
+  lifecycle(fetchPatientContactsSynopsisOnMount),
+  lifecycle(fetchPatientAllergiesSynopsisOnMount),
+  lifecycle(fetchPatientMedicationsSynopsisOnMount),
+  // lifecycle(fetchPatientVaccinationsSynopsisOnMount),
+  lifecycle(fetchPatientTopThreeThingsSynopsisOnMount),
+  lifecycle(fetchFeedsOnMount)
+)
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {

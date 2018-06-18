@@ -151,16 +151,6 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               class="sidebar-nav-link"
-              href="/patients/9999999000/vaccinations"
-            >
-              Vaccinations
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
               href="/patients/9999999000/vitals"
             >
               Vitals - News
