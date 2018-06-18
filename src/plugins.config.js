@@ -17,19 +17,18 @@ import images from './components/pages/Images/index';
 import drawings from './components/pages/Drawings/index';
 import referrals from './components/pages/Referrals/index';
 import mdts from './components/pages/GenericMdt/index';
-import transfersOfCare from './components/pages/TransfersOfCare/index';
+
 import feeds from './components/pages/Feeds/index';
 
-// These plugins were removed from the main repository
-
-// BRONZE PLUGINS
+// WERE REMOVED TO BRONZE PLUGINS
 // import diaryEntry from './components/pages/DiaryEntry/index';
 // import genericPlugin from './components/pages/GenericPlugin/index';
 // import proms from './components/pages/PROMs/index';
 
-// SILVER PLUGINS
+// WERE REMOVED TO SILVER PLUGINS
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import vaccinations from './components/pages/Vaccinations/index';
+// import transfersOfCare from './components/pages/TransfersOfCare/index';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -50,19 +49,16 @@ export const plugins = [
   drawings,
   referrals,
   mdts,
-  transfersOfCare,
   feeds,
 
-
-  // These plugins were removed from the main repository
-
-  // BRONZE PLUGINS
+  // WERE REMOVED TO BRONZE PLUGINS
   // diaryEntry,
   // genericPlugin,
   // proms,
 
-  // SILVER PLUGINS
+  // WERE REMOVED TO SILVER PLUGINS
   // topThreeThings,
+  // transfersOfCare,
   // vaccinations,
 ];
 

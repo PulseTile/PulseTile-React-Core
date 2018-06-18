@@ -142,14 +142,14 @@ const pluginsPages = {
       state: '/images',
     }],
   },
-  'transfer-of-care': {
-    breadcrumbs: [{
-      title: 'Transfers Of Care',
-      state: '/transfers-of-care',
-    }],
-  },
 
   // These plugins were extracted and relocated to SILVER
+  // 'transfer-of-care': {
+  //   breadcrumbs: [{
+  //     title: 'Transfers Of Care',
+  //     state: '/transfers-of-care',
+  //   }],
+  // },
   // 'vaccinations': {
   //   breadcrumbs: [{
   //     title: 'Vaccinations',
