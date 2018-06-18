@@ -8,7 +8,6 @@ import events from './components/pages/Events/index';
 import documents from './components/pages/Documents/index';
 import orders from './components/pages/Orders/index';
 import procedures from './components/pages/Procedures/index';
-import clinicalStatements from './components/pages/ClinicalStatements/index';
 import personalNotes from './components/pages/PersonalNotes/index';
 import vitals from './components/pages/Vitals/index';
 import images from './components/pages/Images/index';
@@ -25,6 +24,7 @@ import feeds from './components/pages/Feeds/index';
 
 // WERE REMOVED TO SILVER PLUGINS
 // import clinicalNotes from './components/pages/ClinicalNotes/index';
+// import clinicalStatements from './components/pages/ClinicalStatements/index';
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import vaccinations from './components/pages/Vaccinations/index';
 // import transfersOfCare from './components/pages/TransfersOfCare/index';
@@ -40,7 +40,6 @@ export const plugins = [
   documents,
   orders,
   procedures,
-  clinicalStatements,
   personalNotes,
   vitals,
   images,
@@ -56,6 +55,7 @@ export const plugins = [
 
   // WERE REMOVED TO SILVER PLUGINS
   // clinicalNotes,
+  // clinicalStatements,
   // topThreeThings,
   // transfersOfCare,
   // testResults,
