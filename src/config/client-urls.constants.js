@@ -15,7 +15,6 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
   REFERRALS: 'referrals',
-  VITALS: 'vitals',
   IMAGES: 'images',
   FEEDS: 'feeds',
 
@@ -33,6 +32,7 @@ export const clientUrls = {
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
   // VACCINATIONS: 'vaccinations',
+  // VITALS: 'vitals',
 
   // These plugins were extracted and relocated to BRONZE
   // PROMS: 'proms',
@@ -75,12 +75,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Referrals',
       state: '/referrals',
-    }],
-  },
-  'vitals': {
-    breadcrumbs: [{
-      title: 'Vitals - NEWS',
-      state: '/vitals',
     }],
   },
   'images': {
@@ -161,6 +155,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Vaccinations',
   //     state: '/vaccinations',
+  //   }],
+  // },
+  // 'vitals': {
+  //   breadcrumbs: [{
+  //     title: 'Vitals - NEWS',
+  //     state: '/vitals',
   //   }],
   // },
 

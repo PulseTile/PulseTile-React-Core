@@ -121,8 +121,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
             "promsCount": false,
             "promsDate": false,
             "viewPatientNavigation": true,
-            "vitalsCount": false,
-            "vitalsDate": false,
           }
         }
       >
@@ -164,8 +162,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     "promsCount": false,
                     "promsDate": false,
                     "viewPatientNavigation": true,
-                    "vitalsCount": false,
-                    "vitalsDate": false,
                   }
                 }
                 toggleVisibility={[Function]}
@@ -186,8 +182,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       "promsCount": false,
                       "promsDate": false,
                       "viewPatientNavigation": true,
-                      "vitalsCount": false,
-                      "vitalsDate": false,
                     }
                   }
                   toggleVisibility={[Function]}
@@ -538,52 +532,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               </PTCustomCheckbox>
                               <PTCustomCheckbox
                                 isChecked={false}
-                                name="vitalsDate"
-                                onChange={[Function]}
-                                title="Vitals"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={false}
-                                            name="vitalsDate"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="vitalsDate"
-                                        >
-                                          Vitals
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
-                                isChecked={false}
                                 name="diagnosesDate"
                                 onChange={[Function]}
                                 title="Diagnosis"
@@ -760,52 +708,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                           htmlFor="ordersCount"
                                         >
                                           Orders
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
-                                isChecked={false}
-                                name="vitalsCount"
-                                onChange={[Function]}
-                                title="Vitals"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={false}
-                                            name="vitalsCount"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="vitalsCount"
-                                        >
-                                          Vitals
                                         </label>
                                       </div>
                                     </div>
@@ -2254,8 +2156,6 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
           "promsCount": false,
           "promsDate": false,
           "viewPatientNavigation": true,
-          "vitalsCount": false,
-          "vitalsDate": false,
         }
       }
     />

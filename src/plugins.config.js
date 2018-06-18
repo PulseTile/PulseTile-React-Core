@@ -5,8 +5,6 @@ import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
 import procedures from './components/pages/Procedures/index';
-
-import vitals from './components/pages/Vitals/index';
 import images from './components/pages/Images/index';
 import referrals from './components/pages/Referrals/index';
 import feeds from './components/pages/Feeds/index';
@@ -25,10 +23,12 @@ import feeds from './components/pages/Feeds/index';
 // import mdts from './components/pages/GenericMdt/index';
 // import orders from './components/pages/Orders/index';
 // import personalNotes from './components/pages/PersonalNotes/index';
-// import topThreeThings from './components/pages/TopThreeThings/index';
-// import vaccinations from './components/pages/Vaccinations/index';
-// import transfersOfCare from './components/pages/TransfersOfCare/index';
 // import testResults from './components/pages/Results/index';
+// import topThreeThings from './components/pages/TopThreeThings/index';
+// import transfersOfCare from './components/pages/TransfersOfCare/index';
+// import vaccinations from './components/pages/Vaccinations/index';
+// import vitals from './components/pages/Vitals/index';
+
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -38,7 +38,6 @@ export const plugins = [
   allergies,
   contacts,
   procedures,
-  vitals,
   images,
   referrals,
   feeds,
@@ -61,6 +60,7 @@ export const plugins = [
   // transfersOfCare,
   // testResults,
   // vaccinations,
+  // vitals,
 ];
 
 export const sidebarConfig = [

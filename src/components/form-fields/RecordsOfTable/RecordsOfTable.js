@@ -4,26 +4,25 @@ import _ from 'lodash/fp';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import SelectFormGroup from '../SelectFormGroup';
 import RecordsOfTablePopover from './RecordsOfTablePopover';
 import Spinner from '../../ui-elements/Spinner/Spinner';
 import { valuesNames, valuesLabels, defaultTypesOptions } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals.duck';
-import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
 import { fetchPatientMedicationsRequest } from '../../pages/Medications/ducks/fetch-patient-medications.duck';
 import { fetchPatientDiagnosesRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientProceduresRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures.duck';
 import { patientDiagnosesSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsSelector } from '../../pages/Medications/selectors';
-import { patientVitalsSelector } from '../../pages/Vitals/selectors';
 import { patientReferralsSelector } from '../../pages/Referrals/selectors';
 import { patientProceduresSelector } from '../../pages/Procedures/selectors';
 
 // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
 // import { fetchPatientEventsRequest } from '../../pages/Events/ducks/fetch-patient-events.duck';
 // import { patientEventsSelector } from '../../pages/Events/selectors';
+// import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
+// import { patientVitalsSelector } from '../../pages/Vitals/selectors';
 
 const PREFIX_POPOVER_ID = 'rot-popover-';
 
@@ -33,10 +32,11 @@ const mapDispatchToProps = dispatch => ({
     fetchPatientDiagnosesRequest,
     fetchPatientMedicationsRequest,
     fetchPatientReferralsRequest,
-    fetchPatientVitalsRequest,
+
     fetchPatientProceduresRequest,
 
-    // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
+    // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS.
+    // fetchPatientVitalsRequest,
     // fetchPatientEventsRequest,
 
   }, dispatch) });
@@ -44,10 +44,11 @@ const mapDispatchToProps = dispatch => ({
 @connect(patientDiagnosesSelector, mapDispatchToProps)
 @connect(patientMedicationsSelector)
 @connect(patientReferralsSelector)
-@connect(patientVitalsSelector)
+
 @connect(patientProceduresSelector)
 
 // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
+// @connect(patientVitalsSelector)
 // @connect(patientEventsSelector)
 
 export default class RecordsOfTable extends PureComponent {
@@ -89,13 +90,7 @@ export default class RecordsOfTable extends PureComponent {
         setMethodName: 'setReferralsRecords',
         records: null,
       },
-      vitals: {
-        title: 'Vitals',
-        fetchList: 'fetchPatientVitalsRequest',
-        stateName: 'allVitals',
-        setMethodName: 'setVitalsRecords',
-        records: null,
-      },
+
       procedures: {
         title: 'Procedures',
         fetchList: 'fetchPatientProceduresRequest',
@@ -105,6 +100,13 @@ export default class RecordsOfTable extends PureComponent {
       },
 
       // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
+      // vitals: {
+      //   title: 'Vitals',
+      //   fetchList: 'fetchPatientVitalsRequest',
+      //   stateName: 'allVitals',
+      //   setMethodName: 'setVitalsRecords',
+      //   records: null,
+      // },
       // events: {
       //   title: 'Events',
       //   fetchList: 'fetchPatientEventsRequest',

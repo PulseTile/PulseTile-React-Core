@@ -245,9 +245,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Vitals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -255,24 +253,9 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     <div
       className="record-popover-content"
     >
+      <Spinner />
       <RecordsOfTablePopoverVitals
-        detail={
-          Object {
-            "author": "Dr Tony Shannon",
-            "dateCreated": 1516367377000,
-            "diastolicBP": "64.0",
-            "heartRate": "45.0",
-            "levelOfConsciousness": "Voice",
-            "newsScore": 4,
-            "oxygenSaturation": "97.0",
-            "oxygenSupplemental": "false",
-            "respirationRate": "12.0",
-            "source": "ethercis",
-            "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
-            "systolicBP": "112.0",
-            "temperature": "37.0",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
@@ -321,9 +304,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Vitals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"

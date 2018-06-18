@@ -176,8 +176,8 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        // .dive()  // For Silver-plugin Events
+        // .dive() // For Silver-plugin Vitals
+        // .dive() // For Silver-plugin Events
         .dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
@@ -339,8 +339,8 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        // .dive()  // For Silver-plugin Events
+        // .dive() // For Silver-plugin Vitals
+        // .dive() // For Silver-plugin Events
         .dive();
 
     expect(component.find('.has-error')).toHaveLength(1);
@@ -364,8 +364,8 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        // .dive()  // For Silver-plugin Events
+        // .dive() // For Silver-plugin Vitals
+        // .dive() // For Silver-plugin Events
         .dive();
 
     component.setState({
@@ -406,8 +406,8 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        // .dive()  // For Silver-plugin Events
+        // .dive() // For Silver-plugin Vitals
+        // .dive() // For Silver-plugin Events
         .dive();
 
     component.setProps({ allProcedures: [{
@@ -441,7 +441,7 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive() // For Silver-plugin Vitals
         // .dive() // For Silver-plugin Events
         .dive();
 
@@ -473,7 +473,7 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive() // For Silver-plugin Vitals
         // .dive() // For Silver-plugin Events
         .dive();
 
@@ -506,7 +506,7 @@ describe('Component <RecordsOfTable />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()  // For Silver-plugin Vitals
         // .dive()  // For Silver-plugin Events
         .dive();
 
