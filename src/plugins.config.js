@@ -21,9 +21,12 @@ import mdts from './components/pages/GenericMdt/index';
 import transfersOfCare from './components/pages/TransfersOfCare/index';
 import topThreeThings from './components/pages/TopThreeThings/index';
 import genericPlugin from './components/pages/GenericPlugin/index';
-import diaryEntry from './components/pages/DiaryEntry/index';
-// import proms from './components/pages/PROMs/index';
 import feeds from './components/pages/Feeds/index';
+
+// These plugins were removed from the main repository
+// import diaryEntry from './components/pages/DiaryEntry/index';
+// import proms from './components/pages/PROMs/index';
+
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -46,11 +49,13 @@ export const plugins = [
   referrals,
   mdts,
   transfersOfCare,
-  // proms,
   topThreeThings,
   feeds,
   genericPlugin,
-  diaryEntry,
+
+  // These plugins were removed from the main repository
+  // proms,
+  // diaryEntry,
 ];
 
 export const sidebarConfig = [
