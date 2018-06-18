@@ -5,7 +5,6 @@ import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
 import events from './components/pages/Events/index';
-import documents from './components/pages/Documents/index';
 import orders from './components/pages/Orders/index';
 import procedures from './components/pages/Procedures/index';
 import personalNotes from './components/pages/PersonalNotes/index';
@@ -14,7 +13,6 @@ import images from './components/pages/Images/index';
 import drawings from './components/pages/Drawings/index';
 import referrals from './components/pages/Referrals/index';
 import mdts from './components/pages/GenericMdt/index';
-
 import feeds from './components/pages/Feeds/index';
 
 // WERE REMOVED TO BRONZE PLUGINS
@@ -25,6 +23,7 @@ import feeds from './components/pages/Feeds/index';
 // WERE REMOVED TO SILVER PLUGINS
 // import clinicalNotes from './components/pages/ClinicalNotes/index';
 // import clinicalStatements from './components/pages/ClinicalStatements/index';
+// import documents from './components/pages/Documents/index';
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import vaccinations from './components/pages/Vaccinations/index';
 // import transfersOfCare from './components/pages/TransfersOfCare/index';
@@ -37,7 +36,6 @@ export const plugins = [
   allergies,
   contacts,
   events,
-  documents,
   orders,
   procedures,
   personalNotes,
@@ -56,6 +54,7 @@ export const plugins = [
   // WERE REMOVED TO SILVER PLUGINS
   // clinicalNotes,
   // clinicalStatements,
+  // documents,
   // topThreeThings,
   // transfersOfCare,
   // testResults,

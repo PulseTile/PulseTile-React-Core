@@ -112,12 +112,6 @@ const pluginsPages = {
       state: '/vitals',
     }],
   },
-  'documents': {
-    breadcrumbs: [{
-      title: 'Documents',
-      state: '/documents',
-    }],
-  },
   'images': {
     breadcrumbs: [{
       title: 'Images',
@@ -136,6 +130,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Clinical Statements',
   //     state: '/clinicalStatements',
+  //   }],
+  // },
+  // 'documents': {
+  //   breadcrumbs: [{
+  //     title: 'Documents',
+  //     state: '/documents',
   //   }],
   // },
   // 'results': {
