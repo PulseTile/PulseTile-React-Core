@@ -96,8 +96,6 @@ export const fetchPatientProceduresDetailOnMount = (generateFetchDetailOnMount('
 export const fetchPatientReferralsOnMount = (generateFetchListOnMount('fetchPatientReferralsRequest'));
 export const fetchPatientReferralsDetailOnMount = (generateFetchDetailOnMount('fetchPatientReferralsDetailRequest'));
 
-export const fetchPatientImagesOnMount = (generateFetchListOnMount('fetchPatientImagesRequest'));
-
 export const fetchSeriesOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
@@ -108,6 +106,9 @@ export const fetchSeriesOnMount = ({
   },
 });
 
+// FOR CARBON PLUGINS
+// Images
+// export const fetchPatientImagesOnMount = (generateFetchListOnMount('fetchPatientImagesRequest'));
 
 // FOR BRONZE PLUGINS
 // GenericPlugin

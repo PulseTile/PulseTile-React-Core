@@ -15,9 +15,7 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
   REFERRALS: 'referrals',
-  IMAGES: 'images',
   FEEDS: 'feeds',
-
 
   // These plugins were extracted and relocated to SILVER
   // CLINICAL_NOTES: 'clinicalNotes',
@@ -38,6 +36,9 @@ export const clientUrls = {
   // PROMS: 'proms',
   // GENERIC_PLUGIN: 'genericPlugin',
   // DIARY_ENTRY: 'diaryEntry',
+
+  // These plugins were extracted and relocated to CARBON
+  // IMAGES: 'images',
 };
 
 const pluginsPages = {
@@ -77,12 +78,14 @@ const pluginsPages = {
       state: '/referrals',
     }],
   },
-  'images': {
-    breadcrumbs: [{
-      title: 'Images',
-      state: '/images',
-    }],
-  },
+
+  // These plugins were extracted and relocated to CARBON
+  // 'images': {
+  //     breadcrumbs: [{
+  //         title: 'Images',
+  //         state: '/images',
+  //     }],
+  // },
 
   // These plugins were extracted and relocated to SILVER
   // 'clinicalNotes': {

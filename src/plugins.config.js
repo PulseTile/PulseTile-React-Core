@@ -5,7 +5,7 @@ import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
 import procedures from './components/pages/Procedures/index';
-import images from './components/pages/Images/index';
+
 import referrals from './components/pages/Referrals/index';
 import feeds from './components/pages/Feeds/index';
 
@@ -29,6 +29,8 @@ import feeds from './components/pages/Feeds/index';
 // import vaccinations from './components/pages/Vaccinations/index';
 // import vitals from './components/pages/Vitals/index';
 
+// WERE REMOVED TO CARBON PLUGINS
+// import images from './components/pages/Images/index';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 export const plugins = [
@@ -38,7 +40,6 @@ export const plugins = [
   allergies,
   contacts,
   procedures,
-  images,
   referrals,
   feeds,
 
@@ -61,6 +62,9 @@ export const plugins = [
   // testResults,
   // vaccinations,
   // vitals,
+
+  // WERE REMOVED TO CARBON PLUGINS
+  // images,
 ];
 
 export const sidebarConfig = [
