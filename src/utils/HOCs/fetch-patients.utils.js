@@ -82,9 +82,6 @@ export const fetchPatientProblemsSynopsisOnMount = (generateFetchListOnMount('fe
 export const fetchPatientDiagnosesOnMount = (generateFetchListOnMount('fetchPatientDiagnosesRequest'));
 export const fetchPatientDiagnosesDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiagnosesDetailRequest'));
 
-export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
-export const fetchPatientClinicalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalNotesDetailRequest'));
-
 export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
 export const fetchPatientPersonalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientPersonalNotesDetailRequest'));
 
@@ -111,16 +108,11 @@ export const fetchPatientOrdersDetailOnMount = (generateFetchDetailOnMount('fetc
 export const fetchPatientMDTsOnMount = (generateFetchListOnMount('fetchPatientMDTsRequest'));
 export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchPatientMDTsDetailRequest'));
 
-export const fetchPatientDrawingsOnMount = (generateFetchListOnMount('fetchPatientDrawingsRequest'));
-export const fetchPatientDrawingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDrawingsDetailRequest'));
-
 export const fetchPatientVitalsOnMount = (generateFetchListOnMount('fetchPatientVitalsRequest'));
 export const fetchPatientVitalsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVitalsDetailRequest'));
 
-export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPatientDocumentsRequest'));
-export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));
-
 export const fetchPatientImagesOnMount = (generateFetchListOnMount('fetchPatientImagesRequest'));
+
 export const fetchSeriesOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
@@ -132,17 +124,6 @@ export const fetchSeriesOnMount = ({
 });
 
 
-
-export const fetchPatientClinicalStatementsOnMount = (generateFetchListOnMount('fetchPatientClinicalStatementsRequest'));
-export const fetchPatientClinicalStatementsDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalStatementsDetailRequest'));
-export const fetchPatientClinicalStatementsTagsOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId) actions.fetchPatientClinicalStatementsTagsRequest({ userId });
-  },
-});
-
 // FOR BRONZE PLUGINS
 // GenericPlugin
 // export const fetchPatientGenericPluginOnMount = (generateFetchListOnMount('fetchPatientGenericPluginRequest'));
@@ -152,6 +133,25 @@ export const fetchPatientClinicalStatementsTagsOnMount = ({
 // export const fetchPatientDiaryEntryDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiaryEntryDetailRequest'));
 
 // FOR SILVER PLUGINS
+// Clinical Notes
+// export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
+// export const fetchPatientClinicalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalNotesDetailRequest'));
+// Clinical Statements
+// export const fetchPatientClinicalStatementsOnMount = (generateFetchListOnMount('fetchPatientClinicalStatementsRequest'));
+// export const fetchPatientClinicalStatementsDetailOnMount = (generateFetchDetailOnMount('fetchPatientClinicalStatementsDetailRequest'));
+// export const fetchPatientClinicalStatementsTagsOnMount = ({
+//   componentDidMount() {
+//     const { actions, match } = this.props;
+//     const userId = _.get('params.userId', match);
+//     if (userId) actions.fetchPatientClinicalStatementsTagsRequest({ userId });
+//   },
+// });
+// Documents
+// export const fetchPatientDocumentsOnMount = (generateFetchListOnMount('fetchPatientDocumentsRequest'));
+// export const fetchPatientDocumentsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDocumentsDetailRequest'));
+// Drawings
+// export const fetchPatientDrawingsOnMount = (generateFetchListOnMount('fetchPatientDrawingsRequest'));
+// export const fetchPatientDrawingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientDrawingsDetailRequest'));
 // Vaccinations
 // export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
 // export const fetchPatientVaccinationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientVaccinationsSynopsisRequest'));

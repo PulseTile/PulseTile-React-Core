@@ -18,9 +18,7 @@ export const clientUrls = {
   REFERRALS: 'referrals',
   ORDERS: 'orders',
   MDTS: 'mdt',
-  DRAWINGS: 'drawings',
   VITALS: 'vitals',
-  DOCUMENTS: 'documents',
   IMAGES: 'images',
   FEEDS: 'feeds',
 
@@ -28,6 +26,8 @@ export const clientUrls = {
   // These plugins were extracted and relocated to SILVER
   // CLINICAL_NOTES: 'clinicalNotes',
   // CLINICAL_STATEMENTS: 'clinicalStatements',
+  // DOCUMENTS: 'documents',
+  // DRAWINGS: 'drawings',
   // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
@@ -100,12 +100,6 @@ const pluginsPages = {
       state: '/mdt',
     }],
   },
-  'drawings': {
-    breadcrumbs: [{
-      title: 'Drawings',
-      state: '/drawings',
-    }],
-  },
   'vitals': {
     breadcrumbs: [{
       title: 'Vitals - NEWS',
@@ -136,6 +130,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Documents',
   //     state: '/documents',
+  //   }],
+  // },
+  // 'drawings': {
+  //   breadcrumbs: [{
+  //     title: 'Drawings',
+  //     state: '/drawings',
   //   }],
   // },
   // 'results': {
