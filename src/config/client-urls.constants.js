@@ -12,7 +12,6 @@ export const clientUrls = {
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
-  PERSONAL_NOTES: 'personalNotes',
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
   REFERRALS: 'referrals',
@@ -29,6 +28,7 @@ export const clientUrls = {
   // EVENTS: 'events',
   // MDTS: 'mdt',
   // ORDERS: 'orders',
+  // PERSONAL_NOTES: 'personalNotes',
   // RESULTS: 'results',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
@@ -51,12 +51,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Problems / Diagnoses',
       state: '/diagnoses',
-    }],
-  },
-  'personalNotes': {
-    breadcrumbs: [{
-      title: 'Personal Notes',
-      state: '/personalNotes',
     }],
   },
   'contacts': {
@@ -137,6 +131,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Orders',
   //     state: '/orders',
+  //   }],
+  // },
+  // 'personalNotes': {
+  //   breadcrumbs: [{
+  //     title: 'Personal Notes',
+  //     state: '/personalNotes',
   //   }],
   // },
   // 'results': {
