@@ -113,6 +113,21 @@ export const fetchSeriesOnMount = ({
 // export const fetchPatientDiaryEntryOnMount = (generateFetchListOnMount('fetchPatientDiaryEntryRequest'));
 // export const fetchPatientDiaryEntryDetailOnMount = (generateFetchDetailOnMount('fetchPatientDiaryEntryDetailRequest'));
 
+// Feeds
+// export const fetchFeedsOnMount = ({
+//   componentDidMount() {
+//     const { actions, match } = this.props;
+//     actions.fetchFeedsRequest();
+//   },
+// });
+// export const fetchFeedsDetailOnMount = ({
+//   componentDidMount() {
+//     const { actions, match } = this.props;
+//     const sourceId = _.get('params.sourceId', match);
+//     if (sourceId) actions.fetchFeedsDetailRequest({ sourceId });
+//   },
+// });
+
 // FOR SILVER PLUGINS
 // Clinical Notes
 // export const fetchPatientClinicalNotesOnMount = (generateFetchListOnMount('fetchPatientClinicalNotesRequest'));
@@ -186,17 +201,3 @@ export const fetchSeriesOnMount = ({
 // Vitals
 // export const fetchPatientVitalsOnMount = (generateFetchListOnMount('fetchPatientVitalsRequest'));
 // export const fetchPatientVitalsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVitalsDetailRequest'));
-
-export const fetchFeedsOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    actions.fetchFeedsRequest();
-  },
-});
-export const fetchFeedsDetailOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const sourceId = _.get('params.sourceId', match);
-    if (sourceId) actions.fetchFeedsDetailRequest({ sourceId });
-  },
-});

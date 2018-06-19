@@ -13,7 +13,6 @@ export const clientUrls = {
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
   MEDICATIONS: 'medications',
-  FEEDS: 'feeds',
 
   // These plugins were extracted and relocated to SILVER
   // CLINICAL_NOTES: 'clinicalNotes',
@@ -36,6 +35,7 @@ export const clientUrls = {
   // PROMS: 'proms',
   // GENERIC_PLUGIN: 'genericPlugin',
   // DIARY_ENTRY: 'diaryEntry',
+  // FEEDS: 'feeds',
 
   // These plugins were extracted and relocated to CARBON
   // IMAGES: 'images',

@@ -4,12 +4,12 @@ import diagnoses from './components/pages/Diagnosis/index';
 import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
-import feeds from './components/pages/Feeds/index';
 
 // WERE REMOVED TO BRONZE PLUGINS
 // import diaryEntry from './components/pages/DiaryEntry/index';
 // import genericPlugin from './components/pages/GenericPlugin/index';
 // import proms from './components/pages/PROMs/index';
+// import feeds from './components/pages/Feeds/index';
 
 // WERE REMOVED TO SILVER PLUGINS
 // import clinicalNotes from './components/pages/ClinicalNotes/index';
@@ -38,12 +38,12 @@ export const plugins = [
   medications,
   allergies,
   contacts,
-  feeds,
 
   // WERE REMOVED TO BRONZE PLUGINS
   // diaryEntry,
   // genericPlugin,
   // proms,
+  // feeds,
 
   // WERE REMOVED TO SILVER PLUGINS
   // clinicalNotes,

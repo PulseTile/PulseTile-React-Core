@@ -61,16 +61,6 @@ exports[`Component <UserAccountPanelSettings /> should renders with props correc
             Change History
           </span>
         </div>
-        <div
-          className="dropdown-menu-item"
-          onClick={[Function]}
-        >
-          <span
-            className="dropdown-menu-item-text"
-          >
-            Feeds
-          </span>
-        </div>
       </div>
     </div>
   </div>

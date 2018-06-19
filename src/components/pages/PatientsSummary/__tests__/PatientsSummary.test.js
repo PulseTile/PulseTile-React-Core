@@ -38,19 +38,21 @@ const store = mockStore({
   patientsContacts: {},
   patientsAllergies: {},
   patientsMedications: {},
+
   // patientsVaccinations: {},
   // patientsTopThreeThings: {},
-  feeds: [{
-    name: 'Leeds Live - Whats on',
-    landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-    rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-    sourceId: 'testSourceID4',
-  }, {
-    name: 'Leeds CC Local News',
-    landingPageUrl: 'https://news.leeds.gov.uk',
-    rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-    sourceId: 'testSourceID5',
-  }],
+  // feeds: [{
+  //   name: 'Leeds Live - Whats on',
+  //   landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+  //   rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
+  //   sourceId: 'testSourceID4',
+  // }, {
+  //   name: 'Leeds CC Local News',
+  //   landingPageUrl: 'https://news.leeds.gov.uk',
+  //   rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+  //   sourceId: 'testSourceID5',
+  // }],
+
 });
 const match = {
   params: {},
@@ -101,8 +103,8 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        .dive()
+        // .dive()
+        // .dive()
         // .dive()  // For TopThreeThings-plugin
         // .dive()  // For Vaccinations-plugin
         .dive();
@@ -161,8 +163,8 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
-        .dive()
+        // .dive()
+        // .dive()
         // .dive()  // For TopThreeThings-plugin
         // .dive()  // For Vaccinations-plugin
         .dive();
@@ -174,28 +176,29 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('ConfirmationModal')).toHaveLength(1);
   });
 
-  it('should renders Feeds correctly', () => {
-    themeConfigs.isLeedsPHRTheme = true;
-    const component = shallow(
-      <PatientsSummary
-        store={store}
-        match={match}
-        location={location}
-        onCategorySelected={testProps.onCategorySelected}
-        selectedCategory={testProps.selectedCategory}
-      />, { context })
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        // .dive()  // For TopThreeThings-plugin
-        // .dive()  // For Vaccinations-plugin
-        .dive();
-
-    expect(component).toMatchSnapshot();
-  });
+  // For Feeds-panel
+  // it('should renders Feeds correctly', () => {
+  //   themeConfigs.isLeedsPHRTheme = true;
+  //   const component = shallow(
+  //     <PatientsSummary
+  //       store={store}
+  //       match={match}
+  //       location={location}
+  //       onCategorySelected={testProps.onCategorySelected}
+  //       selectedCategory={testProps.selectedCategory}
+  //     />, { context })
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       // .dive()  // For TopThreeThings-plugin
+  //       // .dive()  // For Vaccinations-plugin
+  //       .dive();
+  //
+  //   expect(component).toMatchSnapshot();
+  // });
 
 });
 
