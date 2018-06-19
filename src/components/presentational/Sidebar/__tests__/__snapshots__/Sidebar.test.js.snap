@@ -76,16 +76,6 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               Procedures
             </a>
           </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/referrals"
-            >
-              Referrals
-            </a>
-          </li>
         </ul>
       </div>
     </div>

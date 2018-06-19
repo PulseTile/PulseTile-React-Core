@@ -5,8 +5,6 @@ import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
 import procedures from './components/pages/Procedures/index';
-
-import referrals from './components/pages/Referrals/index';
 import feeds from './components/pages/Feeds/index';
 
 // WERE REMOVED TO BRONZE PLUGINS
@@ -23,6 +21,7 @@ import feeds from './components/pages/Feeds/index';
 // import mdts from './components/pages/GenericMdt/index';
 // import orders from './components/pages/Orders/index';
 // import personalNotes from './components/pages/PersonalNotes/index';
+// import referrals from './components/pages/Referrals/index';
 // import testResults from './components/pages/Results/index';
 // import topThreeThings from './components/pages/TopThreeThings/index';
 // import transfersOfCare from './components/pages/TransfersOfCare/index';
@@ -40,7 +39,6 @@ export const plugins = [
   allergies,
   contacts,
   procedures,
-  referrals,
   feeds,
 
   // WERE REMOVED TO BRONZE PLUGINS
@@ -57,6 +55,7 @@ export const plugins = [
   // mdts,
   // orders,
   // personalNotes,
+  // referrals,
   // topThreeThings,
   // transfersOfCare,
   // testResults,

@@ -192,9 +192,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Referrals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -204,27 +202,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverReferrals
-        detail={
-          Object {
-            "author": "bob.smith@gmail.com",
-            "dateCreated": 1512479165000,
-            "dateOfReferral": 1511196789986,
-            "referralCareFlow": "Service request sent",
-            "referralFrom": "aa test1rrrrrrrrrrrrrrrrrrrrrrrrrrr",
-            "referralOutcome": "",
-            "referralReason": "test1rrrrrrrrrrrr",
-            "referralRef": "",
-            "referralServiceName": "Referral To",
-            "referralState": "planned",
-            "referralStateCode": 526,
-            "referralStateDate": 1511196789986,
-            "referralSummary": "test1rrrrrrrrrrrrr",
-            "referralTo": "test1rrrrrrrrrrrrr",
-            "referralType": "Referral To",
-            "source": "ethercis",
-            "sourceId": "f1dc1821-65a4-42a3-8c09-732e321ab97a",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>

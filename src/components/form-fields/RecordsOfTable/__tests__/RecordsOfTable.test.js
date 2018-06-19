@@ -2,7 +2,6 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import { valuesNames } from '../forms.config';
 
@@ -175,9 +174,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
@@ -338,9 +337,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     expect(component.find('.has-error')).toHaveLength(1);
@@ -363,9 +362,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     component.setState({
@@ -405,9 +404,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     component.setProps({ allProcedures: [{
@@ -440,9 +439,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     component.setProps({ allProcedures: [{
@@ -472,9 +471,9 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
-        // .dive() // For Silver-plugin Vitals
-        // .dive() // For Silver-plugin Events
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
         .dive();
 
     component.setProps({ allProcedures: [{
@@ -505,7 +504,7 @@ describe('Component <RecordsOfTable />', () => {
       />)
         .dive()
         .dive()
-        .dive()
+        // .dive()  // For Referral-plugin
         // .dive()  // For Silver-plugin Vitals
         // .dive()  // For Silver-plugin Events
         .dive();

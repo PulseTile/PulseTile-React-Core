@@ -14,7 +14,7 @@ export const clientUrls = {
   CONTACTS: 'contacts',
   MEDICATIONS: 'medications',
   PROCEDURES: 'procedures',
-  REFERRALS: 'referrals',
+
   FEEDS: 'feeds',
 
   // These plugins were extracted and relocated to SILVER
@@ -27,6 +27,7 @@ export const clientUrls = {
   // ORDERS: 'orders',
   // PERSONAL_NOTES: 'personalNotes',
   // RESULTS: 'results',
+  // REFERRALS: 'referrals',
   // TOP_THREE_THINGS: 'topThreeThings',
   // TRANSFERS_OF_CARE: 'transfer-of-care',
   // VACCINATIONS: 'vaccinations',
@@ -70,12 +71,6 @@ const pluginsPages = {
     breadcrumbs: [{
       title: 'Procedures',
       state: '/procedures',
-    }],
-  },
-  'referrals': {
-    breadcrumbs: [{
-      title: 'Referrals',
-      state: '/referrals',
     }],
   },
 
@@ -134,6 +129,12 @@ const pluginsPages = {
   //   breadcrumbs: [{
   //     title: 'Personal Notes',
   //     state: '/personalNotes',
+  //   }],
+  // },
+  // 'referrals': {
+  //   breadcrumbs: [{
+  //     title: 'Referrals',
+  //     state: '/referrals',
   //   }],
   // },
   // 'results': {

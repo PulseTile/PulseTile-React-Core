@@ -9,13 +9,11 @@ import RecordsOfTablePopover from './RecordsOfTablePopover';
 import Spinner from '../../ui-elements/Spinner/Spinner';
 import { valuesNames, valuesLabels, defaultTypesOptions } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals.duck';
 import { fetchPatientMedicationsRequest } from '../../pages/Medications/ducks/fetch-patient-medications.duck';
 import { fetchPatientDiagnosesRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientProceduresRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures.duck';
 import { patientDiagnosesSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsSelector } from '../../pages/Medications/selectors';
-import { patientReferralsSelector } from '../../pages/Referrals/selectors';
 import { patientProceduresSelector } from '../../pages/Procedures/selectors';
 
 // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
@@ -23,6 +21,8 @@ import { patientProceduresSelector } from '../../pages/Procedures/selectors';
 // import { patientEventsSelector } from '../../pages/Events/selectors';
 // import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
 // import { patientVitalsSelector } from '../../pages/Vitals/selectors';
+// import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals.duck';
+// import { patientReferralsSelector } from '../../pages/Referrals/selectors';
 
 const PREFIX_POPOVER_ID = 'rot-popover-';
 
@@ -31,25 +31,23 @@ const mapDispatchToProps = dispatch => ({
 
     fetchPatientDiagnosesRequest,
     fetchPatientMedicationsRequest,
-    fetchPatientReferralsRequest,
-
     fetchPatientProceduresRequest,
 
     // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS.
     // fetchPatientVitalsRequest,
     // fetchPatientEventsRequest,
+    // fetchPatientReferralsRequest,
 
   }, dispatch) });
 
 @connect(patientDiagnosesSelector, mapDispatchToProps)
 @connect(patientMedicationsSelector)
-@connect(patientReferralsSelector)
-
 @connect(patientProceduresSelector)
 
 // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
 // @connect(patientVitalsSelector)
 // @connect(patientEventsSelector)
+// @connect(patientReferralsSelector)
 
 export default class RecordsOfTable extends PureComponent {
   static defaultProps = {
@@ -83,14 +81,6 @@ export default class RecordsOfTable extends PureComponent {
         setMethodName: 'setMedicationsRecords',
         records: null,
       },
-      referrals: {
-        title: 'Referrals',
-        fetchList: 'fetchPatientReferralsRequest',
-        stateName: 'allReferrals',
-        setMethodName: 'setReferralsRecords',
-        records: null,
-      },
-
       procedures: {
         title: 'Procedures',
         fetchList: 'fetchPatientProceduresRequest',
@@ -112,6 +102,13 @@ export default class RecordsOfTable extends PureComponent {
       //   fetchList: 'fetchPatientEventsRequest',
       //   stateName: 'allEvents',
       //   setMethodName: 'setEventsRecords',
+      //   records: null,
+      // },
+      // referrals: {
+      //   title: 'Referrals',
+      //   fetchList: 'fetchPatientReferralsRequest',
+      //   stateName: 'allReferrals',
+      //   setMethodName: 'setReferralsRecords',
       //   records: null,
       // },
     },
