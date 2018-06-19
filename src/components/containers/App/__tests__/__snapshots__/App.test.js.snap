@@ -33,26 +33,17 @@ exports[`Component <App /> should renders correctly when props not empty 1`] = `
         className="header"
       >
         <Connect(Connect(TopHeader))
-          isHasSearch={false}
+          isHasSearch={true}
         >
-          <HeaderList
-            items={
-              Array [
-                <img
-                  alt="header img 2"
-                  src="/images/nhs.png"
-                />,
-              ]
-            }
-          />
+          <div />
         </Connect(Connect(TopHeader))>
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
     </div>
     <Footer
-      copyright="Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved"
-      isShowSupportedBy={false}
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
     />
   </div>
 </div>
@@ -80,7 +71,7 @@ exports[`Component <App /> should renders correctly with context 1`] = `
         className="header"
       >
         <Connect(Connect(TopHeader))
-          isHasSearch={false}
+          isHasSearch={true}
         >
           <HeaderList
             items={
@@ -98,8 +89,8 @@ exports[`Component <App /> should renders correctly with context 1`] = `
       <withRouter(Connect(Connect(Main))) />
     </div>
     <Footer
-      copyright="Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved"
-      isShowSupportedBy={false}
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
     />
   </div>
 </div>
@@ -127,7 +118,7 @@ exports[`Component <App /> should renders correctly with is not touch device and
         className="header"
       >
         <Connect(Connect(TopHeader))
-          isHasSearch={false}
+          isHasSearch={true}
         >
           <HeaderList
             items={
@@ -145,8 +136,8 @@ exports[`Component <App /> should renders correctly with is not touch device and
       <withRouter(Connect(Connect(Main))) />
     </div>
     <Footer
-      copyright="Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved"
-      isShowSupportedBy={false}
+      copyright="Transforming Usability"
+      isShowSupportedBy={true}
     />
   </div>
 </div>

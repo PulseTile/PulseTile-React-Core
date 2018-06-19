@@ -50,7 +50,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -196,7 +196,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -356,7 +356,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -368,7 +368,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -388,7 +388,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -408,7 +408,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -428,7 +428,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
