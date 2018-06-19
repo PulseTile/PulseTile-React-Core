@@ -140,7 +140,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
     </div>
   </div>
   <Connect(Connect(Sidebar))
-    activeLink="procedures"
+    activeLink="patients"
     userId="9999999000"
   />
 </div>

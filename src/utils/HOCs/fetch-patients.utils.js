@@ -90,9 +90,6 @@ export const fetchPatientMedicationsOnMount = (generateFetchListOnMount('fetchPa
 export const fetchPatientMedicationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientMedicationsSynopsisRequest'));
 export const fetchPatientMedicationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientMedicationsDetailRequest'));
 
-export const fetchPatientProceduresOnMount = (generateFetchListOnMount('fetchPatientProceduresRequest'));
-export const fetchPatientProceduresDetailOnMount = (generateFetchDetailOnMount('fetchPatientProceduresDetailRequest'));
-
 export const fetchSeriesOnMount = ({
   componentDidMount() {
     const { actions, match } = this.props;
@@ -151,6 +148,10 @@ export const fetchSeriesOnMount = ({
 // Personal Notes
 // export const fetchPatientPersonalNotesOnMount = (generateFetchListOnMount('fetchPatientPersonalNotesRequest'));
 // export const fetchPatientPersonalNotesDetailOnMount = (generateFetchDetailOnMount('fetchPatientPersonalNotesDetailRequest'));
+
+// Procedures
+// export const fetchPatientProceduresOnMount = (generateFetchListOnMount('fetchPatientProceduresRequest'));
+// export const fetchPatientProceduresDetailOnMount = (generateFetchDetailOnMount('fetchPatientProceduresDetailRequest'));
 
 // Referrals
 // export const fetchPatientReferralsOnMount = (generateFetchListOnMount('fetchPatientReferralsRequest'));
