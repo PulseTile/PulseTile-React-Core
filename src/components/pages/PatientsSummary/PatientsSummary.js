@@ -7,7 +7,7 @@ import { compose, lifecycle } from 'recompose';
 import { get } from 'lodash';
 import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
-import RssDashboardPanel from './RssDashboardPanel';
+import RssDashboardPanel from '../Feeds/RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import { summarySynopsisSelector } from './separate-selectors';

@@ -19,7 +19,6 @@ import setSidebarVisibilityReducer from './ducks/set-sidebar-visibility';
 import fetchPatientsInfoReducer from './ducks/fetch-patients-info.duck';
 import requestErrorReducer from './ducks/handle-errors.duck';
 import userProfileTabReducer from './ducks/user-profile-tab.duck';
-import getRssFeedsReducer from './ducks/fetch-get-rss-feeds.duck';
 
 let reducers = {
   router: routerReducer,
@@ -40,7 +39,6 @@ let reducers = {
   loadingBar: loadingBarReducer,
   requestError: requestErrorReducer,
   userProfileTabs: userProfileTabReducer,
-  rssFeeds: getRssFeedsReducer,
 };
 
 pluginsReducerConfig.forEach((el) => {

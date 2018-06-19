@@ -2,7 +2,7 @@ import _ from 'lodash/fp';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { createAction } from 'redux-actions';
 import { get } from 'lodash';
-import { getRssFeedsListFromXML } from '../utils/rss-helpers';
+import { getRssFeedsListFromXML } from '../../../../utils/rss-helpers';
 
 export const FETCH_GET_RSS_FEEDS_REQUEST = 'FETCH_GET_RSS_FEEDS_REQUEST';
 export const FETCH_GET_RSS_FEEDS_SUCCESS = 'FETCH_GET_RSS_FEEDS_SUCCESS';

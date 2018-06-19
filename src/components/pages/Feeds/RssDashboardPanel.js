@@ -3,10 +3,10 @@ import _ from 'lodash/fp';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
-import SimpleDashboardPanel from './SimpleDashboardPanel';
-import { rssFeedsSelector } from '../../../selectors/rss-feeds';
-import { fetchGetRssFeedsRequest } from '../../../ducks/fetch-get-rss-feeds.duck';
-import { patientsSummaryLoading } from './patients-summary.config';
+import SimpleDashboardPanel from '../PatientsSummary/SimpleDashboardPanel';
+import { patientsSummaryLoading } from '../PatientsSummary/patients-summary.config';
+import { rssFeedsSelector } from './rss-feeds-selector';
+import { fetchGetRssFeedsRequest } from './ducks/fetch-get-rss-feeds.duck';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchGetRssFeedsRequest }, dispatch) });
