@@ -1,153 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
-<section
-  className="page-wrapper"
->
-  <Row
-    bsClass="row"
-    componentClass="div"
-  >
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={12}
-    >
-      <div
-        className="panel panel-primary panel-dashboard"
-      >
-        <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
-          }
-          onCategorySelected={[Function]}
-          onViewOfBoardsSelected={[Function]}
-          selectedCategory={
-            Object {
-              "allergies": true,
-              "contacts": true,
-              "medications": true,
-              "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
-            }
-          }
-          selectedViewOfBoards={
-            Object {
-              "full": true,
-              "list": false,
-              "preview": false,
-            }
-          }
-          title="Patient Summary"
-        />
-        <div
-          className="panel-body"
-        >
-          <div
-            className="dashboard"
-          >
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="0"
-              srcPrevirew="/images/patients-summary/problems.jpg"
-              state="diagnoses"
-              title="Diagnosis"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="1"
-              srcPrevirew="/images/patients-summary/contacts.jpg"
-              state="contacts"
-              title="Contacts"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="2"
-              srcPrevirew="/images/patients-summary/allergies.jpg"
-              state="allergies"
-              title="Allergies"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="3"
-              srcPrevirew="/images/patients-summary/medications.jpg"
-              state="medications"
-              title="Medications"
-            />
-          </div>
-        </div>
-      </div>
-    </Col>
-  </Row>
-</section>
-`;
-
 exports[`Component <PatientsSummary /> should renders with Disclaimer Modal correctly 1`] = `
 <section
   className="page-wrapper"
@@ -165,22 +17,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
-          }
+          feeds={Array []}
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -189,8 +26,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -327,22 +162,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
-          }
+          feeds={Array []}
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -351,8 +171,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={

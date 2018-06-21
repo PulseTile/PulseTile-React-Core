@@ -61,9 +61,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Events
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -73,18 +71,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverEvents
-        detail={
-          Object {
-            "author": "bob.smith@gmail.com",
-            "dateCreated": 1517845806000,
-            "dateTime": 1517845805981,
-            "description": "- Procedure",
-            "name": "- Procedure",
-            "source": "ethercis",
-            "sourceId": "773c2b67-9a88-4bfd-9f0d-04e78dc5721e",
-            "type": "Admission",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
@@ -154,9 +141,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Procedures
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -166,25 +151,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverProcedures
-        detail={
-          Object {
-            "author": "bob.smith@gmail.com",
-            "currentStatus": "completed",
-            "date": 1510856522000,
-            "dateSubmitted": 1511799722000,
-            "name": "a test request23 changed",
-            "notes": "testing23 changed",
-            "originalComposition": "",
-            "originalSource": "",
-            "performer": "Performer changed",
-            "procedureCode": "1234523 changed",
-            "procedureName": "a test request23 changed",
-            "procedureTerminology": "SNOMED-CT changed",
-            "source": "ethercis",
-            "sourceId": "abfa6a6c-9703-4566-8926-f046580bd8a7",
-            "time": 66122000,
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
@@ -205,9 +172,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Referrals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -217,27 +182,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverReferrals
-        detail={
-          Object {
-            "author": "bob.smith@gmail.com",
-            "dateCreated": 1512479165000,
-            "dateOfReferral": 1511196789986,
-            "referralCareFlow": "Service request sent",
-            "referralFrom": "aa test1rrrrrrrrrrrrrrrrrrrrrrrrrrr",
-            "referralOutcome": "",
-            "referralReason": "test1rrrrrrrrrrrr",
-            "referralRef": "",
-            "referralServiceName": "Referral To",
-            "referralState": "planned",
-            "referralStateCode": 526,
-            "referralStateDate": 1511196789986,
-            "referralSummary": "test1rrrrrrrrrrrrr",
-            "referralTo": "test1rrrrrrrrrrrrr",
-            "referralType": "Referral To",
-            "source": "ethercis",
-            "sourceId": "f1dc1821-65a4-42a3-8c09-732e321ab97a",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
@@ -258,9 +203,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Vitals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"
@@ -268,24 +211,9 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     <div
       className="record-popover-content"
     >
+      <Spinner />
       <RecordsOfTablePopoverVitals
-        detail={
-          Object {
-            "author": "Dr Tony Shannon",
-            "dateCreated": 1516367377000,
-            "diastolicBP": "64.0",
-            "heartRate": "45.0",
-            "levelOfConsciousness": "Voice",
-            "newsScore": 4,
-            "oxygenSaturation": "97.0",
-            "oxygenSupplemental": "false",
-            "respirationRate": "12.0",
-            "source": "ethercis",
-            "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
-            "systolicBP": "112.0",
-            "temperature": "37.0",
-          }
-        }
+        detail={null}
       />
     </div>
   </div>
@@ -334,9 +262,7 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    >
-      Vitals
-    </div>
+    />
   </div>
   <div
     className="record-popover-body"

@@ -57,50 +57,65 @@ const patientMedicationsSelector = createSelector(
   }
 );
 
-const patientVaccinationsSelector = createSelector(
-  ({ patientsVaccinations }) => patientsVaccinations,
-  (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsVaccinations, userId) => {
-    let vaccinations = {};
-    if (patientsVaccinations[userId]) {
-      vaccinations = patientsVaccinations[userId];
-    } else {
-      vaccinations = [{text: 'Loading ...'}, '', '', ''];
-    }
-    return vaccinations;
-  }
-);
-
-const patientTopThreeThingsSelector = createSelector(
-  ({ patientsTopThreeThings }) => patientsTopThreeThings,
-  (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsTopThreeThings, userId) => {
-    let topThreeThings = {};
-    if (patientsTopThreeThings[userId]) {
-      topThreeThings = patientsTopThreeThings[userId];
-    } else {
-      topThreeThings = [{text: 'Loading ...'}, '', '', ''];
-    }
-    return topThreeThings;
-  }
-);
+// Plugin Vaccinations wer3e extracted from the main repository and located in Silver-plugins
+// const patientVaccinationsSelector = createSelector(
+//   ({ patientsVaccinations }) => patientsVaccinations,
+//   (state, props) => _.getOr(null, 'match.params.userId', props),
+//   (patientsVaccinations, userId) => {
+//     let vaccinations = {};
+//     if (patientsVaccinations[userId]) {
+//       vaccinations = patientsVaccinations[userId];
+//     } else {
+//       vaccinations = [{text: 'Loading ...'}, '', '', ''];
+//     }
+//     return vaccinations;
+//   }
+// );
+// const patientTopThreeThingsSelector = createSelector(
+//   ({ patientsTopThreeThings }) => patientsTopThreeThings,
+//   (state, props) => _.getOr(null, 'match.params.userId', props),
+//   (patientsTopThreeThings, userId) => {
+//     let topThreeThings = {};
+//     if (patientsTopThreeThings[userId]) {
+//       topThreeThings = patientsTopThreeThings[userId];
+//     } else {
+//       topThreeThings = [{text: 'Loading ...'}, '', '', ''];
+//     }
+//     return topThreeThings;
+//   }
+// );
 
 export const summarySynopsisSelector  = createSelector(
   patientProblemsSelector,
   patientContactsSelector,
   patientAllergiesSelector,
   patientMedicationsSelector,
-  patientVaccinationsSelector,
-  patientTopThreeThingsSelector,
-  (problems, contacts, allergies, medications, vaccinations, topThree) => {
+
+  // Plugins were extracted and relocated to SILVER-plugins
+  // patientVaccinationsSelector,
+  // patientTopThreeThingsSelector,
+
+  (
+    problems,
+    contacts,
+    allergies,
+    medications,
+
+    // Plugins were extracted and relocated to SILVER-plugins
+    // vaccinations,
+    // topThree
+
+  ) => {
     return {
       boards: {
         problems: problems,
         contacts: contacts,
         allergies: allergies,
         medications: medications,
-        vaccinations: vaccinations,
-        topThreeThings: topThree,
+
+        // Plugins were extracted and relocated to SILVER-plugins
+        // vaccinations: vaccinations,
+        // topThreeThings: topThree,
       }
     };
   }

@@ -2,7 +2,6 @@ import React from 'react';
 import Enzyme, { shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import { valuesNames } from '../forms.config';
 
@@ -110,6 +109,15 @@ const storeResource = {
   },
 };
 
+const diagnosisSourceId = '0234fbd6-bfb5-49b0-bf02-9759a22f471f';
+const diagnosisValue = [{
+    problem: 'Too bad desease ddd',
+    dateOfOnset: 1512432000000,
+    source: 'ethercis',
+    sourceId: diagnosisSourceId,
+    dateOfOnsetConvert: '05-Dec-2017',
+}];
+
 const ProcedureSourceId = 'fa7408c3-7d69-4f50-84ac-cbf735a0ab18';
 const procedureValue = [{
   name: 'Cauterisation of wart of skin',
@@ -117,6 +125,7 @@ const procedureValue = [{
   typeTitle: 'Procedures',
   sourceId: ProcedureSourceId,
 }];
+
 const storeEmptyResource = {
   patientsDiagnoses: {},
   patientsMedications: {},
@@ -172,7 +181,13 @@ describe('Component <RecordsOfTable />', () => {
         input={testProps.input}
         allReferrals={testProps.allReferrals}
         match={match}
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
     expect(component.find('SelectFormGroup')).toHaveLength(1);
@@ -187,8 +202,9 @@ describe('Component <RecordsOfTable />', () => {
     expect(component.state().indexOfSelectedRecord).toEqual('');
     expect(component.state().indexOfTypeEvents).toEqual('');
 
-    component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
-    expect(component.state().typeRecords).toEqual('events');
+    // For Events-plugin
+    // component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
+    // expect(component.state().typeRecords).toEqual('events');
 
     component.instance().handleGetHeadingsLists({ target: { value: 'diagnosis' }});
 
@@ -328,10 +344,13 @@ describe('Component <RecordsOfTable />', () => {
         allReferrals={testProps.allReferrals}
         match={match}
         isSubmit
-      />).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     expect(component.find('.has-error')).toHaveLength(1);
     expect(component.find('.form-control-static').text()).toEqual('No records added');
@@ -350,10 +369,13 @@ describe('Component <RecordsOfTable />', () => {
         }}
         match={match}
         isSubmit={false}
-      />).dive().dive().dive()
-      .dive()
-      .dive()
-      .dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
     component.setState({
       typesRecords: {
@@ -379,30 +401,33 @@ describe('Component <RecordsOfTable />', () => {
       <RecordsOfTable
         store={storeEmpty}
         input={{
-          value: procedureValue,
+          value: diagnosisValue,
           onChange: (value) => value,
         }}
         match={match}
         isSubmit={false}
         typesOptions={[
-          { value: 'procedures', title: 'Procedures' },
+          { value: 'diagnosis', title: 'Diagnosis' },
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
-    component.setProps({ allProcedures: [{
-        name: 'total replacement of hip',
-        date: 1436969493829,
-        time: 54693829,
-        source: 'ethercis',
-        sourceId: ProcedureSourceId,
-        dateConvert: '15-Jul-2015',
-        timeConvert: '17:11',
-      }] });
+    component.setProps({ allDiagnoses: [{
+      problem: 'Too bad desease ddd',
+      dateOfOnset: 1512432000000,
+      source: 'ethercis',
+      sourceId: diagnosisSourceId,
+      dateOfOnsetConvert: '05-Dec-2017',
+    }] });
 
     component.instance().handleGetHeadingsItems({ target: { value: 0 } });
-
 
     component = shallow(
       <RecordsOfTable
@@ -414,74 +439,84 @@ describe('Component <RecordsOfTable />', () => {
         match={match}
         isSubmit={false}
         typesOptions={[
-          { value: 'procedures', title: 'Procedures' },
+          { value: 'diagnosis', title: 'Diagnosis' },
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
-    component.setProps({ allProcedures: [{
-        name: 'total replacement of hip',
-        date: 1436969493829,
-        time: 54693829,
-        source: 'ethercis',
-        sourceId: ProcedureSourceId,
-        dateConvert: '15-Jul-2015',
-        timeConvert: '17:11',
-      }] });
-
+    component.setProps({ allDiagnoses: [{
+      problem: 'Too bad desease ddd',
+      dateOfOnset: 1512432000000,
+      source: 'ethercis',
+      sourceId: diagnosisSourceId,
+      dateOfOnsetConvert: '05-Dec-2017',
+    }] });
 
     component = shallow(
       <RecordsOfTable
         store={storeEmpty}
         input={{
-          value: procedureValue,
+          value: diagnosisValue,
           onChange: (value) => value,
         }}
         match={match}
         isSubmit={false}
         typesOptions={[
-          { value: 'procedures', title: 'Procedures' },
+          { value: 'diagnosis', title: 'Diagnosis' },
         ]}
         isOnlyOneRecord
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
-    component.setProps({ allProcedures: [{
-        name: 'total replacement of hip',
-        date: 1436969493829,
-        time: 54693829,
-        source: 'ethercis',
-        sourceId: 'anotherSourceId',
-        dateConvert: '15-Jul-2015',
-        timeConvert: '17:11',
-      }] });
-
+    component.setProps({ allDiagnoses: [{
+      problem: 'Too bad desease ddd',
+      dateOfOnset: 1512432000000,
+      source: 'ethercis',
+      sourceId: diagnosisSourceId,
+      dateOfOnsetConvert: '05-Dec-2017',
+    }] });
 
     component = shallow(
       <RecordsOfTable
         store={storeEmpty}
         input={{
-          value: procedureValue,
+          value: diagnosisValue,
           onChange: (value) => value,
         }}
         match={match}
         isSubmit={false}
         typesOptions={[
-          { value: 'procedures', title: 'Procedures' },
+          { value: 'diagnosis', title: 'Diagnosis' },
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
-      />).dive().dive().dive().dive().dive().dive();
+      />)
+        .dive()
+        // .dive()  // For Procedures-plugin
+        // .dive()  // For Referral-plugin
+        // .dive()  // For Silver-plugin Vitals
+        // .dive()  // For Silver-plugin Events
+        .dive();
 
-    component.setProps({ allProcedures: [{
-        name: 'total replacement of hip',
-        date: 1436969493829,
-        time: 54693829,
-        source: 'ethercis',
-        sourceId: 'anitherSourceId',
-        dateConvert: '15-Jul-2015',
-        timeConvert: '17:11',
-      }] });
+    component.setProps({ allDiagnoses: [{
+      problem: 'Too bad desease ddd',
+      dateOfOnset: 1512432000000,
+      source: 'ethercis',
+      sourceId: diagnosisSourceId,
+      dateOfOnsetConvert: '05-Dec-2017',
+    }] });
   });
 
   it('should renders with props correctly without DragAndDrop functionality', () => {
@@ -489,42 +524,40 @@ describe('Component <RecordsOfTable />', () => {
       <RecordsOfTable
         store={storeEmpty}
         input={{
-          value: procedureValue,
+          value: diagnosisValue,
           onChange: (value) => value,
         }}
         match={match}
         isSubmit={false}
         typesOptions={[
-          { value: 'procedures', title: 'Procedures' },
+          { value: 'diagnosis', title: 'Diagnosis' },
         ]}
         isOnlyOneRecord
         isNotDragAndDropOfRaws
       />);
 
-    component.setProps({ allProcedures: [{
-        name: 'total replacement of hip',
-        date: 1436969493829,
-        time: 54693829,
-        source: 'ethercis',
-        sourceId: ProcedureSourceId,
-        dateConvert: '15-Jul-2015',
-        timeConvert: '17:11',
-      }] });
+    component.setProps({ allDiagnoses: [{
+      problem: 'Too bad desease ddd',
+      dateOfOnset: 1512432000000,
+      source: 'ethercis',
+      sourceId: diagnosisSourceId,
+      dateOfOnsetConvert: '05-Dec-2017',
+    }] });
 
     component.setState({
       typesRecords: {
-        procedures: {
+        diagnosis: {
           records: [{
             record: {
-              tableName: 'test',
+              tableName: 'Too bad desease ddd',
               date: 1512432000000,
-              source: 'test Source',
-              sourceId: ProcedureSourceId,
+              source: 'ethercis',
+              sourceId: diagnosisSourceId,
             }
           }]
         }
       },
-      typeRecords: 'procedures'
+      typeRecords: 'diagnosis'
     });
 
     expect(component).toMatchSnapshot();

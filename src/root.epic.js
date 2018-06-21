@@ -21,7 +21,6 @@ import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
 import { setLogoEpic } from './ducks/set-logo.duck';
 import { setTitleEpic } from './ducks/set-title.duck';
-import { fetchGetRssFeedsEpic } from './ducks/fetch-get-rss-feeds.duck';
 
 import { handleErrors } from './ducks/handle-errors.duck';
 
@@ -56,7 +55,6 @@ const rootEpic = combineEpics(...[
   setThemeEpic,
   setLogoEpic,
   setTitleEpic,
-  fetchGetRssFeedsEpic,
   ...pluginsEpicConfig,
 ].map(wrapEpic));
 

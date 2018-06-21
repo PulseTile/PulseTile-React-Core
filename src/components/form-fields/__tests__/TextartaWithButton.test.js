@@ -6,14 +6,16 @@ import Adapter from 'enzyme-adapter-react-15';
 configure({ adapter: new Adapter() });
 
 import TextareaWithButton from '../TextareaWithButton';
-import {valuesLabels, valuesNames} from '../../pages/DiaryEntry/forms.config';
+
+// Was removed from the main repository for extracting DiaryEntry plugin
+// import {valuesLabels, valuesNames} from '../../pages/DiaryEntry/forms.config';
 
 const testProps = {
   button: <button>test</button>,
   fieldProps: {
-    label:  valuesLabels.TYPE,
-    name:   valuesNames.TYPE,
-    id:     valuesNames.TYPE,
+    // label:  valuesLabels.TYPE,
+    // name:   valuesNames.TYPE,
+    // id:     valuesNames.TYPE,
   },
 };
 

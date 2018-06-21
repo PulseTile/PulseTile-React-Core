@@ -7,7 +7,6 @@ import { compose, lifecycle } from 'recompose';
 import { get } from 'lodash';
 import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
-import RssDashboardPanel from './RssDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
 import { summarySynopsisSelector } from './separate-selectors';
@@ -16,28 +15,66 @@ import { fetchPatientDiagnosesSynopsisRequest } from '../Diagnosis/ducks/fetch-p
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
 import { fetchPatientAllergiesSynopsisRequest } from '../Allergies/ducks/fetch-patient-allergies.duck';
 import { fetchPatientMedicationsSynopsisRequest } from '../Medications/ducks/fetch-patient-medications.duck';
-import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
-import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
-import { fetchPatientProblemsSynopsisOnMount, fetchPatientContactsSynopsisOnMount, fetchPatientAllergiesSynopsisOnMount, fetchPatientMedicationsSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount, fetchPatientTopThreeThingsSynopsisOnMount, fetchFeedsOnMount} from '../../../utils/HOCs/fetch-patients.utils';
+
+import {
+  fetchPatientProblemsSynopsisOnMount,
+  fetchPatientContactsSynopsisOnMount,
+  fetchPatientAllergiesSynopsisOnMount,
+  fetchPatientMedicationsSynopsisOnMount,
+  // fetchPatientVaccinationsSynopsisOnMount,
+  // fetchPatientTopThreeThingsSynopsisOnMount,
+  // fetchFeedsOnMount
+} from '../../../utils/HOCs/fetch-patients.utils';
+
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
-import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
-import { feedsSelector } from '../Feeds/selectors';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
+// Plugins were commented because of plugins were extracted from the main repository
+// import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
+// import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
+// import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
+// import { feedsSelector } from '../Feeds/selectors';
+// import RssDashboardPanel from '../Feeds/RssDashboardPanel';
+
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({fetchPatientDiagnosesSynopsisRequest, fetchPatientContactsSynopsisRequest, fetchPatientAllergiesSynopsisRequest, fetchPatientMedicationsSynopsisRequest, fetchPatientVaccinationsSynopsisRequest, fetchPatientTopThreeThingsSynopsisRequest, fetchFeedsRequest}, dispatch) });
+  actions: bindActionCreators({
+
+      fetchPatientDiagnosesSynopsisRequest,
+      fetchPatientContactsSynopsisRequest,
+      fetchPatientAllergiesSynopsisRequest,
+      fetchPatientMedicationsSynopsisRequest,
+
+      // Plugins were commented because of plugins were extracted from the main repository
+      // fetchPatientVaccinationsSynopsisRequest,
+      // fetchPatientTopThreeThingsSynopsisRequest,
+      // fetchFeedsRequest
+
+  }, dispatch) });
 
 @connect(summarySynopsisSelector, mapDispatchToProps)
 
-@connect(feedsSelector, mapDispatchToProps)
+// Plugins were commented because of plugins were extracted from the main repository
+// @connect(feedsSelector, mapDispatchToProps)
 
-@compose(lifecycle(fetchPatientProblemsSynopsisOnMount), lifecycle(fetchPatientContactsSynopsisOnMount), lifecycle(fetchPatientAllergiesSynopsisOnMount), lifecycle(fetchPatientMedicationsSynopsisOnMount), lifecycle(fetchPatientVaccinationsSynopsisOnMount), lifecycle(fetchPatientTopThreeThingsSynopsisOnMount), lifecycle(fetchFeedsOnMount))
+@compose(
+  lifecycle(fetchPatientProblemsSynopsisOnMount),
+  lifecycle(fetchPatientContactsSynopsisOnMount),
+  lifecycle(fetchPatientAllergiesSynopsisOnMount),
+  lifecycle(fetchPatientMedicationsSynopsisOnMount),
+
+  // Plugins were commented because of plugins were extracted from the main repository
+  // lifecycle(fetchPatientVaccinationsSynopsisOnMount),
+  // lifecycle(fetchPatientTopThreeThingsSynopsisOnMount),
+  // lifecycle(fetchFeedsOnMount)
+)
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {
     boards: PropTypes.shape({}).isRequired,
-    feeds: PropTypes.array.isRequired,
+
+    // For Feeds-plugin
+    // feeds: PropTypes.array.isRequired,
   };
 
   static contextTypes = {
@@ -66,7 +103,9 @@ export default class PatientsSummary extends PureComponent {
 
   componentDidMount() {
     const { actions } = this.props;
-    themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
+
+    // Fro Feeds-plugin
+    // themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
   }
 
   getDefaultCategorySelected = () => {
@@ -106,6 +145,7 @@ export default class PatientsSummary extends PureComponent {
   render() {
 
     const { boards } = this.props;
+
     const feeds = get(this.props, 'feeds', []);
 
     const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
@@ -143,22 +183,25 @@ export default class PatientsSummary extends PureComponent {
                     />
                     : null)
                 })}
-                {themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {
-                  const nameItem = getNameFromUrl(item.landingPageUrl);
-                  const isShow = ('true' == localStorage.getItem('isShow_'+nameItem));
-                  return (isShow ?
-                    <RssDashboardPanel
-                      key={nameItem}
-                      title={item.name}
-                      state={item.landingPageUrl}
-                      goToState={this.handleGoToState}
-                      rssFeedName={nameItem}
-                      rssFeedUrl={item.rssFeedUrl}
-                      isHasPreview={isHasPreview}
-                      isHasList={isHasList}
-                    />
-                    : null)
-                }) : null}
+
+                {/* For Feeds-plugin */}
+                {/*{themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {*/}
+                  {/*const nameItem = getNameFromUrl(item.landingPageUrl);*/}
+                  {/*const isShow = ('true' == localStorage.getItem('isShow_'+nameItem));*/}
+                  {/*return (isShow ?*/}
+                    {/*<RssDashboardPanel*/}
+                      {/*key={nameItem}*/}
+                      {/*title={item.name}*/}
+                      {/*state={item.landingPageUrl}*/}
+                      {/*goToState={this.handleGoToState}*/}
+                      {/*rssFeedName={nameItem}*/}
+                      {/*rssFeedUrl={item.rssFeedUrl}*/}
+                      {/*isHasPreview={isHasPreview}*/}
+                      {/*isHasList={isHasList}*/}
+                    {/*/>*/}
+                    {/*: null)*/}
+                {/*}) : null}*/}
+
               </div>
             </div>
           </div>

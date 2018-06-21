@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 
 import ControlPanel from '../ControlPanel';
-import Feeds from '../../Feeds/Feeds'
 
-const FEEDS = 'feeds';
+// For Feeds-plugin
+// import Feeds from '../../Feeds/Feeds'
+// const FEEDS = 'feeds';
 
 export default class FeedsPanel extends PureComponent {
   render() {
@@ -18,21 +19,23 @@ export default class FeedsPanel extends PureComponent {
       isSaveButton,
     } = this.props;
 
-    return (
-      <ControlPanel
-        name={FEEDS}
-        title="Feeds"
-        isOpen={openedPanel === FEEDS}
-        onShow={onShow}
-        onExpand={onExpand}
-        onEdit={onEdit}
-        editedPanel={editedPanel}
-        onCancel={onCancel}
-        isShowControlPanel={isShowControlPanel}
-        isSaveButton={isSaveButton}
-      >
-        <Feeds />
-      </ControlPanel>
-    )
+    return null;
+
+    // return (
+    //   <ControlPanel
+    //     name={FEEDS}
+    //     title="Feeds"
+    //     isOpen={openedPanel === FEEDS}
+    //     onShow={onShow}
+    //     onExpand={onExpand}
+    //     onEdit={onEdit}
+    //     editedPanel={editedPanel}
+    //     onCancel={onCancel}
+    //     isShowControlPanel={isShowControlPanel}
+    //     isSaveButton={isSaveButton}
+    //   >
+    //     <Feeds />
+    //   </ControlPanel>
+    // )
   }
 }

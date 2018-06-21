@@ -120,11 +120,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
             "ordersDate": true,
             "promsCount": false,
             "promsDate": false,
-            "resultsCount": true,
-            "resultsDate": true,
             "viewPatientNavigation": true,
-            "vitalsCount": false,
-            "vitalsDate": false,
           }
         }
       >
@@ -165,11 +161,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     "ordersDate": true,
                     "promsCount": false,
                     "promsDate": false,
-                    "resultsCount": true,
-                    "resultsDate": true,
                     "viewPatientNavigation": true,
-                    "vitalsCount": false,
-                    "vitalsDate": false,
                   }
                 }
                 toggleVisibility={[Function]}
@@ -189,11 +181,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       "ordersDate": true,
                       "promsCount": false,
                       "promsDate": false,
-                      "resultsCount": true,
-                      "resultsDate": true,
                       "viewPatientNavigation": true,
-                      "vitalsCount": false,
-                      "vitalsDate": false,
                     }
                   }
                   toggleVisibility={[Function]}
@@ -543,98 +531,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 </Col>
                               </PTCustomCheckbox>
                               <PTCustomCheckbox
-                                isChecked={true}
-                                name="resultsDate"
-                                onChange={[Function]}
-                                title="Results"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={true}
-                                            name="resultsDate"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="resultsDate"
-                                        >
-                                          Results
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
-                                isChecked={false}
-                                name="vitalsDate"
-                                onChange={[Function]}
-                                title="Vitals"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={false}
-                                            name="vitalsDate"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="vitalsDate"
-                                        >
-                                          Vitals
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
                                 isChecked={false}
                                 name="diagnosesDate"
                                 onChange={[Function]}
@@ -812,98 +708,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                           htmlFor="ordersCount"
                                         >
                                           Orders
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
-                                isChecked={true}
-                                name="resultsCount"
-                                onChange={[Function]}
-                                title="Results"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={true}
-                                            name="resultsCount"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="resultsCount"
-                                        >
-                                          Results
-                                        </label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Col>
-                              </PTCustomCheckbox>
-                              <PTCustomCheckbox
-                                isChecked={false}
-                                name="vitalsCount"
-                                onChange={[Function]}
-                                title="Vitals"
-                              >
-                                <Col
-                                  bsClass="col"
-                                  componentClass="div"
-                                  sm={4}
-                                  xs={6}
-                                >
-                                  <div
-                                    className="col-sm-4 col-xs-6"
-                                  >
-                                    <div
-                                      className="wrap-fcustominp"
-                                    >
-                                      <div
-                                        className="fcustominp-state"
-                                        onClick={[Function]}
-                                      >
-                                        <div
-                                          className="fcustominp"
-                                        >
-                                          <input
-                                            checked={false}
-                                            name="vitalsCount"
-                                            onChange={[Function]}
-                                            type="checkbox"
-                                          />
-                                          <label
-                                            htmlFor="patients-table-info-name"
-                                          />
-                                        </div>
-                                        <label
-                                          className="fcustominp-label"
-                                          htmlFor="vitalsCount"
-                                        >
-                                          Vitals
                                         </label>
                                       </div>
                                     </div>
@@ -1186,21 +990,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   "width": 100,
                 },
                 Object {
-                  "icon": <CalendarIcon />,
-                  "key": "resultsDate",
-                  "title": "Results",
-                  "transformer": [Function],
-                  "width": 110,
-                },
-                Object {
-                  "icon": <span>
-                    #
-                  </span>,
-                  "key": "resultsCount",
-                  "title": "Results ",
-                  "width": 100,
-                },
-                Object {
                   "icon": <span />,
                   "key": "viewPatientNavigation",
                   "title": "",
@@ -1249,7 +1038,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersName__83"
+                    key="__colHeadersName__71"
                     style={
                       Object {
                         "width": 150,
@@ -1274,7 +1063,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__98"
+                        key="__SortableTableHeaderCell__84"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1341,21 +1130,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "width": 100,
                         },
                         Object {
-                          "icon": <CalendarIcon />,
-                          "key": "resultsDate",
-                          "title": "Results",
-                          "transformer": [Function],
-                          "width": 110,
-                        },
-                        Object {
-                          "icon": <span>
-                            #
-                          </span>,
-                          "key": "resultsCount",
-                          "title": "Results ",
-                          "width": 100,
-                        },
-                        Object {
                           "icon": <span />,
                           "key": "viewPatientNavigation",
                           "title": "",
@@ -1365,7 +1139,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__84"
+                    key="__SortableTableRow__72"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1422,7 +1196,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__99"
+                        key="__SortableTableHoveredRow__85"
                         name="name"
                         onClick={[Function]}
                       >
@@ -1432,7 +1206,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__100"
+                        key="__SortableTableHoveredRow__86"
                         name="id"
                         onClick={[Function]}
                       >
@@ -1447,7 +1221,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeaders__85"
+                    key="__colHeaders__73"
                     style={
                       Object {
                         "width": 150,
@@ -1455,7 +1229,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__86"
+                    key="__colHeaders__74"
                     style={
                       Object {
                         "width": 300,
@@ -1463,7 +1237,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__87"
+                    key="__colHeaders__75"
                     style={
                       Object {
                         "width": 105,
@@ -1471,7 +1245,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__88"
+                    key="__colHeaders__76"
                     style={
                       Object {
                         "width": 90,
@@ -1479,7 +1253,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__89"
+                    key="__colHeaders__77"
                     style={
                       Object {
                         "width": 115,
@@ -1487,7 +1261,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__90"
+                    key="__colHeaders__78"
                     style={
                       Object {
                         "width": 110,
@@ -1495,7 +1269,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__91"
+                    key="__colHeaders__79"
                     style={
                       Object {
                         "width": 100,
@@ -1503,23 +1277,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                   />
                   <col
-                    key="__colHeaders__92"
-                    style={
-                      Object {
-                        "width": 110,
-                      }
-                    }
-                  />
-                  <col
-                    key="__colHeaders__93"
-                    style={
-                      Object {
-                        "width": 100,
-                      }
-                    }
-                  />
-                  <col
-                    key="__colHeaders__94"
+                    key="__colHeaders__80"
                     style={
                       Object {
                         "width": 90,
@@ -1574,21 +1332,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "width": 100,
                         },
                         Object {
-                          "icon": <CalendarIcon />,
-                          "key": "resultsDate",
-                          "title": "Results",
-                          "transformer": [Function],
-                          "width": 110,
-                        },
-                        Object {
-                          "icon": <span>
-                            #
-                          </span>,
-                          "key": "resultsCount",
-                          "title": "Results ",
-                          "width": 100,
-                        },
-                        Object {
                           "icon": <span />,
                           "key": "viewPatientNavigation",
                           "title": "",
@@ -1601,7 +1344,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   >
                     <tr>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__101"
+                        key="__SortableTableHeaderCell__87"
                         name="name"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1619,7 +1362,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__102"
+                        key="__SortableTableHeaderCell__88"
                         name="address"
                         onClick={[Function]}
                         sortingOrder="asc"
@@ -1637,7 +1380,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__103"
+                        key="__SortableTableHeaderCell__89"
                         name="dateOfBirth"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1655,7 +1398,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__104"
+                        key="__SortableTableHeaderCell__90"
                         name="gender"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1673,7 +1416,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        key="__SortableTableHeaderCell__105"
+                        key="__SortableTableHeaderCell__91"
                         name="id"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1692,7 +1435,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
                         icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__106"
+                        key="__SortableTableHeaderCell__92"
                         name="ordersDate"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1720,7 +1463,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                             #
                           </span>
                         }
-                        key="__SortableTableHeaderCell__107"
+                        key="__SortableTableHeaderCell__93"
                         name="ordersCount"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1741,58 +1484,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         </th>
                       </SortableTableHeaderCell>
                       <SortableTableHeaderCell
-                        icon={<CalendarIcon />}
-                        key="__SortableTableHeaderCell__108"
-                        name="resultsDate"
-                        onClick={[Function]}
-                        sortingOrder={null}
-                        title="Results"
-                      >
-                        <th
-                          className=""
-                          name="resultsDate"
-                          onClick={[Function]}
-                        >
-                          <span>
-                            Results
-                          </span>
-                           
-                          <CalendarIcon>
-                            <i
-                              className="fa fa-calendar"
-                            />
-                          </CalendarIcon>
-                        </th>
-                      </SortableTableHeaderCell>
-                      <SortableTableHeaderCell
-                        icon={
-                          <span>
-                            #
-                          </span>
-                        }
-                        key="__SortableTableHeaderCell__109"
-                        name="resultsCount"
-                        onClick={[Function]}
-                        sortingOrder={null}
-                        title="Results "
-                      >
-                        <th
-                          className=""
-                          name="resultsCount"
-                          onClick={[Function]}
-                        >
-                          <span>
-                            Results 
-                          </span>
-                           
-                          <span>
-                            #
-                          </span>
-                        </th>
-                      </SortableTableHeaderCell>
-                      <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__110"
+                        key="__SortableTableHeaderCell__94"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -1858,21 +1551,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "width": 100,
                         },
                         Object {
-                          "icon": <CalendarIcon />,
-                          "key": "resultsDate",
-                          "title": "Results",
-                          "transformer": [Function],
-                          "width": 110,
-                        },
-                        Object {
-                          "icon": <span>
-                            #
-                          </span>,
-                          "key": "resultsCount",
-                          "title": "Results ",
-                          "width": 100,
-                        },
-                        Object {
                           "icon": <span />,
                           "key": "viewPatientNavigation",
                           "title": "",
@@ -1882,7 +1560,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__95"
+                    key="__SortableTableRow__81"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -1947,14 +1625,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "value": "-",
                         },
                         Object {
-                          "name": "resultsDate",
-                          "value": "01-Jan-1970",
-                        },
-                        Object {
-                          "name": "resultsCount",
-                          "value": "-",
-                        },
-                        Object {
                           "name": "viewPatientNavigation",
                           "value": <ViewPatientDropdown
                             onPatientViewClick={[Function]}
@@ -1999,7 +1669,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className=""
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__111"
+                        key="__SortableTableHoveredRow__95"
                         name="name"
                         onClick={[Function]}
                       >
@@ -2009,7 +1679,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="sorted"
                         data-table-hover={true}
                         data-th="Address"
-                        key="__SortableTableHoveredRow__112"
+                        key="__SortableTableHoveredRow__96"
                         name="address"
                         onClick={[Function]}
                       >
@@ -2019,7 +1689,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Born"
-                        key="__SortableTableHoveredRow__113"
+                        key="__SortableTableHoveredRow__97"
                         name="dateOfBirth"
                         onClick={[Function]}
                       >
@@ -2029,7 +1699,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Gender"
-                        key="__SortableTableHoveredRow__114"
+                        key="__SortableTableHoveredRow__98"
                         name="gender"
                         onClick={[Function]}
                       >
@@ -2039,7 +1709,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="NHS No."
-                        key="__SortableTableHoveredRow__115"
+                        key="__SortableTableHoveredRow__99"
                         name="id"
                         onClick={[Function]}
                       >
@@ -2049,7 +1719,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders"
-                        key="__SortableTableHoveredRow__116"
+                        key="__SortableTableHoveredRow__100"
                         name="ordersDate"
                         onClick={[Function]}
                       >
@@ -2059,28 +1729,8 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="text-center"
                         data-table-hover={true}
                         data-th="Orders "
-                        key="__SortableTableHoveredRow__117"
+                        key="__SortableTableHoveredRow__101"
                         name="ordersCount"
-                        onClick={[Function]}
-                      >
-                        -
-                      </td>
-                      <td
-                        className="text-center"
-                        data-table-hover={true}
-                        data-th="Results"
-                        key="__SortableTableHoveredRow__118"
-                        name="resultsDate"
-                        onClick={[Function]}
-                      >
-                        01-Jan-1970
-                      </td>
-                      <td
-                        className="text-center"
-                        data-table-hover={true}
-                        data-th="Results "
-                        key="__SortableTableHoveredRow__119"
-                        name="resultsCount"
                         onClick={[Function]}
                       >
                         -
@@ -2089,7 +1739,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th=""
-                        key="__SortableTableHoveredRow__120"
+                        key="__SortableTableHoveredRow__102"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -2154,7 +1804,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               >
                 <colgroup>
                   <col
-                    key="__colHeadersView__96"
+                    key="__colHeadersView__82"
                     style={
                       Object {
                         "width": 90,
@@ -2181,7 +1831,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     <tr>
                       <SortableTableHeaderCell
                         icon={<span />}
-                        key="__SortableTableHeaderCell__121"
+                        key="__SortableTableHeaderCell__103"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                         sortingOrder={null}
@@ -2247,21 +1897,6 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "width": 100,
                         },
                         Object {
-                          "icon": <CalendarIcon />,
-                          "key": "resultsDate",
-                          "title": "Results",
-                          "transformer": [Function],
-                          "width": 110,
-                        },
-                        Object {
-                          "icon": <span>
-                            #
-                          </span>,
-                          "key": "resultsCount",
-                          "title": "Results ",
-                          "width": 100,
-                        },
-                        Object {
                           "icon": <span />,
                           "key": "viewPatientNavigation",
                           "title": "",
@@ -2271,7 +1906,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     }
                     hoveredRowIndex=""
                     index={0}
-                    key="__SortableTableRow__97"
+                    key="__SortableTableRow__83"
                     onCellClick={[Function]}
                     onMouseEnter={[Function]}
                     onMouseLeave={[Function]}
@@ -2352,7 +1987,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         className="patient-control"
                         data-table-hover={true}
                         data-th="Name"
-                        key="__SortableTableHoveredRow__122"
+                        key="__SortableTableHoveredRow__104"
                         name="viewPatientNavigation"
                         onClick={[Function]}
                       >
@@ -2447,7 +2082,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               </li>
               <li
                 className="pagination-item active short-show"
-                key="__PaginationBlock__li__41"
+                key="__PaginationBlock__li__35"
               >
                 <a
                   className="pagination-link"
@@ -2458,7 +2093,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
               </li>
               <li
                 className="pagination-item"
-                key="__PaginationBlock__li__42"
+                key="__PaginationBlock__li__36"
               >
                 <a
                   className="pagination-link"
@@ -2520,11 +2155,7 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
           "ordersDate": true,
           "promsCount": false,
           "promsDate": false,
-          "resultsCount": true,
-          "resultsDate": true,
           "viewPatientNavigation": true,
-          "vitalsCount": false,
-          "vitalsDate": false,
         }
       }
     />
@@ -2633,21 +2264,6 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                 </span>,
                 "key": "ordersCount",
                 "title": "Orders ",
-                "width": 100,
-              },
-              Object {
-                "icon": <CalendarIcon />,
-                "key": "resultsDate",
-                "title": "Results",
-                "transformer": [Function],
-                "width": 110,
-              },
-              Object {
-                "icon": <span>
-                  #
-                </span>,
-                "key": "resultsCount",
-                "title": "Results ",
                 "width": 100,
               },
               Object {
