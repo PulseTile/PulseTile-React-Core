@@ -24,17 +24,19 @@ export class HandleErrors extends Component {
   }
 
   isSessionExpired = requestError => {
-
     const errorMessages = [
       'Authorization Header missing or JWT not found in header (expected format: Bearer {{JWT}}',
       'Invalid JWT: Error: Token expired',
-      'synopsis has not yet been added to middle-tier processing',
+      'Invalid JWT: Error: No token supplied',
     ];
-
     const requestErrorStatus = get(requestError, 'payload.status', '');
     const requestErrorMessage = get(requestError, 'payload.xhr.response.error', '');
-
     return (requestErrorStatus === 400 && errorMessages.indexOf(requestErrorMessage) !== -1) || requestErrorStatus === 403;
+  };
+
+  getErrorMessage = requestError => {
+    const requestErrorMessage = get(requestError, 'payload.xhr.response.error', '');
+    return requestErrorMessage ? ('Error 400: ' + requestErrorMessage) : 'API request is invalid';
   };
 
   getErrorConfig = () => {
@@ -71,7 +73,7 @@ export class HandleErrors extends Component {
           eventOk: this.closeModal,
           eventHide: this.closeModal,
           textButton: 'Ok',
-          textMessage: 'API request is invalid',
+          textMessage: this.getErrorMessage(requestError),
         };
       case requestErrorStatus === 404:
         return {
