@@ -55,3 +55,9 @@ Here's a list of available scripts:
   * it runs unit tests
 * `$ npm run test-update`
   * it will run unit tests which will update the snapshots. It should be used mostly in development mode.
+
+## Acknowledgements	
+
+We would like to thank [BrowserStack](https://browserstack.com) for their continued support.	
+
+[![BrowserStack](https://www.pulsetile.com/Browserstack-logo.png)](https://browserstack.com)
