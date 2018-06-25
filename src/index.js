@@ -37,6 +37,8 @@ const initialState = {
   userAccount: {},
   patients: {},
   patientsCounts: {},
+  currentPagePatients: [],
+  offset: -1,
   basicSearchPatient: {},
   advancedSearchPatient: {},
   clinicalQuerySearch: {},

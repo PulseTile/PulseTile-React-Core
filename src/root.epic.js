@@ -9,6 +9,8 @@ import { logoutEpic } from './ducks/logout.duck';
 import { fetchLogoutEpic } from './ducks/fetch-logout.duck';
 import { fetchInitialiseEpic } from './ducks/fetch-initialise.duck';
 import { setCredentialsEpic } from './ducks/set-credentials.duck';
+import { setCurrentPagePatientsEpic } from './ducks/set-current-page-patients.duck';
+import { setCurrentPageOffsetEpic } from './ducks/set-current-page-offset.duck';
 import { fetchPatientsEpic } from './ducks/feth-patients.duck';
 import { fetchPatientCountsEpic } from './ducks/fetch-patient-counts.duck';
 import { fetchUserAccountEpic } from './ducks/fetch-user-account.duck';
@@ -43,6 +45,8 @@ const rootEpic = combineEpics(...[
   fetchLogoutEpic,
   fetchInitialiseEpic,
   setCredentialsEpic,
+  setCurrentPagePatientsEpic,
+  setCurrentPageOffsetEpic,
   fetchPatientsEpic,
   fetchPatientCountsEpic,
   fetchUserAccountEpic,

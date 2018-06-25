@@ -8,9 +8,10 @@ import PatientsList from '../../containers/PatientsList/PatientsList';
 import patientsSelector from './selectors';
 import { fetchPatientsRequest } from '../../../ducks/feth-patients.duck';
 import { fetchPatientCountsRequest } from '../../../ducks/fetch-patient-counts.duck'
+import { setCurrentPageOffsetStart } from '../../../ducks/set-current-page-offset.duck'
 import { fetchPatientsOnMount, fetchPatientsCountsOnMountAndUpdate } from '../../../utils/HOCs/fetch-patients.utils';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest }, dispatch) });
+const mapDispatchToProps = dispatch => ({dispatch, actions: bindActionCreators({ fetchPatientsRequest, fetchPatientCountsRequest, setCurrentPageOffsetStart }, dispatch) });
 
 @connect(patientsSelector, mapDispatchToProps)
 @compose(lifecycle(fetchPatientsOnMount), lifecycle(fetchPatientsCountsOnMountAndUpdate))
