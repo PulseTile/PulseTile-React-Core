@@ -42,14 +42,24 @@ const panelTitleSelector = (state, { location: { search } }) => {
   return 'Patient Info'
 };
 
+const currentPagePatientsSelector = (state) => {
+  return state.currentPagePatients;
+}
+
+const pageOffsetSelector = (state) => {
+  return state.offset;
+}
+
 const patientsSelector = createSelector(
   allPatientsSelector,
   patientsCountsSelector,
   panelTitleSelector,
-  (allPatients, patientsCounts, panelTitle) => {
+  currentPagePatientsSelector,
+  pageOffsetSelector,
+  (allPatients, patientsCounts, panelTitle, currentPagePatients, offset) => {
     const getPatientCounts = id =>_.getOr({}, [id, 0], patientsCounts); //TODO maybe patient counts can be not only [{}] but [{}, ..., {}]
     const allPatientsWithCounts = _.map(({ id, ...restPatient }) => ({ id, ...restPatient, ...getPatientCounts(id) }), allPatients);
-    return ({ allPatients, patientsCounts, allPatientsWithCounts, panelTitle });
+    return ({ allPatients, patientsCounts, allPatientsWithCounts, panelTitle, currentPagePatients, offset });
   }
 );
 

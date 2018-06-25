@@ -7,6 +7,8 @@ import { pluginsReducerConfig } from './plugins.config';
 import fetchInitialiseReducer from './ducks/fetch-initialise.duck';
 import loginStatusReducer from './ducks/login-status.duck';
 import setCredentialsREducer from './ducks/set-credentials.duck';
+import setcurrentPagePatientsReducer from './ducks/set-current-page-patients.duck';
+import setCurrentPageOffsetReducer from './ducks/set-current-page-offset.duck';
 import fetchPatientsReducer from './ducks/feth-patients.duck';
 import fetchPatientCountsReducer from './ducks/fetch-patient-counts.duck';
 import fetchUserAccountReducer from './ducks/fetch-user-account.duck';
@@ -28,6 +30,8 @@ let reducers = {
   credentials: setCredentialsREducer,
   patients: fetchPatientsReducer,
   patientsCounts: fetchPatientCountsReducer,
+  currentPagePatients: setcurrentPagePatientsReducer,
+  offset: setCurrentPageOffsetReducer,
   userAccount: fetchUserAccountReducer,
   basicSearchPatient: fetchBasicPatientSearchReducer,
   advancedSearchPatient: fetchAdvancedPatientSearchReducer,

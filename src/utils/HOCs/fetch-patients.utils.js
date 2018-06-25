@@ -37,15 +37,15 @@ export const fetchPatientsOnMount = ({
 
 export const fetchPatientsCountsOnMountAndUpdate = ({
   componentDidMount() {
-    const { allPatients, actions } = this.props;
-    actions.fetchPatientCountsRequest(allPatients);
+    const { actions, currentPagePatients } = this.props;
+    actions.fetchPatientCountsRequest(currentPagePatients);
   },
 
-  componentWillReceiveProps({ allPatients, actions }) {
-    const isNewPatients = _.negate(_.isEqual(this.props.allPatients));
+  componentWillReceiveProps({ currentPagePatients, actions, offset }) {
+    const isNewPatients = _.negate(_.isEqual(this.props.currentPagePatients));
     return _.cond([
       [isNewPatients, actions.fetchPatientCountsRequest],
-    ])(allPatients)
+    ])(currentPagePatients)
   },
 });
 
