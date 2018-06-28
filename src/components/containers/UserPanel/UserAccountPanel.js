@@ -68,8 +68,8 @@ export default class UserAccountPanel extends PureComponent {
             <div className="user-profile-info__item version-back">About Showcase Stack; PulseTile version {varsionOfPulseTile}/QEWD_Ripple version {initialiseData.version}</div>
             <div className="user-profile-info__item version-front">React version {varsionOfReact}</div>
           </div>
-          <PTButton className="btn btn-theme btn-block btn-signout">
-            <div onClick={actions.logoutStart}>
+          <PTButton className="btn btn-theme btn-block btn-signout" onClick={actions.logoutStart}>
+            <div>
               <span className="brn-text">Sign Out</span> <i className="btn-icon fa fa-sign-out" />
             </div>
           </PTButton>
