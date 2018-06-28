@@ -121,6 +121,8 @@
     "cornerstone-tools": "2.0.0",
     "cornerstone-web-image-loader": "2.0.0",
     "enzyme-adapter-react-15": "1.0.5",
+    "es6-promise": "^4.2.4",
+    "es6-promise-promise": "^1.0.0",
     "fabric": "1.7.21",
     "font-awesome": "4.7.0",
     "history": "4.7.2",
