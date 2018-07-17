@@ -32,6 +32,8 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
 
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
 
