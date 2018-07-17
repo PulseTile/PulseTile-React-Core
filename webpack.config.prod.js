@@ -84,7 +84,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           //resolve-url-loader may be chained before sass-loader if necessary
-          use: ['css-loader?sourceMap', 'sass-loader?sourceMap'],
+          use: ['css-loader?sourceMap&minimize', 'sass-loader?sourceMap&minimize'],
         }),
       },
     ],
