@@ -38,7 +38,7 @@ export default class PatientsList extends PureComponent {
       offset: PropTypes.number,
       actions: PropTypes.objectOf(PropTypes.func).isRequired,
       history: PropTypes.shape({
-        push: PropTypes.funct,
+        push: PropTypes.func,
       }).isRequired,
     };
 
