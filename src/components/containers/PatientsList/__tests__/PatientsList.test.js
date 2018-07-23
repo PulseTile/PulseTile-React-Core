@@ -25,7 +25,7 @@ const defaultColumnsSelected = {
   viewPatientNavigation: true,
 };
 const mockStore = configureStore();
-const store = mockStore({
+const initialState = {
   columnNameSortBy: 'name',
   sortingOrder: 'asc',
   offset: -1,
@@ -34,7 +34,8 @@ const store = mockStore({
   patientPath: '',
   isDisclaimerModalVisible: false,
   openedDropdownID: null,
-});
+};
+const store = mockStore(initialState);
 
 Enzyme.configure({adapter: new Adapter()});
 
@@ -261,18 +262,18 @@ describe('Component <PatientsList />', () => {
         patientsPerPageAmount={patientsPerPageAmount}
         handleHeaderCellClick={handleHeaderCellClick}
         actions={ actions }
-      />, { context: emptyContext, childContextTypes: { router: React.PropTypes.object, emptyContext: React.PropTypes.object } });
+      />, { context: emptyContext, childContextTypes: { router: React.PropTypes.object, emptyContext: React.PropTypes.object } }).setState(initialState);
 
 
     component.find('.btn-dropdown-toggle').at(0).simulate('click');
     component.find('.btn-filter').at(0).simulate('click');
     component.find('.form-control').at(0).simulate('change', { target: { value: 'ezra' } });
-    //expect(component.state().nameShouldInclude).toEqual('ezra');
+    expect(component.state().nameShouldInclude).toEqual('ezra');
     component.find('th[name="address"]').simulate('click');
     expect(component).toMatchSnapshot();
-    //expect(component.state().isDisclaimerModalVisible).toEqual(false);
+    expect(component.state().isDisclaimerModalVisible).toEqual(false);
     component.setState({ isDisclaimerModalVisible: true });
-    //expect(component.state().isDisclaimerModalVisible).toEqual(true);
+    expect(component.state().isDisclaimerModalVisible).toEqual(true);
     component.find('[name="address"]').at(0).simulate('click');
     component.find('.pagination-link').at(2).simulate('click');
     component.find('.btn-dropdown-toggle').at(3).simulate('click');
