@@ -14,12 +14,14 @@ import { fetchAdvancedPatientSearchRequest } from '../../../ducks/fetch-advanced
 import { setCurrentPageOffsetStart } from '../../../ducks/set-current-page-offset.duck'
 
 const mapDispatchToProps = dispatch => (
-  { actions: bindActionCreators({
-                fetchBasicPatientSearchRequest,
-                fetchAdvancedPatientSearchRequest,
-                fetchPatientCountsRequest,
-                setCurrentPageOffsetStart },
-              dispatch)
+  {
+    actions: bindActionCreators({
+      fetchBasicPatientSearchRequest,
+      fetchAdvancedPatientSearchRequest,
+      fetchPatientCountsRequest,
+      setCurrentPageOffsetStart
+    },
+      dispatch)
   });
 @connect(patientsSelector, mapDispatchToProps)
 @compose(lifecycle(fetchPatientOnSearch), lifecycle(fetchPatientsCountsOnMountAndUpdate))

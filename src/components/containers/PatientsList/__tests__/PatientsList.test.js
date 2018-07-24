@@ -1,13 +1,13 @@
 import React from 'react';
-import Enzyme, {mount, shallow} from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
-import {StaticRouter} from 'react-router'
-import {Provider} from 'react-redux';
+import { StaticRouter } from 'react-router'
+import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import PatientsList from '../PatientsList';
-import {fetchPatientsRequest} from "../../../../ducks/feth-patients.duck";
-import {fetchPatientCountsRequest} from '../../../../ducks/fetch-patient-counts.duck'
-import {setCurrentPageOffsetStart} from '../../../../ducks/set-current-page-offset.duck'
+import { fetchPatientsRequest } from "../../../../ducks/feth-patients.duck";
+import { fetchPatientCountsRequest } from '../../../../ducks/fetch-patient-counts.duck'
+import { setCurrentPageOffsetStart } from '../../../../ducks/set-current-page-offset.duck'
 
 
 const defaultColumnsSelected = {
@@ -37,7 +37,7 @@ const initialState = {
 };
 const store = mockStore(initialState);
 
-Enzyme.configure({adapter: new Adapter()});
+Enzyme.configure({ adapter: new Adapter() });
 
 const allPatients = [
   {
@@ -123,23 +123,6 @@ const currentPagePatients = [
     viewPatientNavigation: {},
     vitalsDateConvert: '17-Jul-2018',
   },
-  // {
-  //   id: '9999999006',
-  //   address: 'P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW',
-  //   dateOfBirth: -363657600000,
-  //   department: 'Primary Care',
-  //   gender: 'Male',
-  //   gpAddress: 'Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ',
-  //   gpName: 'Joseph May N.',
-  //   name: 'Ezra Gordon',
-  //   nhsNumber: '9999999006',
-  //   pasNo: '595941',
-  //   phone: '070 6691 5178',
-  //   diagnosesDate: '1970-01-01T00:00:00-05:00',
-  //   ordersDate: '1970-01-01T00:00:00-05:00',
-  //   resultsDate: '1970-01-01T00:00:00-05:00',
-  //   vitalsDate: '1970-01-01T00:00:00-05:00',
-  // },
   {
     id: '9999999006',
     address: 'P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW',
@@ -238,9 +221,6 @@ const emptyContext = {
     },
   },
 };
-const match = {
-  params: {},
-};
 const location = {
   pathname: '/patients',
   search: '?ageRange=61-80',
@@ -261,7 +241,7 @@ describe('Component <PatientsList />', () => {
         patientsCounts={patientsCounts}
         patientsPerPageAmount={patientsPerPageAmount}
         handleHeaderCellClick={handleHeaderCellClick}
-        actions={ actions }
+        actions={actions}
       />, { context: emptyContext, childContextTypes: { router: React.PropTypes.object, emptyContext: React.PropTypes.object } }).setState(initialState);
 
 
@@ -298,7 +278,7 @@ describe('Component <PatientsList />', () => {
             patientsCounts={patientsCounts}
             patientsPerPageAmount={patientsPerPageAmount}
             handleHeaderCellClick={handleHeaderCellClick}
-            actions={ actions }
+            actions={actions}
           />
         </StaticRouter>
       </Provider>);
