@@ -163,7 +163,7 @@ const patientsCounts = {
 }
 const patientsPerPageAmount = 1;
 const offset = -1;
-const handleHeaderCellClick = () => console.log('worked handleHeaderCellClick function');
+const handleHeaderCellClick = () => {};
 const actions = {
   fetchPatientsRequest, fetchPatientCountsRequest, setCurrentPageOffsetStart
 };
