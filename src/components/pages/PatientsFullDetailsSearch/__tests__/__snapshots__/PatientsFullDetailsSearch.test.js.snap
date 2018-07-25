@@ -19,6 +19,7 @@ exports[`Component <PatientsFullDetailsSearch /> should renders correctly 1`] = 
             "fetchAdvancedPatientSearchRequest": [Function],
             "fetchBasicPatientSearchRequest": [Function],
             "fetchPatientCountsRequest": [Function],
+            "setCurrentPageOffsetStart": [Function],
           }
         }
         allPatients={Array []}
