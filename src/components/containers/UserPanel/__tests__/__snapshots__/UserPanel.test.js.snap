@@ -302,13 +302,13 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                           </div>
                           <PTButton
                             className="btn btn-theme btn-block btn-signout"
+                            onClick={[Function]}
                           >
                             <button
                               className="btn btn-theme btn-block btn-signout"
+                              onClick={[Function]}
                             >
-                              <div
-                                onClick={[Function]}
-                              >
+                              <div>
                                 <span
                                   className="brn-text"
                                 >

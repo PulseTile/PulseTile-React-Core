@@ -46,7 +46,7 @@ describe('Component <PatientsLists />', () => {
     expect(component).toMatchSnapshot();
 
     expect(component.find('.page-wrapper')).toHaveLength(1);
-    expect(component.find('PatientsList')).toHaveLength(1);
+    expect(component.find('PatientsList')).toBeTruthy();
   });
 });
 
