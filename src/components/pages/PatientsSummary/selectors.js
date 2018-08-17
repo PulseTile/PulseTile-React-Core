@@ -1,24 +1,87 @@
 import _ from 'lodash/fp';
 import { createSelector } from 'reselect';
-import { patientsSummaryConfig, patientsSummaryLoading } from './patients-summary.config';
+import { themeSynopsisSelector } from '../../theme/theme-selectors';
 
-const patientSummarySelector = createSelector(
-  ({ patientsSummaries }) => patientsSummaries,
+const patientProblemsSelector = createSelector(
+  ({ patientsDiagnoses }) => patientsDiagnoses,
   (state, props) => _.getOr(null, 'match.params.userId', props),
-  (patientsSummaries, userId) => {
-    let boards = {};
+  (patientsDiagnoses, userId) => {
+    let problems = {};
+    if (patientsDiagnoses[userId]) {
+      problems = patientsDiagnoses[userId];
+      } else {
+        problems = [{text: 'Loading ...'}, '', '', ''];
+      }
+      return problems;
+  }
+);
 
-    if (patientsSummaries[userId]) {
-      patientsSummaryConfig.forEach((board) => {
-        boards[board.key] = _.flow(_.getOr([], [userId, board.key]), _.map(item => item), arr => _.concat(arr, ['', '', '', '']), _.take(4))(patientsSummaries);
-      });
+const patientContactsSelector = createSelector(
+  ({ patientsContacts }) => patientsContacts,
+  (state, props) => _.getOr(null, 'match.params.userId', props),
+  (patientsContacts, userId) => {
+    let contacts = {};
+    if (patientsContacts[userId]) {
+      contacts = patientsContacts[userId];
+      } else {
+        contacts = [{text: 'Loading ...'}, '', '', ''];
+      }
+      return contacts;
+  }
+);
+
+const patientAllergiesSelector = createSelector(
+  ({ patientsAllergies }) => patientsAllergies,
+  (state, props) => _.getOr(null, 'match.params.userId', props),
+  (patientsAllergies, userId) => {
+    let allergies = {};
+    if (patientsAllergies[userId]) {
+      allergies = patientsAllergies[userId];
     } else {
-      patientsSummaryConfig.forEach((board) => {
-        boards[board.key] = [{text: patientsSummaryLoading}, '', '', ''];
-      });
+      allergies = [{text: 'Loading ...'}, '', '', ''];
     }
+    return allergies;
+  }
+);
 
-    return { boards , userId };
-  });
+const patientMedicationsSelector = createSelector(
+  ({ patientsMedications }) => patientsMedications,
+  (state, props) => _.getOr(null, 'match.params.userId', props),
+  (patientsMedications, userId) => {
+    let medications = {};
+    if (patientsMedications[userId]) {
+      medications = patientsMedications[userId];
+    } else {
+      medications = [{text: 'Loading ...'}, '', '', ''];
+    }
+    return medications;
+  }
+);
 
-export default patientSummarySelector;
+export const summarySynopsisSelector = createSelector(
+  patientProblemsSelector,
+  patientContactsSelector,
+  patientAllergiesSelector,
+  patientMedicationsSelector,
+  themeSynopsisSelector,
+  (
+    problems,
+    contacts,
+    allergies,
+    medications,
+    theme,
+  ) => {
+    const coreResult = {
+        problems: problems,
+        contacts: contacts,
+        allergies: allergies,
+        medications: medications,
+    };
+    const themeResult = theme;
+    const totalResult = Object.assign(coreResult, themeResult);
+    return {
+      boards: totalResult,
+    };
+  }
+);
+

@@ -1,6 +1,7 @@
 import React from 'react';
+import { themePatientSummaryConfig } from '../../theme/config';
 
-export const patientsSummaryConfig = [
+const corePatientsSummaryConfig = [
   {
     key: 'problems',
     title: 'Diagnosis',
@@ -35,14 +36,6 @@ export const patientsSummaryConfig = [
     isDefaultSelected: true,
   },
   // {
-  //   key: 'vaccinations',
-  //   title: 'Vaccinations',
-  //   titleCheckboxes: 'Vaccinations',
-  //   state: 'vaccinations',
-  //   nameCheckboxes: 'vaccinations',
-  //   imgPreview: '/images/patients-summary/vaccinations.jpg',
-  //   isDefaultSelected: true,
-  // },{
   //   key: 'topThreeThings',
   //   title: 'Top 3 Things',
   //   titleCheckboxes: 'Top 3 Things',
@@ -52,6 +45,8 @@ export const patientsSummaryConfig = [
   //   isDefaultSelected: true,
   // },
 ];
+
+export const patientsSummaryConfig = corePatientsSummaryConfig.concat(themePatientSummaryConfig);
 
 export const patientsSummaryLoading = 'Loading ...';
 
