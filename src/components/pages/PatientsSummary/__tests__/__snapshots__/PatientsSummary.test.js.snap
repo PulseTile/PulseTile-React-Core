@@ -26,6 +26,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "contacts": true,
               "medications": true,
               "problems": true,
+              "topThreeThings": true,
               "vaccinations": true,
             }
           }
@@ -140,6 +141,26 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="4"
+              srcPrevirew="/images/patients-summary/top3.jpg"
+              state="topThreeThings"
+              title="Top 3 Things"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isFeeds={false}
+              isHasList={true}
+              isHasPreview={true}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="5"
               srcPrevirew="/images/patients-summary/vaccinations.jpg"
               state="vaccinations"
               title="Vaccinations"
@@ -192,6 +213,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "contacts": true,
               "medications": true,
               "problems": true,
+              "topThreeThings": true,
               "vaccinations": true,
             }
           }
@@ -306,6 +328,26 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="4"
+              srcPrevirew="/images/patients-summary/top3.jpg"
+              state="topThreeThings"
+              title="Top 3 Things"
+            />
+            <SimpleDashboardPanel
+              goToState={[Function]}
+              isFeeds={false}
+              isHasList={true}
+              isHasPreview={true}
+              items={
+                Array [
+                  Object {
+                    "text": "Loading ...",
+                  },
+                  "",
+                  "",
+                  "",
+                ]
+              }
+              key="5"
               srcPrevirew="/images/patients-summary/vaccinations.jpg"
               state="vaccinations"
               title="Vaccinations"

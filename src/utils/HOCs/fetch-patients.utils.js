@@ -184,11 +184,6 @@ export const fetchSeriesOnMount = ({
 // export const fetchPatientTransfersOfCareOnMount = (generateFetchListOnMount('fetchPatientTransfersOfCareRequest'));
 // export const fetchPatientTransfersOfCareDetailOnMount = (generateFetchDetailOnMount('fetchPatientTransfersOfCareDetailRequest'));
 
-// TopThreeThings
-// export const fetchPatientTopThreeThingsOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsRequest'));
-// export const fetchPatientTopThreeThingsSynopsisOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsSynopsisRequest'));
-// export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTopThreeThingsDetailRequest'));
-
 // PROMS
 // export const fetchPatientPromsOnMount = (generateFetchListOnMount('fetchPatientPromsRequest'));
 // export const fetchPatientPromsDetailOnMount = (generateFetchDetailOnMount('fetchPatientPromsDetailRequest'));

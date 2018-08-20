@@ -9,10 +9,8 @@ import { themeConfigs } from '../../../../themes.config';
 Enzyme.configure({ adapter: new Adapter() });
 
 function addDiveForTheme(component, testStoreContent) {
-  for (let i = 0, n = Object.keys(testStoreContent).length; i < n; i++) {
-      component = component.dive();
-  }
-  return component
+    const pluginsNumber = Object.keys(testStoreContent).length;
+    return (pluginsNumber > 0) ? component.dive() : component;
 }
 
 function getPanelsNumber(testStoreContent) {
@@ -107,7 +105,6 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         // .dive()
         // .dive()
-        // .dive()  // For TopThreeThings-plugin
         .dive();
 
     component = addDiveForTheme(component, testStoreContent);
@@ -171,7 +168,6 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         // .dive()
         // .dive()
-        // .dive()  // For TopThreeThings-plugin
         .dive();
 
     component = addDiveForTheme(component, testStoreContent);

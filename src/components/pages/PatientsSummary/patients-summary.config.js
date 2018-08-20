@@ -35,15 +35,6 @@ const corePatientsSummaryConfig = [
     imgPreview: '/images/patients-summary/medications.jpg',
     isDefaultSelected: true,
   },
-  // {
-  //   key: 'topThreeThings',
-  //   title: 'Top 3 Things',
-  //   titleCheckboxes: 'Top 3 Things',
-  //   state: 'topThreeThings',
-  //   nameCheckboxes: 'topThreeThings',
-  //   imgPreview: '/images/patients-summary/top3.jpg',
-  //   isDefaultSelected: true,
-  // },
 ];
 
 export const patientsSummaryConfig = corePatientsSummaryConfig.concat(themePatientSummaryConfig);

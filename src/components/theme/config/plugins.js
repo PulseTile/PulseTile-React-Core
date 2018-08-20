@@ -1,3 +1,4 @@
+import topThreeThings from '../plugins/TopThreeThings/index';
 import vaccinations from '../plugins/Vaccinations/index';
 
 /**
@@ -6,44 +7,61 @@ import vaccinations from '../plugins/Vaccinations/index';
  * @return array
  */
 export const themePlugins = [
-    vaccinations,
+  topThreeThings,
+  vaccinations,
 ];
 
 /**
- * The list of pages for none-core plugins
+ * This information is necessary for menu and URL
  *
  * @return array
  */
 export const themePluginsPages = {
-    'vaccinations': {
-      breadcrumbs: [{
-        title: 'Vaccinations',
-        state: '/vaccinations',
-      }],
-    },
+  'topThreeThings': {
+    breadcrumbs: [{
+      title: 'Top 3 Things',
+      state: '/topThreeThings',
+    }],
+  },
+  'vaccinations': {
+    breadcrumbs: [{
+      title: 'Vaccinations',
+      state: '/vaccinations',
+    }],
+  },
 };
 
 /**
+ * This information is necessary for Patient Summary
  *
+ * @return array
  */
-export const themePatientSummaryConfig = [
-    {
-        key: 'vaccinations',
-        title: 'Vaccinations',
-        titleCheckboxes: 'Vaccinations',
-        state: 'vaccinations',
-        nameCheckboxes: 'vaccinations',
-        imgPreview: '/images/patients-summary/vaccinations.jpg',
-        isDefaultSelected: true,
-    },
+export const themePatientSummaryConfig = [{
+    key: 'topThreeThings',
+    title: 'Top 3 Things',
+    titleCheckboxes: 'Top 3 Things',
+    state: 'topThreeThings',
+    nameCheckboxes: 'topThreeThings',
+    imgPreview: '/images/patients-summary/top3.jpg',
+    isDefaultSelected: true,
+  }, {
+    key: 'vaccinations',
+    title: 'Vaccinations',
+    titleCheckboxes: 'Vaccinations',
+    state: 'vaccinations',
+    nameCheckboxes: 'vaccinations',
+    imgPreview: '/images/patients-summary/vaccinations.jpg',
+    isDefaultSelected: true,
+  },
 ];
 
 /**
- * Data for mock test store
+ * This information is necessary for Unit-tests
  */
 export const testStoreContent = {
     patientsVaccinations: {},
-    // patientsTopThreeThings: {},
+    patientsTopThreeThings: {},
+
     // feeds: [{
     //   name: 'Leeds Live - Whats on',
     //   landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',

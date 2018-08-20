@@ -49,10 +49,8 @@ const leedsPHRThemeConfigs = {
     'medications': true,
     'allergies': true,
     'contacts': true,
-
-    // Plugins were extracted and relocated to SILVER-plugins
     'vaccinations': true,
-    // 'topThreeThings': true,
+    'topThreeThings': true,
   },
   dashboardBeing: {
     // Plugin was extracted and relocated to SILVER-plugins

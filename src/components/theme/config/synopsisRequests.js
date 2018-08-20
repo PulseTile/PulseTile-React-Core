@@ -1,5 +1,6 @@
 import _ from 'lodash/fp';
 import { fetchPatientVaccinationsSynopsisRequest } from '../plugins/Vaccinations/ducks/fetch-patient-vaccinations.duck';
+import { fetchPatientTopThreeThingsSynopsisRequest } from '../plugins/TopThreeThings/ducks/fetch-patient-top-three-things.duck';
 
 const generateFetchListOnMount = (fetchRequest) => {
     return {
@@ -54,9 +55,15 @@ const generateArrayOnMount = (requestArray) => {
 
 export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
 export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
+export const fetchPatientTopThreeThingsOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsRequest'));
+export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTopThreeThingsDetailRequest'));
 
-export const themeSynopsisOnMount = (generateArrayOnMount(['fetchPatientVaccinationsSynopsisRequest']));
+export const themeSynopsisOnMount = (generateArrayOnMount([
+    'fetchPatientVaccinationsSynopsisRequest',
+    'fetchPatientTopThreeThingsSynopsisRequest',
+]));
 
 export const themeSynopsisRequests = {
+    fetchPatientTopThreeThingsSynopsisRequest,
     fetchPatientVaccinationsSynopsisRequest,
 };
