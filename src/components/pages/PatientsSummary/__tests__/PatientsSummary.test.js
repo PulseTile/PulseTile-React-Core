@@ -2,7 +2,7 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-import { testStoreContent } from '../../../theme/config';
+import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
 

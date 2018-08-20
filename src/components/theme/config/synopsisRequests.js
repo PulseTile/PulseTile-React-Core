@@ -1,4 +1,5 @@
 import _ from 'lodash/fp';
+import { fetchPatientVaccinationsSynopsisRequest } from '../plugins/Vaccinations/ducks/fetch-patient-vaccinations.duck';
 
 const generateFetchListOnMount = (fetchRequest) => {
     return {
@@ -55,3 +56,7 @@ export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchP
 export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
 
 export const themeSynopsisOnMount = (generateArrayOnMount(['fetchPatientVaccinationsSynopsisRequest']));
+
+export const themeSynopsisRequests = {
+    fetchPatientVaccinationsSynopsisRequest,
+};

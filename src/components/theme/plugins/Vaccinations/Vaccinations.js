@@ -15,7 +15,7 @@ import { fetchPatientVaccinationsRequest } from './ducks/fetch-patient-vaccinati
 import { fetchPatientVaccinationsDetailRequest } from './ducks/fetch-patient-vaccinations-detail.duck';
 import { fetchPatientVaccinationsDetailEditRequest } from './ducks/fetch-patient-vaccinations-detail-edit.duck';
 import { fetchPatientVaccinationsCreateRequest } from './ducks/fetch-patient-vaccinations-create.duck';
-import { fetchPatientVaccinationsOnMount, fetchPatientVaccinationsDetailOnMount } from '../../synopsis-lifecycles';
+import { fetchPatientVaccinationsOnMount, fetchPatientVaccinationsDetailOnMount } from '../../config/synopsisRequests';
 import { patientVaccinationsSelector, patientVaccinationsDetailSelector, vaccinationPanelFormSelector, vaccinationsCreateFormStateSelector } from './selectors';
 import { themeClientUrls } from '../../config/clientUrls';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';

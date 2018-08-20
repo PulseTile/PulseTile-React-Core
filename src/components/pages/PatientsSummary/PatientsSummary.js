@@ -23,15 +23,10 @@ import {
   fetchPatientMedicationsSynopsisOnMount,
 } from '../../../utils/HOCs/fetch-patients.utils';
 
-import { themeSynopsisOnMount, fetchPatientVaccinationsSynopsisOnMount } from '../../theme/synopsis-lifecycles';
-
+import { themeSynopsisOnMount, themeSynopsisRequests } from '../../theme/config/synopsisRequests';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
-
-import { themeSynopsisRequests } from '../../theme/synopsis-request';
-
-import * as composeTheme from '../../theme/synopsis-lifecycles';
 
 const coreActionsArray = {
   fetchPatientDiagnosesSynopsisRequest,

@@ -1,6 +1,6 @@
 import _ from 'lodash/fp';
 import { createSelector } from 'reselect';
-import { themeSynopsisSelector } from '../../theme/theme-selectors';
+import { themeSynopsisSelector } from '../../theme/config/themeSelectors';
 
 const patientProblemsSelector = createSelector(
   ({ patientsDiagnoses }) => patientsDiagnoses,

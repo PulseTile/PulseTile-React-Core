@@ -1,5 +1,5 @@
 import { themeConfigs } from '../themes.config';
-import { themePluginsPages } from '../components/theme/config';
+import { themePluginsPages } from '../components/theme/config/plugins';
 
 export const clientUrls = {
   ROOT: '/',

@@ -1,5 +1,5 @@
 import React from 'react';
-import { themePatientSummaryConfig } from '../../theme/config';
+import { themePatientSummaryConfig } from '../../theme/config/plugins';
 
 const corePatientsSummaryConfig = [
   {

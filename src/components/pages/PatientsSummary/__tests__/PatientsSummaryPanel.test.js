@@ -3,7 +3,7 @@ import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15';
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
-import { testStoreContent } from '../../../theme/config';
+import { testStoreContent } from '../../../theme/config/plugins';
 
 function getPanelsNumber(testStoreContent) {
     const initialNumber = 4;

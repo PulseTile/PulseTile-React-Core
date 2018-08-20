@@ -4,7 +4,7 @@ import diagnoses from './components/pages/Diagnosis/index';
 import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
-import { themePlugins } from './components/theme/config';
+import { themePlugins } from './components/theme/config/plugins';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
 const corePlugins = [

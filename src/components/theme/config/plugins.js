@@ -1,4 +1,4 @@
-import vaccinations from './plugins/Vaccinations/index';
+import vaccinations from '../plugins/Vaccinations/index';
 
 /**
  * The list of none-core plugins which are included to the current theme
