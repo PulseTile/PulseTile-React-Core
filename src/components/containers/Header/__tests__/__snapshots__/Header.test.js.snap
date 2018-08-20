@@ -82,6 +82,24 @@ exports[`Component <Header /> should renders correctly 1`] = `
     />
     <Route
       component={[Function]}
+      exact={true}
+      key="vaccinations"
+      path="/patients/:userId/vaccinations"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="vaccinationsCreate"
+      path="/patients/:userId/vaccinations/create"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      key="vaccinationsDetail"
+      path="/patients/:userId/vaccinations/:sourceId"
+    />
+    <Route
+      component={[Function]}
       path="/"
     />
   </Switch>

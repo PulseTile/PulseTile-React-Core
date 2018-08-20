@@ -1,8 +1,6 @@
 import { combineEpics } from 'redux-observable';
-
 import asyncComponent from '../../../../components/containers/AsyncComponent/AsyncComponent';
-import { clientUrls } from '../../../../config/client-urls.constants';
-
+import { themeClientUrls } from '../../config/clientUrls';
 import { fetchPatientVaccinationsEpic, fetchPatientVaccinationsSynopsisEpic } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsUpdateEpic } from './ducks/fetch-patient-vaccinations.duck';
 import { fetchPatientVaccinationsDetailEpic } from './ducks/fetch-patient-vaccinations-detail.duck';
@@ -26,15 +24,11 @@ const reducers = {
 
 const sidebarConfig = { key: 'vaccinations', pathToTransition: '/vaccinations', name: 'Vaccinations', isVisible: true };
 
-let routers = [];
-if (clientUrls) {
-    routers = [
-        { key: 'vaccinations', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}` },
-        { key: 'vaccinationsCreate', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}/create` },
-        { key: 'vaccinationsDetail', component: Vaccinations, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.VACCINATIONS}/:sourceId` },
-    ];
-}
-
+const routers = [
+    { key: 'vaccinations', component: Vaccinations, path: `${themeClientUrls.PATIENTS}/:userId/${themeClientUrls.VACCINATIONS}` },
+    { key: 'vaccinationsCreate', component: Vaccinations, path: `${themeClientUrls.PATIENTS}/:userId/${themeClientUrls.VACCINATIONS}/create` },
+    { key: 'vaccinationsDetail', component: Vaccinations, path: `${themeClientUrls.PATIENTS}/:userId/${themeClientUrls.VACCINATIONS}/:sourceId` },
+];
 
 export default {
   component: Vaccinations,

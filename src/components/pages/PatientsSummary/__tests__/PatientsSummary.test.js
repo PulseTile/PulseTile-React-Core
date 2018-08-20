@@ -2,11 +2,24 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-
+import { testStoreContent } from '../../../theme/config';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+function addDiveForTheme(component, testStoreContent) {
+  for (let i = 0, n = Object.keys(testStoreContent).length; i < n; i++) {
+      component = component.dive();
+  }
+  return component
+}
+
+function getPanelsNumber(testStoreContent) {
+  const initialNumber = 4;
+  const pluginsNumber = Object.keys(testStoreContent).length;
+  return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
+}
 
 class LocalStorageMock {
   constructor() {
@@ -32,28 +45,17 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock();
 
 const mockStore = configureStore();
-const store = mockStore({
-  userId: '9999999000',
-  patientsDiagnoses: {},
-  patientsContacts: {},
-  patientsAllergies: {},
-  patientsMedications: {},
 
-  // patientsVaccinations: {},
-  // patientsTopThreeThings: {},
-  // feeds: [{
-  //   name: 'Leeds Live - Whats on',
-  //   landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-  //   rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-  //   sourceId: 'testSourceID4',
-  // }, {
-  //   name: 'Leeds CC Local News',
-  //   landingPageUrl: 'https://news.leeds.gov.uk',
-  //   rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-  //   sourceId: 'testSourceID5',
-  // }],
+const coreStoreContent = {
+    userId: '9999999000',
+    patientsDiagnoses: {},
+    patientsContacts: {},
+    patientsAllergies: {},
+    patientsMedications: {},
+};
+const storeContent = Object.assign(coreStoreContent, testStoreContent);
 
-});
+const store = mockStore(storeContent);
 const match = {
   params: {},
 };
@@ -91,7 +93,7 @@ const testProps = {
 
 describe('Component <PatientsSummary />', () => {
   it('should renders with all props correctly', () => {
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
@@ -106,8 +108,9 @@ describe('Component <PatientsSummary />', () => {
         // .dive()
         // .dive()
         // .dive()  // For TopThreeThings-plugin
-        // .dive()  // For Vaccinations-plugin
         .dive();
+
+    component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -117,7 +120,10 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('.page-wrapper')).toHaveLength(1);
     expect(component.find('PatientsSummaryListHeader')).toHaveLength(1);
     expect(component.find('.dashboard')).toHaveLength(1);
-    expect(component.find('SimpleDashboardPanel')).toHaveLength(4);
+
+    const panelsNumber = getPanelsNumber(testStoreContent);
+
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(panelsNumber);
     expect(component.find('ConfirmationModal')).toHaveLength(0);
 
     component.instance().handleGoToState('contacts');
@@ -151,7 +157,7 @@ describe('Component <PatientsSummary />', () => {
 
   it('should renders with Disclaimer Modal correctly', () => {
     localStorage.setItem('isShowDisclaimerOfRedirect', true);
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
@@ -166,8 +172,9 @@ describe('Component <PatientsSummary />', () => {
         // .dive()
         // .dive()
         // .dive()  // For TopThreeThings-plugin
-        // .dive()  // For Vaccinations-plugin
         .dive();
+
+    component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 

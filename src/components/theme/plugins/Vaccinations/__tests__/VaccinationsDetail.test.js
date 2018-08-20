@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 
 import VaccinationDetail from '../VaccinationDetail/VaccinationDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
-import {getDDMMMYYYY} from '../../../../utils/time-helpers.utils';
+import {getDDMMMYYYY} from '../../../../../utils/time-helpers.utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 

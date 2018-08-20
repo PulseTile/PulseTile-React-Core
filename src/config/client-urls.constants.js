@@ -1,7 +1,7 @@
 import { themeConfigs } from '../themes.config';
-import { themeClientUrls, themePluginsPages } from '../components/theme/config';
+import { themePluginsPages } from '../components/theme/config';
 
-const coreClientUrls = {
+export const clientUrls = {
   ROOT: '/',
   CHARTS: '/charts',
   PATIENTS: '/patients',
@@ -14,8 +14,6 @@ const coreClientUrls = {
   CONTACTS: 'contacts',
   MEDICATIONS: 'medications',
 };
-
-export const clientUrls = Object.assign(coreClientUrls, themeClientUrls);
 
 const corePluginsPages = {
   'allergies': {
@@ -43,7 +41,7 @@ const corePluginsPages = {
     }],
   },
 };
-const pluginsPages = Object.assign(corePluginsPages, themePluginsPages);
+export const pluginsPages = Object.assign(corePluginsPages, themePluginsPages);
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
   for (const nameOfPage in pluginsPages) {

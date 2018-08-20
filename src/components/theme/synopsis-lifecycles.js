@@ -1,5 +1,4 @@
 import _ from 'lodash/fp';
-import { lifecycle } from 'recompose';
 
 const generateFetchListOnMount = (fetchRequest) => {
     return {

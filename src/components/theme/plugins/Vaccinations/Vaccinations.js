@@ -17,7 +17,7 @@ import { fetchPatientVaccinationsDetailEditRequest } from './ducks/fetch-patient
 import { fetchPatientVaccinationsCreateRequest } from './ducks/fetch-patient-vaccinations-create.duck';
 import { fetchPatientVaccinationsOnMount, fetchPatientVaccinationsDetailOnMount } from '../../synopsis-lifecycles';
 import { patientVaccinationsSelector, patientVaccinationsDetailSelector, vaccinationPanelFormSelector, vaccinationsCreateFormStateSelector } from './selectors';
-import { clientUrls } from '../../../../config/client-urls.constants';
+import { themeClientUrls } from '../../config/clientUrls';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { checkIsValidateForm, operationsOnCollection } from '../../../../utils/plugin-helpers.utils';
 import VaccinationDetail from './VaccinationDetail/VaccinationDetail';
@@ -74,13 +74,13 @@ export default class Vaccination extends PureComponent {
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}` && sourceId !== undefined) {
+    if (this.context.router.history.location.pathname === `${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}/${sourceId}` && sourceId !== undefined) {
       this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`) {
+    if (this.context.router.history.location.pathname === `${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}/create`) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isDetailPanelVisible: false })
     }
-    if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`) {
+    if (this.context.router.history.location.pathname === `${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}`) {
       this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
     }
 
@@ -112,7 +112,7 @@ export default class Vaccination extends PureComponent {
     const { actions, userId } = this.props;
     this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
     actions.fetchPatientVaccinationsDetailRequest({ userId, sourceId });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/${sourceId}`);
+    this.context.router.history.push(`${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}/${sourceId}`);
   };
 
   handleSetOffset = offset => this.setState({ offset });
@@ -120,7 +120,7 @@ export default class Vaccination extends PureComponent {
   handleCreate = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: VACCINATIONS_CREATE, isSecondPanel: true, isDetailPanelVisible: false, isBtnExpandVisible: true, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}/create`);
+    this.context.router.history.push(`${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}/create`);
   };
 
   handleEdit = (name) => {
@@ -164,7 +164,7 @@ export default class Vaccination extends PureComponent {
   handleCreateCancel = () => {
     const { userId } = this.props;
     this.setState({ isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: VACCINATIONS_PANEL, isSecondPanel: false, isBtnExpandVisible: false, expandedPanel: 'all', isSubmit: false, isLoading: true });
-    this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
+    this.context.router.history.push(`${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}`);
   };
 
   handleSaveSettingsCreateForm = (formValues) => {
@@ -172,7 +172,7 @@ export default class Vaccination extends PureComponent {
 
     if (checkIsValidateForm(vaccinationCreateFormState)) {
       actions.fetchPatientVaccinationsCreateRequest(this.formValuesToString(formValues, 'create'));
-      this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.VACCINATIONS}`);
+      this.context.router.history.push(`${themeClientUrls.PATIENTS}/${userId}/${themeClientUrls.VACCINATIONS}`);
       this.setState({ isSubmit: false, isLoading: true });
       this.hideCreateForm();
     } else {

@@ -23,7 +23,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               class="sidebar-nav-link active"
               href="/patients/9999999000/patients-summary"
             >
-              Patient Summary
+              Home
             </a>
           </li>
           <li
@@ -64,6 +64,16 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               href="/patients/9999999000/contacts"
             >
               Contacts
+            </a>
+          </li>
+          <li
+            class="sidebar-nav-item"
+          >
+            <a
+              class="sidebar-nav-link"
+              href="/patients/9999999000/vaccinations"
+            >
+              Vaccinations
             </a>
           </li>
         </ul>

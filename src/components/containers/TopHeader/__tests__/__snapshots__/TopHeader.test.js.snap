@@ -120,7 +120,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 </button>
               </PTButton>
               <MainLogo
-                logo={null}
+                logo="/images/helm-logo.png"
                 patientsInfo={
                   Object {
                     "browserTitle": "PulseTile",
@@ -154,7 +154,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         >
                           <img
                             alt="logo"
-                            className="img logo-img "
+                            className="img"
+                            src="/images/helm-logo.png"
+                          />
+                          <img
+                            alt="logo"
+                            className="img logo-img hidden"
                             src="testLogo"
                           />
                         </a>
@@ -166,8 +171,8 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               <UserPanel
                 addUserPanels={Array []}
                 isNotifications={true}
-                isQuestions={false}
-                isSearch={true}
+                isQuestions={true}
+                isSearch={false}
                 isUserPanel={true}
               >
                 <ul
@@ -175,10 +180,10 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   role="tablist"
                 >
                   <UserPanelItem
-                    className="user-panel-item visible-xs"
+                    className="user-panel-item"
                   >
                     <li
-                      className="user-panel-item visible-xs"
+                      className="user-panel-item"
                     >
                       <PTButton
                         className="btn-header"
@@ -187,7 +192,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                           className="btn-header"
                         >
                           <i
-                            className="fa fa-search"
+                            className="fa fa-question-circle"
                           />
                         </button>
                       </PTButton>
@@ -426,6 +431,83 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     </button>
                                   </PTButton>
                                 </div>
+                                <Connect(UserAccountPanelSettings)
+                                  onClose={[Function]}
+                                >
+                                  <UserAccountPanelSettings
+                                    actions={
+                                      Object {
+                                        "changeUserProfileTab": [Function],
+                                      }
+                                    }
+                                    onClose={[Function]}
+                                  >
+                                    <div
+                                      className="user-profile-settings dropdown"
+                                    >
+                                      <div
+                                        className="user-profile-settings__btn"
+                                        onClick={[Function]}
+                                      >
+                                        <i
+                                          className="fa fa-gear"
+                                        />
+                                      </div>
+                                      <div
+                                        className="user-profile-settings__menu dropdown-menu dropdown-menu-small-size"
+                                      >
+                                        <div
+                                          className="dropdown-menu-wrap-list"
+                                        >
+                                          <div
+                                            className="dropdown-menu-list"
+                                          >
+                                            <div
+                                              className="dropdown-menu-item"
+                                              onClick={[Function]}
+                                            >
+                                              <span
+                                                className="dropdown-menu-item-text"
+                                              >
+                                                Application Preferences
+                                              </span>
+                                            </div>
+                                            <div
+                                              className="dropdown-menu-item"
+                                              onClick={[Function]}
+                                            >
+                                              <span
+                                                className="dropdown-menu-item-text"
+                                              >
+                                                Personal Information
+                                              </span>
+                                            </div>
+                                            <div
+                                              className="dropdown-menu-item"
+                                              onClick={[Function]}
+                                            >
+                                              <span
+                                                className="dropdown-menu-item-text"
+                                              >
+                                                Contact Information
+                                              </span>
+                                            </div>
+                                            <div
+                                              className="dropdown-menu-item"
+                                              onClick={[Function]}
+                                            >
+                                              <span
+                                                className="dropdown-menu-item-text"
+                                              >
+                                                Change History
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </UserAccountPanelSettings>
+                                </Connect(UserAccountPanelSettings)>
                               </div>
                             </UserAccountPanel>
                           </lifecycle(UserAccountPanel)>
