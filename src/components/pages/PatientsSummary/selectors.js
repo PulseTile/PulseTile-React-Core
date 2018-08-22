@@ -2,6 +2,59 @@ import _ from 'lodash/fp';
 import { createSelector } from 'reselect';
 import { themeSynopsisSelector } from '../../theme/config/themeSelectors';
 
+function getCommonSelector(patientProblemsSelector, patientContactsSelector, patientAllergiesSelector, patientMedicationsSelector, themeSynopsisSelector) {
+  let result = createSelector(
+      patientProblemsSelector,
+      patientContactsSelector,
+      patientAllergiesSelector,
+      patientMedicationsSelector,
+      (
+        problems,
+        contacts,
+        allergies,
+        medications,
+      ) => {
+        return {
+          boards: {
+            problems: problems,
+            contacts: contacts,
+            allergies: allergies,
+            medications: medications,
+          },
+        };
+      }
+    );
+    if (themeSynopsisSelector) {
+      result = createSelector(
+        patientProblemsSelector,
+        patientContactsSelector,
+        patientAllergiesSelector,
+        patientMedicationsSelector,
+        themeSynopsisSelector,
+        (
+          problems,
+          contacts,
+          allergies,
+          medications,
+          theme,
+        ) => {
+          const coreResult = {
+            problems: problems,
+            contacts: contacts,
+            allergies: allergies,
+            medications: medications,
+          };
+          const themeResult = theme;
+          const totalResult = Object.assign(coreResult, themeResult);
+          return {
+            boards: totalResult,
+            };
+          }
+        );
+    }
+    return result;
+}
+
 const patientProblemsSelector = createSelector(
   ({ patientsDiagnoses }) => patientsDiagnoses,
   (state, props) => _.getOr(null, 'match.params.userId', props),
@@ -58,30 +111,10 @@ const patientMedicationsSelector = createSelector(
   }
 );
 
-export const summarySynopsisSelector = createSelector(
+export const summarySynopsisSelector = getCommonSelector(
   patientProblemsSelector,
   patientContactsSelector,
   patientAllergiesSelector,
   patientMedicationsSelector,
-  themeSynopsisSelector,
-  (
-    problems,
-    contacts,
-    allergies,
-    medications,
-    theme,
-  ) => {
-    const coreResult = {
-        problems: problems,
-        contacts: contacts,
-        allergies: allergies,
-        medications: medications,
-    };
-    const themeResult = theme;
-    const totalResult = Object.assign(coreResult, themeResult);
-    return {
-      boards: totalResult,
-    };
-  }
+  themeSynopsisSelector
 );
-
