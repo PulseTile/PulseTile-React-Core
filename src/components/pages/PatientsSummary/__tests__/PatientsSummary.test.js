@@ -103,11 +103,11 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        // .dive()
+        .dive()
         // .dive()
         .dive();
 
-    component = addDiveForTheme(component, testStoreContent);
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -166,11 +166,11 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        // .dive()
+        .dive()
         // .dive()
         .dive();
 
-    component = addDiveForTheme(component, testStoreContent);
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 

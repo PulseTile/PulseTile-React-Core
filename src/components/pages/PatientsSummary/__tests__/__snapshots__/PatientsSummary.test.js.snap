@@ -26,8 +26,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -37,7 +35,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -124,46 +122,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               srcPrevirew="/images/patients-summary/medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              srcPrevirew="/images/patients-summary/top3.jpg"
-              state="topThreeThings"
-              title="Top 3 Things"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="5"
-              srcPrevirew="/images/patients-summary/vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
             />
           </div>
         </div>
@@ -213,8 +171,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -224,7 +180,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -236,7 +192,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -256,7 +212,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -276,7 +232,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -296,7 +252,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -311,46 +267,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               srcPrevirew="/images/patients-summary/medications.jpg"
               state="medications"
               title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="4"
-              srcPrevirew="/images/patients-summary/top3.jpg"
-              state="topThreeThings"
-              title="Top 3 Things"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="5"
-              srcPrevirew="/images/patients-summary/vaccinations.jpg"
-              state="vaccinations"
-              title="Vaccinations"
             />
           </div>
         </div>

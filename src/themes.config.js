@@ -63,4 +63,4 @@ const leedsPHRThemeConfigs = {
 // - You should set 'true' only for:
 // - patients-summary, diagnoses, medications, allergies, contacts, vaccinations, topThreeThings
 
-export const themeConfigs = leedsPHRThemeConfigs;
+export const themeConfigs = mainThemeConfigs;

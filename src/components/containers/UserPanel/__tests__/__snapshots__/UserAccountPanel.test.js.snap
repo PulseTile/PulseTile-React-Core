@@ -87,7 +87,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       </div>
     </PTButton>
   </div>
-  <Connect(UserAccountPanelSettings) />
 </div>
 `;
 

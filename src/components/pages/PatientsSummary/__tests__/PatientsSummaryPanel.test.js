@@ -8,7 +8,10 @@ import { testStoreContent } from '../../../theme/config/plugins';
 function getPanelsNumber(testStoreContent) {
     const initialNumber = 4;
     const pluginsNumber = Object.keys(testStoreContent).length;
-    return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
+    const optionsNumber = (themeConfigs.isLeedsPHRTheme) ? 3 : 0;
+    return (pluginsNumber > 0)
+        ? (initialNumber + pluginsNumber + optionsNumber)
+        : (initialNumber + optionsNumber);
 }
 
 class LocalStorageMock {
@@ -118,7 +121,7 @@ describe('Component <PatientsSummaryPanel />', () => {
     } });
 
     const panelsNumber = getPanelsNumber(testStoreContent);
-    expect(component.find('PTCustomInput')).toHaveLength(panelsNumber + 3);
+    expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
 
     component.instance().toggleRadio('test');
 
