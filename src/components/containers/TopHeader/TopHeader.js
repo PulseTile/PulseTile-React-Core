@@ -10,7 +10,6 @@ import UserPanel from '../UserPanel/UserPanel';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -35,10 +34,6 @@ class TopHeader extends PureComponent {
     const { userAccount, router, patientsInfo, isHasSearch, children } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
-
-    const headerLogoLeedsPHR = '/images/helm-logo.png';
-    const imageSource = isDevMode ? (testConstants.hostName + headerLogoLeedsPHR) : headerLogoLeedsPHR;
-    const headerLogo = themeConfigs.isLeedsPHRTheme ? imageSource : null;
     return (
       <div className="navbar">
         { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>
@@ -47,7 +42,6 @@ class TopHeader extends PureComponent {
         <MainLogo
           patientsInfo={patientsInfo}
           userAccount={userAccount}
-          logo={headerLogo}
         />
         <UserPanel isSearch={!themeConfigs.isLeedsPHRTheme} isQuestions={themeConfigs.isLeedsPHRTheme} />
         { children ? <div className="navbar-space-right">
