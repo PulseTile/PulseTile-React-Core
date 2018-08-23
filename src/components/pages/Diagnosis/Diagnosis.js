@@ -25,7 +25,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import DiagnosisDetail from './DiagnosisDetail/DiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import DiagnosisCreateForm from './DiagnosisCreate/DiagnosisCreateForm'
-import { testConstants, isDevMode } from '../../../config/for-test.constants';
+import { imageSource } from './ImageSource';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -256,9 +256,6 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
-
-    const imageLocation = '/images/banners/problems.jpg';
-    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
 
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
