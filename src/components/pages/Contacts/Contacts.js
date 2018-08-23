@@ -23,7 +23,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
-import { testConstants, isDevMode } from '../../../config/for-test.constants';
+import { imageSource } from './ImageSource';
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -241,9 +241,6 @@ export default class Contacts extends PureComponent {
     if (isDetailPanelVisible && !_.isEmpty(contactDetail)) {
       sourceId = contactDetail[valuesNames.SOURCE_ID];
     }
-
-    const imageLocation = '/images/banners/contacts.jpg';
-    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
 
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
