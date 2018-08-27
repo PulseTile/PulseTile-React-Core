@@ -5,7 +5,7 @@ exports[`Component <Allergies /> should renders correctly and testing another me
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/allergies.jpg"
+    img={null}
     subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
@@ -197,7 +197,7 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/allergies.jpg"
+    img={null}
     subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
@@ -657,7 +657,7 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/allergies.jpg"
+    img={null}
     subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
@@ -738,7 +738,7 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/allergies.jpg"
+    img={null}
     subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}

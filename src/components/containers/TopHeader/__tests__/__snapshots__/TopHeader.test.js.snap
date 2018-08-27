@@ -120,7 +120,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 </button>
               </PTButton>
               <MainLogo
-                logo={null}
                 patientsInfo={
                   Object {
                     "browserTitle": "PulseTile",
@@ -154,7 +153,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         >
                           <img
                             alt="logo"
-                            className="img logo-img "
+                            className="img"
+                            src="pulsetile-core-logo.png"
+                          />
+                          <img
+                            alt="logo"
+                            className="img logo-img hidden"
                             src="testLogo"
                           />
                         </a>
@@ -588,7 +592,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -621,7 +624,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   className="navbar"
 >
   <MainLogo
-    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",
@@ -659,7 +661,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
     />
   </PTButton>
   <MainLogo
-    logo="/images/helm-logo.png"
     patientsInfo={
       Object {
         "browserTitle": "PulseTile",

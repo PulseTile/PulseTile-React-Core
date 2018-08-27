@@ -5,7 +5,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/medications.jpg"
+    img={null}
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -341,7 +341,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/medications.jpg"
+    img={null}
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -492,7 +492,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/medications.jpg"
+    img={null}
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -579,7 +579,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/medications.jpg"
+    img={null}
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -730,7 +730,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/medications.jpg"
+    img={null}
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
