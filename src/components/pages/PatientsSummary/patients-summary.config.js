@@ -1,5 +1,11 @@
 import React from 'react';
 import { themePatientSummaryConfig } from '../../theme/config/plugins';
+import {
+  allergiesPrevImage,
+  problemsPrevImage,
+  contactsPrevImage,
+  medicationsPrevImage,
+} from './ImageSources';
 
 const corePatientsSummaryConfig = [
   {
@@ -8,7 +14,7 @@ const corePatientsSummaryConfig = [
     state: 'diagnoses',
     titleCheckboxes: 'Diagnosis',
     nameCheckboxes: 'problems',
-    imgPreview: '/images/patients-summary/problems.jpg',
+    imgPreview: problemsPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'contacts',
@@ -16,7 +22,7 @@ const corePatientsSummaryConfig = [
     titleCheckboxes: 'Contacts',
     state: 'contacts',
     nameCheckboxes: 'contacts',
-    imgPreview: '/images/patients-summary/contacts.jpg',
+    imgPreview: contactsPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'allergies',
@@ -24,7 +30,7 @@ const corePatientsSummaryConfig = [
     titleCheckboxes: 'Allergies',
     state: 'allergies',
     nameCheckboxes: 'allergies',
-    imgPreview: '/images/patients-summary/allergies.jpg',
+    imgPreview: allergiesPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'medications',
@@ -32,7 +38,7 @@ const corePatientsSummaryConfig = [
     titleCheckboxes: 'Medications',
     state: 'medications',
     nameCheckboxes: 'medications',
-    imgPreview: '/images/patients-summary/medications.jpg',
+    imgPreview: medicationsPrevImage,
     isDefaultSelected: true,
   },
 ];
