@@ -176,11 +176,6 @@ export const fetchSeriesOnMount = ({
 // export const fetchPatientMDTsOnMount = (generateFetchListOnMount('fetchPatientMDTsRequest'));
 // export const fetchPatientMDTsDetailOnMount = (generateFetchDetailOnMount('fetchPatientMDTsDetailRequest'));
 
-// Vaccinations
-// export const fetchPatientVaccinationsOnMount = (generateFetchListOnMount('fetchPatientVaccinationsRequest'));
-// export const fetchPatientVaccinationsSynopsisOnMount = (generateFetchListOnMount('fetchPatientVaccinationsSynopsisRequest'));
-// export const fetchPatientVaccinationsDetailOnMount = (generateFetchDetailOnMount('fetchPatientVaccinationsDetailRequest'));
-
 // RESULTS (TEST RESULTS)
 // export const fetchPatientTestResultsOnMount = (generateFetchListOnMount('fetchPatientTestResultsRequest'));
 // export const fetchPatientTestResultsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTestResultsDetailRequest'));
@@ -188,11 +183,6 @@ export const fetchSeriesOnMount = ({
 // Transfers of Care
 // export const fetchPatientTransfersOfCareOnMount = (generateFetchListOnMount('fetchPatientTransfersOfCareRequest'));
 // export const fetchPatientTransfersOfCareDetailOnMount = (generateFetchDetailOnMount('fetchPatientTransfersOfCareDetailRequest'));
-
-// TopThreeThings
-// export const fetchPatientTopThreeThingsOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsRequest'));
-// export const fetchPatientTopThreeThingsSynopsisOnMount = (generateFetchListOnMount('fetchPatientTopThreeThingsSynopsisRequest'));
-// export const fetchPatientTopThreeThingsDetailOnMount = (generateFetchDetailOnMount('fetchPatientTopThreeThingsDetailRequest'));
 
 // PROMS
 // export const fetchPatientPromsOnMount = (generateFetchListOnMount('fetchPatientPromsRequest'));

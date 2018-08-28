@@ -5,7 +5,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing another me
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/problems.jpg"
+    img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Diagnoses"
     toRight={false}
@@ -198,7 +198,7 @@ exports[`Component <Diagnosis /> should renders correctly when data take from Do
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/problems.jpg"
+    img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Diagnoses"
     toRight={false}
@@ -658,7 +658,7 @@ exports[`Component <Diagnosis /> should renders correctly with empty store 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/problems.jpg"
+    img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Diagnoses"
     toRight={false}
@@ -741,7 +741,7 @@ exports[`Component <Diagnosis /> should renders correctly with forms error 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="/images/banners/problems.jpg"
+    img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
     title="Diagnoses"
     toRight={false}

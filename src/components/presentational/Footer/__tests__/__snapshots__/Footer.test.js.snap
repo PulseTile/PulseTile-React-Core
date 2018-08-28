@@ -27,7 +27,7 @@ exports[`Component <Footer /> should renders with props correctly 1`] = `
         <img
           alt="Ripple Icon"
           className="footer-logo-img"
-          src="/images/ripple-foundation-logo-footer.png"
+          src="ripple-foundation-logo-footer.png"
         />
       </a>
     </div>
@@ -52,7 +52,7 @@ exports[`Component <Footer /> should renders with props correctly 2`] = `
         <img
           alt="Ripple Icon"
           className="footer-logo-img"
-          src="/images/ripple-foundation-logo-footer.png"
+          src="ripple-foundation-logo-footer.png"
         />
       </a>
     </div>

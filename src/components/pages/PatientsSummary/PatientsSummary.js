@@ -9,7 +9,7 @@ import { themeConfigs } from '../../../themes.config';
 import SimpleDashboardPanel from './SimpleDashboardPanel';
 import ConfirmationModal from '../../ui-elements/ConfirmationModal/ConfirmationModal';
 import PatientsSummaryListHeader from './header/PatientsSummaryListHeader';
-import { summarySynopsisSelector } from './separate-selectors';
+import { summarySynopsisSelector } from './selectors';
 import { patientsSummaryConfig, defaultViewOfBoardsSelected } from './patients-summary.config';
 import { fetchPatientDiagnosesSynopsisRequest } from '../Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { fetchPatientContactsSynopsisRequest } from '../Contacts/ducks/fetch-patient-contacts.duck';
@@ -21,36 +21,23 @@ import {
   fetchPatientContactsSynopsisOnMount,
   fetchPatientAllergiesSynopsisOnMount,
   fetchPatientMedicationsSynopsisOnMount,
-  // fetchPatientVaccinationsSynopsisOnMount,
-  // fetchPatientTopThreeThingsSynopsisOnMount,
-  // fetchFeedsOnMount
 } from '../../../utils/HOCs/fetch-patients.utils';
 
+import { themeSynopsisOnMount, themeSynopsisRequests } from '../../theme/config/synopsisRequests';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
 import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
-// Plugins were commented because of plugins were extracted from the main repository
-// import { fetchPatientTopThreeThingsSynopsisRequest } from '../TopThreeThings/ducks/fetch-patient-top-three-things.duck';
-// import { fetchPatientVaccinationsSynopsisRequest } from '../Vaccinations/ducks/fetch-patient-vaccinations.duck';
-// import { fetchFeedsRequest } from '../Feeds/ducks/fetch-feeds.duck';
-// import { feedsSelector } from '../Feeds/selectors';
-// import RssDashboardPanel from '../Feeds/RssDashboardPanel';
-
+const coreActionsArray = {
+  fetchPatientDiagnosesSynopsisRequest,
+  fetchPatientContactsSynopsisRequest,
+  fetchPatientAllergiesSynopsisRequest,
+  fetchPatientMedicationsSynopsisRequest,
+};
+const actionsArray = Object.assign(coreActionsArray, themeSynopsisRequests);
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
-
-      fetchPatientDiagnosesSynopsisRequest,
-      fetchPatientContactsSynopsisRequest,
-      fetchPatientAllergiesSynopsisRequest,
-      fetchPatientMedicationsSynopsisRequest,
-
-      // Plugins were commented because of plugins were extracted from the main repository
-      // fetchPatientVaccinationsSynopsisRequest,
-      // fetchPatientTopThreeThingsSynopsisRequest,
-      // fetchFeedsRequest
-
-  }, dispatch) });
+  actions: bindActionCreators(actionsArray, dispatch)
+});
 
 @connect(summarySynopsisSelector, mapDispatchToProps)
 
@@ -62,11 +49,7 @@ const mapDispatchToProps = dispatch => ({
   lifecycle(fetchPatientContactsSynopsisOnMount),
   lifecycle(fetchPatientAllergiesSynopsisOnMount),
   lifecycle(fetchPatientMedicationsSynopsisOnMount),
-
-  // Plugins were commented because of plugins were extracted from the main repository
-  // lifecycle(fetchPatientVaccinationsSynopsisOnMount),
-  // lifecycle(fetchPatientTopThreeThingsSynopsisOnMount),
-  // lifecycle(fetchFeedsOnMount)
+  lifecycle(themeSynopsisOnMount),
 )
 
 export default class PatientsSummary extends PureComponent {

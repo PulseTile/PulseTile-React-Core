@@ -25,7 +25,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { testConstants, isDevMode } from '../../../config/for-test.constants';
+import { imageSource } from './ImageSource';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -308,9 +308,6 @@ export default class Medications extends PureComponent {
 
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
-
-    const imageLocation = '/images/banners/medications.jpg';
-    const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
 
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?

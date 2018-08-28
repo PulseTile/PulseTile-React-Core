@@ -78,7 +78,7 @@ exports[`Component <App /> should renders correctly with context 1`] = `
               Array [
                 <img
                   alt="header img 2"
-                  src="/images/nhs.png"
+                  src={null}
                 />,
               ]
             }
@@ -125,7 +125,7 @@ exports[`Component <App /> should renders correctly with is not touch device and
               Array [
                 <img
                   alt="header img 2"
-                  src="/images/nhs.png"
+                  src={null}
                 />,
               ]
             }

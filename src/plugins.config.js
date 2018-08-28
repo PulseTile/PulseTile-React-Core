@@ -4,67 +4,17 @@ import diagnoses from './components/pages/Diagnosis/index';
 import medications from './components/pages/Medications/index';
 import allergies from './components/pages/Allergies/index';
 import contacts from './components/pages/Contacts/index';
-
-// WERE REMOVED TO BRONZE PLUGINS
-// import diaryEntry from './components/pages/DiaryEntry/index';
-// import genericPlugin from './components/pages/GenericPlugin/index';
-// import proms from './components/pages/PROMs/index';
-// import feeds from './components/pages/Feeds/index';
-
-// WERE REMOVED TO SILVER PLUGINS
-// import clinicalNotes from './components/pages/ClinicalNotes/index';
-// import clinicalStatements from './components/pages/ClinicalStatements/index';
-// import documents from './components/pages/Documents/index';
-// import drawings from './components/pages/Drawings/index';
-// import events from './components/pages/Events/index';
-// import mdts from './components/pages/GenericMdt/index';
-// import orders from './components/pages/Orders/index';
-// import personalNotes from './components/pages/PersonalNotes/index';
-// import procedures from './components/pages/Procedures/index';
-// import referrals from './components/pages/Referrals/index';
-// import testResults from './components/pages/Results/index';
-// import topThreeThings from './components/pages/TopThreeThings/index';
-// import transfersOfCare from './components/pages/TransfersOfCare/index';
-// import vaccinations from './components/pages/Vaccinations/index';
-// import vitals from './components/pages/Vitals/index';
-
-// WERE REMOVED TO CARBON PLUGINS
-// import images from './components/pages/Images/index';
+import { themePlugins } from './components/theme/config/plugins';
 
 // the order of the elements in this array affects the order of the Headings in the sidebar
-export const plugins = [
-
+const corePlugins = [
   diagnoses,
   medications,
   allergies,
-  contacts,
-
-  // WERE REMOVED TO BRONZE PLUGINS
-  // diaryEntry,
-  // genericPlugin,
-  // proms,
-  // feeds,
-
-  // WERE REMOVED TO SILVER PLUGINS
-  // clinicalNotes,
-  // clinicalStatements,
-  // documents,
-  // drawings,
-  // events,
-  // mdts,
-  // orders,
-  // personalNotes,
-  // procedures,
-  // referrals,
-  // topThreeThings,
-  // transfersOfCare,
-  // testResults,
-  // vaccinations,
-  // vitals,
-
-  // WERE REMOVED TO CARBON PLUGINS
-  // images,
+  contacts
 ];
+
+export const plugins = corePlugins.concat(themePlugins);
 
 export const sidebarConfig = [
   { key: 'patients-summary', pathToTransition: '/patients-summary', name: themeConfigs.patientsSummaryPageName, isVisible: true },

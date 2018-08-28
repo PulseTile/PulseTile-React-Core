@@ -1,7 +1,7 @@
 import { themeConfigs } from '../themes.config';
+import { themePluginsPages } from '../components/theme/config/plugins';
 
 export const clientUrls = {
-
   ROOT: '/',
   CHARTS: '/charts',
   PATIENTS: '/patients',
@@ -13,35 +13,9 @@ export const clientUrls = {
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
   MEDICATIONS: 'medications',
-
-  // These plugins were extracted and relocated to SILVER
-  // CLINICAL_NOTES: 'clinicalNotes',
-  // CLINICAL_STATEMENTS: 'clinicalStatements',
-  // DOCUMENTS: 'documents',
-  // DRAWINGS: 'drawings',
-  // EVENTS: 'events',
-  // MDTS: 'mdt',
-  // ORDERS: 'orders',
-  // PERSONAL_NOTES: 'personalNotes',
-  // PROCEDURES: 'procedures',
-  // RESULTS: 'results',
-  // REFERRALS: 'referrals',
-  // TOP_THREE_THINGS: 'topThreeThings',
-  // TRANSFERS_OF_CARE: 'transfer-of-care',
-  // VACCINATIONS: 'vaccinations',
-  // VITALS: 'vitals',
-
-  // These plugins were extracted and relocated to BRONZE
-  // PROMS: 'proms',
-  // GENERIC_PLUGIN: 'genericPlugin',
-  // DIARY_ENTRY: 'diaryEntry',
-  // FEEDS: 'feeds',
-
-  // These plugins were extracted and relocated to CARBON
-  // IMAGES: 'images',
 };
 
-const pluginsPages = {
+const corePluginsPages = {
   'allergies': {
     breadcrumbs: [{
       title: 'Allergies',
@@ -66,128 +40,8 @@ const pluginsPages = {
       state: '/medications',
     }],
   },
-
-  // These plugins were extracted and relocated to CARBON
-  // 'images': {
-  //     breadcrumbs: [{
-  //         title: 'Images',
-  //         state: '/images',
-  //     }],
-  // },
-
-  // These plugins were extracted and relocated to SILVER
-  // 'clinicalNotes': {
-  //   breadcrumbs: [{
-  //     title: 'Clinical Notes',
-  //     state: '/clinicalNotes',
-  //   }],
-  // },
-  // 'clinicalStatements': {
-  //   breadcrumbs: [{
-  //     title: 'Clinical Statements',
-  //     state: '/clinicalStatements',
-  //   }],
-  // },
-  // 'documents': {
-  //   breadcrumbs: [{
-  //     title: 'Documents',
-  //     state: '/documents',
-  //   }],
-  // },
-  // 'drawings': {
-  //   breadcrumbs: [{
-  //     title: 'Drawings',
-  //     state: '/drawings',
-  //   }],
-  // },
-  // 'events': {
-  //   breadcrumbs: [{
-  //     title: 'Events',
-  //     state: '/events',
-  //   }],
-  // },
-  // 'mdt': {
-  //   breadcrumbs: [{
-  //     title: 'Generic MDT',
-  //     state: '/mdt',
-  //   }],
-  // },
-  // 'orders': {
-  //   breadcrumbs: [{
-  //     title: 'Orders',
-  //     state: '/orders',
-  //   }],
-  // },
-  // 'personalNotes': {
-  //   breadcrumbs: [{
-  //     title: 'Personal Notes',
-  //     state: '/personalNotes',
-  //   }],
-  // },
-  // 'referrals': {
-  //   breadcrumbs: [{
-  //     title: 'Referrals',
-  //     state: '/referrals',
-  //   }],
-  // },
-  // 'procedures': {
-  //   breadcrumbs: [{
-  //     title: 'Procedures',
-  //     state: '/procedures',
-  //   }],
-  // },
-  // 'results': {
-  //   breadcrumbs: [{
-  //     title: 'Results',
-  //     state: '/results',
-  //   }],
-  // },
-  // 'topThreeThings': {
-  //   breadcrumbs: [{
-  //     title: 'Top 3 Things',
-  //     state: '/topThreeThings',
-  //   }],
-  // },
-  // 'transfer-of-care': {
-  //   breadcrumbs: [{
-  //     title: 'Transfers Of Care',
-  //     state: '/transfers-of-care',
-  //   }],
-  // },
-  // 'vaccinations': {
-  //   breadcrumbs: [{
-  //     title: 'Vaccinations',
-  //     state: '/vaccinations',
-  //   }],
-  // },
-  // 'vitals': {
-  //   breadcrumbs: [{
-  //     title: 'Vitals - NEWS',
-  //     state: '/vitals',
-  //   }],
-  // },
-
-  // These plugins were extracted and relocated to BRONZE
-  // 'proms': {
-  //   breadcrumbs: [{
-  //     title: 'PROMs',
-  //     state: '/proms',
-  //   }],
-  // },
-  // 'genericPlugin': {
-  //   breadcrumbs: [{
-  //     title: 'Generic Plugin',
-  //     state: '/genericPlugin',
-  //   }],
-  // },
-  // 'diaryEntry': {
-  //   breadcrumbs: [{
-  //     title: 'Diary Entry',
-  //     state: '/diaryEntry',
-  //   }],
-  // },
 };
-
+export const pluginsPages = Object.assign(corePluginsPages, themePluginsPages);
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
   for (const nameOfPage in pluginsPages) {

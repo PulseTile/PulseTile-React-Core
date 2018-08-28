@@ -1,13 +1,20 @@
 import React from 'react';
+import { themePatientSummaryConfig } from '../../theme/config/plugins';
+import {
+  allergiesPrevImage,
+  problemsPrevImage,
+  contactsPrevImage,
+  medicationsPrevImage,
+} from './ImageSources';
 
-export const patientsSummaryConfig = [
+const corePatientsSummaryConfig = [
   {
     key: 'problems',
     title: 'Diagnosis',
     state: 'diagnoses',
     titleCheckboxes: 'Diagnosis',
     nameCheckboxes: 'problems',
-    imgPreview: '/images/patients-summary/problems.jpg',
+    imgPreview: problemsPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'contacts',
@@ -15,7 +22,7 @@ export const patientsSummaryConfig = [
     titleCheckboxes: 'Contacts',
     state: 'contacts',
     nameCheckboxes: 'contacts',
-    imgPreview: '/images/patients-summary/contacts.jpg',
+    imgPreview: contactsPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'allergies',
@@ -23,7 +30,7 @@ export const patientsSummaryConfig = [
     titleCheckboxes: 'Allergies',
     state: 'allergies',
     nameCheckboxes: 'allergies',
-    imgPreview: '/images/patients-summary/allergies.jpg',
+    imgPreview: allergiesPrevImage,
     isDefaultSelected: true,
   }, {
     key: 'medications',
@@ -31,27 +38,12 @@ export const patientsSummaryConfig = [
     titleCheckboxes: 'Medications',
     state: 'medications',
     nameCheckboxes: 'medications',
-    imgPreview: '/images/patients-summary/medications.jpg',
+    imgPreview: medicationsPrevImage,
     isDefaultSelected: true,
   },
-  // {
-  //   key: 'vaccinations',
-  //   title: 'Vaccinations',
-  //   titleCheckboxes: 'Vaccinations',
-  //   state: 'vaccinations',
-  //   nameCheckboxes: 'vaccinations',
-  //   imgPreview: '/images/patients-summary/vaccinations.jpg',
-  //   isDefaultSelected: true,
-  // },{
-  //   key: 'topThreeThings',
-  //   title: 'Top 3 Things',
-  //   titleCheckboxes: 'Top 3 Things',
-  //   state: 'topThreeThings',
-  //   nameCheckboxes: 'topThreeThings',
-  //   imgPreview: '/images/patients-summary/top3.jpg',
-  //   isDefaultSelected: true,
-  // },
 ];
+
+export const patientsSummaryConfig = corePatientsSummaryConfig.concat(themePatientSummaryConfig);
 
 export const patientsSummaryLoading = 'Loading ...';
 
