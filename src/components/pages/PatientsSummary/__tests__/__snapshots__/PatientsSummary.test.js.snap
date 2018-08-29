@@ -61,7 +61,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Diagnosis"
+              title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
@@ -206,7 +206,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Diagnosis"
+              title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}

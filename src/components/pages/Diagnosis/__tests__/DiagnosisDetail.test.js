@@ -1,11 +1,15 @@
 import React from 'react';
+import { get } from 'lodash';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import DiagnosisDetail from '../DiagnosisDetail/DiagnosisDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
 
 const propsForDiagnosisPanel = {
   detail: {
@@ -36,7 +40,7 @@ describe('Component <DiagnosisDetail />', () => {
 
     // Testing diagnosesPanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(DIAGNOSES_PANEL);
-    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual('Diagnosis');
+    expect(component.find('PluginDetailPanel').at(0).props().title).toEqual(problemsTitle);
     expect(component.find('PluginDetailPanel').at(0).props().isOpen).toEqual(false);
     expect(component.find('PluginDetailPanel').at(0).props().editedPanel).toEqual({diagnosesPanel: false});
     expect(component.find('PluginDetailPanel').at(0).props().isBtnShowPanel).toEqual(false);

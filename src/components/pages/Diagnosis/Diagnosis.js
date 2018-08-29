@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,6 +27,7 @@ import DiagnosisDetail from './DiagnosisDetail/DiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import DiagnosisCreateForm from './DiagnosisCreate/DiagnosisCreateForm'
 import { imageSource } from './ImageSource';
+import { themeConfigs } from '../../../themes.config';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -257,10 +259,14 @@ export default class ProblemsDiagnosis extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+    const titleCreate = 'Create ' + problemsTitle;
+    const noneTitle = 'No ' + problemsTitle;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
-          title='Diagnoses'
+          title={problemsTitle}
           subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
           img={imageSource}
         />
@@ -272,7 +278,7 @@ export default class ProblemsDiagnosis extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Diagnoses"
+                panelTitle={problemsTitle}
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={DIAGNOSES_MAIN}
@@ -282,7 +288,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allDiagnoses}
-                emptyDataMessage="No diagnoses"
+                emptyDataMessage={noneTitle}
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailDiagnosesClick}
                 columnNameSortBy={columnNameSortBy}
@@ -317,7 +323,7 @@ export default class ProblemsDiagnosis extends PureComponent {
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
-              title="Create Diagnosis"
+              title={titleCreate}
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}

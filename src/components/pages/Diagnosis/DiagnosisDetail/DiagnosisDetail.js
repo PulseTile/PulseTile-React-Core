@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
+import { get } from 'lodash';
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import DiagnosisDetailForm from './DiagnosisDetailForm'
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import Switch from '../../../form-fields/Switch';
+import { themeConfigs } from '../../../../themes.config';
 
 const DIAGNOSES_PANEL = 'diagnosesPanel';
 
@@ -14,13 +16,15 @@ export default class DiagnosisDetail extends PureComponent {
     detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
     const dateOfOnset = getDDMMMYYYY(detail[valuesNames.DATE_OF_ONSET]);
+    const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+    const editTitle = 'Edit ' + problemsTitle;
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
           {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && !editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
-            title="Diagnosis"
+            title={problemsTitle}
             isOpen={openedPanel === DIAGNOSES_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}
@@ -119,7 +123,7 @@ export default class DiagnosisDetail extends PureComponent {
           {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
-            title="Edit Diagnosis"
+            title={editTitle}
             isOpen={openedPanel === DIAGNOSES_PANEL}
             currentPanel={currentPanel}
             onEdit={onEdit}

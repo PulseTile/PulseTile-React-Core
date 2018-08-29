@@ -17,7 +17,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Diagnosis"
+      title="Problems / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -40,7 +40,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <label
                     className="control-label"
                   >
-                    Diagnosis
+                    Problems / Diagnosis
                   </label>
                   <div
                     className="form-control-static"
@@ -197,7 +197,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Diagnosis"
+      title="Edit Problems / Diagnosis"
     >
       <ReduxForm
         detail={
@@ -236,7 +236,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Diagnosis"
+      title="Problems / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -259,7 +259,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
-                    Diagnosis
+                    Problems / Diagnosis
                   </label>
                   <div
                     className="form-control-static"
