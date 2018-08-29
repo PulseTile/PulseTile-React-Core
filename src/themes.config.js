@@ -5,20 +5,20 @@
  */
 const mainThemeConfigs = {
   isLeedsPHRTheme: false,
+  topHeader: {
+    showNotifications: true,
+    showQuestions: true,
+    showSearch: true,
+    showUserPanel: true,
+  },
   isLeedsPHRHeaderList: false,
-
   headerHasSearch: true,
-
   footerHasShowSupportedByText: true,
   footerCopyright: 'Transforming Usability',
-
   isShowPluginsBigBanner: false,
-
   patientsSummaryPageName: 'Patient Summary',
   patientsSummaryHasPreviewSettings: false,
-
   dashboardBeing: {},
-
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Diagnosis',
     'medications': 'Medications',
@@ -35,18 +35,19 @@ const mainThemeConfigs = {
  */
 const leedsPHRThemeConfigs = {
   isLeedsPHRTheme: true,
+  topHeader: {
+    showNotifications: false,
+    showQuestions: true,
+    showSearch: false,
+    showUserPanel: true,
+  },
   isLeedsPHRHeaderList: true,
-
   headerHasSearch: false,
-
   footerHasShowSupportedByText: false,
   footerCopyright: 'Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved',
-
   isShowPluginsBigBanner: true,
-
   patientsSummaryPageName: 'Home',
   patientsSummaryHasPreviewSettings: true,
-
   sidebarConfigIsVisible: {
     default: false,
     'patients-summary': true,
@@ -58,9 +59,7 @@ const leedsPHRThemeConfigs = {
     'topThreeThings': true,
   },
   dashboardBeing: {},
-
   isShowUserProfileSettings: true,
-
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Issues',
     'medications': 'Medications',

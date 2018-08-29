@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
-
+import { get } from 'lodash';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../presentational/temprorary/NotificationContent'
 import UserAccountPanel from './UserAccountPanel'
+import { themeConfigs } from '../../../themes.config';
 
 const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
@@ -12,10 +13,6 @@ const NOTIFICATION_CONTENT = 'notificationContent';
 export default class UserPanel extends PureComponent {
 
   static defaultProps = {
-    isSearch: true,
-    isQuestions: false,
-    isNotifications: true,
-    isUserPanel: true,
     addUserPanels: [],
   };
 
@@ -69,7 +66,13 @@ export default class UserPanel extends PureComponent {
 
   render() {
     const { openedPanel } = this.state;
-    const { isSearch, isQuestions, isNotifications, isUserPanel, addUserPanels } = this.props;
+    const { addUserPanels } = this.props;
+
+    const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
+    const isQuestions = get(themeConfigs, 'topHeader.showQuestions', true);
+    const isNotifications = get(themeConfigs, 'topHeader.showNotifications', true);
+    const isUserPanel = get(themeConfigs, 'topHeader.showUserPanel', true);
+
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
     return (
       <ul className="user-panel" role="tablist" ref={node => this.node = node}>
