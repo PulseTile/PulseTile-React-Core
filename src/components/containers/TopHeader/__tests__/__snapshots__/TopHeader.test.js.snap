@@ -169,10 +169,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
-                isNotifications={true}
-                isQuestions={false}
-                isSearch={true}
-                isUserPanel={true}
               >
                 <ul
                   className="user-panel"
@@ -192,6 +188,25 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         >
                           <i
                             className="fa fa-search"
+                          />
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                  <UserPanelItem
+                    className="user-panel-item"
+                  >
+                    <li
+                      className="user-panel-item"
+                    >
+                      <PTButton
+                        className="btn-header"
+                      >
+                        <button
+                          className="btn-header"
+                        >
+                          <i
+                            className="fa fa-question-circle"
                           />
                         </button>
                       </PTButton>
@@ -608,10 +623,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    isNotifications={true}
-    isQuestions={true}
-    isSearch={false}
-    isUserPanel={true}
   />
   <div
     className="navbar-space-right"
@@ -640,10 +651,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    isNotifications={true}
-    isQuestions={true}
-    isSearch={false}
-    isUserPanel={true}
   />
 </div>
 `;
@@ -677,10 +684,6 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    isNotifications={true}
-    isQuestions={true}
-    isSearch={false}
-    isUserPanel={true}
   />
   <NavSearch
     userAccount={

@@ -40,10 +40,6 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
     >
       <UserPanel
         addUserPanels={Array []}
-        isNotifications={true}
-        isQuestions={false}
-        isSearch={true}
-        isUserPanel={true}
         openedPanel="userAccountPanel"
       >
         <ul
@@ -64,6 +60,25 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                 >
                   <i
                     className="fa fa-search"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
+            className="user-panel-item"
+          >
+            <li
+              className="user-panel-item"
+            >
+              <PTButton
+                className="btn-header"
+              >
+                <button
+                  className="btn-header"
+                >
+                  <i
+                    className="fa fa-question-circle"
                   />
                 </button>
               </PTButton>
@@ -371,6 +386,17 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     test
   </UserPanelItem>
   <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item dropdown"
   >
     <NotificationContent />
@@ -429,6 +455,17 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     className="user-panel-item"
   >
     test
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item dropdown"
@@ -490,6 +527,53 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown open"
+  >
+    <Connect(Connect(lifecycle(UserAccountPanel)))
+      onClick={[Function]}
+      onClose={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
+      />
+    </PTButton>
+  </UserPanelItem>
 </ul>
 `;
 
@@ -499,6 +583,17 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
+    className="user-panel-item visible-xs"
+  >
+    <PTButton
+      className="btn-header"
+    >
+      <i
+        className="fa fa-search"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item"
   >
     <PTButton
@@ -506,6 +601,42 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     >
       <i
         className="fa fa-question-circle"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <Connect(Connect(lifecycle(UserAccountPanel)))
+      onClick={[Function]}
+      onClose={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
       />
     </PTButton>
   </UserPanelItem>
