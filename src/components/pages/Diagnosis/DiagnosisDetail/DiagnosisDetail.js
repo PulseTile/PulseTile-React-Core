@@ -10,14 +10,49 @@ import { themeConfigs } from '../../../../themes.config';
 const DIAGNOSES_PANEL = 'diagnosesPanel';
 
 export default class DiagnosisDetail extends PureComponent {
+
+  /**
+   * This function checks that current element should be show at details panel
+   *
+   * @param {string} el
+   * @param {array}  hideElements
+   * @return {boolean}
+   */
+  isShowElement(el, hideElements) {
+    return (-1 === hideElements.indexOf(el));
+  }
+
+
+  /**
+   * This function check that button should be visible
+   *
+   * @param {array}   hiddenButtons
+   * @param {string}  buttonType
+   * @param {boolean} defaultResult
+   * @return {boolean}
+   */
+  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
+    let result = defaultResult;
+    if (-1 !== hiddenButtons.indexOf(buttonType)) {
+      result = false;
+    }
+    return result;
+  }
+
   render() {
     const { onExpand, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, diagnosisPanelFormValues, isSubmit } = this.props;
     let { detail } = this.props;
     detail = detail || {};
+
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
     const dateOfOnset = getDDMMMYYYY(detail[valuesNames.DATE_OF_ONSET]);
+
     const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
     const editTitle = 'Edit ' + problemsTitle;
+
+    const hideElements = get(themeConfigs, 'detailsToHide.diagnoses', []);
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
+
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
@@ -33,47 +68,68 @@ export default class DiagnosisDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={diagnosisPanelFormValues}
             isBtnShowPanel={false}
+            isEditButton={this.isButtonVisible(hiddenButtons, 'edit', true)}
           >
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.PROBLEM}</label>
-                        <div className="form-control-static">{detail[valuesNames.PROBLEM]}</div>
+
+                  { this.isShowElement(valuesNames.PROBLEM, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.PROBLEM}</label>
+                          <div className="form-control-static">{detail[valuesNames.PROBLEM]}</div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DATE_OF_ONSET}</label>
-                        <div className="form-control-static">{dateOfOnset}</div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.DATE_OF_ONSET, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DATE_OF_ONSET}</label>
+                          <div className="form-control-static">{dateOfOnset}</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DESCRIPTION}</label>
-                        <div className="form-control-static">{detail[valuesNames.DESCRIPTION]}</div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.DESCRIPTION, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DESCRIPTION}</label>
+                          <div className="form-control-static">{dateOfOnset}</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.TERMINOLOGY}</label>
-                        <div className="form-control-static">{detail[valuesNames.TERMINOLOGY]}</div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.TERMINOLOGY, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.TERMINOLOGY}</label>
+                          <div className="form-control-static">{detail[valuesNames.TERMINOLOGY]}</div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.CODE}</label>
-                        <div className="form-control-static">{detail[valuesNames.CODE]}</div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.CODE, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.CODE}</label>
+                          <div className="form-control-static">{detail[valuesNames.CODE]}</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {detail[valuesNames.IS_IMPORT] ?
+                    : null }
+
+                  { detail[valuesNames.IS_IMPORT] ?
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
@@ -96,26 +152,38 @@ export default class DiagnosisDetail extends PureComponent {
                           </div>
                         </div>
                       </div>
-                    </div> : null
-                  }
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.AUTHOR}</label>
-                        <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                    </div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.AUTHOR, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.AUTHOR}</label>
+                          <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DATE}</label>
-                        <div className="form-control-static">{dateCreated}</div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.DATE, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-right">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DATE}</label>
+                          <div className="form-control-static">{dateCreated}</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div className="form-group">
-                    <label className="control-label">{valuesLabels.SOURCE}</label>
-                    <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
-                  </div>
+                    : null }
+
+                  { this.isShowElement(valuesNames.SOURCE, hideElements) ?
+                    <div className="form-group">
+                      <label className="control-label">{valuesLabels.SOURCE}</label>
+                      <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
+                    </div>
+                    : null }
+
                 </div>
               </div>
             </div>

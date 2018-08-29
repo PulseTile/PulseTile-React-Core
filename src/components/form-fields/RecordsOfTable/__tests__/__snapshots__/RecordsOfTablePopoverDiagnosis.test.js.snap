@@ -20,7 +20,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Problems / Diagnosis
+          Problems / Issues
         </label>
         <div
           className="form-control-static"
@@ -135,7 +135,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Problems / Diagnosis
+          Problems / Issues
         </label>
         <div
           className="form-control-static"

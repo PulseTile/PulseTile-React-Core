@@ -13,12 +13,10 @@ export const valuesNames = {
   AUTHOR: 'author',
   DATE: 'date',
   DATE_CREATED: 'dateCreated',
-
   IMPORT: 'originalSource',
   IS_IMPORT: 'isImport',
   ORIGINAL_SOURCE: 'originalSource',
   ORIGINAL_COMPOSITION: 'originalComposition',
-
   SOURCE: 'source',
   SOURCE_ID: 'sourceId',
 };
@@ -32,11 +30,9 @@ export const valuesLabels = {
   CODE: 'Terminology Code',
   AUTHOR: 'Author',
   DATE: 'Date',
-
   IMPORT: 'Import URL',
   IS_IMPORT: 'Is Imported',
   ORIGINAL_SOURCE: 'Original Source',
-
   SOURCE: 'Source',
   SOURCE_ID: 'Source ID',
 };

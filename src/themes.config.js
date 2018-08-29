@@ -30,6 +30,8 @@ const mainThemeConfigs = {
     'vaccinations': 'Vaccinations',
     'topThreeThings': 'Top Three Things',
   },
+  detailsToHide: {},
+  buttonsToHide: {},
 };
 
 
@@ -73,6 +75,12 @@ const leedsPHRThemeConfigs = {
     'vaccinations': 'Vaccinations',
     'topThreeThings': 'Top Three Things',
   },
+  detailsToHide: {
+    'diagnoses': ['terminology', 'code'],
+  },
+  buttonsToHide: {
+    'diagnoses': ['create', 'edit'],
+  }
 };
 
 export const themeConfigs = mainThemeConfigs;

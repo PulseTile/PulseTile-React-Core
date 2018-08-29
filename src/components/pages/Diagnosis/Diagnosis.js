@@ -42,6 +42,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(diagnosesCreateFormStateSelector)
 @compose(lifecycle(fetchPatientDiagnosesOnMount), lifecycle(fetchPatientDiagnosesDetailOnMount))
 export default class ProblemsDiagnosis extends PureComponent {
+
   static propTypes = {
     allDiagnoses: PropTypes.arrayOf(PropTypes.object),
   };
@@ -71,19 +72,55 @@ export default class ProblemsDiagnosis extends PureComponent {
     isLoading: true,
   };
 
+  /**
+   * This function check that button should be visible
+   *
+   * @param {array}   hiddenButtons
+   * @param {string}  buttonType
+   * @param {boolean} defaultResult
+   * @return {boolean}
+   */
+  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
+      let result = defaultResult;
+      if (-1 !== hiddenButtons.indexOf(buttonType)) {
+          result = false;
+      }
+      return result;
+  }
+
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
-
-    //TODO should be implemented common function, and the state stored in the store Redux
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isDetailPanelVisible: true,
+        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnExpandVisible: true,
+        isCreatePanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isDetailPanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', false),
+        isCreatePanelVisible: true,
+        openedPanel: DIAGNOSES_CREATE,
+        isDetailPanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+      this.setState({
+        isSecondPanel: false,
+        isBtnExpandVisible: false,
+        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        openedPanel: DIAGNOSES_PANEL,
+        isDetailPanelVisible: false,
+        expandedPanel: 'all'
+      })
     }
 
     /* istanbul ignore next */

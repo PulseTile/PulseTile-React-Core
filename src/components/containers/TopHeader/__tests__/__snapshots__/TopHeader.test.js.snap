@@ -175,25 +175,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   role="tablist"
                 >
                   <UserPanelItem
-                    className="user-panel-item visible-xs"
-                  >
-                    <li
-                      className="user-panel-item visible-xs"
-                    >
-                      <PTButton
-                        className="btn-header"
-                      >
-                        <button
-                          className="btn-header"
-                        >
-                          <i
-                            className="fa fa-search"
-                          />
-                        </button>
-                      </PTButton>
-                    </li>
-                  </UserPanelItem>
-                  <UserPanelItem
                     className="user-panel-item"
                   >
                     <li
@@ -208,86 +189,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                           <i
                             className="fa fa-question-circle"
                           />
-                        </button>
-                      </PTButton>
-                    </li>
-                  </UserPanelItem>
-                  <UserPanelItem
-                    className="user-panel-item dropdown"
-                  >
-                    <li
-                      className="user-panel-item dropdown"
-                    >
-                      <NotificationContent>
-                        <div
-                          className="notifications-drop dropdown-menu dropdown-menu-right"
-                          id="tab-notifications"
-                        >
-                          <div
-                            className="notifications-header"
-                          >
-                            Notifications (2)
-                          </div>
-                          <div
-                            className="notifications-body"
-                          >
-                            <ul
-                              className="notifications-list"
-                            >
-                              <li
-                                className="notifications-list-item"
-                              >
-                                <div
-                                  className="notification-info"
-                                >
-                                  Information from Liquid Logic (Social Care) is currently unavailable.
-                                </div>
-                                <div
-                                  className="notification-time"
-                                >
-                                  <em>
-                                    10 minutes ago
-                                  </em>
-                                </div>
-                              </li>
-                              <li
-                                className="notifications-list-item"
-                              >
-                                <div
-                                  className="notification-info"
-                                >
-                                  Information from Liquid Logic (Social Care) is currently unavailable.
-                                </div>
-                                <div
-                                  className="notification-time"
-                                >
-                                  <em>
-                                    15 minutes ago
-                                  </em>
-                                </div>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </NotificationContent>
-                      <PTButton
-                        className="btn-header btn-notification"
-                        onClick={[Function]}
-                      >
-                        <button
-                          className="btn-header btn-notification"
-                          onClick={[Function]}
-                        >
-                          <div>
-                            <i
-                              className="fa fa-bell-o"
-                            />
-                            <span
-                              className="count"
-                            >
-                              2
-                            </span>
-                          </div>
                         </button>
                       </PTButton>
                     </li>
@@ -362,19 +263,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                 className="dropdown-user dropdown-menu-right dropdown-menu"
                               >
                                 <div
-                                  className="user-profile-image"
-                                  onClick={[Function]}
-                                >
-                                  <div
-                                    className="img"
-                                  >
-                                    <img
-                                      alt=""
-                                      src="/images/user.jpg"
-                                    />
-                                  </div>
-                                </div>
-                                <div
                                   className="user-profile-info"
                                 >
                                   <div
@@ -400,29 +288,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                       10/05/2099
                                     </div>
                                   </div>
-                                  <div
-                                    className="specification"
-                                  >
-                                    <div
-                                      className="user-profile-info__title registered"
-                                    >
-                                      Registered GP
-                                    </div>
-                                    <div
-                                      className="user-profile-info__item version-back"
-                                    >
-                                      About Showcase Stack; PulseTile version 
-                                      1.0.0
-                                      /QEWD_Ripple version 
-                                      2.32.1
-                                    </div>
-                                    <div
-                                      className="user-profile-info__item version-front"
-                                    >
-                                      React version 
-                                      15.6.2
-                                    </div>
-                                  </div>
                                   <PTButton
                                     className="btn btn-theme btn-block btn-signout"
                                     onClick={[Function]}
@@ -445,83 +310,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     </button>
                                   </PTButton>
                                 </div>
-                                <Connect(UserAccountPanelSettings)
-                                  onClose={[Function]}
-                                >
-                                  <UserAccountPanelSettings
-                                    actions={
-                                      Object {
-                                        "changeUserProfileTab": [Function],
-                                      }
-                                    }
-                                    onClose={[Function]}
-                                  >
-                                    <div
-                                      className="user-profile-settings dropdown"
-                                    >
-                                      <div
-                                        className="user-profile-settings__btn"
-                                        onClick={[Function]}
-                                      >
-                                        <i
-                                          className="fa fa-gear"
-                                        />
-                                      </div>
-                                      <div
-                                        className="user-profile-settings__menu dropdown-menu dropdown-menu-small-size"
-                                      >
-                                        <div
-                                          className="dropdown-menu-wrap-list"
-                                        >
-                                          <div
-                                            className="dropdown-menu-list"
-                                          >
-                                            <div
-                                              className="dropdown-menu-item"
-                                              onClick={[Function]}
-                                            >
-                                              <span
-                                                className="dropdown-menu-item-text"
-                                              >
-                                                Application Preferences
-                                              </span>
-                                            </div>
-                                            <div
-                                              className="dropdown-menu-item"
-                                              onClick={[Function]}
-                                            >
-                                              <span
-                                                className="dropdown-menu-item-text"
-                                              >
-                                                Personal Information
-                                              </span>
-                                            </div>
-                                            <div
-                                              className="dropdown-menu-item"
-                                              onClick={[Function]}
-                                            >
-                                              <span
-                                                className="dropdown-menu-item-text"
-                                              >
-                                                Contact Information
-                                              </span>
-                                            </div>
-                                            <div
-                                              className="dropdown-menu-item"
-                                              onClick={[Function]}
-                                            >
-                                              <span
-                                                className="dropdown-menu-item-text"
-                                              >
-                                                Change History
-                                              </span>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </UserAccountPanelSettings>
-                                </Connect(UserAccountPanelSettings)>
                               </div>
                             </UserAccountPanel>
                           </lifecycle(UserAccountPanel)>

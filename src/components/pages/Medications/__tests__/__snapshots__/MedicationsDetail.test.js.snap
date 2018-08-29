@@ -179,6 +179,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -294,6 +295,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="warningsPanel"
@@ -426,6 +428,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="changeHistoryPanel"
@@ -510,6 +513,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="medicationPanel"
@@ -553,6 +557,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -761,6 +766,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -985,6 +991,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="warningsPanel"
@@ -1107,6 +1114,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="changeHistoryPanel"
