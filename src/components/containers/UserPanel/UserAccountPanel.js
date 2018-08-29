@@ -20,6 +20,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ logoutSt
 @connect(userAccountSelector, mapDispatchToProps)
 @lifecycle(unmountOnBlur)
 export default class UserAccountPanel extends PureComponent {
+
   static propTypes = {
     user: PropTypes.shape().isRequired,
     actions: PropTypes.objectOf(PropTypes.func).isRequired,
@@ -31,6 +32,10 @@ export default class UserAccountPanel extends PureComponent {
     }),
   };
 
+  renderToProfile() {
+    this.context.router.history.push(clientUrls.USER_PROFILE);
+  }
+
   render() {
     const { user, actions, onClick, onClose, initialiseData } = this.props;
     const varsionOfPulseTile = packageJSON.version;
@@ -39,17 +44,13 @@ export default class UserAccountPanel extends PureComponent {
     const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
     return (
       <div className="dropdown-user dropdown-menu-right dropdown-menu">
-        <div
-          className="user-profile-image"
-          onClick={() =>{
-            this.context.router.history.push(clientUrls.USER_PROFILE);
-            onClick('')
-          }}
-        >
-          <div className="img">
-            <img src={imageSource} alt="" />
-          </div>
-        </div>
+        { themeConfigs.isShowUserPhoto ?
+            <div className="user-profile-image" onClick={() => this.renderToProfile()}>
+              <div className="img">
+                <img src={imageSource} alt="" />
+              </div>
+            </div>
+        : null }
         <div className="user-profile-info">
           <div
             className="user-profile-info__item name"
@@ -63,11 +64,13 @@ export default class UserAccountPanel extends PureComponent {
             <div className="user-profile-info__item email">{user.email}</div>
             <div className="user-profile-info__item birthday">10/05/2099</div>
           </div>
-          <div className="specification">
-            <div className="user-profile-info__title registered">Registered GP</div>
-            <div className="user-profile-info__item version-back">About Showcase Stack; PulseTile version {varsionOfPulseTile}/QEWD_Ripple version {initialiseData.version}</div>
-            <div className="user-profile-info__item version-front">React version {varsionOfReact}</div>
-          </div>
+          { themeConfigs.isShowUserProfileSpecification ?
+            <div className="specification">
+              <div className="user-profile-info__title registered">Registered GP</div>
+              <div className="user-profile-info__item version-back">About Showcase Stack; PulseTile version {varsionOfPulseTile}/QEWD_Ripple version {initialiseData.version}</div>
+              <div className="user-profile-info__item version-front">React version {varsionOfReact}</div>
+            </div>
+            : null }
           <PTButton className="btn btn-theme btn-block btn-signout" onClick={actions.logoutStart}>
             <div>
               <span className="brn-text">Sign Out</span> <i className="btn-icon fa fa-sign-out" />

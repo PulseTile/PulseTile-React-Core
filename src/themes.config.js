@@ -19,6 +19,9 @@ const mainThemeConfigs = {
   patientsSummaryPageName: 'Patient Summary',
   patientsSummaryHasPreviewSettings: false,
   dashboardBeing: {},
+  isShowUserPhoto: true,
+  isShowUserProfileSettings: true,
+  isShowUserProfileSpecification: true,
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Diagnosis',
     'medications': 'Medications',
@@ -59,7 +62,9 @@ const leedsPHRThemeConfigs = {
     'topThreeThings': true,
   },
   dashboardBeing: {},
-  isShowUserProfileSettings: true,
+  isShowUserPhoto: false,
+  isShowUserProfileSettings: false,
+  isShowUserProfileSpecification: false,
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Issues',
     'medications': 'Medications',
