@@ -27,6 +27,7 @@ import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { imageSource } from './ImageSource';
 import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -76,22 +77,6 @@ export default class Medications extends PureComponent {
     isLoading: true,
   };
 
-  /**
-   * This function check that button should be visible
-   *
-   * @param {array}   hiddenButtons
-   * @param {string}  buttonType
-   * @param {boolean} defaultResult
-   * @return {boolean}
-   */
-  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
-    let result = defaultResult;
-    if (-1 !== hiddenButtons.indexOf(buttonType)) {
-      result = false;
-    }
-    return result;
-  };
-
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
@@ -101,7 +86,7 @@ export default class Medications extends PureComponent {
         isSecondPanel: true,
         isDetailPanelVisible: true,
         isBtnExpandVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isCreatePanelVisible: false
       })
     }
@@ -109,7 +94,7 @@ export default class Medications extends PureComponent {
       this.setState({
         isSecondPanel: true,
         isBtnExpandVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', false),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
         isCreatePanelVisible: true,
         openedPanel: MEDICATIONS_CREATE,
         isDetailPanelVisible: false
@@ -119,7 +104,7 @@ export default class Medications extends PureComponent {
       this.setState({
         isSecondPanel: false,
         isBtnExpandVisible: false,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isCreatePanelVisible: false,
         openedPanel: MEDICATION_PANEL,
         isDetailPanelVisible: false,
@@ -158,7 +143,7 @@ export default class Medications extends PureComponent {
       isSecondPanel: true,
       isDetailPanelVisible: true,
       isBtnExpandVisible: true,
-      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
       isCreatePanelVisible: false,
       openedPanel: MEDICATION_PANEL,
       editedPanel: {},

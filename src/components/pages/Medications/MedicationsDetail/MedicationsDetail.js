@@ -10,6 +10,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import Switch from '../../../form-fields/Switch';
 import { themeConfigs } from '../../../../themes.config';
+import { isPanelVisible } from '../../../../utils/themeSettings-helper';
 
 const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
@@ -36,6 +37,7 @@ export default class MedicationsDetail extends PureComponent {
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
 
     const hideElements = get(themeConfigs, 'detailsToHide.medications', []);
+    const hiddenPanels = get(themeConfigs, 'panelsToHide.medications', []);
 
     return (
       <div className="section-detail">
@@ -184,7 +186,7 @@ export default class MedicationsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && !editedPanel[PRESCRIPTION_PANEL] ? <PluginDetailPanel
+          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && !editedPanel[PRESCRIPTION_PANEL] && isPanelVisible(hiddenPanels, 'prescription') ? <PluginDetailPanel
             onExpand={onExpand}
             name={PRESCRIPTION_PANEL}
             title="Prescription (1)"
@@ -310,7 +312,7 @@ export default class MedicationsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === WARNINGS_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === WARNINGS_PANEL || expandedPanel === 'all') && isPanelVisible(hiddenPanels, 'warnings') ? <PluginDetailPanel
             onExpand={onExpand}
             name={WARNINGS_PANEL}
             title="Warnings (2)"
@@ -361,8 +363,7 @@ export default class MedicationsDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
-
-          {(expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === 'all') && isPanelVisible(hiddenPanels, 'history') ? <PluginDetailPanel
             onExpand={onExpand}
             name={CHANGE_HISTORY_PANEL}
             title="Change History (1)"

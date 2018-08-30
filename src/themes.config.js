@@ -32,6 +32,7 @@ const mainThemeConfigs = {
   },
   detailsToHide: {},
   buttonsToHide: {},
+  panelsToHide: {},
 };
 
 
@@ -81,9 +82,12 @@ const leedsPHRThemeConfigs = {
   },
   buttonsToHide: {
     'diagnoses': ['create', 'edit'],
-    'medications': ['create'],
+    'medications': ['create', 'edit', 'cancel', 'suspend', 'order'],
     'allergies': ['create', 'edit'],
     'vaccinations': ['create', 'edit'],
+  },
+  panelsToHide: {
+    'medications': ['history', 'prescription', 'warnings'],
   }
 };
 
