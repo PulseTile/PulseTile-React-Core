@@ -1,12 +1,25 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import { get } from 'lodash';
 
 import MedicationsDetail from '../MedicationsDetail/MedicationsDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+/**
+ * This function checks that current element should be show at details panel
+ *
+ * @param {string} el
+ * @param {array}  hideElements
+ * @return {boolean}
+ */
+function isShowElement(el, hideElements) {
+  return (-1 === hideElements.indexOf(el));
+}
 
 const propsForMedicationsPanel = {
   detail: {
@@ -36,6 +49,8 @@ const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
 
 const CONVERT_DATE_CREATED = getDDMMMYYYY(propsForMedicationsPanel.detail[valuesNames.DATE_CREATED]);
 
+const hideElements = get(themeConfigs, 'detailsToHide.medications', []);
+
 describe('Component <MedicationsDetail />', () => {
   it('should renders with props correctly', () => {
     const component = shallow(<MedicationsDetail
@@ -56,19 +71,44 @@ describe('Component <MedicationsDetail />', () => {
     expect(component.find('MedicationsDetailPanel').props().isBtnShowPanel).toEqual(true);
     expect(component.find('MedicationsDetailPanel').props().isShowControlPanel).toEqual(true);
 
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(0).text()).toEqual(valuesLabels.NAME);
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(1).text()).toEqual(valuesLabels.DOSE_AMOUNT);
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(2).text()).toEqual(valuesLabels.DOSE_TIMING);
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(3).text()).toEqual(valuesLabels.DOSE_DIRECTIONS);
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(4).text()).toEqual(valuesLabels.AUTHOR);
-    expect(component.find('MedicationsDetailPanel').find('.control-label').at(5).text()).toEqual(valuesLabels.DATE_CREATED);
+    let count = 0;
 
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(0).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.NAME]);
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(1).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_AMOUNT]);
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(2).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_TIMING]);
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(3).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_DIRECTIONS]);
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(4).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.AUTHOR]);
-    expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(5).text()).toEqual(CONVERT_DATE_CREATED);
+    if (isShowElement(valuesNames.NAME, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.NAME);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.NAME]);
+      count++;
+    }
+
+    if (isShowElement(valuesNames.DOSE_AMOUNT, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DOSE_AMOUNT);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_AMOUNT]);
+      count++;
+    }
+
+    if (isShowElement(valuesNames.DOSE_TIMING, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DOSE_TIMING);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_TIMING]);
+      component.find('.btn-primary').simulate('click');
+      count++;
+    }
+
+    if (isShowElement(valuesNames.DOSE_DIRECTIONS, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DOSE_DIRECTIONS);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.DOSE_DIRECTIONS]);
+      count++;
+    }
+
+    if (isShowElement(valuesNames.AUTHOR, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.AUTHOR);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.AUTHOR]);
+      count++;
+    }
+
+    if (isShowElement(valuesNames.DATE_CREATED, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DATE_CREATED);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(CONVERT_DATE_CREATED);
+      count++;
+    }
 
     // Testing prescriptionPanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(PRESCRIPTION_PANEL);
@@ -134,15 +174,14 @@ describe('Component <MedicationsDetail />', () => {
     expect(component.find('PluginDetailPanel').at(2).find('.form-control-static').at(0)
       .text()).toEqual('11-Oct-2016 11:45');
 
-    component.find('.btn-primary').simulate('click');
     component.find('.btn-schedule').simulate('click');
     expect(component).toMatchSnapshot();
 
 
     component.setProps({ detail: { [valuesNames.ISIMPORT]: true } });
-    expect(component.find('.form-control-static').at(4).text()).toEqual('');
-    expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
-    expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.ISIMPORT);
+    // expect(component.find('.form-control-static').at(4).text()).toEqual('');
+    // expect(component.find('.control-label').at(4).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
+    // expect(component.find('.control-label').at(5).text()).toEqual(valuesLabels.ISIMPORT);
     expect(component.find('Switch')).toHaveLength(1);
   });
 

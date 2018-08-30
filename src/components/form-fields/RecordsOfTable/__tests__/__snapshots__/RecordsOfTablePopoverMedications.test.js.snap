@@ -88,7 +88,7 @@ exports[`Component <RecordsOfTablePopoverMedications /> should renders with prop
         <label
           className="control-label"
         >
-          Dose Directions
+          Dose Descriptions
         </label>
         <div
           className="form-control-static"
@@ -201,7 +201,7 @@ exports[`Component <RecordsOfTablePopoverMedications /> should renders with prop
         <label
           className="control-label"
         >
-          Dose Directions
+          Dose Descriptions
         </label>
         <div
           className="form-control-static"

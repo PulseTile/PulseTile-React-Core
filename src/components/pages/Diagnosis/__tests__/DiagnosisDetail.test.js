@@ -2,6 +2,7 @@ import React from 'react';
 import { get } from 'lodash';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+
 import DiagnosisDetail from '../DiagnosisDetail/DiagnosisDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';

@@ -77,9 +77,11 @@ const leedsPHRThemeConfigs = {
   },
   detailsToHide: {
     'diagnoses': ['terminology', 'code'],
+    'medications': ['doseTiming', 'doseAmount'],
   },
   buttonsToHide: {
     'diagnoses': ['create', 'edit'],
+    'medications': ['create']
   }
 };
 
