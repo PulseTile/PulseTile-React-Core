@@ -22,7 +22,6 @@ export default class DiagnosisDetail extends PureComponent {
     return (-1 === hideElements.indexOf(el));
   }
 
-
   /**
    * This function check that button should be visible
    *

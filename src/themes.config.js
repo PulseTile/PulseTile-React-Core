@@ -81,7 +81,8 @@ const leedsPHRThemeConfigs = {
   },
   buttonsToHide: {
     'diagnoses': ['create', 'edit'],
-    'medications': ['create']
+    'medications': ['create'],
+    'allergies': ['create', 'edit'],
   }
 };
 

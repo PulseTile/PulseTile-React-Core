@@ -14,7 +14,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -47,7 +47,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
               <label
                 className="control-label"
               >
-                Reaction
+                Reaction / Description
               </label>
               <div
                 className="form-control-static"
@@ -237,7 +237,7 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -272,7 +272,7 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
               <label
                 className="control-label"
               >
-                Reaction
+                Reaction / Description
               </label>
               <div
                 className="form-control-static"
