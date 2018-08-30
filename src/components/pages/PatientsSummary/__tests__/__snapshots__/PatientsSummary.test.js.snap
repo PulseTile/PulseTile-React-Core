@@ -35,7 +35,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -61,7 +61,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Issues"
+              title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
@@ -180,7 +180,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Home"
+          title="Patient Summary"
         />
         <div
           className="panel-body"
@@ -192,7 +192,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -206,13 +206,13 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Issues"
+              title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -232,7 +232,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {
@@ -252,7 +252,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               goToState={[Function]}
               isFeeds={false}
               isHasList={true}
-              isHasPreview={true}
+              isHasPreview={false}
               items={
                 Array [
                   Object {

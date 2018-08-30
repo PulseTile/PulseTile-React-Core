@@ -59,7 +59,7 @@ export default class Allergies extends PureComponent {
     columnNameSortBy: valuesNames.CAUSE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -148,7 +148,18 @@ export default class Allergies extends PureComponent {
 
   handleDetailAllergiesClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: ALLERGIE_PANEL,
+      editedPanel: {},
+      isLoading: true,
+      expandedPanel: 'all'
+    });
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };

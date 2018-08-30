@@ -63,7 +63,7 @@ export default class Medications extends PureComponent {
     columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -153,7 +153,19 @@ export default class Medications extends PureComponent {
 
   handleDetailMedicationsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {}, expandedPanel: 'all', isOpenHourlySchedule: true, isLoading: true })
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: MEDICATION_PANEL,
+      editedPanel: {},
+      expandedPanel: 'all',
+      isOpenHourlySchedule: true,
+      isLoading: true
+    });
     actions.fetchPatientMedicationsDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };

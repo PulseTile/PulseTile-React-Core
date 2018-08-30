@@ -60,7 +60,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     columnNameSortBy: valuesNames.PROBLEM,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -149,7 +149,18 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleDetailDiagnosesClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: DIAGNOSES_PANEL,
+      editedPanel: {},
+      expandedPanel: 'all',
+      isLoading: true
+    });
     actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
   };

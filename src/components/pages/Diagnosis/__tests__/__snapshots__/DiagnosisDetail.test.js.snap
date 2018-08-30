@@ -14,11 +14,11 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={false}
-      isEditButton={false}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problems / Issues"
+      title="Problems / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -41,7 +41,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <label
                     className="control-label"
                   >
-                    Problems / Issues
+                    Problems / Diagnosis
                   </label>
                   <div
                     className="form-control-static"
@@ -90,6 +90,46 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   >
                     25-Nov-2017
                   </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology Code
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
                 </div>
               </div>
             </div>
@@ -173,7 +213,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Problems / Issues"
+      title="Edit Problems / Diagnosis"
     >
       <ReduxForm
         detail={
@@ -209,11 +249,11 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={false}
-      isEditButton={false}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problems / Issues"
+      title="Problems / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -236,7 +276,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
-                    Problems / Issues
+                    Problems / Diagnosis
                   </label>
                   <div
                     className="form-control-static"
@@ -286,6 +326,50 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                     className="form-control-static"
                   >
                     25-Nov-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    yyyy
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Terminology Code
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    1.239389E7
                   </div>
                 </div>
               </div>

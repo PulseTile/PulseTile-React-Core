@@ -63,7 +63,7 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -139,7 +139,7 @@ exports[`Component <Allergies /> should renders correctly and testing context an
               ]
             }
             id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -255,7 +255,7 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -715,7 +715,7 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -796,7 +796,7 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

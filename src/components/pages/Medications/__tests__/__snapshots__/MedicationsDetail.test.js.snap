@@ -60,6 +60,69 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   <label
                     className="control-label"
                   >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Timing
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="wrap-control-group"
+                  >
+                    <div
+                      className="control-group left"
+                    >
+                      <button
+                        className="btn btn-primary btn-inverse"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="btn-text"
+                        >
+                          Prescription
+                        </span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
                     Dose Descriptions
                   </label>
                   <div
@@ -587,6 +650,73 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                     className="form-control-static"
                   >
                     test
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Amount
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    50
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Dose Timing
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    50
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <div
+                    className="wrap-control-group"
+                  >
+                    <div
+                      className="control-group left"
+                    >
+                      <button
+                        className="btn btn-primary btn-inverse"
+                        onClick={[Function]}
+                        type="button"
+                      >
+                        <span
+                          className="btn-text"
+                        >
+                          Prescription
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

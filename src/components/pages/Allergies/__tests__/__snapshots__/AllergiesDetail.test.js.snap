@@ -14,7 +14,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={true}
-      isEditButton={false}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -237,7 +237,7 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={true}
-      isEditButton={false}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"

@@ -83,6 +83,7 @@ const leedsPHRThemeConfigs = {
     'diagnoses': ['create', 'edit'],
     'medications': ['create'],
     'allergies': ['create', 'edit'],
+    'vaccinations': ['create', 'edit'],
   }
 };
 
