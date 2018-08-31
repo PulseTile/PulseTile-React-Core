@@ -92,4 +92,4 @@ const leedsPHRThemeConfigs = {
   }
 };
 
-export const themeConfigs = leedsPHRThemeConfigs;
+export const themeConfigs = mainThemeConfigs;
