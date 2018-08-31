@@ -26,6 +26,7 @@ import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 import { imageSource } from './ImageSource';
 import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
@@ -40,7 +41,9 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(allergiePanelFormStateSelector)
 @connect(allergiesCreateFormStateSelector)
 @connect(metaPanelFormStateSelector)
+
 @compose(lifecycle(fetchPatientAllergiesOnMount), lifecycle(fetchPatientAllergiesDetailOnMount))
+
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
@@ -71,22 +74,6 @@ export default class Allergies extends PureComponent {
     isSubmit: false,
   };
 
-  /**
-   * This function check that button should be visible
-   *
-   * @param {array}   hiddenButtons
-   * @param {string}  buttonType
-   * @param {boolean} defaultResult
-   * @return {boolean}
-   */
-  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
-    let result = defaultResult;
-    if (-1 !== hiddenButtons.indexOf(buttonType)) {
-      result = false;
-    }
-    return result;
-  }
-
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
@@ -96,7 +83,7 @@ export default class Allergies extends PureComponent {
         isSecondPanel: true,
         isDetailPanelVisible: true,
         isBtnExpandVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isCreatePanelVisible: false
       })
     }
@@ -104,7 +91,7 @@ export default class Allergies extends PureComponent {
       this.setState({
         isSecondPanel: true,
         isBtnExpandVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', false),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
         isCreatePanelVisible: true,
         openedPanel: ALLERGIES_CREATE,
         isDetailPanelVisible: false
@@ -114,7 +101,7 @@ export default class Allergies extends PureComponent {
       this.setState({
         isSecondPanel: false,
         isBtnExpandVisible: false,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isCreatePanelVisible: false,
         openedPanel: ALLERGIE_PANEL,
         isDetailPanelVisible: false,
@@ -153,7 +140,7 @@ export default class Allergies extends PureComponent {
       isSecondPanel: true,
       isDetailPanelVisible: true,
       isBtnExpandVisible: true,
-      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
       isCreatePanelVisible: false,
       openedPanel: ALLERGIE_PANEL,
       editedPanel: {},

@@ -7,19 +7,9 @@ import DiagnosisDetail from '../DiagnosisDetail/DiagnosisDetail';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { themeConfigs } from '../../../../themes.config';
+import { isShowElement } from '../../../../utils/themeSettings-helper';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-/**
- * This function checks that current element should be show at details panel
- *
- * @param {string} el
- * @param {array}  hideElements
- * @return {boolean}
- */
-function isShowElement(el, hideElements) {
-    return (-1 === hideElements.indexOf(el));
-}
 
 const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
 

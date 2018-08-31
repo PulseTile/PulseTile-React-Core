@@ -26,3 +26,14 @@ export function isButtonVisible(hiddenButtons, buttonType, defaultResult) {
 export function isPanelVisible(hiddenPanels, panelName) {
   return (-1 === hiddenPanels.indexOf(panelName));
 }
+
+/**
+ * This function checks that current element should be show at details panel
+ *
+ * @param {string} el
+ * @param {array}  hideElements
+ * @return {boolean}
+ */
+export function isShowElement(el, hideElements) {
+    return (-1 === hideElements.indexOf(el));
+}

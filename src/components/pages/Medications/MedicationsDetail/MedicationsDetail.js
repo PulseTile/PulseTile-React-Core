@@ -10,7 +10,7 @@ import { valuesNames, valuesLabels } from '../forms.config';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import Switch from '../../../form-fields/Switch';
 import { themeConfigs } from '../../../../themes.config';
-import { isPanelVisible } from '../../../../utils/themeSettings-helper';
+import { isPanelVisible, isShowElement } from '../../../../utils/themeSettings-helper';
 
 const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
@@ -18,18 +18,6 @@ const WARNINGS_PANEL = 'warningsPanel';
 const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
 
 export default class MedicationsDetail extends PureComponent {
-
-  /**
-   * This function checks that current element should be show at details panel
-   *
-   * @param {string} el
-   * @param {array}  hideElements
-   * @return {boolean}
-   */
-  isShowElement(el, hideElements) {
-    return (-1 === hideElements.indexOf(el));
-  }
-
   render() {
     const { onExpand, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, medicationsDetailFormValues, prescriptionPanelFormValues, isSubmit, toggleHourlySchedule, isOpenHourlySchedule } = this.props;
     let { detail } = this.props;
@@ -60,7 +48,7 @@ export default class MedicationsDetail extends PureComponent {
               <div className="form">
                 <div className="form-group-wrapper">
 
-                  { this.isShowElement(valuesNames.NAME, hideElements) ?
+                  { isShowElement(valuesNames.NAME, hideElements) ?
                       <div className="row-expand">
                         <div className="col-expand-left">
                           <div className="form-group">
@@ -71,7 +59,7 @@ export default class MedicationsDetail extends PureComponent {
                       </div>
                     : null }
 
-                  { this.isShowElement(valuesNames.DOSE_AMOUNT, hideElements) ?
+                  { isShowElement(valuesNames.DOSE_AMOUNT, hideElements) ?
                       <div className="row-expand">
                         <div className="col-expand-left">
                           <div className="form-group">
@@ -82,7 +70,7 @@ export default class MedicationsDetail extends PureComponent {
                       </div>
                     : null }
 
-                  { this.isShowElement(valuesNames.DOSE_TIMING, hideElements) ?
+                  { isShowElement(valuesNames.DOSE_TIMING, hideElements) ?
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
@@ -100,7 +88,7 @@ export default class MedicationsDetail extends PureComponent {
                     </div>
                     : null }
 
-                  { this.isShowElement(valuesNames.DOSE_DIRECTIONS, hideElements) ?
+                  { isShowElement(valuesNames.DOSE_DIRECTIONS, hideElements) ?
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
@@ -137,7 +125,7 @@ export default class MedicationsDetail extends PureComponent {
                     </div> : null
                   }
 
-                  { this.isShowElement(valuesNames.AUTHOR, hideElements) ?
+                  { isShowElement(valuesNames.AUTHOR, hideElements) ?
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">
@@ -148,7 +136,7 @@ export default class MedicationsDetail extends PureComponent {
                     </div>
                     : null }
 
-                  { this.isShowElement(valuesNames.DATE_CREATED, hideElements) ?
+                  { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
                     <div className="row-expand">
                       <div className="col-expand-left">
                         <div className="form-group">

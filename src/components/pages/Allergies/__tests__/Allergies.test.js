@@ -7,24 +7,9 @@ import { get } from 'lodash';
 import Allergies from '../Allergies';
 import { valuesNames } from '../forms.config';
 import { themeConfigs } from '../../../../themes.config';
+import { isButtonVisible } from '../../../../utils/themeSettings-helper';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-/**
- * This function check that button should be visible
- *
- * @param {array}   hiddenButtons
- * @param {string}  buttonType
- * @param {boolean} defaultResult
- * @return {boolean}
- */
-function isButtonVisible(hiddenButtons, buttonType, defaultResult) {
-    let result = defaultResult;
-    if (-1 !== hiddenButtons.indexOf(buttonType)) {
-        result = false;
-    }
-    return result;
-}
 
 const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
 

@@ -7,28 +7,12 @@ import Switch from '../../../form-fields/Switch';
 import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import { themeConfigs } from '../../../../themes.config';
+import { isButtonVisible } from '../../../../utils/themeSettings-helper';
 
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
 
 export default class AllergiesDetail extends PureComponent {
-
-  /**
-   * This function check that button should be visible
-   *
-   * @param {array}   hiddenButtons
-   * @param {string}  buttonType
-   * @param {boolean} defaultResult
-   * @return {boolean}
-   */
-  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
-    let result = defaultResult;
-    if (-1 !== hiddenButtons.indexOf(buttonType)) {
-      result = false;
-    }
-    return result;
-  }
-
   render() {
     const { onExpand, name, onShow, openedPanel, expandedPanel, currentPanel, onEdit, editedPanel, onCancel, onSaveSettings, allergiePanelFormValues, metaPanelFormValues, isSubmit } = this.props;
 		let { detail } = this.props;
@@ -51,7 +35,7 @@ export default class AllergiesDetail extends PureComponent {
             onSaveSettings={onSaveSettings}
             formValues={allergiePanelFormValues}
             isBtnShowPanel
-            isEditButton={this.isButtonVisible(hiddenButtons, 'edit', true)}
+            isEditButton={isButtonVisible(hiddenButtons, 'edit', true)}
           >
             <div className="panel-body-inner">
               <div className="form">

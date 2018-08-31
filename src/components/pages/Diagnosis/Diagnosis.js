@@ -28,6 +28,7 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import DiagnosisCreateForm from './DiagnosisCreate/DiagnosisCreateForm'
 import { imageSource } from './ImageSource';
 import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
@@ -72,22 +73,6 @@ export default class ProblemsDiagnosis extends PureComponent {
     isLoading: true,
   };
 
-  /**
-   * This function check that button should be visible
-   *
-   * @param {array}   hiddenButtons
-   * @param {string}  buttonType
-   * @param {boolean} defaultResult
-   * @return {boolean}
-   */
-  isButtonVisible(hiddenButtons, buttonType, defaultResult) {
-      let result = defaultResult;
-      if (-1 !== hiddenButtons.indexOf(buttonType)) {
-          result = false;
-      }
-      return result;
-  }
-
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
@@ -96,7 +81,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({
         isSecondPanel: true,
         isDetailPanelVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isBtnExpandVisible: true,
         isCreatePanelVisible: false
       })
@@ -105,7 +90,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({
         isSecondPanel: true,
         isBtnExpandVisible: true,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', false),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
         isCreatePanelVisible: true,
         openedPanel: DIAGNOSES_CREATE,
         isDetailPanelVisible: false
@@ -115,7 +100,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({
         isSecondPanel: false,
         isBtnExpandVisible: false,
-        isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isCreatePanelVisible: false,
         openedPanel: DIAGNOSES_PANEL,
         isDetailPanelVisible: false,
@@ -154,7 +139,7 @@ export default class ProblemsDiagnosis extends PureComponent {
       isSecondPanel: true,
       isDetailPanelVisible: true,
       isBtnExpandVisible: true,
-      isBtnCreateVisible: this.isButtonVisible(hiddenButtons, 'create', true),
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
       isCreatePanelVisible: false,
       openedPanel: DIAGNOSES_PANEL,
       editedPanel: {},
