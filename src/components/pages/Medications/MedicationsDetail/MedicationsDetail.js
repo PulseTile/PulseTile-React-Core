@@ -16,6 +16,7 @@ const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
 const WARNINGS_PANEL = 'warningsPanel';
 const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 export default class MedicationsDetail extends PureComponent {
   render() {
@@ -131,17 +132,6 @@ export default class MedicationsDetail extends PureComponent {
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.AUTHOR}</label>
                           <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
-                        </div>
-                      </div>
-                    </div>
-                    : null }
-
-                  { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
-                    <div className="row-expand">
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.DATE_CREATED}</label>
-                          <div className="form-control-static">{dateCreated}</div>
                         </div>
                       </div>
                     </div>
@@ -385,6 +375,50 @@ export default class MedicationsDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
+
+          {(expandedPanel === SYSTEM_INFO_PANEL || expandedPanel === 'all') && !editedPanel[SYSTEM_INFO_PANEL] && isPanelVisible(hiddenPanels, 'systemInformation') ?
+            <PluginDetailPanel
+              onExpand={onExpand}
+              name={SYSTEM_INFO_PANEL}
+              title="System Information"
+              isOpen={openedPanel === SYSTEM_INFO_PANEL}
+              onShow={onShow}
+              currentPanel={currentPanel}
+              onEdit={onEdit}
+              editedPanel={editedPanel}
+              onCancel={onCancel}
+              onSaveSettings={onSaveSettings}
+              formValues={medicationsDetailFormValues}
+              isBtnShowPanel
+              isShowControlPanel={false}
+            >
+              <div className="panel-body-inner">
+                <div className="form">
+                  <div className="form-group-wrapper">
+                    <div className="row-expand">
+                      { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                            <div className="form-control-static">{dateCreated}</div>
+                          </div>
+                        </div>
+                        : null }
+                      { isShowElement(valuesNames.SOURCE, hideElements) ?
+                        <div className="col-expand-right">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.SOURCE}</label>
+                            <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
+                          </div>
+                        </div>
+                        : null }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </PluginDetailPanel> : null}
+
+
         </div>
       </div>
     )

@@ -88,28 +88,6 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                 </div>
               </div>
             </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    13-Nov-2017
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

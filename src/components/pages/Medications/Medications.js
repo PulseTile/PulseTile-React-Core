@@ -36,6 +36,7 @@ const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
 const WARNINGS_PANEL = 'warningsPanel';
 const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientMedicationsRequest, fetchPatientMedicationsCreateRequest, fetchPatientMedicationsDetailRequest, fetchPatientMedicationsDetailEditRequest }, dispatch) });
 
@@ -309,7 +310,7 @@ export default class Medications extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
     const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
 
-    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL);
+    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
     const isPanelCreate = (expandedPanel === MEDICATIONS_CREATE);
 

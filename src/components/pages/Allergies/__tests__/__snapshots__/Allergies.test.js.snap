@@ -46,8 +46,9 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -121,8 +122,9 @@ exports[`Component <Allergies /> should renders correctly and testing context an
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -238,8 +240,9 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -313,8 +316,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -414,8 +418,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -515,8 +520,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -698,8 +704,9 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -779,8 +786,9 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {

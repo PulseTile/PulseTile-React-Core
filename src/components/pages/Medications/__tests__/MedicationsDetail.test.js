@@ -17,7 +17,7 @@ Enzyme.configure({ adapter: new Adapter() });
  * @return {number}
  */
 function getDetailPanelsNumber(hiddenPanels) {
-  const maximalTotalNumber = 3;
+  const maximalTotalNumber = 4;
   return maximalTotalNumber - hiddenPanels.length;
 }
 
@@ -106,12 +106,6 @@ describe('Component <MedicationsDetail />', () => {
     if (isShowElement(valuesNames.AUTHOR, hideElements)) {
       expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.AUTHOR);
       expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(propsForMedicationsPanel.detail[valuesNames.AUTHOR]);
-      count++;
-    }
-
-    if (isShowElement(valuesNames.DATE_CREATED, hideElements)) {
-      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DATE_CREATED);
-      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(CONVERT_DATE_CREATED);
       count++;
     }
 
