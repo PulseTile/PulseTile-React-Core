@@ -31,7 +31,7 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Diagnosis"
+            title="Problems / Issues"
             type="checkbox"
           />
         </Col>
@@ -84,6 +84,74 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
           />
         </Col>
       </Row>
+    </div>
+    <div>
+      <div
+        className="heading"
+      >
+        VIEW OF BOARDS
+      </div>
+      <div
+        className="form-group"
+      >
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            xs={12}
+          >
+            <PTCustomInput
+              id="full"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Full View"
+              type="radio"
+              value="full"
+            />
+          </Col>
+        </Row>
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="preview"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only Preview"
+              type="radio"
+              value="preview"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="list"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only List"
+              type="radio"
+              value="list"
+            />
+          </Col>
+        </Row>
+      </div>
     </div>
   </div>
 </div>
@@ -120,7 +188,7 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Diagnosis"
+            title="Problems / Issues"
             type="checkbox"
           />
         </Col>
@@ -173,6 +241,74 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
           />
         </Col>
       </Row>
+    </div>
+    <div>
+      <div
+        className="heading"
+      >
+        VIEW OF BOARDS
+      </div>
+      <div
+        className="form-group"
+      >
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            xs={12}
+          >
+            <PTCustomInput
+              id="full"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Full View"
+              type="radio"
+              value="full"
+            />
+          </Col>
+        </Row>
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="preview"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only Preview"
+              type="radio"
+              value="preview"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="list"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only List"
+              type="radio"
+              value="list"
+            />
+          </Col>
+        </Row>
+      </div>
     </div>
   </div>
 </div>

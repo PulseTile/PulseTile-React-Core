@@ -7,7 +7,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing another me
   <PluginBanner
     img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Diagnoses"
+    title="Problems / Issues"
     toRight={false}
   />
   <div
@@ -33,16 +33,16 @@ exports[`Component <Diagnosis /> should renders correctly and testing another me
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -64,7 +64,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing another me
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -110,16 +110,16 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -142,7 +142,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
               ]
             }
             id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -185,6 +185,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
         />
       </Col>
@@ -200,7 +201,7 @@ exports[`Component <Diagnosis /> should renders correctly when data take from Do
   <PluginBanner
     img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Diagnoses"
+    title="Problems / Issues"
     toRight={false}
   />
   <div
@@ -226,16 +227,16 @@ exports[`Component <Diagnosis /> should renders correctly when data take from Do
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -257,7 +258,7 @@ exports[`Component <Diagnosis /> should renders correctly when data take from Do
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -303,16 +304,16 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -369,8 +370,9 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           onExpand={[Function]}
           onGoBack={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
-          title="Create Diagnosis"
+          title="Create Problems / Issues"
         />
       </Col>
     </Row>
@@ -405,16 +407,16 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -471,8 +473,9 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           onExpand={[Function]}
           onGoBack={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
-          title="Create Diagnosis"
+          title="Create Problems / Issues"
         />
       </Col>
     </Row>
@@ -507,16 +510,16 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -539,7 +542,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
               ]
             }
             id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -582,6 +585,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesPanel"
         />
       </Col>
@@ -630,6 +634,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesPanel"
         />
       </Col>
@@ -643,12 +648,46 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
   className="page-wrapper"
 >
   <div
-    className="section"
+    className="section full-panel full-panel-details"
   >
     <Row
       bsClass="row"
       componentClass="div"
-    />
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <DiagnosisDetail
+          currentPanel="diagnosesDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "code": "1.239389E7",
+              "dateCreated": 1511284969000,
+              "dateOfOnset": 1510272000000,
+              "description": "sdsda",
+              "problem": "1.0",
+              "source": "ethercis",
+              "sourceId": "8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2",
+              "terminology": "dadadyuio",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="systemInformationPanel"
+          isSubmit={false}
+          name="diagnosesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="systemInformationPanel"
+        />
+      </Col>
+    </Row>
   </div>
 </section>
 `;
@@ -660,7 +699,7 @@ exports[`Component <Diagnosis /> should renders correctly with empty store 1`] =
   <PluginBanner
     img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Diagnoses"
+    title="Problems / Issues"
     toRight={false}
   />
   <div
@@ -686,16 +725,16 @@ exports[`Component <Diagnosis /> should renders correctly with empty store 1`] =
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -717,7 +756,7 @@ exports[`Component <Diagnosis /> should renders correctly with empty store 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -743,7 +782,7 @@ exports[`Component <Diagnosis /> should renders correctly with forms error 1`] =
   <PluginBanner
     img={null}
     subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
-    title="Diagnoses"
+    title="Problems / Issues"
     toRight={false}
   />
   <div
@@ -769,16 +808,16 @@ exports[`Component <Diagnosis /> should renders correctly with forms error 1`] =
             name="diagnosesMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Diagnoses"
+            panelTitle="Problems / Issues"
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No diagnoses"
+            emptyDataMessage="No Problems / Issues"
             headers={
               Array [
                 Object {
                   "key": "problem",
-                  "title": "Diagnoses",
+                  "title": "Problems / Issues",
                   "width": "56%",
                 },
                 Object {
@@ -800,7 +839,7 @@ exports[`Component <Diagnosis /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

@@ -1,10 +1,25 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15';
+import { get } from 'lodash';
 
 import MedicationsDetailPanel from '../MedicationsDetail/MedicationsDetailPanel';
+import { themeConfigs } from '../../../../themes.config';
+import { isButtonVisible } from '../../../../utils/themeSettings-helper';
 
 configure({ adapter: new Adapter() });
+
+/**
+ * This function calculate number of details panel which should be shown
+ *
+ * @return {number}
+ */
+function getButtonsNumber(hiddenButtons) {
+    const maximalTotalNumber = 4;
+    return (hiddenButtons.length > 0) ? maximalTotalNumber - (hiddenButtons.length - 1) : maximalTotalNumber;
+}
+
+const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
 
 class SimpleComponent extends React.Component {
   render() {
@@ -78,26 +93,43 @@ describe('Component <MedicationsDetailPanel />', () => {
 
     expect(component.instance().props.isCreatePanelVisible).toEqual(false);
     expect(component.find('PluginDetailHeader')).toHaveLength(1);
-    expect(component.find('PTButton')).toHaveLength(4);
-    expect(component.find('.btn-text').at(0).text()).toEqual(' Cancel');
-    expect(component.find('.btn-text').at(1).text()).toEqual(' Suspend');
-    expect(component.find('.btn-text').at(2).text()).toEqual(' Order');
-    expect(component.find('.btn-text').at(3).text()).toEqual(' Edit');
 
-    component.find('.btn-edit').simulate('click');
-    expect(component).toMatchSnapshot();
+    const buttonsNumber = getButtonsNumber(hiddenButtons);
 
-    // Test panel when panel edited
-    component.setProps({ name: 'TEST_PANEL' });
+    expect(component.find('PTButton')).toHaveLength(buttonsNumber);
 
-    expect(component.instance().props.isCreatePanelVisible).toEqual(false);
-    expect(component.find('PluginDetailHeader')).toHaveLength(1);
-    expect(component.find('PTButton')).toHaveLength(2);
-    expect(component.find('.btn-text').at(0).text()).toEqual(' Cancel');
-    expect(component.find('.btn-text').at(1).text()).toEqual(' Complete');
+    let countButtons = 0;
+    if (isButtonVisible(hiddenButtons, 'cancel', true)) {
+      expect(component.find('.btn-text').at(countButtons).text()).toEqual(' Cancel');
+      countButtons++;
+    }
+    if (isButtonVisible(hiddenButtons, 'suspend', true)) {
+      expect(component.find('.btn-text').at(countButtons).text()).toEqual(' Suspend');
+      countButtons++;
+    }
+    if (isButtonVisible(hiddenButtons, 'order', true)) {
+      expect(component.find('.btn-text').at(countButtons).text()).toEqual(' Order');
+      countButtons++;
+    }
+    if (isButtonVisible(hiddenButtons, 'edit', true)) {
+      expect(component.find('.btn-text').at(countButtons).text()).toEqual(' Edit');
+      component.find('.btn-edit').simulate('click');
 
-    component.find('.btn-danger').simulate('click');
-    component.find('.btn-success').simulate('click');
+      expect(component).toMatchSnapshot();
+
+      // Test panel when panel edited
+      component.setProps({ name: 'TEST_PANEL' });
+
+      expect(component.instance().props.isCreatePanelVisible).toEqual(false);
+      expect(component.find('PluginDetailHeader')).toHaveLength(1);
+      expect(component.find('PTButton')).toHaveLength(2);
+      expect(component.find('.btn-text').at(0).text()).toEqual(' Cancel');
+      expect(component.find('.btn-text').at(1).text()).toEqual(' Complete');
+
+      component.find('.btn-danger').simulate('click');
+      component.find('.btn-success').simulate('click');
+    }
+
     expect(component).toMatchSnapshot();
   });
 });

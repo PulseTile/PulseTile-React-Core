@@ -5,19 +5,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
   className="dropdown-user dropdown-menu-right dropdown-menu"
 >
   <div
-    className="user-profile-image"
-    onClick={[Function]}
-  >
-    <div
-      className="img"
-    >
-      <img
-        alt=""
-        src="/images/user.jpg"
-      />
-    </div>
-  </div>
-  <div
     className="user-profile-info"
   >
     <div
@@ -45,29 +32,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
         className="user-profile-info__item birthday"
       >
         10/05/2099
-      </div>
-    </div>
-    <div
-      className="specification"
-    >
-      <div
-        className="user-profile-info__title registered"
-      >
-        Registered GP
-      </div>
-      <div
-        className="user-profile-info__item version-back"
-      >
-        About Showcase Stack; PulseTile version 
-        1.0.0
-        /QEWD_Ripple version 
-        2.32.1
-      </div>
-      <div
-        className="user-profile-info__item version-front"
-      >
-        React version 
-        15.6.2
       </div>
     </div>
     <PTButton
@@ -95,19 +59,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
   className="dropdown-user dropdown-menu-right dropdown-menu"
 >
   <div
-    className="user-profile-image"
-    onClick={[Function]}
-  >
-    <div
-      className="img"
-    >
-      <img
-        alt=""
-        src="/images/user.jpg"
-      />
-    </div>
-  </div>
-  <div
     className="user-profile-info"
   >
     <div
@@ -135,29 +86,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
         className="user-profile-info__item birthday"
       >
         10/05/2099
-      </div>
-    </div>
-    <div
-      className="specification"
-    >
-      <div
-        className="user-profile-info__title registered"
-      >
-        Registered GP
-      </div>
-      <div
-        className="user-profile-info__item version-back"
-      >
-        About Showcase Stack; PulseTile version 
-        1.0.0
-        /QEWD_Ripple version 
-        2.32.1
-      </div>
-      <div
-        className="user-profile-info__item version-front"
-      >
-        React version 
-        15.6.2
       </div>
     </div>
     <PTButton

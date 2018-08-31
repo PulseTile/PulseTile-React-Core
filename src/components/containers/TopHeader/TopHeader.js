@@ -43,7 +43,7 @@ class TopHeader extends PureComponent {
           patientsInfo={patientsInfo}
           userAccount={userAccount}
         />
-        <UserPanel isSearch={!themeConfigs.isLeedsPHRTheme} isQuestions={themeConfigs.isLeedsPHRTheme} />
+        <UserPanel />
         { children ? <div className="navbar-space-right">
           { children }
         </div> : null }

@@ -78,13 +78,8 @@ exports[`Component <Medications /> should renders correctly and testing another 
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -100,7 +95,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -223,13 +218,8 @@ exports[`Component <Medications /> should renders correctly and testing context 
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -246,7 +236,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -414,13 +404,8 @@ exports[`Component <Medications /> should renders correctly when data take from 
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -436,7 +421,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -533,13 +518,8 @@ exports[`Component <Medications /> should renders correctly with all store is em
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -555,7 +535,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -652,13 +632,8 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -674,7 +649,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -803,13 +778,8 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -825,7 +795,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -948,13 +918,8 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -1119,13 +1084,8 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -1290,13 +1250,8 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
                   "width": "23%",
                 },
                 Object {
-                  "key": "doseAmount",
-                  "title": "Dose",
-                  "width": "33%",
-                },
-                Object {
                   "key": "dateCreated",
-                  "title": "Supply",
+                  "title": "Date",
                   "transformer": [Function],
                   "width": "25%",
                 },
@@ -1313,7 +1268,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

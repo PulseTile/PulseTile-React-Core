@@ -13,11 +13,12 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
           "diagnosesPanel": false,
         }
       }
-      isBtnShowPanel={false}
+      isBtnShowPanel={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Diagnosis"
+      title="Problems / Issues"
     >
       <div
         className="panel-body-inner"
@@ -40,7 +41,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <label
                     className="control-label"
                   >
-                    Diagnosis
+                    Problems / Issues
                   </label>
                   <div
                     className="form-control-static"
@@ -82,51 +83,17 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   </label>
                   <div
                     className="form-control-static"
-                  />
+                  >
+                    25-Nov-2017
+                  </div>
                 </div>
               </div>
             </div>
             <div
               className="row-expand"
             >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
-                </div>
-              </div>
               <div
                 className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -141,36 +108,6 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   />
                 </div>
               </div>
-              <div
-                className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    03-Oct-2017
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Source
-              </label>
-              <div
-                className="form-control-static"
-              />
             </div>
           </div>
         </div>
@@ -194,10 +131,11 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={false}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Diagnosis"
+      title="Edit Problems / Issues"
     >
       <ReduxForm
         detail={
@@ -206,7 +144,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
             "code": "1.239389E7",
             "dateCreated": 1512580152000,
             "dateOfOnset": 1511568000000,
-            "description": "sdadasdasd",
+            "description": "25-Nov-2017",
             "problem": "1.0",
             "source": "ethercis",
             "sourceId": "9e06d22b-3f60-4bc6-bb6e-1b42bff75ed2",
@@ -232,11 +170,12 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
           "diagnosesPanel": false,
         }
       }
-      isBtnShowPanel={false}
+      isBtnShowPanel={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Diagnosis"
+      title="Problems / Issues"
     >
       <div
         className="panel-body-inner"
@@ -259,7 +198,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
-                    Diagnosis
+                    Problems / Issues
                   </label>
                   <div
                     className="form-control-static"
@@ -304,7 +243,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <div
                     className="form-control-static"
                   >
-                    sdadasdasd
+                    25-Nov-2017
                   </div>
                 </div>
               </div>
@@ -312,48 +251,8 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
             <div
               className="row-expand"
             >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    yyyy
-                  </div>
-                </div>
-              </div>
               <div
                 className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    1.239389E7
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -370,8 +269,38 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "diagnosesPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isEditButton={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="systemInformationPanel"
+      title="System Information"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
               <div
-                className="col-expand-right"
+                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -388,19 +317,23 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Source
-              </label>
               <div
-                className="form-control-static"
+                className="col-expand-right"
               >
-                ethercis
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    ethercis
+                  </div>
+                </div>
               </div>
             </div>
           </div>

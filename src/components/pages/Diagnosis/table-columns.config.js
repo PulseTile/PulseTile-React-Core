@@ -1,7 +1,11 @@
+import { get } from 'lodash';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { themeConfigs } from '../../../themes.config';
+
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
 
 export const columnsConfig = [
-  { key: 'problem', title: 'Diagnoses', width: '56%' },
+  { key: 'problem', title: problemsTitle, width: '56%' },
   { key: 'dateOfOnset', title: 'Date', transformer: getDDMMMYYYY, width: '25%' },
   { key: 'source', title: 'Source', width: '19%' },
   { key: 'sourceId', title: 'SourceID', width: 0, display: 'none' },

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -26,11 +27,14 @@ import DiagnosisDetail from './DiagnosisDetail/DiagnosisDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import DiagnosisCreateForm from './DiagnosisCreate/DiagnosisCreateForm'
 import { imageSource } from './ImageSource';
+import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
 const DIAGNOSES_CREATE = 'diagnosesCreate';
 const DIAGNOSES_PANEL = 'diagnosesPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientDiagnosesRequest, fetchPatientDiagnosesDetailRequest, fetchPatientDiagnosesDetailEditRequest, fetchPatientDiagnosesCreateRequest }, dispatch) });
 
@@ -40,6 +44,7 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(diagnosesCreateFormStateSelector)
 @compose(lifecycle(fetchPatientDiagnosesOnMount), lifecycle(fetchPatientDiagnosesDetailOnMount))
 export default class ProblemsDiagnosis extends PureComponent {
+
   static propTypes = {
     allDiagnoses: PropTypes.arrayOf(PropTypes.object),
   };
@@ -57,7 +62,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     columnNameSortBy: valuesNames.PROBLEM,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -72,16 +77,36 @@ export default class ProblemsDiagnosis extends PureComponent {
   componentWillReceiveProps() {
     const sourceId = this.context.router.route.match.params.sourceId;
     const userId = this.context.router.route.match.params.userId;
-
-    //TODO should be implemented common function, and the state stored in the store Redux
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isDetailPanelVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isBtnExpandVisible: true,
+        isCreatePanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: DIAGNOSES_CREATE, isDetailPanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
+        isCreatePanelVisible: true,
+        openedPanel: DIAGNOSES_CREATE,
+        isDetailPanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+      this.setState({
+        isSecondPanel: false,
+        isBtnExpandVisible: false,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        openedPanel: DIAGNOSES_PANEL,
+        isDetailPanelVisible: false,
+        expandedPanel: 'all'
+      })
     }
 
     /* istanbul ignore next */
@@ -89,6 +114,13 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({ isLoading: false })
     }, 500)
   }
+
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
+    if (this.state.expandedPanel !== 'all') {
+      this.setState({ expandedPanel: name })
+    }
+  };
 
   handleExpand = (name, currentPanel) => {
     if (currentPanel === DIAGNOSES_MAIN) {
@@ -110,7 +142,18 @@ export default class ProblemsDiagnosis extends PureComponent {
 
   handleDetailDiagnosesClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: DIAGNOSES_PANEL, editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: DIAGNOSES_PANEL,
+      editedPanel: {},
+      expandedPanel: 'all',
+      isLoading: true
+    });
     actions.fetchPatientDiagnosesDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}`);
   };
@@ -241,7 +284,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allDiagnoses, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
-    const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL);
+    const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === DIAGNOSES_MAIN);
     const isPanelCreate = (expandedPanel === DIAGNOSES_CREATE);
 
@@ -257,10 +300,14 @@ export default class ProblemsDiagnosis extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+    const titleCreate = 'Create ' + problemsTitle;
+    const noneTitle = 'No ' + problemsTitle;
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
-          title='Diagnoses'
+          title={problemsTitle}
           subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
           img={imageSource}
         />
@@ -272,7 +319,7 @@ export default class ProblemsDiagnosis extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Diagnoses"
+                panelTitle={problemsTitle}
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={DIAGNOSES_MAIN}
@@ -282,7 +329,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allDiagnoses}
-                emptyDataMessage="No diagnoses"
+                emptyDataMessage={noneTitle}
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailDiagnosesClick}
                 columnNameSortBy={columnNameSortBy}
@@ -308,6 +355,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               currentPanel={DIAGNOSES_DETAIL}
               detail={diagnosisDetail}
               onEdit={this.handleEdit}
+              onShow={this.handleShow}
               editedPanel={editedPanel}
               onCancel={this.handleDiagnosisDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}
@@ -317,7 +365,7 @@ export default class ProblemsDiagnosis extends PureComponent {
           </Col> : null}
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
-              title="Create Diagnosis"
+              title={titleCreate}
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}

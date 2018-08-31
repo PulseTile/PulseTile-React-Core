@@ -226,6 +226,16 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
               onShow={[Function]}
               openedPanel="applicationPreferences"
             />
+            <FeedsPanel
+              editedPanel={Object {}}
+              isSaveButton={false}
+              isShowControlPanel={false}
+              onCancel={[Function]}
+              onEdit={[Function]}
+              onExpand={[Function]}
+              onShow={[Function]}
+              openedPanel="applicationPreferences"
+            />
           </div>
         </div>
       </Col>

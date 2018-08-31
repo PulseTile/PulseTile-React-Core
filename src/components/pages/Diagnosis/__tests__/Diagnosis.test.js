@@ -2,11 +2,16 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
+import { get } from 'lodash';
 
 import Diagnosis from '../Diagnosis';
 import { valuesNames } from '../forms.config';
+import { themeConfigs } from '../../../../themes.config';
+import { isButtonVisible } from '../../../../utils/themeSettings-helper';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
 
 // frequently used variables
 const userId = '9999999000';
@@ -181,7 +186,17 @@ describe('Component <Diagnosis />', () => {
 
     component.instance().handleDetailDiagnosesClick('065d85e3-3cd5-4604-bb94-5685fffb193d');
     const componentStateAfterMethod = component.state();
-    component.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: 'diagnosesPanel', editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    component.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: 'diagnosesPanel',
+      editedPanel: {},
+      expandedPanel: 'all',
+      isLoading: true
+    });
     const componentStateAfterSetState = component.state();
 
     expect(componentStateAfterMethod).toEqual(componentStateAfterSetState);
@@ -203,7 +218,6 @@ describe('Component <Diagnosis />', () => {
     expect(component).toMatchSnapshot();
 
     component.setState({ openedPanel: 'diagnosesPanel', expandedPanel: 'all' });
-
     component.instance().handleExpand('diagnosesPanel', 'diagnosesCreate');
     component.setState({ expandedPanel: 'all' });
     component.instance().handleExpand('diagnosesPanel', 'diagnosesMain');
@@ -211,6 +225,12 @@ describe('Component <Diagnosis />', () => {
     component.instance().handleExpand('diagnosesPanel', 'diagnosesMain');
     component.setState({ expandedPanel: 'test' });
     component.instance().handleExpand('diagnosesPanel', 'diagnosesCreate');
+
+    component.instance().handleShow('systemInformationPanel');
+    expect(component.state().openedPanel).toEqual('systemInformationPanel');
+    component.setState({ openedPanel: 'systemInformationPanel', expandedPanel: 'systemInformationPanel' });
+    component.instance().handleShow('diagnosesPanel');
+    expect(component.state().openedPanel).toEqual('diagnosesPanel');
 
     // Testing component detail form methods
     expect(component.state().editedPanel).toEqual({});

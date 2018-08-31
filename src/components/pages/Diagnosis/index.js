@@ -1,4 +1,5 @@
 import { combineEpics } from 'redux-observable';
+import { get } from 'lodash';
 
 import asyncComponent from '../../../components/containers/AsyncComponent/AsyncComponent';
 import { clientUrls } from '../../../config/client-urls.constants';
@@ -14,6 +15,8 @@ import diagnosesDetail from './ducks/fetch-patient-diagnoses-detail.duck';
 import diagnosesDetailEdit from './ducks/fetch-patient-diagnoses-detail-edit.duck';
 import patientDiagnosesCreate from './ducks/fetch-patient-diagnoses-create.duck';
 
+import { themeConfigs } from '../../../themes.config';
+
 const epics = combineEpics(fetchPatientDiagnosesEpic, fetchPatientDiagnosesSynopsisEpic, fetchPatientDiagnosesDetailEpic, fetchPatientDiagnosesDetailEditEpic, fetchPatientDiagnosesCreateEpic, fetchPatientDiagnosesUpdateEpic);
 const ProblemsDiagnosis = asyncComponent(() => import(/* webpackChunkName: "diagnoses" */ './Diagnosis').then(module => module.default));
 
@@ -24,7 +27,8 @@ const reducers = {
   patientDiagnosesCreate,
 };
 
-const sidebarConfig = { key: 'diagnoses', pathToTransition: '/diagnoses', name: 'Diagnosis', isVisible: true };
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const sidebarConfig = { key: 'diagnoses', pathToTransition: '/diagnoses', name: problemsTitle, isVisible: true };
 
 const routers = [
   { key: 'problems', component: ProblemsDiagnosis, path: `${clientUrls.PATIENTS}/:userId/${clientUrls.DIAGNOSES}` },

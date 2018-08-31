@@ -51,12 +51,6 @@ exports[`Component <Contacts /> should renders correctly and testing another met
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -130,12 +124,6 @@ exports[`Component <Contacts /> should renders correctly and testing context and
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -250,12 +238,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -356,12 +338,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -460,12 +436,6 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -653,12 +623,6 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -738,12 +702,6 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",

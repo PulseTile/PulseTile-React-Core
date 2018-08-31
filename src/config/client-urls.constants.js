@@ -1,3 +1,4 @@
+import { get } from 'lodash';
 import { themeConfigs } from '../themes.config';
 import { themePluginsPages } from '../components/theme/config/plugins';
 
@@ -15,28 +16,33 @@ export const clientUrls = {
   MEDICATIONS: 'medications',
 };
 
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const contactsTitle = get(themeConfigs.patientsSummaryTitles, 'contacts', 'Contacts');
+const allergiesTitle = get(themeConfigs.patientsSummaryTitles, 'allergies', 'Allergies');
+const medicationsTitle = get(themeConfigs.patientsSummaryTitles, 'medications', 'Medications');
+
 const corePluginsPages = {
   'allergies': {
     breadcrumbs: [{
-      title: 'Allergies',
+      title: allergiesTitle,
       state: '/allergies',
     }],
   },
   'diagnoses': {
     breadcrumbs: [{
-      title: 'Problems / Diagnoses',
+      title: problemsTitle,
       state: '/diagnoses',
     }],
   },
   'contacts': {
     breadcrumbs: [{
-      title: 'Contacts',
+      title: contactsTitle,
       state: '/contacts',
     }],
   },
   'medications': {
     breadcrumbs: [{
-      title: 'Medications',
+      title: medicationsTitle,
       state: '/medications',
     }],
   },
