@@ -14,7 +14,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -30,67 +30,64 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
             className="form-group-wrapper"
           >
             <div
-              className="form-group"
+              className="row-expand"
             >
-              <label
-                className="control-label"
-              >
-                Cause
-              </label>
               <div
-                className="form-control-static"
-              />
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
+                className="col-expand-left"
               >
-                Reaction / Description
-              </label>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Cause
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
               <div
-                className="form-control-static"
-              />
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
+                className="col-expand-right"
               >
-                Author
-              </label>
-              <div
-                className="form-control-static"
-              />
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Date
-              </label>
-              <div
-                className="form-control-static"
-              >
-                03-Oct-2017
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Reaction / Description
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
               </div>
             </div>
             <div
-              className="form-group"
+              className="row-expand"
             >
-              <label
-                className="control-label"
-              >
-                Source
-              </label>
               <div
-                className="form-control-static"
-              />
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
             </div>
+            <div
+              className="row-expand"
+            />
           </div>
         </div>
       </div>
@@ -116,8 +113,8 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
       isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
-      name="metaPanel"
-      title="Metadata"
+      name="systemInformationPanel"
+      title="System Information"
     >
       <div
         className="panel-body-inner"
@@ -128,51 +125,44 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
           <div
             className="form-group-wrapper"
           >
-            <Row
-              bsClass="row"
-              componentClass="div"
+            <div
+              className="row-expand"
             >
-              <Col
-                bsClass="col"
-                componentClass="div"
-                md={6}
-                xs={12}
+              <div
+                className="col-expand-left"
               >
-                <Row
-                  bsClass="row"
-                  componentClass="div"
+                <div
+                  className="form-group"
                 >
-                  <div
-                    className="col-md-11"
+                  <label
+                    className="control-label"
                   >
-                    <div
-                      className="form-group"
-                    >
-                      <label
-                        className="control-label"
-                      >
-                        Cause Code
-                      </label>
-                      <div
-                        className="form-control-static"
-                      />
-                    </div>
-                    <div
-                      className="form-group"
-                    >
-                      <label
-                        className="control-label"
-                      >
-                        Terminology
-                      </label>
-                      <div
-                        className="form-control-static"
-                      />
-                    </div>
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    31-Aug-2018
                   </div>
-                </Row>
-              </Col>
-            </Row>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -209,6 +199,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
             "causeCode": "1111",
             "causeTerminology": "1239085",
             "dateCreated": 1507020019000,
+            "isImport": true,
             "originalComposition": "",
             "originalSource": "",
             "reaction": "1111",
@@ -237,7 +228,7 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -253,73 +244,116 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
             className="form-group-wrapper"
           >
             <div
-              className="form-group"
+              className="row-expand"
             >
-              <label
-                className="control-label"
-              >
-                Cause
-              </label>
               <div
-                className="form-control-static"
+                className="col-expand-left"
               >
-                1111
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Cause
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    1111
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Reaction / Description
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    1111
+                  </div>
+                </div>
               </div>
             </div>
             <div
-              className="form-group"
+              className="row-expand"
             >
-              <label
-                className="control-label"
-              >
-                Reaction / Description
-              </label>
               <div
-                className="form-control-static"
+                className="col-expand-left"
               >
-                1111
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Author
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Dr Tony Shannon
+                  </div>
+                </div>
               </div>
             </div>
             <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Author
-              </label>
-              <div
-                className="form-control-static"
-              >
-                Dr Tony Shannon
-              </div>
-            </div>
+              className="row-expand"
+            />
             <div
-              className="form-group"
+              className="row-expand"
             >
-              <label
-                className="control-label"
-              >
-                Date
-              </label>
               <div
-                className="form-control-static"
+                className="col-expand-left"
               >
-                03-Oct-2017
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Original Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                </div>
               </div>
-            </div>
-            <div
-              className="form-group"
-            >
-              <label
-                className="control-label"
-              >
-                Source
-              </label>
               <div
-                className="form-control-static"
+                className="col-expand-right"
               >
-                ethercis
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Is Imported
+                  </label>
+                  <div
+                    className="form-control-static"
+                  />
+                  <div
+                    className="input-holder"
+                  >
+                    <Switch
+                      chacked={true}
+                      disabled={true}
+                      id="isImport"
+                      name="isImport"
+                      type="checkbox"
+                      value={true}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -336,8 +370,8 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
       isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
-      name="metaPanel"
-      title="Metadata"
+      name="systemInformationPanel"
+      title="System Information"
     >
       <div
         className="panel-body-inner"
@@ -348,55 +382,46 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
           <div
             className="form-group-wrapper"
           >
-            <Row
-              bsClass="row"
-              componentClass="div"
+            <div
+              className="row-expand"
             >
-              <Col
-                bsClass="col"
-                componentClass="div"
-                md={6}
-                xs={12}
+              <div
+                className="col-expand-left"
               >
-                <Row
-                  bsClass="row"
-                  componentClass="div"
+                <div
+                  className="form-group"
                 >
-                  <div
-                    className="col-md-11"
+                  <label
+                    className="control-label"
                   >
-                    <div
-                      className="form-group"
-                    >
-                      <label
-                        className="control-label"
-                      >
-                        Cause Code
-                      </label>
-                      <div
-                        className="form-control-static"
-                      >
-                        1111
-                      </div>
-                    </div>
-                    <div
-                      className="form-group"
-                    >
-                      <label
-                        className="control-label"
-                      >
-                        Terminology
-                      </label>
-                      <div
-                        className="form-control-static"
-                      >
-                        1239085
-                      </div>
-                    </div>
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
                   </div>
-                </Row>
-              </Col>
-            </Row>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    ethercis
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

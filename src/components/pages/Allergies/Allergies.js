@@ -33,6 +33,7 @@ const ALLERGIES_DETAIL = 'allergiesDetail';
 const ALLERGIES_CREATE = 'allergiesCreate';
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientAllergiesRequest, fetchPatientAllergiesCreateRequest, fetchPatientAllergiesDetailRequest, fetchPatientAllergiesDetailEditRequest }, dispatch) });
 
@@ -287,7 +288,7 @@ export default class Allergies extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
 
-    const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
+    const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
 

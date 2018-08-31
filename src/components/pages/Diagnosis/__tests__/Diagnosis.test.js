@@ -218,7 +218,6 @@ describe('Component <Diagnosis />', () => {
     expect(component).toMatchSnapshot();
 
     component.setState({ openedPanel: 'diagnosesPanel', expandedPanel: 'all' });
-
     component.instance().handleExpand('diagnosesPanel', 'diagnosesCreate');
     component.setState({ expandedPanel: 'all' });
     component.instance().handleExpand('diagnosesPanel', 'diagnosesMain');
@@ -226,6 +225,12 @@ describe('Component <Diagnosis />', () => {
     component.instance().handleExpand('diagnosesPanel', 'diagnosesMain');
     component.setState({ expandedPanel: 'test' });
     component.instance().handleExpand('diagnosesPanel', 'diagnosesCreate');
+
+    component.instance().handleShow('systemInformationPanel');
+    expect(component.state().openedPanel).toEqual('systemInformationPanel');
+    component.setState({ openedPanel: 'systemInformationPanel', expandedPanel: 'systemInformationPanel' });
+    component.instance().handleShow('diagnosesPanel');
+    expect(component.state().openedPanel).toEqual('diagnosesPanel');
 
     // Testing component detail form methods
     expect(component.state().editedPanel).toEqual({});

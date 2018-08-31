@@ -77,6 +77,7 @@ const leedsPHRThemeConfigs = {
     'topThreeThings': 'Top Three Things',
   },
   detailsToHide: {
+    'allergies': ['causeCode', 'causeTerminology'],
     'diagnoses': ['terminology', 'code'],
     'medications': ['doseTiming', 'doseAmount'],
   },
@@ -91,4 +92,4 @@ const leedsPHRThemeConfigs = {
   }
 };
 
-export const themeConfigs = mainThemeConfigs;
+export const themeConfigs = leedsPHRThemeConfigs;
