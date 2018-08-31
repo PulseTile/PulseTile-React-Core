@@ -34,6 +34,7 @@ const DIAGNOSES_MAIN = 'diagnosesMain';
 const DIAGNOSES_DETAIL = 'diagnosesDetail';
 const DIAGNOSES_CREATE = 'diagnosesCreate';
 const DIAGNOSES_PANEL = 'diagnosesPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientDiagnosesRequest, fetchPatientDiagnosesDetailRequest, fetchPatientDiagnosesDetailEditRequest, fetchPatientDiagnosesCreateRequest }, dispatch) });
 
@@ -113,6 +114,13 @@ export default class ProblemsDiagnosis extends PureComponent {
       this.setState({ isLoading: false })
     }, 500)
   }
+
+  handleShow = (name) => {
+    this.setState({ openedPanel: name })
+    if (this.state.expandedPanel !== 'all') {
+      this.setState({ expandedPanel: name })
+    }
+  };
 
   handleExpand = (name, currentPanel) => {
     if (currentPanel === DIAGNOSES_MAIN) {
@@ -276,7 +284,7 @@ export default class ProblemsDiagnosis extends PureComponent {
     const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
     const { allDiagnoses, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
-    const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL);
+    const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === DIAGNOSES_MAIN);
     const isPanelCreate = (expandedPanel === DIAGNOSES_CREATE);
 
@@ -347,6 +355,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               currentPanel={DIAGNOSES_DETAIL}
               detail={diagnosisDetail}
               onEdit={this.handleEdit}
+              onShow={this.handleShow}
               editedPanel={editedPanel}
               onCancel={this.handleDiagnosisDetailCancel}
               onSaveSettings={this.handleSaveSettingsDetailForm}

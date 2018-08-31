@@ -40,14 +40,14 @@ describe('Component <DiagnosisDetail />', () => {
     // Testing component when detail filled object, expandedPanel is all, and panel not edited
     component.setProps({ detail: propsForDiagnosisPanel.detail, expandedPanel: 'all', editedPanel: { [DIAGNOSES_PANEL]: false } });
     expect(component.props().className).toEqual('section-detail');
-    expect(component.find('PluginDetailPanel')).toHaveLength(1);
+    expect(component.find('PluginDetailPanel')).toHaveLength(2);
 
     // Testing diagnosesPanel
     expect(component.find('PluginDetailPanel').at(0).props().name).toEqual(DIAGNOSES_PANEL);
     expect(component.find('PluginDetailPanel').at(0).props().title).toEqual(problemsTitle);
     expect(component.find('PluginDetailPanel').at(0).props().isOpen).toEqual(false);
     expect(component.find('PluginDetailPanel').at(0).props().editedPanel).toEqual({diagnosesPanel: false});
-    expect(component.find('PluginDetailPanel').at(0).props().isBtnShowPanel).toEqual(false);
+    expect(component.find('PluginDetailPanel').at(0).props().isBtnShowPanel).toEqual(true);
     expect(component.find('PluginDetailPanel').at(0).props().isShowControlPanel).toEqual(true);
 
     let count = 0;

@@ -185,6 +185,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
         />
       </Col>
@@ -369,6 +370,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           onExpand={[Function]}
           onGoBack={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
           title="Create Problems / Diagnosis"
         />
@@ -471,6 +473,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           onExpand={[Function]}
           onGoBack={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesCreate"
           title="Create Problems / Diagnosis"
         />
@@ -582,6 +585,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesPanel"
         />
       </Col>
@@ -630,6 +634,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
           onEdit={[Function]}
           onExpand={[Function]}
           onSaveSettings={[Function]}
+          onShow={[Function]}
           openedPanel="diagnosesPanel"
         />
       </Col>
