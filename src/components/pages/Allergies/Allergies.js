@@ -24,6 +24,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { imageSource } from './ImageSource';
 import { themeConfigs } from '../../../themes.config';
 import { isButtonVisible } from '../../../utils/themeSettings-helper';
@@ -275,12 +276,18 @@ export default class Allergies extends PureComponent {
   formToShowCollection = (collection) => {
     const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_CREATED,
+      keyTo: valuesNames.DATE_CREATED,
+      fn: getDDMMMYYYY,
+    }]);
+
     return operationsOnCollection.filterAndSort({
       collection: collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.CAUSE, valuesNames.REACTION, valuesNames.SOURCE]
+      filterKeys: [valuesNames.CAUSE, valuesNames.DATE_CREATED, valuesNames.SOURCE]
     });
   };
 
