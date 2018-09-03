@@ -20,7 +20,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Issues"
+            label="Problems / Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -193,7 +193,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Issues"
+            label="Problems / Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -366,7 +366,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when form is
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Issues"
+            label="Problems / Diagnosis"
             name="problem"
             placeholder=""
             props={
@@ -527,7 +527,7 @@ exports[`Component <DiagnosisCreateForm /> should renders with props correctly 1
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Issues"
+            label="Problems / Diagnosis"
             name="problem"
             placeholder=""
             props={
