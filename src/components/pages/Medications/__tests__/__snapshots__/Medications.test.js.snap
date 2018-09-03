@@ -995,7 +995,9 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
+          headingName="medications"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
@@ -1161,7 +1163,9 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
+          headingName="medications"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}

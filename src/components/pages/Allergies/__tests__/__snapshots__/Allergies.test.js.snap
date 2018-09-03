@@ -361,7 +361,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
@@ -463,7 +465,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}

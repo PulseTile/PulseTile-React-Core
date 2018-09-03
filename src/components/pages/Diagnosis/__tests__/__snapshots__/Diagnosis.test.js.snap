@@ -363,7 +363,9 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           }
           currentPanel="diagnosesCreate"
           expandedPanel="all"
+          headingName="diagnoses"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="diagnosesCreate"
           onCancel={[Function]}
@@ -466,7 +468,9 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           }
           currentPanel="diagnosesCreate"
           expandedPanel="all"
+          headingName="diagnoses"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="diagnosesCreate"
           onCancel={[Function]}
