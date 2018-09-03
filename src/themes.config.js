@@ -33,6 +33,7 @@ const mainThemeConfigs = {
   detailsToHide: {},
   buttonsToHide: {},
   panelsToHide: {},
+  corePluginsToHide: [],
 };
 
 
@@ -58,9 +59,9 @@ const leedsPHRThemeConfigs = {
     default: false,
     'patients-summary': true,
     'diagnoses': true,
-    'medications': true,
+    'medications': false,
     'allergies': true,
-    'contacts': true,
+    'contacts': false,
     'vaccinations': true,
     'topThreeThings': true,
   },
@@ -89,7 +90,8 @@ const leedsPHRThemeConfigs = {
   },
   panelsToHide: {
     'medications': ['history', 'prescription', 'warnings'],
-  }
+  },
+  corePluginsToHide: ['medications', 'contacts'],
 };
 
 export const themeConfigs = mainThemeConfigs;

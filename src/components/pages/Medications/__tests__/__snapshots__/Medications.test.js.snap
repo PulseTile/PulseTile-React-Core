@@ -236,7 +236,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -995,7 +995,9 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
+          headingName="medications"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
@@ -1161,7 +1163,9 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
+          headingName="medications"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
@@ -1268,7 +1272,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

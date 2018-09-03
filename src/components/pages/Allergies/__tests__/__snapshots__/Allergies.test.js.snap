@@ -141,7 +141,7 @@ exports[`Component <Allergies /> should renders correctly and testing context an
               ]
             }
             id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -361,7 +361,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
@@ -463,7 +465,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
@@ -539,7 +543,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
               ]
             }
             id="acb0eaf2-d1df-4c7a-9382-619b31935f2b"
-            isBtnCreateVisible={false}
+            isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

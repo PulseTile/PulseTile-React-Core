@@ -1,17 +1,31 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15';
+import { get } from 'lodash';
+
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
 import { testStoreContent } from '../../../theme/config/plugins';
 
+/**
+ * This function returns initial panels number
+ * Default number is 4: Allergies, Medications, Contacts, Problems
+ *
+ * @return {number}
+ */
+function getInitialPanelsNumber() {
+  const defaultPanelsNumber = 4;
+  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
+  return defaultPanelsNumber - hiddenCorePlugins.length;
+}
+
 function getPanelsNumber(testStoreContent) {
-    const initialNumber = 4;
-    const pluginsNumber = Object.keys(testStoreContent).length;
-    const optionsNumber = (themeConfigs.isLeedsPHRTheme) ? 3 : 0;
-    return (pluginsNumber > 0)
-        ? (initialNumber + pluginsNumber + optionsNumber)
-        : (initialNumber + optionsNumber);
+  const initialNumber = getInitialPanelsNumber();
+  const pluginsNumber = Object.keys(testStoreContent).length;
+  const optionsNumber = (themeConfigs.isLeedsPHRTheme) ? 3 : 0;
+  return (pluginsNumber > 0)
+    ? (initialNumber + pluginsNumber + optionsNumber)
+    : (initialNumber + optionsNumber);
 }
 
 class LocalStorageMock {

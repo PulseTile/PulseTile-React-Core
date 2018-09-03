@@ -2,6 +2,8 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
+import { get } from 'lodash';
+
 import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
@@ -13,8 +15,25 @@ function addDiveForTheme(component, testStoreContent) {
     return (pluginsNumber > 0) ? component.dive() : component;
 }
 
+/**
+ * This function returns initial panels number
+ * Default number is 4: Allergies, Medications, Contacts, Problems
+ *
+ * @return {number}
+ */
+function getInitialPanelsNumber() {
+  const defaultPanelsNumber = 4;
+  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
+  return defaultPanelsNumber - hiddenCorePlugins.length;
+}
+
+/**
+ *
+ * @param testStoreContent
+ * @return {*}
+ */
 function getPanelsNumber(testStoreContent) {
-  const initialNumber = 4;
+  const initialNumber = getInitialPanelsNumber();
   const pluginsNumber = Object.keys(testStoreContent).length;
   return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
 }

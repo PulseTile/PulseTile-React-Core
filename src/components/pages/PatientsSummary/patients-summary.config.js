@@ -8,6 +8,7 @@ import {
   medicationsPrevImage,
 } from './ImageSources';
 import { themeConfigs } from '../../../themes.config';
+import { isPluginVisible } from '../../../utils/themeSettings-helper';
 
 const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
 const contactsTitle = get(themeConfigs.patientsSummaryTitles, 'contacts', 'Contacts');
@@ -50,7 +51,17 @@ const corePatientsSummaryConfig = [
   },
 ];
 
-export const patientsSummaryConfig = corePatientsSummaryConfig.concat(themePatientSummaryConfig);
+/**
+ * This constant returns list of pattient summary plugins, excluded corePluginsToHide (themes settings)
+ *
+ * @return {array}
+ */
+const filterPatientsSummaryConfig = corePatientsSummaryConfig.filter(item => {
+  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
+  return isPluginVisible(hiddenCorePlugins, item.state);
+});
+
+export const patientsSummaryConfig = filterPatientsSummaryConfig.concat(themePatientSummaryConfig);
 
 export const defaultViewOfBoardsSelected = {
   full: true,

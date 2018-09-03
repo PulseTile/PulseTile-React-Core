@@ -311,6 +311,8 @@ export default class Allergies extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
@@ -374,6 +376,7 @@ export default class Allergies extends PureComponent {
             <PluginCreate
               onExpand={this.handleExpand}
               name={ALLERGIES_CREATE}
+              headingName="allergies"
               openedPanel={openedPanel}
               onShow={this.handleShow}
               expandedPanel={expandedPanel}
@@ -382,6 +385,7 @@ export default class Allergies extends PureComponent {
               formValues={allergiesCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isCreationPermitted={isButtonVisible(hiddenButtons, 'create', true)}
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={
