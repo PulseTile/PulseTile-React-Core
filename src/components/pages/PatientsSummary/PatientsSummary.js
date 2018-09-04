@@ -23,9 +23,11 @@ import {
   fetchPatientMedicationsSynopsisOnMount,
 } from '../../../utils/HOCs/fetch-patients.utils';
 
+import { pluginFeedsOnMount } from './non-core-utils';
+import FeedsPanel from './FeedsPanel';
+
 import { themeSynopsisOnMount, themeSynopsisRequests } from '../../theme/config/synopsisRequests';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
-import { getNameFromUrl } from '../../../utils/rss-helpers';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 
 const coreActionsArray = {
@@ -41,23 +43,18 @@ const mapDispatchToProps = dispatch => ({
 
 @connect(summarySynopsisSelector, mapDispatchToProps)
 
-// Plugins were commented because of plugins were extracted from the main repository
-// @connect(feedsSelector, mapDispatchToProps)
-
 @compose(
   lifecycle(fetchPatientProblemsSynopsisOnMount),
   lifecycle(fetchPatientContactsSynopsisOnMount),
   lifecycle(fetchPatientAllergiesSynopsisOnMount),
   lifecycle(fetchPatientMedicationsSynopsisOnMount),
+  lifecycle(pluginFeedsOnMount),
   lifecycle(themeSynopsisOnMount),
 )
 
 export default class PatientsSummary extends PureComponent {
   static propTypes = {
     boards: PropTypes.shape({}).isRequired,
-
-    // For Feeds-plugin
-    // feeds: PropTypes.array.isRequired,
   };
 
   static contextTypes = {
@@ -82,13 +79,6 @@ export default class PatientsSummary extends PureComponent {
     }
 
     this.setState({ selectedCategory: this.getDefaultCategorySelected() });
-  }
-
-  componentDidMount() {
-    const { actions } = this.props;
-
-    // Fro Feeds-plugin
-    // themeConfigs.isLeedsPHRTheme ? actions.fetchFeedsRequest() : null;
   }
 
   getDefaultCategorySelected = () => {
@@ -128,8 +118,7 @@ export default class PatientsSummary extends PureComponent {
   render() {
 
     const { boards } = this.props;
-
-    const feeds = get(this.props, 'feeds', []);
+    const feeds = get(boards, 'feeds', []);
 
     const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
     let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
@@ -151,6 +140,7 @@ export default class PatientsSummary extends PureComponent {
             />
             <div className="panel-body">
               <div className="dashboard">
+
                 {patientsSummaryConfig.map((item, index) => {
                   const imageSource = isDevMode ? (testConstants.hostName + item.imgPreview) : item.imgPreview;
                   return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
@@ -167,23 +157,17 @@ export default class PatientsSummary extends PureComponent {
                     : null)
                 })}
 
-                {/* For Feeds-plugin */}
-                {/*{themeConfigs.isLeedsPHRTheme ? feeds.map((item) => {*/}
-                  {/*const nameItem = getNameFromUrl(item.landingPageUrl);*/}
-                  {/*const isShow = ('true' == localStorage.getItem('isShow_'+nameItem));*/}
-                  {/*return (isShow ?*/}
-                    {/*<RssDashboardPanel*/}
-                      {/*key={nameItem}*/}
-                      {/*title={item.name}*/}
-                      {/*state={item.landingPageUrl}*/}
-                      {/*goToState={this.handleGoToState}*/}
-                      {/*rssFeedName={nameItem}*/}
-                      {/*rssFeedUrl={item.rssFeedUrl}*/}
-                      {/*isHasPreview={isHasPreview}*/}
-                      {/*isHasList={isHasList}*/}
-                    {/*/>*/}
-                    {/*: null)*/}
-                {/*}) : null}*/}
+                {feeds.map((item, index) => {
+                  return (
+                    <FeedsPanel
+                      key={index}
+                      item={item}
+                      handleGoToState={this.handleGoToState}
+                      isHasPreview={isHasPreview}
+                      isHasList={isHasList}
+                    />
+                  );
+                })}
 
               </div>
             </div>
