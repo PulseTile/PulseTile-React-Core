@@ -12,7 +12,7 @@ import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
 import { getNameFromUrl } from '../../../../utils/rss-helpers';
-import FeedsEmptyPanel from './FeedsEmptyPanel';
+import FeedsSelectors from './FeedsSelectors';
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -75,7 +75,7 @@ export default class PatientsSummaryPanel extends PureComponent {
             </Row>
           </div>
 
-          <FeedsEmptyPanel feeds={feeds} toggleCheckbox={this.toggleCheckbox} />
+          <FeedsSelectors feeds={feeds} toggleCheckbox={this.toggleCheckbox} />
 
           {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
             <div>

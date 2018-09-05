@@ -1,7 +1,7 @@
 import React from 'react';
 
-const NonCoreElements = props => {
+const FeedsPanel = props => {
     return null;
 };
 
-export default NonCoreElements;
+export default FeedsPanel;
