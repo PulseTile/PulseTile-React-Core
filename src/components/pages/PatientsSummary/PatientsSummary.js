@@ -118,7 +118,7 @@ export default class PatientsSummary extends PureComponent {
   render() {
 
     const { boards } = this.props;
-    const feeds = get(boards, 'feeds', []);
+    const feeds = get(boards, 'feeds.feeds', []);
 
     const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
     let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
