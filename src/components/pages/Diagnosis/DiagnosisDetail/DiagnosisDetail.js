@@ -20,8 +20,8 @@ export default class DiagnosisDetail extends PureComponent {
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
     const dateOfOnset = getDDMMMYYYY(detail[valuesNames.DATE_OF_ONSET]);
 
-    const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
-    const editTitle = 'Edit ' + problemsTitle;
+    const detailsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'diagnoses', 'Problem / Diagnosis');
+    const editTitle = 'Edit ' + detailsTitle;
 
     const hideElements = get(themeConfigs, 'detailsToHide.diagnoses', []);
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
@@ -33,7 +33,7 @@ export default class DiagnosisDetail extends PureComponent {
           {(expandedPanel === DIAGNOSES_PANEL || expandedPanel === 'all') && !editedPanel[DIAGNOSES_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={DIAGNOSES_PANEL}
-            title={problemsTitle}
+            title={detailsTitle}
             onShow={onShow}
             isOpen={openedPanel === DIAGNOSES_PANEL}
             currentPanel={currentPanel}
@@ -75,7 +75,7 @@ export default class DiagnosisDetail extends PureComponent {
                       <div className="col-expand-left">
                         <div className="form-group">
                           <label className="control-label">{valuesLabels.DESCRIPTION}</label>
-                          <div className="form-control-static">{dateOfOnset}</div>
+                          <div className="form-control-static">{detail[valuesNames.DESCRIPTION]}</div>
                         </div>
                       </div>
                     : null }

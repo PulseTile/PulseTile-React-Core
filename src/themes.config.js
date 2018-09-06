@@ -22,12 +22,28 @@ const mainThemeConfigs = {
   isShowUserPhoto: true,
   isShowUserProfileSettings: true,
   isShowUserProfileSpecification: true,
+  sidebarConfigIsVisible: {
+    default: false,
+    'patients-summary': true,
+    'diagnoses': true,
+    'medications': true,
+    'allergies': true,
+    'contacts': true,
+  },
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Diagnosis',
     'medications': 'Medications',
     'allergies': 'Allergies',
     'contacts': 'Contacts',
     'vaccinations': 'Vaccinations',
+    'topThreeThings': 'Top Three Things',
+  },
+  patientsSummaryDetailsTitles: {
+    'diagnoses': 'Problem / Diagnosis',
+    'medications': 'Medication',
+    'allergies': 'Allergy',
+    'contacts': 'Contact',
+    'vaccinations': 'Vaccination',
     'topThreeThings': 'Top Three Things',
   },
   detailsToHide: {},
@@ -59,11 +75,11 @@ const leedsPHRThemeConfigs = {
     default: false,
     'patients-summary': true,
     'diagnoses': true,
-    'medications': false,
-    'allergies': true,
-    'contacts': false,
+    'medications': true,
     'vaccinations': true,
+    'allergies': true,
     'topThreeThings': true,
+    'contacts': false,
   },
   dashboardBeing: {},
   isShowUserPhoto: false,
@@ -72,9 +88,17 @@ const leedsPHRThemeConfigs = {
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Issues',
     'medications': 'Medications',
-    'allergies': 'Allergies',
-    'contacts': 'Contacts',
     'vaccinations': 'Vaccinations',
+    'allergies': 'Allergies',
+    'topThreeThings': 'Top Three Things',
+    'contacts': 'Contacts',
+  },
+  patientsSummaryDetailsTitles: {
+    'diagnoses': 'Problem / Issue',
+    'medications': 'Medication',
+    'allergies': 'Allergy',
+    'contacts': 'Contact',
+    'vaccinations': 'Vaccination',
     'topThreeThings': 'Top Three Things',
   },
   detailsToHide: {
@@ -91,7 +115,7 @@ const leedsPHRThemeConfigs = {
   panelsToHide: {
     'medications': ['history', 'prescription', 'warnings'],
   },
-  corePluginsToHide: ['medications', 'contacts'],
+  corePluginsToHide: ['contacts'],
 };
 
 export const themeConfigs = mainThemeConfigs;

@@ -25,13 +25,15 @@ export default class AllergiesDetail extends PureComponent {
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
     const hiddenPanels = get(themeConfigs, 'panelsToHide.allergies', []);
 
+    const detailsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'allergies', 'Allergy');
+
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
           {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && !editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
-            title="Allergy"
+            title={detailsTitle}
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
             currentPanel={currentPanel}
@@ -129,7 +131,7 @@ export default class AllergiesDetail extends PureComponent {
           {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
-            title="Allergy"
+            title={detailsTitle}
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
             currentPanel={currentPanel}

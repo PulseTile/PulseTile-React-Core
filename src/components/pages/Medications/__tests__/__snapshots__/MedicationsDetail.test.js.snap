@@ -123,7 +123,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   <label
                     className="control-label"
                   >
-                    Dose Descriptions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"
@@ -711,7 +711,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <label
                     className="control-label"
                   >
-                    Dose Descriptions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"

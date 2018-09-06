@@ -1,7 +1,7 @@
 import { get } from 'lodash';
 import { themeConfigs } from '../../../themes.config';
 
-const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const problemsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'diagnoses', 'Problem / Diagnosis');
 
 export const valuesNames = {
   PROBLEM: 'problem',

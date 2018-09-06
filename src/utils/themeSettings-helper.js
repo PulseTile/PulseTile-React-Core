@@ -68,3 +68,39 @@ export function getFilterPlugins(corePluginsPages) {
   }
   return corePluginsPages;
 }
+
+/**
+ *
+ */
+function getPluginByKey(totalSummaryConfig, key) {
+    let result = null;
+    for (let i = 0; i < totalSummaryConfig.length; i++) {
+      let item = totalSummaryConfig[i];
+      let pluginName = get(item, 'state', null);
+      if (pluginName === key && pluginName) {
+          result = item;
+          break;
+      }
+    }
+    return result;
+}
+
+/**
+ * This plugin changes order of PatientSummary blocks
+ *
+ * @param {array} totalSummaryConfig
+ * @return {array}
+ */
+export function rangePlugins(totalSummaryConfig) {
+  const sidebarConfigIsVisible = get(themeConfigs, 'sidebarConfigIsVisible', []);
+  let result = [];
+  let i = 0;
+  for (let key in sidebarConfigIsVisible) {
+    let item = getPluginByKey(totalSummaryConfig, key);
+    if (item) {
+      result[i] = item;
+      i++;
+    }
+  }
+  return result;
+}

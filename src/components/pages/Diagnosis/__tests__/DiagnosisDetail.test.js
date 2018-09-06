@@ -11,7 +11,7 @@ import { isShowElement } from '../../../../utils/themeSettings-helper';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const problemsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'diagnoses', 'Problem / Diagnosis');
 
 const propsForDiagnosisPanel = {
   detail: {

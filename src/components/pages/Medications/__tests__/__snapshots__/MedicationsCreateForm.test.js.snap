@@ -99,7 +99,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Descriptions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -307,7 +307,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Descriptions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -515,7 +515,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when form 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Descriptions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -711,7 +711,7 @@ exports[`Component <MedicationsCreateForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Descriptions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {

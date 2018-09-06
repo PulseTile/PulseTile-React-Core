@@ -18,7 +18,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problems / Diagnosis"
+      title="Problem / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -41,7 +41,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <label
                     className="control-label"
                   >
-                    Problems / Diagnosis
+                    Problem / Diagnosis
                   </label>
                   <div
                     className="form-control-static"
@@ -83,9 +83,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   </label>
                   <div
                     className="form-control-static"
-                  >
-                    25-Nov-2017
-                  </div>
+                  />
                 </div>
               </div>
               <div
@@ -167,7 +165,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Problems / Diagnosis"
+      title="Edit Problem / Diagnosis"
     >
       <ReduxForm
         detail={
@@ -207,7 +205,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problems / Diagnosis"
+      title="Problem / Diagnosis"
     >
       <div
         className="panel-body-inner"
@@ -230,7 +228,7 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
-                    Problems / Diagnosis
+                    Problem / Diagnosis
                   </label>
                   <div
                     className="form-control-static"

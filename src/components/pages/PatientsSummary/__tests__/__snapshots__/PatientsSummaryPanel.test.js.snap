@@ -38,16 +38,16 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
@@ -70,22 +70,22 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
-    <FeedsEmptyPanel
+    <FeedsSelectors
       feeds={
         Array [
           Object {
@@ -170,16 +170,16 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
@@ -202,22 +202,22 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
-    <FeedsEmptyPanel
+    <FeedsSelectors
       feeds={
         Array [
           Object {
