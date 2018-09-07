@@ -20,7 +20,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Problem issue"
             name="problem"
             placeholder=""
             props={
@@ -37,7 +37,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {
@@ -193,7 +193,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Problem issue"
             name="problem"
             placeholder=""
             props={
@@ -210,7 +210,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when data ta
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {
@@ -366,7 +366,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when form is
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Problem issue"
             name="problem"
             placeholder=""
             props={
@@ -383,7 +383,7 @@ exports[`Component <DiagnosisCreateForm /> should renders correctly when form is
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {
@@ -527,7 +527,7 @@ exports[`Component <DiagnosisCreateForm /> should renders with props correctly 1
           <Field
             component={[Function]}
             id="problem"
-            label="Problem / Diagnosis"
+            label="Problem issue"
             name="problem"
             placeholder=""
             props={
@@ -544,7 +544,7 @@ exports[`Component <DiagnosisCreateForm /> should renders with props correctly 1
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {

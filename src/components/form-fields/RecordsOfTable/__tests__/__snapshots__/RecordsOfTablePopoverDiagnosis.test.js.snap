@@ -20,7 +20,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Problem / Diagnosis
+          Problem issue
         </label>
         <div
           className="form-control-static"
@@ -41,7 +41,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Date of Onset
+          Date
         </label>
         <div
           className="form-control-static"
@@ -135,7 +135,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Problem / Diagnosis
+          Problem issue
         </label>
         <div
           className="form-control-static"
@@ -154,7 +154,7 @@ exports[`Component <RecordsOfTablePopoverDiagnosis /> should renders with props 
         <label
           className="control-label"
         >
-          Date of Onset
+          Date
         </label>
         <div
           className="form-control-static"

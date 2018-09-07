@@ -121,6 +121,28 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
                 </div>
               </div>
             </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -163,24 +185,6 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
             >
               <div
                 className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    06-Sep-2018
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-expand-right"
               >
                 <div
                   className="form-group"
@@ -390,6 +394,28 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
                     Original Source
                   </label>
                   <div
@@ -457,24 +483,6 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
             >
               <div
                 className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    03-Oct-2017
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-expand-right"
               >
                 <div
                   className="form-group"

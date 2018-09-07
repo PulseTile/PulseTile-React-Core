@@ -108,6 +108,17 @@ export default class DiagnosisDetail extends PureComponent {
                     : null }
                   </div>
 
+                  <div className="row-expand">
+                    { isShowElement(valuesNames.DATE, hideElements) ?
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.DATE}</label>
+                            <div className="form-control-static">{dateCreated}</div>
+                          </div>
+                        </div>
+                        : null }
+                  </div>
+
                   { detail[valuesNames.IS_IMPORT] ?
                     <div className="row-expand">
                       <div className="col-expand-left">
@@ -177,16 +188,8 @@ export default class DiagnosisDetail extends PureComponent {
                   <div className="form">
                     <div className="form-group-wrapper">
                       <div className="row-expand">
-                        { isShowElement(valuesNames.DATE, hideElements) ?
-                          <div className="col-expand-left">
-                            <div className="form-group">
-                              <label className="control-label">{valuesLabels.DATE}</label>
-                              <div className="form-control-static">{dateCreated}</div>
-                            </div>
-                          </div>
-                          : null }
                         { isShowElement(valuesNames.SOURCE, hideElements) ?
-                          <div className="col-expand-right">
+                          <div className="col-expand-left">
                             <div className="form-group">
                               <label className="control-label">{valuesLabels.SOURCE}</label>
                               <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
