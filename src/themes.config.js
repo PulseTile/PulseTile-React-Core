@@ -99,6 +99,7 @@ const leedsPHRThemeConfigs = {
     'allergies': ['causeCode', 'causeTerminology'],
     'diagnoses': ['terminology', 'code'],
     'medications': ['doseTiming', 'doseAmount'],
+    'vaccinations': ['series'],
   },
   buttonsToHide: {
     'diagnoses': ['create', 'edit'],

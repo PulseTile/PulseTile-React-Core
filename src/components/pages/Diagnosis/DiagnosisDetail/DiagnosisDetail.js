@@ -50,7 +50,6 @@ export default class DiagnosisDetail extends PureComponent {
                 <div className="form-group-wrapper">
 
                   <div className="row-expand">
-
                   { isShowElement(valuesNames.PROBLEM, hideElements) ?
                       <div className="col-expand-left">
                         <div className="form-group">
@@ -59,15 +58,6 @@ export default class DiagnosisDetail extends PureComponent {
                         </div>
                       </div>
                     : null }
-                  { isShowElement(valuesNames.DATE_OF_ONSET, hideElements) ?
-                      <div className="col-expand-right">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.DATE_OF_ONSET}</label>
-                          <div className="form-control-static">{dateOfOnset}</div>
-                        </div>
-                      </div>
-                    : null }
-
                   </div>
 
                   <div className="row-expand">
@@ -107,6 +97,18 @@ export default class DiagnosisDetail extends PureComponent {
                       </div>
                     : null }
                   </div>
+
+                  { isShowElement(valuesNames.DATE_OF_ONSET, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DATE_OF_ONSET}</label>
+                          <div className="form-control-static">{dateOfOnset}</div>
+                        </div>
+                      </div>
+                    </div>
+                    : null }
+
                   { detail[valuesNames.IS_IMPORT] ?
                     <div className="row-expand">
                       <div className="col-expand-left">
