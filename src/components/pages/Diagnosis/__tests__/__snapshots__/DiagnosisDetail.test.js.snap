@@ -139,28 +139,6 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                 </div>
               </div>
             </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    03-Oct-2017
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -358,28 +336,6 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                 </div>
               </div>
             </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    06-Dec-2017
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -406,6 +362,28 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
           <div
             className="form-group-wrapper"
           >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    06-Dec-2017
+                  </div>
+                </div>
+              </div>
+            </div>
             <div
               className="row-expand"
             >

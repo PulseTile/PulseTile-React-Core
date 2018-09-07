@@ -80,6 +80,7 @@ const leedsPHRThemeConfigs = {
     'allergies': true,
     'topThreeThings': true,
     'contacts': false,
+    'feeds': false
   },
   dashboardBeing: {},
   isShowUserPhoto: false,
@@ -88,18 +89,11 @@ const leedsPHRThemeConfigs = {
   patientsSummaryTitles: {
     'diagnoses': 'Problems / Issues',
     'medications': 'Medications',
-    'vaccinations': 'Vaccinations',
     'allergies': 'Allergies',
-    'topThreeThings': 'Top Three Things',
     'contacts': 'Contacts',
-  },
-  patientsSummaryDetailsTitles: {
-    'diagnoses': 'Problem / Issue',
-    'medications': 'Medication',
-    'allergies': 'Allergy',
-    'contacts': 'Contact',
-    'vaccinations': 'Vaccination',
+    'vaccinations': 'Vaccinations',
     'topThreeThings': 'Top Three Things',
+    'feeds' : 'Feeds',
   },
   detailsToHide: {
     'allergies': ['causeCode', 'causeTerminology'],
@@ -111,6 +105,7 @@ const leedsPHRThemeConfigs = {
     'medications': ['create', 'edit', 'cancel', 'suspend', 'order'],
     'allergies': ['create', 'edit'],
     'vaccinations': ['create', 'edit'],
+    'feeds': ['create', 'edit'],
   },
   panelsToHide: {
     'medications': ['history', 'prescription', 'warnings'],
