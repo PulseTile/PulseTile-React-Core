@@ -109,6 +109,12 @@ describe('Component <MedicationsDetail />', () => {
       count++;
     }
 
+    if (isShowElement(valuesNames.DATE_CREATED, hideElements)) {
+      expect(component.find('MedicationsDetailPanel').find('.control-label').at(count).text()).toEqual(valuesLabels.DATE_CREATED);
+      expect(component.find('MedicationsDetailPanel').find('.form-control-static').at(count).text()).toEqual(CONVERT_DATE_CREATED);
+      count++;
+    }
+
     // Testing prescriptionPanel
     let countPanels = 0;
     if (isPanelVisible(hiddenPanels, 'prescription')) {

@@ -123,7 +123,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   <label
                     className="control-label"
                   >
-                    Dose Descriptions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"
@@ -148,6 +148,28 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   <div
                     className="form-control-static"
                   />
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    13-Nov-2017
+                  </div>
                 </div>
               </div>
             </div>
@@ -711,7 +733,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   <label
                     className="control-label"
                   >
-                    Dose Descriptions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"
@@ -739,6 +761,28 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                     className="form-control-static"
                   >
                     bob.smith@gmail.com
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    13-Nov-2017
                   </div>
                 </div>
               </div>
@@ -1198,24 +1242,6 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
             >
               <div
                 className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    13-Nov-2017
-                  </div>
-                </div>
-              </div>
-              <div
-                className="col-expand-right"
               >
                 <div
                   className="form-group"

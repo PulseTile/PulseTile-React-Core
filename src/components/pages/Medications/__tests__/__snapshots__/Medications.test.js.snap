@@ -33,7 +33,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -173,7 +173,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -359,7 +359,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -505,7 +505,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -587,7 +587,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -733,7 +733,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -873,7 +873,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -1041,7 +1041,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -1209,7 +1209,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="All Medications"
+            panelTitle="Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"

@@ -77,6 +77,11 @@ describe('Component <AllergiesDetail />', () => {
       expect(component.find('.form-control-static').at(countElement).text()).toEqual(propsForAllergiePanel.detail.causeTerminology);
       countElement++;
     }
+    if (isShowElement(valuesNames.DATE_CREATED, hideElements)) {
+       expect(component.find('.control-label').at(countElement).text()).toEqual(valuesLabels.DATE_CREATED);
+       expect(component.find('.form-control-static').at(countElement).text()).toEqual(CONVERT_DATE);
+       countElement++;
+    }
     if (isShowElement(valuesNames.ORIGINAL_SOURCE, hideElements)) {
       expect(component.find('.control-label').at(countElement).text()).toEqual(valuesLabels.ORIGINAL_SOURCE);
       expect(component.find('.form-control-static').at(countElement).text()).toEqual(propsForAllergiePanel.detail.originalSource);
@@ -94,11 +99,6 @@ describe('Component <AllergiesDetail />', () => {
     expect(component.find('PluginDetailPanel').at(1).props().isBtnShowPanel).toEqual(true);
     expect(component.find('PluginDetailPanel').at(1).props().isShowControlPanel).toEqual(false);
 
-    if (isShowElement(valuesNames.DATE_CREATED, hideElements)) {
-      expect(component.find('.control-label').at(countElement).text()).toEqual(valuesLabels.DATE_CREATED);
-      expect(component.find('.form-control-static').at(countElement).text()).toEqual(CONVERT_DATE);
-      countElement++;
-    }
     if (isShowElement(valuesNames.SOURCE, hideElements)) {
       expect(component.find('.control-label').at(countElement).text()).toEqual(valuesLabels.SOURCE);
       expect(component.find('.form-control-static').at(countElement).text()).toEqual(propsForAllergiePanel.detail.source);

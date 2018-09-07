@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux';
 import { sidebarConfig } from '../../../plugins.config';
 import { sidebarSelector, patientsSummariesSelector } from './selectors';
 import { setSidebarVisibility } from '../../../ducks/set-sidebar-visibility';
+import { rangeSidebar } from '../../../utils/themeSettings-helper';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility }, dispatch) });
 
@@ -100,6 +101,7 @@ export default class Sidebar extends PureComponent {
 
   render() {
     const { activeLink, userId } = this.props;
+    const rangeSidebarConfig = rangeSidebar(sidebarConfig);
     return (
       <div>
         <div className="sidebar-underlay showSidebar" />
@@ -107,7 +109,7 @@ export default class Sidebar extends PureComponent {
           <div className="sidebar-nav">
             <div>
               <ul className="sidebar-nav-list">
-                {sidebarConfig.map((item, index) => (item.isVisible ? <li className="sidebar-nav-item" key={index}>
+                {rangeSidebarConfig.map((item, index) => (item.isVisible ? <li className="sidebar-nav-item" key={index}>
                   <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link>
                 </li> : null))
                 }

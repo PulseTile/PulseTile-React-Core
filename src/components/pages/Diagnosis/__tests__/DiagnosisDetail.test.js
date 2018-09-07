@@ -11,7 +11,7 @@ import { isShowElement } from '../../../../utils/themeSettings-helper';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const problemsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'diagnoses', 'Problem / Diagnosis');
 
 const propsForDiagnosisPanel = {
   detail: {
@@ -58,12 +58,6 @@ describe('Component <DiagnosisDetail />', () => {
       count++;
     }
 
-    if (isShowElement(valuesNames.DATE_OF_ONSET, hideElements)) {
-      expect(component.find('.control-label').at(count).text()).toEqual(valuesLabels.DATE_OF_ONSET);
-      expect(component.find('.form-control-static').at(count).text()).toEqual(CONVERT_DATE_OF_ONSET);
-      count++;
-    }
-
     if (isShowElement(valuesNames.DESCRIPTION, hideElements)) {
       expect(component.find('.control-label').at(count).text()).toEqual(valuesLabels.DESCRIPTION);
       expect(component.find('.form-control-static').at(count).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.DESCRIPTION]);
@@ -85,6 +79,12 @@ describe('Component <DiagnosisDetail />', () => {
     if (isShowElement(valuesNames.AUTHOR, hideElements)) {
       expect(component.find('.control-label').at(count).text()).toEqual(valuesLabels.AUTHOR);
       expect(component.find('.form-control-static').at(count).text()).toEqual(propsForDiagnosisPanel.detail[valuesNames.AUTHOR]);
+      count++;
+    }
+
+    if (isShowElement(valuesNames.DATE_OF_ONSET, hideElements)) {
+      expect(component.find('.control-label').at(count).text()).toEqual(valuesLabels.DATE_OF_ONSET);
+      expect(component.find('.form-control-static').at(count).text()).toEqual(CONVERT_DATE_OF_ONSET);
       count++;
     }
 

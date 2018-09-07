@@ -20,7 +20,7 @@ exports[`Component <DiagnosisDetailForm /> should renders correctly when form is
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Diagnosis"
+            label="Problem issue"
             name="problem"
             props={
               Object {
@@ -35,7 +35,7 @@ exports[`Component <DiagnosisDetailForm /> should renders correctly when form is
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {
@@ -177,7 +177,7 @@ exports[`Component <DiagnosisDetailForm /> should renders with props correctly 1
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Diagnosis"
+            label="Problem issue"
             name="problem"
             props={
               Object {
@@ -192,7 +192,7 @@ exports[`Component <DiagnosisDetailForm /> should renders with props correctly 1
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {
@@ -334,7 +334,7 @@ exports[`Component <DiagnosisDetailForm /> should renders with props correctly w
           <Field
             component={[Function]}
             id="problem"
-            label="Problems / Diagnosis"
+            label="Problem issue"
             name="problem"
             props={
               Object {
@@ -349,7 +349,7 @@ exports[`Component <DiagnosisDetailForm /> should renders with props correctly w
           <Field
             component={[Function]}
             id="dateOfOnset"
-            label="Date of Onset"
+            label="Date"
             name="dateOfOnset"
             props={
               Object {

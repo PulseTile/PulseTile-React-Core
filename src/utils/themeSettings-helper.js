@@ -68,3 +68,79 @@ export function getFilterPlugins(corePluginsPages) {
   }
   return corePluginsPages;
 }
+
+/**
+ *
+ */
+function getPluginByKey(totalSummaryConfig, key) {
+    let result = null;
+    for (let i = 0; i < totalSummaryConfig.length; i++) {
+      let item = totalSummaryConfig[i];
+      let pluginName = get(item, 'state', null);
+      if (pluginName === key && pluginName) {
+          result = item;
+          break;
+      }
+    }
+    return result;
+}
+
+/**
+ * This plugin changes order of PatientSummary blocks
+ *
+ * @param {array} totalSummaryConfig
+ * @return {array}
+ */
+export function rangePlugins(totalSummaryConfig) {
+  const sidebarConfigIsVisible = get(themeConfigs, 'sidebarConfigIsVisible', []);
+  let result = [];
+  let i = 0;
+  for (let key in sidebarConfigIsVisible) {
+    let item = getPluginByKey(totalSummaryConfig, key);
+    if (item) {
+      result[i] = item;
+      i++;
+    }
+  }
+  return result;
+}
+
+/**
+ * This function returns menu item be KEY-property
+ *
+ * @param {array}  sidebarConfig
+ * @param {string} key
+ * @return {*}
+ */
+function getMenuItemByKey(sidebarConfig, key) {
+    let result = null;
+    for (let i = 0; i < sidebarConfig.length; i++) {
+        let item = sidebarConfig[i];
+        let pluginName = get(item, 'key', null);
+        if (pluginName === key && pluginName) {
+            result = item;
+            break;
+        }
+    }
+    return result;
+}
+
+/**
+ * This plugin changes order of Sidebar menu items
+ *
+ * @param {array} sidebarConfig
+ * @return {array}
+ */
+export function rangeSidebar(sidebarConfig) {
+    const sidebarConfigIsVisible = get(themeConfigs, 'sidebarConfigIsVisible', []);
+    let result = [];
+    let i = 0;
+    for (let key in sidebarConfigIsVisible) {
+        let item = getMenuItemByKey(sidebarConfig, key);
+        if (item) {
+            result[i] = item;
+            i++;
+        }
+    }
+    return result;
+}

@@ -25,13 +25,15 @@ export default class AllergiesDetail extends PureComponent {
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
     const hiddenPanels = get(themeConfigs, 'panelsToHide.allergies', []);
 
+    const detailsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'allergies', 'Allergy');
+
     return (
       <div className="section-detail">
         <div className="panel-group accordion">
           {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && !editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
-            title="Allergy"
+            title={detailsTitle}
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
             currentPanel={currentPanel}
@@ -67,22 +69,22 @@ export default class AllergiesDetail extends PureComponent {
                   </div>
 
                   <div className="row-expand">
-                  { isShowElement(valuesNames.AUTHOR, hideElements) ?
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.AUTHOR}</label>
-                          <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                    { isShowElement(valuesNames.AUTHOR, hideElements) ?
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.AUTHOR}</label>
+                            <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                          </div>
                         </div>
-                      </div>
-                      : null }
-                  { isShowElement(valuesNames.CAUSECODE, hideElements) ?
-                      <div className="col-expand-right">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.CAUSECODE}</label>
-                          <div className="form-control-static">{detail[valuesNames.CAUSECODE]}</div>
+                        : null }
+                    { isShowElement(valuesNames.CAUSECODE, hideElements) ?
+                        <div className="col-expand-right">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.CAUSECODE}</label>
+                            <div className="form-control-static">{detail[valuesNames.CAUSECODE]}</div>
+                          </div>
                         </div>
-                      </div>
-                      : null }
+                        : null }
                   </div>
 
                   <div className="row-expand">
@@ -94,6 +96,17 @@ export default class AllergiesDetail extends PureComponent {
                         </div>
                       </div>
                     : null }
+                  </div>
+
+                  <div className="row-expand">
+                    { isShowElement(valuesNames.DATE, hideElements) ?
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                            <div className="form-control-static">{dateCreated}</div>
+                          </div>
+                        </div>
+                        : null }
                   </div>
 
                   {detail[valuesNames.ISIMPORT] ?
@@ -129,7 +142,7 @@ export default class AllergiesDetail extends PureComponent {
           {(expandedPanel === ALLERGIE_PANEL || expandedPanel === 'all') && editedPanel[ALLERGIE_PANEL] ? <PluginDetailPanel
             onExpand={onExpand}
             name={ALLERGIE_PANEL}
-            title="Allergy"
+            title={detailsTitle}
             onShow={onShow}
             isOpen={openedPanel === ALLERGIE_PANEL}
             currentPanel={currentPanel}
@@ -166,16 +179,8 @@ export default class AllergiesDetail extends PureComponent {
                 <div className="form">
                   <div className="form-group-wrapper">
                     <div className="row-expand">
-                      { isShowElement(valuesNames.DATE, hideElements) ?
-                        <div className="col-expand-left">
-                          <div className="form-group">
-                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
-                            <div className="form-control-static">{dateCreated}</div>
-                          </div>
-                        </div>
-                        : null }
                       { isShowElement(valuesNames.SOURCE, hideElements) ?
-                        <div className="col-expand-right">
+                        <div className="col-expand-left">
                           <div className="form-group">
                             <label className="control-label">{valuesLabels.SOURCE}</label>
                             <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>

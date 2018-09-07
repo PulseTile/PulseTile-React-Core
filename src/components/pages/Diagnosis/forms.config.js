@@ -1,8 +1,3 @@
-import { get } from 'lodash';
-import { themeConfigs } from '../../../themes.config';
-
-const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
-
 export const valuesNames = {
   PROBLEM: 'problem',
   DATE_OF_ONSET: 'dateOfOnset',
@@ -22,8 +17,8 @@ export const valuesNames = {
 };
 
 export const valuesLabels = {
-  PROBLEM: problemsTitle,
-  DATE_OF_ONSET: 'Date of Onset',
+  PROBLEM: 'Problem issue',
+  DATE_OF_ONSET: 'Date',
   DESCRIPTION: 'Description',
   NHS_WEB_PAGE_URL: 'NHS Choices Web Page URL',
   TERMINOLOGY: 'Terminology',

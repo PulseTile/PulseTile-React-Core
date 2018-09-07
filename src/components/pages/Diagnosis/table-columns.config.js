@@ -2,7 +2,7 @@ import { get } from 'lodash';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { themeConfigs } from '../../../themes.config';
 
-const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const problemsTitle = get(themeConfigs.patientsSummaryDetailsTitles, 'diagnoses', 'Problem / Diagnosis');
 
 export const columnsConfig = [
   { key: 'problem', title: problemsTitle, width: '56%' },
