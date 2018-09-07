@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew, isFeeds }) => {
+const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview, isHasList, srcPrevirew, isFeeds }) => {
 
   const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
 
-  return (<div className="dashboard-item">
+  return (<div id={id} className="dashboard-item">
     <div className="board">
       <div className="board-header">
         <div className="control-group right">
@@ -40,9 +40,11 @@ SimpleDashboardPanel.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   isFeeds: PropTypes.bool,
+  id: PropTypes.string,
 };
 SimpleDashboardPanel.defaultProps = {
-    isFeeds: false,
+  isFeeds: false,
+  id: '',
 };
 
 export default SimpleDashboardPanel

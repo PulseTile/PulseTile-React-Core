@@ -18,6 +18,7 @@ const medicationsTitle = get(themeConfigs.patientsSummaryTitles, 'medications', 
 const corePatientsSummaryConfig = [
   {
     key: 'problems',
+    panelId: 'summary-panel-problems',
     title: problemsTitle,
     state: 'diagnoses',
     titleCheckboxes: problemsTitle,
@@ -26,6 +27,7 @@ const corePatientsSummaryConfig = [
     isDefaultSelected: true,
   }, {
     key: 'contacts',
+    panelId: 'summary-panel-contacts',
     title: contactsTitle,
     titleCheckboxes: contactsTitle,
     state: 'contacts',
@@ -34,6 +36,7 @@ const corePatientsSummaryConfig = [
     isDefaultSelected: true,
   }, {
     key: 'allergies',
+    panelId: 'summary-panel-allergies',
     title: allergiesTitle,
     titleCheckboxes: allergiesTitle,
     state: 'allergies',
@@ -42,6 +45,7 @@ const corePatientsSummaryConfig = [
     isDefaultSelected: true,
   }, {
     key: 'medications',
+    panelId: 'summary-panel-medications',
     title: medicationsTitle,
     titleCheckboxes: medicationsTitle,
     state: 'medications',

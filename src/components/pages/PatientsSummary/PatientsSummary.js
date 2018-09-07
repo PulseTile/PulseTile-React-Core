@@ -145,6 +145,7 @@ export default class PatientsSummary extends PureComponent {
                   const imageSource = isDevMode ? (testConstants.hostName + item.imgPreview) : item.imgPreview;
                   return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
                     <SimpleDashboardPanel
+                      id={item.panelId}
                       key={index}
                       title={item.title}
                       items={boards[item.key]}

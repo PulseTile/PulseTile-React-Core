@@ -99,7 +99,7 @@ export default class UserPanel extends PureComponent {
         </UserPanelItem> : null}
         {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
           <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
-          <PTButton className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
+          <PTButton id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>
         </UserPanelItem> : null}

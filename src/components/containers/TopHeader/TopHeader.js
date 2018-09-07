@@ -51,7 +51,7 @@ class TopHeader extends PureComponent {
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
     return (
       <div className="navbar">
-        { isShowPreviousBtn ? <PTButton className="btn-header btn-header-prev" onClick={this.routeGoBack}>
+        { isShowPreviousBtn ? <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={this.routeGoBack}>
           <i className="fa fa-arrow-left" />
         </PTButton> : null }
         <MainLogo
