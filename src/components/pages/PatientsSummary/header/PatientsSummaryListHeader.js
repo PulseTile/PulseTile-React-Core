@@ -31,7 +31,7 @@ export default class PatientsSummaryListHeader extends PureComponent {
         <div className="panel-heading">
           <div className="control-group left">
             <div className={classNames('dropdown', { open: isPatientSummaryPanelVisible })}>
-              <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientSummaryPanelVisibility}>
+              <PTButton id="icon-settings" className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientSummaryPanelVisibility}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
               {isPatientSummaryPanelVisible && <PatientsSummaryPanel

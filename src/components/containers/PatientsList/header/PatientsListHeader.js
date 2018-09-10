@@ -36,7 +36,7 @@ export default class PatientsListHeader extends PureComponent {
         <div className="panel-heading">
           <div className="control-group right">
             <div className={classNames('dropdown', { open: isPatientInfoPanelVisible })}>
-              <PTButton id="icon-settings" className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientInfoPanelVisibility}>
+              <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientInfoPanelVisibility}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
               {isPatientInfoPanelVisible && <PatientsInfoPanel onColumnsSelected={onColumnsSelected} selectedColumns={selectedColumns} toggleVisibility={this.togglePatientInfoPanelVisibility} />}
