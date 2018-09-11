@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import Joyride from 'react-joyride';
 
 import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
 import UserPanel from '../UserPanel/UserPanel';
+import UserTour from '../UserTour';
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
-import { tourSteps, toursStyles, locale } from './TourSteps';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
@@ -59,16 +58,7 @@ class TopHeader extends PureComponent {
           userAccount={userAccount}
         />
         <UserPanel runTour={this.runTour} />
-        <Joyride
-          continuous
-          hideBackButton={true}
-          showSkipButton={true}
-          showProgress={true}
-          locale={locale}
-          steps={tourSteps}
-          run={isTourRun}
-          styles={toursStyles}
-        />
+        <UserTour run={isTourRun} />
         { children ? <div className="navbar-space-right">
           { children }
         </div> : null }

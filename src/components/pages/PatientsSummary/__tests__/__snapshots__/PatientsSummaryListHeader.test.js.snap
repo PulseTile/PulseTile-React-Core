@@ -12,6 +12,7 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
     >
       <PTButton
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        id="icon-settings"
         onClick={[Function]}
       >
         <i
@@ -40,6 +41,7 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
     >
       <PTButton
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        id="icon-settings"
         onClick={[Function]}
       >
         <i
