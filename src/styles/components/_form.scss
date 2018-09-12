@@ -134,7 +134,8 @@ select.textarea-big,
     top: 0;
     width: 30px;
     z-index: 1;
-    color: map-get($forms, 'addon-color');
+    // color: map-get($forms, 'addon-color');
+    color: #3596f4 !important;
   }
   &.addon-left {
     .addon { left: 0; }

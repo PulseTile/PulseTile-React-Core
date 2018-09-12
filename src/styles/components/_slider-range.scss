@@ -244,6 +244,7 @@ $sliderColor: (
   padding: 0 10px;
 }
 @each $className, $color in $sliderColor {
+  .rc-slider-- { height: 30px; }
   .rc-slider--#{$className} {
     height: 30px;
     .rc-slider-track { background: $color; }

@@ -9,10 +9,10 @@
 .fcustominp {
   label {
     background: #ffffff;
-    border-color: #C9C9C9;
+    border-color: #1993EF;
   }
   input[type=checkbox]:checked + label:after {
-    border-color: #222222;
+    border-color: #389dff;
   }
 
   input[type=radio]:checked + label {
