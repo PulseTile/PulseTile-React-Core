@@ -41,6 +41,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       <UserPanel
         addUserPanels={Array []}
         openedPanel="userAccountPanel"
+        runTour={[Function]}
       >
         <ul
           className="user-panel"
@@ -54,9 +55,11 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             >
               <PTButton
                 className="btn-header"
+                onClick={[Function]}
               >
                 <button
                   className="btn-header"
+                  onClick={[Function]}
                 >
                   <i
                     className="fa fa-search"
@@ -73,9 +76,11 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             >
               <PTButton
                 className="btn-header"
+                onClick={[Function]}
               >
                 <button
                   className="btn-header"
+                  onClick={[Function]}
                 >
                   <i
                     className="fa fa-question-circle"
@@ -421,10 +426,12 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               </Connect(Connect(lifecycle(UserAccountPanel)))>
               <PTButton
                 className="btn-header btn-user"
+                id="icon-profile"
                 onClick={[Function]}
               >
                 <button
                   className="btn-header btn-user"
+                  id="icon-profile"
                   onClick={[Function]}
                 >
                   <i
@@ -451,6 +458,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-search"
@@ -467,6 +475,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-question-circle"
@@ -502,6 +511,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i
@@ -522,6 +532,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-search"
@@ -538,6 +549,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-question-circle"
@@ -573,6 +585,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i
@@ -593,6 +606,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-search"
@@ -609,6 +623,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-question-circle"
@@ -644,6 +659,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i
@@ -664,6 +680,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-search"
@@ -675,6 +692,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      onClick={[Function]}
     >
       <i
         className="fa fa-question-circle"
@@ -710,6 +728,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i

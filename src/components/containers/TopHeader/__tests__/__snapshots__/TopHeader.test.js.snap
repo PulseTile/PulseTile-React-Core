@@ -108,10 +108,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
             >
               <PTButton
                 className="btn-header btn-header-prev"
+                id="icon-home"
                 onClick={[Function]}
               >
                 <button
                   className="btn-header btn-header-prev"
+                  id="icon-home"
                   onClick={[Function]}
                 >
                   <i
@@ -169,6 +171,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
+                runTour={[Function]}
               >
                 <ul
                   className="user-panel"
@@ -182,9 +185,11 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     >
                       <PTButton
                         className="btn-header"
+                        onClick={[Function]}
                       >
                         <button
                           className="btn-header"
+                          onClick={[Function]}
                         >
                           <i
                             className="fa fa-search"
@@ -201,9 +206,11 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     >
                       <PTButton
                         className="btn-header"
+                        onClick={[Function]}
                       >
                         <button
                           className="btn-header"
+                          onClick={[Function]}
                         >
                           <i
                             className="fa fa-question-circle"
@@ -529,10 +536,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       </Connect(Connect(lifecycle(UserAccountPanel)))>
                       <PTButton
                         className="btn-header btn-user"
+                        id="icon-profile"
                         onClick={[Function]}
                       >
                         <button
                           className="btn-header btn-user"
+                          id="icon-profile"
                           onClick={[Function]}
                         >
                           <i
@@ -544,6 +553,9 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   </UserPanelItem>
                 </ul>
               </UserPanel>
+              <UserTour
+                run={false}
+              />
               <NavSearch
                 userAccount={
                   Object {
@@ -700,6 +712,10 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    runTour={[Function]}
+  />
+  <UserTour
+    run={false}
   />
   <div
     className="navbar-space-right"
@@ -728,6 +744,10 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    runTour={[Function]}
+  />
+  <UserTour
+    run={true}
   />
 </div>
 `;
@@ -738,6 +758,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
 >
   <PTButton
     className="btn-header btn-header-prev"
+    id="icon-home"
     onClick={[Function]}
   >
     <i
@@ -761,6 +782,10 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    runTour={[Function]}
+  />
+  <UserTour
+    run={false}
   />
   <NavSearch
     userAccount={

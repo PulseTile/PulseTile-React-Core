@@ -14,6 +14,7 @@ export default class UserPanel extends PureComponent {
 
   static defaultProps = {
     addUserPanels: [],
+    runTour: function () {},
   };
 
   state = {
@@ -66,7 +67,7 @@ export default class UserPanel extends PureComponent {
 
   render() {
     const { openedPanel } = this.state;
-    const { addUserPanels } = this.props;
+    const { addUserPanels, runTour } = this.props;
 
     const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
     const isQuestions = get(themeConfigs, 'topHeader.showQuestions', true);
@@ -77,13 +78,13 @@ export default class UserPanel extends PureComponent {
     return (
       <ul className="user-panel" role="tablist" ref={node => this.node = node}>
         {isSearch ? <UserPanelItem className="user-panel-item visible-xs">
-          <PTButton className="btn-header">
+          <PTButton className="btn-header" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
             <i className="fa fa-search" />
           </PTButton>
         </UserPanelItem> : null}
         { additionalUserPanels }
         {isQuestions ? <UserPanelItem className="user-panel-item">
-          <PTButton className="btn-header">
+          <PTButton className="btn-header" onClick={() => runTour()}>
             <i className="fa fa-question-circle" />
           </PTButton>
         </UserPanelItem> : null}
@@ -98,7 +99,7 @@ export default class UserPanel extends PureComponent {
         </UserPanelItem> : null}
         {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
           <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
-          <PTButton className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
+          <PTButton id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>
         </UserPanelItem> : null}
