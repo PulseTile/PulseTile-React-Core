@@ -2,22 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 
-const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew }) => {
-  return (<div className="dashboard-item">
+const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, isHasList, srcPrevirew, isFeeds, iconImg }) => {
+
+  const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
+
+  return (
+  <div className="dashboard-item">
     <div className="board">
-      <div className="board-header">
-        <div className="control-group right">
-          <button className="btn btn-success btn-inverse btn-board-more" onClick={() => goToState(state)}><i className="btn-icon fa fa-caret-right" /></button>
-        </div>
-        <h3 className="board-title">{ title }</h3>
-      </div>
+     
       <div className="board-body">
         {isHasPreview
-          ? <div
-            className="board-preview"
-            style={{ backgroundImage: `url(${srcPrevirew})` }}
-            onClick={() => goToState(state)}
-          />
+          ? <div 
+              className="board-preview"
+              style={{ backgroundImage: `url(${srcPrevirew})` }}
+              onClick={() => goToState(imageLink)}
+            > 
+              <img className="icon-board" src={iconImg} />
+              <div className="board-header">
+                <div className="control-group right">
+                  <button className="btn btn-success btn-inverse btn-board-more" onClick={() => goToState(state)}><i className="btn-icon fa fa-angle-right" /></button>
+                </div>
+                <h3 className="board-title">{ title }</h3>
+              </div>
+            </div>
           : null
         }
         {isHasList
@@ -36,6 +43,10 @@ const SimpleDashboardPanel = ({ title, items, goToState, state, isHasPreview, is
 SimpleDashboardPanel.propTypes = {
   title: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
+  isFeeds: PropTypes.bool,
+};
+SimpleDashboardPanel.defaultProps = {
+    isFeeds: false,
 };
 
 export default SimpleDashboardPanel

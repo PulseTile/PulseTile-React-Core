@@ -1,64 +1,65 @@
 import React from 'react';
-import imgAllergies from '../../../assets/images/patients-summary/allergies.jpg';
-import imgProblems from '../../../assets/images/patients-summary/problems.jpg';
-import imgContacts from '../../../assets/images/patients-summary/contacts.jpg';
-import imgMedications from '../../../assets/images/patients-summary/medications.jpg';
-import imgVaccinations from '../../../assets/images/patients-summary/vaccinations.jpg';
-import imgTopThreeThings from '../../../assets/images/patients-summary/top3.jpg';
+import { get } from 'lodash';
+import { themePatientSummaryConfig } from '../../theme/config/plugins';
+import {
+  allergiesPrevImage,
+  problemsPrevImage,
+  contactsPrevImage,
+  medicationsPrevImage,
+} from './ImageSources';
+import { themeConfigs } from '../../../themes.config';
 
-export const patientsSummaryConfig = [
+import clipboard from './../../../assets/images/icn/clipboard.png' ;
+import phone from './../../../assets/images/icn/phone.png' ;
+import flower from './../../../assets/images/icn/flower.png' ;
+import pill from './../../../assets/images/icn/pill.png' ;
+
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const contactsTitle = get(themeConfigs.patientsSummaryTitles, 'contacts', 'Contacts');
+const allergiesTitle = get(themeConfigs.patientsSummaryTitles, 'allergies', 'Allergies');
+const medicationsTitle = get(themeConfigs.patientsSummaryTitles, 'medications', 'Medications');
+
+const corePatientsSummaryConfig = [
   {
     key: 'problems',
-    title: 'Problems / Diagnosis',
+    title: problemsTitle,
     state: 'diagnoses',
-    titleCheckboxes: 'Problems',
+    titleCheckboxes: problemsTitle,
     nameCheckboxes: 'problems',
-    imgPreview: imgProblems,
+    imgPreview: problemsPrevImage,
     isDefaultSelected: true,
+    getImg: clipboard
   }, {
     key: 'contacts',
-    title: 'Contacts',
-    titleCheckboxes: 'Contacts',
+    title: contactsTitle,
+    titleCheckboxes: contactsTitle,
     state: 'contacts',
     nameCheckboxes: 'contacts',
-    imgPreview: imgContacts,
+    imgPreview: contactsPrevImage,
     isDefaultSelected: true,
+    getImg: phone
   }, {
     key: 'allergies',
-    title: 'Allergies',
-    titleCheckboxes: 'Allergies',
+    title: allergiesTitle,
+    titleCheckboxes: allergiesTitle,
     state: 'allergies',
     nameCheckboxes: 'allergies',
-    imgPreview: imgAllergies,
+    imgPreview: allergiesPrevImage,
     isDefaultSelected: true,
+    getImg: flower
   }, {
     key: 'medications',
-    title: 'Medications',
-    titleCheckboxes: 'Medications',
+    title: medicationsTitle,
+    titleCheckboxes: medicationsTitle,
     state: 'medications',
     nameCheckboxes: 'medications',
-    imgPreview: imgMedications,
+    imgPreview: medicationsPrevImage,
     isDefaultSelected: true,
-  }, {
-    key: 'vaccinations',
-    title: 'Vaccinations',
-    titleCheckboxes: 'Vaccinations',
-    state: 'vaccinations',
-    nameCheckboxes: 'vaccinations',
-    imgPreview: imgVaccinations,
-    isDefaultSelected: true,
-  }, {
-    key: 'topThreeThings',
-    title: 'Top 3 Things',
-    titleCheckboxes: 'Top 3 Things',
-    state: 'topThreeThings',
-    nameCheckboxes: 'topThreeThings',
-    imgPreview: imgTopThreeThings,
-    isDefaultSelected: true,
+    getImg: pill
   },
 ];
 
-export const patientsSummaryLoading = 'Loading ...';
+export const patientsSummaryConfig = corePatientsSummaryConfig.concat(themePatientSummaryConfig);
 
 export const defaultViewOfBoardsSelected = {
   full: true,

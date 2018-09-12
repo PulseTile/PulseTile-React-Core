@@ -29,11 +29,13 @@ export default class PluginCreate extends PureComponent {
               <div className="panel-control">
                 <div className="wrap-control-group">
                   <div className="control-group right">
-                    <PTButton className="btn btn-danger" onClick={() => onCancel()}>
-                      <i className="fa fa-ban" /> Cancel
+                    <PTButton className="btn btn-success btn-finished" onClick={() => onSaveSettings(formValues)}>
+                      Finished
+                      <i className="fa fa-check" /> 
                     </PTButton>
-                    <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues)}>
-                      <i className="fa fa-check" /> Complete
+                    <PTButton className="btn btn-danger btn-cancel" onClick={() => onCancel()}>
+                      {/* <i className="fa fa-ban" />  */}
+                      Cancel
                     </PTButton>
                   </div>
                   {isImport ?
@@ -47,7 +49,7 @@ export default class PluginCreate extends PureComponent {
                 </div>
               </div>
             </div>
-          </PluginDetailPanel> : null}
+          </PluginDetailPanel> : null} 
         </div>
       </div>
     )
