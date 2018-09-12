@@ -8,17 +8,28 @@ import _ from 'lodash/fp';
 
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import { toolbarSelector, routerSelector } from './selectors';
+
+
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
+
+import { fetchPatientDemographicsOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
+
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
 import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
 import { fetchHeaderToolbarOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
-import { fetchPatientSummaryRequest } from '../../../../ducks/fetch-patient-summary.duck';
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSidebarVisibility, fetchPatientSummaryRequest }, dispatch) });
+import { fetchPatientDemographicsRequest } from '../../../../ducks/fetch-patient-demographics.duck';
+
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({
+    setSidebarVisibility,
+    fetchPatientDemographicsRequest
+  }, dispatch)
+});
 
 @compose(connect(toolbarSelector, mapDispatchToProps), connect(routerSelector))
-@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchHeaderToolbarOnMount))
+@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchHeaderToolbarOnMount), lifecycle(fetchPatientDemographicsOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,
@@ -54,8 +65,17 @@ class HeaderToolbar extends PureComponent {
           <div className="container-fluid">
             <div className="header-toolbar">
               <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
-                <i className="btn-icon fa fa-bars" />
-                <span className="btn-text">Menu</span>
+               {!!isSidebarVisible ?
+                (<span>
+                  <i className="btn-icon fa fa-times" />
+                  <span className="btn-text">Close</span>
+                </span>)
+                :
+                (<span>
+                  <i className="btn-icon fa fa-bars" />
+                  <span className="btn-text">Menu</span>
+                </span>)
+              }
               </button>
               <div className="wrap-patient-info">
                 <div className="patient-info-caption">
