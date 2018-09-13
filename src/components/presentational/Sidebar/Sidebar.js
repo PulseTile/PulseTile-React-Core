@@ -63,7 +63,11 @@ export default class Sidebar extends PureComponent {
       const scrollPageTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
       let sidebarTop = headerHeight - scrollPageTop;
 
-      sidebarTop = sidebarTop > 0 ? sidebarTop : 0;
+      if (scrollPageTop === 0) {
+        sidebarTop = 122;
+      } else {
+        sidebarTop = sidebarTop > 0 ? sidebarTop : 0;
+      }
 
       sidebar.style.top = `${sidebarTop}px`;
       sidebarUnderlay.style.top = `${sidebarTop}px`;
@@ -100,11 +104,12 @@ export default class Sidebar extends PureComponent {
       <div>
         <div className="sidebar-underlay showSidebar" />
         <div className="sidebar showSidebar" role="navigation">
-          <div className="sidebar-nav">
+          <div className="sidebar-nav"> 
             <div>
               <ul className="sidebar-nav-list">
                 {sidebarConfig.map((item, index) => (item.isVisible ? <li className="sidebar-nav-item" key={index}>
-                  <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}</Link>
+                  <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility}>{item.name}
+                  <i className="link-icon fa fa-angle-right"></i></Link>
                 </li> : null))
                 }
               </ul>
@@ -113,5 +118,5 @@ export default class Sidebar extends PureComponent {
         </div>
       </div>
     )
-  }
+  } 
 }

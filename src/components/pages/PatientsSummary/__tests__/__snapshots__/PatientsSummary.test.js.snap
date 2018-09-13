@@ -17,46 +17,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.nytimes.com/section/health",
-                "name": "NYTimes.com",
-                "rssFeedUrl": "http://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
-                "sourceId": "testSourceID6",
-              },
-              Object {
-                "landingPageUrl": "http://www.bbc.co.uk/news/health",
-                "name": "BBC Health",
-                "rssFeedUrl": "http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#",
-                "sourceId": "testSourceID1",
-              },
-              Object {
-                "landingPageUrl": "https://www.nhs.uk/news/",
-                "name": "NHS Choices",
-                "rssFeedUrl": "https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News",
-                "sourceId": "testSourceID2",
-              },
-              Object {
-                "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                "name": "Public Health",
-                "rssFeedUrl": "https://www.gov.uk/government/organisations/public-health-england.atom",
-                "sourceId": "testSourceID3",
-              },
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
-          }
+          feeds={Array []}
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -65,8 +26,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -76,7 +35,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Patient Summary"
+          title="Home"
         />
         <div
           className="panel-body"
@@ -86,6 +45,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
           >
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
               isHasPreview={true}
               items={
@@ -99,12 +59,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Problems / Issues"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
               isHasPreview={true}
               items={
@@ -118,12 +79,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
+              srcPrevirew={null}
               state="contacts"
               title="Contacts"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
               isHasPreview={true}
               items={
@@ -137,12 +99,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew={null}
               state="allergies"
               title="Allergies"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
               isHasPreview={true}
               items={
@@ -156,7 +119,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
+              srcPrevirew={null}
               state="medications"
               title="Medications"
             />
@@ -199,46 +162,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.nytimes.com/section/health",
-                "name": "NYTimes.com",
-                "rssFeedUrl": "http://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
-                "sourceId": "testSourceID6",
-              },
-              Object {
-                "landingPageUrl": "http://www.bbc.co.uk/news/health",
-                "name": "BBC Health",
-                "rssFeedUrl": "http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#",
-                "sourceId": "testSourceID1",
-              },
-              Object {
-                "landingPageUrl": "https://www.nhs.uk/news/",
-                "name": "NHS Choices",
-                "rssFeedUrl": "https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News",
-                "sourceId": "testSourceID2",
-              },
-              Object {
-                "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-                "name": "Public Health",
-                "rssFeedUrl": "https://www.gov.uk/government/organisations/public-health-england.atom",
-                "sourceId": "testSourceID3",
-              },
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
-          }
+          feeds={Array []}
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -247,8 +171,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -258,7 +180,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Patient Summary"
+          title="Home"
         />
         <div
           className="panel-body"
@@ -268,8 +190,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
           >
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -281,14 +204,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Problems / Issues"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -300,14 +224,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
+              srcPrevirew={null}
               state="contacts"
               title="Contacts"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -319,14 +244,15 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew={null}
               state="allergies"
               title="Allergies"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -338,7 +264,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
+              srcPrevirew={null}
               state="medications"
               title="Medications"
             />

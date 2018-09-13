@@ -99,7 +99,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Descriptions"
             name="doseDirections"
             props={
               Object {
@@ -197,7 +197,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
                 "disabled": true,
                 "format": "DD-MMM-YYYY",
                 "isSubmit": undefined,
-                "value": "01-Jan-2017",
+                "value": "31-Dec-2016",
               }
             }
           />
@@ -307,7 +307,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Descriptions"
             name="doseDirections"
             props={
               Object {
@@ -405,7 +405,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when data 
                 "disabled": true,
                 "format": "DD-MMM-YYYY",
                 "isSubmit": undefined,
-                "value": "01-Jan-2017",
+                "value": "31-Dec-2016",
               }
             }
           />
@@ -515,7 +515,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when form 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Descriptions"
             name="doseDirections"
             props={
               Object {
@@ -601,7 +601,7 @@ exports[`Component <MedicationsCreateForm /> should renders correctly when form 
                 "disabled": true,
                 "format": "DD-MMM-YYYY",
                 "isSubmit": true,
-                "value": "01-Jan-2017",
+                "value": "31-Dec-2016",
               }
             }
           />
@@ -711,7 +711,7 @@ exports[`Component <MedicationsCreateForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Descriptions"
             name="doseDirections"
             props={
               Object {
@@ -797,7 +797,7 @@ exports[`Component <MedicationsCreateForm /> should renders with props correctly
                 "disabled": true,
                 "format": "DD-MMM-YYYY",
                 "isSubmit": false,
-                "value": "01-Jan-2017",
+                "value": "31-Dec-2016",
               }
             }
           />

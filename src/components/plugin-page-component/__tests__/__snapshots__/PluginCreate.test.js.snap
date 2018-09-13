@@ -20,6 +20,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
     <PluginDetailPanel
       currentPanel="TEST_PANEL"
       editedPanel={Object {}}
+      isEditButton={true}
       isOpen={true}
       isShowControlPanel={true}
       name="TEST_PANEL"
@@ -143,6 +144,7 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
       <PluginDetailPanel
         currentPanel="TEST_PANEL"
         editedPanel={Object {}}
+        isEditButton={true}
         isOpen={true}
         isShowControlPanel={true}
         name="TEST_PANEL"

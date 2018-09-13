@@ -14,6 +14,6 @@ export const fetchLogoutFailure = createAction(FETCH_LOGOUT_FAILURE);
 export const fetchLogoutEpic = action$ =>
   action$.ofType(FETCH_LOGOUT_REQUEST)
     .mergeMap(() =>
-      ajax.getJSON(apiUrls.LOGOUT)
+      ajax.getJSON(apiUrls.LOGOUT, {})
         .map(fetchLogoutSuccess)
     );

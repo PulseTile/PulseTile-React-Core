@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-import { valuesLabels, valuesNames } from '../../pages/ProblemsDiagnosis/forms.config';
+import { valuesLabels, valuesNames } from '../../pages/Diagnosis/forms.config';
 
 export default class RecordsOfTablePopoverDiagnosis extends PureComponent {
   static propTypes = {

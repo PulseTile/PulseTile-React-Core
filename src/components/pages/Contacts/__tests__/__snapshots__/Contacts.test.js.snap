@@ -6,7 +6,7 @@ exports[`Component <Contacts /> should renders correctly and testing another met
 >
   <PluginBanner
     img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -49,12 +49,6 @@ exports[`Component <Contacts /> should renders correctly and testing another met
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -130,12 +124,6 @@ exports[`Component <Contacts /> should renders correctly and testing context and
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -250,12 +238,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -356,12 +338,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "width": "28%",
                 },
                 Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
-                },
-                Object {
                   "key": "source",
                   "title": "Source",
                   "width": "19%",
@@ -460,12 +436,6 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -608,7 +578,7 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
 >
   <PluginBanner
     img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -651,12 +621,6 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -695,7 +659,7 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
 >
   <PluginBanner
     img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -738,12 +702,6 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",

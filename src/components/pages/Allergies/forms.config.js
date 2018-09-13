@@ -19,7 +19,7 @@ export const valuesNames = {
 
 export const valuesLabels = {
   CAUSE: 'Cause',
-  REACTION: 'Reaction',
+  REACTION: 'Reaction / Description',
   TERMINOLOGY: 'Terminology',
   CAUSECODE: 'Cause Code',
   TERMINOLOGYCODE: 'Terminology Code',

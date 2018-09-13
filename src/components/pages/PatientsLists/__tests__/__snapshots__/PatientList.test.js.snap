@@ -13,15 +13,17 @@ exports[`Component <PatientsLists /> should renders correctly 1`] = `
       componentClass="div"
       xs={12}
     >
-      <PatientsList
+      <Connect(PatientsList)
         actions={
           Object {
             "fetchPatientCountsRequest": [Function],
             "fetchPatientsRequest": [Function],
+            "setCurrentPageOffsetStart": [Function],
           }
         }
         allPatients={Array []}
         allPatientsWithCounts={Array []}
+        dispatch={[Function]}
         location={
           Object {
             "pathname": "/patients",
@@ -34,7 +36,6 @@ exports[`Component <PatientsLists /> should renders correctly 1`] = `
           }
         }
         panelTitle="Patient Info. Age range: 61-80"
-        patientsPerPageAmount={10}
         store={
           Object {
             "clearActions": [Function],

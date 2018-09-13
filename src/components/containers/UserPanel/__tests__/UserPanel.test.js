@@ -6,6 +6,7 @@ import { StaticRouter } from 'react-router'
 import configureStore from 'redux-mock-store';
 
 import UserPanel from '../UserPanel';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -36,32 +37,31 @@ describe('Component <UserPanel />', () => {
     const component = mount(
       <Provider store={store}>
         <StaticRouter location="someLocation" context={context}>
-          <UserPanel
-            openedPanel="userAccountPanel"
-          />
-        </StaticRouter>
-      </Provider>)
-    expect(component).toMatchSnapshot();
-  });
+          <UserPanel openedPanel="userAccountPanel" />
+            </StaticRouter>
+          </Provider>)
+      expect(component).toMatchSnapshot();
+    });
 
   it('should renders with props correctly shallow testing', () => {
-    const component = shallow(
-      <UserPanel
-        store={store}
-        addUserPanels={['test']}
-      />);
+    const component = shallow(<UserPanel store={store} addUserPanels={['test']} />);
+
     expect(component).toMatchSnapshot();
     expect(component.state().openedPanel).toEqual('');
 
-    component.find('.btn-notification').simulate('click');
-    expect(component.state().openedPanel).toEqual('notificationContent');
-
-    component.setState({ openedPanel: 'userAccountPanel' });
-    expect(component.state().openedPanel).toEqual('userAccountPanel');
-
-    component.find('.btn-notification').simulate('click');
-    component.find('.btn-user').simulate('click');
-    expect(component.state().openedPanel).toEqual('userAccountPanel');
+    if (themeConfigs.topHeader.showNotifications) {
+      component.find('.btn-notification').simulate('click');
+      expect(component.state().openedPanel).toEqual('notificationContent');
+      component.setState({ openedPanel: 'userAccountPanel' });
+      expect(component.state().openedPanel).toEqual('userAccountPanel');
+      component.find('.btn-notification').simulate('click');
+      component.find('.btn-user').simulate('click');
+      expect(component.state().openedPanel).toEqual('userAccountPanel');
+    } else {
+      component.find('.btn-user').simulate('click');
+      expect(component.state().openedPanel).toEqual('userAccountPanel');
+      component.find('.btn-user').simulate('click');
+    }
 
     expect(component).toMatchSnapshot();
 

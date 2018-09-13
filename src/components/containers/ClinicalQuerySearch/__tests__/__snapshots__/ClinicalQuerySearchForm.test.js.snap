@@ -26,7 +26,7 @@ exports[`Component <ClinicalQuerySearchForm /> should renders with props correct
                 "value": "allergies",
               },
               Object {
-                "title": "Problems / Diagnosis",
+                "title": "Diagnosis",
                 "value": "diagnosis",
               },
               Object {
@@ -179,7 +179,7 @@ exports[`Component <ClinicalQuerySearchForm /> should renders with props correct
                 "value": "allergies",
               },
               Object {
-                "title": "Problems / Diagnosis",
+                "title": "Diagnosis",
                 "value": "diagnosis",
               },
               Object {

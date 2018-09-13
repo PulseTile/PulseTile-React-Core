@@ -23,7 +23,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               class="sidebar-nav-link active"
               href="/patients/9999999000/patients-summary"
             >
-              Patient Summary
+              Home
             </a>
           </li>
           <li
@@ -33,7 +33,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               class="sidebar-nav-link"
               href="/patients/9999999000/diagnoses"
             >
-              Problems / Diagnosis
+              Problems / Issues
             </a>
           </li>
           <li
@@ -64,166 +64,6 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
               href="/patients/9999999000/contacts"
             >
               Contacts
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/events"
-            >
-              Events
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/documents"
-            >
-              Documents
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/orders"
-            >
-              Orders
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/results"
-            >
-              Test Results
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/procedures"
-            >
-              Procedures
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/clinicalNotes"
-            >
-              Clinical Notes
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/clinicalStatements"
-            >
-              Clinical Statements
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/personalNotes"
-            >
-              Personal Notes
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/vaccinations"
-            >
-              Vaccinations
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/vitals"
-            >
-              Vitals - News
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/images"
-            >
-              Images
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/drawings"
-            >
-              Drawings
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/referrals"
-            >
-              Referrals
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/mdt"
-            >
-              MDT
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/transfer-of-care"
-            >
-              Transfers of Care
-            </a>
-          </li>
-          <li
-            class="sidebar-nav-item"
-          >
-            <a
-              class="sidebar-nav-link"
-              href="/patients/9999999000/proms"
-            >
-              PROMs
             </a>
           </li>
         </ul>

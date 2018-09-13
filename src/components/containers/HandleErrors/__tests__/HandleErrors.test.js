@@ -45,9 +45,29 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.isShow).toEqual(true);
     expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children.props.children).toEqual('Current request is invalid.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('API request is invalid');
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('should renders correctly when requestError contains 404 error', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+          status: 404,
+        } }}
+      />);
+
+      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
+      expect(component.state().isOpenModal).toEqual(true);
+      expect(component.state().countErrorRequest).toEqual(1);
+      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
+      expect(confirmationModalComponentProps.isShow).toEqual(true);
+      expect(confirmationModalComponentProps.textOkButton).toEqual('Ok');
+      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
+      expect(confirmationModalComponentProps.children.props.children).toEqual('API is currently unavailable');
+      expect(component).toMatchSnapshot();
   });
 
   it('should renders correctly when requestError contains 403 error', () => {
@@ -64,9 +84,9 @@ describe('Component <HandleErrors />', () => {
     expect(component.state().countErrorRequest).toEqual(1);
     expect(confirmationModalComponentProps.title).toEqual('Connection Error');
     expect(confirmationModalComponentProps.isShow).toEqual(true);
-    expect(confirmationModalComponentProps.textOkButton).toEqual('Reload Page');
+    expect(confirmationModalComponentProps.textOkButton).toEqual('Login Again');
     expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
-    expect(confirmationModalComponentProps.children.props.children).toEqual('Your token has been expired. Please reload the page.');
+    expect(confirmationModalComponentProps.children.props.children).toEqual('Your session has expired. Click the button to log in again');
 
     expect(component).toMatchSnapshot();
   });
@@ -90,6 +110,47 @@ describe('Component <HandleErrors />', () => {
     expect(confirmationModalComponentProps.children.props.children).toEqual('Something is wrong with the server. Please try again later.');
 
     expect(component).toMatchSnapshot();
+  });
+
+  it('RSS feeds error testing', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+            request: {
+              responseType: 'application/rss+xml',
+            },
+          }
+        }
+      }
+      />);
+      expect(component).toMatchSnapshot();
+  });
+
+  it('Token expired error testing', () => {
+    const component = shallow(
+      <HandleErrors
+        requestError={{
+          payload: {
+            status: 400,
+              xhr: {
+                response: {
+                  error: 'Invalid JWT: Error: Token expired',
+                },
+              },
+            }
+          }
+        }
+      />);
+      const confirmationModalComponentProps = component.find('ConfirmationModal').props();
+      expect(component.state().isOpenModal).toEqual(true);
+      expect(component.state().countErrorRequest).toEqual(1);
+      expect(confirmationModalComponentProps.title).toEqual('Connection Error');
+      expect(confirmationModalComponentProps.isShow).toEqual(true);
+      expect(confirmationModalComponentProps.textOkButton).toEqual('Login Again');
+      expect(confirmationModalComponentProps.isShowOkButton).toEqual(true);
+      expect(confirmationModalComponentProps.children.props.children).toEqual('Your session has expired. Click the button to log in again');
+      expect(component).toMatchSnapshot();
   });
 
   it('testing methods', () => {
@@ -120,7 +181,8 @@ describe('Component <HandleErrors />', () => {
     component.instance().closeModal();
     expect(component.state().isOpenModal).toEqual(false);
 
-    component.instance().reloadPage()
+    component.instance().reloadPage();
+    component.instance().redirectIndexPage();
 
     expect(component).toMatchSnapshot();
   });

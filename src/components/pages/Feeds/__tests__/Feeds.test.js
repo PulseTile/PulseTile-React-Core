@@ -135,7 +135,7 @@ describe('Component <Feeds />', () => {
 
     component.instance().handleDetailFeedsClick('065d85e3-3cd5-4604-bb94-5685fffb193d');
     const componentStateAfterMethod = component.state();
-    component.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: 'feedsPanel', editedPanel: {}, expandedPanel: 'all', isLoading: true });
+    component.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: 'feedsPanel', editedPanel: {}, expandedPanel: 'all', isLoading: false });
     const componentStateAfterSetState = component.state();
 
     expect(componentStateAfterMethod).toEqual(componentStateAfterSetState);

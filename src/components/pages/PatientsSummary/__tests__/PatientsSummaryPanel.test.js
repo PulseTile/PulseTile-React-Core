@@ -1,9 +1,41 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-15';
-
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
+import { testStoreContent } from '../../../theme/config/plugins';
+
+function getPanelsNumber(testStoreContent) {
+    const initialNumber = 4;
+    const pluginsNumber = Object.keys(testStoreContent).length;
+    const optionsNumber = (themeConfigs.isLeedsPHRTheme) ? 3 : 0;
+    return (pluginsNumber > 0)
+        ? (initialNumber + pluginsNumber + optionsNumber)
+        : (initialNumber + optionsNumber);
+}
+
+class LocalStorageMock {
+  constructor() {
+    this.store = {};
+  }
+
+  clear() {
+    this.store = {};
+  }
+
+  getItem(key) {
+    return this.store[key] || null;
+  }
+
+  setItem(key, value) {
+    this.store[key] = value.toString();
+  }
+
+  removeItem(key) {
+    delete this.store[key];
+  }
+}
+global.localStorage = new LocalStorageMock();
 
 const testProps = {
   onCategorySelected: () => {},
@@ -64,10 +96,15 @@ describe('Component <PatientsSummaryPanel />', () => {
     expect(component.instance().props.onCategorySelected).toEqual(testProps.onCategorySelected);
     expect(component.instance().props.selectedCategory).toEqual(testProps.selectedCategory);
 
-    expect(component.find('.heading')).toHaveLength(1);
-    expect(component.find('.heading').text()).toEqual('SHOW');
-    expect(component.find('.form-group')).toHaveLength(1);
-    expect(component.find('PTCustomInput')).toHaveLength(4);
+    if (themeConfigs.isLeedsPHRTheme) {
+      // expect(component.find('FeedsPanel')).toHaveLength(0);
+      expect(component.find('.form-group')).toHaveLength(2);
+    } else {
+      expect(component.find('.heading')).toHaveLength(1);
+      expect(component.find('.heading').text()).toEqual('SHOW');
+      expect(component.find('.form-group')).toHaveLength(1);
+      expect(component.find('PTCustomInput')).toHaveLength(4);
+    }
 
     component.instance().toggleCheckbox('dashboard-name');
     component.setState({ selected: {
@@ -82,7 +119,9 @@ describe('Component <PatientsSummaryPanel />', () => {
       allergies: true,
       medications: false,
     } });
-    expect(component.find('PTCustomInput')).toHaveLength(4);
+
+    const panelsNumber = getPanelsNumber(testStoreContent);
+    expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
 
     component.instance().toggleRadio('test');
 
@@ -91,7 +130,7 @@ describe('Component <PatientsSummaryPanel />', () => {
         full: false,
         preview: true,
       },
-    })
+    });
 
     component.setProps({
       patientsSummaryHasPreviewSettings: true,
@@ -109,6 +148,5 @@ describe('Component <PatientsSummaryPanel />', () => {
       />).dive();
 
     expect(component).toMatchSnapshot();
-
   });
 });

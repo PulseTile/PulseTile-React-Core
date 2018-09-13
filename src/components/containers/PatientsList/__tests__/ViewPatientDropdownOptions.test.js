@@ -17,8 +17,12 @@ describe('Component <ViewPatientDropdownOptions />', () => {
     ).dive();
     viewPatientDropdownOptions.find('.dropdown-menu-item').at(0).simulate('click');
     viewPatientDropdownOptions.find('.dropdown-menu-item').at(1).simulate('click');
-    viewPatientDropdownOptions.find('.dropdown-menu-item').at(2).simulate('click');
-    viewPatientDropdownOptions.find('.dropdown-menu-item').at(3).simulate('click');
+
+    // For Vitals-plugin
+    // viewPatientDropdownOptions.find('.dropdown-menu-item').at(2).simulate('click');
+    // For Results (Test Results) plugin
+    // viewPatientDropdownOptions.find('.dropdown-menu-item').at(3).simulate('click');
+
     expect(viewPatientDropdownOptions).toMatchSnapshot();
   });
 });

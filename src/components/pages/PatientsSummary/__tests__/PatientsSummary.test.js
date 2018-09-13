@@ -2,11 +2,22 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-
+import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
+
+function addDiveForTheme(component, testStoreContent) {
+    const pluginsNumber = Object.keys(testStoreContent).length;
+    return (pluginsNumber > 0) ? component.dive() : component;
+}
+
+function getPanelsNumber(testStoreContent) {
+  const initialNumber = 4;
+  const pluginsNumber = Object.keys(testStoreContent).length;
+  return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
+}
 
 class LocalStorageMock {
   constructor() {
@@ -32,10 +43,17 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock();
 
 const mockStore = configureStore();
-const store = mockStore({
-  userId: '9999999000',
-  patientsSummaries: {},
-});
+
+const coreStoreContent = {
+    userId: '9999999000',
+    patientsDiagnoses: {},
+    patientsContacts: {},
+    patientsAllergies: {},
+    patientsMedications: {},
+};
+const storeContent = Object.assign(coreStoreContent, testStoreContent);
+
+const store = mockStore(storeContent);
 const match = {
   params: {},
 };
@@ -73,14 +91,23 @@ const testProps = {
 
 describe('Component <PatientsSummary />', () => {
   it('should renders with all props correctly', () => {
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()
+        .dive();
+
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -90,9 +117,11 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('.page-wrapper')).toHaveLength(1);
     expect(component.find('PatientsSummaryListHeader')).toHaveLength(1);
     expect(component.find('.dashboard')).toHaveLength(1);
-    expect(component.find('SimpleDashboardPanel')).toHaveLength(4);
-    expect(component.find('ConfirmationModal')).toHaveLength(0);
 
+    const panelsNumber = getPanelsNumber(testStoreContent);
+
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(panelsNumber);
+    expect(component.find('ConfirmationModal')).toHaveLength(0);
 
     component.instance().handleGoToState('contacts');
 
@@ -125,14 +154,23 @@ describe('Component <PatientsSummary />', () => {
 
   it('should renders with Disclaimer Modal correctly', () => {
     localStorage.setItem('isShowDisclaimerOfRedirect', true);
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        // .dive()
+        .dive();
+
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -140,5 +178,30 @@ describe('Component <PatientsSummary />', () => {
     component.instance().closeDisclaimer();
     expect(component.find('ConfirmationModal')).toHaveLength(1);
   });
+
+  // For Feeds-panel
+  // it('should renders Feeds correctly', () => {
+  //   themeConfigs.isLeedsPHRTheme = true;
+  //   const component = shallow(
+  //     <PatientsSummary
+  //       store={store}
+  //       match={match}
+  //       location={location}
+  //       onCategorySelected={testProps.onCategorySelected}
+  //       selectedCategory={testProps.selectedCategory}
+  //     />, { context })
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       // .dive()  // For TopThreeThings-plugin
+  //       // .dive()  // For Vaccinations-plugin
+  //       .dive();
+  //
+  //   expect(component).toMatchSnapshot();
+  // });
+
 });
 
