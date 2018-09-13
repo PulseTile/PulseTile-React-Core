@@ -17,7 +17,8 @@
     "lint": "./node_modules/.bin/eslint",
     "stylelint": "./node_modules/.bin/stylelint '**/*.scss'",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "watch-src": "cpx \"src/**/*.*\" \"../Helm-PHR-Generator/PulseTile-React-Core/src\" --watch --verbose --no-initial"
   },
   "repository": {
     "type": "git",
