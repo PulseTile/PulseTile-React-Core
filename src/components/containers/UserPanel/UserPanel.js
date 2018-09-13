@@ -84,7 +84,7 @@ export default class UserPanel extends PureComponent {
         </UserPanelItem> : null}
         { additionalUserPanels }
         {isQuestions ? <UserPanelItem className="user-panel-item">
-          <PTButton className="btn-header" onClick={() => runTour()}>
+          <PTButton title="User Tour" id="icon-tour" className="btn-header" onClick={() => runTour()}>
             <i className="fa fa-question-circle" />
           </PTButton>
         </UserPanelItem> : null}

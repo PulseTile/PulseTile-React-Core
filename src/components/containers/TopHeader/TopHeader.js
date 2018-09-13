@@ -30,7 +30,7 @@ class TopHeader extends PureComponent {
   };
 
   state = {
-    isTourRun: false,
+    isTourRun: true,
   };
 
   routeGoBack = () => {
