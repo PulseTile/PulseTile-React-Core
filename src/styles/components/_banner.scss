@@ -2,19 +2,21 @@
   position: relative;
   top: (-1 * map-get($page-wrapper-padding, 'small-tb'));
   margin: 0 (-1 * map-get($page-wrapper-padding, 'small-rl'));
-  height: 180px;
+  height: 81px;
   overflow: hidden;
+  // background: $dodger-blue;
+  background: #3596f4;
   @include respond-from(xs) {
     top: (-1 * map-get($page-wrapper-padding, 'main-tb'));
     margin: 0 (-1 * map-get($page-wrapper-padding, 'main-rl'));
   }
-  @include respond-from(md) {
-    height: 0;
-    padding-bottom: 18.5%;
-  }
-  @include respond-from(xl) {
-    padding-bottom: 16%;
-  }
+  // @include respond-from(md) {
+  //   height: 0;
+  //   padding-bottom: 18.5%;
+  // }
+  // @include respond-from(xl) {
+  //   padding-bottom: 16%;
+  // }
   &__title, &__subtitle {
     position: absolute;
     left: 0;
@@ -32,17 +34,16 @@
     }
   }
   &__title {
-    bottom: 53px;
-    font-size: 36px;
+    bottom: 32px;
+    font-size: 24px;
     line-height: 52px;
     color: #fff;
   }
   &__subtitle {
-    bottom: 19px;
-    font-size: 18px;
+    bottom: 4px;
+    font-size: 15px;
     line-height: 34px;
     color: #fffefe;
-    background: #414249;
   }
   &__img {
     position: absolute;

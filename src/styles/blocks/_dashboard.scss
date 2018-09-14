@@ -60,18 +60,23 @@
   padding: 0 5px;
   color: map-get($board, 'header-color');
   @include text-truncate;
+  font-family: 'Roboto-Light';
 }
 .board-body {
   background: map-get($board, 'item-bg');
 }
 .board-preview {
-  position: relative;
-  height: 0;
-  width: 100%;
+  position: relative; 
+  height: 120px;
+  width: 100%; 
   padding-bottom: map-get($board, 'preview-ratio');
   background-size: cover;
   background-position: center;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .board-list {
   @include list-reset;
@@ -93,8 +98,8 @@
   @include text-truncate;
 }
 .is-not-touch-device .board-list-link:hover {
-  background: map-get($board, 'item-bg-hover');
-  color: map-get($board, 'item-color-hover');
+  background: #fff;
+  color: #333;
 }
 
-.btn-board-more { width: 43px; }
+.btn-board-more { width: 43px; } 

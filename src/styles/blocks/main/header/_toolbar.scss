@@ -1,4 +1,8 @@
-.wrap-header-toolbar { background: map-get($header-toolbar, 'bg'); }
+.wrap-header-toolbar { 
+  background: map-get($header-toolbar, 'bg'); 
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
 .header-toolbar {
   color: map-get($header-toolbar, 'color');
   font-size: 15px;
@@ -7,10 +11,11 @@
   padding: 7px 0 10px;
   position: relative;
   @include respond-from(xs) {
-    min-height: 56px;
+    min-height: 66px;
     padding: 11px 0;
   }
   @include respond-from(sm) {
-    padding-left: 109px;
+    padding: 0;
+    padding-left: 170px; 
   }
 }

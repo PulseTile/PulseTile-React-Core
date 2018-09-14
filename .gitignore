@@ -16,3 +16,6 @@ coverage
 
 # Files
 ./tempTZ.json
+
+# misc
+.DS_Store
