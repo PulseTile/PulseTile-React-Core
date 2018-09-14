@@ -9,12 +9,11 @@
 }
 .board-header {
   padding: 5px 8px;
-  // border-bottom: 2px solid #00aeef;
-  border: none;
+  border-bottom: 2px solid #00aeef;
   @include clearfix;
 }
 .board-title {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 26px;
   @include text-truncate;
 }
@@ -34,6 +33,5 @@
   padding: 0;
   width: 26px;
   min-width: 10px;
-  font-size: 22px;
   i {color: #fff!important;}
 }

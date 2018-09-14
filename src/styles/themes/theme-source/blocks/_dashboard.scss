@@ -4,12 +4,8 @@
   border-radius: map-get($board, 'radius');
 }
 .board-header {
-  // background-color: map-get($board, 'header-bg');
-  background-color: transparent;
+  background-color: map-get($board, 'header-bg');
   color: map-get($board, 'header-color');
-  margin-top: 5px;
-  justify-content: center;
-  display: flex; 
 }
 .board-title {
   color: map-get($board, 'header-color');
@@ -18,14 +14,7 @@
   background: map-get($board, 'item-bg');
 }
 .board-preview {
-  // padding-bottom: map-get($board, 'preview-ratio');
-  padding-bottom: 0%; 
-}
-
-.icon-board { 
-  display: block;
-  margin: 0 auto;
-  padding-top: 0px; 
+  padding-bottom: map-get($board, 'preview-ratio');
 }
 
 
@@ -39,6 +28,6 @@
   color: map-get($board, 'item-color');
 }
 .is-not-touch-device .board-list-link:hover {
-  background: #fff;
-  color: #333;
+  background: map-get($board, 'item-bg-hover');
+  color: map-get($board, 'item-color-hover');
 }

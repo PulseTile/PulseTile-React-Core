@@ -1,8 +1,6 @@
 .btn-header {
-  // background: map-get($header-btn, 'bg');
-  // color: map-get($header-btn, 'color');
-  background: #fff;
-  color: #1993EF;
+  background: map-get($header-btn, 'bg');
+  color: map-get($header-btn, 'color');
   .count {
     background-color: map-get($header-btn, 'color');
     color:  map-get($header-btn, 'bg');
@@ -10,8 +8,6 @@
 }  
 .btn-header:hover { color: map-get($header-btn, 'color'); }
 .is-not-touch-device .btn-header:hover { 
-  // background: map-get($header-btn, 'bg-hover'); 
-  // color: map-get($header-btn, 'color-hover');
-  background: #1993EF; 
-  color: #fff;
+  background: map-get($header-btn, 'bg-hover'); 
+  color: map-get($header-btn, 'color-hover');
 }

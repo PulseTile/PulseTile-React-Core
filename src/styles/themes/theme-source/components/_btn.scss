@@ -97,7 +97,7 @@
 .is-not-touch-device .btn.btn-inverse[disabled] {
   &.btn-none-border {
     &:hover,
-    &:focus, 
+    &:focus,
     &:active {
       border-color: transparent !important;
       box-shadow: 0 0 0 rgb(0, 0, 0) !important;
@@ -113,13 +113,7 @@
 .btn-success.btn-create,
 .btn-success.btn-create:focus,
 .btn-success.btn-create:active {
-  background: #1993EF !important;
-  font-weight: 600;
-  color: #fff !important;
-  height: auto;
-  padding: 10px 24px;
-  border-radius: 30px; 
-  border: none !important;
+  background: #ffffff !important;
   &:hover,
-  &.active { background: #1993EF !important; }
+  &.active { background: #ffffff !important; }
 } 
