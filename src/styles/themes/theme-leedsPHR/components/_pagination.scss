@@ -3,7 +3,7 @@
   .pagination-link:focus {
     background: #fff;
     border-color: #ddd;
-    color: $text-color;
+    color: #3596f4;
   }
   &.active .pagination-link {
     background-color: $base-color;
@@ -11,9 +11,9 @@
     color: $text-on-base-color;
   }
   &.disabled .pagination-link {
-    background-color: #F4F3F3;
+    background-color: #fff;
     border-color: #ddd;
-    color: $text-color;
+    color: #3596f4;
   }
 }
 .is-not-touch-device .pagination-item {

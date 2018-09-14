@@ -18,7 +18,10 @@ $control-indent: 6px;
       margin-right: 0;
     }
   }
-  &.with-indent > * { margin-bottom: $control-indent; }
+  &.with-indent > * { 
+    margin-bottom: $control-indent;
+    box-shadow: 0px 0px 20px -3px rgba(151, 151, 151, .75);
+  }
   &.without-side-indent {
     margin-left: 0;
     margin-right: 0;
