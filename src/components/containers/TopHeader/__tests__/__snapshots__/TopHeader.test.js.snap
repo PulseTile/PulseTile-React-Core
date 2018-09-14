@@ -156,6 +156,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                           <img
                             alt="logo"
                             className="img"
+                            id="logo-image"
                             src="pulsetile-core-logo.png"
                           />
                           <img
@@ -206,11 +207,15 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     >
                       <PTButton
                         className="btn-header"
+                        id="icon-tour"
                         onClick={[Function]}
+                        title="User Tour"
                       >
                         <button
                           className="btn-header"
+                          id="icon-tour"
                           onClick={[Function]}
+                          title="User Tour"
                         >
                           <i
                             className="fa fa-question-circle"
@@ -219,6 +224,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       </PTButton>
                     </li>
                   </UserPanelItem>
+                  <UserTourLink />
                   <UserPanelItem
                     className="user-panel-item dropdown"
                   >
