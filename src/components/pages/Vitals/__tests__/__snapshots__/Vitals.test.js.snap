@@ -1,0 +1,3348 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Vitals /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="newsScore"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={10}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="desc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VitalsDetail
+          currentPanel="vitalsDetail"
+          detail={
+            Object {
+              "0": "t",
+              "1": "e",
+              "2": "s",
+              "3": "t",
+              "diastolicBP": NaN,
+              "heartRate": NaN,
+              "newsScore": 0,
+              "oxygenSaturation": NaN,
+              "oxygenSupplemental": false,
+              "respirationRate": NaN,
+              "systolicBP": NaN,
+              "temperature": NaN,
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          getHighlighterClass={[Function]}
+          isSubmit={false}
+          name="vitalsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vitalsCreate"
+          popoverLabels={
+            Object {
+              "heartRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 40",
+                },
+                Object {
+                  "place": 3,
+                  "text": "41-50",
+                },
+                Object {
+                  "place": 4,
+                  "text": "51-90",
+                },
+                Object {
+                  "place": 5,
+                  "text": "91-110",
+                },
+                Object {
+                  "place": 6,
+                  "text": "111-130",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 131",
+                },
+              ],
+              "levelOfConsciousness": Array [
+                Object {
+                  "place": 4,
+                  "text": "A",
+                },
+                Object {
+                  "place": 7,
+                  "text": "V,P or U",
+                },
+              ],
+              "newsScore": Array [
+                Object {
+                  "place": 4,
+                  "text": "0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "1-4",
+                },
+                Object {
+                  "place": 6,
+                  "text": "5-6",
+                },
+                Object {
+                  "place": 7,
+                  "text": "> 7",
+                },
+              ],
+              "oxygenSaturation": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 91",
+                },
+                Object {
+                  "place": 2,
+                  "text": "92-93",
+                },
+                Object {
+                  "place": 3,
+                  "text": "94-95",
+                },
+                Object {
+                  "place": 4,
+                  "text": "≥ 96",
+                },
+              ],
+              "oxygenSupplemental": Array [
+                Object {
+                  "place": 2,
+                  "text": "Yes",
+                },
+                Object {
+                  "place": 4,
+                  "text": "No",
+                },
+              ],
+              "respirationRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 8",
+                },
+                Object {
+                  "place": 3,
+                  "text": "9-11",
+                },
+                Object {
+                  "place": 4,
+                  "text": "12-20",
+                },
+                Object {
+                  "place": 6,
+                  "text": "21-24",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 25",
+                },
+              ],
+              "systolicBP": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 90",
+                },
+                Object {
+                  "place": 2,
+                  "text": "91-100",
+                },
+                Object {
+                  "place": 3,
+                  "text": "101-110",
+                },
+                Object {
+                  "place": 4,
+                  "text": "111-219",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 220",
+                },
+              ],
+              "temperature": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 35.0",
+                },
+                Object {
+                  "place": 3,
+                  "text": "35.1-36.0",
+                },
+                Object {
+                  "place": 4,
+                  "text": "36.1-38.0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "38.1-39.0",
+                },
+                Object {
+                  "place": 6,
+                  "text": "≥ 39.1",
+                },
+              ],
+            }
+          }
+          vitalStatuses={
+            Object {
+              "heartRate": Object {
+                "point": undefined,
+              },
+              "levelOfConsciousness": Object {
+                "point": undefined,
+              },
+              "newsScore": Object {
+                "point": undefined,
+              },
+              "oxygenSaturation": Object {
+                "point": undefined,
+              },
+              "oxygenSupplemental": Object {
+                "point": 0,
+              },
+              "respirationRate": Object {
+                "point": undefined,
+              },
+              "systolicBP": Object {
+                "point": undefined,
+              },
+              "temperature": Object {
+                "point": undefined,
+              },
+            }
+          }
+          vitalsDetailFormValues=""
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with all store is empty 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with vitalsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              detail={Object {}}
+              formValues={undefined}
+              getHighlighterClass={[Function]}
+              isSubmit={false}
+              popoverLabels={
+                Object {
+                  "heartRate": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 40",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "41-50",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "51-90",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "91-110",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "111-130",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 131",
+                    },
+                  ],
+                  "levelOfConsciousness": Array [
+                    Object {
+                      "place": 4,
+                      "text": "A",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "V,P or U",
+                    },
+                  ],
+                  "newsScore": Array [
+                    Object {
+                      "place": 4,
+                      "text": "0",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "1-4",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "5-6",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "> 7",
+                    },
+                  ],
+                  "oxygenSaturation": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 91",
+                    },
+                    Object {
+                      "place": 2,
+                      "text": "92-93",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "94-95",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "≥ 96",
+                    },
+                  ],
+                  "oxygenSupplemental": Array [
+                    Object {
+                      "place": 2,
+                      "text": "Yes",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "No",
+                    },
+                  ],
+                  "respirationRate": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 8",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "9-11",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "12-20",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "21-24",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 25",
+                    },
+                  ],
+                  "systolicBP": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 90",
+                    },
+                    Object {
+                      "place": 2,
+                      "text": "91-100",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "101-110",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "111-219",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 220",
+                    },
+                  ],
+                  "temperature": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 35.0",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "35.1-36.0",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "36.1-38.0",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "38.1-39.0",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "≥ 39.1",
+                    },
+                  ],
+                }
+              }
+              vitalStatuses={
+                Object {
+                  "heartRate": Object {},
+                  "newsScore": Object {},
+                  "oxygenSaturation": Object {},
+                  "respirationRate": Object {},
+                  "systolicBP": Object {},
+                  "temperature": Object {},
+                }
+              }
+            />
+          }
+          currentPanel="vitalsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="vitalsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vitalsCreate"
+          title="Create Vitals"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with vitalsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              detail={Object {}}
+              formValues={undefined}
+              getHighlighterClass={[Function]}
+              isSubmit={false}
+              popoverLabels={
+                Object {
+                  "heartRate": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 40",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "41-50",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "51-90",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "91-110",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "111-130",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 131",
+                    },
+                  ],
+                  "levelOfConsciousness": Array [
+                    Object {
+                      "place": 4,
+                      "text": "A",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "V,P or U",
+                    },
+                  ],
+                  "newsScore": Array [
+                    Object {
+                      "place": 4,
+                      "text": "0",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "1-4",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "5-6",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "> 7",
+                    },
+                  ],
+                  "oxygenSaturation": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 91",
+                    },
+                    Object {
+                      "place": 2,
+                      "text": "92-93",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "94-95",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "≥ 96",
+                    },
+                  ],
+                  "oxygenSupplemental": Array [
+                    Object {
+                      "place": 2,
+                      "text": "Yes",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "No",
+                    },
+                  ],
+                  "respirationRate": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 8",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "9-11",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "12-20",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "21-24",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 25",
+                    },
+                  ],
+                  "systolicBP": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 90",
+                    },
+                    Object {
+                      "place": 2,
+                      "text": "91-100",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "101-110",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "111-219",
+                    },
+                    Object {
+                      "place": 7,
+                      "text": "≥ 220",
+                    },
+                  ],
+                  "temperature": Array [
+                    Object {
+                      "place": 1,
+                      "text": "≤ 35.0",
+                    },
+                    Object {
+                      "place": 3,
+                      "text": "35.1-36.0",
+                    },
+                    Object {
+                      "place": 4,
+                      "text": "36.1-38.0",
+                    },
+                    Object {
+                      "place": 5,
+                      "text": "38.1-39.0",
+                    },
+                    Object {
+                      "place": 6,
+                      "text": "≥ 39.1",
+                    },
+                  ],
+                }
+              }
+              vitalStatuses={
+                Object {
+                  "heartRate": Object {},
+                  "newsScore": Object {},
+                  "oxygenSaturation": Object {},
+                  "respirationRate": Object {},
+                  "systolicBP": Object {},
+                  "temperature": Object {},
+                }
+              }
+            />
+          }
+          currentPanel="vitalsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="vitalsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vitalsCreate"
+          title="Create Vitals"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with vitalsDetail and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <VitalsListHeader
+            activeView="tableNews"
+            currentPanel="vitalsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="vitalsMain"
+            nameShouldInclude=""
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Vitals - News"
+            toggleViewVisibility={[Function]}
+          />
+          <VitalsMainPanel
+            activeView="tableNews"
+            chartLoad={[Function]}
+            columnNameSortBy="id"
+            emptyDataMessage="No vitals"
+            filteredData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            headers={
+              Array [
+                Object {
+                  "key": "id",
+                  "title": "#",
+                  "width": "21%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "newsScore",
+                  "title": "NEWS Score",
+                  "width": "32%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "22%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="27ee5e25-4c32-46d2-b45a-f74149d72030"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            resourceData={
+              Array [
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515684602000,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 1,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1515683002100,
+                  "dateCreatedConvert": "11-Jan-2018",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 2,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1505792407000,
+                  "dateCreatedConvert": "19-Sep-2017",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 3,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1425782407000,
+                  "dateCreatedConvert": "08-Mar-2015",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 4,
+                  "levelOfConsciousness": "Alert",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+                Object {
+                  "author": "Dr Tony Shannon",
+                  "dateCreated": 1205682407000,
+                  "dateCreatedConvert": "16-Mar-2008",
+                  "diastolicBP": "64.0",
+                  "heartRate": "45.0",
+                  "highlighters": Array [
+                    Object {
+                      "name": "newsScore",
+                      "status": "success",
+                    },
+                  ],
+                  "id": 5,
+                  "levelOfConsciousness": "Pain",
+                  "newsScore": 3,
+                  "oxygenSaturation": "97.0",
+                  "oxygenSupplemental": "true",
+                  "respirationRate": "12.0",
+                  "source": "ethercis",
+                  "sourceId": "27ee5e25-4c32-46d2-b45a-f74149d72030",
+                  "systolicBP": "112.0",
+                  "temperature": "37.0",
+                },
+              ]
+            }
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="vitals"
+            totalEntriesAmount={5}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VitalsDetail
+          currentPanel="vitalsDetail"
+          detail={Object {}}
+          editedPanel={Object {}}
+          expandedPanel="all"
+          getHighlighterClass={[Function]}
+          isSubmit={false}
+          name="vitalsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vitalPanel"
+          popoverLabels={
+            Object {
+              "heartRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 40",
+                },
+                Object {
+                  "place": 3,
+                  "text": "41-50",
+                },
+                Object {
+                  "place": 4,
+                  "text": "51-90",
+                },
+                Object {
+                  "place": 5,
+                  "text": "91-110",
+                },
+                Object {
+                  "place": 6,
+                  "text": "111-130",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 131",
+                },
+              ],
+              "levelOfConsciousness": Array [
+                Object {
+                  "place": 4,
+                  "text": "A",
+                },
+                Object {
+                  "place": 7,
+                  "text": "V,P or U",
+                },
+              ],
+              "newsScore": Array [
+                Object {
+                  "place": 4,
+                  "text": "0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "1-4",
+                },
+                Object {
+                  "place": 6,
+                  "text": "5-6",
+                },
+                Object {
+                  "place": 7,
+                  "text": "> 7",
+                },
+              ],
+              "oxygenSaturation": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 91",
+                },
+                Object {
+                  "place": 2,
+                  "text": "92-93",
+                },
+                Object {
+                  "place": 3,
+                  "text": "94-95",
+                },
+                Object {
+                  "place": 4,
+                  "text": "≥ 96",
+                },
+              ],
+              "oxygenSupplemental": Array [
+                Object {
+                  "place": 2,
+                  "text": "Yes",
+                },
+                Object {
+                  "place": 4,
+                  "text": "No",
+                },
+              ],
+              "respirationRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 8",
+                },
+                Object {
+                  "place": 3,
+                  "text": "9-11",
+                },
+                Object {
+                  "place": 4,
+                  "text": "12-20",
+                },
+                Object {
+                  "place": 6,
+                  "text": "21-24",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 25",
+                },
+              ],
+              "systolicBP": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 90",
+                },
+                Object {
+                  "place": 2,
+                  "text": "91-100",
+                },
+                Object {
+                  "place": 3,
+                  "text": "101-110",
+                },
+                Object {
+                  "place": 4,
+                  "text": "111-219",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 220",
+                },
+              ],
+              "temperature": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 35.0",
+                },
+                Object {
+                  "place": 3,
+                  "text": "35.1-36.0",
+                },
+                Object {
+                  "place": 4,
+                  "text": "36.1-38.0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "38.1-39.0",
+                },
+                Object {
+                  "place": 6,
+                  "text": "≥ 39.1",
+                },
+              ],
+            }
+          }
+          vitalStatuses={
+            Object {
+              "heartRate": Object {},
+              "newsScore": Object {},
+              "oxygenSaturation": Object {},
+              "respirationRate": Object {},
+              "systolicBP": Object {},
+              "temperature": Object {},
+            }
+          }
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with vitalsDetail and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <VitalsDetail
+          currentPanel="vitalsDetail"
+          detail={Object {}}
+          editedPanel={Object {}}
+          expandedPanel="vitalPanel"
+          getHighlighterClass={[Function]}
+          isSubmit={false}
+          name="vitalsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="vitalPanel"
+          popoverLabels={
+            Object {
+              "heartRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 40",
+                },
+                Object {
+                  "place": 3,
+                  "text": "41-50",
+                },
+                Object {
+                  "place": 4,
+                  "text": "51-90",
+                },
+                Object {
+                  "place": 5,
+                  "text": "91-110",
+                },
+                Object {
+                  "place": 6,
+                  "text": "111-130",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 131",
+                },
+              ],
+              "levelOfConsciousness": Array [
+                Object {
+                  "place": 4,
+                  "text": "A",
+                },
+                Object {
+                  "place": 7,
+                  "text": "V,P or U",
+                },
+              ],
+              "newsScore": Array [
+                Object {
+                  "place": 4,
+                  "text": "0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "1-4",
+                },
+                Object {
+                  "place": 6,
+                  "text": "5-6",
+                },
+                Object {
+                  "place": 7,
+                  "text": "> 7",
+                },
+              ],
+              "oxygenSaturation": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 91",
+                },
+                Object {
+                  "place": 2,
+                  "text": "92-93",
+                },
+                Object {
+                  "place": 3,
+                  "text": "94-95",
+                },
+                Object {
+                  "place": 4,
+                  "text": "≥ 96",
+                },
+              ],
+              "oxygenSupplemental": Array [
+                Object {
+                  "place": 2,
+                  "text": "Yes",
+                },
+                Object {
+                  "place": 4,
+                  "text": "No",
+                },
+              ],
+              "respirationRate": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 8",
+                },
+                Object {
+                  "place": 3,
+                  "text": "9-11",
+                },
+                Object {
+                  "place": 4,
+                  "text": "12-20",
+                },
+                Object {
+                  "place": 6,
+                  "text": "21-24",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 25",
+                },
+              ],
+              "systolicBP": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 90",
+                },
+                Object {
+                  "place": 2,
+                  "text": "91-100",
+                },
+                Object {
+                  "place": 3,
+                  "text": "101-110",
+                },
+                Object {
+                  "place": 4,
+                  "text": "111-219",
+                },
+                Object {
+                  "place": 7,
+                  "text": "≥ 220",
+                },
+              ],
+              "temperature": Array [
+                Object {
+                  "place": 1,
+                  "text": "≤ 35.0",
+                },
+                Object {
+                  "place": 3,
+                  "text": "35.1-36.0",
+                },
+                Object {
+                  "place": 4,
+                  "text": "36.1-38.0",
+                },
+                Object {
+                  "place": 5,
+                  "text": "38.1-39.0",
+                },
+                Object {
+                  "place": 6,
+                  "text": "≥ 39.1",
+                },
+              ],
+            }
+          }
+          vitalStatuses={
+            Object {
+              "heartRate": Object {},
+              "newsScore": Object {},
+              "oxygenSaturation": Object {},
+              "respirationRate": Object {},
+              "systolicBP": Object {},
+              "temperature": Object {},
+            }
+          }
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <Vitals /> should renders correctly with vitalsDetail and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;

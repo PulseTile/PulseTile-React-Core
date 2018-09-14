@@ -1,0 +1,571 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsListHeader /> should renders correctly and testing component methods 1`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-expand"
+      />
+      <i
+        className="btn-icon fa fa-compress"
+      />
+    </PTButton>
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-area-chart"
+        />
+      </PTButton>
+      <div
+        className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+      >
+        <div
+          className="heading"
+        >
+          TABLES
+        </div>
+        <div
+          className="dropdown-menu-list"
+        >
+          <div
+            className="dropdown-menu-item"
+            onClick={[Function]}
+          >
+            <i
+              className="dropdown-menu-item-icon fa fa-table"
+            />
+            <span
+              className="dropdown-menu-item-text"
+            >
+              Vitals - NEWS
+            </span>
+          </div>
+        </div>
+        <div
+          className="heading"
+        >
+          CHARTS
+        </div>
+        <div
+          className="dropdown-menu-wrap-list"
+        >
+          <div
+            className="dropdown-menu-list"
+          >
+            <div
+              className="dropdown-menu-item active"
+              onClick={[Function]}
+            >
+              <i
+                className="dropdown-menu-item-icon fa fa-area-chart"
+              />
+              <span
+                className="dropdown-menu-item-text"
+              >
+                Vitals - NEWS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Test Panel Title
+  </h3>
+  <div
+    className="panel-filter"
+  >
+    <div
+      className="inner-addon addon-left"
+    >
+      <div
+        className="addon"
+      >
+        <i
+          className="fa fa-filter"
+        />
+      </div>
+      <input
+        autoFocus={true}
+        className="form-control"
+        onChange={[Function]}
+        onClick={[Function]}
+        placeholder="Filter..."
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsListHeader /> should renders correctly and testing component methods 2`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-expand"
+      />
+      <i
+        className="btn-icon fa fa-compress"
+      />
+    </PTButton>
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-area-chart"
+        />
+      </PTButton>
+      <div
+        className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+      >
+        <div
+          className="heading"
+        >
+          TABLES
+        </div>
+        <div
+          className="dropdown-menu-list"
+        >
+          <div
+            className="dropdown-menu-item"
+            onClick={[Function]}
+          >
+            <i
+              className="dropdown-menu-item-icon fa fa-table"
+            />
+            <span
+              className="dropdown-menu-item-text"
+            >
+              Vitals - NEWS
+            </span>
+          </div>
+        </div>
+        <div
+          className="heading"
+        >
+          CHARTS
+        </div>
+        <div
+          className="dropdown-menu-wrap-list"
+        >
+          <div
+            className="dropdown-menu-list"
+          >
+            <div
+              className="dropdown-menu-item active"
+              onClick={[Function]}
+            >
+              <i
+                className="dropdown-menu-item-icon fa fa-area-chart"
+              />
+              <span
+                className="dropdown-menu-item-text"
+              >
+                Vitals - NEWS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Test Panel Title
+  </h3>
+  <div
+    className="panel-filter"
+  >
+    <div
+      className="inner-addon addon-left"
+    >
+      <div
+        className="addon"
+      >
+        <i
+          className="fa fa-filter"
+        />
+      </div>
+      <input
+        autoFocus={true}
+        className="form-control"
+        onChange={[Function]}
+        onClick={[Function]}
+        placeholder="Filter..."
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsListHeader /> should renders with all props correctly 1`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-expand"
+      />
+      <i
+        className="btn-icon fa fa-compress"
+      />
+    </PTButton>
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-table"
+        />
+      </PTButton>
+      <div
+        className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+      >
+        <div
+          className="heading"
+        >
+          TABLES
+        </div>
+        <div
+          className="dropdown-menu-list"
+        >
+          <div
+            className="dropdown-menu-item active"
+            onClick={[Function]}
+          >
+            <i
+              className="dropdown-menu-item-icon fa fa-table"
+            />
+            <span
+              className="dropdown-menu-item-text"
+            >
+              Vitals - NEWS
+            </span>
+          </div>
+        </div>
+        <div
+          className="heading"
+        >
+          CHARTS
+        </div>
+        <div
+          className="dropdown-menu-wrap-list"
+        >
+          <div
+            className="dropdown-menu-list"
+          >
+            <div
+              className="dropdown-menu-item"
+              onClick={[Function]}
+            >
+              <i
+                className="dropdown-menu-item-icon fa fa-area-chart"
+              />
+              <span
+                className="dropdown-menu-item-text"
+              >
+                Vitals - NEWS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Test Panel Title
+  </h3>
+</div>
+`;
+
+exports[`Component <VitalsListHeader /> should renders with all props correctly 2`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-expand"
+      />
+      <i
+        className="btn-icon fa fa-compress"
+      />
+    </PTButton>
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-table"
+        />
+      </PTButton>
+      <div
+        className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+      >
+        <div
+          className="heading"
+        >
+          TABLES
+        </div>
+        <div
+          className="dropdown-menu-list"
+        >
+          <div
+            className="dropdown-menu-item active"
+            onClick={[Function]}
+          >
+            <i
+              className="dropdown-menu-item-icon fa fa-table"
+            />
+            <span
+              className="dropdown-menu-item-text"
+            >
+              Vitals - NEWS
+            </span>
+          </div>
+        </div>
+        <div
+          className="heading"
+        >
+          CHARTS
+        </div>
+        <div
+          className="dropdown-menu-wrap-list"
+        >
+          <div
+            className="dropdown-menu-list"
+          >
+            <div
+              className="dropdown-menu-item"
+              onClick={[Function]}
+            >
+              <i
+                className="dropdown-menu-item-icon fa fa-area-chart"
+              />
+              <span
+                className="dropdown-menu-item-text"
+              >
+                Vitals - NEWS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Test Panel Title
+  </h3>
+  <div
+    className="panel-filter"
+  >
+    <div
+      className="inner-addon addon-left"
+    >
+      <div
+        className="addon"
+      >
+        <i
+          className="fa fa-filter"
+        />
+      </div>
+      <input
+        autoFocus={true}
+        className="form-control"
+        onChange={[Function]}
+        onClick={[Function]}
+        placeholder="Filter..."
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsListHeader /> should renders without some buttons correctly 1`] = `
+<div
+  className="panel-heading"
+>
+  <div
+    className="control-group right"
+  >
+    <PTButton
+      className="btn btn-success btn-inverse btn-filter"
+      onClick={[Function]}
+    >
+      <i
+        className="btn-icon fa fa-filter"
+      />
+    </PTButton>
+  </div>
+  <div
+    className="control-group right"
+  >
+    <div
+      className="dropdown"
+    >
+      <PTButton
+        className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
+        onClick={[Function]}
+      >
+        <i
+          className="btn-icon fa fa-table"
+        />
+      </PTButton>
+      <div
+        className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+      >
+        <div
+          className="heading"
+        >
+          TABLES
+        </div>
+        <div
+          className="dropdown-menu-list"
+        >
+          <div
+            className="dropdown-menu-item active"
+            onClick={[Function]}
+          >
+            <i
+              className="dropdown-menu-item-icon fa fa-table"
+            />
+            <span
+              className="dropdown-menu-item-text"
+            >
+              Vitals - NEWS
+            </span>
+          </div>
+        </div>
+        <div
+          className="heading"
+        >
+          CHARTS
+        </div>
+        <div
+          className="dropdown-menu-wrap-list"
+        >
+          <div
+            className="dropdown-menu-list"
+          >
+            <div
+              className="dropdown-menu-item"
+              onClick={[Function]}
+            >
+              <i
+                className="dropdown-menu-item-icon fa fa-area-chart"
+              />
+              <span
+                className="dropdown-menu-item-text"
+              >
+                Vitals - NEWS
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3
+    className="panel-title"
+  >
+    Test Panel Title
+  </h3>
+</div>
+`;

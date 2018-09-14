@@ -1,0 +1,820 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly and testing context and lifecycle componentWillReceiveProps 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ProblemsDiagnosisDetail
+          currentPanel="diagnosesDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "code": "1.239389E7",
+              "dateCreated": 1511284969000,
+              "dateOfOnset": 1510272000000,
+              "description": "sdsda",
+              "problem": "1.0",
+              "source": "ethercis",
+              "sourceId": "8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2",
+              "terminology": "dadadyuio",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="diagnosesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="diagnosesCreate"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly when data take from Documents how "import" 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="diagnosesCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="diagnosesCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onGoBack={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="diagnosesCreate"
+          title="Create Problem and Diagnosis"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosesDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              isSubmit={false}
+            />
+          }
+          currentPanel="diagnosesCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="diagnosesCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onGoBack={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="diagnosesCreate"
+          title="Create Problem and Diagnosis"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            id="8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ProblemsDiagnosisDetail
+          currentPanel="diagnosesDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "code": "1.239389E7",
+              "dateCreated": 1511284969000,
+              "dateOfOnset": 1510272000000,
+              "description": "sdsda",
+              "problem": "1.0",
+              "source": "ethercis",
+              "sourceId": "8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2",
+              "terminology": "dadadyuio",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="diagnosesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="diagnosesPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ProblemsDiagnosisDetail
+          currentPanel="diagnosesDetail"
+          detail={
+            Object {
+              "author": "Dr Tony Shannon",
+              "code": "1.239389E7",
+              "dateCreated": 1511284969000,
+              "dateOfOnset": 1510272000000,
+              "description": "sdsda",
+              "problem": "1.0",
+              "source": "ethercis",
+              "sourceId": "8abeb5bb-717e-4b25-9bbf-d79f5e7a34e2",
+              "terminology": "dadadyuio",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="diagnosesPanel"
+          isSubmit={false}
+          name="diagnosesDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          openedPanel="diagnosesPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with diagnosisDetail and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ProblemsDiagnosis /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <PluginBanner
+    img="problems.jpg"
+    subTitle="Short blurb containing a few words to describe this section"
+    title="Problems / Diagnoses"
+    toRight={false}
+  />
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="diagnosesMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="diagnosesMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Problems / Diagnoses"
+          />
+          <PluginMainPanel
+            columnNameSortBy="problem"
+            emptyDataMessage="No diagnoses"
+            headers={
+              Array [
+                Object {
+                  "key": "problem",
+                  "title": "Problems / Diagnoses",
+                  "width": "56%",
+                },
+                Object {
+                  "key": "dateOfOnset",
+                  "title": "Date",
+                  "transformer": [Function],
+                  "width": "25%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "19%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                  "width": 0,
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="diagnoses"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;

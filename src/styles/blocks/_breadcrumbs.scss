@@ -1,8 +1,8 @@
-.wrap-breadcrumbs { background: #F7F7F7; }
+.wrap-breadcrumbs { background: #fff; }
 .breadcrumbs {
 	color: $text-color;
 	font-size: 0;
-	padding: 9px 2px;
+	padding: 10px 2px;
 }
 .breadcrumb-link,
 .breadcrumb-separate {
@@ -25,4 +25,8 @@
 	border-width: 4px 0 4px 5px;
 	height: 0;
 	width: 0; 
+}
+
+a.breadcrumb-link {
+	color: #3596f4 !important;
 }

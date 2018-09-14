@@ -83,7 +83,7 @@ export default class PaginationBlock extends PureComponent {
    return pages;
  };
 
- noop = () => undefined;
+ noop = () => undefined; 
 
  render() {
    const { entriesPerPage, totalEntriesAmount, offset, isShortView } = this.props;

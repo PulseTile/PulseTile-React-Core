@@ -14,11 +14,11 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problem / Diagnosis"
+      title="Problems / Issues"
     >
       <div
         className="panel-body-inner"
@@ -41,11 +41,29 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <label
                     className="control-label"
                   >
-                    Problem issue
+                    Problems / Issues
                   </label>
                   <div
                     className="form-control-static"
                   />
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date of Onset
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    24-Nov-2017
+                  </div>
                 </div>
               </div>
             </div>
@@ -65,45 +83,15 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   </label>
                   <div
                     className="form-control-static"
-                  />
-                </div>
-              </div>
-              <div
-                className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
                   >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
+                    24-Nov-2017
+                  </div>
                 </div>
               </div>
             </div>
             <div
               className="row-expand"
             >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
-                </div>
-              </div>
               <div
                 className="col-expand-right"
               >
@@ -118,28 +106,6 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
                   <div
                     className="form-control-static"
                   />
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    25-Nov-2017
-                  </div>
                 </div>
               </div>
             </div>
@@ -169,7 +135,7 @@ exports[`Component <DiagnosisDetail /> should renders correctly with different s
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Edit Problem / Diagnosis"
+      title="Edit Problems / Issues"
     >
       <ReduxForm
         detail={
@@ -205,11 +171,11 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="diagnosesPanel"
-      title="Problem / Diagnosis"
+      title="Problems / Issues"
     >
       <div
         className="panel-body-inner"
@@ -232,12 +198,30 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   <label
                     className="control-label"
                   >
-                    Problem issue
+                    Problems / Issues
                   </label>
                   <div
                     className="form-control-static"
                   >
                     1.0
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date of Onset
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    25-Nov-2017
                   </div>
                 </div>
               </div>
@@ -263,46 +247,10 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   </div>
                 </div>
               </div>
-              <div
-                className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    yyyy
-                  </div>
-                </div>
-              </div>
             </div>
             <div
               className="row-expand"
             >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    1.239389E7
-                  </div>
-                </div>
-              </div>
               <div
                 className="col-expand-right"
               >
@@ -318,28 +266,6 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                     className="form-control-static"
                   >
                     Dr Tony Shannon
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    25-Nov-2017
                   </div>
                 </div>
               </div>
@@ -391,12 +317,8 @@ exports[`Component <DiagnosisDetail /> should renders with props correctly 1`] =
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              className="row-expand"
-            >
               <div
-                className="col-expand-left"
+                className="col-expand-right"
               >
                 <div
                   className="form-group"

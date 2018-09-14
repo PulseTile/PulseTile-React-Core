@@ -31,7 +31,14 @@ export default class SortableTableRow extends PureComponent {
           </td>
         )
       }
-      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      return <td 
+      data-table-hover 
+      data-th={headers[index].title} 
+      key={_.uniqueId('__SortableTableRow__')} 
+      name={rowItem.name} 
+      onClick={() => onCellClick(sourceId)} 
+      className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>
+      {rowItem.value}</td>
     });
 
     return (<tr className={classNames({ 'info': id === sourceId })}>

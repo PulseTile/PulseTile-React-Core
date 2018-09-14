@@ -3,7 +3,6 @@
 exports[`Component <SimpleDashboardPanel /> should renders with all props correctly 1`] = `
 <div
   className="dashboard-item"
-  id=""
 >
   <div
     className="board"

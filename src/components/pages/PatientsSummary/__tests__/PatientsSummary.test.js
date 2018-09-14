@@ -2,33 +2,19 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
-import { get } from 'lodash';
-
 import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-/**
- * This function returns initial panels number
- * Default number is 4: Allergies, Medications, Contacts, Problems
- *
- * @return {number}
- */
-function getInitialPanelsNumber() {
-  const defaultPanelsNumber = 4;
-  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
-  return defaultPanelsNumber - hiddenCorePlugins.length;
+function addDiveForTheme(component, testStoreContent) {
+    const pluginsNumber = Object.keys(testStoreContent).length;
+    return (pluginsNumber > 0) ? component.dive() : component;
 }
 
-/**
- *
- * @param testStoreContent
- * @return {*}
- */
 function getPanelsNumber(testStoreContent) {
-  const initialNumber = getInitialPanelsNumber();
+  const initialNumber = 4;
   const pluginsNumber = Object.keys(testStoreContent).length;
   return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
 }
@@ -64,17 +50,6 @@ const coreStoreContent = {
     patientsContacts: {},
     patientsAllergies: {},
     patientsMedications: {},
-    feeds: [{
-      name: 'Leeds Live - Whats on',
-      landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-      rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-      sourceId: 'testSourceID4',
-    }, {
-      name: 'Leeds CC Local News',
-      landingPageUrl: 'https://news.leeds.gov.uk',
-      rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-      sourceId: 'testSourceID5',
-    }],
 };
 const storeContent = Object.assign(coreStoreContent, testStoreContent);
 
@@ -129,8 +104,10 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()
         .dive();
+
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -190,8 +167,10 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
+        // .dive()
         .dive();
+
+    // component = addDiveForTheme(component, testStoreContent);
 
     expect(component).toMatchSnapshot();
 
@@ -200,26 +179,29 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('ConfirmationModal')).toHaveLength(1);
   });
 
-  it('should renders Feeds correctly', () => {
-    themeConfigs.isLeedsPHRTheme = true;
-    const component = shallow(
-      <PatientsSummary
-        store={store}
-        match={match}
-        location={location}
-        onCategorySelected={testProps.onCategorySelected}
-        selectedCategory={testProps.selectedCategory}
-      />, { context })
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        .dive()
-        .dive();
-
-    expect(component).toMatchSnapshot();
-  });
+  // For Feeds-panel
+  // it('should renders Feeds correctly', () => {
+  //   themeConfigs.isLeedsPHRTheme = true;
+  //   const component = shallow(
+  //     <PatientsSummary
+  //       store={store}
+  //       match={match}
+  //       location={location}
+  //       onCategorySelected={testProps.onCategorySelected}
+  //       selectedCategory={testProps.selectedCategory}
+  //     />, { context })
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       .dive()
+  //       // .dive()  // For TopThreeThings-plugin
+  //       // .dive()  // For Vaccinations-plugin
+  //       .dive();
+  //
+  //   expect(component).toMatchSnapshot();
+  // });
 
 });
 

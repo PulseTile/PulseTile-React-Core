@@ -1,0 +1,323 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ProceduresDetailForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="proceduresDetailForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Procedure Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="date"
+            label="Date of Procedure"
+            name="date"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="performer"
+            label="Procedure Performed By"
+            name="performer"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Procedure Notes"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="procedureTerminology"
+            label="Terminology"
+            name="procedureTerminology"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="procedureCode"
+            label="Code"
+            name="procedureCode"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateSubmitted"
+            label="Date"
+            name="dateSubmitted"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <ProceduresDetailForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="proceduresDetailForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Procedure Name"
+            name="name"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="date"
+            label="Date of Procedure"
+            name="date"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="performer"
+            label="Procedure Performed By"
+            name="performer"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Procedure Notes"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="procedureTerminology"
+            label="Terminology"
+            name="procedureTerminology"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="procedureCode"
+            label="Code"
+            name="procedureCode"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateSubmitted"
+            label="Date"
+            name="dateSubmitted"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": 1507020019000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

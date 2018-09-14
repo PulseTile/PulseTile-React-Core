@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ClinicalStatementsCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="clinicalStatementsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Field
+        component={[Function]}
+        id="type"
+        label="Type"
+        name="type"
+        props={
+          Object {
+            "isSubmit": true,
+          }
+        }
+        type="text"
+      />
+      <Field
+        component={[Function]}
+        id="clinicalNote"
+        name="clinicalNote"
+        props={
+          Object {
+            "clickOnCreate": undefined,
+            "isSubmit": true,
+            "match": undefined,
+          }
+        }
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <ClinicalStatementsCreateForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="clinicalStatementsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <Field
+        component={[Function]}
+        id="type"
+        label="Type"
+        name="type"
+        props={
+          Object {
+            "isSubmit": false,
+          }
+        }
+        type="text"
+      />
+      <Field
+        component={[Function]}
+        id="clinicalNote"
+        name="clinicalNote"
+        props={
+          Object {
+            "clickOnCreate": undefined,
+            "isSubmit": false,
+            "match": undefined,
+          }
+        }
+      />
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

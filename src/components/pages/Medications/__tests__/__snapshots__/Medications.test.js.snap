@@ -5,7 +5,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="medications.jpg"
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -33,7 +33,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -173,7 +173,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -236,7 +236,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -331,7 +331,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="medications.jpg"
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -359,7 +359,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -477,7 +477,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="medications.jpg"
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -505,7 +505,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -559,7 +559,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="medications.jpg"
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -587,7 +587,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -705,7 +705,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="medications.jpg"
     subTitle="The medical tablets and other medications that you take regularly for your health care"
     title="Medications"
     toRight={false}
@@ -733,7 +733,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -873,7 +873,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -995,9 +995,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
-          headingName="medications"
           isCreatePanelVisible={true}
-          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
@@ -1041,7 +1039,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -1163,9 +1161,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           }
           currentPanel="medicationsCreate"
           expandedPanel="all"
-          headingName="medications"
           isCreatePanelVisible={true}
-          isCreationPermitted={true}
           isImport={false}
           name="medicationsCreate"
           onCancel={[Function]}
@@ -1209,7 +1205,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
             name="medicationsMain"
             onExpand={[Function]}
             onFilterChange={[Function]}
-            panelTitle="Medications"
+            panelTitle="All Medications"
           />
           <PluginMainPanel
             columnNameSortBy="name"
@@ -1272,7 +1268,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
               ]
             }
             id="a7007401-837f-471c-8f73-cbb53c0eb1a1"
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

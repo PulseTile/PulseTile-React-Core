@@ -8,7 +8,7 @@ import ApplicationPreferencesPanel from './panels/ApplicationPreferencesPanel';
 import PersonalInformationPanel from './panels/PersonalInformationPanel';
 import ContactInformationPanel from './panels/ContactInformationPanel';
 import ChangeHistoryPanel from './panels/ChangeHistoryPanel';
-import FeedsEmptyPanel from './panels/FeedsEmptyPanel';
+import FeedsPanel from './panels/FeedsPanel';
 
 import { formStateSelector, patientInfoSelector, userAccountSelector } from './selectors';
 import { userProfileTabSelector } from '../../../selectors/user-profile-tab';
@@ -19,6 +19,7 @@ import { setTitle } from '../../../ducks/set-title.duck';
 import { setTheme } from '../../../ducks/set-theme.duck';
 import { changeUserProfileTab } from '../../../ducks/user-profile-tab.duck';
 import themes from './theme-config';
+import { themeConfigs } from '../../../themes.config';
 
 const APPLICATION_PREFERENCES = 'applicationPreferences';
 const PERSONAL_INFORMATION = 'personalInformation';
@@ -169,8 +170,8 @@ class UserProfile extends PureComponent {
                     isSaveButton={false}
                   /> : null }
 
-                {(expandedPanel === FEEDS || expandedPanel === 'all') ?
-                  <FeedsEmptyPanel
+                {(expandedPanel === FEEDS || expandedPanel === 'all') && themeConfigs.isLeedsPHRTheme ?
+                  <FeedsPanel
                     openedPanel={openedPanel}
                     editedPanel={editedPanel}
                     onShow={this.handleShow}

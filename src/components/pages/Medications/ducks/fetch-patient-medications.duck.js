@@ -38,15 +38,15 @@ export const fetchPatientMedicationsEpic = (action$, store) =>
         })
     );
 
-export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>
-  action$.ofType(FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST)
-    .mergeMap(({ payload }) =>
-      ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/medications`, {})
-        .map(response => fetchPatientMedicationsSuccess({
-          userId: payload.userId,
-          medications: get(response, 'synopsis', []),
-        }))
-    );
+// export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>
+//   action$.ofType(FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST)
+//     .mergeMap(({ payload }) =>
+//       ajax.getJSON(`${usersUrls.PATIENTS_URL}/${payload.userId}/synopsis/medications`, {})
+//         .map(response => fetchPatientMedicationsSuccess({
+//           userId: payload.userId,
+//           medications: get(response, 'synopsis', []),
+//         }))
+//     ); 
 
 export const fetchPatientMedicationsUpdateEpic = (action$, store) =>
   action$.ofType(FETCH_PATIENT_MEDICATIONS_UPDATE_REQUEST)
@@ -72,3 +72,15 @@ export default function reducer(patientsMedications = {}, action) {
       return patientsMedications;
   }
 }
+
+export const fetchPatientMedicationsSynopsisEpic = (action$, store) =>
+    action$.ofType(FETCH_PATIENT_MEDICATIONS_SYNOPSIS_REQUEST)
+        .mergeMap(({ payload }) =>
+            ajax.getJSON(`http://dev.ripple.foundation:8000/api/patients/${payload.userId}/synopsis/medications`, {
+                Authorization: 'Bearer '+testConstants.token
+            })
+                .map(response => fetchPatientMedicationsSuccess({
+                    userId: payload.userId,
+                    medications: get(response, 'synopsis', []),
+                }))
+        );

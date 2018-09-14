@@ -1,62 +1,4 @@
-// *** In this config You should choose the one of this sets settings
-
-/**
- * Configs for Main (green) theme - default theme
- */
-const mainThemeConfigs = {
-  isLeedsPHRTheme: false,
-  topHeader: {
-    showNotifications: true,
-    showQuestions: true,
-    showSearch: true,
-    showUserPanel: true,
-  },
-  isLeedsPHRHeaderList: false,
-  headerHasSearch: true,
-  footerHasShowSupportedByText: true,
-  footerCopyright: 'Transforming Usability',
-  isShowPluginsBigBanner: false,
-  patientsSummaryPageName: 'Patient Summary',
-  patientsSummaryHasPreviewSettings: false,
-  dashboardBeing: {},
-  isShowUserPhoto: true,
-  isShowUserProfileSettings: true,
-  isShowUserProfileSpecification: true,
-  sidebarConfigIsVisible: {
-    default: false,
-    'patients-summary': true,
-    'diagnoses': true,
-    'medications': true,
-    'allergies': true,
-    'contacts': true,
-  },
-  patientsSummaryTitles: {
-    'diagnoses': 'Problems / Diagnosis',
-    'medications': 'Medications',
-    'allergies': 'Allergies',
-    'contacts': 'Contacts',
-    'vaccinations': 'Vaccinations',
-    'topThreeThings': 'Top Three Things',
-  },
-  patientsSummaryDetailsTitles: {
-    'diagnoses': 'Problem / Diagnosis',
-    'medications': 'Medication',
-    'allergies': 'Allergy',
-    'contacts': 'Contact',
-    'vaccinations': 'Vaccination',
-    'topThreeThings': 'Top Three Things',
-  },
-  detailsToHide: {},
-  buttonsToHide: {},
-  panelsToHide: {},
-  corePluginsToHide: [],
-};
-
-
-/**
- * Configs for HelmPHR theme
- */
-const leedsPHRThemeConfigs = {
+export const themeConfigs = {
   isLeedsPHRTheme: true,
   topHeader: {
     showNotifications: false,
@@ -76,11 +18,10 @@ const leedsPHRThemeConfigs = {
     'patients-summary': true,
     'diagnoses': true,
     'medications': true,
-    'vaccinations': true,
     'allergies': true,
+    'contacts': true,
+    'vaccinations': true,
     'topThreeThings': true,
-    'contacts': false,
-    'feeds': false
   },
   dashboardBeing: {},
   isShowUserPhoto: false,
@@ -93,25 +34,19 @@ const leedsPHRThemeConfigs = {
     'contacts': 'Contacts',
     'vaccinations': 'Vaccinations',
     'topThreeThings': 'Top Three Things',
-    'feeds' : 'Feeds',
   },
   detailsToHide: {
     'allergies': ['causeCode', 'causeTerminology'],
     'diagnoses': ['terminology', 'code'],
     'medications': ['doseTiming', 'doseAmount'],
-    'vaccinations': ['series'],
   },
   buttonsToHide: {
     'diagnoses': ['create', 'edit'],
     'medications': ['create', 'edit', 'cancel', 'suspend', 'order'],
     'allergies': ['create', 'edit'],
     'vaccinations': ['create', 'edit'],
-    'feeds': ['create', 'edit'],
   },
   panelsToHide: {
     'medications': ['history', 'prescription', 'warnings'],
-  },
-  corePluginsToHide: ['contacts'],
+  }
 };
-
-export const themeConfigs = mainThemeConfigs;

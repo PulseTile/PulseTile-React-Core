@@ -86,8 +86,6 @@ describe('Component <TopHeader />', () => {
     expect(component.find('.navbar-space-right')).toHaveLength(1);
     expect(component).toMatchSnapshot();
 
-    component.instance().runTour();
-
     component.setProps({ children: undefined });
     themeConfigs.isLeedsPHRTheme = true;
     expect(component).toMatchSnapshot();

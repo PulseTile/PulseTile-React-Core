@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PluginCreate /> should renders correctly when creation is denied for user 1`] = `undefined`;
-
 exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 1`] = `
 <div
   className="section-detail"
@@ -97,8 +95,6 @@ exports[`Component <PluginCreate /> should renders with all props correctly 1`] 
       "prop_3": "value_3",
     }
   }
-  headingName=""
-  isCreationPermitted={true}
   isImport={false}
   name="TEST_PANEL"
   onCancel={[Function]}
@@ -130,8 +126,6 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
       "prop_3": "value_3",
     }
   }
-  headingName=""
-  isCreationPermitted={true}
   isImport={false}
   name="TEST_PANEL"
   onCancel={[Function]}
