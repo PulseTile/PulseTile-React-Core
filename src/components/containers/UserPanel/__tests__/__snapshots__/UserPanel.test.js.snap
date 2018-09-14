@@ -76,11 +76,15 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             >
               <PTButton
                 className="btn-header"
+                id="icon-tour"
                 onClick={[Function]}
+                title="User Tour"
               >
                 <button
                   className="btn-header"
+                  id="icon-tour"
                   onClick={[Function]}
+                  title="User Tour"
                 >
                   <i
                     className="fa fa-question-circle"
@@ -89,6 +93,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               </PTButton>
             </li>
           </UserPanelItem>
+          <UserTourLink />
           <UserPanelItem
             className="user-panel-item dropdown"
           >
@@ -475,13 +480,16 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      id="icon-tour"
       onClick={[Function]}
+      title="User Tour"
     >
       <i
         className="fa fa-question-circle"
       />
     </PTButton>
   </UserPanelItem>
+  <UserTourLink />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -549,13 +557,16 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      id="icon-tour"
       onClick={[Function]}
+      title="User Tour"
     >
       <i
         className="fa fa-question-circle"
       />
     </PTButton>
   </UserPanelItem>
+  <UserTourLink />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -623,13 +634,16 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      id="icon-tour"
       onClick={[Function]}
+      title="User Tour"
     >
       <i
         className="fa fa-question-circle"
       />
     </PTButton>
   </UserPanelItem>
+  <UserTourLink />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -692,13 +706,16 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     <PTButton
       className="btn-header"
+      id="icon-tour"
       onClick={[Function]}
+      title="User Tour"
     >
       <i
         className="fa fa-question-circle"
       />
     </PTButton>
   </UserPanelItem>
+  <UserTourLink />
   <UserPanelItem
     className="user-panel-item dropdown"
   >

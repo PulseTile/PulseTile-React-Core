@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { get } from 'lodash';
+
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../presentational/temprorary/NotificationContent'
 import UserAccountPanel from './UserAccountPanel'
 import { themeConfigs } from '../../../themes.config';
+import UserTourLink from '../UserTour/UserTourLink';
 
 const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
@@ -88,6 +90,7 @@ export default class UserPanel extends PureComponent {
             <i className="fa fa-question-circle" />
           </PTButton>
         </UserPanelItem> : null}
+        <UserTourLink />
         {isNotifications ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />
           <PTButton className="btn-header btn-notification" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
