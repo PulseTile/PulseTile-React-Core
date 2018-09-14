@@ -44,10 +44,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
         "dateOfBirth": -363657600000,
-        "dateOfBirthConvert": "24-Jun-1958",
+        "dateOfBirthConvert": "23-Jun-1958",
         "department": "Primary Care",
         "diagnosesDate": "1970-01-01T00:00:00-05:00",
-        "diagnosesDateConvert": "01-Jan-1970",
+        "diagnosesDateConvert": "31-Dec-1969",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
@@ -55,21 +55,21 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
         "ordersDate": "1970-01-01T00:00:00-05:00",
-        "ordersDateConvert": "01-Jan-1970",
+        "ordersDateConvert": "31-Dec-1969",
         "pasNo": "595941",
         "phone": "070 6691 5178",
         "resultsDate": "1970-01-01T00:00:00-05:00",
-        "resultsDateConvert": "01-Jan-1970",
+        "resultsDateConvert": "31-Dec-1969",
         "vitalsDate": "1970-01-01T00:00:00-05:00",
-        "vitalsDateConvert": "01-Jan-1970",
+        "vitalsDateConvert": "31-Dec-1969",
       },
       Object {
         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
         "dateOfBirth": -363657600000,
-        "dateOfBirthConvert": "24-Jun-1958",
+        "dateOfBirthConvert": "23-Jun-1958",
         "department": "Primary Care",
         "diagnosesDate": "1970-01-01T00:00:00-05:00",
-        "diagnosesDateConvert": "01-Jan-1970",
+        "diagnosesDateConvert": "31-Dec-1969",
         "gender": "Male",
         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
         "gpName": "Joseph May N.",
@@ -77,13 +77,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         "name": "Ezra Gordon",
         "nhsNumber": "9999999006",
         "ordersDate": "1970-01-01T00:00:00-05:00",
-        "ordersDateConvert": "01-Jan-1970",
+        "ordersDateConvert": "31-Dec-1969",
         "pasNo": "595941",
         "phone": "070 6691 5178",
         "resultsDate": "1970-01-01T00:00:00-05:00",
-        "resultsDateConvert": "01-Jan-1970",
+        "resultsDateConvert": "31-Dec-1969",
         "vitalsDate": "1970-01-01T00:00:00-05:00",
-        "vitalsDateConvert": "01-Jan-1970",
+        "vitalsDateConvert": "31-Dec-1969",
       },
     ]
   }
@@ -208,10 +208,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
         Object {
           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
           "dateOfBirth": -363657600000,
-          "dateOfBirthConvert": "24-Jun-1958",
+          "dateOfBirthConvert": "23-Jun-1958",
           "department": "Primary Care",
           "diagnosesDate": "1970-01-01T00:00:00-05:00",
-          "diagnosesDateConvert": "01-Jan-1970",
+          "diagnosesDateConvert": "31-Dec-1969",
           "gender": "Male",
           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
           "gpName": "Joseph May N.",
@@ -219,21 +219,21 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
           "name": "Ezra Gordon",
           "nhsNumber": "9999999006",
           "ordersDate": "1970-01-01T00:00:00-05:00",
-          "ordersDateConvert": "01-Jan-1970",
+          "ordersDateConvert": "31-Dec-1969",
           "pasNo": "595941",
           "phone": "070 6691 5178",
           "resultsDate": "1970-01-01T00:00:00-05:00",
-          "resultsDateConvert": "01-Jan-1970",
+          "resultsDateConvert": "31-Dec-1969",
           "vitalsDate": "1970-01-01T00:00:00-05:00",
-          "vitalsDateConvert": "01-Jan-1970",
+          "vitalsDateConvert": "31-Dec-1969",
         },
         Object {
           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
           "dateOfBirth": -363657600000,
-          "dateOfBirthConvert": "24-Jun-1958",
+          "dateOfBirthConvert": "23-Jun-1958",
           "department": "Primary Care",
           "diagnosesDate": "1970-01-01T00:00:00-05:00",
-          "diagnosesDateConvert": "01-Jan-1970",
+          "diagnosesDateConvert": "31-Dec-1969",
           "gender": "Male",
           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
           "gpName": "Joseph May N.",
@@ -241,13 +241,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
           "name": "Ezra Gordon",
           "nhsNumber": "9999999006",
           "ordersDate": "1970-01-01T00:00:00-05:00",
-          "ordersDateConvert": "01-Jan-1970",
+          "ordersDateConvert": "31-Dec-1969",
           "pasNo": "595941",
           "phone": "070 6691 5178",
           "resultsDate": "1970-01-01T00:00:00-05:00",
-          "resultsDateConvert": "01-Jan-1970",
+          "resultsDateConvert": "31-Dec-1969",
           "vitalsDate": "1970-01-01T00:00:00-05:00",
-          "vitalsDateConvert": "01-Jan-1970",
+          "vitalsDateConvert": "31-Dec-1969",
         },
       ]
     }
@@ -1128,10 +1128,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                   Object {
                     "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                     "dateOfBirth": -363657600000,
-                    "dateOfBirthConvert": "24-Jun-1958",
+                    "dateOfBirthConvert": "23-Jun-1958",
                     "department": "Primary Care",
                     "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                    "diagnosesDateConvert": "01-Jan-1970",
+                    "diagnosesDateConvert": "31-Dec-1969",
                     "gender": "Male",
                     "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                     "gpName": "Joseph May N.",
@@ -1139,11 +1139,11 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                     "name": "Ezra Gordon",
                     "nhsNumber": "9999999006",
                     "ordersDate": "1970-01-01T00:00:00-05:00",
-                    "ordersDateConvert": "01-Jan-1970",
+                    "ordersDateConvert": "31-Dec-1969",
                     "pasNo": "595941",
                     "phone": "070 6691 5178",
                     "resultsDate": "1970-01-01T00:00:00-05:00",
-                    "resultsDateConvert": "01-Jan-1970",
+                    "resultsDateConvert": "31-Dec-1969",
                     "viewPatientNavigation": <ViewPatientDropdown
                       onPatientViewClick={[Function]}
                       onSetOpenedDropdownID={[Function]}
@@ -1152,10 +1152,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                         Object {
                           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                           "dateOfBirth": -363657600000,
-                          "dateOfBirthConvert": "24-Jun-1958",
+                          "dateOfBirthConvert": "23-Jun-1958",
                           "department": "Primary Care",
                           "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                          "diagnosesDateConvert": "01-Jan-1970",
+                          "diagnosesDateConvert": "31-Dec-1969",
                           "gender": "Male",
                           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                           "gpName": "Joseph May N.",
@@ -1163,18 +1163,18 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           "name": "Ezra Gordon",
                           "nhsNumber": "9999999006",
                           "ordersDate": "1970-01-01T00:00:00-05:00",
-                          "ordersDateConvert": "01-Jan-1970",
+                          "ordersDateConvert": "31-Dec-1969",
                           "pasNo": "595941",
                           "phone": "070 6691 5178",
                           "resultsDate": "1970-01-01T00:00:00-05:00",
-                          "resultsDateConvert": "01-Jan-1970",
+                          "resultsDateConvert": "31-Dec-1969",
                           "vitalsDate": "1970-01-01T00:00:00-05:00",
-                          "vitalsDateConvert": "01-Jan-1970",
+                          "vitalsDateConvert": "31-Dec-1969",
                         }
                       }
                     />,
                     "vitalsDate": "1970-01-01T00:00:00-05:00",
-                    "vitalsDateConvert": "01-Jan-1970",
+                    "vitalsDateConvert": "31-Dec-1969",
                   },
                 ]
               }
@@ -1839,7 +1839,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           },
                           Object {
                             "name": "dateOfBirth",
-                            "value": "24-Jun-1958",
+                            "value": "23-Jun-1958",
                           },
                           Object {
                             "name": "gender",
@@ -1851,7 +1851,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           },
                           Object {
                             "name": "ordersDate",
-                            "value": "01-Jan-1970",
+                            "value": "31-Dec-1969",
                           },
                           Object {
                             "name": "ordersCount",
@@ -1867,10 +1867,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 Object {
                                   "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                   "dateOfBirth": -363657600000,
-                                  "dateOfBirthConvert": "24-Jun-1958",
+                                  "dateOfBirthConvert": "23-Jun-1958",
                                   "department": "Primary Care",
                                   "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                  "diagnosesDateConvert": "01-Jan-1970",
+                                  "diagnosesDateConvert": "31-Dec-1969",
                                   "gender": "Male",
                                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                   "gpName": "Joseph May N.",
@@ -1878,13 +1878,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                   "name": "Ezra Gordon",
                                   "nhsNumber": "9999999006",
                                   "ordersDate": "1970-01-01T00:00:00-05:00",
-                                  "ordersDateConvert": "01-Jan-1970",
+                                  "ordersDateConvert": "31-Dec-1969",
                                   "pasNo": "595941",
                                   "phone": "070 6691 5178",
                                   "resultsDate": "1970-01-01T00:00:00-05:00",
-                                  "resultsDateConvert": "01-Jan-1970",
+                                  "resultsDateConvert": "31-Dec-1969",
                                   "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                  "vitalsDateConvert": "01-Jan-1970",
+                                  "vitalsDateConvert": "31-Dec-1969",
                                 }
                               }
                             />,
@@ -1926,7 +1926,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           name="dateOfBirth"
                           onClick={[Function]}
                         >
-                          24-Jun-1958
+                          23-Jun-1958
                         </td>
                         <td
                           className="text-center"
@@ -1956,7 +1956,7 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                           name="ordersDate"
                           onClick={[Function]}
                         >
-                          01-Jan-1970
+                          31-Dec-1969
                         </td>
                         <td
                           className="text-center"
@@ -1984,10 +1984,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               Object {
                                 "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                 "dateOfBirth": -363657600000,
-                                "dateOfBirthConvert": "24-Jun-1958",
+                                "dateOfBirthConvert": "23-Jun-1958",
                                 "department": "Primary Care",
                                 "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                "diagnosesDateConvert": "01-Jan-1970",
+                                "diagnosesDateConvert": "31-Dec-1969",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
@@ -1995,13 +1995,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
                                 "ordersDate": "1970-01-01T00:00:00-05:00",
-                                "ordersDateConvert": "01-Jan-1970",
+                                "ordersDateConvert": "31-Dec-1969",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
                                 "resultsDate": "1970-01-01T00:00:00-05:00",
-                                "resultsDateConvert": "01-Jan-1970",
+                                "resultsDateConvert": "31-Dec-1969",
                                 "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                "vitalsDateConvert": "01-Jan-1970",
+                                "vitalsDateConvert": "31-Dec-1969",
                               }
                             }
                           >
@@ -2185,10 +2185,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 Object {
                                   "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                   "dateOfBirth": -363657600000,
-                                  "dateOfBirthConvert": "24-Jun-1958",
+                                  "dateOfBirthConvert": "23-Jun-1958",
                                   "department": "Primary Care",
                                   "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                  "diagnosesDateConvert": "01-Jan-1970",
+                                  "diagnosesDateConvert": "31-Dec-1969",
                                   "gender": "Male",
                                   "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                   "gpName": "Joseph May N.",
@@ -2196,13 +2196,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                   "name": "Ezra Gordon",
                                   "nhsNumber": "9999999006",
                                   "ordersDate": "1970-01-01T00:00:00-05:00",
-                                  "ordersDateConvert": "01-Jan-1970",
+                                  "ordersDateConvert": "31-Dec-1969",
                                   "pasNo": "595941",
                                   "phone": "070 6691 5178",
                                   "resultsDate": "1970-01-01T00:00:00-05:00",
-                                  "resultsDateConvert": "01-Jan-1970",
+                                  "resultsDateConvert": "31-Dec-1969",
                                   "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                  "vitalsDateConvert": "01-Jan-1970",
+                                  "vitalsDateConvert": "31-Dec-1969",
                                 }
                               }
                             />,
@@ -2232,10 +2232,10 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                               Object {
                                 "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                 "dateOfBirth": -363657600000,
-                                "dateOfBirthConvert": "24-Jun-1958",
+                                "dateOfBirthConvert": "23-Jun-1958",
                                 "department": "Primary Care",
                                 "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                "diagnosesDateConvert": "01-Jan-1970",
+                                "diagnosesDateConvert": "31-Dec-1969",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
@@ -2243,13 +2243,13 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
                                 "ordersDate": "1970-01-01T00:00:00-05:00",
-                                "ordersDateConvert": "01-Jan-1970",
+                                "ordersDateConvert": "31-Dec-1969",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
                                 "resultsDate": "1970-01-01T00:00:00-05:00",
-                                "resultsDateConvert": "01-Jan-1970",
+                                "resultsDateConvert": "31-Dec-1969",
                                 "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                "vitalsDateConvert": "01-Jan-1970",
+                                "vitalsDateConvert": "31-Dec-1969",
                               }
                             }
                           >
@@ -2420,10 +2420,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
             Object {
               "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
               "dateOfBirth": -363657600000,
-              "dateOfBirthConvert": "24-Jun-1958",
+              "dateOfBirthConvert": "23-Jun-1958",
               "department": "Primary Care",
               "diagnosesDate": "1970-01-01T00:00:00-05:00",
-              "diagnosesDateConvert": "01-Jan-1970",
+              "diagnosesDateConvert": "31-Dec-1969",
               "gender": "Male",
               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
               "gpName": "Joseph May N.",
@@ -2431,21 +2431,21 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
               "name": "Ezra Gordon",
               "nhsNumber": "9999999006",
               "ordersDate": "1970-01-01T00:00:00-05:00",
-              "ordersDateConvert": "01-Jan-1970",
+              "ordersDateConvert": "31-Dec-1969",
               "pasNo": "595941",
               "phone": "070 6691 5178",
               "resultsDate": "1970-01-01T00:00:00-05:00",
-              "resultsDateConvert": "01-Jan-1970",
+              "resultsDateConvert": "31-Dec-1969",
               "vitalsDate": "1970-01-01T00:00:00-05:00",
-              "vitalsDateConvert": "01-Jan-1970",
+              "vitalsDateConvert": "31-Dec-1969",
             },
             Object {
               "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
               "dateOfBirth": -363657600000,
-              "dateOfBirthConvert": "24-Jun-1958",
+              "dateOfBirthConvert": "23-Jun-1958",
               "department": "Primary Care",
               "diagnosesDate": "1970-01-01T00:00:00-05:00",
-              "diagnosesDateConvert": "01-Jan-1970",
+              "diagnosesDateConvert": "31-Dec-1969",
               "gender": "Male",
               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
               "gpName": "Joseph May N.",
@@ -2453,13 +2453,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
               "name": "Ezra Gordon",
               "nhsNumber": "9999999006",
               "ordersDate": "1970-01-01T00:00:00-05:00",
-              "ordersDateConvert": "01-Jan-1970",
+              "ordersDateConvert": "31-Dec-1969",
               "pasNo": "595941",
               "phone": "070 6691 5178",
               "resultsDate": "1970-01-01T00:00:00-05:00",
-              "resultsDateConvert": "01-Jan-1970",
+              "resultsDateConvert": "31-Dec-1969",
               "vitalsDate": "1970-01-01T00:00:00-05:00",
-              "vitalsDateConvert": "01-Jan-1970",
+              "vitalsDateConvert": "31-Dec-1969",
             },
           ],
           "currentPagePatients": Array [
@@ -2622,10 +2622,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
             Object {
               "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
               "dateOfBirth": -363657600000,
-              "dateOfBirthConvert": "24-Jun-1958",
+              "dateOfBirthConvert": "23-Jun-1958",
               "department": "Primary Care",
               "diagnosesDate": "1970-01-01T00:00:00-05:00",
-              "diagnosesDateConvert": "01-Jan-1970",
+              "diagnosesDateConvert": "31-Dec-1969",
               "gender": "Male",
               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
               "gpName": "Joseph May N.",
@@ -2633,21 +2633,21 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
               "name": "Ezra Gordon",
               "nhsNumber": "9999999006",
               "ordersDate": "1970-01-01T00:00:00-05:00",
-              "ordersDateConvert": "01-Jan-1970",
+              "ordersDateConvert": "31-Dec-1969",
               "pasNo": "595941",
               "phone": "070 6691 5178",
               "resultsDate": "1970-01-01T00:00:00-05:00",
-              "resultsDateConvert": "01-Jan-1970",
+              "resultsDateConvert": "31-Dec-1969",
               "vitalsDate": "1970-01-01T00:00:00-05:00",
-              "vitalsDateConvert": "01-Jan-1970",
+              "vitalsDateConvert": "31-Dec-1969",
             },
             Object {
               "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
               "dateOfBirth": -363657600000,
-              "dateOfBirthConvert": "24-Jun-1958",
+              "dateOfBirthConvert": "23-Jun-1958",
               "department": "Primary Care",
               "diagnosesDate": "1970-01-01T00:00:00-05:00",
-              "diagnosesDateConvert": "01-Jan-1970",
+              "diagnosesDateConvert": "31-Dec-1969",
               "gender": "Male",
               "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
               "gpName": "Joseph May N.",
@@ -2655,13 +2655,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
               "name": "Ezra Gordon",
               "nhsNumber": "9999999006",
               "ordersDate": "1970-01-01T00:00:00-05:00",
-              "ordersDateConvert": "01-Jan-1970",
+              "ordersDateConvert": "31-Dec-1969",
               "pasNo": "595941",
               "phone": "070 6691 5178",
               "resultsDate": "1970-01-01T00:00:00-05:00",
-              "resultsDateConvert": "01-Jan-1970",
+              "resultsDateConvert": "31-Dec-1969",
               "vitalsDate": "1970-01-01T00:00:00-05:00",
-              "vitalsDateConvert": "01-Jan-1970",
+              "vitalsDateConvert": "31-Dec-1969",
             },
           ]
         }
@@ -2776,10 +2776,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
               Object {
                 "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                 "dateOfBirth": -363657600000,
-                "dateOfBirthConvert": "24-Jun-1958",
+                "dateOfBirthConvert": "23-Jun-1958",
                 "department": "Primary Care",
                 "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                "diagnosesDateConvert": "01-Jan-1970",
+                "diagnosesDateConvert": "31-Dec-1969",
                 "gender": "Male",
                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                 "gpName": "Joseph May N.",
@@ -2787,21 +2787,21 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                 "name": "Ezra Gordon",
                 "nhsNumber": "9999999006",
                 "ordersDate": "1970-01-01T00:00:00-05:00",
-                "ordersDateConvert": "01-Jan-1970",
+                "ordersDateConvert": "31-Dec-1969",
                 "pasNo": "595941",
                 "phone": "070 6691 5178",
                 "resultsDate": "1970-01-01T00:00:00-05:00",
-                "resultsDateConvert": "01-Jan-1970",
+                "resultsDateConvert": "31-Dec-1969",
                 "vitalsDate": "1970-01-01T00:00:00-05:00",
-                "vitalsDateConvert": "01-Jan-1970",
+                "vitalsDateConvert": "31-Dec-1969",
               },
               Object {
                 "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                 "dateOfBirth": -363657600000,
-                "dateOfBirthConvert": "24-Jun-1958",
+                "dateOfBirthConvert": "23-Jun-1958",
                 "department": "Primary Care",
                 "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                "diagnosesDateConvert": "01-Jan-1970",
+                "diagnosesDateConvert": "31-Dec-1969",
                 "gender": "Male",
                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                 "gpName": "Joseph May N.",
@@ -2809,13 +2809,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                 "name": "Ezra Gordon",
                 "nhsNumber": "9999999006",
                 "ordersDate": "1970-01-01T00:00:00-05:00",
-                "ordersDateConvert": "01-Jan-1970",
+                "ordersDateConvert": "31-Dec-1969",
                 "pasNo": "595941",
                 "phone": "070 6691 5178",
                 "resultsDate": "1970-01-01T00:00:00-05:00",
-                "resultsDateConvert": "01-Jan-1970",
+                "resultsDateConvert": "31-Dec-1969",
                 "vitalsDate": "1970-01-01T00:00:00-05:00",
-                "vitalsDateConvert": "01-Jan-1970",
+                "vitalsDateConvert": "31-Dec-1969",
               },
             ]
           }
@@ -2972,10 +2972,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                         Object {
                           "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                           "dateOfBirth": -363657600000,
-                          "dateOfBirthConvert": "24-Jun-1958",
+                          "dateOfBirthConvert": "23-Jun-1958",
                           "department": "Primary Care",
                           "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                          "diagnosesDateConvert": "01-Jan-1970",
+                          "diagnosesDateConvert": "31-Dec-1969",
                           "gender": "Male",
                           "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                           "gpName": "Joseph May N.",
@@ -2983,11 +2983,11 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                           "name": "Ezra Gordon",
                           "nhsNumber": "9999999006",
                           "ordersDate": "1970-01-01T00:00:00-05:00",
-                          "ordersDateConvert": "01-Jan-1970",
+                          "ordersDateConvert": "31-Dec-1969",
                           "pasNo": "595941",
                           "phone": "070 6691 5178",
                           "resultsDate": "1970-01-01T00:00:00-05:00",
-                          "resultsDateConvert": "01-Jan-1970",
+                          "resultsDateConvert": "31-Dec-1969",
                           "viewPatientNavigation": <ViewPatientDropdown
                             onPatientViewClick={[Function]}
                             onSetOpenedDropdownID={[Function]}
@@ -2996,10 +2996,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                               Object {
                                 "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                 "dateOfBirth": -363657600000,
-                                "dateOfBirthConvert": "24-Jun-1958",
+                                "dateOfBirthConvert": "23-Jun-1958",
                                 "department": "Primary Care",
                                 "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                "diagnosesDateConvert": "01-Jan-1970",
+                                "diagnosesDateConvert": "31-Dec-1969",
                                 "gender": "Male",
                                 "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                 "gpName": "Joseph May N.",
@@ -3007,18 +3007,18 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                 "name": "Ezra Gordon",
                                 "nhsNumber": "9999999006",
                                 "ordersDate": "1970-01-01T00:00:00-05:00",
-                                "ordersDateConvert": "01-Jan-1970",
+                                "ordersDateConvert": "31-Dec-1969",
                                 "pasNo": "595941",
                                 "phone": "070 6691 5178",
                                 "resultsDate": "1970-01-01T00:00:00-05:00",
-                                "resultsDateConvert": "01-Jan-1970",
+                                "resultsDateConvert": "31-Dec-1969",
                                 "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                "vitalsDateConvert": "01-Jan-1970",
+                                "vitalsDateConvert": "31-Dec-1969",
                               }
                             }
                           />,
                           "vitalsDate": "1970-01-01T00:00:00-05:00",
-                          "vitalsDateConvert": "01-Jan-1970",
+                          "vitalsDateConvert": "31-Dec-1969",
                         },
                       ]
                     }
@@ -3683,7 +3683,7 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                 },
                                 Object {
                                   "name": "dateOfBirth",
-                                  "value": "24-Jun-1958",
+                                  "value": "23-Jun-1958",
                                 },
                                 Object {
                                   "name": "gender",
@@ -3695,7 +3695,7 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                 },
                                 Object {
                                   "name": "ordersDate",
-                                  "value": "01-Jan-1970",
+                                  "value": "31-Dec-1969",
                                 },
                                 Object {
                                   "name": "ordersCount",
@@ -3711,10 +3711,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                       Object {
                                         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                         "dateOfBirth": -363657600000,
-                                        "dateOfBirthConvert": "24-Jun-1958",
+                                        "dateOfBirthConvert": "23-Jun-1958",
                                         "department": "Primary Care",
                                         "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                        "diagnosesDateConvert": "01-Jan-1970",
+                                        "diagnosesDateConvert": "31-Dec-1969",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
@@ -3722,13 +3722,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
                                         "ordersDate": "1970-01-01T00:00:00-05:00",
-                                        "ordersDateConvert": "01-Jan-1970",
+                                        "ordersDateConvert": "31-Dec-1969",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
                                         "resultsDate": "1970-01-01T00:00:00-05:00",
-                                        "resultsDateConvert": "01-Jan-1970",
+                                        "resultsDateConvert": "31-Dec-1969",
                                         "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                        "vitalsDateConvert": "01-Jan-1970",
+                                        "vitalsDateConvert": "31-Dec-1969",
                                       }
                                     }
                                   />,
@@ -3770,7 +3770,7 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                 name="dateOfBirth"
                                 onClick={[Function]}
                               >
-                                24-Jun-1958
+                                23-Jun-1958
                               </td>
                               <td
                                 className="text-center"
@@ -3800,7 +3800,7 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                 name="ordersDate"
                                 onClick={[Function]}
                               >
-                                01-Jan-1970
+                                31-Dec-1969
                               </td>
                               <td
                                 className="text-center"
@@ -3828,10 +3828,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                     Object {
                                       "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                       "dateOfBirth": -363657600000,
-                                      "dateOfBirthConvert": "24-Jun-1958",
+                                      "dateOfBirthConvert": "23-Jun-1958",
                                       "department": "Primary Care",
                                       "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                      "diagnosesDateConvert": "01-Jan-1970",
+                                      "diagnosesDateConvert": "31-Dec-1969",
                                       "gender": "Male",
                                       "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                       "gpName": "Joseph May N.",
@@ -3839,13 +3839,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                       "name": "Ezra Gordon",
                                       "nhsNumber": "9999999006",
                                       "ordersDate": "1970-01-01T00:00:00-05:00",
-                                      "ordersDateConvert": "01-Jan-1970",
+                                      "ordersDateConvert": "31-Dec-1969",
                                       "pasNo": "595941",
                                       "phone": "070 6691 5178",
                                       "resultsDate": "1970-01-01T00:00:00-05:00",
-                                      "resultsDateConvert": "01-Jan-1970",
+                                      "resultsDateConvert": "31-Dec-1969",
                                       "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                      "vitalsDateConvert": "01-Jan-1970",
+                                      "vitalsDateConvert": "31-Dec-1969",
                                     }
                                   }
                                 >
@@ -4029,10 +4029,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                       Object {
                                         "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                         "dateOfBirth": -363657600000,
-                                        "dateOfBirthConvert": "24-Jun-1958",
+                                        "dateOfBirthConvert": "23-Jun-1958",
                                         "department": "Primary Care",
                                         "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                        "diagnosesDateConvert": "01-Jan-1970",
+                                        "diagnosesDateConvert": "31-Dec-1969",
                                         "gender": "Male",
                                         "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                         "gpName": "Joseph May N.",
@@ -4040,13 +4040,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                         "name": "Ezra Gordon",
                                         "nhsNumber": "9999999006",
                                         "ordersDate": "1970-01-01T00:00:00-05:00",
-                                        "ordersDateConvert": "01-Jan-1970",
+                                        "ordersDateConvert": "31-Dec-1969",
                                         "pasNo": "595941",
                                         "phone": "070 6691 5178",
                                         "resultsDate": "1970-01-01T00:00:00-05:00",
-                                        "resultsDateConvert": "01-Jan-1970",
+                                        "resultsDateConvert": "31-Dec-1969",
                                         "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                        "vitalsDateConvert": "01-Jan-1970",
+                                        "vitalsDateConvert": "31-Dec-1969",
                                       }
                                     }
                                   />,
@@ -4076,10 +4076,10 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                     Object {
                                       "address": "P.O. Box 711, 8725 Purus Rd., Grangemouth, Stirlingshire, B4 8MW",
                                       "dateOfBirth": -363657600000,
-                                      "dateOfBirthConvert": "24-Jun-1958",
+                                      "dateOfBirthConvert": "23-Jun-1958",
                                       "department": "Primary Care",
                                       "diagnosesDate": "1970-01-01T00:00:00-05:00",
-                                      "diagnosesDateConvert": "01-Jan-1970",
+                                      "diagnosesDateConvert": "31-Dec-1969",
                                       "gender": "Male",
                                       "gpAddress": "Aulderan Practice, Ap #806-2884 Enim St., Auldearn, Nairnshire, V4F 9GJ",
                                       "gpName": "Joseph May N.",
@@ -4087,13 +4087,13 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                                       "name": "Ezra Gordon",
                                       "nhsNumber": "9999999006",
                                       "ordersDate": "1970-01-01T00:00:00-05:00",
-                                      "ordersDateConvert": "01-Jan-1970",
+                                      "ordersDateConvert": "31-Dec-1969",
                                       "pasNo": "595941",
                                       "phone": "070 6691 5178",
                                       "resultsDate": "1970-01-01T00:00:00-05:00",
-                                      "resultsDateConvert": "01-Jan-1970",
+                                      "resultsDateConvert": "31-Dec-1969",
                                       "vitalsDate": "1970-01-01T00:00:00-05:00",
-                                      "vitalsDateConvert": "01-Jan-1970",
+                                      "vitalsDateConvert": "31-Dec-1969",
                                     }
                                   }
                                 >

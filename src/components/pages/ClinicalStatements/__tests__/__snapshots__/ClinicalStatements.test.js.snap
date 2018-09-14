@@ -1,0 +1,651 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ClinicalStatements /> should renders correctly and testing another methods 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with clinicalStatementPanel and testing Detail Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={true}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            id="d9acb27f-6688-4515-ab0a-5db636f36f05"
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ClinicalStatementsDetail
+          currentPanel="clinicalStatementsDetail"
+          detail={
+            Object {
+              "author": "bob.smith@gmail.com",
+              "dateCreated": 1519236225009,
+              "source": "qewdDB",
+              "sourceId": "d9acb27f-6688-4515-ab0a-5db636f36f05",
+              "tags": Object {
+                "chestpain": true,
+              },
+              "text": "The pain was mild at 3 in severity",
+              "type": "Test name",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="all"
+          isSubmit={false}
+          name="clinicalStatementsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="clinicalStatementPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with clinicalStatementPanel and testing Detail Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section full-panel full-panel-details"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <ClinicalStatementsDetail
+          currentPanel="clinicalStatementsDetail"
+          detail={
+            Object {
+              "author": "bob.smith@gmail.com",
+              "dateCreated": 1519236225009,
+              "source": "qewdDB",
+              "sourceId": "d9acb27f-6688-4515-ab0a-5db636f36f05",
+              "tags": Object {
+                "chestpain": true,
+              },
+              "text": "The pain was mild at 3 in severity",
+              "type": "Test name",
+            }
+          }
+          editedPanel={Object {}}
+          expandedPanel="clinicalStatementPanel"
+          isSubmit={false}
+          name="clinicalStatementsDetail"
+          onCancel={[Function]}
+          onEdit={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="clinicalStatementPanel"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with clinicalStatementPanel and testing Detail Panel 3`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    />
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with clinicalStatementsDetail and testing Create Panel 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              clickOnCreate={false}
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+            />
+          }
+          currentPanel="clinicalStatementsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="clinicalStatementsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="clinicalStatementsCreate"
+          title="Create Clinical Statement"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with clinicalStatementsDetail and testing Create Panel 2`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className="col-panel-main"
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={false}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+      <Col
+        bsClass="col"
+        className="col-panel-details"
+        componentClass="div"
+        xs={12}
+      >
+        <PluginCreate
+          componentForm={
+            <ReduxForm
+              clickOnCreate={false}
+              isSubmit={false}
+              match={
+                Object {
+                  "params": Object {
+                    "userId": "9999999000",
+                  },
+                }
+              }
+            />
+          }
+          currentPanel="clinicalStatementsCreate"
+          expandedPanel="all"
+          isCreatePanelVisible={true}
+          isImport={false}
+          name="clinicalStatementsCreate"
+          onCancel={[Function]}
+          onExpand={[Function]}
+          onSaveSettings={[Function]}
+          onShow={[Function]}
+          openedPanel="clinicalStatementsCreate"
+          title="Create Clinical Statement"
+        />
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with empty store 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;
+
+exports[`Component <ClinicalStatements /> should renders correctly with forms error 1`] = `
+<section
+  className="page-wrapper"
+>
+  <div
+    className="section"
+  >
+    <Row
+      bsClass="row"
+      componentClass="div"
+    >
+      <Col
+        bsClass="col"
+        className=""
+        componentClass="div"
+        xs={12}
+      >
+        <div
+          className="panel panel-primary"
+        >
+          <PluginListHeader
+            currentPanel="clinicalStatementsMain"
+            isBtnExpandVisible={false}
+            isBtnTableVisible={false}
+            name="clinicalStatementsMain"
+            onExpand={[Function]}
+            onFilterChange={[Function]}
+            panelTitle="Clinical Statements"
+          />
+          <PluginMainPanel
+            columnNameSortBy="type"
+            emptyDataMessage="No clinical statements"
+            headers={
+              Array [
+                Object {
+                  "key": "type",
+                  "title": "Type",
+                  "width": "30%",
+                },
+                Object {
+                  "key": "dateCreated",
+                  "title": "Date Created",
+                  "transformer": [Function],
+                  "width": "30%",
+                },
+                Object {
+                  "key": "author",
+                  "title": "Author",
+                  "width": "20%",
+                },
+                Object {
+                  "key": "source",
+                  "title": "Source",
+                  "width": "20%",
+                },
+                Object {
+                  "display": "none",
+                  "key": "sourceId",
+                  "title": "SourceID",
+                },
+              ]
+            }
+            isBtnCreateVisible={true}
+            isLoading={true}
+            listPerPageAmount={10}
+            offset={0}
+            onCellClick={[Function]}
+            onCreate={[Function]}
+            onHeaderCellClick={[Function]}
+            setOffset={[Function]}
+            sortingOrder="asc"
+            table="clinicalStatements"
+            totalEntriesAmount={0}
+          />
+        </div>
+      </Col>
+    </Row>
+  </div>
+</section>
+`;

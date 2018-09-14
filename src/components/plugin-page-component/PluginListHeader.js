@@ -16,7 +16,7 @@ export default class PluginListHeader extends PureComponent {
   toggleFilterInputVisibility = () => this.setState(prevState => ({ isFilterInputVisible: !prevState.isFilterInputVisible }),
     () => !this.state.isFilterInputVisible && this.props.onFilterChange({ target: { value: '' } })
   );
-
+ 
   render() {
     const { isFilterInputVisible } = this.state;
     const { onFilterChange, panelTitle, isBtnExpandVisible, isBtnTableVisible, onExpand, name, currentPanel } = this.props;
@@ -32,14 +32,14 @@ export default class PluginListHeader extends PureComponent {
             <i className="btn-icon fa fa-table" />
           </PTButton> : null }
           <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
-            <i className="btn-icon fa fa-filter" />
+            <i className={`btn-icon fa ${isFilterInputVisible ? 'fa-times' : 'fa-search'}`} />
           </PTButton>
         </div>
         <h3 className="panel-title">{panelTitle}</h3>
         {isFilterInputVisible && <div className="panel-filter">
           <div className="inner-addon addon-left">
             <div className="addon">
-              <i className="fa fa-filter" />
+              <i className="fa fa-search" />
             </div>
             <input className="form-control" placeholder="Filter..." onChange={onFilterChange} autoFocus />
           </div>

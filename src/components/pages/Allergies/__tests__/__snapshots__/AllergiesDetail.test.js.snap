@@ -14,7 +14,7 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -84,65 +84,10 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
                   />
                 </div>
               </div>
-              <div
-                className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Cause Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
-                </div>
-              </div>
             </div>
             <div
               className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    03-Oct-2017
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
           </div>
         </div>
       </div>
@@ -185,6 +130,24 @@ exports[`Component <AllergiesDetail /> should renders correctly with different s
             >
               <div
                 className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Sep-2018
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
               >
                 <div
                   className="form-group"
@@ -265,7 +228,7 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
         }
       }
       isBtnShowPanel={true}
-      isEditButton={true}
+      isEditButton={false}
       isOpen={false}
       isShowControlPanel={true}
       name="allergiePanel"
@@ -341,69 +304,10 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
                   </div>
                 </div>
               </div>
-              <div
-                className="col-expand-right"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Cause Code
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    1111
-                  </div>
-                </div>
-              </div>
             </div>
             <div
               className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Terminology
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    1239085
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              className="row-expand"
-            >
-              <div
-                className="col-expand-left"
-              >
-                <div
-                  className="form-group"
-                >
-                  <label
-                    className="control-label"
-                  >
-                    Date
-                  </label>
-                  <div
-                    className="form-control-static"
-                  >
-                    03-Oct-2017
-                  </div>
-                </div>
-              </div>
-            </div>
+            />
             <div
               className="row-expand"
             >
@@ -483,6 +387,24 @@ exports[`Component <AllergiesDetail /> should renders with props correctly 1`] =
             >
               <div
                 className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Date
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    03-Oct-2017
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-expand-right"
               >
                 <div
                   className="form-group"

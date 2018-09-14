@@ -104,7 +104,7 @@ exports[`Component <UserProfile /> should renders correctly when theme is Purple
               onShow={[Function]}
               openedPanel="applicationPreferences"
             />
-            <FeedsEmptyPanel
+            <FeedsPanel
               editedPanel={Object {}}
               isSaveButton={false}
               isShowControlPanel={false}
@@ -226,7 +226,7 @@ exports[`Component <UserProfile /> should renders with all props correctly 1`] =
               onShow={[Function]}
               openedPanel="applicationPreferences"
             />
-            <FeedsEmptyPanel
+            <FeedsPanel
               editedPanel={Object {}}
               isSaveButton={false}
               isShowControlPanel={false}

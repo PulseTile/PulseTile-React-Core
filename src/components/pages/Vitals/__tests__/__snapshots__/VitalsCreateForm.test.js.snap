@@ -1,0 +1,1554 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="vitalsCreateForm"
+  >
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="vitals-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="resps/min"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="respirationRate"
+                  isInput={true}
+                  label="Respiration Rate"
+                  name="respirationRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="%"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="oxygenSaturation"
+                  isInput={true}
+                  label="Oxygen Saturation"
+                  name="oxygenSaturation"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Any Supplemental Oxygen
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      component={[Function]}
+                      editOrCreate={true}
+                      id="oxygenSupplemental"
+                      name="oxygenSupplemental"
+                      props={
+                        Object {
+                          "isSubmit": true,
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="bpm"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="heartRate"
+                  isInput={true}
+                  label="Heart Rate"
+                  name="heartRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="systolicBP"
+                  isInput={true}
+                  label="Systolic BP"
+                  name="systolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="diastolicBP"
+                  isInput={true}
+                  label="Diastolic BP"
+                  name="diastolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Level of Consciousness
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <div
+                      className="switch-group"
+                    >
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessA"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="A"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Alert"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessV"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="V"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Voice"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessP"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="P"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Pain"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessU"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="U"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Unresponsive"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className="help-block animate-fade"
+                    style={
+                      Object {
+                        "color": "#a94442",
+                      }
+                    }
+                  >
+                    testValue
+                  </span>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="c"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="temperature"
+                  isInput={true}
+                  label="Temperature"
+                  name="temperature"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="vitals-group highlighter-wrapper"
+            >
+              <span
+                className="undefined"
+              />
+              <label
+                className="vitals-label"
+              >
+                NEWS Score
+              </label>
+              <div
+                className="input-holder vitals-holder success"
+              >
+                <input
+                  className="form-control input-sm"
+                  disabled={true}
+                  id="newsScore"
+                  name="newsScore"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="form-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <Field
+              component={[Function]}
+              id="author"
+              label="Author"
+              name="author"
+              props={
+                Object {
+                  "disabled": true,
+                  "isSubmit": true,
+                }
+              }
+            />
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <Field
+              component={[Function]}
+              id="dateCreated"
+              label="Date"
+              name="dateCreated"
+              props={
+                Object {
+                  "disabled": true,
+                  "format": "DD-MMM-YYYY",
+                  "isSubmit": true,
+                  "value": "01-Jan-2017",
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <VitalsCreateForm /> should renders correctly when vitalStatuses is empty 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="vitalsCreateForm"
+  >
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="vitals-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="resps/min"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="respirationRate"
+                  isInput={true}
+                  label="Respiration Rate"
+                  name="respirationRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="%"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="oxygenSaturation"
+                  isInput={true}
+                  label="Oxygen Saturation"
+                  name="oxygenSaturation"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Any Supplemental Oxygen
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      component={[Function]}
+                      editOrCreate={true}
+                      id="oxygenSupplemental"
+                      name="oxygenSupplemental"
+                      props={
+                        Object {
+                          "isSubmit": true,
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="bpm"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="heartRate"
+                  isInput={true}
+                  label="Heart Rate"
+                  name="heartRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="systolicBP"
+                  isInput={true}
+                  label="Systolic BP"
+                  name="systolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="diastolicBP"
+                  isInput={true}
+                  label="Diastolic BP"
+                  name="diastolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Level of Consciousness
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <div
+                      className="switch-group"
+                    >
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessA"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="A"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Alert"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessV"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="V"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Voice"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessP"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="P"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Pain"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessU"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": true,
+                          }
+                        }
+                        text="U"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Unresponsive"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    className="help-block animate-fade"
+                    style={
+                      Object {
+                        "color": "#a94442",
+                      }
+                    }
+                  >
+                    testValue
+                  </span>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="c"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="temperature"
+                  isInput={true}
+                  label="Temperature"
+                  name="temperature"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": true,
+                    }
+                  }
+                  vitalStatuses={Object {}}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="vitals-group highlighter-wrapper"
+            >
+              <span
+                className="undefined"
+              />
+              <label
+                className="vitals-label"
+              >
+                NEWS Score
+              </label>
+              <div
+                className="input-holder vitals-holder "
+              >
+                <input
+                  className="form-control input-sm"
+                  disabled={true}
+                  id="newsScore"
+                  name="newsScore"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="form-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <Field
+              component={[Function]}
+              id="author"
+              label="Author"
+              name="author"
+              props={
+                Object {
+                  "disabled": true,
+                  "isSubmit": true,
+                }
+              }
+            />
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <Field
+              component={[Function]}
+              id="dateCreated"
+              label="Date"
+              name="dateCreated"
+              props={
+                Object {
+                  "disabled": true,
+                  "format": "DD-MMM-YYYY",
+                  "isSubmit": true,
+                  "value": "01-Jan-2017",
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <VitalsCreateForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="vitalsCreateForm"
+  >
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="vitals-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="resps/min"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="respirationRate"
+                  isInput={true}
+                  label="Respiration Rate"
+                  name="respirationRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="%"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="oxygenSaturation"
+                  isInput={true}
+                  label="Oxygen Saturation"
+                  name="oxygenSaturation"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Any Supplemental Oxygen
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <Field
+                      component={[Function]}
+                      editOrCreate={true}
+                      id="oxygenSupplemental"
+                      name="oxygenSupplemental"
+                      props={
+                        Object {
+                          "isSubmit": false,
+                        }
+                      }
+                      type="checkbox"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="bpm"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="heartRate"
+                  isInput={true}
+                  label="Heart Rate"
+                  name="heartRate"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="systolicBP"
+                  isInput={true}
+                  label="Systolic BP"
+                  name="systolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="mmHg"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="diastolicBP"
+                  isInput={true}
+                  label="Diastolic BP"
+                  name="diastolicBP"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+            <div
+              className="row"
+            >
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <div
+                  className="vitals-group highlighter-wrapper"
+                >
+                  <span
+                    className="undefined"
+                  />
+                  <label
+                    className="vitals-label"
+                  >
+                    Level of Consciousness
+                  </label>
+                  <div
+                    className="input-holder"
+                  >
+                    <div
+                      className="switch-group"
+                    >
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessA"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": false,
+                          }
+                        }
+                        text="A"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Alert"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessV"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": false,
+                          }
+                        }
+                        text="V"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Voice"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessP"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": false,
+                          }
+                        }
+                        text="P"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Pain"
+                      />
+                      <Field
+                        component={[Function]}
+                        editOrCreate={true}
+                        id="levelOfConsciousnessU"
+                        name="levelOfConsciousness"
+                        props={
+                          Object {
+                            "isSubmit": false,
+                          }
+                        }
+                        text="U"
+                        transitionValue="testValue"
+                        type="radio"
+                        value="Unresponsive"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="col-xs-12 col-md-6"
+              >
+                <Field
+                  addonName="c"
+                  component={[Function]}
+                  detail={
+                    Object {
+                      "levelOfConsciousness": "testValue",
+                    }
+                  }
+                  getHighlighterClass={[Function]}
+                  id="temperature"
+                  isInput={true}
+                  label="Temperature"
+                  name="temperature"
+                  popoverLabels="testPopoverLabels"
+                  props={
+                    Object {
+                      "isSubmit": false,
+                    }
+                  }
+                  vitalStatuses={
+                    Object {
+                      "heartRate": Object {
+                        "point": 1,
+                        "type": "success",
+                      },
+                      "levelOfConsciousness": Object {
+                        "point": 0,
+                      },
+                      "newsScore": Object {
+                        "point": undefined,
+                        "type": "success",
+                      },
+                      "oxygenSaturation": Object {
+                        "point": 0,
+                      },
+                      "oxygenSupplemental": Object {
+                        "point": 2,
+                        "type": "warning",
+                      },
+                      "respirationRate": Object {
+                        "point": 0,
+                      },
+                      "systolicBP": Object {
+                        "point": 0,
+                      },
+                      "temperature": Object {
+                        "point": 0,
+                      },
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <div
+              className="vitals-group highlighter-wrapper"
+            >
+              <span
+                className="undefined"
+              />
+              <label
+                className="vitals-label"
+              >
+                NEWS Score
+              </label>
+              <div
+                className="input-holder vitals-holder success"
+              >
+                <input
+                  className="form-control input-sm"
+                  disabled={true}
+                  id="newsScore"
+                  name="newsScore"
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="panel-body-inner"
+    >
+      <div
+        className="form-group-wrapper"
+      >
+        <div
+          className="row-expand"
+        >
+          <div
+            className="col-expand-left"
+          >
+            <Field
+              component={[Function]}
+              id="author"
+              label="Author"
+              name="author"
+              props={
+                Object {
+                  "disabled": true,
+                  "isSubmit": false,
+                }
+              }
+            />
+          </div>
+          <div
+            className="col-expand-right"
+          >
+            <Field
+              component={[Function]}
+              id="dateCreated"
+              label="Date"
+              name="dateCreated"
+              props={
+                Object {
+                  "disabled": true,
+                  "format": "DD-MMM-YYYY",
+                  "isSubmit": false,
+                  "value": "01-Jan-2017",
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

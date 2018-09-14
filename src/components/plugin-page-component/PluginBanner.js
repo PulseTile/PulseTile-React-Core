@@ -21,7 +21,7 @@ export default class PluginBanner extends PureComponent {
         <div className="page-banner">
           <div className={`page-banner__title ${toRight ? 'page-banner__title--right' : ''}`}>{title}</div>
           <div className={`page-banner__subtitle ${toRight ? 'page-banner__subtitle--right' : ''}`}>{subTitle}</div>
-          <img className="page-banner__img" src={img} alt="" />
+          {/* <img className="page-banner__img" src={img} alt="" /> */}
         </div>
         : <div />
     )

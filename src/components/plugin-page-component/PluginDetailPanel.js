@@ -38,8 +38,9 @@ export default class PluginDetailPanel extends PureComponent {
             <div className="wrap-control-group">
               <div className="control-group right">
                 <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
-                  <i className="btn-icon fa fa-edit" />
                   <span className="btn-text"> Edit</span>
+                  <i className="btn-icon fa fa-edit" />
+                  
                 </PTButton>
               </div>
             </div>
@@ -47,13 +48,12 @@ export default class PluginDetailPanel extends PureComponent {
           {(isShowControlPanel && !isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
-                <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
-                  <i className="btn-icon fa fa-ban" />
-                  <span className="btn-text"> Cancel</span>
-                </PTButton>
-                <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
+                <PTButton className="btn btn-success btn-finished" onClick={() => onCancel(name)}>
+                  <span className="btn-text"> Finished</span> 
                   <i className="btn-icon fa fa-check" />
-                  <span className="btn-text"> Complete</span>
+                </PTButton>
+                <PTButton className="btn btn-danger btn-cancel" onClick={() => onSaveSettings(formValues, name)}>
+                  <span className="btn-text"> Cancel</span>
                 </PTButton>
               </div>
             </div>

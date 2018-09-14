@@ -1,0 +1,550 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="id"
+    data={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "12-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 2,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 4,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 38.6,
+        },
+      ]
+    }
+    emptyDataMessage="No vitals"
+    headers={
+      Array [
+        Object {
+          "key": "id",
+          "title": "#",
+          "width": "21%",
+        },
+        Object {
+          "key": "newsScore",
+          "title": "NEWS Score",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <PTButton
+          className="btn btn-success btn-inverse btn-create"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-plus"
+          />
+          <span
+            className="btn-text"
+          >
+             Create
+          </span>
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 2`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="id"
+    data={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "12-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 2,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 4,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 38.6,
+        },
+      ]
+    }
+    emptyDataMessage="No vitals"
+    headers={
+      Array [
+        Object {
+          "key": "id",
+          "title": "#",
+          "width": "21%",
+        },
+        Object {
+          "key": "newsScore",
+          "title": "NEWS Score",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <Spinner />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent right"
+      >
+        <PTButton
+          className="btn btn-success btn-inverse btn-create"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-plus"
+          />
+          <span
+            className="btn-text"
+          >
+             Create
+          </span>
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 3`] = `
+<div
+  className="panel-body"
+>
+  <SortableTable
+    columnNameSortBy="id"
+    data={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+      ]
+    }
+    emptyDataMessage="No vitals"
+    headers={
+      Array [
+        Object {
+          "key": "id",
+          "title": "#",
+          "width": "21%",
+        },
+        Object {
+          "key": "newsScore",
+          "title": "NEWS Score",
+          "width": "25%",
+        },
+      ]
+    }
+    id="daf9a9fa-a7a0-4809-9456-d0e1adea2a85"
+    onCellClick={[Function]}
+    onHeaderCellClick={[Function]}
+    resourceData={
+      Array [
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+        Object {
+          "author": "Dr Tony Shannon",
+          "dateCreated": 1515667784000,
+          "dateTimeConvert": "11-Jan-2018",
+          "diastolicBP": 94,
+          "heartRate": 86,
+          "highlighters": Array [
+            Object {
+              "name": "newsScore",
+              "status": "success",
+            },
+          ],
+          "id": 1,
+          "levelOfConsciousness": "Alert",
+          "newsScore": 2,
+          "oxygenSaturation": 92,
+          "respirationRate": 20,
+          "source": "marand",
+          "sourceId": "8191062a-3b0d-4633-9557-60ef63e7cf01",
+          "systolicBP": 120,
+          "temperature": 37.6,
+        },
+      ]
+    }
+    sortingOrder="asc"
+    table=""
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <PTButton
+          className="btn btn-success btn-inverse btn-create"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-plus"
+          />
+          <span
+            className="btn-text"
+          >
+             Create
+          </span>
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 4`] = `
+<div
+  className="panel-body"
+>
+  <VitalsChart
+    onCellClick={[Function]}
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      >
+        <PTButton
+          className="btn btn-success btn-inverse btn-create"
+          onClick={[Function]}
+        >
+          <i
+            className="btn-icon fa fa-plus"
+          />
+          <span
+            className="btn-text"
+          >
+             Create
+          </span>
+        </PTButton>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 5`] = `
+<div
+  className="panel-body"
+>
+  <VitalsChart
+    onCellClick={[Function]}
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <VitalsMainPanel /> should renders with all props correctly 6`] = `
+<div
+  className="panel-body"
+>
+  <VitalsChart
+    onCellClick={[Function]}
+  />
+  <div
+    className="panel-control"
+  >
+    <div
+      className="wrap-control-group"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <PaginationBlock
+          entriesPerPage={1}
+          offset={0}
+          setOffset={[Function]}
+          totalEntriesAmount={116}
+        />
+      </div>
+      <div
+        className="control-group with-indent right"
+      />
+    </div>
+  </div>
+</div>
+`;

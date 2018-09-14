@@ -5,7 +5,7 @@ exports[`Component <Contacts /> should renders correctly and testing another met
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="contacts.jpg"
     subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
@@ -277,9 +277,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           }
           currentPanel="contactsCreate"
           expandedPanel="all"
-          headingName=""
           isCreatePanelVisible={true}
-          isCreationPermitted={true}
           isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
@@ -379,9 +377,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           }
           currentPanel="contactsCreate"
           expandedPanel="all"
-          headingName=""
           isCreatePanelVisible={true}
-          isCreationPermitted={true}
           isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
@@ -581,7 +577,7 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="contacts.jpg"
     subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
@@ -662,7 +658,7 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
   className="page-wrapper"
 >
   <PluginBanner
-    img={null}
+    img="contacts.jpg"
     subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}

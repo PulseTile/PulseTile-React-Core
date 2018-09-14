@@ -31,23 +31,23 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems / Diagnosis"
+            title="Problems / Issues"
             type="checkbox"
           />
         </Col>
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
@@ -70,64 +70,89 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
-    <FeedsSelectors
-      feeds={
-        Array [
-          Object {
-            "landingPageUrl": "https://www.nytimes.com/section/health",
-            "name": "NYTimes.com",
-            "rssFeedUrl": "http://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
-            "sourceId": "testSourceID6",
-          },
-          Object {
-            "landingPageUrl": "http://www.bbc.co.uk/news/health",
-            "name": "BBC Health",
-            "rssFeedUrl": "http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#",
-            "sourceId": "testSourceID1",
-          },
-          Object {
-            "landingPageUrl": "https://www.nhs.uk/news/",
-            "name": "NHS Choices",
-            "rssFeedUrl": "https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News",
-            "sourceId": "testSourceID2",
-          },
-          Object {
-            "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-            "name": "Public Health",
-            "rssFeedUrl": "https://www.gov.uk/government/organisations/public-health-england.atom",
-            "sourceId": "testSourceID3",
-          },
-          Object {
-            "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-            "name": "Leeds Live - Whats on",
-            "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-            "sourceId": "testSourceID4",
-          },
-          Object {
-            "landingPageUrl": "https://news.leeds.gov.uk",
-            "name": "Leeds CC Local News",
-            "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-            "sourceId": "testSourceID5",
-          },
-        ]
-      }
-      toggleCheckbox={[Function]}
-    />
+    <div>
+      <div
+        className="heading"
+      >
+        VIEW OF BOARDS
+      </div>
+      <div
+        className="form-group"
+      >
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            xs={12}
+          >
+            <PTCustomInput
+              id="full"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Full View"
+              type="radio"
+              value="full"
+            />
+          </Col>
+        </Row>
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="preview"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only Preview"
+              type="radio"
+              value="preview"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="list"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only List"
+              type="radio"
+              value="list"
+            />
+          </Col>
+        </Row>
+      </div>
+    </div>
   </div>
 </div>
 `;
@@ -163,23 +188,23 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems / Diagnosis"
+            title="Problems / Issues"
             type="checkbox"
           />
         </Col>
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
@@ -202,64 +227,89 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
-    <FeedsSelectors
-      feeds={
-        Array [
-          Object {
-            "landingPageUrl": "https://www.nytimes.com/section/health",
-            "name": "NYTimes.com",
-            "rssFeedUrl": "http://rss.nytimes.com/services/xml/rss/nyt/Health.xml",
-            "sourceId": "testSourceID6",
-          },
-          Object {
-            "landingPageUrl": "http://www.bbc.co.uk/news/health",
-            "name": "BBC Health",
-            "rssFeedUrl": "http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#",
-            "sourceId": "testSourceID1",
-          },
-          Object {
-            "landingPageUrl": "https://www.nhs.uk/news/",
-            "name": "NHS Choices",
-            "rssFeedUrl": "https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News",
-            "sourceId": "testSourceID2",
-          },
-          Object {
-            "landingPageUrl": "https://www.gov.uk/government/organisations/public-health-england",
-            "name": "Public Health",
-            "rssFeedUrl": "https://www.gov.uk/government/organisations/public-health-england.atom",
-            "sourceId": "testSourceID3",
-          },
-          Object {
-            "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-            "name": "Leeds Live - Whats on",
-            "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-            "sourceId": "testSourceID4",
-          },
-          Object {
-            "landingPageUrl": "https://news.leeds.gov.uk",
-            "name": "Leeds CC Local News",
-            "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-            "sourceId": "testSourceID5",
-          },
-        ]
-      }
-      toggleCheckbox={[Function]}
-    />
+    <div>
+      <div
+        className="heading"
+      >
+        VIEW OF BOARDS
+      </div>
+      <div
+        className="form-group"
+      >
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            xs={12}
+          >
+            <PTCustomInput
+              id="full"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Full View"
+              type="radio"
+              value="full"
+            />
+          </Col>
+        </Row>
+        <Row
+          bsClass="row"
+          componentClass="div"
+        >
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="preview"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only Preview"
+              type="radio"
+              value="preview"
+            />
+          </Col>
+          <Col
+            bsClass="col"
+            componentClass="div"
+            sm={6}
+            xs={12}
+          >
+            <PTCustomInput
+              id="list"
+              isChecked={null}
+              name="view-of-preview"
+              onChange={[Function]}
+              title="Only List"
+              type="radio"
+              value="list"
+            />
+          </Col>
+        </Row>
+      </div>
+    </div>
   </div>
 </div>
 `;

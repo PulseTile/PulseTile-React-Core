@@ -1,0 +1,425 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ReferralsDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "referralPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="referralPanel"
+      title="Referral"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form-group-wrapper"
+        >
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Referral From
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Referral To
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Date of Referral
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  25-Nov-2017
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Reason for Referral
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Clinical Summary
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Author
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Date
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  03-Oct-2017
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Source
+                </label>
+                <div
+                  className="form-control-static"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <ReferralsDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "referralPanel": true,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="referralPanel"
+      title="Edit Referral"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "Dr Tony Shannon",
+            "dateCreated": 1511283530000,
+            "dateOfReferral": 1511283530634,
+            "referralCareFlow": "Service request sent",
+            "referralFrom": "Tony Shannon1",
+            "referralOutcome": "",
+            "referralReason": "Deteriorating vision",
+            "referralRef": "",
+            "referralServiceName": "Referral To",
+            "referralState": "planned",
+            "referralStateCode": 526,
+            "referralStateDate": 1511283530634,
+            "referralSummary": "Long-standing impaired visual acuity - getting much worse",
+            "referralTo": "Ripplefields Optometry service",
+            "referralType": "Referral To",
+            "source": "ethercis",
+            "sourceId": "94133578-f505-4e76-b4ed-762462508801",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <ReferralsDetail /> should renders with props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "referralPanel": false,
+        }
+      }
+      isOpen={false}
+      isShowControlPanel={true}
+      name="referralPanel"
+      title="Referral"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form-group-wrapper"
+        >
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Referral From
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Tony Shannon1
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Referral To
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Ripplefields Optometry service
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Date of Referral
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  21-Nov-2017
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Reason for Referral
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Deteriorating vision
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Clinical Summary
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Long-standing impaired visual acuity - getting much worse
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Author
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Dr Tony Shannon
+                </div>
+              </div>
+            </div>
+            <div
+              className="col-expand-right"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Date
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  21-Nov-2017
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className="row-expand"
+          >
+            <div
+              className="col-expand-left"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Source
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  ethercis
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

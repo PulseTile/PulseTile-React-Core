@@ -344,8 +344,6 @@ export default class Medications extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
-    const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
-
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
@@ -361,7 +359,7 @@ export default class Medications extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="Medications"
+                panelTitle="All Medications"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={MEDICATIONS_MAIN}
@@ -411,7 +409,6 @@ export default class Medications extends PureComponent {
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
               title="Create Medication"
-              headingName="medications"
               onExpand={this.handleExpand}
               name={MEDICATIONS_CREATE}
               openedPanel={openedPanel}
@@ -422,7 +419,6 @@ export default class Medications extends PureComponent {
               formValues={medicationsCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
-              isCreationPermitted={isButtonVisible(hiddenButtons, 'create', true)}
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={

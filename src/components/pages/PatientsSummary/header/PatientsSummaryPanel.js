@@ -12,7 +12,6 @@ import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
 import { getNameFromUrl } from '../../../../utils/rss-helpers';
-import FeedsSelectors from './FeedsSelectors';
 
 @lifecycle(unmountOnBlur)
 export default class PatientsSummaryPanel extends PureComponent {
@@ -45,7 +44,7 @@ export default class PatientsSummaryPanel extends PureComponent {
     selectedViewOptions.full = false;
     selectedViewOptions.preview = false;
     selectedViewOptions.list = false;
-    selectedViewOptions[key] = true;
+    selectedViewOptions[key] = true; 
     return { 'selectedViewOptions': selectedViewOptions };
   });
 
@@ -75,7 +74,30 @@ export default class PatientsSummaryPanel extends PureComponent {
             </Row>
           </div>
 
-          <FeedsSelectors feeds={feeds} toggleCheckbox={this.toggleCheckbox} />
+          {/* For Feeds-plugin */}
+          {/*{themeConfigs.isLeedsPHRTheme ?*/}
+            {/*<div>*/}
+              {/*<div className="heading">FEEDS</div>*/}
+              {/*<div className="form-group">*/}
+                {/*<Row>*/}
+                  {/*{feeds.map((item) => {*/}
+                    {/*const nameItem = getNameFromUrl(item.landingPageUrl);*/}
+                    {/*const isChecked = ('true' == localStorage.getItem('isShow_'+nameItem));*/}
+                    {/*return (*/}
+                      {/*<Col xs={6} sm={4} key={nameItem}>*/}
+                        {/*<PTCustomInput*/}
+                          {/*type="checkbox"*/}
+                          {/*title={item.name}*/}
+                          {/*id={nameItem}*/}
+                          {/*name={nameItem}*/}
+                          {/*isChecked={isChecked}*/}
+                          {/*onChange={this.toggleCheckbox}*/}
+                        {/*/>*/}
+                      {/*</Col>)*/}
+                  {/*})}*/}
+                {/*</Row>*/}
+              {/*</div>*/}
+            {/*</div> : null }*/}
 
           {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
             <div>
@@ -86,13 +108,13 @@ export default class PatientsSummaryPanel extends PureComponent {
                     <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={get(selectedViewOptions, 'full', null)} onChange={this.toggleRadio} />
                   </Col>
                 </Row>
-                <Row>
+                <Row> 
                   <Col xs={12} sm={6}>
                     <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={get(selectedViewOptions, 'preview', null)} onChange={this.toggleRadio} />
                   </Col>
-                  <Col xs={12} sm={6}>
+                  {/* <Col xs={12} sm={6}>
                     <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={get(selectedViewOptions, 'list', null)} onChange={this.toggleRadio} />
-                  </Col>
+                  </Col> */}
                 </Row>
               </div>
             </div> : null}

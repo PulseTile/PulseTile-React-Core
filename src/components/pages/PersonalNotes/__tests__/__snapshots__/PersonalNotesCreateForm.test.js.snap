@@ -1,0 +1,185 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PersonalNotesCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="personalNoteCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="noteType"
+            label="Type"
+            name="noteType"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <PersonalNotesCreateForm /> should renders with all props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="personalNoteCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="noteType"
+            label="Type"
+            name="noteType"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="notes"
+            label="Note"
+            name="notes"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "value": 1483228800000,
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

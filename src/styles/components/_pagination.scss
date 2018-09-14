@@ -25,13 +25,16 @@
     border: 1px solid #ddd;
     color: $text-color;
     display: block;
-    font-size: 12px;
-    height: 34px;
-    line-height: 24px;
-    min-width: 28px;
+    font-size: 14px;
+    height: 40px;
+    line-height: 25px;
+    min-width:40px;
     padding: 4px;
     text-align: center;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   &.arrow .pagination-link {
     font-size: 24px;
@@ -44,7 +47,7 @@
     text-decoration: none;
   }
   &.disabled .pagination-link {
-    background-color: #F4F3F3;
+    background-color: #fff;
     border-color: #ddd;
     color: $text-color;
     cursor: not-allowed;
@@ -57,13 +60,13 @@
   &.active .pagination-link:hover {
     background-color: $base-color;
     border-color: $base-color;
-    color: $text-on-base-color;
+    color: #3596f4;
     text-decoration: none;
   }
   &.disabled .pagination-link:hover {
     background-color: #F4F3F3;
     border-color: #ddd;
-    color: $text-color;
+    color: #3596f4;
     cursor: not-allowed;
     text-decoration: none;
   }

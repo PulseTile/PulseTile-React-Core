@@ -1,0 +1,509 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <EventsCreateForm /> should renders correctly when eventsType is Discharge 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="eventsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Event Name"
+            name="name"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="type"
+            label="Event Type"
+            name="type"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+                "placeholder": "Discharge",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="description"
+            label="Notes"
+            name="description"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateTime"
+            label="Event Date Time"
+            name="dateTime"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY HH:mm",
+                "isSubmit": true,
+                "minDate": "2017-01-01T00:00:00.000Z",
+                "showTimeSelect": true,
+                "timeFormat": "HH:mm",
+                "timeIntervals": 5,
+              }
+            }
+          />
+          <div
+            className="form-group highlighter-wrapper ng-scope has-success"
+          >
+            <span />
+            <label
+              className="vitals-label"
+            >
+              To make connection
+            </label>
+            <div
+              className="input-holder"
+            >
+              <label
+                className="switch"
+              >
+                <input
+                  defaultChecked={true}
+                  id="isConnection"
+                  name="isConnection"
+                  type="checkbox"
+                  value="on"
+                />
+                <div
+                  className="slider"
+                >
+                  <span
+                    className="text text-check-true"
+                  >
+                    Yes
+                  </span>
+                  <span
+                    className="text text-check-false"
+                  >
+                    No
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="row-expand ng-scope"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="connection"
+            label="To make connection with"
+            name="connection"
+            options={
+              Array [
+                Object {
+                  "title": "Referral",
+                  "value": "Referral",
+                },
+                Object {
+                  "title": "Referral 2",
+                  "value": "Referral 2",
+                },
+                Object {
+                  "title": "Referral 4",
+                  "value": "Referral 4",
+                },
+                Object {
+                  "title": "Referral 6",
+                  "value": "Referral 6",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+                "placeholder": "-- Select --",
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="details"
+            label="Details"
+            name="details"
+            options={
+              Array [
+                Object {
+                  "title": "Dr Cortney Cox to Dr Marta Brown",
+                  "value": "Dr Cortney Cox to Dr Marta Brown",
+                },
+                Object {
+                  "title": "Select 2",
+                  "value": "Select 2",
+                },
+                Object {
+                  "title": "Select 3",
+                  "value": "Select 3",
+                },
+                Object {
+                  "title": "Select 4",
+                  "value": "Select 4",
+                },
+              ]
+            }
+            props={
+              Object {
+                "isSubmit": true,
+                "placeholder": "-- Select --",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <EventsCreateForm /> should renders correctly when form is submitted 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="eventsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Event Name"
+            name="name"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="type"
+            label="Event Type"
+            name="type"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+                "placeholder": "Appointment",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="description"
+            label="Notes"
+            name="description"
+            props={
+              Object {
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateTime"
+            label="Event Date Time"
+            name="dateTime"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY HH:mm",
+                "isSubmit": true,
+                "minDate": "2017-01-01T00:00:00.000Z",
+                "showTimeSelect": true,
+                "timeFormat": "HH:mm",
+                "timeIntervals": 5,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": true,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": true,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`Component <EventsCreateForm /> should renders with props correctly 1`] = `
+<div
+  className="panel-body-inner"
+>
+  <form
+    className="form"
+    name="eventsCreateForm"
+  >
+    <div
+      className="form-group-wrapper"
+    >
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="name"
+            label="Event Name"
+            name="name"
+            placeholder=""
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+            type="text"
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="type"
+            label="Event Type"
+            name="type"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+                "placeholder": "Appointment",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="description"
+            label="Notes"
+            name="description"
+            props={
+              Object {
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateTime"
+            label="Event Date Time"
+            name="dateTime"
+            props={
+              Object {
+                "format": "DD-MMM-YYYY HH:mm",
+                "isSubmit": false,
+                "minDate": "2017-01-01T00:00:00.000Z",
+                "showTimeSelect": true,
+                "timeFormat": "HH:mm",
+                "timeIntervals": 5,
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="row-expand"
+      >
+        <div
+          className="col-expand-left"
+        >
+          <Field
+            component={[Function]}
+            id="author"
+            label="Author"
+            name="author"
+            props={
+              Object {
+                "disabled": true,
+                "isSubmit": false,
+              }
+            }
+          />
+        </div>
+        <div
+          className="col-expand-right"
+        >
+          <Field
+            component={[Function]}
+            id="dateCreated"
+            label="Date"
+            name="dateCreated"
+            props={
+              Object {
+                "disabled": true,
+                "format": "DD-MMM-YYYY",
+                "isSubmit": false,
+                "value": "01-Jan-2017",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;

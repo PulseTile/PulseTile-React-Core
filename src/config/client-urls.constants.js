@@ -1,7 +1,6 @@
 import { get } from 'lodash';
 import { themeConfigs } from '../themes.config';
 import { themePluginsPages } from '../components/theme/config/plugins';
-import { getFilterPlugins } from '../utils/themeSettings-helper';
 
 export const clientUrls = {
   ROOT: '/',
@@ -48,8 +47,7 @@ const corePluginsPages = {
     }],
   },
 };
-const filterHiddenPlugins = getFilterPlugins(corePluginsPages);
-export const pluginsPages = Object.assign(filterHiddenPlugins, themePluginsPages);
+export const pluginsPages = Object.assign(corePluginsPages, themePluginsPages);
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
   for (const nameOfPage in pluginsPages) {

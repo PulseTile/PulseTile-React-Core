@@ -264,10 +264,11 @@
 .btn-success.btn-create,
 .btn-success.btn-create:focus,
 .btn-success.btn-create:active {
-  background: #ffffff !important;
+  background: #1993EF !important;
   font-weight: 600;
-  &:hover,
-  &.active { background: #ffffff !important; }
+  color: #fff;
+  // &:hover,
+  // &.active { background: #ffffff !important; }
   .btn-icon {
     font-size: 17px;
     font-weight: 400;
@@ -292,3 +293,4 @@
 .full-panel .btn-toggle-rotate { display: none; }
 
 .btn-back-doc .btn-text { margin-left: 4px; }
+

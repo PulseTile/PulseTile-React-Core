@@ -1,140 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
-<section
-  className="page-wrapper"
->
-  <Row
-    bsClass="row"
-    componentClass="div"
-  >
-    <Col
-      bsClass="col"
-      componentClass="div"
-      xs={12}
-    >
-      <div
-        className="panel panel-primary panel-dashboard"
-      >
-        <PatientsSummaryListHeader
-          feeds={Array []}
-          onCategorySelected={[Function]}
-          onViewOfBoardsSelected={[Function]}
-          selectedCategory={
-            Object {
-              "allergies": true,
-              "contacts": true,
-              "medications": true,
-              "problems": true,
-            }
-          }
-          selectedViewOfBoards={
-            Object {
-              "full": true,
-              "list": false,
-              "preview": false,
-            }
-          }
-          title="Patient Summary"
-        />
-        <div
-          className="panel-body"
-        >
-          <div
-            className="dashboard"
-          >
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              id="summary-panel-problems"
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="0"
-              srcPrevirew={null}
-              state="diagnoses"
-              title="Problems / Diagnosis"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              id="summary-panel-medications"
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="1"
-              srcPrevirew={null}
-              state="medications"
-              title="Medications"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              id="summary-panel-allergies"
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="2"
-              srcPrevirew={null}
-              state="allergies"
-              title="Allergies"
-            />
-            <SimpleDashboardPanel
-              goToState={[Function]}
-              id="summary-panel-contacts"
-              isFeeds={false}
-              isHasList={true}
-              isHasPreview={true}
-              items={
-                Array [
-                  Object {
-                    "text": "Loading ...",
-                  },
-                  "",
-                  "",
-                  "",
-                ]
-              }
-              key="3"
-              srcPrevirew={null}
-              state="contacts"
-              title="Contacts"
-            />
-          </div>
-        </div>
-      </div>
-    </Col>
-  </Row>
-</section>
-`;
-
 exports[`Component <PatientsSummary /> should renders with Disclaimer Modal correctly 1`] = `
 <section
   className="page-wrapper"
@@ -170,7 +35,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "preview": false,
             }
           }
-          title="Patient Summary"
+          title="Home"
         />
         <div
           className="panel-body"
@@ -180,7 +45,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
           >
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-problems"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -197,11 +61,10 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Problems / Issues"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-medications"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -217,12 +80,11 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               }
               key="1"
               srcPrevirew={null}
-              state="medications"
-              title="Medications"
+              state="contacts"
+              title="Contacts"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-allergies"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -243,7 +105,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-contacts"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -259,8 +120,8 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               }
               key="3"
               srcPrevirew={null}
-              state="contacts"
-              title="Contacts"
+              state="medications"
+              title="Medications"
             />
           </div>
         </div>
@@ -319,7 +180,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "preview": false,
             }
           }
-          title="Patient Summary"
+          title="Home"
         />
         <div
           className="panel-body"
@@ -329,10 +190,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
           >
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-problems"
               isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -346,14 +206,13 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               key="0"
               srcPrevirew={null}
               state="diagnoses"
-              title="Problems / Diagnosis"
+              title="Problems / Issues"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-medications"
               isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -366,15 +225,14 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               }
               key="1"
               srcPrevirew={null}
-              state="medications"
-              title="Medications"
+              state="contacts"
+              title="Contacts"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-allergies"
               isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -392,10 +250,9 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
             />
             <SimpleDashboardPanel
               goToState={[Function]}
-              id="summary-panel-contacts"
               isFeeds={false}
               isHasList={true}
-              isHasPreview={false}
+              isHasPreview={true}
               items={
                 Array [
                   Object {
@@ -408,8 +265,8 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               }
               key="3"
               srcPrevirew={null}
-              state="contacts"
-              title="Contacts"
+              state="medications"
+              title="Medications"
             />
           </div>
         </div>

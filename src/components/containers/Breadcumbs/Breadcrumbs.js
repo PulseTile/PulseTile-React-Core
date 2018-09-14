@@ -55,9 +55,10 @@ class Breadcrumbs extends PureComponent {
     if (!breadcrumbs) {
       breadcrumbs = this.getRouterBreadcrumbs('/');
     }
-    const lastItemBreadcrumbsIndex = breadcrumbs.length - 1;
+    const lastItemBreadcrumbsIndex = breadcrumbs.length - 2;
 
-    const breadcrumbItems = breadcrumbs.map((breadcrumb, index) =>
+    //we dont consider the first item
+    const breadcrumbItems = breadcrumbs.slice(1).map((breadcrumb, index) =>
       <span key={_.uniqueId('__BreadcrumbsBlock__')}>
         { index !== lastItemBreadcrumbsIndex && <Link to={breadcrumb.state} className="breadcrumb-link">{breadcrumb.title}</Link> }
         { index !== lastItemBreadcrumbsIndex && <span className="breadcrumb-separate" /> }
@@ -68,10 +69,10 @@ class Breadcrumbs extends PureComponent {
     return (
       !_.isEmpty(breadcrumbs) && <div className="wrap-breadcrumbs">
         <div className="container-fluid">
-          <div className="breadcrumbs" key={_.uniqueId('__BreadcrumbsBlock__')}>
+          <div className="breadcrumbs" key={_.uniqueId('__BreadcrumbsBlock__')}> 
             {breadcrumbItems}
           </div>
-        </div>
+        </div> 
       </div>
     )
   }

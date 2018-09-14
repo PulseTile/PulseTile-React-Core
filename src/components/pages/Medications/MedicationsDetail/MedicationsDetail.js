@@ -137,17 +137,6 @@ export default class MedicationsDetail extends PureComponent {
                     </div>
                     : null }
 
-                  { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
-                    <div className="row-expand">
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.DATE_CREATED}</label>
-                          <div className="form-control-static">{dateCreated}</div>
-                        </div>
-                      </div>
-                    </div>
-                    : null }
-
                 </div>
               </div>
             </div>
@@ -193,22 +182,18 @@ export default class MedicationsDetail extends PureComponent {
               <div className="form">
                 <div className="panel-body-section">
                   <div className="row-expand">
-                    { isShowElement(valuesNames.NAME, hideElements) ?
-                      <div className="col-expand-left">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.NAME}</label>
-                          <div className="form-control-static">{detail[valuesNames.NAME]}</div>
-                        </div>
+                    <div className="col-expand-left">
+                      <div className="form-group">
+                        <label className="control-label">{valuesLabels.NAME}</label>
+                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                       </div>
-                      : null }
-                    { isShowElement(valuesNames.DOSE_AMOUNT, hideElements) ?
-                      <div className="col-expand-right">
-                        <div className="form-group">
-                          <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
-                          <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
-                        </div>
+                    </div>
+                    <div className="col-expand-right">
+                      <div className="form-group">
+                        <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
+                        <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
                       </div>
-                      : null }
+                    </div>
                   </div>
                 </div>
                 <div className="panel-body-section">
@@ -411,8 +396,16 @@ export default class MedicationsDetail extends PureComponent {
                 <div className="form">
                   <div className="form-group-wrapper">
                     <div className="row-expand">
-                      { isShowElement(valuesNames.SOURCE, hideElements) ?
+                      { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
                         <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                            <div className="form-control-static">{dateCreated}</div>
+                          </div>
+                        </div>
+                        : null }
+                      { isShowElement(valuesNames.SOURCE, hideElements) ?
+                        <div className="col-expand-right">
                           <div className="form-group">
                             <label className="control-label">{valuesLabels.SOURCE}</label>
                             <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>

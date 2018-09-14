@@ -1,0 +1,210 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PersonalNotesDetail /> should renders correctly with different state of props 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "personalNotesPanel": true,
+        }
+      }
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="personalNotesPanel"
+      title="Edit Personal Note"
+    >
+      <ReduxForm
+        detail={Object {}}
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PersonalNotesDetail /> should renders correctly with different state of props 2`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "personalNotesPanel": true,
+        }
+      }
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="personalNotesPanel"
+      title="Edit Personal Note"
+    >
+      <ReduxForm
+        detail={
+          Object {
+            "author": "AUTHOR@gmail.com",
+            "dateCreated": 1511956864000,
+            "noteType": "TYPE",
+            "notes": "NOTES",
+            "source": "ethercis",
+            "sourceId": "3739c4ab-f568-44a6-bf35-e83fc4e65b1b",
+          }
+        }
+      />
+    </PluginDetailPanel>
+  </div>
+</div>
+`;
+
+exports[`Component <PersonalNotesDetail /> should renders with all props correctly 1`] = `
+<div
+  className="section-detail"
+>
+  <div
+    className="panel-group accordion"
+  >
+    <PluginDetailPanel
+      currentPanel="currentPanel"
+      editedPanel="editedPanel"
+      formValues={Object {}}
+      isBtnShowPanel={false}
+      isOpen={false}
+      isShowControlPanel={true}
+      name="personalNotesPanel"
+      onCancel={[Function]}
+      onEdit={[Function]}
+      onExpand={[Function]}
+      onSaveSettings={[Function]}
+      title="Personal Note"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Type
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      TYPE
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Note
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      NOTES
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Author
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      AUTHOR@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div
+                  className="col-expand-right"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Date
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      29-Nov-2017
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="row-expand"
+              >
+                <div
+                  className="col-expand-left"
+                >
+                  <div
+                    className="form-group"
+                  >
+                    <label
+                      className="control-label"
+                    >
+                      Source
+                    </label>
+                    <div
+                      className="form-control-static"
+                    >
+                      ethercis
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+  </div>
+</div>
+`;

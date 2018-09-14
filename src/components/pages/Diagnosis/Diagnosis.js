@@ -304,8 +304,6 @@ export default class ProblemsDiagnosis extends PureComponent {
     const titleCreate = 'Create ' + problemsTitle;
     const noneTitle = 'No ' + problemsTitle;
 
-    const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
-
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
@@ -368,7 +366,6 @@ export default class ProblemsDiagnosis extends PureComponent {
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
               title={titleCreate}
-              headingName="diagnoses"
               onExpand={this.handleExpand}
               name={DIAGNOSES_CREATE}
               openedPanel={openedPanel}
@@ -379,7 +376,6 @@ export default class ProblemsDiagnosis extends PureComponent {
               formValues={diagnosisCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
-              isCreationPermitted={isButtonVisible(hiddenButtons, 'create', true)}
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={

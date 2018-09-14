@@ -3,4 +3,7 @@
  */
 export const themeClientUrls = {
     PATIENTS: '/patients',
+    TOP_THREE_THINGS : 'topThreeThings',
+    VACCINATIONS : 'vaccinations',
+    
 };
