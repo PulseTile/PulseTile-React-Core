@@ -10,9 +10,11 @@ body {
 }
 
 body {
-  background: $body-bg;
+  // background: $body-bg;
   font-family: $font-family-main;
   min-width: $min-width; 
+  background: url('../assets/images/Artboard.png') !important; 
+  background-size: cover !important;
 }
 
 
@@ -225,4 +227,100 @@ body {
   height: 200px !important;
   -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
   transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+}
+
+.sidebar-nav-link.active {
+  padding-left: 30px;
+  position: relative;
+}
+
+.sidebar-nav-link.active:hover {
+  padding-left: 30px;
+  position: relative;
+}
+
+.sidebar-nav-link.active:after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  border-radius: 50%;
+  height: 6px;
+  background: #fff;
+  left: 14px;
+  top: 17px;
+}
+
+body.themeLeedsPHR .control-group.right {
+  display: flex;
+  align-items: center;
+}
+
+body.themeLeedsPHR .btn.btn-finished {
+  background: #ffffff !important;
+  color: #3596f4 !important;
+  border: #3596f4 1px solid !important;
+  border-radius: 30px;
+  height: auto;
+  padding: 8px 20px;
+
+  .fa-check {
+    margin-left: 6px;
+  }
+}
+
+body.themeLeedsPHR .btn.btn-success.btn-finished:hover {
+  background: #ffffff !important;
+  color: #3596f4 !important;
+  border: #3596f4 1px solid !important;
+}
+
+body.themeLeedsPHR .btn.btn-cancel {
+  color: #DA534F !important;
+  background: #fff !important;
+  border: none !important;
+}
+
+body.themeLeedsPHR .btn.btn-danger.btn-cancel:hover {
+  color: #DA534F !important;
+  background: #fff !important;
+  border: none !important;
+}
+
+
+body.themeLeedsPHR .btn.btn-success.btn-inverse.btn-edit {
+  color: #1993EF !important;
+  border-color: #1993EF !important;
+  background: transparent !important;
+  border-radius: 30px;
+  padding: 8px 26px;
+  height: auto;
+  box-sizing: border-box;
+  &:hover {
+    color: #1993EF !important;
+    border-color: #1993EF !important;
+  }
+}
+
+
+body.themeLeedsPHR .btn.btn-success.btn-inverse.btn-create:hover {
+  color: #fff !important;
+}
+
+.control-group.right {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrap-patient-info {
+  border-left: 1px solid #B7B7B7;
+  height: 66px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.patient-info {
+  color: #000 !important;
 }
