@@ -37,7 +37,7 @@ exports[`Component <Contacts /> should renders correctly and testing another met
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -112,7 +112,7 @@ exports[`Component <Contacts /> should renders correctly and testing context and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -224,7 +224,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -326,7 +326,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -428,7 +428,7 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -613,7 +613,7 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -694,7 +694,7 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {

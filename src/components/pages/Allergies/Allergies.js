@@ -338,7 +338,7 @@ export default class Allergies extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allAllergies}
-                emptyDataMessage="No allergies"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailAllergiesClick}
                 columnNameSortBy={columnNameSortBy}
