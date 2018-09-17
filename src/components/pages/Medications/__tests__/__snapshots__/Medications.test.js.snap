@@ -37,7 +37,7 @@ exports[`Component <Medications /> should renders correctly and testing another 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -177,7 +177,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -363,7 +363,7 @@ exports[`Component <Medications /> should renders correctly when data take from 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -509,7 +509,7 @@ exports[`Component <Medications /> should renders correctly with all store is em
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -591,7 +591,7 @@ exports[`Component <Medications /> should renders correctly with empty store 1`]
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -737,7 +737,7 @@ exports[`Component <Medications /> should renders correctly with forms error 1`]
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -877,7 +877,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -1045,7 +1045,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {
@@ -1213,7 +1213,7 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No medications"
+            emptyDataMessage="No information available"
             filteredData={
               Array [
                 Object {

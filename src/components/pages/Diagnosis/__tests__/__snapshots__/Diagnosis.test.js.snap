@@ -37,7 +37,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing another me
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -114,7 +114,7 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -231,7 +231,7 @@ exports[`Component <Diagnosis /> should renders correctly when data take from Do
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -308,7 +308,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -413,7 +413,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -518,7 +518,7 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -733,7 +733,7 @@ exports[`Component <Diagnosis /> should renders correctly with empty store 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -816,7 +816,7 @@ exports[`Component <Diagnosis /> should renders correctly with forms error 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="problem"
-            emptyDataMessage="No Problems / Diagnosis"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
