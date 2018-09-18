@@ -60,9 +60,9 @@ export default class UserAccountPanel extends PureComponent {
             }}
           >{user.given_name} {user.family_name}</div>
           <div className="user-profile-info__descr">
-            <div className="user-profile-info__item role">{user.role}</div>
+            <div className="user-profile-info__item role">User Role:{user.role}</div>
             <div className="user-profile-info__item email">{user.email}</div>
-            <div className="user-profile-info__item birthday">10/05/2099</div>
+            <div className="user-profile-info__item birthday">Date of Birth: {getDDMMMYYYYUnix(user.dateOfBirth)}</div>
           </div>
           { themeConfigs.isShowUserProfileSpecification ?
             <div className="specification">

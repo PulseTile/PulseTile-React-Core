@@ -83,15 +83,12 @@ export default class PatientsSummaryPanel extends PureComponent {
               <div className="form-group">
                 <Row>
                   <Col xs={12}>
-                    <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={get(selectedViewOptions, 'full', null)} onChange={this.toggleRadio} />
+                    <PTCustomInput type="radio" title="Headings + List" id="full" name="view-of-preview" value="full" isChecked={get(selectedViewOptions, 'full', null)} onChange={this.toggleRadio} />
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={12} sm={6}>
-                    <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={get(selectedViewOptions, 'preview', null)} onChange={this.toggleRadio} />
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={get(selectedViewOptions, 'list', null)} onChange={this.toggleRadio} />
+                  <Col xs={12}>
+                    <PTCustomInput type="radio" title="Headings" id="preview" name="view-of-preview" value="preview" isChecked={get(selectedViewOptions, 'preview', null)} onChange={this.toggleRadio} />
                   </Col>
                 </Row>
               </div>
