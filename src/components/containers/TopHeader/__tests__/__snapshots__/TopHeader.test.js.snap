@@ -208,6 +208,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       className="user-panel-item"
                     >
                       <Link
+                        onClick={[Function]}
                         replace={false}
                         to="/patients/null/patients-summary"
                       >
@@ -232,7 +233,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       </Link>
                     </li>
                   </UserPanelItem>
-                  <UserTourLink />
                   <UserPanelItem
                     className="user-panel-item dropdown"
                   >
