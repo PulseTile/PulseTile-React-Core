@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
+import { get } from 'lodash';
 
 import MainLogo from '../../presentational/MainLogo/MainLogo';
 import NavSearch from '../NavSearch/NavSearch';
@@ -48,6 +49,11 @@ class TopHeader extends PureComponent {
     const { isTourRun } = this.state;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
     const isShowPreviousBtn = (!(routerHash === clientUrls.ROOT || routerHash === clientUrls.CHARTS));
+
+    const routerHashArray = routerHash.split('/');
+    const userId = get(routerHashArray, '[2]', null);
+    const pageUrl = routerHashArray.pop();
+
     return (
       <div className="navbar">
         { isShowPreviousBtn ? <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={this.routeGoBack}>
@@ -57,7 +63,7 @@ class TopHeader extends PureComponent {
           patientsInfo={patientsInfo}
           userAccount={userAccount}
         />
-        <UserPanel runTour={this.runTour} />
+        <UserPanel runTour={this.runTour} pageUrl={pageUrl} userId={userId} />
         <UserTour run={isTourRun} />
         { children ? <div className="navbar-space-right">
           { children }
