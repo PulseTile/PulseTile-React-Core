@@ -14,6 +14,7 @@ import Footer from '../../presentational/Footer/Footer';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
+import TermsAndConditions from '../TermsAndConditions';
 import { image } from './HeaderImage';
 
 import '../../../styles/main.scss';
@@ -42,6 +43,7 @@ export class App extends Component {
               <Header />
             </header>
             <Main />
+            <TermsAndConditions />
           </div>
           <Footer
             copyright={themeConfigs.footerCopyright}
