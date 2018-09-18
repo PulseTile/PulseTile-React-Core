@@ -37,7 +37,7 @@ exports[`Component <Allergies /> should renders correctly and testing another me
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -113,7 +113,7 @@ exports[`Component <Allergies /> should renders correctly and testing context an
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -231,7 +231,7 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -307,7 +307,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -411,7 +411,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -515,7 +515,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -699,7 +699,7 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -781,7 +781,7 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {

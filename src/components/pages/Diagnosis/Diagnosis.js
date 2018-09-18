@@ -302,7 +302,6 @@ export default class ProblemsDiagnosis extends PureComponent {
 
     const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
     const titleCreate = 'Create ' + problemsTitle;
-    const noneTitle = 'No ' + problemsTitle;
 
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
 
@@ -331,7 +330,7 @@ export default class ProblemsDiagnosis extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allDiagnoses}
-                emptyDataMessage={noneTitle}
+                emptyDataMessage={'No information available'}
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailDiagnosesClick}
                 columnNameSortBy={columnNameSortBy}

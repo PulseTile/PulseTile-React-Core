@@ -156,6 +156,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                           <img
                             alt="logo"
                             className="img"
+                            id="logo-image"
                             src="pulsetile-core-logo.png"
                           />
                           <img
@@ -171,7 +172,9 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
+                pageUrl="profile"
                 runTour={[Function]}
+                userId={null}
               >
                 <ul
                   className="user-panel"
@@ -204,19 +207,30 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     <li
                       className="user-panel-item"
                     >
-                      <PTButton
-                        className="btn-header"
+                      <Link
                         onClick={[Function]}
+                        replace={false}
+                        to="/patients/null/patients-summary"
                       >
-                        <button
-                          className="btn-header"
+                        <a
+                          href="/patients/null/patients-summary"
                           onClick={[Function]}
                         >
-                          <i
-                            className="fa fa-question-circle"
-                          />
-                        </button>
-                      </PTButton>
+                          <PTButton
+                            className="btn-header"
+                            title="Home"
+                          >
+                            <button
+                              className="btn-header"
+                              title="Home"
+                            >
+                              <i
+                                className="fa fa-question-circle"
+                              />
+                            </button>
+                          </PTButton>
+                        </a>
+                      </Link>
                     </li>
                   </UserPanelItem>
                   <UserPanelItem
@@ -712,7 +726,9 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    pageUrl=""
     runTour={[Function]}
+    userId={null}
   />
   <UserTour
     run={false}
@@ -744,7 +760,9 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    pageUrl=""
     runTour={[Function]}
+    userId={null}
   />
   <UserTour
     run={true}
@@ -782,7 +800,9 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    pageUrl="profile"
     runTour={[Function]}
+    userId={null}
   />
   <UserTour
     run={false}

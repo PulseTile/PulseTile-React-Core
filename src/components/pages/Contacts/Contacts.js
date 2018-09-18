@@ -267,7 +267,7 @@ export default class Contacts extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allContacts}
-                emptyDataMessage="No contacts"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailContactsClick}
                 columnNameSortBy={columnNameSortBy}

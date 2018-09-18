@@ -371,7 +371,7 @@ export default class Medications extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allMedications}
-                emptyDataMessage="No medications"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailMedicationsClick}
                 columnNameSortBy={columnNameSortBy}

@@ -41,7 +41,9 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       <UserPanel
         addUserPanels={Array []}
         openedPanel="userAccountPanel"
+        pageUrl=""
         runTour={[Function]}
+        userId=""
       >
         <ul
           className="user-panel"
@@ -74,19 +76,30 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             <li
               className="user-panel-item"
             >
-              <PTButton
-                className="btn-header"
+              <Link
                 onClick={[Function]}
+                replace={false}
+                to="/patients//patients-summary"
               >
-                <button
-                  className="btn-header"
+                <a
+                  href="/patients//patients-summary"
                   onClick={[Function]}
                 >
-                  <i
-                    className="fa fa-question-circle"
-                  />
-                </button>
-              </PTButton>
+                  <PTButton
+                    className="btn-header"
+                    title="Home"
+                  >
+                    <button
+                      className="btn-header"
+                      title="Home"
+                    >
+                      <i
+                        className="fa fa-question-circle"
+                      />
+                    </button>
+                  </PTButton>
+                </a>
+              </Link>
             </li>
           </UserPanelItem>
           <UserPanelItem
@@ -473,14 +486,20 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   <UserPanelItem
     className="user-panel-item"
   >
-    <PTButton
-      className="btn-header"
+    <Link
       onClick={[Function]}
+      replace={false}
+      to="/patients//patients-summary"
     >
-      <i
-        className="fa fa-question-circle"
-      />
-    </PTButton>
+      <PTButton
+        className="btn-header"
+        title="Home"
+      >
+        <i
+          className="fa fa-question-circle"
+        />
+      </PTButton>
+    </Link>
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item dropdown"
@@ -547,14 +566,20 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   <UserPanelItem
     className="user-panel-item"
   >
-    <PTButton
-      className="btn-header"
+    <Link
       onClick={[Function]}
+      replace={false}
+      to="/patients//patients-summary"
     >
-      <i
-        className="fa fa-question-circle"
-      />
-    </PTButton>
+      <PTButton
+        className="btn-header"
+        title="Home"
+      >
+        <i
+          className="fa fa-question-circle"
+        />
+      </PTButton>
+    </Link>
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item dropdown"
@@ -621,14 +646,20 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   <UserPanelItem
     className="user-panel-item"
   >
-    <PTButton
-      className="btn-header"
+    <Link
       onClick={[Function]}
+      replace={false}
+      to="/patients//patients-summary"
     >
-      <i
-        className="fa fa-question-circle"
-      />
-    </PTButton>
+      <PTButton
+        className="btn-header"
+        title="Home"
+      >
+        <i
+          className="fa fa-question-circle"
+        />
+      </PTButton>
+    </Link>
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item dropdown"
@@ -690,14 +721,20 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   <UserPanelItem
     className="user-panel-item"
   >
-    <PTButton
-      className="btn-header"
+    <Link
       onClick={[Function]}
+      replace={false}
+      to="/patients//patients-summary"
     >
-      <i
-        className="fa fa-question-circle"
-      />
-    </PTButton>
+      <PTButton
+        className="btn-header"
+        title="Home"
+      >
+        <i
+          className="fa fa-question-circle"
+        />
+      </PTButton>
+    </Link>
   </UserPanelItem>
   <UserPanelItem
     className="user-panel-item dropdown"

@@ -1,11 +1,15 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { get } from 'lodash';
+import { Link } from 'react-router-dom';
+
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../presentational/temprorary/NotificationContent'
 import UserAccountPanel from './UserAccountPanel'
 import { themeConfigs } from '../../../themes.config';
+import { clientUrls } from '../../../config/client-urls.constants';
+import UserTourLink from '../UserTour/UserTourLink';
 
 const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
@@ -15,6 +19,8 @@ export default class UserPanel extends PureComponent {
   static defaultProps = {
     addUserPanels: [],
     runTour: function () {},
+    pageUrl: '',
+    userId: '',
   };
 
   state = {
@@ -61,18 +67,23 @@ export default class UserPanel extends PureComponent {
         );
       });
     }
-
     return null;
+  };
+
+  cleanUserTourInfo = () => {
+    document.cookie = 'userTour=';
   };
 
   render() {
     const { openedPanel } = this.state;
-    const { addUserPanels, runTour } = this.props;
+    const { addUserPanels, runTour, pageUrl, userId } = this.props;
 
     const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
     const isQuestions = get(themeConfigs, 'topHeader.showQuestions', true);
     const isNotifications = get(themeConfigs, 'topHeader.showNotifications', true);
     const isUserPanel = get(themeConfigs, 'topHeader.showUserPanel', true);
+
+    const homepageLink = `${clientUrls.PATIENTS}/${userId}/${clientUrls.PATIENTS_SUMMARY}`;
 
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
     return (
@@ -83,11 +94,25 @@ export default class UserPanel extends PureComponent {
           </PTButton>
         </UserPanelItem> : null}
         { additionalUserPanels }
-        {isQuestions ? <UserPanelItem className="user-panel-item">
-          <PTButton className="btn-header" onClick={() => runTour()}>
-            <i className="fa fa-question-circle" />
-          </PTButton>
-        </UserPanelItem> : null}
+          {isQuestions ?
+            <UserPanelItem className="user-panel-item">
+              {(clientUrls.PATIENTS_SUMMARY === pageUrl)
+                ?
+                  <PTButton title="User Tour" id="icon-tour" className="btn-header" onClick={() => runTour()}>
+                    <i className="fa fa-question-circle" />
+                  </PTButton>
+                :
+                  <Link to={homepageLink} onClick={this.cleanUserTourInfo}>
+                    <PTButton title="Home" className="btn-header">
+                      <i className="fa fa-question-circle" />
+                    </PTButton>
+                  </Link>
+              }
+            </UserPanelItem>
+            : null}
+        {(clientUrls.PATIENTS_SUMMARY === pageUrl) ?
+          <UserTourLink />
+          : null }
         {isNotifications ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />
           <PTButton className="btn-header btn-notification" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>

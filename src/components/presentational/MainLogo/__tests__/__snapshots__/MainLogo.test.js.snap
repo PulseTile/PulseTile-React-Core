@@ -17,6 +17,7 @@ exports[`Component <MainLogo /> should renders when the role of doctor 1`] = `
         <img
           alt="logo"
           className="img"
+          id="logo-image"
           src="pulsetile-core-logo.png"
         />
         <img
@@ -47,6 +48,7 @@ exports[`Component <MainLogo /> should renders when the role of doctor 2`] = `
         <img
           alt="logo"
           className="img"
+          id="logo-image"
           src="pulsetile-core-logo.png"
         />
         <img
@@ -77,6 +79,7 @@ exports[`Component <MainLogo /> should renders when the role of the patient 1`] 
         <img
           alt="logo"
           className="img"
+          id="logo-image"
           src="pulsetile-core-logo.png"
         />
         <img
@@ -107,6 +110,7 @@ exports[`Component <MainLogo /> should renders when the role of the patient 2`] 
         <img
           alt="logo"
           className="img"
+          id="logo-image"
           src="pulsetile-core-logo.png"
         />
         <img

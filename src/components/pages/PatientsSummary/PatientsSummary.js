@@ -143,12 +143,14 @@ export default class PatientsSummary extends PureComponent {
 
                 {patientsSummaryConfig.map((item, index) => {
                   const imageSource = isDevMode ? (testConstants.hostName + item.imgPreview) : item.imgPreview;
+                  const items = boards[item.key];
+                  const loadingItems = (items.length > 0) ? items : [{text: item.emptyMessage}];
                   return (selectedCategory[item.key] && dashboardBeing[item.key] !== false ?
                     <SimpleDashboardPanel
                       id={item.panelId}
                       key={index}
                       title={item.title}
-                      items={boards[item.key]}
+                      items={loadingItems}
                       state={item.state}
                       goToState={this.handleGoToState}
                       srcPrevirew={imageSource}
