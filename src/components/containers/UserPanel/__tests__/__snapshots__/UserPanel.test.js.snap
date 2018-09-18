@@ -297,6 +297,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             <div
                               className="user-profile-info__item role"
                             >
+                              User Role:
                               IDCR
                             </div>
                             <div
@@ -307,7 +308,8 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             <div
                               className="user-profile-info__item birthday"
                             >
-                              10/05/2099
+                              Date of Birth: 
+                              Invalid date
                             </div>
                           </div>
                           <div
