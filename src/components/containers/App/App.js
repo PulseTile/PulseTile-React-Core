@@ -17,7 +17,7 @@ import HeaderList from '../HeaderList/HeaderList';
 import TermsAndConditions from '../TermsAndConditions';
 import { image } from './HeaderImage';
 
-import '../../../styles/main.scss';
+import '../../../config/styles';
 
 export class App extends Component {
   render() {
