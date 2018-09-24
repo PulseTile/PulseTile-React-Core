@@ -6,7 +6,7 @@ import HeaderTitle from './HeaderTitle/HeaderTitle';
 import { clientUrls } from '../../../config/client-urls.constants'
 import { routersPluginConfig } from '../../../plugins.config';
 
-import '../../../styles/main.scss';
+import '../../../config/styles';
 
 const Header = props =>
   <div>
