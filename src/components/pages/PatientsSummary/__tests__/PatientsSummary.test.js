@@ -7,31 +7,9 @@ import { get } from 'lodash';
 import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
+import { getPanelsNumber } from '../functions';
 
 Enzyme.configure({ adapter: new Adapter() });
-
-/**
- * This function returns initial panels number
- * Default number is 4: Allergies, Medications, Contacts, Problems
- *
- * @return {number}
- */
-function getInitialPanelsNumber() {
-  const defaultPanelsNumber = 4;
-  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
-  return defaultPanelsNumber - hiddenCorePlugins.length;
-}
-
-/**
- *
- * @param testStoreContent
- * @return {*}
- */
-function getPanelsNumber(testStoreContent) {
-  const initialNumber = getInitialPanelsNumber();
-  const pluginsNumber = Object.keys(testStoreContent).length;
-  return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
-}
 
 class LocalStorageMock {
   constructor() {
