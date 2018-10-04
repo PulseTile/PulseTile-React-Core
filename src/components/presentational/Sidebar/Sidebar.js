@@ -35,9 +35,6 @@ export default class Sidebar extends PureComponent {
     window.addEventListener('orientationchange', () => {
       this.setPositionForSidebar()
     });
-    if (_.isEmpty(this.props.patientsSummaries)) {
-      this.hideSidebarOnMobile();
-    }
   }
 
   /* istanbul ignore next */
@@ -65,7 +62,7 @@ export default class Sidebar extends PureComponent {
       let sidebarTop = headerHeight - scrollPageTop;
 
       if (scrollPageTop === 0) {
-        sidebarTop = 140;
+        sidebarTop = (window.innerWidth < 768) ? 160 : 140;
       } else {
         sidebarTop = sidebarTop > 0 ? sidebarTop : 0;
       }

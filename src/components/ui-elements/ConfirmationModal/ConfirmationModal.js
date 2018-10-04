@@ -20,7 +20,7 @@ export default class ConfirmationModal extends PureComponent {
   render() {
     const { title, onOk, onCancel, onHide, isShow, isShowOkButton, isShowCancelButton, textOkButton, textCancelButton, iconsClasses, children } = this.props;
     return (
-      <Modal show={isShow} onHide={onHide}>
+      <Modal show={isShow} onHide={onHide} backdrop="static" keyboard={false}>
         <div className="panel panel-secondary without-margin">
           <div className="panel-heading">
             <h3 className="panel-title">{ title }</h3>

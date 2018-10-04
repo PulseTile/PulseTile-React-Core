@@ -42,7 +42,6 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
         addUserPanels={Array []}
         openedPanel="userAccountPanel"
         pageUrl=""
-        runTour={[Function]}
         userId=""
       >
         <ul
@@ -70,38 +69,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               </PTButton>
             </li>
           </UserPanelItem>
-          <UserPanelItem
-            className="user-panel-item"
-          >
-            <li
-              className="user-panel-item"
-            >
-              <Link
-                onClick={[Function]}
-                replace={false}
-                to="/patients//patients-summary"
-              >
-                <a
-                  href="/patients//patients-summary"
-                  onClick={[Function]}
-                >
-                  <PTButton
-                    className="btn-header"
-                    title="Home"
-                  >
-                    <button
-                      className="btn-header"
-                      title="Home"
-                    >
-                      <i
-                        className="fa fa-question-circle"
-                      />
-                    </button>
-                  </PTButton>
-                </a>
-              </Link>
-            </li>
-          </UserPanelItem>
+          <TopHeaderButtons />
           <UserPanelItem
             className="user-panel-item dropdown"
           >
@@ -485,24 +453,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <UserPanelItem
-    className="user-panel-item"
-  >
-    <Link
-      onClick={[Function]}
-      replace={false}
-      to="/patients//patients-summary"
-    >
-      <PTButton
-        className="btn-header"
-        title="Home"
-      >
-        <i
-          className="fa fa-question-circle"
-        />
-      </PTButton>
-    </Link>
-  </UserPanelItem>
+  <TopHeaderButtons />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -565,24 +516,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <UserPanelItem
-    className="user-panel-item"
-  >
-    <Link
-      onClick={[Function]}
-      replace={false}
-      to="/patients//patients-summary"
-    >
-      <PTButton
-        className="btn-header"
-        title="Home"
-      >
-        <i
-          className="fa fa-question-circle"
-        />
-      </PTButton>
-    </Link>
-  </UserPanelItem>
+  <TopHeaderButtons />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -645,24 +579,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <UserPanelItem
-    className="user-panel-item"
-  >
-    <Link
-      onClick={[Function]}
-      replace={false}
-      to="/patients//patients-summary"
-    >
-      <PTButton
-        className="btn-header"
-        title="Home"
-      >
-        <i
-          className="fa fa-question-circle"
-        />
-      </PTButton>
-    </Link>
-  </UserPanelItem>
+  <TopHeaderButtons />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -720,24 +637,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
       />
     </PTButton>
   </UserPanelItem>
-  <UserPanelItem
-    className="user-panel-item"
-  >
-    <Link
-      onClick={[Function]}
-      replace={false}
-      to="/patients//patients-summary"
-    >
-      <PTButton
-        className="btn-header"
-        title="Home"
-      >
-        <i
-          className="fa fa-question-circle"
-        />
-      </PTButton>
-    </Link>
-  </UserPanelItem>
+  <TopHeaderButtons />
   <UserPanelItem
     className="user-panel-item dropdown"
   >

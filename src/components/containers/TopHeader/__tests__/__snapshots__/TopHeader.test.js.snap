@@ -172,9 +172,17 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
-                pageUrl="profile"
-                runTour={[Function]}
-                userId={null}
+                pageUrl=""
+                router={
+                  Object {
+                    "location": Object {
+                      "hash": "#/profile",
+                      "pathname": "/",
+                      "search": "",
+                    },
+                  }
+                }
+                userId=""
               >
                 <ul
                   className="user-panel"
@@ -201,38 +209,17 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       </PTButton>
                     </li>
                   </UserPanelItem>
-                  <UserPanelItem
-                    className="user-panel-item"
-                  >
-                    <li
-                      className="user-panel-item"
-                    >
-                      <Link
-                        onClick={[Function]}
-                        replace={false}
-                        to="/patients/null/patients-summary"
-                      >
-                        <a
-                          href="/patients/null/patients-summary"
-                          onClick={[Function]}
-                        >
-                          <PTButton
-                            className="btn-header"
-                            title="Home"
-                          >
-                            <button
-                              className="btn-header"
-                              title="Home"
-                            >
-                              <i
-                                className="fa fa-question-circle"
-                              />
-                            </button>
-                          </PTButton>
-                        </a>
-                      </Link>
-                    </li>
-                  </UserPanelItem>
+                  <TopHeaderButtons
+                    router={
+                      Object {
+                        "location": Object {
+                          "hash": "#/profile",
+                          "pathname": "/",
+                          "search": "",
+                        },
+                      }
+                    }
+                  />
                   <UserPanelItem
                     className="user-panel-item dropdown"
                   >
@@ -569,9 +556,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   </UserPanelItem>
                 </ul>
               </UserPanel>
-              <UserTour
-                run={false}
-              />
               <NavSearch
                 userAccount={
                   Object {
@@ -729,11 +713,16 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   <UserPanel
     addUserPanels={Array []}
     pageUrl=""
-    runTour={[Function]}
-    userId={null}
-  />
-  <UserTour
-    run={false}
+    router={
+      Object {
+        "location": Object {
+          "hash": "#/",
+          "pathname": "/",
+          "search": "",
+        },
+      }
+    }
+    userId=""
   />
   <div
     className="navbar-space-right"
@@ -763,11 +752,16 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   <UserPanel
     addUserPanels={Array []}
     pageUrl=""
-    runTour={[Function]}
-    userId={null}
-  />
-  <UserTour
-    run={true}
+    router={
+      Object {
+        "location": Object {
+          "hash": "#/",
+          "pathname": "/",
+          "search": "",
+        },
+      }
+    }
+    userId=""
   />
 </div>
 `;
@@ -802,12 +796,17 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    pageUrl="profile"
-    runTour={[Function]}
-    userId={null}
-  />
-  <UserTour
-    run={false}
+    pageUrl=""
+    router={
+      Object {
+        "location": Object {
+          "hash": "#/profile",
+          "pathname": "/",
+          "search": "",
+        },
+      }
+    }
+    userId=""
   />
   <NavSearch
     userAccount={

@@ -6,6 +6,8 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
 
   const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
 
+  let filterItemsArray = (items.length > 4) ? items.slice(1, 5) : items;
+
   return (<div id={id} className="dashboard-item">
     <div className="board">
       <div className="board-header">
@@ -25,7 +27,7 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
         }
         {isHasList
           ? <ul className="board-list">
-            {items.map(item =>
+            {filterItemsArray.map(item =>
               <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
                 {item.text ? <span className="board-list-link" onClick={() => goToState(`${state}/${item.sourceId}`, item.link)} title={item.text}>{item.text}</span> : null}
               </li>)}
