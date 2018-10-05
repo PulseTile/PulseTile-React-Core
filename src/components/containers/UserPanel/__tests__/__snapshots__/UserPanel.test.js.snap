@@ -42,6 +42,15 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
         addUserPanels={Array []}
         openedPanel="userAccountPanel"
         pageUrl=""
+        router={
+          Object {
+            "location": Object {
+              "hash": "#/patients-summary",
+              "pathname": "/",
+              "search": "",
+            },
+          }
+        }
         userId=""
       >
         <ul
@@ -69,7 +78,17 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               </PTButton>
             </li>
           </UserPanelItem>
-          <TopHeaderButtons />
+          <TopHeaderButtons
+            router={
+              Object {
+                "location": Object {
+                  "hash": "#/patients-summary",
+                  "pathname": "/",
+                  "search": "",
+                },
+              }
+            }
+          />
           <UserPanelItem
             className="user-panel-item dropdown"
           >

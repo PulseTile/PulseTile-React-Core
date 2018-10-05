@@ -4,11 +4,11 @@ exports[`Component <ConfirmationModal /> should renders with all props correctly
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],
@@ -99,11 +99,11 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],
@@ -188,11 +188,11 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],
