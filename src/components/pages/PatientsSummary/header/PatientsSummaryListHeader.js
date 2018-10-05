@@ -25,7 +25,7 @@ export default class PatientsSummaryListHeader extends PureComponent {
 
     render() {
       const { isPatientSummaryPanelVisible } = this.state;
-      const { onCategorySelected, onViewOfBoardsSelected, selectedCategory, selectedViewOfBoards, title, feeds } = this.props;
+      const { onCategorySelected, onViewOfBoardsSelected, selectedCategory, selectedViewOfBoards, title, boards } = this.props;
 
       return (
         <div className="panel-heading">
@@ -40,7 +40,7 @@ export default class PatientsSummaryListHeader extends PureComponent {
                 selectedCategory={selectedCategory}
                 selectedViewOfBoards={selectedViewOfBoards}
                 toggleVisibility={this.togglePatientSummaryPanelVisibility}
-                feeds={feeds}
+                boards={boards}
               />}
             </div>
           </div>

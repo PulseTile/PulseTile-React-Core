@@ -17,7 +17,42 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={Array []}
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
+          }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -126,6 +161,47 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
               srcPrevirew={null}
               state="contacts"
               title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={true}
             />
           </div>
         </div>
@@ -152,7 +228,42 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={Array []}
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
+          }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -261,6 +372,47 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               srcPrevirew={null}
               state="contacts"
               title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={true}
             />
           </div>
         </div>
@@ -301,7 +453,42 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={Array []}
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
+          }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
           selectedCategory={
@@ -410,6 +597,47 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               srcPrevirew={null}
               state="contacts"
               title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
             />
           </div>
         </div>

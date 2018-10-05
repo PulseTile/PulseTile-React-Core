@@ -107,7 +107,6 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
         .dive();
 
     expect(component).toMatchSnapshot();
@@ -168,7 +167,6 @@ describe('Component <PatientsSummary />', () => {
         .dive()
         .dive()
         .dive()
-        .dive()
         .dive();
 
     expect(component).toMatchSnapshot();
@@ -188,7 +186,6 @@ describe('Component <PatientsSummary />', () => {
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
       />, { context })
-        .dive()
         .dive()
         .dive()
         .dive()

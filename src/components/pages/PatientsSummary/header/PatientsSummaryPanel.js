@@ -11,10 +11,11 @@ import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
-import { getNameFromUrl } from '../../../../utils/rss-helpers';
-import FeedsSelectors from './FeedsSelectors';
+
+import ExtraPatientsSummarySelectors from '../../../theme/components/ExtraPatientsSummarySelectors';
 
 @lifecycle(unmountOnBlur)
+
 export default class PatientsSummaryPanel extends PureComponent {
   static propTypes = {
     onCategorySelected: PropTypes.func.isRequired,
@@ -51,7 +52,7 @@ export default class PatientsSummaryPanel extends PureComponent {
 
   render() {
     const { selected, selectedViewOptions } = this.state;
-    const { patientsSummaryHasPreviewSettings, feeds } = this.props;
+    const { patientsSummaryHasPreviewSettings, boards } = this.props;
 
     return (
       <div className="dropdown-menu dropdown-menu-panel dropdown-menu-summary">
@@ -75,7 +76,7 @@ export default class PatientsSummaryPanel extends PureComponent {
             </Row>
           </div>
 
-          <FeedsSelectors feeds={feeds} toggleCheckbox={this.toggleCheckbox} />
+          <ExtraPatientsSummarySelectors boards={boards} toggleCheckbox={this.toggleCheckbox} />
 
           {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
             <div>
