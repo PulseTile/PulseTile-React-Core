@@ -13,6 +13,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import { unmountOnBlur } from '../../../utils/HOCs/unmount-on-blur.utils';
 import { logoutStart } from '../../../ducks/logout.duck';
 import { themeConfigs } from '../../../themes.config';
+import { getDDMMMYYYYUnix } from '../../../utils/time-helpers.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ logoutStart }, dispatch) });
 

@@ -6,27 +6,7 @@ import { get } from 'lodash';
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
 import { testStoreContent } from '../../../theme/config/plugins';
-
-/**
- * This function returns initial panels number
- * Default number is 4: Allergies, Medications, Contacts, Problems
- *
- * @return {number}
- */
-function getInitialPanelsNumber() {
-  const defaultPanelsNumber = 4;
-  const hiddenCorePlugins = get(themeConfigs, 'corePluginsToHide', []);
-  return defaultPanelsNumber - hiddenCorePlugins.length;
-}
-
-function getPanelsNumber(testStoreContent) {
-  const initialNumber = getInitialPanelsNumber();
-  const pluginsNumber = Object.keys(testStoreContent).length;
-  const optionsNumber = (themeConfigs.isLeedsPHRTheme) ? 3 : 0;
-  return (pluginsNumber > 0)
-    ? (initialNumber + pluginsNumber + optionsNumber)
-    : (initialNumber + optionsNumber);
-}
+import { getPanelsNumber } from '../functions';
 
 class LocalStorageMock {
   constructor() {
@@ -110,6 +90,8 @@ describe('Component <PatientsSummaryPanel />', () => {
     expect(component.instance().props.onCategorySelected).toEqual(testProps.onCategorySelected);
     expect(component.instance().props.selectedCategory).toEqual(testProps.selectedCategory);
 
+    const panelsNumber = getPanelsNumber(testStoreContent);
+
     if (themeConfigs.isLeedsPHRTheme) {
       // expect(component.find('FeedsPanel')).toHaveLength(0);
       expect(component.find('.form-group')).toHaveLength(2);
@@ -117,7 +99,7 @@ describe('Component <PatientsSummaryPanel />', () => {
       expect(component.find('.heading')).toHaveLength(1);
       expect(component.find('.heading').text()).toEqual('SHOW');
       expect(component.find('.form-group')).toHaveLength(1);
-      expect(component.find('PTCustomInput')).toHaveLength(4);
+      expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
     }
 
     component.instance().toggleCheckbox('dashboard-name');
@@ -134,7 +116,6 @@ describe('Component <PatientsSummaryPanel />', () => {
       medications: false,
     } });
 
-    const panelsNumber = getPanelsNumber(testStoreContent);
     expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
 
     component.instance().toggleRadio('test');
