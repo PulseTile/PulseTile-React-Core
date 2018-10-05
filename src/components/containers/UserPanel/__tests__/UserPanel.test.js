@@ -31,13 +31,20 @@ const store = mockStore({
   },
 });
 const context = {};
+const router = {
+  location: {
+    pathname: '/',
+    search: '',
+    hash: '#/patients-summary',
+  }
+};
 
 describe('Component <UserPanel />', () => {
   it('should renders with props correctly', () => {
     const component = mount(
       <Provider store={store}>
         <StaticRouter location="someLocation" context={context}>
-          <UserPanel openedPanel="userAccountPanel" />
+          <UserPanel openedPanel="userAccountPanel" router={router} />
             </StaticRouter>
           </Provider>)
       expect(component).toMatchSnapshot();
