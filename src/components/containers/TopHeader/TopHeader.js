@@ -12,8 +12,6 @@ import PTButton from '../../ui-elements/PTButton/PTButton';
 import { userAccountSelector, patientInfoSelector } from './selectors';
 import { clientUrls } from '../../../config/client-urls.constants';
 
-import { themeConfigs } from '../../../themes.config';
-
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ push }, dispatch) });
 
 @connect(userAccountSelector, mapDispatchToProps)
@@ -35,25 +33,6 @@ class TopHeader extends PureComponent {
     this.context.router.history.goBack()
   };
 
-  routeGoBack = () => {
-    // TODO: Need to redirect to patient summary here.
-    
-  };
-
-  topLeftButton = (isShowPreviousBtn) => {
-    if( isShowPreviousBtn ){
-      switch( themeConfigs.patientSummaryTopLeftButtonBehaviour ){
-        case 'home':
-          return <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={this.routeGoHome}><i className="fa fa-home"></i></PTButton>;
-          break;
-        case 'back':
-        default:
-          return <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={this.routeGoBack}><i className="fa fa-arrow-left"></i></PTButton>;
-          break;
-      }
-    }
-  }
-
   render() {
     const { userAccount, router, patientsInfo, isHasSearch, children } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
@@ -61,7 +40,9 @@ class TopHeader extends PureComponent {
 
     return (
       <div className="navbar">
-        { this.topLeftButton(isShowPreviousBtn) }
+        { isShowPreviousBtn ? <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={this.routeGoBack}>
+          <i className="fa fa-arrow-left" />
+        </PTButton> : null }
         <MainLogo
           patientsInfo={patientsInfo}
           userAccount={userAccount}
