@@ -79,7 +79,7 @@ BackButton.defaultProps = {
 };
 
 const HomeButton = ({ pageUrl, homepageLink }) => {
-  if (get(themeConfigs, 'topHeader.showHomeButton', false) && pageUrl === clientUrls.PATIENTS_SUMMARY) {
+  if (get(themeConfigs, 'topHeader.showHomeButton', false)) {
     return (
       <Link to={homepageLink}>
         <PTButton id="icon-home" className="btn-header btn-header-prev">
