@@ -79,15 +79,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             </li>
           </UserPanelItem>
           <TopHeaderButtons
-            router={
-              Object {
-                "location": Object {
-                  "hash": "#/patients-summary",
-                  "pathname": "/",
-                  "search": "",
-                },
-              }
-            }
+            pageUrl=""
           />
           <UserPanelItem
             className="user-panel-item dropdown"
@@ -472,7 +464,9 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <TopHeaderButtons />
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -535,7 +529,9 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <TopHeaderButtons />
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -598,7 +594,9 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   >
     test
   </UserPanelItem>
-  <TopHeaderButtons />
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -656,7 +654,9 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
       />
     </PTButton>
   </UserPanelItem>
-  <TopHeaderButtons />
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >

@@ -35,6 +35,20 @@ class TopHeader extends PureComponent {
     this.context.router.history.goBack()
   };
 
+    /**
+     * This function returns homepage link fore HomeButton depends on user role:
+     * - PatientSummary for PHR
+     * - ROOT page for all other
+     *
+     * @param {string} userId
+     * @param {object} userAccount
+     * @return {string}
+     */
+  getHomepageLink = (userId, userAccount) => {
+    const userRole = get(userAccount, 'role', null);
+    return ('PHR' === userRole) ? `${clientUrls.PATIENTS}/${userId}/${clientUrls.PATIENTS_SUMMARY}` : clientUrls.ROOT;
+  };
+
   render() {
     const { userAccount, router, patientsInfo, isHasSearch, children } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
@@ -42,29 +56,32 @@ class TopHeader extends PureComponent {
     const routerHashArray = routerHash.split('/');
     const userId = get(routerHashArray, '[2]', null);
     const pageUrl = routerHashArray.pop();
-    const homepageLink = `${clientUrls.PATIENTS}/${userId}/${clientUrls.PATIENTS_SUMMARY}`;
+    const homepageLink = this.getHomepageLink(userId, userAccount);
     return (
       <div className="navbar">
-        {isShowPreviousBtn ? <HomeButton pageUrl={pageUrl} homepageLink={homepageLink} /> : null}
-        {isShowPreviousBtn ? <BackButton routeGoBack={this.routeGoBack} /> : null}
+        {isShowPreviousBtn ? <HomeButton className="btn-header btn-header-prev btn-home" pageUrl={pageUrl} homepageLink={homepageLink} /> : null}
+        {isShowPreviousBtn ? <BackButton className="btn-header btn-header-prev btn-back" routeGoBack={this.routeGoBack} /> : null}
         <MainLogo
           patientsInfo={patientsInfo}
           userAccount={userAccount}
         />
         <UserPanel pageUrl={pageUrl} homepageLink={homepageLink} />
-        { children ? <div className="navbar-space-right">
-          { children }
-        </div> : null }
+          { children ?
+          <div className="navbar-space-right">
+            { children }
+          </div>
+            : null
+          }
         {isHasSearch ? <NavSearch userAccount={userAccount} /> : null}
       </div>
-    )
+    );
   }
 }
 
-const BackButton = ({ routeGoBack }) => {
+const BackButton = ({ className, routeGoBack }) => {
   if (get(themeConfigs, 'topHeader.showBackButton', false)) {
     return (
-      <PTButton id="icon-home" className="btn-header btn-header-prev" onClick={routeGoBack}>
+      <PTButton id="icon-home" className={className} onClick={routeGoBack}>
         <i className="fa fa-arrow-left" />
       </PTButton>
     );
@@ -72,17 +89,19 @@ const BackButton = ({ routeGoBack }) => {
   return null;
 };
 BackButton.propTypes = {
+  className: PropTypes.string,
   routeGoBack: PropTypes.func,
 };
 BackButton.defaultProps = {
+  className: '',
   routeGoBack: function () {},
 };
 
-const HomeButton = ({ pageUrl, homepageLink }) => {
+const HomeButton = ({ className, homepageLink }) => {
   if (get(themeConfigs, 'topHeader.showHomeButton', false)) {
     return (
       <Link to={homepageLink}>
-        <PTButton id="icon-home" className="btn-header btn-header-prev">
+        <PTButton id="icon-home" className={className}>
           <i className="fa fa-home" />
         </PTButton>
       </Link>
@@ -91,11 +110,11 @@ const HomeButton = ({ pageUrl, homepageLink }) => {
   return null;
 };
 HomeButton.propTypes = {
-  pageUrl: PropTypes.string,
+  className: PropTypes.string,
   homepageLink: PropTypes.string,
 };
 HomeButton.defaultProps = {
-  pageUrl: '',
+  className: '',
   homepageLink: '',
 };
 
