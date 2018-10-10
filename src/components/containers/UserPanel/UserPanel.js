@@ -70,10 +70,9 @@ export default class UserPanel extends PureComponent {
 
   render() {
     const { openedPanel } = this.state;
-    const { addUserPanels, router } = this.props;
+    const { addUserPanels, pageUrl, homepageLink } = this.props;
 
     const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
-    const isQuestions = get(themeConfigs, 'topHeader.showQuestions', true);
     const isNotifications = get(themeConfigs, 'topHeader.showNotifications', true);
     const isUserPanel = get(themeConfigs, 'topHeader.showUserPanel', true);
 
@@ -88,7 +87,7 @@ export default class UserPanel extends PureComponent {
         </UserPanelItem> : null}
         { additionalUserPanels }
 
-        <TopHeaderButtons router={router} />
+        <TopHeaderButtons pageUrl={pageUrl} homepageLink={homepageLink} />
 
         {isNotifications ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />

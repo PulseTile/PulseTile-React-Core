@@ -106,21 +106,55 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
             <div
               className="navbar"
             >
-              <PTButton
-                className="btn-header btn-header-prev"
-                id="icon-home"
-                onClick={[Function]}
+              <HomeButton
+                className="btn-header btn-header-prev btn-home"
+                homepageLink="/"
+                pageUrl="profile"
               >
-                <button
-                  className="btn-header btn-header-prev"
+                <Link
+                  replace={false}
+                  to="/"
+                >
+                  <a
+                    href="/"
+                    onClick={[Function]}
+                  >
+                    <PTButton
+                      className="btn-header btn-header-prev btn-home"
+                      id="icon-home"
+                    >
+                      <button
+                        className="btn-header btn-header-prev btn-home"
+                        id="icon-home"
+                      >
+                        <i
+                          className="fa fa-home"
+                        />
+                      </button>
+                    </PTButton>
+                  </a>
+                </Link>
+              </HomeButton>
+              <BackButton
+                className="btn-header btn-header-prev btn-back"
+                routeGoBack={[Function]}
+              >
+                <PTButton
+                  className="btn-header btn-header-prev btn-back"
                   id="icon-home"
                   onClick={[Function]}
                 >
-                  <i
-                    className="fa fa-arrow-left"
-                  />
-                </button>
-              </PTButton>
+                  <button
+                    className="btn-header btn-header-prev btn-back"
+                    id="icon-home"
+                    onClick={[Function]}
+                  >
+                    <i
+                      className="fa fa-arrow-left"
+                    />
+                  </button>
+                </PTButton>
+              </BackButton>
               <MainLogo
                 patientsInfo={
                   Object {
@@ -172,16 +206,8 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
-                pageUrl=""
-                router={
-                  Object {
-                    "location": Object {
-                      "hash": "#/profile",
-                      "pathname": "/",
-                      "search": "",
-                    },
-                  }
-                }
+                homepageLink="/patients/null/patients-summary"
+                pageUrl="profile"
                 userId=""
               >
                 <ul
@@ -210,15 +236,8 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     </li>
                   </UserPanelItem>
                   <TopHeaderButtons
-                    router={
-                      Object {
-                        "location": Object {
-                          "hash": "#/profile",
-                          "pathname": "/",
-                          "search": "",
-                        },
-                      }
-                    }
+                    homepageLink="/patients/null/patients-summary"
+                    pageUrl="profile"
                   />
                   <UserPanelItem
                     className="user-panel-item dropdown"
@@ -712,16 +731,8 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    homepageLink="/patients/null/patients-summary"
     pageUrl=""
-    router={
-      Object {
-        "location": Object {
-          "hash": "#/",
-          "pathname": "/",
-          "search": "",
-        },
-      }
-    }
     userId=""
   />
   <div
@@ -751,16 +762,8 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
+    homepageLink="/patients/null/patients-summary"
     pageUrl=""
-    router={
-      Object {
-        "location": Object {
-          "hash": "#/",
-          "pathname": "/",
-          "search": "",
-        },
-      }
-    }
     userId=""
   />
 </div>
@@ -770,15 +773,15 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
 <div
   className="navbar"
 >
-  <PTButton
-    className="btn-header btn-header-prev"
-    id="icon-home"
-    onClick={[Function]}
-  >
-    <i
-      className="fa fa-arrow-left"
-    />
-  </PTButton>
+  <HomeButton
+    className="btn-header btn-header-prev btn-home"
+    homepageLink="/"
+    pageUrl="profile"
+  />
+  <BackButton
+    className="btn-header btn-header-prev btn-back"
+    routeGoBack={[Function]}
+  />
   <MainLogo
     patientsInfo={
       Object {
@@ -796,16 +799,8 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    pageUrl=""
-    router={
-      Object {
-        "location": Object {
-          "hash": "#/profile",
-          "pathname": "/",
-          "search": "",
-        },
-      }
-    }
+    homepageLink="/patients/null/patients-summary"
+    pageUrl="profile"
     userId=""
   />
   <NavSearch
