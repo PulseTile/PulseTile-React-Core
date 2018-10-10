@@ -92,12 +92,12 @@ module.exports = {
     hot: true,
     // enable HMR on the server
 
-    proxy: {
-      '/': {
-        target: DEV_SERVER_URL,
-        // secure: false,
-      },
-    },
+    // proxy: {
+    //   '/': {
+    //     target: DEV_SERVER_URL,
+    //     // secure: false,
+    //   },
+    // },
   },
 
 };
