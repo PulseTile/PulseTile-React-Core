@@ -206,7 +206,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               </MainLogo>
               <UserPanel
                 addUserPanels={Array []}
-                homepageLink="/"
+                homepageLink="/patients/null/patients-summary"
                 pageUrl="profile"
                 userId=""
               >
@@ -236,7 +236,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     </li>
                   </UserPanelItem>
                   <TopHeaderButtons
-                    homepageLink="/"
+                    homepageLink="/patients/null/patients-summary"
                     pageUrl="profile"
                   />
                   <UserPanelItem
@@ -731,7 +731,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    homepageLink="/"
+    homepageLink="/patients/null/patients-summary"
     pageUrl=""
     userId=""
   />
@@ -762,7 +762,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    homepageLink="/"
+    homepageLink="/patients/null/patients-summary"
     pageUrl=""
     userId=""
   />
@@ -799,7 +799,7 @@ exports[`Component <TopHeader /> should renders with props correctly when we are
   />
   <UserPanel
     addUserPanels={Array []}
-    homepageLink="/"
+    homepageLink="/patients/null/patients-summary"
     pageUrl="profile"
     userId=""
   />

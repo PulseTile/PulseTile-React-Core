@@ -35,20 +35,6 @@ class TopHeader extends PureComponent {
     this.context.router.history.goBack()
   };
 
-    /**
-     * This function returns homepage link fore HomeButton depends on user role:
-     * - PatientSummary for PHR
-     * - ROOT page for all other
-     *
-     * @param {string} userId
-     * @param {object} userAccount
-     * @return {string}
-     */
-  getHomepageLink = (userId, userAccount) => {
-    const userRole = get(userAccount, 'role', null);
-    return ('PHR' === userRole) ? `${clientUrls.PATIENTS}/${userId}/${clientUrls.PATIENTS_SUMMARY}` : clientUrls.ROOT;
-  };
-
   render() {
     const { userAccount, router, patientsInfo, isHasSearch, children } = this.props;
     const routerHash = (router.location.hash.split('?')[0]).split('#')[1];
@@ -56,7 +42,9 @@ class TopHeader extends PureComponent {
     const routerHashArray = routerHash.split('/');
     const userId = get(routerHashArray, '[2]', null);
     const pageUrl = routerHashArray.pop();
-    const homepageLink = this.getHomepageLink(userId, userAccount);
+    const patientSummaryURL = `${clientUrls.PATIENTS}/${userId}/${clientUrls.PATIENTS_SUMMARY}`;
+    const userRole = get(userAccount, 'role', null);
+    const homepageLink = ('PHR' === userRole) ? patientSummaryURL : clientUrls.ROOT;
     return (
       <div className="navbar">
         {isShowPreviousBtn ? <HomeButton className="btn-header btn-header-prev btn-home" pageUrl={pageUrl} homepageLink={homepageLink} /> : null}
@@ -65,7 +53,7 @@ class TopHeader extends PureComponent {
           patientsInfo={patientsInfo}
           userAccount={userAccount}
         />
-        <UserPanel pageUrl={pageUrl} homepageLink={homepageLink} />
+        <UserPanel pageUrl={pageUrl} homepageLink={patientSummaryURL} />
           { children ?
           <div className="navbar-space-right">
             { children }
