@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <RecordsOfTableView /> should renders with props correctly 1`] = `
+<div
+  className="form-group"
+>
+  <label
+    className="control-label"
+  >
+    Records
+  </label>
+  <table
+    className="table table-striped table-hover table-bordered rwd-table table-fixedcol table-no-cursor"
+  >
+    <colgroup>
+      <col />
+      <col
+        style={
+          Object {
+            "width": "21%",
+          }
+        }
+      />
+      <col
+        style={
+          Object {
+            "width": "21%",
+          }
+        }
+      />
+      <col
+        style={
+          Object {
+            "width": "18%",
+          }
+        }
+      />
+    </colgroup>
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Type
+        </th>
+        <th>
+          Date
+        </th>
+        <th>
+          Source
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        key="0"
+      >
+        <td
+          data-th="Name"
+        >
+          <span>
+            Too bad desease ddd
+          </span>
+        </td>
+        <td
+          data-th="Type"
+        >
+          <span>
+            Diagnosis
+          </span>
+        </td>
+        <td
+          data-th="Date"
+        >
+          <span>
+            05-Dec-2017
+          </span>
+        </td>
+        <td
+          data-th="Source"
+        >
+          <span>
+            ethercis
+          </span>
+        </td>
+      </tr>
+      <tr
+        key="1"
+      >
+        <td
+          data-th="Name"
+        >
+          <span>
+            Cardiology
+          </span>
+        </td>
+        <td
+          data-th="Type"
+        >
+          <span>
+            Events
+          </span>
+        </td>
+        <td
+          data-th="Date"
+        >
+          <span>
+            10-Oct-2017
+          </span>
+        </td>
+        <td
+          data-th="Source"
+        >
+          <span>
+            ethercis
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
