@@ -192,10 +192,10 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
     >
       <Spinner />
       <RecordsOfTablePopoverMedications
-        detail={Object {}}
+        detail={null}
       />
       <RecordsOfTablePlugins
-        detail={Object {}}
+        detail={null}
         typeOfRecord="medications"
       />
     </div>
