@@ -16,7 +16,7 @@ import { patientMedicationsSelector } from '../../pages/Medications/selectors';
 
 import * as recordsFunctions from './functions';
 import { themeActions, themeSelector, themeTypesRecords } from '../../theme/config/recordsOfTable/recordsOfTable';
-import * as themeFunctions from '../../theme/config/recordsOfTable/recordsOfTableFunctions';
+import { themeFunctions } from '../../theme/config/recordsOfTable/recordsOfTableFunctions';
 
 const PREFIX_POPOVER_ID = 'rot-popover-';
 
