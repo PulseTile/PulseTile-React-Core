@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { lifecycle } from 'recompose';
+import { get } from 'lodash';
+
 import packageJSON from '../../../../package.json';
 import { testConstants, isDevMode } from '../../../config/for-test.constants';
 import PTButton from '../../ui-elements/PTButton/PTButton';
@@ -13,7 +15,7 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import { unmountOnBlur } from '../../../utils/HOCs/unmount-on-blur.utils';
 import { logoutStart } from '../../../ducks/logout.duck';
 import { themeConfigs } from '../../../themes.config';
-import { getDDMMMYYYYUnix } from '../../../utils/time-helpers.utils';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ logoutStart }, dispatch) });
 
@@ -63,7 +65,10 @@ export default class UserAccountPanel extends PureComponent {
           <div className="user-profile-info__descr">
             <div className="user-profile-info__item role">User Role:{user.role}</div>
             <div className="user-profile-info__item email">{user.email}</div>
-            <div className="user-profile-info__item birthday">Date of Birth: {getDDMMMYYYYUnix(user.dateOfBirth)}</div>
+            {get(user, 'dateOfBirth', null)
+              ? <div className="user-profile-info__item birthday">Date of Birth: {getDDMMMYYYY(user.dateOfBirth)}</div>
+              : null
+            }
           </div>
           { themeConfigs.isShowUserProfileSpecification ?
             <div className="specification">

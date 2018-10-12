@@ -4,6 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import { Provider } from 'react-redux'
 import { StaticRouter } from 'react-router'
 import configureStore from 'redux-mock-store';
+import { get } from 'lodash';
 
 import TopHeader from '../TopHeader';
 import { themeConfigs } from '../../../../themes.config';
@@ -52,6 +53,7 @@ const storeRootPage = mockStore(Object.assign({
     },
   } }, storeResource));
 describe('Component <TopHeader />', () => {
+
   it('should renders with props correctly', () => {
     const component = mount(
       <Provider store={storeProfilePage}>
@@ -72,7 +74,12 @@ describe('Component <TopHeader />', () => {
       />, { context }).dive().dive();
     expect(component).toMatchSnapshot();
     component.setContext(context);
-    component.find('.btn-header-prev').simulate('click');
+    if (get(themeConfigs, 'topHeader.showHomeButton', false)) {
+      component.find('.btn-home').simulate('click');
+    }
+    if (get(themeConfigs, 'topHeader.showBackButton', false)) {
+      component.find('.btn-back').simulate('click');
+    }
   });
 
   it('should renders with props correctly when we are on the ROOT page', () => {
