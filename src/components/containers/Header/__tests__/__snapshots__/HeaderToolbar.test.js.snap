@@ -19,12 +19,12 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
           onClick={[Function]}
         >
           <i
-            className="btn-icon fa fa-bars"
+            className="btn-icon fa fa-times"
           />
           <span
             className="btn-text"
           >
-            Menu
+            Close
           </span>
         </button>
         <div
