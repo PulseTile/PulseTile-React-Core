@@ -422,12 +422,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     <div
                                       className="user-profile-info__item email"
                                     />
-                                    <div
-                                      className="user-profile-info__item birthday"
-                                    >
-                                      Date of Birth: 
-                                      Invalid date
-                                    </div>
                                   </div>
                                   <div
                                     className="specification"

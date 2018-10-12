@@ -284,12 +284,6 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             >
                               bob.smith@gmail.com
                             </div>
-                            <div
-                              className="user-profile-info__item birthday"
-                            >
-                              Date of Birth: 
-                              Invalid date
-                            </div>
                           </div>
                           <div
                             className="specification"
