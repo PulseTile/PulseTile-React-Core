@@ -91,7 +91,7 @@ const storeResource = {
       dateCreated: 1517845806000,
       source: 'ethercis',
       sourceId: '773c2b67-9a88-4bfd-9f0d-04e78dc5721e',
-    },
+     },
   },
   proceduresDetail: {
     '9999999000': {
@@ -112,27 +112,15 @@ const storeResource = {
       originalSource: '',
     },
   },
-}
+};
 const store = mockStore(Object.assign({}, storeResource));
 const emptyStore = mockStore({
-  diagnosesDetail: {
-    // '9999999000': {},
-  },
-  medicationsDetail: {
-    // '9999999000': {},
-  },
-  referralsDetail: {
-    // '9999999000': {},
-  },
-  vitalsDetail: {
-    // '9999999000': {},
-  },
-  eventsDetail: {
-    // '9999999000': {},
-  },
-  proceduresDetail: {
-    // '9999999000': {},
-  },
+  diagnosesDetail: {},
+  medicationsDetail: {},
+  referralsDetail: {},
+  vitalsDetail: {},
+  eventsDetail: {},
+  proceduresDetail: {},
 });
 
 
@@ -148,36 +136,6 @@ const match = {
 };
 
 describe('Component <RecordsOfTablePopover />', () => {
-  it('should renders with props correctly when type referrals', () => {
-    const component = shallow(
-      <RecordsOfTablePopover
-        store={store}
-        record={
-          {
-            type: 'referrals',
-            sourceId: '9dabaf87-7ad4-410a-944f-2449a8d0f8f7',
-          }
-        }
-        match={match}
-      />)
-      .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
-      .dive();
-
-    expect(component.find('.record-popover')).toHaveLength(1);
-    expect(component.find('.record-popover-title')).toHaveLength(1);
-
-    // For Referrals-plugin
-    // expect(component.find('.record-popover-title').at(0).text()).toEqual('Referrals');
-
-    expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('RecordsOfTablePopoverReferrals')).toHaveLength(1);
-
-    expect(component).toMatchSnapshot();
-  });
 
   it('should renders with props correctly when type diagnosis', () => {
     const component = shallow(
@@ -192,10 +150,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />)
       .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
+      .dive()
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -220,10 +175,7 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />)
       .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
+      .dive()
       .dive();
 
     expect(component.find('.record-popover')).toHaveLength(1);
@@ -231,98 +183,6 @@ describe('Component <RecordsOfTablePopover />', () => {
     expect(component.find('.record-popover-title').at(0).text()).toEqual('Medications');
     expect(component.find('Spinner')).toHaveLength(1);
     expect(component.find('RecordsOfTablePopoverMedications')).toHaveLength(1);
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should renders with props correctly when type events', () => {
-    const component = shallow(
-      <RecordsOfTablePopover
-        store={store}
-        record={
-          {
-            type: 'events',
-            sourceId: '9dabaf87-7ad4-410a-944f-2449a8d0f8f7',
-          }
-        }
-        match={match}
-      />)
-      .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
-      .dive();
-
-    expect(component.find('.record-popover')).toHaveLength(1);
-    expect(component.find('.record-popover-title')).toHaveLength(1);
-
-    // For Events-plugin
-    // expect(component.find('.record-popover-title').at(0).text()).toEqual('Events');
-
-    expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('RecordsOfTablePopoverEvents')).toHaveLength(1);
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should renders with props correctly when type vitals', () => {
-    const component = shallow(
-      <RecordsOfTablePopover
-        store={store}
-        record={
-          {
-            type: 'vitals',
-            sourceId: '27ee5e25-4c32-46d2-b45a-f74149d72030',
-          }
-        }
-        match={match}
-      />)
-      .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
-      .dive();
-
-    expect(component.find('.record-popover')).toHaveLength(1);
-
-    // For Vitals-plugin
-    // expect(component.find('.record-popover-title')).toHaveLength(1);
-    // expect(component.find('.record-popover-title').at(0).text()).toEqual('Vitals');
-    // expect(component.find('Spinner')).toHaveLength(0);
-    // expect(component.find('RecordsOfTablePopoverVitals')).toHaveLength(1);
-
-    expect(component).toMatchSnapshot();
-  });
-
-  it('should renders with props correctly when type procedures', () => {
-    const component = shallow(
-      <RecordsOfTablePopover
-        store={store}
-        record={
-          {
-            type: 'procedures',
-            sourceId: '9dabaf87-7ad4-410a-944f-2449a8d0f8f7',
-          }
-        }
-        match={match}
-      />)
-      .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
-      .dive();
-
-    expect(component.find('.record-popover')).toHaveLength(1);
-    expect(component.find('.record-popover-title')).toHaveLength(1);
-
-    // For Procedures-plugin
-    // expect(component.find('.record-popover-title').at(0).text()).toEqual('Procedures');
-
-    expect(component.find('Spinner')).toHaveLength(1);
-    expect(component.find('RecordsOfTablePopoverProcedures')).toHaveLength(1);
 
     expect(component).toMatchSnapshot();
   });
@@ -340,12 +200,8 @@ describe('Component <RecordsOfTablePopover />', () => {
         match={match}
       />)
       .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
+      .dive()
       .dive();
-
 
     expect(component).toMatchSnapshot();
   });
@@ -356,17 +212,14 @@ describe('Component <RecordsOfTablePopover />', () => {
         store={emptyStore}
         record={
           {
-            type: 'vitals',
+            type: 'medications',
             sourceId: '',
           }
         }
         match={match}
       />)
       .dive()
-      // .dive() // For Procedures-plugin
-      // .dive() // For Events-plugin
-      // .dive() // For Vitals-plugin
-      // .dive() // For Referrals-plugin
+      .dive()
       .dive();
 
     expect(component).toMatchSnapshot();

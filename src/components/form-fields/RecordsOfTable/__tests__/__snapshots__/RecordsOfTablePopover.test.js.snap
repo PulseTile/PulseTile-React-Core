@@ -42,36 +42,23 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
           }
         }
       />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Component <RecordsOfTablePopover /> should renders with props correctly when type events 1`] = `
-<div
-  className="record-popover"
-  style={
-    Object {
-      "display": "block",
-    }
-  }
->
-  <div
-    className="record-popover-header"
-  >
-    <div
-      className="record-popover-title"
-    />
-  </div>
-  <div
-    className="record-popover-body"
-  >
-    <div
-      className="record-popover-content"
-    >
-      <Spinner />
-      <RecordsOfTablePopoverEvents
-        detail={null}
+      <RecordsOfTablePlugins
+        detail={
+          Object {
+            "author": "Dr Tony Shannon",
+            "code": 12393890,
+            "dateCreated": 1516801743000,
+            "dateOfOnset": 1514851200000,
+            "description": "ggg",
+            "originalComposition": "",
+            "originalSource": "",
+            "problem": "# CONDYLE RIGHT HUMERUS 123",
+            "source": "ethercis",
+            "sourceId": "a360e5fa-c837-4060-9f67-fecbf2f42d42",
+            "terminology": "SNOMED-CT",
+          }
+        }
+        typeOfRecord="diagnosis"
       />
     </div>
   </div>
@@ -122,98 +109,25 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
           }
         }
       />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Component <RecordsOfTablePopover /> should renders with props correctly when type procedures 1`] = `
-<div
-  className="record-popover"
-  style={
-    Object {
-      "display": "block",
-    }
-  }
->
-  <div
-    className="record-popover-header"
-  >
-    <div
-      className="record-popover-title"
-    />
-  </div>
-  <div
-    className="record-popover-body"
-  >
-    <div
-      className="record-popover-content"
-    >
-      <Spinner />
-      <RecordsOfTablePopoverProcedures
-        detail={null}
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Component <RecordsOfTablePopover /> should renders with props correctly when type referrals 1`] = `
-<div
-  className="record-popover"
-  style={
-    Object {
-      "display": "block",
-    }
-  }
->
-  <div
-    className="record-popover-header"
-  >
-    <div
-      className="record-popover-title"
-    />
-  </div>
-  <div
-    className="record-popover-body"
-  >
-    <div
-      className="record-popover-content"
-    >
-      <Spinner />
-      <RecordsOfTablePopoverReferrals
-        detail={null}
-      />
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Component <RecordsOfTablePopover /> should renders with props correctly when type vitals 1`] = `
-<div
-  className="record-popover"
-  style={
-    Object {
-      "display": "block",
-    }
-  }
->
-  <div
-    className="record-popover-header"
-  >
-    <div
-      className="record-popover-title"
-    />
-  </div>
-  <div
-    className="record-popover-body"
-  >
-    <div
-      className="record-popover-content"
-    >
-      <Spinner />
-      <RecordsOfTablePopoverVitals
-        detail={null}
+      <RecordsOfTablePlugins
+        detail={
+          Object {
+            "author": "bob.smith@gmail.com",
+            "dateCreated": 1515670672000,
+            "doseAmount": "Dose Amount",
+            "doseDirections": "Dose Direction",
+            "doseTiming": "Dose Amount",
+            "medicationCode": 123456789,
+            "medicationTerminology": "external",
+            "name": "test medication 11.01",
+            "route": "Po Per Oral",
+            "source": "ethercis",
+            "sourceId": "1893365f-4961-4af1-847c-8ccf205aa7a1",
+            "startDate": 1515719699000,
+            "startTime": 4499000,
+          }
+        }
+        typeOfRecord="medications"
       />
     </div>
   </div>
@@ -243,6 +157,10 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
       className="record-popover-content"
     >
       <Spinner />
+      <RecordsOfTablePlugins
+        detail={null}
+        typeOfRecord="test"
+      />
     </div>
   </div>
 </div>
@@ -262,7 +180,9 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
   >
     <div
       className="record-popover-title"
-    />
+    >
+      Medications
+    </div>
   </div>
   <div
     className="record-popover-body"
@@ -271,8 +191,12 @@ exports[`Component <RecordsOfTablePopover /> should renders with props correctly
       className="record-popover-content"
     >
       <Spinner />
-      <RecordsOfTablePopoverVitals
+      <RecordsOfTablePopoverMedications
         detail={null}
+      />
+      <RecordsOfTablePlugins
+        detail={null}
+        typeOfRecord="medications"
       />
     </div>
   </div>

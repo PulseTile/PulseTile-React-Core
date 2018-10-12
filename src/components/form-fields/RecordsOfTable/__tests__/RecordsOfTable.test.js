@@ -4,6 +4,8 @@ import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
 import RecordsOfTable from '../../../form-fields/RecordsOfTable/RecordsOfTable';
 import { valuesNames } from '../forms.config';
+import * as recordsFunctions from '../functions';
+import * as themeFunctions from '../../../theme/config/recordsOfTable/recordsOfTableFunctions';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -183,10 +185,7 @@ describe('Component <RecordsOfTable />', () => {
         match={match}
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     expect(component.find('Spinner')).toHaveLength(0);
@@ -203,36 +202,43 @@ describe('Component <RecordsOfTable />', () => {
     expect(component.state().indexOfTypeEvents).toEqual('');
 
     // For Events-plugin
-    // component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
-    // expect(component.state().typeRecords).toEqual('events');
+    component.instance().handleGetHeadingsLists({ target: { value: 'events' }});
+    expect(component.state().typeRecords).toEqual('events');
 
     component.instance().handleGetHeadingsLists({ target: { value: 'diagnosis' }});
 
     // Testing set['fieldName']Records methods
-    component.instance().setDiagnosisRecords([{ dateOfOnset: 1512432000000 }]);
-    component.instance().setMedicationsRecords([{ dateCreated: 1512432000000 }]);
-    component.instance().setProceduresRecords([{ date: 1512432000000 }]);
-    component.instance().setReferralsRecords([{ dateOfReferral: 1512432000000, referralFrom: 'referralFrom', referralTo: 'referralTo' }]);
-    component.instance().setVitalsRecords([
-      {},
-      {
-        newsScore: 4,
-        dateCreated: 1516367377000,
-      },
-    ]);
+
+    recordsFunctions.setDiagnosisRecords([{ dateOfOnset: 1512432000000 }]);
+    recordsFunctions.setMedicationsRecords([{ dateCreated: 1512432000000 }]);
+    if (typeof(themeFunctions.setProceduresRecords) === 'function') {
+      themeFunctions.setProceduresRecords([{ date: 1512432000000 }]);
+    }
+    if (typeof(themeFunctions.setReferralsRecords) === 'function') {
+      themeFunctions.setReferralsRecords([{ dateOfReferral: 1512432000000, referralFrom: 'referralFrom', referralTo: 'referralTo' }]);
+    }
+    if (typeof(themeFunctions.setVitalsRecords) === 'function') {
+      themeFunctions.setVitalsRecords([
+        {},
+        {
+          newsScore: 4,
+          dateCreated: 1516367377000,
+        },
+      ]);
+    }
 
     // Testing handleTogglePopover method
     expect(component.state().indexOfOpenedPopover).toEqual(null);
-    component.instance().handleTogglePopover(1)
+    component.instance().handleTogglePopover(1);
     expect(component.state().indexOfOpenedPopover).toEqual(1);
 
     // Testing handleClosePopover method
-    component.instance().handleClosePopover()
+    component.instance().handleClosePopover();
     expect(component.state().indexOfOpenedPopover).toEqual(null);
 
     // Testing onDragStart method
     component.setState({ indexOfOpenedPopover: 'testIndex' });
-    component.instance().onDragStart()
+    component.instance().onDragStart();
     expect(component.state().indexOfOpenedPopover).toEqual(null);
 
     // Testing handleDocumentClick method
@@ -346,10 +352,7 @@ describe('Component <RecordsOfTable />', () => {
         isSubmit
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     expect(component.find('.has-error')).toHaveLength(1);
@@ -371,10 +374,7 @@ describe('Component <RecordsOfTable />', () => {
         isSubmit={false}
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     component.setState({
@@ -413,10 +413,7 @@ describe('Component <RecordsOfTable />', () => {
         isNotDragAndDropOfRaws
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     component.setProps({ allDiagnoses: [{
@@ -445,10 +442,7 @@ describe('Component <RecordsOfTable />', () => {
         isNotDragAndDropOfRaws
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     component.setProps({ allDiagnoses: [{
@@ -474,10 +468,7 @@ describe('Component <RecordsOfTable />', () => {
         isOnlyOneRecord
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     component.setProps({ allDiagnoses: [{
@@ -504,10 +495,7 @@ describe('Component <RecordsOfTable />', () => {
         isNotDragAndDropOfRaws
       />)
         .dive()
-        // .dive()  // For Procedures-plugin
-        // .dive()  // For Referral-plugin
-        // .dive()  // For Silver-plugin Vitals
-        // .dive()  // For Silver-plugin Events
+        .dive()
         .dive();
 
     component.setProps({ allDiagnoses: [{

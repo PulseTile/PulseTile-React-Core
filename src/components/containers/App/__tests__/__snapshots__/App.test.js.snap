@@ -40,7 +40,7 @@ exports[`Component <App /> should renders correctly when props not empty 1`] = `
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
-      <TermsAndConditions />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"
@@ -88,7 +88,7 @@ exports[`Component <App /> should renders correctly with context 1`] = `
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
-      <TermsAndConditions />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"
@@ -136,7 +136,7 @@ exports[`Component <App /> should renders correctly with is not touch device and
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
-      <TermsAndConditions />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"

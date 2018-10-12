@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import _ from 'lodash/fp';
+import { get } from 'lodash';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -8,48 +9,50 @@ import SelectFormGroup from '../SelectFormGroup';
 import RecordsOfTablePopover from './RecordsOfTablePopover';
 import Spinner from '../../ui-elements/Spinner/Spinner';
 import { valuesNames, valuesLabels, defaultTypesOptions } from './forms.config';
-import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { fetchPatientMedicationsRequest } from '../../pages/Medications/ducks/fetch-patient-medications.duck';
 import { fetchPatientDiagnosesRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses.duck';
 import { patientDiagnosesSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsSelector } from '../../pages/Medications/selectors';
 
-// THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
-// import { fetchPatientEventsRequest } from '../../pages/Events/ducks/fetch-patient-events.duck';
-// import { patientEventsSelector } from '../../pages/Events/selectors';
-// import { fetchPatientVitalsRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals.duck';
-// import { patientVitalsSelector } from '../../pages/Vitals/selectors';
-// import { fetchPatientReferralsRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals.duck';
-// import { patientReferralsSelector } from '../../pages/Referrals/selectors';
-// import { fetchPatientProceduresRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures.duck';
-// import { patientProceduresSelector } from '../../pages/Procedures/selectors';
+import * as recordsFunctions from './functions';
+import { themeActions, themeSelector, themeTypesRecords } from '../../theme/config/recordsOfTable/recordsOfTable';
+import { themeFunctions } from '../../theme/config/recordsOfTable/recordsOfTableFunctions';
 
 const PREFIX_POPOVER_ID = 'rot-popover-';
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
+const coreActions = {
+  fetchPatientDiagnosesRequest,
+  fetchPatientMedicationsRequest,
+};
+const actionsArray = Object.assign(coreActions, themeActions);
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionsArray, dispatch) });
 
-    fetchPatientDiagnosesRequest,
-    fetchPatientMedicationsRequest,
-
-    // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS.
-    // fetchPatientVitalsRequest,
-    // fetchPatientEventsRequest,
-    // fetchPatientReferralsRequest,
-    // fetchPatientProceduresRequest,
-
-  }, dispatch) });
+const coreTypesRecords = {
+  diagnosis: {
+    title: 'Diagnosis',
+    fetchList: 'fetchPatientDiagnosesRequest',
+    stateName: 'allDiagnoses',
+    setMethodName: 'setDiagnosisRecords',
+    records: null,
+    hasSubItems: false,
+  },
+  medications: {
+    title: 'Medications',
+    fetchList: 'fetchPatientMedicationsRequest',
+    stateName: 'allMedications',
+    setMethodName: 'setMedicationsRecords',
+    records: null,
+    hasSubItems: false,
+  },
+};
+const typesRecords = Object.assign(coreTypesRecords, themeTypesRecords);
 
 @connect(patientDiagnosesSelector, mapDispatchToProps)
 @connect(patientMedicationsSelector)
-
-// THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
-// @connect(patientVitalsSelector)
-// @connect(patientEventsSelector)
-// @connect(patientReferralsSelector)
-// @connect(patientProceduresSelector)
+@connect(themeSelector)
 
 export default class RecordsOfTable extends PureComponent {
+
   static defaultProps = {
     typesOptions: defaultTypesOptions,
     isNotDragAndDropOfRaws: false,
@@ -65,64 +68,16 @@ export default class RecordsOfTable extends PureComponent {
     indexOfOpenedPopover: null,
     isDisplayTypeSelect: true,
     isOnlyOneTypeOfRecords: false,
-
-    typesRecords: {
-      diagnosis: {
-        title: 'Diagnosis',
-        fetchList: 'fetchPatientDiagnosesRequest',
-        stateName: 'allDiagnoses',
-        setMethodName: 'setDiagnosisRecords',
-        records: null,
-      },
-      medications: {
-        title: 'Medications',
-        fetchList: 'fetchPatientMedicationsRequest',
-        stateName: 'allMedications',
-        setMethodName: 'setMedicationsRecords',
-        records: null,
-      },
-
-      // THESE PLUGINS WERE EXTRACTED FROM MAIN AND RELOCATED TO SILVER-PLUGINS
-      // vitals: {
-      //   title: 'Vitals',
-      //   fetchList: 'fetchPatientVitalsRequest',
-      //   stateName: 'allVitals',
-      //   setMethodName: 'setVitalsRecords',
-      //   records: null,
-      // },
-      // events: {
-      //   title: 'Events',
-      //   fetchList: 'fetchPatientEventsRequest',
-      //   stateName: 'allEvents',
-      //   setMethodName: 'setEventsRecords',
-      //   records: null,
-      // },
-      // procedures: {
-      //   title: 'Procedures',
-      //   fetchList: 'fetchPatientProceduresRequest',
-      //   stateName: 'allProcedures',
-      //   setMethodName: 'setProceduresRecords',
-      //   records: null,
-      // },
-      // referrals: {
-      //   title: 'Referrals',
-      //   fetchList: 'fetchPatientReferralsRequest',
-      //   stateName: 'allReferrals',
-      //   setMethodName: 'setReferralsRecords',
-      //   records: null,
-      // },
-    },
+    typesRecords: typesRecords,
   };
 
   componentWillMount() {
     const { typesOptions } = this.props;
-
     if (typesOptions.length === 1) {
       valuesLabels.RECORDS = typesOptions[0].title;
       this.setState({ isDisplayTypeSelect: false, isOnlyOneTypeOfRecords: true });
       this.handleGetHeadingsLists({ target: { value: typesOptions[0].value } });
     }
-
     window.addEventListener('resize', this.handleClosePopover);
     window.addEventListener('orientationchange', this.handleClosePopover);
     document.addEventListener('click', this.handleDocumentClick);
@@ -134,7 +89,6 @@ export default class RecordsOfTable extends PureComponent {
     document.removeEventListener('click', this.handleDocumentClick);
   }
 
-  /* istanbul ignore next */
   componentWillReceiveProps(nextProps) {
     const { waitingDataOf } = this.state;
     if (waitingDataOf) {
@@ -143,82 +97,7 @@ export default class RecordsOfTable extends PureComponent {
     this.setAllRecords(nextProps);
   }
 
-  // Functionality of Set different data to types of Records
-  changeArraysForTable = (arr, name, date) => {
-    return arr.map((el, index) => {
-      el.tableName = el[name];
-      el.date = getDDMMMYYYY(el[date]);
-      return {
-        record: el,
-        title: el[name],
-        value: index,
-      }
-    });
-  };
-  setDiagnosisRecords = (data) => {
-    return this.changeArraysForTable(data, 'problem', 'dateOfOnset');
-  };
-  setMedicationsRecords = (data) => {
-    return this.changeArraysForTable(data, 'name', 'dateCreated');
-  };
-  setProceduresRecords = (data) => {
-    return this.changeArraysForTable(data, 'name', 'date');
-  };
-  setReferralsRecords = (data) => {
-    return data.map((el, index) => {
-      const date = getDDMMMYYYY(el.dateOfReferral);
-      el.date = date;
-      el.tableName = `${date} ${el.referralFrom} ${el.referralTo}`;
-      return {
-        record: el,
-        title: `${date} - ${el.referralFrom} -> ${el.referralTo}`,
-        value: index,
-      }
-    });
-  };
-  setEventsRecords = /* istanbul ignore next */ (data) => {
-    const events = _.flow(
-      _.filter(item => item.dateCreated && item.type),
-      // _.filter(item => item.dateCreated),
-      _.map((item) => {
-        item.date = getDDMMMYYYY(item.dateCreated);
-        item.tableName = item.name;
-        return item;
-      }),
-      _.groupBy(item => item.type.capitalize()),
-    )(data);
-
-    const arr = [];
-    let index = 0;
-    for (const key in events) {
-      events[key] = events[key].map((el, index) => ({
-        record: el,
-        title: el.name,
-        value: index,
-      }));
-      arr.push({
-        events: events[key],
-        title: key,
-        value: index++,
-      });
-    }
-
-    return arr;
-  };
-  setVitalsRecords = (data) => {
-    const records = [];
-    records.push({
-      record: data[1],
-    });
-
-    records[0].record.date = getDDMMMYYYY(records[0].dateCreated);
-    records[0].record.tableName = `Latest Vitals Data (News Score: ${records[0].record.newsScore})`;
-    records[0].title = 'Latest Vitals Data';
-    records[0].value = 0;
-    return records;
-  };
-
-  setAllRecords = /* istanbul ignore next */ (props) => {
+  setAllRecords = (props) => {
     const { typesRecords } = this.state;
     let isShouldUpdate = false;
     const newTypesRecords = {
@@ -226,18 +105,21 @@ export default class RecordsOfTable extends PureComponent {
     };
     for (const key in newTypesRecords) {
       const stateName = newTypesRecords[key].stateName;
-
       if (!_.isEmpty(props[stateName]) && _.isEmpty(newTypesRecords[key].records)) {
-        newTypesRecords[key].records = this[newTypesRecords[key].setMethodName](props[stateName]);
+        const methodName = get(newTypesRecords, '[' + key + '].setMethodName', null);
+        let functionName = (typeof(get(recordsFunctions, '[' + methodName+ ']', null)) === 'function')
+            ? get(recordsFunctions, '[' + methodName+ ']', null)
+            : get(themeFunctions, '[' + methodName+ ']', null);
+        newTypesRecords[key].records = (functionName) ? functionName(props[stateName]) : null;
         isShouldUpdate = true;
       }
       this.selectRecordOptionForUpdate(newTypesRecords[key].records);
     }
-
     if (isShouldUpdate) {
       this.setState({ typesRecords: newTypesRecords });
     }
   };
+
   selectRecordOptionForUpdate = (typeRecords) => {
     const { isOnlyOneTypeOfRecords } = this.state;
     const { isOnlyOneRecord, input: { value } } = this.props;
@@ -265,14 +147,18 @@ export default class RecordsOfTable extends PureComponent {
     const userId = _.get('params.userId', match);
     const toSetState = { typeRecords, indexOfSelectedRecord: '', indexOfTypeEvents: '' };
 
-    if (userId && !typesRecords[typeRecords].records) {
-      toSetState.waitingDataOf = typesRecords[typeRecords].stateName;
+    if (userId && !get(typesRecords, '[' + typeRecords + '].records', null)) {
+      toSetState.waitingDataOf = get(typesRecords, '[' + typeRecords + '].stateName', null);
       toSetState.isRecordsLoading = true;
-      actions[typesRecords[typeRecords].fetchList]({ userId });
+      const fetchList = get(typesRecords, '[' + typeRecords + '].fetchList', null);
+      if (fetchList) {
+        actions[fetchList]({ userId });
+      }
     }
 
     this.setState(toSetState);
   };
+
   handleGetHeadingsItems = (ev) => {
     const { input: { onChange, value }, isOnlyOneRecord} = this.props;
     const records = value || [];
@@ -282,24 +168,25 @@ export default class RecordsOfTable extends PureComponent {
     const newRecords = records.slice();
     let selectedItem;
 
-    if (typeRecords === 'events') {
-      selectedItem = typesRecords[typeRecords].records[indexOfTypeEvents].events[indexOfSelectedRecord];
+    const recordHasSubItem = this.isRecordHasSubitems(typesRecords, typeRecords);
+    if (recordHasSubItem) {
+      selectedItem = typeRecords ? typesRecords[typeRecords].records[indexOfTypeEvents].events[indexOfSelectedRecord] : null;
     } else {
-      selectedItem = typesRecords[typeRecords].records[indexOfSelectedRecord];
+      selectedItem = typeRecords ? typesRecords[typeRecords].records[indexOfSelectedRecord] : null;
     }
 
     if (selectedItem) {
       const record = {
-        name: selectedItem.record.tableName,
+        name: get(selectedItem, 'record.tableName', null),
         type: typeRecords,
         typeTitle: typesRecords[typeRecords].title,
-        date: selectedItem.record.date,
-        source: selectedItem.record.source,
-        sourceId: selectedItem.record.sourceId,
+        date: get(selectedItem, 'record.date', null),
+        source: get(selectedItem, 'record.source', null),
+        sourceId: get(selectedItem, 'record.sourceId', null),
       };
-      // if (typeRecords === 'events') {
-      //   record.typeTitle = typesRecords[typeRecords].records[indexOfTypeEvents].title;
-      // }
+      if (recordHasSubItem) {
+        record.typeTitle = typeRecords ? typesRecords[typeRecords].records[indexOfTypeEvents].title : null;
+      }
 
       if (isOnlyOneRecord) {
         newRecords[0] = record;
@@ -311,10 +198,12 @@ export default class RecordsOfTable extends PureComponent {
       this.setState({ indexOfSelectedRecord });
     }
   };
+
   handleGetEventType = (ev) => {
     const indexOfTypeEvents = parseInt(ev.target.value);
     this.setState({ indexOfTypeEvents, indexOfSelectedRecord: '' });
   };
+
   removeRecord = index => (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
@@ -334,9 +223,11 @@ export default class RecordsOfTable extends PureComponent {
 
     return result;
   };
+
   onDragStart = () => {
     this.handleTogglePopover(null);
   };
+
   onDragEnd = (result) => {
     // dropped outside the list
     if (!result.destination) { return }
@@ -345,6 +236,7 @@ export default class RecordsOfTable extends PureComponent {
     this.handleTogglePopover(null);
     onChange(newRecords);
   };
+
   getItemStyle = (isDragging, draggableStyle) => ({
     opacity: isDragging ? 0.5 : 1,
     ...draggableStyle,
@@ -354,9 +246,11 @@ export default class RecordsOfTable extends PureComponent {
   handleTogglePopover = (index) => {
     this.setState({ indexOfOpenedPopover: this.state.indexOfOpenedPopover !== index ? index : null })
   };
+
   handleClosePopover = () => {
     this.handleTogglePopover(null);
   };
+
   handleDocumentClick = (ev) => {
     const target = ev.target;
     const popoverWrapper = target.closest('.record-popover-wrapper');
@@ -366,14 +260,15 @@ export default class RecordsOfTable extends PureComponent {
     }
   };
 
+  isRecordHasSubitems = (typesRecords, typeRecords) => {
+    return get(typesRecords, typeRecords + '.hasSubItems', false);
+  }
 
   render() {
-    const { typesOptions, isSubmit, input: { value }, match } = this.props;
-    const { isNotDragAndDropOfRaws } = this.props;
+    const { typesOptions, isSubmit, input: { value }, match, isNotDragAndDropOfRaws } = this.props;
+    const { typesRecords, typeRecords, indexOfSelectedRecord, isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover, isDisplayTypeSelect } = this.state;
     const records = value;
-    const { typesRecords, typeRecords, indexOfSelectedRecord,
-      isRecordsLoading, indexOfTypeEvents, indexOfOpenedPopover, isDisplayTypeSelect } = this.state;
-
+    const recordHasSubItem = this.isRecordHasSubitems(typesRecords, typeRecords);
     return (
       <div>
         {isRecordsLoading ? <Spinner /> : null }
@@ -390,52 +285,48 @@ export default class RecordsOfTable extends PureComponent {
             onChange={this.handleGetHeadingsLists}
           /> : null}
 
-        {(typeRecords === 'diagnosis' ||
-          typeRecords === 'medications' ||
-          typeRecords === 'referrals' ||
-          typeRecords === 'vitals' ||
-          typeRecords === 'procedures') ?
-            <SelectFormGroup
-              label={valuesLabels.RECORDS}
-              name={valuesNames.RECORDS}
-              id={valuesNames.RECORDS}
-              options={typesRecords[typeRecords].records || []}
-              component={SelectFormGroup}
-              placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
-              meta={{ error: false, touched: false }}
-              input={{ value: indexOfSelectedRecord }}
-              onChange={this.handleGetHeadingsItems}
-          /> : null }
-
-        {typeRecords === 'events' ?
-          <div>
-            <SelectFormGroup
-              label={valuesLabels.RECORDS_TYPE_EVENTS}
-              name={valuesNames.RECORDS_TYPE_EVENTS}
-              id={valuesNames.RECORDS_TYPE_EVENTS}
-              options={typesRecords[typeRecords].records || []}
-              component={SelectFormGroup}
-              placeholder={'-- Select Events Type --'}
-              meta={{ error: false, touched: false }}
-              input={{ value: indexOfTypeEvents }}
-              onChange={this.handleGetEventType}
-            />
-            { indexOfTypeEvents || indexOfTypeEvents === 0 ?
+          {get(typesRecords, '[' + typeRecords + ']', null) ?
+            recordHasSubItem ?
+              <div>
+                <SelectFormGroup
+                  label={valuesLabels.RECORDS_TYPE_EVENTS}
+                  name={valuesNames.RECORDS_TYPE_EVENTS}
+                  id={valuesNames.RECORDS_TYPE_EVENTS}
+                  options={get(typesRecords, '[' + typeRecords + '].records', null) || []}
+                  component={SelectFormGroup}
+                  placeholder={'-- Select Events Type --'}
+                  meta={{ error: false, touched: false }}
+                  input={{ value: indexOfTypeEvents }}
+                  onChange={this.handleGetEventType}
+                />
+                { indexOfTypeEvents || indexOfTypeEvents === 0 ?
+                  <SelectFormGroup
+                    label={valuesLabels.RECORDS_EVENTS}
+                    name={valuesNames.RECORDS_EVENTS}
+                    id={valuesNames.RECORDS_EVENTS}
+                    options={get(typesRecords, '[' + typeRecords + '].records[' + indexOfTypeEvents + '].events', null) || []}
+                    component={SelectFormGroup}
+                    placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
+                    meta={{ error: false, touched: false }}
+                    input={{ value: indexOfSelectedRecord }}
+                    onChange={this.handleGetHeadingsItems}
+                  /> : null
+                }
+              </div>
+              :
               <SelectFormGroup
-                label={valuesLabels.RECORDS_EVENTS}
-                name={valuesNames.RECORDS_EVENTS}
-                id={valuesNames.RECORDS_EVENTS}
-                options={typesRecords[typeRecords].records[indexOfTypeEvents].events || []}
+                label={valuesLabels.RECORDS}
+                name={valuesNames.RECORDS}
+                id={valuesNames.RECORDS}
+                options={get(typesRecords, '[' + typeRecords + '].records', null) || []}
                 component={SelectFormGroup}
                 placeholder={`-- Select ${typesRecords[typeRecords].title} --`}
                 meta={{ error: false, touched: false }}
                 input={{ value: indexOfSelectedRecord }}
                 onChange={this.handleGetHeadingsItems}
-              /> : null
-            }
-          </div>
-          : null
-        }
+              />
+            : null
+          }
 
         { records && records.length ?
           <DragDropContext onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>

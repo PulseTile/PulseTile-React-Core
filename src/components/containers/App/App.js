@@ -14,10 +14,10 @@ import Footer from '../../presentational/Footer/Footer';
 import MainSpinner from '../MainSpinner/MainSpinner';
 import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
-import TermsAndConditions from '../TermsAndConditions';
+import ExtraPlugins from '../../theme/components/ExtraPlugins';
 import { image } from './HeaderImage';
 
-import '../../../styles/main.scss';
+import '../../../config/styles';
 
 export class App extends Component {
   render() {
@@ -43,7 +43,7 @@ export class App extends Component {
               <Header />
             </header>
             <Main />
-            <TermsAndConditions />
+            <ExtraPlugins />
           </div>
           <Footer
             copyright={themeConfigs.footerCopyright}

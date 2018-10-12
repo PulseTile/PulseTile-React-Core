@@ -23,8 +23,7 @@ import {
   fetchPatientMedicationsSynopsisOnMount,
 } from '../../../utils/HOCs/fetch-patients.utils';
 
-import { pluginFeedsOnMount } from './non-core-utils';
-import FeedsPanel from './FeedsPanel';
+import ExtraPatientsSummaryPanels from '../../theme/components/ExtraPatientsSummaryPanels';
 
 import { themeSynopsisOnMount, themeSynopsisRequests } from '../../theme/config/synopsisRequests';
 import { dashboardVisible, dashboardBeing } from '../../../plugins.config';
@@ -48,7 +47,6 @@ const mapDispatchToProps = dispatch => ({
   lifecycle(fetchPatientContactsSynopsisOnMount),
   lifecycle(fetchPatientAllergiesSynopsisOnMount),
   lifecycle(fetchPatientMedicationsSynopsisOnMount),
-  lifecycle(pluginFeedsOnMount),
   lifecycle(themeSynopsisOnMount),
 )
 
@@ -118,7 +116,6 @@ export default class PatientsSummary extends PureComponent {
   render() {
 
     const { boards } = this.props;
-    const feeds = get(boards, 'feeds.feeds', []);
 
     const { selectedCategory, selectedViewOfBoards, isDisclaimerModalVisible, isCategory } = this.state;
     let isHasPreview = selectedViewOfBoards.full || selectedViewOfBoards.preview;
@@ -136,7 +133,7 @@ export default class PatientsSummary extends PureComponent {
               selectedCategory={selectedCategory}
               selectedViewOfBoards={selectedViewOfBoards}
               title={themeConfigs.patientsSummaryPageName}
-              feeds={feeds}
+              boards={boards}
             />
             <div className="panel-body">
               <div className="dashboard">
@@ -160,17 +157,12 @@ export default class PatientsSummary extends PureComponent {
                     : null)
                 })}
 
-                {feeds.map((item, index) => {
-                  return (
-                    <FeedsPanel
-                      key={index}
-                      item={item}
-                      handleGoToState={this.handleGoToState}
-                      isHasPreview={isHasPreview}
-                      isHasList={isHasList}
-                    />
-                  );
-                })}
+                <ExtraPatientsSummaryPanels
+                  boards={boards}
+                  handleGoToState={this.handleGoToState}
+                  isHasPreview={isHasPreview}
+                  isHasList={isHasList}
+                />
 
               </div>
             </div>
