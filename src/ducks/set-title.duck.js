@@ -7,7 +7,8 @@ export const setTitle = createAction(SET_TITLE);
 export const setTitleSuccess = createAction(SET_TITLE_SUCCESS);
 
 const setTitleOnBrowser = (browserTitle) => {
-  window.document.title = browserTitle ? browserTitle : '';
+  // Muted until further notice.
+  //window.document.title = browserTitle ? browserTitle : '';
 };
 
 export const setTitleEpic = (action$, store) =>
