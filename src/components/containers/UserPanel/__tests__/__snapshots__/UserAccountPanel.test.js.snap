@@ -42,12 +42,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       >
         bob.smith@gmail.com
       </div>
-      <div
-        className="user-profile-info__item birthday"
-      >
-        Date of Birth: 
-        Invalid date
-      </div>
     </div>
     <div
       className="specification"
@@ -134,12 +128,6 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
         className="user-profile-info__item email"
       >
         bob.smith@gmail.com
-      </div>
-      <div
-        className="user-profile-info__item birthday"
-      >
-        Date of Birth: 
-        Invalid date
       </div>
     </div>
     <div
