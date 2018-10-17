@@ -83,8 +83,6 @@ describe('Component <PatientsSummaryPanel />', () => {
       medications: false,
     } });
 
-    expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
-
     component.instance().toggleRadio('test');
 
     component.setState({
