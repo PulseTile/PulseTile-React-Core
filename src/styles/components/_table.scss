@@ -1,0 +1,344 @@
+.table {
+  border-radius: 0;
+  border: none;
+  background: map-get($colored-table, 'bg');
+  color: map-get($colored-table, 'color');
+  font-size: 11px;
+  line-height: 20px;
+  margin-bottom: 5px;
+  width: 100%;
+  thead tr th {
+    background-color: map-get($colored-table, 'header-bg');
+    color: map-get($colored-table, 'header-color');
+    font-weight: 700;
+    i { margin-left: 5px; }
+  }
+  thead tr th,
+  tbody tr td {
+    padding: 10px 4px 10px 5px;
+    vertical-align: middle;
+    word-wrap: break-word;
+    word-break: break-word;
+    line-height: 20px;
+    @include respond-from(sm) {
+      padding: 10px 4px 10px 10px;
+    }
+  }
+  thead tr th.selected {
+    background-color: map-get($colored-table, 'header-highlighted-bg');
+    color: map-get($colored-table, 'header-highlighted-color');
+  }
+  tbody tr td.selected {
+    background-color: map-get($colored-table, 'row-highlighted-bg');
+    color: map-get($colored-table, 'row-highlighted-color');
+  }
+  &.clickable tbody tr { cursor: pointer; }
+  .dropdown-menu {
+    left: auto;
+    right: 0;
+    li {
+      width: 100%;
+      i {
+        display: inline-block;
+        width: 18px;
+      }
+    }
+  }
+  .view { min-width: 93px; }
+}
+.is-not-touch-device .table .view .btn-dropdown-toggle:hover {
+  background-color: #7dbe31;
+  border-color: #7dbe31;
+  & > li > a:hover {
+    background-color: #d0e8af;
+  }
+}
+@include respond-from(xs) {
+  .table { font-size: 14px; }
+}
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th,
+.table > tbody > tr.info {
+  background-color: map-get($colored-table, 'row-hover-bg') !important;
+  color: map-get($colored-table, 'row-hover-color') !important;
+}
+.wrap-table-scrollX {
+  max-width: initial;
+  overflow-x: scroll;
+  width: 100%;
+  .table { width: 1px; }
+}
+
+.table-fixedcol {
+  table-layout: fixed;
+}
+.table-striped {
+  background-color: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
+  tbody {
+    tr {
+      &:nth-of-type(odd) {
+        background-color: map-get($colored-table, 'row-odd-bg');
+        color: map-get($colored-table, 'row-odd-color');
+      }
+      td {
+        cursor: pointer;
+      }
+    }
+  }
+  thead > tr:nth-of-type(odd) > td.info,
+  tbody > tr:nth-of-type(odd) > td.info,
+  tfoot > tr:nth-of-type(odd) > td.info,
+  thead > tr:nth-of-type(odd) > th.info,
+  tbody > tr:nth-of-type(odd) > th.info,
+  tfoot > tr:nth-of-type(odd) > th.info,
+  thead > tr:nth-of-type(odd).info > td,
+  tbody > tr:nth-of-type(odd).info > td,
+  tfoot > tr:nth-of-type(odd).info > td,
+  thead > tr:nth-of-type(odd).info > th,
+  tbody > tr:nth-of-type(odd).info > th,
+  tfoot > tr:nth-of-type(odd).info > th,
+  tbody > tr:nth-of-type(odd).info {
+    background-color: map-get($colored-table, 'row-odd-hover-bg') !important;
+    color: map-get($colored-table, 'row-odd-hover-color') !important;
+  }
+}
+.table-striped.table-hover {
+  background: map-get($colored-table, 'row-bg');
+  color: map-get($colored-table, 'row-color');
+  tbody {
+    tr {
+      &:hover td[data-table-hover],
+      &.hovered td[data-table-hover] {
+        background: map-get($colored-table, 'row-hover-bg');
+        color: map-get($colored-table, 'row-hover-color');
+      }
+    }
+    tr:nth-of-type(odd) {
+      &:hover td[data-table-hover],
+      &.hovered td[data-table-hover] {
+        background: map-get($colored-table, 'row-odd-hover-bg');
+        color: map-get($colored-table, 'row-odd-hover-color');
+      }
+    }
+  }
+}
+tr[ng-click],
+td[ng-click] { cursor: pointer; }
+
+.is-not-touch-device .table-hover > tbody > tr > td.info:hover,
+.is-not-touch-device .table-hover > tbody > tr > th.info:hover,
+.is-not-touch-device .table-hover > tbody > tr.info:hover > td,
+.is-not-touch-device .table-hover > tbody > tr:hover > .info,
+.is-not-touch-device .table-hover > tbody > tr.info:hover > th,
+.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover > td,
+.is-not-touch-device .table-hover > tbody > tr:hover > td[ng-click],
+.is-not-touch-device .table-hover > tbody > tr[ng-click]:hover,
+.is-not-touch-device .table-hover > tbody > tr.hovered {
+  background: map-get($colored-table, 'row-hover-bg');
+  color: map-get($colored-table, 'row-hover-color');
+}
+
+.table-bordered {
+  border-collapse: separate;
+  border: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+  thead tr th,
+  tbody tr td {
+    border: none;
+    @include respond-from(xs) {
+      border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+      &:first-child { border-left: none; }
+    }
+  }
+}
+.table-schedule {
+  thead tr th,
+  tbody tr td {
+    border-left: map-get($colored-table, 'border-width') solid map-get($colored-table, 'border-color');
+    &:first-child { border-left: none; }
+  }
+}
+@include respond-to(xs) {
+  .table-bordered {
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+@include respond-to(xs) {
+  .rwd-table {
+    display: block;
+    min-width: 300px;
+    th { display: none; }
+    & > tbody { display: block; }
+    & > tbody > tr {
+      display: block;
+      padding: 6px 0;
+      position: relative;
+      & > td {
+        display: block;
+        line-height: 20px;
+        overflow: hidden;
+        padding: 0 10px;
+        position: static;
+        &.cell-truncate {
+          @include text-truncate;
+        }
+        & > span {
+          display: block;
+          overflow: hidden;
+        }
+        &[data-th]:before {
+          content: attr(data-th)": ";
+          display: block;
+          float: left;
+          font-weight: bold;
+          padding-right: 10px;
+          width: 100px;
+          @include respond-from(xs) {
+            display: none;
+          }
+        }
+      }
+    }
+
+    th, td {
+      text-align: left;
+      @include respond-from(xs) {
+        display: table-cell;
+        padding: .25em .5em;
+      }
+    }
+  }
+  .rwd-table td.hidden-xs-cell,
+  .hidden-xs-cell { display: none; }
+}
+
+.sort-asc:after {
+  content: '\25BC';
+  padding-left: 5px;
+}
+
+.sort-desc:after {
+  content: '\25B2';
+  padding-left: 5px;
+}
+@include respond-from(xs) {
+  .table-sorted {
+    thead tr th {
+      cursor: pointer;
+      &.sorted {
+        background-color: map-get($colored-table, 'header-highlighted-bg');
+        color: map-get($colored-table, 'header-highlighted-color');
+        position: relative;
+        &.asc,
+        &.desc { padding-right: 22px; }
+        &.asc:after,
+        &.desc:after {
+          border-style: solid;
+          content: '';
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        &.asc:after {
+          border-color: #303030 transparent transparent;
+          border-width: 5px 5px 0;
+        }
+        &.desc:after {
+          border-color: transparent transparent #303030;
+          border-width: 0 5px 5px;
+        }
+      }
+    }
+    tbody tr td.sorted {
+      background: map-get($colored-table, 'row-sorted-bg');
+      color: map-get($colored-table, 'row-sorted-color');
+    }
+    &.table-striped {
+      tbody {
+        tr:nth-of-type(odd) td.sorted {
+          background: map-get($colored-table, 'row-sorted-odd-bg');
+          color: map-get($colored-table, 'row-sorted-odd-color');
+        }
+      }
+    }
+    &.table-striped.table-hover {
+      tbody {
+        tr.hovered td.sorted,
+        tr:hover td.sorted {
+          background: map-get($colored-table, 'row-sorted-odd-hover-bg');
+          color: map-get($colored-table, 'row-sorted-odd-hover-color');
+        }
+      }
+    }
+  }
+}
+
+.table-icon { color: #9493a1; }
+
+
+.table-transferOfCare,
+.table-records-editable {
+  border-left: 0px !important;
+  border-right: 0px !important;
+  @include respond-from(xs) {
+    border-top: 0px !important;
+  }
+  @include respond-to(xs) {
+    tr {
+      position: relative;
+    }
+    td {
+      padding-right: 48px !important;
+    }
+    .table-transferOfCare__control,
+    .table-records-editable__control {
+      .btn {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+      }
+      &:before { display: none !important; }
+    }
+  }
+
+
+}
+
+
+td[name='sourceId'], th[name='sourceId'],
+td[name='studyId'], th[name='studyId'] {
+  display: none !important;
+}
+
+.table-patients-name, .table-patients-controls {
+  td[name='id'], td[name='address'] {
+    display: none;
+  }
+}
+
+.table-row-higher > tbody > tr,
+.patientsList > tbody > tr,
+.table-patients-name > tbody > tr,
+.table-patients-controls > tbody > tr {
+  height: 100%;
+  @include respond-from(xs) {
+    height: 60px;
+  }
+}
+
+.table-no-cursor {
+  tbody tr td { cursor: initial !important; }
+}

@@ -1,0 +1,37 @@
+.tag {
+  background: #fff;
+  border-bottom: 1px solid #aaa;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 0 3px;
+  padding: 3px 5px;
+  &:hover {
+    background: #ddd;
+    border-bottom: 1px solid #fff;
+  }
+  .remove { cursor: pointer; }
+  .remove i {
+    color: #0E682F;
+    margin-left: 5px;
+  }
+  .editable {
+    cursor: pointer;
+    font-weight: 600;
+  }
+  & > .editable {
+    border-bottom: none;
+    color: #428bca;
+  }
+
+  & > .editable-empty {
+    color: #DD1144;
+  }
+
+  .popover-title { font-weight: 700; }
+  .editable-submit,
+  .editable-cancel { 
+    font-size: 12px;
+    line-height: 14px;
+  }
+  .editable-cancel { border-color: #e6e6e6 !important; }
+}

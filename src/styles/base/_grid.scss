@@ -1,0 +1,85 @@
+.container,
+.container-fluid {
+  padding: 0 $indent-wrapper-small;
+  @include respond-from(xs) {
+    padding: 0 $indent-wrapper-big;
+  }
+}
+.row {
+  margin: 0 (-1)*$gutter-small;
+  @include respond-from(xs) {
+    margin: 0 (-1)*$gutter-big;
+  }
+}
+
+@for $i from 1 to 13 {
+  .col-xs-#{$i},
+  .col-sm-#{$i},  
+  .col-md-#{$i},
+  .col-lg-#{$i} {
+    padding-left: $gutter-small;
+    padding-right: $gutter-small;
+  }
+}
+.col-panel-main,
+.col-panel-details, {
+  width: 100%;
+  padding-left: $gutter-small;
+  padding-right: $gutter-small;
+}
+@include respond-from(xs) {
+  @for $i from 1 to 13 {
+    .col-xs-#{$i},
+    .col-sm-#{$i},
+    .col-md-#{$i},
+    .col-lg-#{$i} {
+      padding-left: $gutter-big;
+      padding-right: $gutter-big;
+    }
+  }
+  .col-panel-main,
+  .col-panel-details, {
+    padding-left: $gutter-big;
+    padding-right: $gutter-big;
+  }
+}
+@include respond-from(md) {
+  .col-panel-main  {width: 52.2%;}
+  .col-panel-details {width: 47.8%;}
+  .full-panel-main {
+    .col-panel-main  {width: 100%;}
+    .col-panel-details {display: none;}
+  }
+  .full-panel-details {
+    .col-panel-main {display: none;}
+    .col-panel-details  {width: 100%;}
+  }
+
+  .expand-label {display: none;}
+
+  .full-panel {
+    .row-expand {
+      @include clearfix;
+    }
+    .col-expand-left {
+      float: left; 
+      width: 50%;
+      padding-right: 4.42%;
+    }
+    .col-expand-right {
+      float: right; 
+      width: 50%;
+      padding-left: 4.42%;
+    }
+    .expand-label {display: block;}
+
+    .hidden-expand {display: none !important;}
+    .visible-expand {display: block !important;}
+    .hidden-not-expand {display: block !important;}
+    .visible-not-expand {display: none !important;}
+  }
+  .hidden-expand {display: block !important;}
+  .visible-expand {display: none !important;}
+  .hidden-not-expand {display: none !important;}
+  .visible-not-expand {display: block !important;}
+}

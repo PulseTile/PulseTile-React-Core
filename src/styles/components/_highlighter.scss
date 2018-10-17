@@ -1,0 +1,33 @@
+$highlighterColor: (
+  default: #ccc,
+  warning: #ffbf00,
+  danger: #ff2626,
+  success: #00cc78
+);
+
+.highlighter-wrapper {
+  position: relative;
+  .highlighter { display: block; }
+}
+.highlighter {
+  background-color: map-get($highlighterColor, 'default');
+  direction: inherit;
+  display: none;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 4px;
+  z-index: 1;
+}
+@each $highlighter, $color in $highlighterColor {
+  .highlighter-#{$highlighter} {
+    @extend .highlighter;
+    background-color: $color;
+  }
+}
+.highlighter-not-vital {
+  @extend .highlighter;
+  background-color: #dadada;
+  width: 1px;
+}

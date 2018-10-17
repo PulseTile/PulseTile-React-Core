@@ -1,0 +1,26 @@
+.ui-select-bootstrap {
+  & > .ui-select-match {
+    box-shadow: none !important;
+    & > .btn {
+        border-radius: 2px;
+        border: 1px solid #c3c3c3 !important;
+        box-shadow: none !important;
+        font-size: 14px;
+        height: 30px;
+        line-height: 20px;
+        padding: 4px 20px 4px 10px;
+        &:hover {
+          background: #fff !important;
+        }
+        &[disabled],
+        &[disabled]:hover {
+          background: #eee !important;
+          color: #555 !important
+        }
+    }
+  }
+  .ui-select-choices-row > span {
+    padding: 3px 10px;
+  }
+  .ui-select-toggle>.caret { z-index: 2; }
+}

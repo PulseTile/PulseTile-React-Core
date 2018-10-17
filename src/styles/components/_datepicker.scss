@@ -1,0 +1,43 @@
+.uib-datepicker-popup.dropdown-menu {
+  width: 320px;
+  table {
+    width: 100%;
+    button {
+      padding: 0;
+      &.active {
+        background: $base-color !important;
+        border-color: $base-color !important;
+        color: $text-on-base-color !important;
+        span {
+          color: $text-on-base-color;
+        }
+      }
+      &.btn-info { color: $text-on-base-color !important; }
+      .text-info { color: $base-color; }
+    }
+  }
+}
+
+@include respond-to(sm) {
+  .uib-datepicker-popup.dropdown-menu {
+    padding: 5px 0;
+    width: 250px;
+    table button {
+      font-size: 14px;
+      height: 26px;
+      line-height: 26px;
+    }
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container {
+  width: 100%;
+}
+
+.react-datepicker-popper {
+  z-index: 2;
+}
