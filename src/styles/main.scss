@@ -1,0 +1,79 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$fa-font-path: '~font-awesome/fonts';
+$font-family-main: Arial, Helvetica, sans-serif;
+
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+//common styles
+@import 'config';
+
+@import 'abstracts/variables';
+@import 'abstracts/colors';
+@import 'abstracts/settings';
+@import 'abstracts/mixins';
+
+@import 'base/fonts';
+@import 'base/typography';
+@import 'base/grid';
+
+@import 'components/btn';
+@import 'components/control';
+@import 'components/label';
+@import 'components/table';
+@import 'components/table-div';
+@import 'components/pagination';
+@import 'components/form';
+@import 'components/form-section';
+@import 'components/form-custom-inputs';
+@import 'components/form-contenteditable';
+@import 'components/form-select';
+@import 'components/highlighter';
+@import 'components/dropdown';
+@import 'components/modal';
+@import 'components/switch';
+@import 'components/datepicker';
+@import 'components/tag';
+@import 'components/scrollbar';
+@import 'components/selectable';
+@import 'components/fullcalendar';
+@import 'components/slider-range';
+@import 'components/panel/index';
+@import 'components/color-palette';
+@import 'components/drag-and-drop';
+@import 'components/datetimepicker';
+@import 'components/banner';
+@import 'components/form-title';
+@import 'components/ie';
+
+@import 'base';
+
+@import 'blocks/main/header/index';
+@import 'blocks/main/sidebar';
+@import 'blocks/main/footer';
+@import 'blocks/search';
+@import 'blocks/breadcrumbs';
+@import 'blocks/patient-info';
+@import 'blocks/section';
+@import 'blocks/spinner';
+@import 'blocks/dashboard';
+@import 'blocks/chart';
+@import 'blocks/schedule';
+@import 'blocks/vitals';
+@import 'blocks/orders';
+@import 'blocks/charts';
+@import 'blocks/dicom';
+@import 'blocks/timelines';
+@import 'blocks/patients-list';
+@import 'blocks/record-popover';
+@import 'blocks/drawings';
+
+@import 'ui-kit';
+
+//global
+
+@import './global/control';
+@import './global/notification';
+@import './global/loading-bar';
+@import './global/spinner';
+@import './global/dicom';

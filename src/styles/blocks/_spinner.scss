@@ -1,0 +1,23 @@
+.patientSummary-spinner {
+  display: block;
+  height: 0;
+  left: 50%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  z-index: 10;
+}
+.spinner {
+  display: inline-block;
+  height: 20px;
+  padding-top: 5px;
+  position: relative;
+  width: 20px;
+}
+.spinner-container {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}

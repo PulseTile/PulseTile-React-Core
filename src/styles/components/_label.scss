@@ -1,0 +1,15 @@
+.label {
+  display: inline-block;
+  font-size: 100%;
+  font-weight: 400;
+}
+
+@each $section, $color in $colored-buttons {
+  .label-#{$section} {
+    background: $color;
+    color: #ffffff;
+  }
+}
+.label-default {
+  color: $text-color;
+}

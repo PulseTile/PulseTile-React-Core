@@ -16,6 +16,7 @@ import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
 import ExtraPlugins from '../../theme/components/ExtraPlugins';
 import { image } from './HeaderImage';
+import IE from '../../pages/IE/index';
 
 import '../../../config/styles';
 
@@ -23,6 +24,8 @@ export class App extends Component {
   render() {
     const { requestError, patientsInfo } = this.props;
     const isTouchDevice = (this.props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
+    const UA = window.navigator.userAgent.toLowerCase()
+    const isIE = (/trident/gi).test(UA) || (/msie/gi).test(UA);
     return (
       <div className="page">
         <LoadingBar className="loading-bar" />

@@ -1,0 +1,219 @@
+/**
+  * CONFIG
+  */
+  $user-palette: false !default;
+  $blue-palette: false !default;
+  $red-palette: false !default;
+  $yellow-palette: false !default;
+  $base-color-palette: false !default;
+
+  @if ($user-palette) {
+    $base-color-palette: $user-palette;
+  } @else if ($blue-palette) {
+    $base-color-palette: $blue-palette;
+  } @else if ($red-palette) {
+    $base-color-palette: $red-palette;
+  } @else if ($yellow-palette) {
+    $base-color-palette: $yellow-palette;
+  } @else {
+    $base-color-palette: $green-palette;
+  } 
+
+
+/**
+  * COLORS for use across the site
+  */
+  $base-color: map-get($base-color-palette, 'base-color');
+  $auxiliary-color: map-get($base-color-palette, 'light-color');
+
+  $table-color: map-get($base-color-palette, 'lighter-color');
+  $table-text: #333;
+  $colored-table: (
+    bg: #F3F3F3,
+    color: $table-text,
+    border-color: #B4B5B4,
+    border-width: 1px,
+
+    header-bg: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+    header-color: $table-text,
+    header-highlighted-bg: $table-color,
+    header-highlighted-color: $table-text,
+
+    row-bg: #F3F3F3,
+    row-odd-bg: #FDFDFD,
+    row-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    row-odd-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    row-color: $table-text,
+    row-odd-color: $table-text,
+    row-hover-color: $table-text,
+    row-odd-hover-color: $table-text,
+
+    row-sorted-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    row-sorted-odd-bg: lighten(saturate(adjust-hue($table-color, -9.8551), 8.9921), 24.1176),
+    row-sorted-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    row-sorted-odd-hover-bg: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    row-sorted-color: $table-text,
+    row-sorted-odd-color: $table-text,
+    row-sorted-hover-color: $table-text,
+    row-sorted-odd-hover-color: $table-text,
+
+    row-highlighted-bg: #b4b4b4,
+    row-highlighted-color: #ffffff,
+  );
+  
+  $text-color: #303030;
+  $text-on-base-color: #ffffff;
+
+  $colored-buttons: (
+    default: #ffffff,
+    primary: #337AB7,
+    success: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    info: #31b0d5,
+    warning: #F0AD4E,
+    danger: #DA534F,
+    theme: $base-color
+  );
+
+/**
+  * COLORS for base configuration
+  */
+  $body-bg: #fff;
+
+/**
+  * COLORS for header
+  */
+  $header-bg: #ffffff;
+
+  $header-btn: (
+    bg: #F7F7F7,
+    color: $base-color,
+    bg-hover: #F7F7F7,
+    color-hover: $auxiliary-color,
+    bg-active: #ffffff,
+    color-active: $auxiliary-color
+  );
+  $header-toolbar: (
+    bg: $base-color,
+    color: $text-on-base-color,
+  );
+
+/**
+  * COLORS for search
+  */
+  $search-btn: (
+    bg: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    color: #ffffff,
+    bg-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
+    color-hover: #ffffff
+  );
+  $search-btn-toggle: (
+    bg: transparent,
+    color: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    bg-hover: transparent,
+    color-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%),
+    border: lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765),
+    border-hover: darken(lighten(saturate(adjust-hue($base-color, 9.3005), 22.4138), 1.1765), 10%)
+  );
+
+/**
+  * COLORS for footer
+  */
+  $footer: (
+    bg: #eee,
+    color: #757584
+  );
+
+/**
+  * COLORS for dashboard
+  */
+  $board: (
+    border: #B4B5B4,
+    radius: 0,
+    header-bg: lighten(saturate(adjust-hue($table-color, -10.5516), 9.6510), 6.2745),
+    header-color: #333,
+    preview-ratio: 60%,
+    item-bg: #F3F3F3,
+    item-odd-bg: #FDFDFD,
+    item-color: #333,
+    item-bg-hover: lighten(desaturate(adjust-hue($table-color, -9.8551), 7.9490), 20.9804),
+    item-color-hover: #333,
+  );
+
+/**
+  * COLORS for panels
+  */
+  $panel-border-color: #D8D8D8;
+  $panel-heading-bg: #E8E8E8;
+  $panel-control-bg: #F3F3F3;
+  $panel-heading-color: $text-color;
+  $panels: (
+    panel-default: (
+      bg: #fff,
+      heading-bg: $base-color,
+      heading-color: $text-on-base-color,
+      border-color: $base-color,
+      border-width: 2px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-primary: (
+      bg: transparent,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 0,
+      control-bg: transparent
+    ),
+    panel-secondary: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-subaccordion: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: transparent,
+      border-width: 0,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    ),
+    panel-small: (
+      bg: #fff,
+      heading-bg: $panel-heading-bg,
+      heading-color: $panel-heading-color,
+      border-color: $panel-border-color,
+      border-width: 1px,
+      border-radius: 0,
+      control-bg: $panel-control-bg
+    )
+  );
+
+
+/**
+  * COLORS for forms
+  */
+  $forms: (
+    bg: #fff,
+    color: #555555,
+    disabled-bg: #eeeeee,
+    disabled-color: #555555,
+    readonly-bg: #fff,
+    readonly-color: #555555,
+
+    border-color: #c3c3c3,
+    border-error-color: #a94442,
+    border-success-color: #2b542c,
+    border-width: 1px,
+    border-radius: 2px,
+    addon-color: #303030,
+    label-color: #a9a9a9,
+    label-control-color: #949494,
+    label-required-color: #a32d44,
+    control-static-color: #000000,
+  );

@@ -1,0 +1,13 @@
+.panel-primary .panel-control {
+  padding: 2px 0px 0;
+  @include respond-to(md) { padding: 12px 0 6px; }
+  @include respond-to(xs) { padding: 12px 5px 6px; }
+}
+
+@each $label, $panel in $panels {
+  .#{$label} {
+    .panel-control { background: map-get($panel, 'control-bg'); }
+  }
+}
+
+.panel-secondary .panel-control { padding: 5px; }
