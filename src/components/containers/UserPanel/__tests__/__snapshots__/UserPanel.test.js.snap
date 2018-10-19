@@ -50,27 +50,6 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
           role="tablist"
         >
           <UserPanelItem
-            className="user-panel-item visible-xs"
-          >
-            <li
-              className="user-panel-item visible-xs"
-            >
-              <PTButton
-                className="btn-header"
-                onClick={[Function]}
-              >
-                <button
-                  className="btn-header"
-                  onClick={[Function]}
-                >
-                  <i
-                    className="fa fa-search"
-                  />
-                </button>
-              </PTButton>
-            </li>
-          </UserPanelItem>
-          <UserPanelItem
             className="user-panel-item"
           >
             <li
@@ -469,18 +448,6 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
-  <UserPanelItem
     className="user-panel-item"
   >
     test
@@ -548,18 +515,6 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   className="user-panel"
   role="tablist"
 >
-  <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
   <UserPanelItem
     className="user-panel-item"
   >
@@ -629,18 +584,6 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
-  <UserPanelItem
     className="user-panel-item"
   >
     test
@@ -708,18 +651,6 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   className="user-panel"
   role="tablist"
 >
-  <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-      onClick={[Function]}
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
   <UserPanelItem
     className="user-panel-item"
   >

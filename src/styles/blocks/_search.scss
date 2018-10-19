@@ -2,7 +2,7 @@
   clear: both;
   position: relative;
   z-index: 10;
-  @include respond-from(sm) { 
+  @include respond-from(sm) {
     clear: none;
     flex-grow: 1;
     height: 52px;
@@ -11,7 +11,7 @@
     order: 3;
     padding: 4px 0;
   }
-  @include respond-from(md) { 
+  @include respond-from(md) {
     margin-left: 20px;
     margin-right: 30px;
   }
@@ -68,7 +68,7 @@
   }
 }
 .is-not-touch-device {
- .btn-search-toggle:hover {
+  .btn-search-toggle:hover {
     background-color: map-get($search-btn-toggle, 'bg-hover') !important;
     border-color: map-get($search-btn-toggle, 'border-hover') !important;
     color: map-get($search-btn-toggle, 'color-hover') !important;
@@ -103,7 +103,7 @@
   }
 }
 .is-not-touch-device {
- .btn-search:hover {
+  .btn-search:hover {
     background-color: map-get($search-btn, 'bg-hover') !important;
     border-color: map-get($search-btn, 'bg-hover') !important;
     color: map-get($search-btn, 'color-hover') !important;
@@ -116,6 +116,15 @@
   margin: 50px auto 65px;
   max-width: 223px;
   @include respond-from(xs) { display: block; }
+}
+
+.header-search-container {
+  order: 3;
+  width: calc(100% - 450px);
+  @include respond-to(sm) {
+    display: block;
+    width: auto;
+  }
 }
 
 .wrap-header-search {
@@ -163,9 +172,9 @@
   width: 100%;
   z-index: 1;
   .panel-group { margin-bottom: 0; }
-  .panel-secondary .panel-heading { 
+  .panel-secondary .panel-heading {
     padding-bottom: 4px;
-    padding-left: 80px; 
+    padding-left: 80px;
     padding-top: 4px;
   }
   .wrap-rzslider-search {
@@ -181,16 +190,16 @@
           &:nth-child(4n-3) { display: block; }
         }
         &:first-child   .rz-tick-legend,
-        &:last-child    .rz-tick-legend { 
-          display: block; 
-          transform: translateX(-50%); 
+        &:last-child    .rz-tick-legend {
+          display: block;
+          transform: translateX(-50%);
         }
       }
     }
   }
 }
 .dropdown-menu.dropdown-menu-search-select {
-  padding-top: 15px;  
+  padding-top: 15px;
   .heading { padding-bottom: 10px; }
 }
 @include respond-to(sm) {

@@ -10,8 +10,9 @@
   position: relative;
   text-align: center;
   width: 45px;
-  @include respond-from(xs) {
-    width: $header-height;
+  @include respond-to(xs) {
+    width: 39px;
+    padding: 0;
   }
   .count {
     background-color: map-get($header-btn, 'color');
@@ -33,12 +34,12 @@
       right: 3px;
     }
   }
-}  
+}
 .touch-device .btn-header .count { line-height: 17px; }
 .btn-header:hover { color: map-get($header-btn, 'color'); }
-.is-not-touch-device .btn-header:hover { 
+.is-not-touch-device .btn-header:hover {
   background: map-get($header-btn, 'bg-hover');
-  color: map-get($header-btn, 'color-hover'); 
+  color: map-get($header-btn, 'color-hover');
 }
 
 .btn-header-prev {
@@ -56,5 +57,13 @@
   @include respond-from(xs) {
     font-size: 19px;
     padding: 0;
+  }
+}
+
+.btn-header.search-btn {
+  display: none;
+  @include respond-to(sm) {
+    display: block;
+    float: right;
   }
 }

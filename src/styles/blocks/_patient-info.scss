@@ -19,21 +19,21 @@
   }
 }
 .patient-info {
-  display: none;
+  //display: none;
   margin-bottom: -5px;
   overflow: hidden;
   padding-top: 10px;
   width: 100%;
   .patient-info-group-1 {
     display: table-header-group;
-    overflow: hidden; 
+    overflow: hidden;
   }
   .patient-info-group-2 {
     display: table-footer-group;
     margin-left: 5px;
     .patient-info-item { white-space: nowrap; }
   }
-  
+
 }
 @include respond-from(sm) {
   .wrap-patient-info { overflow: hidden; }
@@ -43,7 +43,7 @@
     padding-top: 0;
     .patient-info-group-1 {
       display: block;
-      overflow: hidden; 
+      overflow: hidden;
     }
     .patient-info-group-2 {
       display: block;
