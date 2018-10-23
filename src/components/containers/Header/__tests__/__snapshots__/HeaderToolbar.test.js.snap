@@ -35,6 +35,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
           >
             <div
               className="patient-info-caption-btn btn-dropdown-toggle"
+              onClick={[Function]}
             />
             <div
               className="patient-info-caption-text text-truncate"
@@ -96,7 +97,6 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
                   >
                     NHS No.
                   </span>
-                   
                   <span>
                     999 999 9000
                   </span>

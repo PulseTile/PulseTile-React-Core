@@ -24,8 +24,8 @@ import { fetchPatientDemographicsRequest } from '../../../../ducks/fetch-patient
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     setSidebarVisibility,
-    fetchPatientDemographicsRequest
-  }, dispatch)
+    fetchPatientDemographicsRequest,
+  }, dispatch),
 });
 
 @compose(connect(toolbarSelector, mapDispatchToProps), connect(routerSelector))
@@ -42,12 +42,35 @@ class HeaderToolbar extends PureComponent {
     userId: PropTypes.string.isRequired,
   };
 
+  state = {
+    openedPatientPanel: true,
+  };
+
+  componentWillMount() {
+    this.changeResolution();
+  };
+
+
+  handlePatientInfo = () => {
+    this.setState(prevState => ({
+      openedPatientPanel: !prevState.openedPatientPanel,
+    }));
+  };
+
+  changeResolution = () => {
+    if (window.innerWidth < 768) {
+      this.state.openedPatientPanel = false;
+    }
+  };
+
   getState = hash => _.getOr(null, [hash])(mainPagesTitles);
 
   toggleSidebarVisibility = /* istanbul ignore next */ () => this.props.actions.setSidebarVisibility(!this.props.isSidebarVisible);
 
   render() {
     const { isSidebarVisible, name, gpName, gpAddress, dateOfBirth, gender, telephone, userId, router } = this.props;
+    const { openedPatientPanel } = this.state;
+
 
     let breadcrumbs = null;
     const routingComponents = (router.location.hash.split('?')[0]).split('/');
@@ -65,14 +88,15 @@ class HeaderToolbar extends PureComponent {
           <div className="container-fluid">
             <div className="header-toolbar">
               <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
-                <i className={ this.props.isSidebarVisible ? 'btn-icon fa fa-times' : 'btn-icon fa fa-bars' } />
+                <i className={this.props.isSidebarVisible ? 'btn-icon fa fa-times' : 'btn-icon fa fa-bars'} />
                 <span className="btn-text">{ this.props.isSidebarVisible ? 'Close' : 'Menu' }</span>
               </button>
               <div className="wrap-patient-info">
                 <div className="patient-info-caption">
-                  <div className="patient-info-caption-btn btn-dropdown-toggle" />
+                  <div className="patient-info-caption-btn btn-dropdown-toggle" onClick={() => this.handlePatientInfo()} />
                   <div className="patient-info-caption-text text-truncate">{name}</div>
                 </div>
+                {openedPatientPanel &&
                 <div className="patient-info">
                   <div className="patient-info-group-2">
                     <div className="column-1">
@@ -81,7 +105,7 @@ class HeaderToolbar extends PureComponent {
                     </div>
                     <div className="column-2">
                       <div className="patient-info-item"><span className="key">Gender:</span> {gender}</div>
-                      <div className="patient-info-item"><span className="key">NHS No.</span> <span>{formatNHSNumber(userId)}</span></div>
+                      <div className="patient-info-item"><span className="key">NHS No.</span><span>{formatNHSNumber(userId)}</span></div>
                     </div>
                   </div>
                   <div className="patient-info-group-1">
@@ -90,6 +114,7 @@ class HeaderToolbar extends PureComponent {
                   </div>
                   <div className="patient-info-item"><span className="key">Address:</span> {gpAddress}</div>
                 </div>
+                }
               </div>
             </div>
           </div>
