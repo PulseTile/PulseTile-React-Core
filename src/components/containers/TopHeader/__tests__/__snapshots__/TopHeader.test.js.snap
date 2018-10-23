@@ -214,27 +214,6 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   className="user-panel"
                   role="tablist"
                 >
-                  <UserPanelItem
-                    className="user-panel-item visible-xs"
-                  >
-                    <li
-                      className="user-panel-item visible-xs"
-                    >
-                      <PTButton
-                        className="btn-header"
-                        onClick={[Function]}
-                      >
-                        <button
-                          className="btn-header"
-                          onClick={[Function]}
-                        >
-                          <i
-                            className="fa fa-search"
-                          />
-                        </button>
-                      </PTButton>
-                    </li>
-                  </UserPanelItem>
                   <TopHeaderButtons
                     homepageLink="/patients/null/patients-summary"
                     pageUrl="profile"
@@ -577,121 +556,146 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 }
               >
                 <div
-                  className="wrap-search wrap-header-search"
+                  className="header-search-container"
                 >
+                  <NavSearchButton
+                    runSearch={[Function]}
+                  >
+                    <PTButton
+                      className="btn-header search-btn"
+                      id="search"
+                      onClick={[Function]}
+                      title="Search"
+                    >
+                      <button
+                        className="btn-header search-btn"
+                        id="search"
+                        onClick={[Function]}
+                        title="Search"
+                      >
+                        <i
+                          className="fa fa-search"
+                        />
+                      </button>
+                    </PTButton>
+                  </NavSearchButton>
                   <div
-                    className="header-search"
+                    className="wrap-search wrap-header-search"
                   >
                     <div
-                      className="control-group left control-search-select dropdown"
+                      className="header-search"
                     >
-                      <div>
-                        <SearchContent
-                          ADVANCED_SEARCH="advancedSearch"
-                          BASIC_SEARCH="basicSearch"
-                          SEARCH_CONTENT="searchContent"
-                          onSelect={[Function]}
-                          selected="basicSearch"
-                        >
-                          <div
-                            className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size"
+                      <div
+                        className="control-group left control-search-select dropdown"
+                      >
+                        <div>
+                          <SearchContent
+                            ADVANCED_SEARCH="advancedSearch"
+                            BASIC_SEARCH="basicSearch"
+                            SEARCH_CONTENT="searchContent"
+                            onSelect={[Function]}
+                            selected="basicSearch"
                           >
                             <div
-                              className="heading"
-                            >
-                              Search Options
-                            </div>
-                            <div
-                              className="dropdown-menu-wrap-list"
+                              className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size"
                             >
                               <div
-                                className="dropdown-menu-list"
+                                className="heading"
+                              >
+                                Search Options
+                              </div>
+                              <div
+                                className="dropdown-menu-wrap-list"
                               >
                                 <div
-                                  className="dropdown-menu-item active"
-                                  onClick={[Function]}
+                                  className="dropdown-menu-list"
                                 >
-                                  <span
-                                    className="dropdown-menu-item-text"
+                                  <div
+                                    className="dropdown-menu-item active"
+                                    onClick={[Function]}
                                   >
-                                    Patient Search - Basic
-                                  </span>
-                                </div>
-                                <div
-                                  className="dropdown-menu-item"
-                                  onClick={[Function]}
-                                >
-                                  <span
-                                    className="dropdown-menu-item-text"
+                                    <span
+                                      className="dropdown-menu-item-text"
+                                    >
+                                      Patient Search - Basic
+                                    </span>
+                                  </div>
+                                  <div
+                                    className="dropdown-menu-item"
+                                    onClick={[Function]}
                                   >
-                                    Patient Search - Advanced
-                                  </span>
-                                </div>
-                                <div
-                                  className="dropdown-menu-item"
-                                  onClick={[Function]}
-                                >
-                                  <span
-                                    className="dropdown-menu-item-text"
+                                    <span
+                                      className="dropdown-menu-item-text"
+                                    >
+                                      Patient Search - Advanced
+                                    </span>
+                                  </div>
+                                  <div
+                                    className="dropdown-menu-item"
+                                    onClick={[Function]}
                                   >
-                                    Clinical Query
-                                  </span>
+                                    <span
+                                      className="dropdown-menu-item-text"
+                                    >
+                                      Clinical Query
+                                    </span>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                        </SearchContent>
-                        <PTButton
-                          className="btn btn-dropdown-toggle btn-search-toggle"
-                          onClick={[Function]}
-                        >
-                          <button
+                          </SearchContent>
+                          <PTButton
                             className="btn btn-dropdown-toggle btn-search-toggle"
                             onClick={[Function]}
                           >
-                            <i
-                              className="btn-icon fa fa-bars"
-                            />
-                          </button>
-                        </PTButton>
+                            <button
+                              className="btn btn-dropdown-toggle btn-search-toggle"
+                              onClick={[Function]}
+                            >
+                              <i
+                                className="btn-icon fa fa-bars"
+                              />
+                            </button>
+                          </PTButton>
+                        </div>
                       </div>
-                    </div>
-                    <BasicPatientSearch>
-                      <div>
-                        <PTButton
-                          className="btn btn-search"
-                          onClick={[Function]}
-                        >
-                          <button
+                      <BasicPatientSearch>
+                        <div>
+                          <PTButton
                             className="btn btn-search"
                             onClick={[Function]}
                           >
-                            <i
-                              className="btn-icon fa fa-search"
-                            />
-                          </button>
-                        </PTButton>
-                        <div
-                          className="wrap-search-holder"
-                        >
-                          <div
-                            className="search-holder"
-                          >
-                            <form
-                              onSubmit={[Function]}
+                            <button
+                              className="btn btn-search"
+                              onClick={[Function]}
                             >
-                              <input
-                                className="form-control"
-                                onChange={[Function]}
-                                placeholder="Search"
-                                type="text"
-                                value=""
+                              <i
+                                className="btn-icon fa fa-search"
                               />
-                            </form>
+                            </button>
+                          </PTButton>
+                          <div
+                            className="wrap-search-holder"
+                          >
+                            <div
+                              className="search-holder"
+                            >
+                              <form
+                                onSubmit={[Function]}
+                              >
+                                <input
+                                  className="form-control"
+                                  onChange={[Function]}
+                                  placeholder="Search"
+                                  type="text"
+                                  value=""
+                                />
+                              </form>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </BasicPatientSearch>
+                      </BasicPatientSearch>
+                    </div>
                   </div>
                 </div>
               </NavSearch>
