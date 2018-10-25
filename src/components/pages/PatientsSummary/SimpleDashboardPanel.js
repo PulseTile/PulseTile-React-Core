@@ -6,7 +6,7 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
 
   const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
 
-  let filterItemsArray = (items.length > 4) ? items.slice(1, 5) : items;
+  let filterItemsArray = (items.length > 4) ? [{text: 'Loading ...'}, '', '', ''] : items;
 
   return (<div id={id} className="dashboard-item">
     <div className="board">
