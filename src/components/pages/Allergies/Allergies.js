@@ -74,10 +74,14 @@ export default class Allergies extends PureComponent {
     offset: 0,
     isLoading: true,
     isSubmit: false,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allAllergies}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allAllergies ? this.formToShowCollection(allAllergies).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
@@ -86,7 +90,8 @@ export default class Allergies extends PureComponent {
         isDetailPanelVisible: true,
         isBtnExpandVisible: true,
         isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
-        isCreatePanelVisible: false
+        isCreatePanelVisible: false,
+        offset,
       })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`) {
@@ -292,7 +297,7 @@ export default class Allergies extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit, listPerPageAmount } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
@@ -351,6 +356,7 @@ export default class Allergies extends PureComponent {
                 onCreate={this.handleCreate}
                 isLoading={isLoading}
                 id={sourceId}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}

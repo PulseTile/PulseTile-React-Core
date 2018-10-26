@@ -76,10 +76,14 @@ export default class Medications extends PureComponent {
     isSubmit: false,
     isOpenHourlySchedule: true,
     isLoading: true,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allMedications}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allMedications ? this.formToShowCollection(allMedications).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}` && sourceId !== undefined) {
@@ -88,7 +92,8 @@ export default class Medications extends PureComponent {
         isDetailPanelVisible: true,
         isBtnExpandVisible: true,
         isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
-        isCreatePanelVisible: false
+        isCreatePanelVisible: false,
+        offset,
       })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`) {
@@ -307,7 +312,7 @@ export default class Medications extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading, listPerPageAmount } = this.state;
     const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
@@ -385,6 +390,7 @@ export default class Medications extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}
