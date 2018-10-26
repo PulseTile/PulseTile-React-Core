@@ -45,13 +45,11 @@ class Breadcrumbs extends PureComponent {
       const isPluginPage = (pluginsKeys.indexOf(routerHash) > (-1));
       breadcrumbs = this.getRouterBreadcrumbs(routerHash);
 
-      if (isPluginPage && userAccount.role === 'IDCR') {
-        breadcrumbs[1].state = statePatientsSummary;
-      }
-      if (isPluginPage && userAccount.role !== 'IDCR') {
-        breadcrumbs[0].state = statePatientsSummary;
-      }
-      if (breadcrumbs) break
+      (isPluginPage && userAccount.role === 'IDCR') ? breadcrumbs[1].state = statePatientsSummary : '';
+      (isPluginPage && userAccount.role !== 'IDCR') ? breadcrumbs[0].state = statePatientsSummary : '';
+
+      if (breadcrumbs) break;
+
     } while (routingComponents.length);
 
     if (!breadcrumbs) {

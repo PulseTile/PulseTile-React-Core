@@ -53,7 +53,7 @@ exports[`Component <AllergiesCreateForm /> should renders correctly when data ta
       <Field
         component={[Function]}
         id="reaction"
-        label="Reaction"
+        label="Reaction / Description"
         name="reaction"
         props={
           Object {
@@ -192,7 +192,7 @@ exports[`Component <AllergiesCreateForm /> should renders correctly when data ta
       <Field
         component={[Function]}
         id="reaction"
-        label="Reaction"
+        label="Reaction / Description"
         name="reaction"
         props={
           Object {
@@ -331,7 +331,7 @@ exports[`Component <AllergiesCreateForm /> should renders correctly when form is
       <Field
         component={[Function]}
         id="reaction"
-        label="Reaction"
+        label="Reaction / Description"
         name="reaction"
         props={
           Object {
@@ -458,7 +458,7 @@ exports[`Component <AllergiesCreateForm /> should renders with props correctly 1
       <Field
         component={[Function]}
         id="reaction"
-        label="Reaction"
+        label="Reaction / Description"
         name="reaction"
         props={
           Object {

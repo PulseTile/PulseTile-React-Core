@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { lifecycle, compose } from 'recompose';
 import _ from 'lodash/fp';
 
 import SortableTablePatients from '../SortableTable/SortableTablePatients';
@@ -8,10 +11,13 @@ import PatientsListHeader from './header/PatientsListHeader';
 import ViewPatienDropdown from './actions-column/ViewPatienDropdown';
 import PatientAccessDisclaimerModal from './PatientAccessDisclaimerModal';
 import { patientsColumnsConfig, defaultColumnsSelected } from '../../../config/patients-table-columns.config'
+import { setCurrentPagePatientsStart } from '../../../ducks/set-current-page-patients.duck';
 import { clientUrls } from '../../../config/client-urls.constants';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
 import { operationsOnCollection } from '../../../utils/plugin-helpers.utils';
 
+const mapDispatchToProps = dispatch => ({ dispatch });
+@connect(PatientsList, mapDispatchToProps)
 export default class PatientsList extends PureComponent {
     static propTypes = {
       allPatients: PropTypes.arrayOf(
@@ -27,11 +33,21 @@ export default class PatientsList extends PureComponent {
       allPatientsWithCounts: PropTypes.arrayOf(PropTypes.object).isRequired,
       panelTitle: PropTypes.string.isRequired,
       patientsPerPageAmount: PropTypes.number,
+      dispatch: PropTypes.func,
+      currentPagePatients: PropTypes.arrayOf(PropTypes.object),
+      offset: PropTypes.number,
       actions: PropTypes.objectOf(PropTypes.func).isRequired,
       history: PropTypes.shape({
-        push: PropTypes.funct,
+        push: PropTypes.func,
       }).isRequired,
     };
+
+    componentDidUpdate(prevProps) {
+      if (this.props.offset !== prevProps.offset) {              
+        const patientsOnFirstPageTitle = this.getPatientsOnPage();
+        this.props.dispatch(setCurrentPagePatientsStart(patientsOnFirstPageTitle.patientsOnFirstPage));  
+      } 
+    }
 
     static contextTypes = {
       router: PropTypes.shape({
@@ -41,12 +57,14 @@ export default class PatientsList extends PureComponent {
 
     static defaultProps = {
       patientsPerPageAmount: 10,
+      offset: -1,
+      currentPagePatients: []
     };
 
     state = {
       columnNameSortBy: 'name',
       sortingOrder: 'asc',
-      offset: 0,
+      offset: -1,
       nameShouldInclude: '',
       selectedColumns: defaultColumnsSelected,
       patientPath: '',
@@ -66,10 +84,15 @@ export default class PatientsList extends PureComponent {
 
     componentWillMount() {
       document.addEventListener('click', this.handleNoDropdownClick, false);
+      if (this.props.offset < 0) {
+        this.handleSetOffset(0);
+      }
     }
 
     componentWillUnmount() {
       document.removeEventListener('click', this.handleNoDropdownClick, false);
+      this.props.dispatch(this.props.actions.setCurrentPageOffsetStart(-1));
+      this.props.dispatch(setCurrentPagePatientsStart([]));      
     }
 
     handleNoDropdownClick = /* istanbul ignore next */ (e) => {
@@ -90,7 +113,10 @@ export default class PatientsList extends PureComponent {
     /* handlers */
     handleHeaderCellClick = (e, { name, sortingOrder }) => this.setState({ columnNameSortBy: name, sortingOrder });
 
-    handleSetOffset = offset => this.setState({ offset });
+    handleSetOffset = (offset) => {
+      this.setState({ offset });    
+      this.props.dispatch(this.props.actions.setCurrentPageOffsetStart(offset));
+    }
 
     shouldHavePagination = patients => _.size(patients) > this.props.patientsPerPageAmount;
 
@@ -139,13 +165,10 @@ export default class PatientsList extends PureComponent {
       });
     };
 
-    render() {
-      const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history } = this.props;
-      const { offset, selectedColumns, patientPath, isDisclaimerModalVisible, columnNameSortBy, sortingOrder } = this.state;
+    getPatientsOnPage = () => {
       const { router } = this.context;
-
-      const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
-
+      const { selectedColumns } = this.state;
+      const { allPatientsWithCounts, panelTitle } = this.props;
       let filteredPatients;
       let titleForPanel;
       if (!_.isEmpty(router.history.location.state)) {
@@ -157,8 +180,23 @@ export default class PatientsList extends PureComponent {
         filteredPatients = this.formToShowCollection(allPatientsWithCounts);
         titleForPanel = panelTitle;
       }
+      return {filteredPatients: filteredPatients, titleForPanel: titleForPanel, patientsOnFirstPage: _.flow(this.getPatientsOnFirstPage, this.addActionsColumn)(filteredPatients) };
+    }
 
-      const patientsOnFirstPage = _.flow(this.getPatientsOnFirstPage, this.addActionsColumn)(filteredPatients);
+    render() {
+      const { allPatients, allPatientsWithCounts, patientsPerPageAmount, panelTitle, history, offset } = this.props;
+      const { selectedColumns, patientPath, isDisclaimerModalVisible, columnNameSortBy, sortingOrder } = this.state;
+      const { router } = this.context;
+
+      const columnsToShowConfig = patientsColumnsConfig.filter(columnConfig => selectedColumns[columnConfig.key]);
+
+      const patientsOnFirstPageTitle =  this.getPatientsOnPage();
+      const titleForPanel = patientsOnFirstPageTitle.titleForPanel;
+      const filteredPatients = patientsOnFirstPageTitle.filteredPatients;
+      const patientsOnFirstPage = patientsOnFirstPageTitle.patientsOnFirstPage;
+      if (_.isEmpty(this.props.currentPagePatients) && !_.isEmpty(patientsOnFirstPage)) {
+        this.props.dispatch(setCurrentPagePatientsStart(patientsOnFirstPage));
+      }
 
       return (
         <div className="patients-list">

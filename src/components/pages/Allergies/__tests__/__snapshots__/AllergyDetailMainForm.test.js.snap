@@ -33,7 +33,7 @@ exports[`Component <AllergyDetailMainForm /> should renders correctly when form 
           <Field
             component={[Function]}
             id="reaction"
-            label="Reaction"
+            label="Reaction / Description"
             name="reaction"
             props={
               Object {
@@ -117,7 +117,7 @@ exports[`Component <AllergyDetailMainForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="reaction"
-            label="Reaction"
+            label="Reaction / Description"
             name="reaction"
             props={
               Object {
@@ -201,7 +201,7 @@ exports[`Component <AllergyDetailMainForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="reaction"
-            label="Reaction"
+            label="Reaction / Description"
             name="reaction"
             props={
               Object {

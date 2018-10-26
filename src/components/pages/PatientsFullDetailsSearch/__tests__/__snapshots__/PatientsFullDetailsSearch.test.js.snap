@@ -13,12 +13,13 @@ exports[`Component <PatientsFullDetailsSearch /> should renders correctly 1`] = 
       componentClass="div"
       xs={12}
     >
-      <PatientsList
+      <Connect(PatientsList)
         actions={
           Object {
             "fetchAdvancedPatientSearchRequest": [Function],
             "fetchBasicPatientSearchRequest": [Function],
             "fetchPatientCountsRequest": [Function],
+            "setCurrentPageOffsetStart": [Function],
           }
         }
         allPatients={Array []}
@@ -35,7 +36,6 @@ exports[`Component <PatientsFullDetailsSearch /> should renders correctly 1`] = 
           }
         }
         panelTitle="undefined undefined"
-        patientsPerPageAmount={10}
         store={
           Object {
             "clearActions": [Function],

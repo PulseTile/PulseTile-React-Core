@@ -40,35 +40,26 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
     >
       <UserPanel
         addUserPanels={Array []}
-        isNotifications={true}
-        isQuestions={false}
-        isSearch={true}
-        isUserPanel={true}
         openedPanel="userAccountPanel"
+        pageUrl=""
+        router={
+          Object {
+            "location": Object {
+              "hash": "#/patients-summary",
+              "pathname": "/",
+              "search": "",
+            },
+          }
+        }
+        userId=""
       >
         <ul
           className="user-panel"
           role="tablist"
         >
-          <UserPanelItem
-            className="user-panel-item visible-xs"
-          >
-            <li
-              className="user-panel-item visible-xs"
-            >
-              <PTButton
-                className="btn-header"
-              >
-                <button
-                  className="btn-header"
-                >
-                  <i
-                    className="fa fa-search"
-                  />
-                </button>
-              </PTButton>
-            </li>
-          </UserPanelItem>
+          <TopHeaderButtons
+            pageUrl=""
+          />
           <UserPanelItem
             className="user-panel-item dropdown"
           >
@@ -243,7 +234,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                           >
                             <img
                               alt=""
-                              src="user.jpg"
+                              src="/images/user.jpg"
                             />
                           </div>
                         </div>
@@ -264,17 +255,13 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             <div
                               className="user-profile-info__item role"
                             >
+                              User Role:
                               IDCR
                             </div>
                             <div
                               className="user-profile-info__item email"
                             >
                               bob.smith@gmail.com
-                            </div>
-                            <div
-                              className="user-profile-info__item birthday"
-                            >
-                              10/05/2099
                             </div>
                           </div>
                           <div
@@ -302,13 +289,13 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                           </div>
                           <PTButton
                             className="btn btn-theme btn-block btn-signout"
+                            onClick={[Function]}
                           >
                             <button
                               className="btn btn-theme btn-block btn-signout"
+                              onClick={[Function]}
                             >
-                              <div
-                                onClick={[Function]}
-                              >
+                              <div>
                                 <span
                                   className="brn-text"
                                 >
@@ -322,6 +309,83 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             </button>
                           </PTButton>
                         </div>
+                        <Connect(UserAccountPanelSettings)
+                          onClose={[Function]}
+                        >
+                          <UserAccountPanelSettings
+                            actions={
+                              Object {
+                                "changeUserProfileTab": [Function],
+                              }
+                            }
+                            onClose={[Function]}
+                          >
+                            <div
+                              className="user-profile-settings dropdown"
+                            >
+                              <div
+                                className="user-profile-settings__btn"
+                                onClick={[Function]}
+                              >
+                                <i
+                                  className="fa fa-gear"
+                                />
+                              </div>
+                              <div
+                                className="user-profile-settings__menu dropdown-menu dropdown-menu-small-size"
+                              >
+                                <div
+                                  className="dropdown-menu-wrap-list"
+                                >
+                                  <div
+                                    className="dropdown-menu-list"
+                                  >
+                                    <div
+                                      className="dropdown-menu-item"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="dropdown-menu-item-text"
+                                      >
+                                        Application Preferences
+                                      </span>
+                                    </div>
+                                    <div
+                                      className="dropdown-menu-item"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="dropdown-menu-item-text"
+                                      >
+                                        Personal Information
+                                      </span>
+                                    </div>
+                                    <div
+                                      className="dropdown-menu-item"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="dropdown-menu-item-text"
+                                      >
+                                        Contact Information
+                                      </span>
+                                    </div>
+                                    <div
+                                      className="dropdown-menu-item"
+                                      onClick={[Function]}
+                                    >
+                                      <span
+                                        className="dropdown-menu-item-text"
+                                      >
+                                        Change History
+                                      </span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </UserAccountPanelSettings>
+                        </Connect(UserAccountPanelSettings)>
                       </div>
                     </UserAccountPanel>
                   </lifecycle(UserAccountPanel)>
@@ -329,10 +393,12 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               </Connect(Connect(lifecycle(UserAccountPanel)))>
               <PTButton
                 className="btn-header btn-user"
+                id="icon-profile"
                 onClick={[Function]}
               >
                 <button
                   className="btn-header btn-user"
+                  id="icon-profile"
                   onClick={[Function]}
                 >
                   <i
@@ -355,21 +421,13 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
-  <UserPanelItem
     className="user-panel-item"
   >
     test
   </UserPanelItem>
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -399,6 +457,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i
@@ -415,21 +474,13 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
-  <UserPanelItem
     className="user-panel-item"
   >
     test
   </UserPanelItem>
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
     className="user-panel-item dropdown"
   >
@@ -459,6 +510,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     />
     <PTButton
       className="btn-header btn-user"
+      id="icon-profile"
       onClick={[Function]}
     >
       <i
@@ -475,20 +527,49 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   role="tablist"
 >
   <UserPanelItem
-    className="user-panel-item visible-xs"
-  >
-    <PTButton
-      className="btn-header"
-    >
-      <i
-        className="fa fa-search"
-      />
-    </PTButton>
-  </UserPanelItem>
-  <UserPanelItem
     className="user-panel-item"
   >
     test
+  </UserPanelItem>
+  <TopHeaderButtons
+    pageUrl=""
+  />
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <NotificationContent />
+    <PTButton
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown open"
+  >
+    <Connect(Connect(lifecycle(UserAccountPanel)))
+      onClick={[Function]}
+      onClose={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      id="icon-profile"
+      onClick={[Function]}
+    >
+      <i
+        className="fa fa-user"
+      />
+    </PTButton>
   </UserPanelItem>
 </ul>
 `;
@@ -498,14 +579,43 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   className="user-panel"
   role="tablist"
 >
+  <TopHeaderButtons
+    pageUrl=""
+  />
   <UserPanelItem
-    className="user-panel-item"
+    className="user-panel-item dropdown"
   >
+    <NotificationContent />
     <PTButton
-      className="btn-header"
+      className="btn-header btn-notification"
+      onClick={[Function]}
+    >
+      <div>
+        <i
+          className="fa fa-bell-o"
+        />
+        <span
+          className="count"
+        >
+          2
+        </span>
+      </div>
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
+    className="user-panel-item dropdown"
+  >
+    <Connect(Connect(lifecycle(UserAccountPanel)))
+      onClick={[Function]}
+      onClose={[Function]}
+    />
+    <PTButton
+      className="btn-header btn-user"
+      id="icon-profile"
+      onClick={[Function]}
     >
       <i
-        className="fa fa-question-circle"
+        className="fa fa-user"
       />
     </PTButton>
   </UserPanelItem>

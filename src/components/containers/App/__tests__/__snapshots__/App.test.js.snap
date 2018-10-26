@@ -40,6 +40,7 @@ exports[`Component <App /> should renders correctly when props not empty 1`] = `
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"
@@ -77,12 +78,8 @@ exports[`Component <App /> should renders correctly with context 1`] = `
             items={
               Array [
                 <img
-                  alt="header img 1"
-                  src="leeds.png"
-                />,
-                <img
                   alt="header img 2"
-                  src="nhs.png"
+                  src={null}
                 />,
               ]
             }
@@ -91,6 +88,7 @@ exports[`Component <App /> should renders correctly with context 1`] = `
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"
@@ -128,12 +126,8 @@ exports[`Component <App /> should renders correctly with is not touch device and
             items={
               Array [
                 <img
-                  alt="header img 1"
-                  src="leeds.png"
-                />,
-                <img
                   alt="header img 2"
-                  src="nhs.png"
+                  src={null}
                 />,
               ]
             }
@@ -142,6 +136,7 @@ exports[`Component <App /> should renders correctly with is not touch device and
         <Header />
       </header>
       <withRouter(Connect(Connect(Main))) />
+      <ExtraPlugins />
     </div>
     <Footer
       copyright="Transforming Usability"

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
 import _ from 'lodash/fp';
+import { get } from 'lodash';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
 
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
-
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { fetchPatientAllergiesRequest } from './ducks/fetch-patient-allergies.duck';
@@ -24,13 +24,17 @@ import { clientUrls } from '../../../config/client-urls.constants';
 import AllergiesCreateForm from './AllergiesCreate/AllergiesCreateForm'
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plugin-helpers.utils';
-import imgBanner from '../../../assets/images/banners/allergies.jpg';
+import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
+import { imageSource } from './ImageSource';
+import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const ALLERGIES_MAIN = 'allergiesMain';
 const ALLERGIES_DETAIL = 'allergiesDetail';
 const ALLERGIES_CREATE = 'allergiesCreate';
 const ALLERGIE_PANEL = 'allergiePanel';
 const META_PANEL = 'metaPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientAllergiesRequest, fetchPatientAllergiesCreateRequest, fetchPatientAllergiesDetailRequest, fetchPatientAllergiesDetailEditRequest }, dispatch) });
 
@@ -39,7 +43,9 @@ const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPat
 @connect(allergiePanelFormStateSelector)
 @connect(allergiesCreateFormStateSelector)
 @connect(metaPanelFormStateSelector)
+
 @compose(lifecycle(fetchPatientAllergiesOnMount), lifecycle(fetchPatientAllergiesDetailOnMount))
+
 export default class Allergies extends PureComponent {
   static propTypes = {
     allAllergies: PropTypes.arrayOf(PropTypes.object),
@@ -58,7 +64,7 @@ export default class Allergies extends PureComponent {
     columnNameSortBy: valuesNames.CAUSE,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -68,21 +74,46 @@ export default class Allergies extends PureComponent {
     offset: 0,
     isLoading: true,
     isSubmit: false,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allAllergies}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allAllergies ? this.formToShowCollection(allAllergies).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
-
-    //TODO should be implemented common function, and the state stored in the store Redux
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isDetailPanelVisible: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        offset,
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: ALLERGIES_CREATE, isDetailPanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
+        isCreatePanelVisible: true,
+        openedPanel: ALLERGIES_CREATE,
+        isDetailPanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+      this.setState({
+        isSecondPanel: false,
+        isBtnExpandVisible: false,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        openedPanel: ALLERGIE_PANEL,
+        isDetailPanelVisible: false,
+        expandedPanel: 'all'
+      })
     }
 
     /* istanbul ignore next */
@@ -111,7 +142,18 @@ export default class Allergies extends PureComponent {
 
   handleDetailAllergiesClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: ALLERGIE_PANEL, editedPanel: {}, isLoading: true, expandedPanel: 'all' })
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: ALLERGIE_PANEL,
+      editedPanel: {},
+      isLoading: true,
+      expandedPanel: 'all'
+    });
     actions.fetchPatientAllergiesDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.ALLERGIES}/${sourceId}`);
   };
@@ -239,20 +281,26 @@ export default class Allergies extends PureComponent {
   formToShowCollection = (collection) => {
     const {columnNameSortBy, sortingOrder, nameShouldInclude} = this.state;
 
+    collection = operationsOnCollection.modificate(collection, [{
+      keyFrom: valuesNames.DATE_CREATED,
+      keyTo: valuesNames.DATE_CREATED,
+      fn: getDDMMMYYYY,
+    }]);
+
     return operationsOnCollection.filterAndSort({
       collection: collection,
       filterBy: nameShouldInclude,
       sortingByKey: columnNameSortBy,
       sortingByOrder: sortingOrder,
-      filterKeys: [valuesNames.CAUSE, valuesNames.REACTION, valuesNames.SOURCE]
+      filterKeys: [valuesNames.CAUSE, valuesNames.DATE_CREATED, valuesNames.SOURCE]
     });
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isLoading, isSubmit, listPerPageAmount } = this.state;
     const { allAllergies, allergiePanelFormState, allergiesCreateFormState, metaPanelFormState, allergieDetail } = this.props;
 
-    const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL);
+    const isPanelDetails = (expandedPanel === ALLERGIES_DETAIL || expandedPanel === ALLERGIE_PANEL || expandedPanel === META_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === ALLERGIES_MAIN);
     const isPanelCreate = (expandedPanel === ALLERGIES_CREATE);
 
@@ -268,12 +316,14 @@ export default class Allergies extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Allergies'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={imgBanner}
+          subTitle='Those things that your body reacts against , that you have an allergy to'
+          img={imageSource}
         />
         : null
       }
@@ -293,7 +343,7 @@ export default class Allergies extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allAllergies}
-                emptyDataMessage="No allergies"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailAllergiesClick}
                 columnNameSortBy={columnNameSortBy}
@@ -306,6 +356,7 @@ export default class Allergies extends PureComponent {
                 onCreate={this.handleCreate}
                 isLoading={isLoading}
                 id={sourceId}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}
@@ -331,6 +382,7 @@ export default class Allergies extends PureComponent {
             <PluginCreate
               onExpand={this.handleExpand}
               name={ALLERGIES_CREATE}
+              headingName="allergies"
               openedPanel={openedPanel}
               onShow={this.handleShow}
               expandedPanel={expandedPanel}
@@ -339,6 +391,7 @@ export default class Allergies extends PureComponent {
               formValues={allergiesCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isCreationPermitted={isButtonVisible(hiddenButtons, 'create', true)}
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={

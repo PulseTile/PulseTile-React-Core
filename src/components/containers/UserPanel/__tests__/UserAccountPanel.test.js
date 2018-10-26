@@ -60,8 +60,10 @@ describe('Component <UserAccountPanel />', () => {
       />, { context }).dive().dive().dive();
     expect(component).toMatchSnapshot();
     component.setContext(context);
-    component.find('.user-profile-image').simulate('click');
-    component.find('.name').simulate('click');
+    if (themeConfigs.isShowUserPhoto) {
+      component.find('.user-profile-image').simulate('click');
+      component.find('.name').simulate('click');
+    }
   });
 
   it('should renders with props correctly with isShowUserProfileSettings ', () => {

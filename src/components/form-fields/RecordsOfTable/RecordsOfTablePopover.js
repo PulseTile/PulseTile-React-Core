@@ -3,85 +3,50 @@ import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import Spinner from '../../ui-elements/Spinner/Spinner';
 import RecordsOfTablePopoverDiagnosis from './RecordsOfTablePopoverDiagnosis';
 import RecordsOfTablePopoverMedications from './RecordsOfTablePopoverMedications';
-import RecordsOfTablePopoverReferrals from './RecordsOfTablePopoverReferrals';
-import RecordsOfTablePopoverEvents from './RecordsOfTablePopoverEvents';
-import RecordsOfTablePopoverVitals from './RecordsOfTablePopoverVitals';
-import RecordsOfTablePopoverProcedures from './RecordsOfTablePopoverProcedures';
-
-
-import { fetchPatientDiagnosesDetailRequest } from '../../pages/ProblemsDiagnosis/ducks/fetch-patient-diagnoses-detail.duck';
+import { fetchPatientDiagnosesDetailRequest } from '../../pages/Diagnosis/ducks/fetch-patient-diagnoses-detail.duck';
 import { fetchPatientMedicationsDetailRequest } from '../../pages/Medications/ducks/fetch-patient-medications-detail.duck';
-import { fetchPatientReferralsDetailRequest } from '../../pages/Referrals/ducks/fetch-patient-referrals-detail.duck';
-import { fetchPatientEventsDetailRequest } from '../../pages/Events/ducks/fetch-patient-events-detail.duck';
-import { fetchPatientVitalsDetailRequest } from '../../pages/Vitals/ducks/fetch-patient-vitals-detail.duck';
-import { fetchPatientProceduresDetailRequest } from '../../pages/Procedures/ducks/fetch-patient-procedures-detail.duck';
-
-import { patientDiagnosesDetailSelector } from '../../pages/ProblemsDiagnosis/selectors';
+import { patientDiagnosesDetailSelector } from '../../pages/Diagnosis/selectors';
 import { patientMedicationsDetailSelector } from '../../pages/Medications/selectors';
-import { patientReferralsDetailSelector } from '../../pages/Referrals/selectors';
-import { patientEventsDetailSelector } from '../../pages/Events/selectors';
-import { patientVitalsDetailSelector } from '../../pages/Vitals/selectors';
-import { patientProceduresDetailSelector } from '../../pages/Procedures/selectors';
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
+import RecordsOfTablePlugins from '../../theme/config/recordsOfTable/recordsOfTablePopover';
+import { themeDetailsAction, themeDetailsSelector, themeTypesRecordsDetails } from '../../theme/config/recordsOfTable/recordsOfTableDetails';
+
+const coreActions = {
     fetchPatientDiagnosesDetailRequest,
     fetchPatientMedicationsDetailRequest,
-    fetchPatientReferralsDetailRequest,
-    fetchPatientEventsDetailRequest,
-    fetchPatientVitalsDetailRequest,
-    fetchPatientProceduresDetailRequest,
-  }, dispatch) });
+};
+const actionsArray = Object.assign(coreActions, themeDetailsAction);
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actionsArray, dispatch) });
+
+const coreTypesRecordsDetails = {
+  diagnosis: {
+    title: 'Diagnosis',
+    fetchDetail: 'fetchPatientDiagnosesDetailRequest',
+    stateName: 'diagnosisDetail',
+  },
+  medications: {
+    title: 'Medications',
+    fetchDetail: 'fetchPatientMedicationsDetailRequest',
+    stateName: 'medicationDetail',
+  },
+};
+const typesRecordsDetails = Object.assign(coreTypesRecordsDetails, themeTypesRecordsDetails);
 
 @connect(patientDiagnosesDetailSelector, mapDispatchToProps)
 @connect(patientMedicationsDetailSelector)
-@connect(patientReferralsDetailSelector)
-@connect(patientEventsDetailSelector)
-@connect(patientVitalsDetailSelector)
-@connect(patientProceduresDetailSelector)
+@connect(themeDetailsSelector)
+
 export default class RecordsOfTablePopover extends PureComponent {
+
   static propTypes = {
     record: PropTypes.object,
   };
 
   state = {
-    typesRecords: {
-      diagnosis: {
-        title: 'Problems / Diagnosis',
-        fetchDetail: 'fetchPatientDiagnosesDetailRequest',
-        stateName: 'diagnosisDetail',
-      },
-      medications: {
-        title: 'Medications',
-        fetchDetail: 'fetchPatientMedicationsDetailRequest',
-        stateName: 'medicationDetail',
-      },
-      referrals: {
-        title: 'Referrals',
-        fetchDetail: 'fetchPatientReferralsDetailRequest',
-        stateName: 'referralDetail',
-      },
-      events: {
-        title: 'Events',
-        fetchDetail: 'fetchPatientEventsDetailRequest',
-        stateName: 'eventDetail',
-      },
-      vitals: {
-        title: 'Vitals',
-        fetchDetail: 'fetchPatientVitalsDetailRequest',
-        stateName: 'vitalDetail',
-      },
-      procedures: {
-        title: 'Procedures',
-        fetchDetail: 'fetchPatientProceduresDetailRequest',
-        stateName: 'procedureDetail',
-      },
-    },
-
+    typesRecords: typesRecordsDetails,
     sourceId: '',
   };
 
@@ -90,8 +55,6 @@ export default class RecordsOfTablePopover extends PureComponent {
     const { typesRecords } = this.state;
     const userId = _.get('params.userId', match);
     const fetchRequest = typesRecords[type] ? typesRecords[type].fetchDetail : '';
-
-
     if (fetchRequest && userId && sourceId) {
       this.setState({ sourceId });
       actions[fetchRequest]({ userId, sourceId })
@@ -107,7 +70,6 @@ export default class RecordsOfTablePopover extends PureComponent {
       title = typesRecords[typeOfRecord].title;
       detail = this.props[typesRecords[typeOfRecord].stateName] || null;
     }
-
     return (
       <div className="record-popover" style={{ display: 'block' }}>
         <div className="record-popover-header">
@@ -118,10 +80,7 @@ export default class RecordsOfTablePopover extends PureComponent {
             {!detail || detail.sourceId !== sourceId ? <Spinner /> : null }
             {typeOfRecord === 'diagnosis' ? <RecordsOfTablePopoverDiagnosis detail={detail} /> : null}
             {typeOfRecord === 'medications' ? <RecordsOfTablePopoverMedications detail={detail} /> : null}
-            {typeOfRecord === 'referrals' ? <RecordsOfTablePopoverReferrals detail={detail} /> : null}
-            {typeOfRecord === 'events' ? <RecordsOfTablePopoverEvents detail={detail} /> : null}
-            {typeOfRecord === 'vitals' ? <RecordsOfTablePopoverVitals detail={detail} /> : null}
-            {typeOfRecord === 'procedures' ? <RecordsOfTablePopoverProcedures detail={detail} /> : null}
+            <RecordsOfTablePlugins typeOfRecord={typeOfRecord} detail={detail} />
           </div>
         </div>
       </div>

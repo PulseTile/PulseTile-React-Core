@@ -29,7 +29,7 @@ export const valuesLabels = {
   NAME: 'Name',
   DOSE_AMOUNT: 'Dose Amount',
   DOSE_TIMING: 'Dose Timing',
-  DOSE_DIRECTIONS: 'Dose Directions',
+  DOSE_DIRECTIONS: 'Dose Description',
   ROUTE: 'Route',
   AUTHOR: 'Author',
   START_DATE: 'Date',

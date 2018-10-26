@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col } from 'react-bootstrap';
 import classNames from 'classnames';
+import { get } from 'lodash';
 import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -10,7 +11,6 @@ import { lifecycle, compose } from 'recompose';
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
-
 import { columnsConfig, defaultColumnsSelected } from './medications-table-columns.config'
 import { fetchPatientMedicationsRequest } from './ducks/fetch-patient-medications.duck';
 import { fetchPatientMedicationsCreateRequest } from './ducks/fetch-patient-medications-create.duck';
@@ -25,7 +25,9 @@ import PluginCreate from '../../plugin-page-component/PluginCreate';
 import MedicationsCreateForm from './MedicationsCreate/MedicationsCreateForm'
 import { valuesNames } from './forms.config';
 import { getDDMMMYYYY } from '../../../utils/time-helpers.utils';
-// import imgBanner from '../../../assets/images/banners/medications.jpg';
+import { imageSource } from './ImageSource';
+import { themeConfigs } from '../../../themes.config';
+import { isButtonVisible } from '../../../utils/themeSettings-helper';
 
 const MEDICATIONS_MAIN = 'medicationsMain';
 const MEDICATIONS_DETAIL = 'medicationsDetail';
@@ -34,6 +36,7 @@ const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
 const WARNINGS_PANEL = 'warningsPanel';
 const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ fetchPatientMedicationsRequest, fetchPatientMedicationsCreateRequest, fetchPatientMedicationsDetailRequest, fetchPatientMedicationsDetailEditRequest }, dispatch) });
 
@@ -62,7 +65,7 @@ export default class Medications extends PureComponent {
     columnNameSortBy: valuesNames.NAME,
     sortingOrder: 'asc',
     expandedPanel: 'all',
-    isBtnCreateVisible: true,
+    isBtnCreateVisible: false,
     isBtnExpandVisible: false,
     isAllPanelsVisible: false,
     isDetailPanelVisible: false,
@@ -73,21 +76,46 @@ export default class Medications extends PureComponent {
     isSubmit: false,
     isOpenHourlySchedule: true,
     isLoading: true,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allMedications}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allMedications ? this.formToShowCollection(allMedications).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
-
-    //TODO should be implemented common function, and the state stored in the store Redux
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isDetailPanelVisible: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        offset,
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/create`) {
-      this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: MEDICATIONS_CREATE, isDetailPanelVisible: false })
+      this.setState({
+        isSecondPanel: true,
+        isBtnExpandVisible: true,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', false),
+        isCreatePanelVisible: true,
+        openedPanel: MEDICATIONS_CREATE,
+        isDetailPanelVisible: false
+      })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}`) {
-      this.setState({ isSecondPanel: false, isBtnExpandVisible: false, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, isDetailPanelVisible: false, expandedPanel: 'all' })
+      this.setState({
+        isSecondPanel: false,
+        isBtnExpandVisible: false,
+        isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+        isCreatePanelVisible: false,
+        openedPanel: MEDICATION_PANEL,
+        isDetailPanelVisible: false,
+        expandedPanel: 'all'
+      })
     }
 
     /* istanbul ignore next */
@@ -116,7 +144,19 @@ export default class Medications extends PureComponent {
 
   handleDetailMedicationsClick = (sourceId) => {
     const { actions, userId } = this.props;
-    this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, openedPanel: MEDICATION_PANEL, editedPanel: {}, expandedPanel: 'all', isOpenHourlySchedule: true, isLoading: true })
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
+    this.setState({
+      isSecondPanel: true,
+      isDetailPanelVisible: true,
+      isBtnExpandVisible: true,
+      isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
+      isCreatePanelVisible: false,
+      openedPanel: MEDICATION_PANEL,
+      editedPanel: {},
+      expandedPanel: 'all',
+      isOpenHourlySchedule: true,
+      isLoading: true
+    });
     actions.fetchPatientMedicationsDetailRequest({ userId, sourceId });
     this.context.router.history.push(`${clientUrls.PATIENTS}/${userId}/${clientUrls.MEDICATIONS}/${sourceId}`);
   };
@@ -272,10 +312,10 @@ export default class Medications extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isOpenHourlySchedule, isLoading, listPerPageAmount } = this.state;
     const { allMedications, medicationsDetailFormState, medicationsCreateFormState, prescriptionPanelFormState, medicationDetail } = this.props;
 
-    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL);
+    const isPanelDetails = (expandedPanel === MEDICATIONS_DETAIL || expandedPanel === MEDICATION_PANEL || expandedPanel === PRESCRIPTION_PANEL || expandedPanel === WARNINGS_PANEL || expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
     const isPanelMain = (expandedPanel === MEDICATIONS_MAIN);
     const isPanelCreate = (expandedPanel === MEDICATIONS_CREATE);
 
@@ -309,12 +349,14 @@ export default class Medications extends PureComponent {
     const historyState = this.context.router.history.location.state;
     const isImportFromDocuments = historyState && historyState.importData;
 
+    const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
+
     return (<section className="page-wrapper">
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title='Medications'
-          subTitle='Short blurb containing a few words to describe this section'
-          img={'http://via.placeholder.com/1920x305'}
+          subTitle='The medical tablets and other medications that you take regularly for your health care'
+          img={imageSource}
         />
         : null
       }
@@ -324,7 +366,7 @@ export default class Medications extends PureComponent {
             <div className="panel panel-primary">
               <PluginListHeader
                 onFilterChange={this.handleFilterChange}
-                panelTitle="All Medications"
+                panelTitle="Medications"
                 isBtnExpandVisible={isBtnExpandVisible}
                 isBtnTableVisible={false}
                 name={MEDICATIONS_MAIN}
@@ -334,7 +376,7 @@ export default class Medications extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allMedications}
-                emptyDataMessage="No medications"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailMedicationsClick}
                 columnNameSortBy={columnNameSortBy}
@@ -348,6 +390,7 @@ export default class Medications extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}
@@ -374,6 +417,7 @@ export default class Medications extends PureComponent {
           {(expandedPanel === 'all' || isPanelCreate) && isCreatePanelVisible && !isDetailPanelVisible ? <Col xs={12} className={classNames({ 'col-panel-details': isSecondPanel })}>
             <PluginCreate
               title="Create Medication"
+              headingName="medications"
               onExpand={this.handleExpand}
               name={MEDICATIONS_CREATE}
               openedPanel={openedPanel}
@@ -384,6 +428,7 @@ export default class Medications extends PureComponent {
               formValues={medicationsCreateFormState.values}
               onCancel={this.handleCreateCancel}
               isCreatePanelVisible={isCreatePanelVisible}
+              isCreationPermitted={isButtonVisible(hiddenButtons, 'create', true)}
               isImport={isImportFromDocuments}
               onGoBack={this.goBack}
               componentForm={

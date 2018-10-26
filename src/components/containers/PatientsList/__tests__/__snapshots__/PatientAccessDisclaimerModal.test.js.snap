@@ -24,11 +24,11 @@ exports[`Component <PatientAccessDisclaimerModal /> should renders mount correct
     <Modal
       animation={true}
       autoFocus={true}
-      backdrop={true}
+      backdrop="static"
       bsClass="modal"
       dialogComponentClass={[Function]}
       enforceFocus={true}
-      keyboard={true}
+      keyboard={false}
       manager={
         ModalManager {
           "add": [Function],
@@ -48,13 +48,13 @@ exports[`Component <PatientAccessDisclaimerModal /> should renders mount correct
     >
       <Modal
         autoFocus={true}
-        backdrop={true}
+        backdrop="static"
         backdropClassName="modal-backdrop"
         backdropTransitionTimeout={150}
         containerClassName="modal-open"
         dialogTransitionTimeout={300}
         enforceFocus={true}
-        keyboard={true}
+        keyboard={false}
         manager={
           ModalManager {
             "add": [Function],

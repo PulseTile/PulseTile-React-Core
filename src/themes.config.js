@@ -1,46 +1,27 @@
-// *** In this config You should choose the one of this sets settings
-
-// ** Configs for Main theme
+/**
+ * Configs for Main (green) theme - default theme
+ */
 const mainThemeConfigs = {
   isLeedsPHRTheme: false,
+  topHeader: {
+    showBackButton: true,
+    showHomeButton: true,
+    showNotifications: true,
+    showQuestions: true,
+    showSearch: true,
+    showUserPanel: true,
+  },
   isLeedsPHRHeaderList: false,
-
   headerHasSearch: true,
-
   footerHasShowSupportedByText: true,
   footerCopyright: 'Transforming Usability',
-
   isShowPluginsBigBanner: false,
-
   patientsSummaryPageName: 'Patient Summary',
   patientsSummaryHasPreviewSettings: false,
-
-  dashboardBeing: {
-    vaccinations: false,
-    topThreeThings: false,
-  },
-};
-
-// - In config - ./plugins.config.js when you will change sidebarConfig
-// - You should set 'false' only for:
-// - topThreeThings, genericPlugin
-
-
-// ** Configs for LeedsPHR theme
-const leedsPHRThemeConfigs = {
-  isLeedsPHRTheme: true,
-  isLeedsPHRHeaderList: true,
-
-  headerHasSearch: false,
-
-  footerHasShowSupportedByText: false,
-  footerCopyright: 'Copyright 2017 Ripple Foundation CIC Ltd. All rights reserved',
-
-  isShowPluginsBigBanner: true,
-
-  patientsSummaryPageName: 'Home',
-  patientsSummaryHasPreviewSettings: true,
-
+  dashboardBeing: {},
+  isShowUserPhoto: true,
+  isShowUserProfileSettings: true,
+  isShowUserProfileSpecification: true,
   sidebarConfigIsVisible: {
     default: false,
     'patients-summary': true,
@@ -48,15 +29,26 @@ const leedsPHRThemeConfigs = {
     'medications': true,
     'allergies': true,
     'contacts': true,
-    'vaccinations': true,
-    'topThreeThings': true,
   },
-  dashboardBeing: { topThreeThings: true },
-  isShowUserProfileSettings: true,
+  patientsSummaryTitles: {
+    'diagnoses': 'Problems / Diagnosis',
+    'medications': 'Medications',
+    'allergies': 'Allergies',
+    'contacts': 'Contacts',
+    'vaccinations': 'Vaccinations',
+    'topThreeThings': 'Top Three Things',
+  },
+  patientsSummaryDetailsTitles: {
+    'diagnoses': 'Problem / Diagnosis',
+    'medications': 'Medication',
+    'allergies': 'Allergy',
+    'contacts': 'Contact',
+    'vaccinations': 'Vaccination',
+    'topThreeThings': 'Top Three Things',
+  },
+  detailsToHide: {},
+  buttonsToHide: {},
+  panelsToHide: {},
+  corePluginsToHide: [],
 };
-
-// - In config - ./plugins.config.js when you will change sidebarConfig
-// - You should set 'true' only for:
-// - patients-summary, diagnoses, medications, allergies, contacts, vaccinations, topThreeThings
-
 export const themeConfigs = mainThemeConfigs;

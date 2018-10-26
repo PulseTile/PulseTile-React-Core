@@ -1,4 +1,7 @@
+import { get } from 'lodash';
 import { themeConfigs } from '../themes.config';
+import { themePluginsPages } from '../components/theme/config/plugins';
+import { getFilterPlugins } from '../utils/themeSettings-helper';
 
 export const clientUrls = {
   ROOT: '/',
@@ -8,174 +11,45 @@ export const clientUrls = {
   SEARCH_REPORT: '/search-report',
   USER_PROFILE: '/profile',
   PATIENTS_SUMMARY: 'patients-summary',
-  RESULTS: 'results',
   DIAGNOSES: 'diagnoses',
   ALLERGIES: 'allergies',
   CONTACTS: 'contacts',
-  CLINICAL_NOTES: 'clinicalNotes',
-  PERSONAL_NOTES: 'personalNotes',
-  VACCINATIONS: 'vaccinations',
   MEDICATIONS: 'medications',
-  GENERIC_PLUGIN: 'genericPlugin',
-  DIARY_ENTRY: 'diaryEntry',
-  PROCEDURES: 'procedures',
-  EVENTS: 'events',
-  TEST_RESULTS: 'results',
-  REFERRALS: 'referrals',
-  ORDERS: 'orders',
-  MDTS: 'mdt',
-  DRAWINGS: 'drawings',
-  VITALS: 'vitals',
-  DOCUMENTS: 'documents',
-  IMAGES: 'images',
-  TRANSFERS_OF_CARE: 'transfer-of-care',
-  TOP_THREE_THINGS: 'topThreeThings',
-  CLINICAL_STATEMENTS: 'clinicalStatements',
-  PROMS: 'proms',
-  FEEDS: 'feeds',
 };
 
-const pluginsPages = {
+const problemsTitle = get(themeConfigs.patientsSummaryTitles, 'diagnoses', 'Problems / Diagnosis');
+const contactsTitle = get(themeConfigs.patientsSummaryTitles, 'contacts', 'Contacts');
+const allergiesTitle = get(themeConfigs.patientsSummaryTitles, 'allergies', 'Allergies');
+const medicationsTitle = get(themeConfigs.patientsSummaryTitles, 'medications', 'Medications');
+
+const corePluginsPages = {
   'allergies': {
     breadcrumbs: [{
-      title: 'Allergies',
+      title: allergiesTitle,
       state: '/allergies',
     }],
   },
   'diagnoses': {
     breadcrumbs: [{
-      title: 'Problems / Diagnoses',
+      title: problemsTitle,
       state: '/diagnoses',
-    }],
-  },
-  'clinicalNotes': {
-    breadcrumbs: [{
-      title: 'Clinical Notes',
-      state: '/clinicalNotes',
-    }],
-  },
-  'personalNotes': {
-    breadcrumbs: [{
-      title: 'Personal Notes',
-      state: '/personalNotes',
     }],
   },
   'contacts': {
     breadcrumbs: [{
-      title: 'Contacts',
+      title: contactsTitle,
       state: '/contacts',
-    }],
-  },
-  'vaccinations': {
-    breadcrumbs: [{
-      title: 'Vaccinations',
-      state: '/vaccinations',
-    }],
-  },
-  'genericPlugin': {
-    breadcrumbs: [{
-      title: 'Generic Plugin',
-      state: '/genericPlugin',
-    }],
-  },
-  'diaryEntry': {
-    breadcrumbs: [{
-      title: 'Diary Entry',
-      state: '/diaryEntry',
     }],
   },
   'medications': {
     breadcrumbs: [{
-      title: 'Medications',
+      title: medicationsTitle,
       state: '/medications',
     }],
   },
-  'procedures': {
-    breadcrumbs: [{
-      title: 'Procedures',
-      state: '/procedures',
-    }],
-  },
-  'events': {
-    breadcrumbs: [{
-      title: 'Events',
-      state: '/events',
-    }],
-  },
-  'results': {
-    breadcrumbs: [{
-      title: 'Test Results',
-      state: '/results',
-    }],
-  },
-  'referrals': {
-    breadcrumbs: [{
-      title: 'Referrals',
-      state: '/referrals',
-    }],
-  },
-  'orders': {
-    breadcrumbs: [{
-      title: 'Orders',
-      state: '/orders',
-    }],
-  },
-  'mdt': {
-    breadcrumbs: [{
-      title: 'MDT',
-      state: '/mdt',
-    }],
-  },
-  'drawings': {
-    breadcrumbs: [{
-      title: 'Drawings',
-      state: '/drawings',
-    }],
-  },
-  'vitals': {
-    breadcrumbs: [{
-      title: 'Vitals - NEWS',
-      state: '/vitals',
-    }],
-  },
-  'documents': {
-    breadcrumbs: [{
-      title: 'Documents',
-      state: '/documents',
-    }],
-  },
-  'images': {
-    breadcrumbs: [{
-      title: 'Images',
-      state: '/images',
-    }],
-  },
-  'transfer-of-care': {
-    breadcrumbs: [{
-      title: 'Transfers Of Care',
-      state: '/transfers-of-care',
-    }],
-  },
-  'topThreeThings': {
-    breadcrumbs: [{
-      title: 'Top 3 Things',
-      state: '/topThreeThings',
-    }],
-  },
-  'clinicalStatements': {
-    breadcrumbs: [{
-      title: 'Clinical Statements',
-      state: '/clinicalStatements',
-    }],
-  },
-  'proms': {
-    breadcrumbs: [{
-      title: 'PROMs',
-      state: '/proms',
-    }],
-  },
 };
-
+const filterHiddenPlugins = getFilterPlugins(corePluginsPages);
+export const pluginsPages = Object.assign(filterHiddenPlugins, themePluginsPages);
 
 const addPluginsPagesToLists = (list, breadcrumbsBefore) => {
   for (const nameOfPage in pluginsPages) {

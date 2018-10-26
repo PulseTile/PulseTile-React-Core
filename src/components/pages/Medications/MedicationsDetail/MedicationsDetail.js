@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { get } from 'lodash';
 
 import PluginDetailPanel from '../../../plugin-page-component/PluginDetailPanel'
 import MedicationsDetailPanel from './MedicationsDetailPanel'
@@ -8,11 +9,14 @@ import { getDDMMMYYYY } from '../../../../utils/time-helpers.utils';
 import { valuesNames, valuesLabels } from '../forms.config';
 import PTButton from '../../../ui-elements/PTButton/PTButton';
 import Switch from '../../../form-fields/Switch';
+import { themeConfigs } from '../../../../themes.config';
+import { isPanelVisible, isShowElement } from '../../../../utils/themeSettings-helper';
 
 const MEDICATION_PANEL = 'medicationPanel';
 const PRESCRIPTION_PANEL = 'prescriptionPanel';
 const WARNINGS_PANEL = 'warningsPanel';
 const CHANGE_HISTORY_PANEL = 'changeHistoryPanel';
+const SYSTEM_INFO_PANEL = 'systemInformationPanel';
 
 export default class MedicationsDetail extends PureComponent {
   render() {
@@ -20,6 +24,9 @@ export default class MedicationsDetail extends PureComponent {
     let { detail } = this.props;
     detail = detail || {};
     const dateCreated = getDDMMMYYYY(detail[valuesNames.DATE_CREATED]);
+
+    const hideElements = get(themeConfigs, 'detailsToHide.medications', []);
+    const hiddenPanels = get(themeConfigs, 'panelsToHide.medications', []);
 
     return (
       <div className="section-detail">
@@ -41,40 +48,57 @@ export default class MedicationsDetail extends PureComponent {
             <div className="panel-body-inner">
               <div className="form">
                 <div className="form-group-wrapper">
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.NAME}</label>
-                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
-                      </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
-                        <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DOSE_TIMING}</label>
-                        <div className="form-control-static">{detail[valuesNames.DOSE_TIMING]}</div>
-                      </div>
-                      <div className="form-group">
-                        <div className="wrap-control-group">
-                          <div className="control-group left">
-                            <button type="button" className="btn btn-primary btn-inverse" onClick={() => onShow(PRESCRIPTION_PANEL)}><span className="btn-text">Prescription</span></button>
+                  { isShowElement(valuesNames.NAME, hideElements) ?
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.NAME}</label>
+                            <div className="form-control-static">{detail[valuesNames.NAME]}</div>
                           </div>
                         </div>
                       </div>
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DOSE_DIRECTIONS}</label>
-                        <div className="form-control-static">{detail[valuesNames.DOSE_DIRECTIONS]}</div>
+                    : null }
+
+                  { isShowElement(valuesNames.DOSE_AMOUNT, hideElements) ?
+                      <div className="row-expand">
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
+                            <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
+                          </div>
+                        </div>
+                      </div>
+                    : null }
+
+                  { isShowElement(valuesNames.DOSE_TIMING, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DOSE_TIMING}</label>
+                          <div className="form-control-static">{detail[valuesNames.DOSE_TIMING]}</div>
+                        </div>
+                        <div className="form-group">
+                          <div className="wrap-control-group">
+                            <div className="control-group left">
+                              <button type="button" className="btn btn-primary btn-inverse" onClick={() => onShow(PRESCRIPTION_PANEL)}><span className="btn-text">Prescription</span></button>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                    : null }
+
+                  { isShowElement(valuesNames.DOSE_DIRECTIONS, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DOSE_DIRECTIONS}</label>
+                          <div className="form-control-static">{detail[valuesNames.DOSE_DIRECTIONS]}</div>
+                        </div>
+                      </div>
+                    </div>
+                    : null }
 
                   {detail[valuesNames.ISIMPORT] ?
                     <div className="row-expand">
@@ -102,24 +126,32 @@ export default class MedicationsDetail extends PureComponent {
                     </div> : null
                   }
 
-                  <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.AUTHOR}</label>
-                        <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                  { isShowElement(valuesNames.AUTHOR, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.AUTHOR}</label>
+                          <div className="form-control-static">{detail[valuesNames.AUTHOR]}</div>
+                        </div>
                       </div>
                     </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DATE_CREATED}</label>
-                        <div className="form-control-static">{dateCreated}</div>
+                    : null }
+
+                  { isShowElement(valuesNames.DATE_CREATED, hideElements) ?
+                    <div className="row-expand">
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DATE_CREATED}</label>
+                          <div className="form-control-static">{dateCreated}</div>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                    : null }
 
                 </div>
               </div>
             </div>
+
           </MedicationsDetailPanel> : null}
 
           {(expandedPanel === MEDICATION_PANEL || expandedPanel === 'all') && editedPanel[MEDICATION_PANEL] ? <PluginDetailPanel
@@ -143,7 +175,7 @@ export default class MedicationsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && !editedPanel[PRESCRIPTION_PANEL] ? <PluginDetailPanel
+          {(expandedPanel === PRESCRIPTION_PANEL || expandedPanel === 'all') && !editedPanel[PRESCRIPTION_PANEL] && isPanelVisible(hiddenPanels, 'prescription') ? <PluginDetailPanel
             onExpand={onExpand}
             name={PRESCRIPTION_PANEL}
             title="Prescription (1)"
@@ -161,18 +193,22 @@ export default class MedicationsDetail extends PureComponent {
               <div className="form">
                 <div className="panel-body-section">
                   <div className="row-expand">
-                    <div className="col-expand-left">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.NAME}</label>
-                        <div className="form-control-static">{detail[valuesNames.NAME]}</div>
+                    { isShowElement(valuesNames.NAME, hideElements) ?
+                      <div className="col-expand-left">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.NAME}</label>
+                          <div className="form-control-static">{detail[valuesNames.NAME]}</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="col-expand-right">
-                      <div className="form-group">
-                        <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
-                        <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
+                      : null }
+                    { isShowElement(valuesNames.DOSE_AMOUNT, hideElements) ?
+                      <div className="col-expand-right">
+                        <div className="form-group">
+                          <label className="control-label">{valuesLabels.DOSE_AMOUNT}</label>
+                          <div className="form-control-static">{detail[valuesNames.DOSE_AMOUNT]}</div>
+                        </div>
                       </div>
-                    </div>
+                      : null }
                   </div>
                 </div>
                 <div className="panel-body-section">
@@ -269,7 +305,7 @@ export default class MedicationsDetail extends PureComponent {
             />
           </PluginDetailPanel> : null }
 
-          {(expandedPanel === WARNINGS_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === WARNINGS_PANEL || expandedPanel === 'all') && isPanelVisible(hiddenPanels, 'warnings') ? <PluginDetailPanel
             onExpand={onExpand}
             name={WARNINGS_PANEL}
             title="Warnings (2)"
@@ -320,8 +356,7 @@ export default class MedicationsDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
-
-          {(expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === 'all') ? <PluginDetailPanel
+          {(expandedPanel === CHANGE_HISTORY_PANEL || expandedPanel === 'all') && isPanelVisible(hiddenPanels, 'history') ? <PluginDetailPanel
             onExpand={onExpand}
             name={CHANGE_HISTORY_PANEL}
             title="Change History (1)"
@@ -355,6 +390,42 @@ export default class MedicationsDetail extends PureComponent {
               </div>
             </div>
           </PluginDetailPanel> : null}
+
+          {(expandedPanel === SYSTEM_INFO_PANEL || expandedPanel === 'all') && !editedPanel[SYSTEM_INFO_PANEL] && isPanelVisible(hiddenPanels, 'systemInformation') ?
+            <PluginDetailPanel
+              onExpand={onExpand}
+              name={SYSTEM_INFO_PANEL}
+              title="System Information"
+              isOpen={openedPanel === SYSTEM_INFO_PANEL}
+              onShow={onShow}
+              currentPanel={currentPanel}
+              onEdit={onEdit}
+              editedPanel={editedPanel}
+              onCancel={onCancel}
+              onSaveSettings={onSaveSettings}
+              formValues={medicationsDetailFormValues}
+              isBtnShowPanel
+              isShowControlPanel={false}
+            >
+              <div className="panel-body-inner">
+                <div className="form">
+                  <div className="form-group-wrapper">
+                    <div className="row-expand">
+                      { isShowElement(valuesNames.SOURCE, hideElements) ?
+                        <div className="col-expand-left">
+                          <div className="form-group">
+                            <label className="control-label">{valuesLabels.SOURCE}</label>
+                            <div className="form-control-static">{detail[valuesNames.SOURCE]}</div>
+                          </div>
+                        </div>
+                        : null }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </PluginDetailPanel> : null}
+
+
         </div>
       </div>
     )

@@ -105,4 +105,31 @@ describe('Component <PluginCreate />', () => {
 
     component.find('PTButton').at(2).simulate('click');
   });
+
+  it('should renders correctly when creation is denied for user', () => {
+    let tree;
+    const component = shallow(
+      <PluginCreate
+        onExpand={testProps.onExpand}
+        onShow={testProps.onShow}
+        onSaveSettings={testProps.onSaveSettings}
+        onCancel={testProps.onCancel}
+        expandedPanel={'another panel'}
+        title={testProps.title}
+        name={testProps.name}
+        openedPanel={testProps.name}
+        currentPanel={testProps.currentPanel}
+        formValues={testProps.formValues}
+        onGoBack={testProps.onGoBack}
+        isCreationPermitted={false}
+        headingName="allergies"
+        isImport
+      />);
+
+      expect(component.find('panel-body-inner').exists());
+
+      expect(tree).toMatchSnapshot();
+    });
 });
+
+

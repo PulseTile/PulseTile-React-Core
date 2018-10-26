@@ -6,15 +6,12 @@ import _ from 'lodash/fp';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { lifecycle, compose } from 'recompose';
-
 import PluginListHeader from '../../plugin-page-component/PluginListHeader';
 import PluginMainPanel from '../../plugin-page-component/PluginMainPanel';
 import PluginBanner from '../../plugin-page-component/PluginBanner';
-
 import { columnsConfig, defaultColumnsSelected } from './table-columns.config'
 import { valuesNames } from './forms.config';
 import { defaultFormValues } from './ContactsCreate/default-values.config';
-
 import { fetchPatientContactsRequest } from './ducks/fetch-patient-contacts.duck';
 import { fetchPatientContactsCreateRequest } from './ducks/fetch-patient-contacts-create.duck';
 import { fetchPatientContactsDetailRequest } from './ducks/fetch-patient-contacts-detail.duck';
@@ -26,7 +23,7 @@ import { checkIsValidateForm, operationsOnCollection } from '../../../utils/plug
 import ContactsDetail from './ContactsDetail/ContactsDetail';
 import PluginCreate from '../../plugin-page-component/PluginCreate';
 import ContactsCreateForm from './ContactsCreate/ContactsCreateForm'
-import imgBanner from '../../../assets/images/banners/contacts.jpg';
+import { imageSource } from './ImageSource';
 
 const CONTACTS_MAIN = 'contactsMain';
 const CONTACTS_DETAIL = 'contactsDetail';
@@ -71,15 +68,19 @@ export default class Contacts extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allContacts}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allContacts ? this.formToShowCollection(allContacts).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, offset })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
@@ -229,7 +230,7 @@ export default class Contacts extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, listPerPageAmount } = this.state;
     const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
@@ -249,8 +250,8 @@ export default class Contacts extends PureComponent {
       {!(isDetailPanelVisible || isCreatePanelVisible) ?
         <PluginBanner
           title="Contacts"
-          subTitle="Short blurb containing a few words to describe this section"
-          img={imgBanner}
+          subTitle="The key people in your life, that you keep in contact with on a regular basis"
+          img={imageSource}
         />
         : null
       }
@@ -270,7 +271,7 @@ export default class Contacts extends PureComponent {
               <PluginMainPanel
                 headers={columnsToShowConfig}
                 resourceData={allContacts}
-                emptyDataMessage="No contacts"
+                emptyDataMessage="No information available"
                 onHeaderCellClick={this.handleHeaderCellClick}
                 onCellClick={this.handleDetailContactsClick}
                 columnNameSortBy={columnNameSortBy}
@@ -284,6 +285,7 @@ export default class Contacts extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}

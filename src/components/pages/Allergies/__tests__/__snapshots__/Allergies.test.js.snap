@@ -5,8 +5,8 @@ exports[`Component <Allergies /> should renders correctly and testing another me
   className="page-wrapper"
 >
   <PluginBanner
-    img="allergies.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
   />
@@ -37,7 +37,7 @@ exports[`Component <Allergies /> should renders correctly and testing another me
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -46,8 +46,9 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -63,7 +64,7 @@ exports[`Component <Allergies /> should renders correctly and testing another me
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -112,7 +113,7 @@ exports[`Component <Allergies /> should renders correctly and testing context an
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -121,8 +122,9 @@ exports[`Component <Allergies /> should renders correctly and testing context an
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -197,8 +199,8 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
   className="page-wrapper"
 >
   <PluginBanner
-    img="allergies.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
   />
@@ -229,7 +231,7 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -238,8 +240,9 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -255,7 +258,7 @@ exports[`Component <Allergies /> should renders correctly when data take from Do
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -304,7 +307,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -313,8 +316,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -357,7 +361,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
@@ -405,7 +411,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -414,8 +420,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -458,7 +465,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           }
           currentPanel="allergiesCreate"
           expandedPanel="all"
+          headingName="allergies"
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="allergiesCreate"
           onCancel={[Function]}
@@ -506,7 +515,7 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -515,8 +524,9 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -657,8 +667,8 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="allergies.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
   />
@@ -689,7 +699,7 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -698,8 +708,9 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -715,7 +726,7 @@ exports[`Component <Allergies /> should renders correctly with empty store 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}
@@ -738,8 +749,8 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
   className="page-wrapper"
 >
   <PluginBanner
-    img="allergies.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
     title="Allergies"
     toRight={false}
   />
@@ -770,7 +781,7 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
           />
           <PluginMainPanel
             columnNameSortBy="cause"
-            emptyDataMessage="No allergies"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -779,8 +790,9 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                   "width": "25%",
                 },
                 Object {
-                  "key": "reaction",
-                  "title": "Reaction",
+                  "key": "dateCreated",
+                  "title": "Date",
+                  "transformer": [Function],
                   "width": "55%",
                 },
                 Object {
@@ -796,7 +808,7 @@ exports[`Component <Allergies /> should renders correctly with forms error 1`] =
                 },
               ]
             }
-            isBtnCreateVisible={true}
+            isBtnCreateVisible={false}
             isLoading={true}
             listPerPageAmount={10}
             offset={0}

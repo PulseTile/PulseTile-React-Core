@@ -14,6 +14,7 @@ exports[`Component <ContactsDetail /> should renders correctly with different st
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="contactPanel"
@@ -214,6 +215,7 @@ exports[`Component <ContactsDetail /> should renders correctly with different st
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="contactPanel"
@@ -256,6 +258,7 @@ exports[`Component <ContactsDetail /> should renders with props correctly 1`] = 
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="contactPanel"
