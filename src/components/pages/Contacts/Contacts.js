@@ -68,15 +68,19 @@ export default class Contacts extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allContacts}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allContacts ? this.formToShowCollection(allContacts).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
 
     //TODO should be implemented common function, and the state stored in the store Redux
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/${sourceId}` && sourceId !== undefined) {
-      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false })
+      this.setState({ isSecondPanel: true, isDetailPanelVisible: true, isBtnExpandVisible: true, isBtnCreateVisible: true, isCreatePanelVisible: false, offset })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.CONTACTS}/create`) {
       this.setState({ isSecondPanel: true, isBtnExpandVisible: true, isBtnCreateVisible: false, isCreatePanelVisible: true, openedPanel: CONTACTS_CREATE, isDetailPanelVisible: false })
@@ -226,7 +230,7 @@ export default class Contacts extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, listPerPageAmount } = this.state;
     const { allContacts, contactsDetailFormState, contactsCreateFormState, metaPanelFormState, contactDetail } = this.props;
 
     const isPanelDetails = (expandedPanel === CONTACTS_DETAIL || expandedPanel === CONTACT_PANEL || expandedPanel === META_PANEL);
@@ -281,6 +285,7 @@ export default class Contacts extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null}

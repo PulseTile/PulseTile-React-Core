@@ -239,7 +239,7 @@ exports[`Component <Medications /> should renders correctly and testing context 
             isBtnCreateVisible={true}
             isLoading={true}
             listPerPageAmount={10}
-            offset={0}
+            offset={-10}
             onCellClick={[Function]}
             onCreate={[Function]}
             onHeaderCellClick={[Function]}

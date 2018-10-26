@@ -72,10 +72,14 @@ export default class ProblemsDiagnosis extends PureComponent {
     offset: 0,
     isSubmit: false,
     isLoading: true,
+    listPerPageAmount: 10,
   };
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps({allDiagnoses}) {
+    const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
+    const indexOfCurrentItem = sourceId && allDiagnoses ? this.formToShowCollection(allDiagnoses).findIndex( _.matches({sourceId: sourceId})) : null;
+    const offset = Math.floor(indexOfCurrentItem / listPerPageAmount)*listPerPageAmount;
     const userId = this.context.router.route.match.params.userId;
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/${sourceId}` && sourceId !== undefined) {
@@ -84,7 +88,8 @@ export default class ProblemsDiagnosis extends PureComponent {
         isDetailPanelVisible: true,
         isBtnCreateVisible: isButtonVisible(hiddenButtons, 'create', true),
         isBtnExpandVisible: true,
-        isCreatePanelVisible: false
+        isCreatePanelVisible: false,
+        offset
       })
     }
     if (this.context.router.history.location.pathname === `${clientUrls.PATIENTS}/${userId}/${clientUrls.DIAGNOSES}/create`) {
@@ -281,7 +286,7 @@ export default class ProblemsDiagnosis extends PureComponent {
   };
 
   render() {
-    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading } = this.state;
+    const { selectedColumns, columnNameSortBy, sortingOrder, isSecondPanel, isDetailPanelVisible, isBtnExpandVisible, expandedPanel, openedPanel, isBtnCreateVisible, isCreatePanelVisible, editedPanel, offset, isSubmit, isLoading, listPerPageAmount } = this.state;
     const { allDiagnoses, diagnosisDetail, diagnosisPanelFormState, diagnosisCreateFormState } = this.props;
 
     const isPanelDetails = (expandedPanel === DIAGNOSES_DETAIL || expandedPanel === DIAGNOSES_PANEL || expandedPanel === SYSTEM_INFO_PANEL);
@@ -344,6 +349,7 @@ export default class ProblemsDiagnosis extends PureComponent {
                 onCreate={this.handleCreate}
                 id={sourceId}
                 isLoading={isLoading}
+                listPerPageAmount={listPerPageAmount}
               />
             </div>
           </Col> : null }
