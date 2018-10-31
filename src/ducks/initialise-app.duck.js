@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
 import { get } from 'lodash';
 
-import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS, POLL_START, POLL_STOP } from './fetch-initialise.duck';
+import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS, POLL_START } from './fetch-initialise.duck';
 import { fetchUserAccountRequest, FETCH_USER_ACCOUNT_SUCCESS } from './fetch-user-account.duck';
 import { fetchPatientsInfoRequest, FETCH_PATIENTS_INFO_SUCCESS } from './fetch-patients-info.duck';
 import { setTheme } from './set-theme.duck';
