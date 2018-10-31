@@ -2,7 +2,8 @@ import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
 import { get } from 'lodash';
-import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS } from './fetch-initialise.duck';
+
+import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS, POLL_START, POLL_STOP } from './fetch-initialise.duck';
 import { fetchUserAccountRequest, FETCH_USER_ACCOUNT_SUCCESS } from './fetch-user-account.duck';
 import { fetchPatientsInfoRequest, FETCH_PATIENTS_INFO_SUCCESS } from './fetch-patients-info.duck';
 import { setTheme } from './set-theme.duck';
@@ -25,11 +26,20 @@ export const initialiseEpic = (action$, store) => Observable.merge(
     .ofType(INITIALISE_START)
     .map(fetchInitialiseRequest, _.head(window.document.getElementsByTagName('body')).className = 'loading'),
   action$
-    .ofType(FETCH_INITIALISE_SUCCESS)
-    .map((action) => {
-      const isNewPatient = get(action.payload, 'new_patient', false);
+    .ofType(POLL_START)
+    .switchMap(response => {
+      const isNewPatient = get(response, 'payload.new_patient', false);
       const bodyLoaderClass = isNewPatient ? 'loading with-tips progress-long' : 'loading with-tips progress-short';
       _.head(window.document.getElementsByTagName('body')).className = bodyLoaderClass;
+      const timeOut = isNewPatient ? 5000 : 1000;
+      return Observable.interval(timeOut)
+              .takeUntil(action$.ofType(FETCH_PATIENTS_INFO_SUCCESS))
+                .exhaustMap(() => Observable.of(fetchInitialiseRequest()))
+    }
+  ),
+  action$
+    .ofType(FETCH_INITIALISE_SUCCESS)
+    .map((action) => {
       if (action.payload.redirectURL) return redirectToLoginUrl(action.payload);
       if (_.flow(_.get('payload.redirectTo'), _.eq('auth0'))(action)) return redirectToLogin(action.payload);
       return fetchUserAccountRequest(action);
@@ -47,9 +57,7 @@ export const initialiseEpic = (action$, store) => Observable.merge(
   action$
     .ofType(FETCH_USER_ACCOUNT_SUCCESS)
     .map((action) => {
-      const bodyClassList = document.getElementsByTagName('body')[0].classList;
-      const loaderTimeout = (bodyClassList.contains('progress-long')) ? 120000 : 5000;
-      redirectAccordingRole(action.payload, loaderTimeout);
+      redirectAccordingRole(action.payload);
       return initialiseSuccess(action.payload);
     })
 );

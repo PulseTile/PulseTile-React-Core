@@ -2,7 +2,7 @@ import _ from 'lodash/fp';
 
 import { clientUrls } from '../config/client-urls.constants';
 
-export const redirectAccordingRole = (user, loaderTimeout) => {
+export const redirectAccordingRole = (user) => {
   const locationHrefBeforeLogin = localStorage.getItem('locationHrefBeforeLogin');
 
   if (!user) return;
@@ -51,5 +51,5 @@ export const redirectAccordingRole = (user, loaderTimeout) => {
     window.document.getElementsByTagName('body')[0].classList.remove('with-tips');
     window.document.getElementsByTagName('body')[0].classList.remove('progress-short');
     window.document.getElementsByTagName('body')[0].classList.remove('progress-long');
-  }, loaderTimeout);
+  }, 1000)
 };
