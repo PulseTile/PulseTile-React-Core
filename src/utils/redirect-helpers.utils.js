@@ -48,5 +48,8 @@ export const redirectAccordingRole = (user) => {
 
   setTimeout(() => {
     window.document.getElementsByTagName('body')[0].classList.remove('loading');
+    window.document.getElementsByTagName('body')[0].classList.remove('with-tips');
+    window.document.getElementsByTagName('body')[0].classList.remove('progress-short');
+    window.document.getElementsByTagName('body')[0].classList.remove('progress-long');
   }, 1000)
 };
