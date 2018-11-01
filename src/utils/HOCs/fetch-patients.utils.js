@@ -49,22 +49,6 @@ export const fetchPatientsCountsOnMountAndUpdate = ({
   },
 });
 
-export const fetchHeaderToolbarOnMount = ({
-  componentDidMount() {
-    const { actions, match } = this.props;
-    const userId = _.get('params.userId', match);
-    if (userId && _.isEmpty(this.props.patientsDemographics[userId])) actions.fetchPatientDemographicsRequest({ userId })
-  },
-  componentWillReceiveProps(nextProps) {
-    const { actions, match } = this.props;
-    const nextUserId = _.get('match.params.userId', nextProps);
-    const userId = _.get('params.userId', match);
-    if (nextUserId !== userId) {
-      actions.fetchPatientDemographicsRequest({ userId: nextUserId })
-    }
-  },
-});
-
 export const fetchPatientDemographicsOnMount = (generateFetchListOnMount('fetchPatientDemographicsRequest'));
 
 export const fetchPatientAllergiesOnMount = (generateFetchListOnMount('fetchPatientAllergiesRequest'));

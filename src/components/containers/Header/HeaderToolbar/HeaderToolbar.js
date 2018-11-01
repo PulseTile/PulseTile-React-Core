@@ -5,20 +5,14 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { compose, lifecycle } from 'recompose';
 import _ from 'lodash/fp';
-
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import { toolbarSelector, routerSelector } from './selectors';
 
-
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
-
 import { fetchPatientDemographicsOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
-
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
 import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
-import { fetchHeaderToolbarOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
-
 import { fetchPatientDemographicsRequest } from '../../../../ducks/fetch-patient-demographics.duck';
 
 const mapDispatchToProps = dispatch => ({
@@ -29,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 @compose(connect(toolbarSelector, mapDispatchToProps), connect(routerSelector))
-@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchHeaderToolbarOnMount), lifecycle(fetchPatientDemographicsOnMount))
+@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchPatientDemographicsOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,

@@ -46,7 +46,7 @@ describe('Component <HeaderToolbar />', () => {
       <HeaderToolbar
         store={store}
         match={match}
-      />).dive().dive().dive().dive().dive().dive()
+      />).dive().dive().dive().dive().dive()
     expect(headerToolbar.find('.patient-info-item').at(0).html()).toEqual('<div class="patient-info-item"><span class="key">D.O.B.</span> 06-Jun-1944</div>');
     expect(headerToolbar.find('.patient-info-item').at(1).html()).toEqual('<div class="patient-info-item"><span class="key">Phone:</span> (011981) 32362</div>');
     expect(headerToolbar.find('.patient-info-item').at(2).html()).toEqual('<div class="patient-info-item"><span class="key">Gender:</span> Male</div>');
