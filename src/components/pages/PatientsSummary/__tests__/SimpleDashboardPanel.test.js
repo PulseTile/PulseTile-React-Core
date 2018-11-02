@@ -1,8 +1,10 @@
 import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
+import { get } from 'lodash';
 
 import SimpleDashboardPanel from '../SimpleDashboardPanel';
+import { themeConfigs } from '../../../../themes.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -50,12 +52,14 @@ describe('Component <SimpleDashboardPanel />', () => {
     expect(component.find('ul')).toHaveLength(1);
     expect(component.find('li')).toHaveLength(2);
 
-    expect(component.find('.board-preview')).toHaveLength(1);
-    component.find('.board-preview').simulate('click');
-    component.find('.board-list-link').at(0).simulate('click');
+    if (get(themeConfigs, 'isShowPagesSynopsisImages', false)) {
+      expect(component.find('.board-preview')).toHaveLength(1);
+      component.find('.board-preview').simulate('click');
+    }
 
+    component.find('.board-list-link').at(0).simulate('click');
     expect(component.find('.board-list')).toHaveLength(1);
-    component.find('.board-preview').simulate('click');
+
     component.setProps({
       items: [{
         source: 'Marand',

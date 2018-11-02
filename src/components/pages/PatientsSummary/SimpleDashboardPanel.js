@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
+import { get } from 'lodash';
+
+import { themeConfigs } from '../../../themes.config';
 
 const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview, isHasList, srcPrevirew, isFeeds }) => {
-
   const imageLink = (isFeeds && items.length > 0) ? items[0].link : state;
-
   let filterItemsArray = (items.length > 4) ? [{text: 'Loading ...'}, '', '', ''] : items;
-
+  const isShowPagesSynopsisImages = get(themeConfigs, 'isShowPagesSynopsisImages', false);
   return (<div id={id} className="dashboard-item">
     <div className="board">
       <div className="board-header">
@@ -17,7 +18,7 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
         <h3 className="board-title">{ title }</h3>
       </div>
       <div className="board-body">
-        {isHasPreview
+        {(isHasPreview && isShowPagesSynopsisImages)
           ? <div
             className="board-preview"
             style={{ backgroundImage: `url(${srcPrevirew})` }}
