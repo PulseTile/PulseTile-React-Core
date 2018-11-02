@@ -98,6 +98,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
                     NHS No.
                   </span>
                   <span>
+                     
                     999 999 9000
                   </span>
                 </div>

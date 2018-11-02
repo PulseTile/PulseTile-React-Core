@@ -50,7 +50,7 @@ describe('Component <HeaderToolbar />', () => {
     expect(headerToolbar.find('.patient-info-item').at(0).html()).toEqual('<div class="patient-info-item"><span class="key">D.O.B.</span> 06-Jun-1944</div>');
     expect(headerToolbar.find('.patient-info-item').at(1).html()).toEqual('<div class="patient-info-item"><span class="key">Phone:</span> (011981) 32362</div>');
     expect(headerToolbar.find('.patient-info-item').at(2).html()).toEqual('<div class="patient-info-item"><span class="key">Gender:</span> Male</div>');
-    expect(headerToolbar.find('.patient-info-item').at(3).html()).toEqual('<div class="patient-info-item"><span class="key">NHS No.</span><span>999 999 9000</span></div>');
+    expect(headerToolbar.find('.patient-info-item').at(3).html()).toEqual('<div class="patient-info-item"><span class="key">NHS No.</span><span> 999 999 9000</span></div>');
     expect(headerToolbar.find('.patient-info-item').at(4).html()).toEqual('<div class="patient-info-item significant hidden-xs">Ivor Cox</div>');
     expect(headerToolbar.find('.patient-info-item').at(5).html()).toEqual('<div class="patient-info-item"><span class="key">Doctor:</span> Goff Carolyn D.</div>');
     expect(headerToolbar.find('.patient-info-item').at(6).html()).toEqual('<div class="patient-info-item"><span class="key">Address:</span> Hamilton Practice, 5544 Ante Street, Hamilton, Lanarkshire, N06 5LP</div>');
