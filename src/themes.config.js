@@ -20,6 +20,7 @@ const mainThemeConfigs = {
   patientsSummaryHasPreviewSettings: false,
   dashboardBeing: {},
   isShowUserPhoto: true,
+  isShowUserBirthday: true,
   isShowUserProfileSettings: true,
   isShowUserProfileSpecification: true,
   isShowPagesBannersImages: false,
