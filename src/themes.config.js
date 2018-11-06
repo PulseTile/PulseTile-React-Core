@@ -25,6 +25,7 @@ const mainThemeConfigs = {
   isShowUserProfileSpecification: true,
   isShowPagesBannersImages: false,
   isShowPagesSynopsisImages: false,
+  isShowUserAccountPage: true,
   sidebarConfigIsVisible: {
     default: false,
     'patients-summary': true,
