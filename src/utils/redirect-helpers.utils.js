@@ -2,6 +2,13 @@ import _ from 'lodash/fp';
 
 import { clientUrls } from '../config/client-urls.constants';
 
+/**
+ * This function redirects user to the Chart page
+ */
+export const redirectToCharts = () => {
+  location.href = `/#${clientUrls.CHARTS}`;
+};
+
 export const redirectAccordingRole = (user) => {
   const locationHrefBeforeLogin = localStorage.getItem('locationHrefBeforeLogin');
 
