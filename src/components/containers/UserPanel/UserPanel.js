@@ -87,7 +87,7 @@ export default class UserPanel extends PureComponent {
 
         <TopHeaderButtons pageUrl={pageUrl} homepageLink={homepageLink} />
 
-        {isNotifications ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
+        {isNotifications ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />
           <PTButton className="btn-header btn-notification" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
             <div>
@@ -97,7 +97,7 @@ export default class UserPanel extends PureComponent {
           </PTButton>
         </UserPanelItem> : null}
 
-        {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
+        {isUserPanel ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
           <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
           <PTButton id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
