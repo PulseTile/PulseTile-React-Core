@@ -46,7 +46,7 @@ export default class UserAccountPanel extends PureComponent {
     const imageLocation = '/images/user.jpg';
     const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
     return (
-      <div className="dropdown-user dropdown-menu-right dropdown-menu">
+      <div className="dropdown-user dropdown-menu-right dropdown-menu" id="userAccountPanelElement" >
         { themeConfigs.isShowUserPhoto ?
             <div className="user-profile-image" onClick={() => this.renderToProfile()}>
               <div className="img">
