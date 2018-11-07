@@ -41,3 +41,14 @@ export function getPanelsNumber(testStoreContent) {
   const pluginsNumber = getNonCorePanelsNumber(testStoreContent);
   return (pluginsNumber > 0) ? (initialNumber + pluginsNumber) : initialNumber;
 }
+
+/**
+ * This function counts headings blocks number
+ * - it equals 1 by default (SHOW)
+ * - if theme setting patientsSummaryHasPreviewSettings is TRUE we have additional block (VIEW OF BOARDS)
+ *
+ * @return {number}
+ */
+export function getHeadingsNumber() {
+    return themeConfigs.patientsSummaryHasPreviewSettings ? 2 : 1;
+}

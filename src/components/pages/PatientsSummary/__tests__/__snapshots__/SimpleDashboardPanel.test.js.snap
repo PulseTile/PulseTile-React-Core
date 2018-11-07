@@ -32,15 +32,6 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
     <div
       className="board-body"
     >
-      <div
-        className="board-preview"
-        onClick={[Function]}
-        style={
-          Object {
-            "backgroundImage": "url(undefined)",
-          }
-        }
-      />
       <ul
         className="board-list"
       >

@@ -1,12 +1,11 @@
 import React from 'react';
-import { configure, shallow } from 'enzyme'
+import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
-import { get } from 'lodash';
 
 import PatientsSummaryPanel from '../header/PatientsSummaryPanel';
 import { themeConfigs } from '../../../../themes.config';
 import { testStoreContent } from '../../../theme/config/plugins';
-import { getPanelsNumber } from '../functions';
+import { getPanelsNumber, getHeadingsNumber } from '../functions';
 
 class LocalStorageMock {
   constructor() {
@@ -39,39 +38,6 @@ const testProps = {
     allergies: true,
     medications: true,
   },
-  feeds: [
-    {
-      name: 'NYTimes.com',
-      landingPageUrl: 'https://www.nytimes.com/section/health',
-      rssFeedUrl: 'http://rss.nytimes.com/services/xml/rss/nyt/Health.xml',
-      sourceId: 'testSourceID6',
-    }, {
-      name: 'BBC Health',
-      landingPageUrl: 'http://www.bbc.co.uk/news/health',
-      rssFeedUrl: 'http://feeds.bbci.co.uk/news/health/rss.xml?edition=uk#',
-      sourceId: 'testSourceID1',
-    }, {
-      name: 'NHS Choices',
-      landingPageUrl: 'https://www.nhs.uk/news/',
-      rssFeedUrl: 'https://www.nhs.uk/NHSChoices/shared/RSSFeedGenerator/RSSFeed.aspx?site=News',
-      sourceId: 'testSourceID2',
-    }, {
-      name: 'Public Health',
-      landingPageUrl: 'https://www.gov.uk/government/organisations/public-health-england',
-      rssFeedUrl: 'https://www.gov.uk/government/organisations/public-health-england.atom',
-      sourceId: 'testSourceID3',
-    }, {
-      name: 'Leeds Live - Whats on',
-      landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-      rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-      sourceId: 'testSourceID4',
-    }, {
-      name: 'Leeds CC Local News',
-      landingPageUrl: 'https://news.leeds.gov.uk',
-      rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-      sourceId: 'testSourceID5',
-    },
-  ],
 };
 
 configure({ adapter: new Adapter() });
@@ -83,7 +49,6 @@ describe('Component <PatientsSummaryPanel />', () => {
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
         onViewOfBoardsSelected={() => {}}
-        feeds={testProps.feeds}
       />).dive();
     expect(component).toMatchSnapshot();
 
@@ -91,15 +56,17 @@ describe('Component <PatientsSummaryPanel />', () => {
     expect(component.instance().props.selectedCategory).toEqual(testProps.selectedCategory);
 
     const panelsNumber = getPanelsNumber(testStoreContent);
+    const headingsNumber = getHeadingsNumber();
 
-    if (themeConfigs.isLeedsPHRTheme) {
-      // expect(component.find('FeedsPanel')).toHaveLength(0);
-      expect(component.find('.form-group')).toHaveLength(2);
+    expect(component.find('.heading')).toHaveLength(headingsNumber);
+    if (headingsNumber > 1) {
+      expect(component.find('.heading').at(0).text()).toEqual('SHOW');
+      expect(component.find('.heading').at(1).text()).toEqual('VIEW OF BOARDS');
+      expect(component.find('PTCustomInput[type="checkbox"]')).toHaveLength(panelsNumber);
+      expect(component.find('PTCustomInput[type="radio"]')).toHaveLength(2);
     } else {
-      expect(component.find('.heading')).toHaveLength(1);
       expect(component.find('.heading').text()).toEqual('SHOW');
-      expect(component.find('.form-group')).toHaveLength(1);
-      expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
+      expect(component.find('PTCustomInput[type="checkbox"]')).toHaveLength(panelsNumber);
     }
 
     component.instance().toggleCheckbox('dashboard-name');
@@ -115,8 +82,6 @@ describe('Component <PatientsSummaryPanel />', () => {
       allergies: true,
       medications: false,
     } });
-
-    expect(component.find('PTCustomInput')).toHaveLength(panelsNumber);
 
     component.instance().toggleRadio('test');
 

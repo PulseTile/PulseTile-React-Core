@@ -65,7 +65,7 @@ export default class UserAccountPanel extends PureComponent {
           <div className="user-profile-info__descr">
             <div className="user-profile-info__item role">User Role:{user.role}</div>
             <div className="user-profile-info__item email">{user.email}</div>
-            {get(user, 'dateOfBirth', null)
+              {(get(themeConfigs, 'isShowUserBirthday', false) && get(user, 'dateOfBirth', null))
               ? <div className="user-profile-info__item birthday">Date of Birth: {getDDMMMYYYY(user.dateOfBirth)}</div>
               : null
             }
