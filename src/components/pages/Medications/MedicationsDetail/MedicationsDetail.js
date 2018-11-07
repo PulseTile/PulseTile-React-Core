@@ -219,7 +219,7 @@ export default class MedicationsDetail extends PureComponent {
                   <div className="form-group">
                     <div className="wrap-control-group">
                       <div className="control-group left">
-                        <PTButton className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" onClick={() => toggleHourlySchedule()}>
+                        <PTButton className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" aria-label="Hourly Schedule" onClick={() => toggleHourlySchedule()}>
                           <i className="btn-icon fa fa-table" />
                           <span className="btn-text"> Hourly Schedule</span>
                         </PTButton>

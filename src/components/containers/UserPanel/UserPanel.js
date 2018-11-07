@@ -89,7 +89,7 @@ export default class UserPanel extends PureComponent {
 
         {isNotifications ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />
-          <PTButton className="btn-header btn-notification" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
+          <PTButton className="btn-header btn-notification" aria-label="Notifications" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
             <div>
               <i className="fa fa-bell-o" />
               <span className="count">2</span>
@@ -99,7 +99,7 @@ export default class UserPanel extends PureComponent {
 
         {isUserPanel ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
           <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
-          <PTButton aria-controls="userAccountPanelElement" id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
+          <PTButton aria-controls="userAccountPanelElement" aria-label="User Panel" id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>
         </UserPanelItem> : null}
