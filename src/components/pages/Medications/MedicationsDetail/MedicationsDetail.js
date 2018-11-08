@@ -81,7 +81,7 @@ export default class MedicationsDetail extends PureComponent {
                         <div className="form-group">
                           <div className="wrap-control-group">
                             <div className="control-group left">
-                              <button type="button" className="btn btn-primary btn-inverse" onClick={() => onShow(PRESCRIPTION_PANEL)}><span className="btn-text">Prescription</span></button>
+                              <button type="button" aria-label="Prescription" className="btn btn-primary btn-inverse" onClick={() => onShow(PRESCRIPTION_PANEL)}><span className="btn-text">Prescription</span></button>
                             </div>
                           </div>
                         </div>
