@@ -11,6 +11,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 1`] = `
       className="dropdown"
     >
       <PTButton
+        aria-label="Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
         onClick={[Function]}
       >
@@ -20,6 +21,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 1`] = `
       </PTButton>
     </div>
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >
@@ -45,6 +47,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 2`] = `
       className="dropdown open"
     >
       <PTButton
+        aria-label="Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
         onClick={[Function]}
       >
@@ -57,6 +60,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 2`] = `
       />
     </div>
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >
@@ -82,6 +86,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 3`] = `
       className="dropdown open"
     >
       <PTButton
+        aria-label="Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
         onClick={[Function]}
       >
@@ -94,6 +99,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 3`] = `
       />
     </div>
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >

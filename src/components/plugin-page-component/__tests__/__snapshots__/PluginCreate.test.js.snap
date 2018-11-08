@@ -42,6 +42,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
               className="control-group right"
             >
               <PTButton
+                aria-label="Cancel"
                 className="btn btn-danger"
                 onClick={[Function]}
               >
@@ -51,6 +52,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
                  Cancel
               </PTButton>
               <PTButton
+                aria-label="Complete"
                 className="btn btn-success"
                 onClick={[Function]}
               >
@@ -64,6 +66,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
               className="control-group with-indent left"
             >
               <PTButton
+                aria-label="Back to Documents"
                 className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
                 onClick={[Function]}
               >
@@ -175,10 +178,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                 className="control-group right"
               >
                 <PTButton
+                  aria-label="Expand / Collapse"
                   className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
                   onClick={[Function]}
                 >
                   <button
+                    aria-label="Expand / Collapse"
                     className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
                     onClick={[Function]}
                   >
@@ -213,10 +218,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                     className="control-group right"
                   >
                     <PTButton
+                      aria-label="Cancel"
                       className="btn btn-danger"
                       onClick={[Function]}
                     >
                       <button
+                        aria-label="Cancel"
                         className="btn btn-danger"
                         onClick={[Function]}
                       >
@@ -227,10 +234,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                       </button>
                     </PTButton>
                     <PTButton
+                      aria-label="Complete"
                       className="btn btn-success"
                       onClick={[Function]}
                     >
                       <button
+                        aria-label="Complete"
                         className="btn btn-success"
                         onClick={[Function]}
                       >
@@ -254,10 +263,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                   className="control-group right"
                 >
                   <PTButton
+                    aria-label="Edit"
                     className="btn btn-success btn-inverse btn-edit"
                     onClick={[Function]}
                   >
                     <button
+                      aria-label="Edit"
                       className="btn btn-success btn-inverse btn-edit"
                       onClick={[Function]}
                     >

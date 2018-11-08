@@ -8,6 +8,7 @@ exports[`Component <PluginListHeader /> should renders correctly when filter but
     className="control-group right"
   >
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >
@@ -53,6 +54,7 @@ exports[`Component <PluginListHeader /> should renders correctly when filter but
     className="control-group right"
   >
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >
@@ -77,6 +79,7 @@ exports[`Component <PluginListHeader /> should renders with all props correctly 
     className="control-group right"
   >
     <PTButton
+      aria-label="Expand / Collapse"
       className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
       onClick={[Function]}
     >
@@ -88,6 +91,7 @@ exports[`Component <PluginListHeader /> should renders with all props correctly 
       />
     </PTButton>
     <PTButton
+      aria-label="Table"
       className="btn btn-success btn-inverse btn-dropdown-toggle btn-table"
     >
       <i
@@ -95,6 +99,7 @@ exports[`Component <PluginListHeader /> should renders with all props correctly 
       />
     </PTButton>
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >
@@ -119,6 +124,7 @@ exports[`Component <PluginListHeader /> should renders without some buttons corr
     className="control-group right"
   >
     <PTButton
+      aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
     >

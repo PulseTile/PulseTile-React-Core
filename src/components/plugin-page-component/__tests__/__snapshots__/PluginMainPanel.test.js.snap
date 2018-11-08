@@ -169,6 +169,7 @@ exports[`Component <PluginMainPanel /> should renders with spinner and create bu
         className="control-group with-indent right"
       >
         <PTButton
+          aria-label="Create"
           className="btn btn-success btn-inverse btn-create"
           onClick={[Function]}
         >

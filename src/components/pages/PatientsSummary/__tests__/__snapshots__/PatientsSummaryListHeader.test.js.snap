@@ -11,6 +11,7 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       className="dropdown"
     >
       <PTButton
+        aria-label="List Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
         id="icon-settings"
         onClick={[Function]}
@@ -40,6 +41,7 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       className="dropdown open"
     >
       <PTButton
+        aria-label="List Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
         id="icon-settings"
         onClick={[Function]}
