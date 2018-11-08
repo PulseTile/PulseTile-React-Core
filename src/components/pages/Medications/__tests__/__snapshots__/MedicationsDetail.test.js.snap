@@ -96,6 +96,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                       className="control-group left"
                     >
                       <button
+                        aria-label="Prescription"
                         className="btn btn-primary btn-inverse"
                         onClick={[Function]}
                         type="button"
@@ -274,6 +275,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   className="control-group left"
                 >
                   <PTButton
+                    aria-label="Hourly Schedule"
                     className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
                     onClick={[Function]}
                   >
@@ -706,6 +708,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                       className="control-group left"
                     >
                       <button
+                        aria-label="Prescription"
                         className="btn btn-primary btn-inverse"
                         onClick={[Function]}
                         type="button"
@@ -882,6 +885,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   className="control-group left"
                 >
                   <PTButton
+                    aria-label="Hourly Schedule"
                     className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
                     onClick={[Function]}
                   >

@@ -15,6 +15,7 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
         className="control-group right"
       >
         <button
+          aria-label="More"
           className="btn btn-success btn-inverse btn-board-more"
           onClick={[Function]}
         >

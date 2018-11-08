@@ -37,7 +37,7 @@ export default class PluginDetailPanel extends PureComponent {
           {(isShowControlPanel && !isCreatePanelVisible && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) && isEditButton ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
-                <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
+                <PTButton className="btn btn-success btn-inverse btn-edit" aria-label="Edit" onClick={() => onEdit(name)}>
                   <i className="btn-icon fa fa-edit" />
                   <span className="btn-text"> Edit</span>
                 </PTButton>
@@ -47,11 +47,11 @@ export default class PluginDetailPanel extends PureComponent {
           {(isShowControlPanel && !isCreatePanelVisible && editedPanel[name]) ? <div className="panel-control">
             <div className="wrap-control-group">
               <div className="control-group right">
-                <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
+                <PTButton className="btn btn-danger" aria-label="Cancel" onClick={() => onCancel(name)}>
                   <i className="btn-icon fa fa-ban" />
                   <span className="btn-text"> Cancel</span>
                 </PTButton>
-                <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
+                <PTButton className="btn btn-success" aria-label="Complete" onClick={() => onSaveSettings(formValues, name)}>
                   <i className="btn-icon fa fa-check" />
                   <span className="btn-text"> Complete</span>
                 </PTButton>

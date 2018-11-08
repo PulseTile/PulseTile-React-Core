@@ -42,7 +42,7 @@ export default class BasicPatientSearch extends PureComponent {
 
       return (
         <div>
-          <PTButton className="btn btn-search" onClick={this.handleSearchClick}>
+          <PTButton className="btn btn-search" aria-label="Search" onClick={this.handleSearchClick}>
             <i className="btn-icon fa fa-search" />
           </PTButton>
           <div className="wrap-search-holder">

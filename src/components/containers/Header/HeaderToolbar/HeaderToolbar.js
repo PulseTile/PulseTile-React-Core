@@ -81,7 +81,7 @@ class HeaderToolbar extends PureComponent {
         <div className="wrap-header-toolbar">
           <div className="container-fluid">
             <div className="header-toolbar">
-              <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
+              <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" aria-label="Show / Hide Menu" onClick={this.toggleSidebarVisibility}>
                 <i className={this.props.isSidebarVisible ? 'btn-icon fa fa-times' : 'btn-icon fa fa-bars'} />
                 <span className="btn-text">{ this.props.isSidebarVisible ? 'Close' : 'Menu' }</span>
               </button>

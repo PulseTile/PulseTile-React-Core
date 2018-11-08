@@ -24,14 +24,14 @@ export default class PluginListHeader extends PureComponent {
     return (
       <div className="panel-heading">
         <div className="control-group right">
-          { isBtnExpandVisible ? <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name, currentPanel)}>
+          { isBtnExpandVisible ? <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" aria-label="Expand / Collapse" onClick={() => onExpand(name, currentPanel)}>
             <i className="btn-icon fa fa-expand" />
             <i className="btn-icon fa fa-compress" />
           </PTButton> : null }
-          { isBtnTableVisible ? <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle btn-table">
+          { isBtnTableVisible ? <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle btn-table" aria-label="Table">
             <i className="btn-icon fa fa-table" />
           </PTButton> : null }
-          <PTButton className="btn btn-success btn-inverse btn-filter" onClick={this.toggleFilterInputVisibility}>
+          <PTButton className="btn btn-success btn-inverse btn-filter" aria-label="Filter" onClick={this.toggleFilterInputVisibility}>
             <i className="btn-icon fa fa-filter" />
           </PTButton>
         </div>

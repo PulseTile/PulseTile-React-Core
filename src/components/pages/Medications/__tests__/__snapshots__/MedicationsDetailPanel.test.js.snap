@@ -46,6 +46,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
           className="control-group with-indent left hidden-xs"
         >
           <PTButton
+            aria-label="Cancel"
             className="btn btn-danger"
           >
             <i
@@ -58,6 +59,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
             </span>
           </PTButton>
           <PTButton
+            aria-label="Suspend"
             className="btn btn-success btn-pause"
           >
             <i
@@ -70,6 +72,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
             </span>
           </PTButton>
           <PTButton
+            aria-label="Order"
             className="btn btn-success"
           >
             <i
@@ -86,6 +89,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
           className="control-group with-indent right"
         >
           <PTButton
+            aria-label="Edit"
             className="btn btn-success btn-inverse btn-edit"
             onClick={[Function]}
           >
@@ -131,6 +135,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
           className="control-group right"
         >
           <PTButton
+            aria-label="Cancel"
             className="btn btn-danger"
             onClick={[Function]}
           >
@@ -144,6 +149,7 @@ exports[`Component <MedicationsDetailPanel /> should renders with all props corr
             </span>
           </PTButton>
           <PTButton
+            aria-label="Complete"
             className="btn btn-success"
             onClick={[Function]}
           >
