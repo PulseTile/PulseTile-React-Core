@@ -18,15 +18,20 @@ describe('Component <Footer />', () => {
     expect(component.find('.footer-text')).toHaveLength(1);
     expect(component.find('.footer-povered-text')).toHaveLength(1);
 
-    expect(component.find('.footer-text').text()).toEqual(copyright);
+    expect(component.find('.footer-text span').at(0).text()).toEqual(copyright);
+    expect(component.find('.footer-text .toggle-high-contrast a').text()).toEqual('Enable High Contrast Mode');
+
     expect(component.find('.footer-povered-text').text()).toEqual('Supported by');
 
     expect(component).toMatchSnapshot();
 
-    component.setProps({ copyright: undefined, isShowSupportedBy: false });
+    component.instance().toggleHighContrast();
+    component.setState({
+      enabledHighContrast: true,
+    });
 
-    expect(component.find('.footer-text')).toHaveLength(0);
-    expect(component.find('.footer-povered-text')).toHaveLength(0);
+    expect(component.find('.footer-text span').at(0).text()).toEqual(copyright);
+    expect(component.find('.footer-text .toggle-high-contrast a').text()).toEqual('Disable High Contrast Mode');
 
     expect(component).toMatchSnapshot();
   });
