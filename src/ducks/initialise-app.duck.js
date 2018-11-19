@@ -1,8 +1,9 @@
 import _ from 'lodash/fp';
 import { Observable } from 'rxjs';
 import { createAction } from 'redux-actions';
+import { get } from 'lodash';
 
-import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS } from './fetch-initialise.duck';
+import { fetchInitialiseRequest, FETCH_INITIALISE_SUCCESS, POLL_START } from './fetch-initialise.duck';
 import { fetchUserAccountRequest, FETCH_USER_ACCOUNT_SUCCESS } from './fetch-user-account.duck';
 import { fetchPatientsInfoRequest, FETCH_PATIENTS_INFO_SUCCESS } from './fetch-patients-info.duck';
 import { setTheme } from './set-theme.duck';
@@ -24,6 +25,18 @@ export const initialiseEpic = (action$, store) => Observable.merge(
   action$
     .ofType(INITIALISE_START)
     .map(fetchInitialiseRequest, _.head(window.document.getElementsByTagName('body')).className = 'loading'),
+  action$
+    .ofType(POLL_START)
+    .switchMap(response => {
+      const isNewPatient = get(response, 'payload.new_patient', false);
+      const bodyLoaderClass = isNewPatient ? 'loading with-tips progress-long' : 'loading with-tips progress-short';
+      _.head(window.document.getElementsByTagName('body')).className = bodyLoaderClass;
+      const timeOut = isNewPatient ? 5000 : 1000;
+      return Observable.interval(timeOut)
+              .takeUntil(action$.ofType(FETCH_PATIENTS_INFO_SUCCESS))
+                .exhaustMap(() => Observable.of(fetchInitialiseRequest()))
+    }
+  ),
   action$
     .ofType(FETCH_INITIALISE_SUCCESS)
     .map((action) => {

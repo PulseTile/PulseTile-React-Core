@@ -20,8 +20,12 @@ const mainThemeConfigs = {
   patientsSummaryHasPreviewSettings: false,
   dashboardBeing: {},
   isShowUserPhoto: true,
+  isShowUserBirthday: true,
   isShowUserProfileSettings: true,
   isShowUserProfileSpecification: true,
+  isShowPagesBannersImages: false,
+  isShowPagesSynopsisImages: false,
+  isShowUserAccountPage: true,
   sidebarConfigIsVisible: {
     default: false,
     'patients-summary': true,

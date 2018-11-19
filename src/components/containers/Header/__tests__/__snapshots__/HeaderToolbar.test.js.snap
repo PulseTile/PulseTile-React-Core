@@ -13,6 +13,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
       >
         <button
           aria-expanded="false"
+          aria-label="Show / Hide Menu"
           className="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
           data-target="#sidebar-nav"
           data-toggle="collapse"
@@ -98,6 +99,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
                     NHS No.
                   </span>
                   <span>
+                     
                     999 999 9000
                   </span>
                 </div>

@@ -46,7 +46,7 @@ export default class UserAccountPanel extends PureComponent {
     const imageLocation = '/images/user.jpg';
     const imageSource = isDevMode ? (testConstants.hostName + imageLocation) : imageLocation;
     return (
-      <div className="dropdown-user dropdown-menu-right dropdown-menu">
+      <div className="dropdown-user dropdown-menu-right dropdown-menu" id="userAccountPanelElement" >
         { themeConfigs.isShowUserPhoto ?
             <div className="user-profile-image" onClick={() => this.renderToProfile()}>
               <div className="img">
@@ -65,7 +65,7 @@ export default class UserAccountPanel extends PureComponent {
           <div className="user-profile-info__descr">
             <div className="user-profile-info__item role">User Role:{user.role}</div>
             <div className="user-profile-info__item email">{user.email}</div>
-            {get(user, 'dateOfBirth', null)
+              {(get(themeConfigs, 'isShowUserBirthday', false) && get(user, 'dateOfBirth', null))
               ? <div className="user-profile-info__item birthday">Date of Birth: {getDDMMMYYYY(user.dateOfBirth)}</div>
               : null
             }
@@ -77,7 +77,7 @@ export default class UserAccountPanel extends PureComponent {
               <div className="user-profile-info__item version-front">React version {varsionOfReact}</div>
             </div>
             : null }
-          <PTButton className="btn btn-theme btn-block btn-signout" onClick={actions.logoutStart}>
+          <PTButton className="btn btn-theme btn-block btn-signout" aria-label="Log Out" onClick={actions.logoutStart}>
             <div>
               <span className="brn-text">Sign Out</span> <i className="btn-icon fa fa-sign-out" />
             </div>

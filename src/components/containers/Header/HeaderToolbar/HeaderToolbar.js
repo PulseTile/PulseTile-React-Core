@@ -5,20 +5,14 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { compose, lifecycle } from 'recompose';
 import _ from 'lodash/fp';
-
 import Sidebar from '../../../presentational/Sidebar/Sidebar';
 import { toolbarSelector, routerSelector } from './selectors';
 
-
 import { setSidebarVisibility } from '../../../../ducks/set-sidebar-visibility';
 import { closeSidebarOnUnmount, openSidebarOnMount } from '../../../../utils/HOCs/sidebar-handle';
-
 import { fetchPatientDemographicsOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
-
 import { mainPagesTitles } from '../../../../config/client-urls.constants'
 import { formatNHSNumber } from '../../../../utils/table-helpers/table.utils'
-import { fetchHeaderToolbarOnMount } from '../../../../utils/HOCs/fetch-patients.utils';
-
 import { fetchPatientDemographicsRequest } from '../../../../ducks/fetch-patient-demographics.duck';
 
 const mapDispatchToProps = dispatch => ({
@@ -29,7 +23,7 @@ const mapDispatchToProps = dispatch => ({
 });
 
 @compose(connect(toolbarSelector, mapDispatchToProps), connect(routerSelector))
-@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchHeaderToolbarOnMount), lifecycle(fetchPatientDemographicsOnMount))
+@compose(lifecycle(closeSidebarOnUnmount), lifecycle(openSidebarOnMount), lifecycle(fetchPatientDemographicsOnMount))
 class HeaderToolbar extends PureComponent {
   static propTypes = {
     isSidebarVisible: PropTypes.bool.isRequired,
@@ -87,7 +81,7 @@ class HeaderToolbar extends PureComponent {
         <div className="wrap-header-toolbar">
           <div className="container-fluid">
             <div className="header-toolbar">
-              <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" onClick={this.toggleSidebarVisibility}>
+              <button className={classNames('btn-toggle-sidebar wrap-icon', { 'btn-toggle-sidebar-open': isSidebarVisible })} data-toggle="collapse" data-target="#sidebar-nav" aria-expanded="false" aria-label="Show / Hide Menu" onClick={this.toggleSidebarVisibility}>
                 <i className={this.props.isSidebarVisible ? 'btn-icon fa fa-times' : 'btn-icon fa fa-bars'} />
                 <span className="btn-text">{ this.props.isSidebarVisible ? 'Close' : 'Menu' }</span>
               </button>
@@ -105,7 +99,7 @@ class HeaderToolbar extends PureComponent {
                     </div>
                     <div className="column-2">
                       <div className="patient-info-item"><span className="key">Gender:</span> {gender}</div>
-                      <div className="patient-info-item"><span className="key">NHS No.</span><span>{formatNHSNumber(userId)}</span></div>
+                      <div className="patient-info-item"><span className="key">NHS No.</span><span> {formatNHSNumber(userId)}</span></div>
                     </div>
                   </div>
                   <div className="patient-info-group-1">

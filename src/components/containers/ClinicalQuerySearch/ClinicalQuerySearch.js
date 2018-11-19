@@ -128,7 +128,7 @@ export default class ClinicalQuerySearch extends PureComponent {
           <div className={classNames('panel panel-secondary without-margin', { open: isOpen })}>
             <div className="panel-heading">
               <div className="control-group right">
-                <button className="btn btn-success btn-inverse btn-square btn-toggle-rotate" onClick={this.toggleFormVisibility}>
+                <button className="btn btn-success btn-inverse btn-square btn-toggle-rotate" aria-label="Show / Hide" onClick={this.toggleFormVisibility}>
                   <i className="btn-icon fa fa-chevron-up" />
                 </button>
               </div>
@@ -144,8 +144,8 @@ export default class ClinicalQuerySearch extends PureComponent {
               <div className="panel-control">
                 <div className="wrap-control-group hide-indent-bottom">
                   <div className="control-group with-indent right">
-                    <button className="btn btn-danger btn-icon-normal" onClick={onClose}><i className="btn-icon fa fa-times" /> <span className="btn-text">Close</span></button>
-                    <button className="btn btn-success btn-icon-normal" disabled={!formIsValid} onClick={this.handleSearch}>
+                    <button className="btn btn-danger btn-icon-normal" aria-label="Close" onClick={onClose}><i className="btn-icon fa fa-times" /> <span className="btn-text">Close</span></button>
+                    <button className="btn btn-success btn-icon-normal" aria-label="Search" disabled={!formIsValid} onClick={this.handleSearch}>
                       <i className="btn-icon fa fa-search" />
                       <span className="btn-text">Search</span>
                     </button>

@@ -81,7 +81,7 @@ export default class NavSearch extends PureComponent {
                   ADVANCED_SEARCH,
                   SEARCH_CONTENT
                 }} />
-                <PTButton className="btn btn-dropdown-toggle btn-search-toggle"
+                <PTButton className="btn btn-dropdown-toggle btn-search-toggle" aria-label="Search"
                           onClick={() => this.handleMouseDown(SEARCH_CONTENT)}>
                   <i className="btn-icon fa fa-bars"/>
                 </PTButton>
@@ -103,7 +103,7 @@ export default class NavSearch extends PureComponent {
 
 const NavSearchButton = ({ runSearch }) => {
   return (
-    <PTButton title="Search" id="search" className="btn-header search-btn" onClick={() => runSearch()}>
+    <PTButton title="Search" id="search" aria-label="Search" className="btn-header search-btn" onClick={() => runSearch()}>
       <i className="fa fa-search" />
     </PTButton>
   );

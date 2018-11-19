@@ -3,6 +3,7 @@
 exports[`Component <BasicPatientSearch /> should renders correctly shallow 1`] = `
 <div>
   <PTButton
+    aria-label="Search"
     className="btn btn-search"
     onClick={[Function]}
   >
@@ -39,6 +40,7 @@ exports[`Component <BasicPatientSearch /> should renders correctly shallow 1`] =
 exports[`Component <BasicPatientSearch /> should renders correctly shallow 2`] = `
 <div>
   <PTButton
+    aria-label="Search"
     className="btn btn-search"
     onClick={[Function]}
   >

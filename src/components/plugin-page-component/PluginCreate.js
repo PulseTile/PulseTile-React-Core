@@ -32,16 +32,16 @@ export default class PluginCreate extends PureComponent {
                   <div className="panel-control">
                     <div className="wrap-control-group">
                       <div className="control-group right">
-                        <PTButton className="btn btn-danger" onClick={() => onCancel()}>
+                        <PTButton className="btn btn-danger" aria-label="Cancel" onClick={() => onCancel()}>
                           <i className="fa fa-ban" /> Cancel
                         </PTButton>
-                        <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues)}>
+                        <PTButton className="btn btn-success" aria-label="Complete" onClick={() => onSaveSettings(formValues)}>
                           <i className="fa fa-check" /> Complete
                         </PTButton>
                         </div>
                           {isImport ?
                             <div className="control-group with-indent left">
-                              <PTButton className="btn btn-success btn-inverse btn-icon-normal btn-back-doc" onClick={onGoBack}>
+                              <PTButton className="btn btn-success btn-inverse btn-icon-normal btn-back-doc" aria-label="Back to Documents" onClick={onGoBack}>
                                 <i className="btn-icon fa fa-caret-left" /> <span className="btn-text">Back to Documents</span>
                               </PTButton>
                             </div>

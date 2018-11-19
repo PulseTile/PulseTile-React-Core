@@ -2,6 +2,13 @@ import _ from 'lodash/fp';
 
 import { clientUrls } from '../config/client-urls.constants';
 
+/**
+ * This function redirects user to the Chart page
+ */
+export const redirectToCharts = () => {
+  location.href = `/#${clientUrls.CHARTS}`;
+};
+
 export const redirectAccordingRole = (user) => {
   const locationHrefBeforeLogin = localStorage.getItem('locationHrefBeforeLogin');
 
@@ -48,5 +55,8 @@ export const redirectAccordingRole = (user) => {
 
   setTimeout(() => {
     window.document.getElementsByTagName('body')[0].classList.remove('loading');
+    window.document.getElementsByTagName('body')[0].classList.remove('with-tips');
+    window.document.getElementsByTagName('body')[0].classList.remove('progress-short');
+    window.document.getElementsByTagName('body')[0].classList.remove('progress-long');
   }, 1000)
 };
