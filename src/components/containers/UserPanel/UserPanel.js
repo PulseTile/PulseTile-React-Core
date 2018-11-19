@@ -53,6 +53,17 @@ export default class UserPanel extends PureComponent {
     })
   };
 
+  toggleHighContrast = () => {
+    let bodyTag = document.getElementsByTagName("body")[0];
+
+    //TODO: Should we remember this in a cookie?
+    if( bodyTag.classList.contains("high-contrast") ){
+      bodyTag.classList.remove("high-contrast")
+    } else {
+      bodyTag.classList.add("high-contrast")
+    }
+  };
+
   closePanel = () => {
     this.setState({ openedPanel: '' });
   };
@@ -78,6 +89,7 @@ export default class UserPanel extends PureComponent {
     const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
     const isNotifications = get(themeConfigs, 'topHeader.showNotifications', true);
     const isUserPanel = get(themeConfigs, 'topHeader.showUserPanel', true);
+    const isHighContrast = get(themeConfigs, 'topHeader.showHighContrast', true);
 
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
 
@@ -94,6 +106,13 @@ export default class UserPanel extends PureComponent {
               <i className="fa fa-bell-o" />
               <span className="count">2</span>
             </div>
+          </PTButton>
+        </UserPanelItem> : null}
+
+        {isHighContrast ? <UserPanelItem role="tab" className="user-panel-item">
+          <PTButton className="btn-header btn-high-contrast" aria-label="High Contrast Mode" title="High Contrast Mode"
+            onClick={ this.toggleHighContrast }>
+            <i className="fa fa-adjust" />
           </PTButton>
         </UserPanelItem> : null}
 
