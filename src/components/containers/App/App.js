@@ -28,7 +28,7 @@ export class App extends Component {
     const UA = window.navigator.userAgent.toLowerCase();
     const isIE = (/trident/gi).test(UA) || (/msie/gi).test(UA);
     const pathname = get(this.props, 'location.pathname', null);
-    if (pathname === '/ui-kit' && get(themeConfigs, 'isShowUiKitPage', false)) {
+    if (pathname === '/ui-kit') {
       return (
         <UIkit />
       );
