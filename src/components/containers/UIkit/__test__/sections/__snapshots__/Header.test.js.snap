@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Header /> should renders Header with props correctly 1`] = `
+<header
+  className="ui-header"
+  data-scroll-to-exclude="true"
+>
+  <div
+    className="ui-header-inner"
+  >
+    <button
+      className="ui-btn-toggle-sidebar wrap-icon"
+      onClick={[Function]}
+      type="button"
+    >
+      <i
+        className="btn-icon fa fa-bars"
+      />
+      <span
+        className="btn-text"
+      >
+        Menu
+      </span>
+    </button>
+    <div
+      className="ui-logo"
+    >
+      <a
+        href="#"
+      >
+        <img
+          alt="logo"
+          className="img"
+          src="pulsetile-core-logo.png"
+        />
+      </a>
+    </div>
+    <div
+      className="ui-header-title"
+    >
+      <span>
+        UI Kit
+      </span>
+    </div>
+  </div>
+</header>
+`;

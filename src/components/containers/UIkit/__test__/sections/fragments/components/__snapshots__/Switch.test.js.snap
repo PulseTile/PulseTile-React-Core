@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Switch /> should renders Switch with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="switch"
+>
+  <strong
+    className="ui-title"
+  >
+    Switch
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Enabled
+          </label>
+          <div
+            className="input-holder"
+          >
+            <div
+              className="switch-group"
+            >
+              <label
+                className="switch"
+              >
+                <input
+                  checked={true}
+                  name="switch1"
+                  type="radio"
+                  value="1"
+                />
+                <div
+                  className="slider"
+                >
+                  <span
+                    className="text text-check-true"
+                  >
+                    Yes
+                  </span>
+                  <span
+                    className="text text-check-false"
+                  >
+                    No
+                  </span>
+                </div>
+              </label>
+              <label
+                className="switch"
+              >
+                <input
+                  name="switch1"
+                  type="radio"
+                  value="2"
+                />
+                <div
+                  className="slider"
+                >
+                  <span
+                    className="text text-check-true"
+                  >
+                    Yes
+                  </span>
+                  <span
+                    className="text text-check-false"
+                  >
+                    No
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Disabled
+          </label>
+          <div
+            className="input-holder"
+          >
+            <div
+              className="switch-group"
+            >
+              <label
+                className="switch"
+              >
+                <input
+                  checked={true}
+                  disabled={true}
+                  name="switch2"
+                  type="radio"
+                  value="1"
+                />
+                <div
+                  className="slider disabled"
+                >
+                  <span
+                    className="text text-check-true"
+                  >
+                    Yes
+                  </span>
+                  <span
+                    className="text text-check-false"
+                  >
+                    No
+                  </span>
+                </div>
+              </label>
+              <label
+                className="switch"
+              >
+                <input
+                  disabled={true}
+                  name="switch2"
+                  type="radio"
+                  value="2"
+                />
+                <div
+                  className="slider disabled"
+                >
+                  <span
+                    className="text text-check-true"
+                  >
+                    Yes
+                  </span>
+                  <span
+                    className="text text-check-false"
+                  >
+                    No
+                  </span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

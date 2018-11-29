@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Datepicker /> should renders Datepicker with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="datepicker"
+>
+  <strong
+    className="ui-title"
+  >
+    Date Picker
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group form-group-sm"
+        >
+          <DateInput
+            input={
+              Object {
+                "value": 1490227200000,
+              }
+            }
+            label="Select Data"
+            meta={
+              Object {
+                "active": true,
+                "error": "",
+              }
+            }
+          />
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group form-group-sm"
+        >
+          <DateInput
+            input={
+              Object {
+                "disabled": true,
+                "value": 1490227200000,
+              }
+            }
+            label="Select Data"
+            meta={
+              Object {
+                "active": true,
+                "error": "",
+              }
+            }
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

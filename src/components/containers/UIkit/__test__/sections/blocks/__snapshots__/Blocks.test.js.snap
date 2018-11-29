@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Blocks /> should renders Blocks with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="blocks"
+>
+  <h2
+    className="ui-main-title"
+  >
+    Blocks
+  </h2>
+  <Header />
+  <Footer />
+  <PatientInfo />
+  <Breadcrumbs />
+  <Sidebar />
+  <PanelWithFilter />
+  <PatientSummaryDashboard />
+  <Vitals />
+  <Timeline />
+  <Connect(lifecycle(BarChart)) />
+  <LineChart />
+</div>
+`;

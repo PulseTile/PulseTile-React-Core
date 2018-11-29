@@ -1,0 +1,4953 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 2`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 3`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 4`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 5`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 6`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 7`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <FormSection /> should renders FormSection with props correctly 8`] = `
+<div
+  className="ui-section"
+  id="form-section"
+>
+  <strong
+    className="ui-title"
+  >
+    Form section
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section simple
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section bordered
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary"
+        >
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <strong
+        className="ui-sub-title"
+      >
+        Form section collapsed
+      </strong>
+      <div
+        className="form-group-section-list"
+      >
+        <div
+          className="form-group-section-list-heading"
+        >
+          <label
+            className="control-label"
+          >
+            Section title
+          </label>
+        </div>
+        <div
+          className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+        >
+          <div
+            className="form-group-section-heading"
+          >
+            <div
+              className="control-group without-side-indent right"
+            >
+              <button
+                className="btn btn-primary"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Button text
+                </span>
+              </button>
+              <button
+                className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                onClick={[Function]}
+                type="button"
+              >
+                <i
+                  className="btn-icon fa fa-chevron-up"
+                />
+              </button>
+            </div>
+            <h3
+              className="panel-title"
+            >
+              Title
+            </h3>
+          </div>
+          <div
+            className="form-group-section-body"
+          >
+            <div
+              className="form-group-wrapper"
+            >
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+              <div
+                className="form-group"
+              >
+                <label
+                  className="control-label"
+                >
+                  Label for Input
+                </label>
+                <div
+                  className="form-control-static"
+                >
+                  Input text
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <strong
+      className="ui-sub-title"
+    >
+      Form section color variations
+    </strong>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-primary accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-primary btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-success accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-info accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-info btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-warning accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-warning btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group-section-list"
+        >
+          <div
+            className="form-group-section form-group-section-bordered form-group-section-danger accordion open"
+          >
+            <div
+              className="form-group-section-heading"
+            >
+              <div
+                className="control-group without-side-indent right"
+              >
+                <button
+                  className="btn btn-danger btn-inverse btn-square btn-form-group-section-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-chevron-up"
+                  />
+                </button>
+              </div>
+              <h3
+                className="panel-title"
+              >
+                Section title
+              </h3>
+            </div>
+            <div
+              className="form-group-section-body"
+            >
+              <div
+                className="form-group-wrapper"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Label for Input
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    Input text
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

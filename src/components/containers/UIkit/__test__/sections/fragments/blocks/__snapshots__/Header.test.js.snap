@@ -1,0 +1,295 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Header /> should renders Header with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="header"
+>
+  <strong
+    className="ui-title"
+  >
+    Header
+  </strong>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-content-backset"
+    >
+      <header
+        className="header"
+      >
+        <nav
+          className="navbar"
+        >
+          <a
+            className="btn-header btn-header-prev"
+          >
+            <i
+              className="fa fa-arrow-left"
+            />
+          </a>
+          <div
+            className="wrap-logo"
+          >
+            <div
+              className="logo"
+            >
+              <div
+                className="logo-icon"
+              >
+                <a>
+                  <img
+                    alt="logo"
+                    className="img"
+                    src="pulsetile-core-logo.png"
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+          <ul
+            className="user-panel"
+            role="tablist"
+          >
+            <li
+              className="user-panel-item visible-xs"
+            >
+              <a
+                className="btn-header"
+              >
+                <i
+                  className="fa fa-search"
+                />
+              </a>
+            </li>
+            <li
+              className="user-panel-item dropdown"
+            >
+              <a
+                className="btn-header btn-notification dropdown-toggle"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-bell-o"
+                />
+                <span
+                  className="count"
+                >
+                  2
+                </span>
+              </a>
+              <div
+                className="notifications-drop dropdown-menu dropdown-menu-right"
+                id="tab-notifications"
+              >
+                <div
+                  className="notifications-header"
+                >
+                  Notifications (2)
+                </div>
+                <div
+                  className="notifications-body"
+                >
+                  <ul
+                    className="notifications-list"
+                  >
+                    <li
+                      className="notifications-list-item"
+                    >
+                      <div
+                        className="notification-info"
+                      >
+                        Information from Liquid Logic (Social Care) is currently unavailable.
+                      </div>
+                      <div
+                        className="notification-time"
+                      >
+                        <em>
+                          10 minutes ago
+                        </em>
+                      </div>
+                    </li>
+                    <li
+                      className="notifications-list-item"
+                    >
+                      <div
+                        className="notification-info"
+                      >
+                        Information from Liquid Logic (Social Care) is currently unavailable.
+                      </div>
+                      <div
+                        className="notification-time"
+                      >
+                        <em>
+                          15 minutes ago
+                        </em>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+            <li
+              className="user-panel-item dropdown"
+            >
+              <a
+                className="btn-header btn-user dropdown-toggle"
+                onClick={[Function]}
+              >
+                <i
+                  className="fa fa-user"
+                />
+              </a>
+              <div
+                className="dropdown-user dropdown-menu dropdown-menu-right"
+              >
+                <div
+                  className="user-profile-image"
+                >
+                  <div
+                    className="img"
+                  >
+                    <img
+                      alt=""
+                      src="../../../assets/images/user.jpg"
+                    />
+                  </div>
+                </div>
+                <div
+                  className="user-profile-info"
+                >
+                  <div
+                    className="user-profile-info__item name"
+                  >
+                    Bob Smith
+                  </div>
+                  <div
+                    className="user-profile-info__descr"
+                  >
+                    <div
+                      className="user-profile-info__item role"
+                    >
+                      IDCR
+                    </div>
+                    <div
+                      className="user-profile-info__item email"
+                    >
+                      bob.smith@gmail.com
+                    </div>
+                    <div
+                      className="user-profile-info__item birthday"
+                    >
+                      10/05/2099
+                    </div>
+                  </div>
+                  <div
+                    className="specification"
+                  >
+                    <div
+                      className="user-profile-info__title registered"
+                    >
+                      Registered GP
+                    </div>
+                    <div
+                      className="user-profile-info__item version-back"
+                    >
+                      About Showcase Stack; PulseTile version 1.0.0/QEWD_Ripple version 1.0.0
+                    </div>
+                    <div
+                      className="user-profile-info__item version-front"
+                    >
+                      Angular
+                    </div>
+                  </div>
+                  <a
+                    className="btn btn-success btn-block btn-signout"
+                  >
+                    <span
+                      className="brn-text"
+                    >
+                      Sign Out
+                    </span>
+                    <i
+                      className="btn-icon fa fa-sign-out"
+                    />
+                  </a>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <div
+            className="wrap-search wrap-header-search ng-cloak"
+          >
+            <div
+              className="header-search"
+            >
+              <div
+                className="control-group left control-search-select dropdown open"
+              >
+                <button
+                  className="btn btn-success btn-inverse btn-dropdown-toggle btn-search-toggle"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  <i
+                    className="btn-icon fa fa-bars"
+                  />
+                </button>
+                <div
+                  className="dropdown-menu dropdown-menu-search-select dropdown-menu-panel dropdown-menu-left dropdown-menu-small-size"
+                >
+                  <div
+                    className="heading"
+                  >
+                    Search Options
+                  </div>
+                  <div
+                    className="dropdown-menu-wrap-list"
+                  >
+                    <div
+                      className="dropdown-menu-list"
+                    >
+                      <div
+                        className="dropdown-menu-item"
+                      >
+                        <span
+                          className="dropdown-menu-item-text"
+                        >
+                          Patient Search - Basic
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                className="btn btn-success btn-search"
+              >
+                <i
+                  className="btn-icon fa fa-search"
+                />
+              </button>
+              <div
+                className="wrap-search-holder"
+              >
+                <div
+                  className="search-holder"
+                >
+                  <form>
+                    <input
+                      className="form-control"
+                      placeholder="Search"
+                      type="text"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </div>
+</div>
+`;

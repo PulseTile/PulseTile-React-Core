@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <LineChart /> should renders LineChart with props correctly 1`] = `
+<div
+  className="ui-sub-section"
+>
+  <strong
+    className="ui-sub-title"
+  >
+    Chart Lines
+  </strong>
+  <div
+    className="wrap-chart chart-vitals bordered"
+  >
+    <Line
+      data={
+        Object {
+          "datasets": Array [
+            Object {
+              "backgroundColor": "rgba(13, 141, 5, 0.4)",
+              "borderColor": "rgba(13, 141, 5, 1)",
+              "data": Array [
+                25,
+                23,
+                23,
+                23,
+                23,
+                23,
+                23,
+                25,
+                23,
+                23,
+              ],
+              "label": "Resp",
+              "pointBackgroundColor": "rgba(13, 141, 5, 1)",
+              "pointBorderColor": "rgba(13, 141, 5, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(219, 0, 120, 0.4)",
+              "borderColor": "rgba(219, 0, 120, 1)",
+              "data": Array [
+                97,
+                97,
+                97,
+                97,
+                97,
+                97,
+                97,
+                97,
+                97,
+                97,
+              ],
+              "label": "SpO2",
+              "pointBackgroundColor": "rgba(219, 0, 120, 1)",
+              "pointBorderColor": "rgba(219, 0, 120, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(70, 124, 174, 0.4)",
+              "borderColor": "rgba(70, 124, 174, 1)",
+              "data": Array [
+                45,
+                45,
+                45,
+                45,
+                45,
+                45,
+                45,
+                45,
+                45,
+                45,
+              ],
+              "label": "HR",
+              "pointBackgroundColor": "rgba(70, 124, 174, 1)",
+              "pointBorderColor": "rgba(70, 124, 174, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(236, 109, 28, 0.4)",
+              "borderColor": "rgba(236, 109, 28, 1)",
+              "data": Array [
+                90,
+                92,
+                92,
+                92,
+                92,
+                92,
+                92,
+                90,
+                92,
+                92,
+              ],
+              "label": "SBP",
+              "pointBackgroundColor": "rgba(236, 109, 28, 1)",
+              "pointBorderColor": "rgba(236, 109, 28, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(5, 186, 195, 0.4)",
+              "borderColor": "rgba(5, 186, 195, 1)",
+              "data": Array [
+                60,
+                64,
+                64,
+                64,
+                64,
+                64,
+                64,
+                60,
+                64,
+                64,
+              ],
+              "label": "DBP",
+              "pointBackgroundColor": "rgba(5, 186, 195, 1)",
+              "pointBorderColor": "rgba(5, 186, 195, 1)",
+            },
+            Object {
+              "backgroundColor": "rgba(221, 43, 8, 0.4)",
+              "borderColor": "rgba(221, 43, 8, 1)",
+              "data": Array [
+                60,
+                64,
+                64,
+                64,
+                64,
+                64,
+                64,
+                60,
+                64,
+                64,
+              ],
+              "label": "Temp",
+              "pointBackgroundColor": "rgba(221, 43, 8, 1)",
+              "pointBorderColor": "rgba(221, 43, 8, 1)",
+            },
+          ],
+          "labels": Array [
+            "03-Aug-15 01:11",
+            "01:23",
+            "01:23",
+            "01:23",
+            "01:23",
+            "01:23",
+            "01:23",
+            "06:11",
+            "06:23",
+            "06:23",
+          ],
+        }
+      }
+      height={441}
+      onElementsClick={[Function]}
+      options={
+        Object {
+          "capBezierPoints": false,
+          "elements": Object {
+            "line": Object {
+              "borderCapStyle": "butt",
+              "borderDashOffset": 0,
+              "borderJoinStyle": "miter",
+              "fill": false,
+              "lineTension": 0,
+              "pointBorderWidth": 5,
+              "pointHitRadius": 8,
+              "pointHoverBorderWidth": 8,
+              "pointHoverRadius": 1,
+              "pointRadius": 1,
+              "spanGaps": true,
+            },
+          },
+          "layout": Object {
+            "padding": Object {
+              "right": 10,
+            },
+          },
+          "maintainAspectRatio": false,
+          "responsive": true,
+          "scales": Object {
+            "xAxes": Array [
+              Object {
+                "ticks": Object {
+                  "maxRotation": 90,
+                  "minRotation": 90,
+                },
+              },
+            ],
+          },
+          "tooltips": Object {
+            "bodySpacing": 10,
+            "callbacks": Object {
+              "label": [Function],
+            },
+            "caretSize": 0,
+            "mode": "label",
+            "titleMarginBottom": 15,
+            "xPadding": 10,
+            "yPadding": 10,
+          },
+        }
+      }
+      width={600}
+    />
+  </div>
+</div>
+`;

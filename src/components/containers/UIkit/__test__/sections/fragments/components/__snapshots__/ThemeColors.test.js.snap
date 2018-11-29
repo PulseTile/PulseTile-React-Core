@@ -1,0 +1,172 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <ThemeColors /> should renders ThemeColors with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="palette-color"
+>
+  <strong
+    className="ui-title"
+  >
+    Color Palette for Themes
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "rgb(13, 103, 47)",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Green Theme
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "red",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Red Theme
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "blue",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Blue Theme
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "brown",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Brown Theme
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "yellow",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Yellow Theme
+            </span>
+          </div>
+        </div>
+      </div>
+      <div
+        className="col-xs-6 col-sm-4"
+      >
+        <div
+          className="form-group"
+        >
+          <div
+            className="palette-color"
+          >
+            <span
+              className="palette-color-icon"
+              style={
+                Object {
+                  "background": "pink",
+                }
+              }
+            />
+            <span
+              className="palette-color-name ng-binding"
+            >
+              Pink Theme
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

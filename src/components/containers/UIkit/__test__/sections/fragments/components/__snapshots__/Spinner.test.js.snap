@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Spinner /> should renders Spinner with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="spinner"
+>
+  <strong
+    className="ui-title"
+  >
+    Spinner
+  </strong>
+  <div
+    className="ui-spinner-wrap"
+  >
+    <Spinner />
+  </div>
+</div>
+`;

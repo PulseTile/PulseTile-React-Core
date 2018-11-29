@@ -1,0 +1,1608 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 2`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item selected"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 3`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item selected"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 4`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item selected"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 5`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item selected"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 6`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item selected"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 7`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+            <div
+              className="selectable-item selected"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 8`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 9`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 10`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Selectable /> should renders Selectable with props correctly 11`] = `
+<div
+  className="ui-section"
+  id="selectable"
+>
+  <strong
+    className="ui-title"
+  >
+    Selectable
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <div
+        className="selectable"
+      >
+        <div
+          className="selectable-col selectable-from"
+        >
+          <label
+            className="control-label"
+          >
+            Available Items
+          </label>
+          <div
+            className="selectable-list"
+          >
+            <div
+              className="selectable-item"
+              key="0"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 6
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="1"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 1
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="2"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 2
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="3"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 3
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="4"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 4
+              </span>
+            </div>
+            <div
+              className="selectable-item"
+              key="5"
+              onClick={[Function]}
+              onDoubleClick={[Function]}
+            >
+              <span>
+                Item 5
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-control"
+        >
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ›
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              »
+            </div>
+          </div>
+          <div
+            className="selectable-control-group"
+          >
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              ‹
+            </div>
+            <div
+              className="btn btn-inverse btn-success btn-order"
+              onClick={[Function]}
+            >
+              «
+            </div>
+          </div>
+        </div>
+        <div
+          className="selectable-col selectable-to"
+        >
+          <label
+            className="control-label"
+          >
+            Selected Items
+          </label>
+          <div
+            className="selectable-list"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <InputFile /> should renders InputFile with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="input-file"
+>
+  <strong
+    className="ui-title"
+  >
+    Input File
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="col-xs-12 col-sm-6"
+      >
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+          >
+            Application File
+          </label>
+          <div
+            className="input-holder"
+          >
+            <div
+              className="wrap-fcustomfile"
+            >
+              <div
+                className="fcustomfile-control"
+              >
+                <label
+                  className="btn btn-success btn-inverse btn-normal-icon"
+                  for="logoPath"
+                >
+                  <input
+                    accept="image/jpeg,image/png,image/gif"
+                    id="logoPath"
+                    name="logoPath"
+                    type="file"
+                  />
+                  <i
+                    className="fa fa-plus"
+                  />
+                   
+                  <span>
+                    Upload file
+                  </span>
+                </label>
+              </div>
+              <div
+                className="fcustomfile-text"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

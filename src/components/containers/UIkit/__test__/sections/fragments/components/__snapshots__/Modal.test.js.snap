@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Modal /> should renders Modal with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="modal"
+>
+  <strong
+    className="ui-title"
+  >
+    Modal
+  </strong>
+  <div
+    className="wrap-control-group hide-indent-bottom"
+  >
+    <div
+      className="control-group with-indent left"
+    >
+      <button
+        className="btn btn-info"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="btn-text"
+        >
+          Open Modal Window
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Modal /> should renders Modal with props correctly 2`] = `
+<div
+  className="ui-section"
+  id="modal"
+>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={true}
+    isShowOkButton={true}
+    onCancel={[Function]}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Documents Import Access Disclaimer"
+  >
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec lobortis elit. Aenean mi nunc, feugiat ut aliquet non, iaculis vel tellus. Donec semper felis placerat, posuere nisi a, suscipit turpis. Integer sit amet lacus pellentesque, vestibulum libero id, sagittis nisi. Phasellus eleifend, neque eget vulputate semper, enim dui dictum neque, non iaculis felis augue at nunc.
+    </span>
+  </ConfirmationModal>
+  <strong
+    className="ui-title"
+  >
+    Modal
+  </strong>
+  <div
+    className="wrap-control-group hide-indent-bottom"
+  >
+    <div
+      className="control-group with-indent left"
+    >
+      <button
+        className="btn btn-info"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="btn-text"
+        >
+          Open Modal Window
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;

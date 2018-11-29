@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Main /> should renders Main with props correctly 1`] = `
+<div
+  className="ui-main"
+>
+  <div
+    className="ui-content"
+  >
+    <ColorPalete />
+    <Typography />
+    <Component />
+    <Grid />
+    <Blocks />
+  </div>
+</div>
+`;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <UIkit /> should renders with props correctly 1`] = `
+<div
+  className="ui-wrapper ui-showSidebar touch-device"
+  id="ui-wrapper"
+>
+  <Header
+    toggleSidebarVisibility={[Function]}
+  />
+  <Sidebar />
+  <Main />
+</div>
+`;
+
+exports[`Component <UIkit /> should renders with props correctly 2`] = `
+<div
+  className="ui-wrapper ui-showSidebar touch-device"
+  id="ui-wrapper"
+>
+  <Header
+    toggleSidebarVisibility={[Function]}
+  />
+  <Sidebar />
+  <Main />
+</div>
+`;

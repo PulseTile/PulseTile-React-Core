@@ -1,0 +1,2443 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 2`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown open"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 3`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 4`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown open"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 5`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <Dropdowns /> should renders Dropdowns with props correctly 6`] = `
+<div
+  className="ui-section"
+  id="dropdowns"
+>
+  <strong
+    className="ui-title"
+  >
+    Dropdowns
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-left dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown top-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="topRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-top-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-left
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent left"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomLeftDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <div
+          className="ui-sub-title"
+        >
+          Dropdown bottom-right
+        </div>
+        <div
+          className="wrap-control-group hide-indent-bottom"
+        >
+          <div
+            className="control-group with-indent right"
+          >
+            <div
+              className="dropdown"
+            >
+              <button
+                className="btn btn-primary btn-inverse"
+                id="bottomRightDropdown"
+                onClick={[Function]}
+                type="button"
+              >
+                <span
+                  className="btn-text"
+                >
+                  Open dropdown
+                </span>
+              </button>
+              <div
+                className="dropdown-menu dropdown-menu-panel dropdown-menu-right dropdown-menu-small-size"
+              >
+                <div
+                  className="heading"
+                >
+                  Dropdown title
+                </div>
+                <div
+                  className="dropdown-menu-wrap-list"
+                >
+                  <div
+                    className="dropdown-menu-list"
+                  >
+                    <div
+                      className="dropdown-menu-item active"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 1
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 2
+                      </span>
+                    </div>
+                    <div
+                      className="dropdown-menu-item"
+                    >
+                      <span
+                        className="dropdown-menu-item-text"
+                      >
+                        Item 3
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="ui-sub-title"
+    >
+      Dropdown not hidden when click inside
+    </div>
+    <div
+      className="wrap-control-group hide-indent-bottom"
+    >
+      <div
+        className="control-group with-indent left"
+      >
+        <div
+          className="dropdown open"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter btn-dropdown-toggle"
+            id="notHiddenDropdown"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+          <div
+            className="dropdown-menu dropdown-menu-panel dropdown-menu-small-size"
+          >
+            <div
+              className="heading"
+            >
+              FILTERING
+            </div>
+            <div
+              className="dropdown-menu-wrap-list"
+            >
+              <div
+                className="dropdown-menu-list"
+              >
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Filter
+                  </span>
+                </div>
+                <div
+                  className="dropdown-menu-item"
+                >
+                  <span
+                    className="dropdown-menu-item-text"
+                  >
+                    Timelines
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

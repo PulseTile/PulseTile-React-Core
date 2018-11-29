@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Breadcrumbs /> should renders Breadcrumbs with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="breadcrumbs"
+>
+  <strong
+    className="ui-title"
+  >
+    Breadcrumbs
+  </strong>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="wrap-breadcrumbs"
+    >
+      <div
+        className="container-fluid"
+      >
+        <div
+          className="breadcrumbs"
+        >
+          <a
+            className="breadcrumb-link"
+          >
+            Patient Listings
+          </a>
+          <span
+            className="breadcrumb-separate"
+          />
+          <a
+            className="breadcrumb-link"
+          >
+            Patient Summary
+          </a>
+          <span
+            className="breadcrumb-separate"
+          />
+          <span
+            className="breadcrumb-link active"
+          >
+            Medications
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

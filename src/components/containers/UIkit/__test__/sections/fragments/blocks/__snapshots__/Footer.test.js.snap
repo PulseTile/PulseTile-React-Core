@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Footer /> should renders Footer with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="footer"
+>
+  <strong
+    className="ui-title"
+  >
+    Footer
+  </strong>
+  <div
+    className="ui-sub-section ui-footer"
+  >
+    <div
+      className="ui-content-backset"
+    >
+      <footer
+        className="footer"
+      >
+        <div
+          className="container-fluid"
+        >
+          <p
+            className="footer-text"
+          >
+            Transforming Usability
+          </p>
+          <div
+            className="footer-povered"
+          >
+            <span
+              className="footer-povered-text"
+            >
+              Supported by
+            </span>
+            <a
+              className="footer-logo"
+              href="#"
+            >
+              <img
+                alt="Ripple Icon"
+                className="footer-logo-img"
+                src="ripple-foundation-logo-footer.png"
+              />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</div>
+`;

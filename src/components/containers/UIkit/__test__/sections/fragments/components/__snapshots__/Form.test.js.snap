@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <Form /> should renders Form with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="form"
+>
+  <strong
+    className="ui-title"
+  >
+    Form
+  </strong>
+  <div
+    className="row"
+  >
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <strong
+          className="ui-sub-title"
+        >
+          Form for reading values
+        </strong>
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            for="name"
+          >
+            Label for Input
+          </label>
+          <div
+            className="form-control-static"
+          >
+            Input text
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <strong
+          className="ui-sub-title"
+        >
+          Form for writting values
+        </strong>
+        <div
+          className="form-group"
+        >
+          <label
+            className="control-label"
+            for="name"
+          >
+            Label for Input
+          </label>
+          <div
+            className="input-holder"
+          >
+            <input
+              className="form-control input-sm"
+              type="text"
+              value="Input text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <strong
+          className="ui-sub-title"
+        >
+          Value entered successfully
+        </strong>
+        <div
+          className="form-group has-success"
+        >
+          <label
+            className="control-label"
+            for="name"
+          >
+            Label for Input
+          </label>
+          <div
+            className="input-holder"
+          >
+            <input
+              className="form-control input-sm"
+              type="text"
+              value="Input text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="col-xs-12 col-sm-6"
+    >
+      <div
+        className="ui-sub-section"
+      >
+        <strong
+          className="ui-sub-title"
+        >
+          Value entered error
+        </strong>
+        <div
+          className="form-group has-error"
+        >
+          <label
+            className="control-label"
+            for="name"
+          >
+            Label for Input
+          </label>
+          <div
+            className="input-holder"
+          >
+            <input
+              className="form-control input-sm"
+              type="text"
+              value=""
+            />
+          </div>
+          <span
+            className="help-block animate-fade"
+          >
+            You must enter a value.
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

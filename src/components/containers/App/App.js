@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import LoadingBar from 'react-redux-loading-bar';
 import { connect } from 'react-redux';
+import { get } from 'lodash';
 import _ from 'lodash/fp';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'recompose';
@@ -16,7 +17,7 @@ import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
 import ExtraPlugins from '../../theme/components/ExtraPlugins';
 import { image } from './HeaderImage';
-import IE from '../../pages/IE/index';
+import UIkit from '../UIkit/UIkit';
 
 import '../../../config/styles';
 
@@ -24,8 +25,14 @@ export class App extends Component {
   render() {
     const { requestError, patientsInfo } = this.props;
     const isTouchDevice = (this.props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
-    const UA = window.navigator.userAgent.toLowerCase()
+    const UA = window.navigator.userAgent.toLowerCase();
     const isIE = (/trident/gi).test(UA) || (/msie/gi).test(UA);
+    const pathname = get(this.props, 'location.pathname', null);
+    if (pathname === '/ui-kit' && get(themeConfigs, 'isShowUiKitPage', false)) {
+      return (
+        <UIkit />
+      );
+    }
     return (
       <div className="page">
         <LoadingBar className="loading-bar" />

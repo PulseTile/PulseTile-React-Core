@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <SliderRange /> should renders SliderRange with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="slider-range"
+>
+  <strong
+    className="ui-title"
+  >
+    Slider Range
+  </strong>
+  <div
+    className="form-group-wrapper"
+  >
+    <div
+      className="form-group"
+    >
+      <label
+        className="control-label"
+      >
+        Range (Years)
+      </label>
+      <div
+        className="wrap-rzslider"
+      >
+        <div
+          className="wrap-rzslider-events"
+        >
+          <ComponentEnhancer(Range)
+            activeDotStyle={Object {}}
+            allowCross={true}
+            className=""
+            count={1}
+            defaultValue={
+              Array [
+                0,
+                100,
+              ]
+            }
+            disabled={false}
+            dotStyle={Object {}}
+            dots={false}
+            handle={[Function]}
+            handleStyle={
+              Array [
+                Object {},
+              ]
+            }
+            included={true}
+            marks={
+              Object {
+                "0": 0,
+                "10": Object {
+                  "label": 10,
+                },
+                "100": 100,
+                "15": Object {
+                  "label": "",
+                },
+                "20": Object {
+                  "label": 20,
+                },
+                "25": Object {
+                  "label": "",
+                },
+                "30": Object {
+                  "label": 30,
+                },
+                "35": Object {
+                  "label": "",
+                },
+                "40": Object {
+                  "label": 40,
+                },
+                "45": Object {
+                  "label": "",
+                },
+                "5": Object {
+                  "label": "",
+                },
+                "50": Object {
+                  "label": 50,
+                },
+                "55": Object {
+                  "label": "",
+                },
+                "60": Object {
+                  "label": 60,
+                },
+                "65": Object {
+                  "label": "",
+                },
+                "70": Object {
+                  "label": 70,
+                },
+                "75": Object {
+                  "label": "",
+                },
+                "80": Object {
+                  "label": 80,
+                },
+                "85": Object {
+                  "label": "",
+                },
+                "90": Object {
+                  "label": 90,
+                },
+                "95": Object {
+                  "label": "",
+                },
+              }
+            }
+            max={100}
+            min={0}
+            onAfterChange={[Function]}
+            onBeforeChange={[Function]}
+            onChange={[Function]}
+            prefixCls="rc-slider"
+            pushable={false}
+            railStyle={Object {}}
+            step={1}
+            tipFormatter={[Function]}
+            tipProps={
+              Object {
+                "defaultVisible": true,
+                "placement": "top",
+                "visible": true,
+              }
+            }
+            trackStyle={
+              Array [
+                Object {},
+              ]
+            }
+            vertical={false}
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

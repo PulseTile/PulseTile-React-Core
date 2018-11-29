@@ -1,0 +1,129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Component <PanelWithFilter /> should renders PanelWithFilter with props correctly 1`] = `
+<div
+  className="ui-section"
+  id="panel-filter"
+>
+  <strong
+    className="ui-title"
+  >
+    Panel heading with filter
+  </strong>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="panel panel-primary"
+    >
+      <div
+        className="panel-heading"
+      >
+        <div
+          className="control-group right"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+        </div>
+        <h3
+          className="panel-title"
+        >
+          Panel title
+        </h3>
+        <div
+          className="panel-filter hidden"
+        >
+          <div
+            className="inner-addon addon-left"
+          >
+            <div
+              className="addon"
+            >
+              <i
+                className="fa fa-filter"
+              />
+            </div>
+            <input
+              className="form-control"
+              id="filter"
+              placeholder="Filter..."
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Component <PanelWithFilter /> should renders PanelWithFilter with props correctly 2`] = `
+<div
+  className="ui-section"
+  id="panel-filter"
+>
+  <strong
+    className="ui-title"
+  >
+    Panel heading with filter
+  </strong>
+  <div
+    className="ui-sub-section"
+  >
+    <div
+      className="panel panel-primary"
+    >
+      <div
+        className="panel-heading"
+      >
+        <div
+          className="control-group right"
+        >
+          <button
+            className="btn btn-success btn-inverse btn-filter"
+            onClick={[Function]}
+            type="button"
+          >
+            <i
+              className="btn-icon fa fa-filter"
+            />
+          </button>
+        </div>
+        <h3
+          className="panel-title"
+        >
+          Panel title
+        </h3>
+        <div
+          className="panel-filter"
+        >
+          <div
+            className="inner-addon addon-left"
+          >
+            <div
+              className="addon"
+            >
+              <i
+                className="fa fa-filter"
+              />
+            </div>
+            <input
+              className="form-control"
+              id="filter"
+              placeholder="Filter..."
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
