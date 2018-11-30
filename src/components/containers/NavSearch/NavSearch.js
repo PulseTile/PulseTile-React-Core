@@ -64,8 +64,6 @@ export default class NavSearch extends PureComponent {
 
   render() {
     const { selected, openedPanel, openedSearchPanel } = this.state;
-    console.log(openedSearchPanel);
-
     return (
       <div className="header-search-container">
         <NavSearchButton runSearch={this.runSearch} />
