@@ -16,8 +16,7 @@ import MainSpinner from '../MainSpinner/MainSpinner';
 import HandleErrors from '../HandleErrors/HandleErrors';
 import HeaderList from '../HeaderList/HeaderList';
 import ExtraPlugins from '../../theme/components/ExtraPlugins';
-import NonCorePage from '../../theme/pages/NonCorePage';
-import { isPageNonCore } from '../../theme/pages/functions';
+import { isPageNonCore, getNonCorePage } from '../../../utils/nonCorePage-helper';
 import { image } from './HeaderImage';
 
 import '../../../config/styles';
@@ -30,8 +29,9 @@ export class App extends Component {
     const isIE = (/trident/gi).test(UA) || (/msie/gi).test(UA);
     const pathname = get(this.props, 'location.pathname', null);
     if (isPageNonCore(pathname)) {
+      const Page = getNonCorePage(pathname);
       return (
-        <NonCorePage pathname={pathname} />
+        <Page />
       );
     }
     return (

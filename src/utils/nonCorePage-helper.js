@@ -1,5 +1,5 @@
 import React from 'react';
-import { nonCorePagesUrls } from '../config/nonCorePagesUrls';
+import { nonCorePagesUrls } from '../components/theme/config/nonCorePagesUrls';
 
 /**
  * This function checks is current URL correspond to non-core page
