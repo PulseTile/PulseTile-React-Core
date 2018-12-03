@@ -307,6 +307,33 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     </li>
                   </UserPanelItem>
                   <UserPanelItem
+                    className="user-panel-item"
+                    role="tab"
+                  >
+                    <li
+                      className="user-panel-item"
+                      role="tab"
+                    >
+                      <PTButton
+                        aria-label="High Contrast Mode"
+                        className="btn-header btn-high-contrast"
+                        onClick={[Function]}
+                        title="High Contrast Mode"
+                      >
+                        <button
+                          aria-label="High Contrast Mode"
+                          className="btn-header btn-high-contrast"
+                          onClick={[Function]}
+                          title="High Contrast Mode"
+                        >
+                          <i
+                            className="fa fa-adjust"
+                          />
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                  <UserPanelItem
                     className="user-panel-item dropdown"
                     role="tab"
                   >
