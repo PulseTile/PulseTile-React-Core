@@ -94,7 +94,7 @@ export default class UserPanel extends PureComponent {
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
 
     return (
-      <ul className="user-panel" role="tablist" ref={node => this.node = node}>
+      <ul className="user-panel" role="tablist" ref={node => this.node = node} id="top-header-buttons">
         { additionalUserPanels }
 
         <TopHeaderButtons pageUrl={pageUrl} homepageLink={homepageLink} />

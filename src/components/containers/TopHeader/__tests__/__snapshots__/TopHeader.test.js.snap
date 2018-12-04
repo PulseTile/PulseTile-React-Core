@@ -216,6 +216,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               >
                 <ul
                   className="user-panel"
+                  id="top-header-buttons"
                   role="tablist"
                 >
                   <TopHeaderButtons

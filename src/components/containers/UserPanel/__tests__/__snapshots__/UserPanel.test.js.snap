@@ -55,6 +55,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       >
         <ul
           className="user-panel"
+          id="top-header-buttons"
           role="tablist"
         >
           <TopHeaderButtons
@@ -458,6 +459,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 1`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -531,6 +533,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 2`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -604,6 +607,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 3`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -677,6 +681,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 4`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <TopHeaderButtons
