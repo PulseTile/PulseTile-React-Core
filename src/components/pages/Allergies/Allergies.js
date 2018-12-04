@@ -77,6 +77,10 @@ export default class Allergies extends PureComponent {
     listPerPageAmount: 10,
   };
 
+  componentDidMount() {
+    document.title = themeConfigs.metaTitle + " - " + themeConfigs.patientsSummaryTitles['allergies'];
+  }
+
   componentWillReceiveProps({allAllergies}) {
     const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;
