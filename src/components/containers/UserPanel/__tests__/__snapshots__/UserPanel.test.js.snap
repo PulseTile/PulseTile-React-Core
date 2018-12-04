@@ -154,12 +154,14 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
               role="tab"
             >
               <PTButton
+                accessKey="H"
                 aria-label="High Contrast Mode"
                 className="btn-header btn-high-contrast"
                 onClick={[Function]}
                 title="High Contrast Mode"
               >
                 <button
+                  accessKey="H"
                   aria-label="High Contrast Mode"
                   className="btn-header btn-high-contrast"
                   onClick={[Function]}
@@ -323,11 +325,13 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             </div>
                           </div>
                           <PTButton
+                            accessKey="S"
                             aria-label="Log Out"
                             className="btn btn-theme btn-block btn-signout"
                             onClick={[Function]}
                           >
                             <button
+                              accessKey="S"
                               aria-label="Log Out"
                               className="btn btn-theme btn-block btn-signout"
                               onClick={[Function]}
@@ -497,6 +501,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     role="tab"
   >
     <PTButton
+      accessKey="H"
       aria-label="High Contrast Mode"
       className="btn-header btn-high-contrast"
       onClick={[Function]}
@@ -571,6 +576,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     role="tab"
   >
     <PTButton
+      accessKey="H"
       aria-label="High Contrast Mode"
       className="btn-header btn-high-contrast"
       onClick={[Function]}
@@ -645,6 +651,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     role="tab"
   >
     <PTButton
+      accessKey="H"
       aria-label="High Contrast Mode"
       className="btn-header btn-high-contrast"
       onClick={[Function]}
@@ -714,6 +721,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     role="tab"
   >
     <PTButton
+      accessKey="H"
       aria-label="High Contrast Mode"
       className="btn-header btn-high-contrast"
       onClick={[Function]}

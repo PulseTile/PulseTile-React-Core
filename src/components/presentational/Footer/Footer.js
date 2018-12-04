@@ -43,7 +43,7 @@ export default class Footer extends PureComponent {
             {copyright ? <span>{ copyright }</span> : null}
             &nbsp;&nbsp;
             {isHighContrast ? <span className="toggle-high-contrast">
-              <a onClick={ this.toggleHighContrast }>
+              <a onClick={ this.toggleHighContrast } accessKey="H">
                 { !this.state.enabledHighContrast ? 'Enable High Contrast Mode' : 'Disable High Contrast Mode' }
               </a>
             </span> : null}
