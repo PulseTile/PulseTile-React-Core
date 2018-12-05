@@ -8,6 +8,7 @@ exports[`Component <PluginListHeader /> should renders correctly when filter but
     className="control-group right"
   >
     <PTButton
+      accessKey="G"
       aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
@@ -54,6 +55,7 @@ exports[`Component <PluginListHeader /> should renders correctly when filter but
     className="control-group right"
   >
     <PTButton
+      accessKey="G"
       aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
@@ -99,6 +101,7 @@ exports[`Component <PluginListHeader /> should renders with all props correctly 
       />
     </PTButton>
     <PTButton
+      accessKey="G"
       aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}
@@ -124,6 +127,7 @@ exports[`Component <PluginListHeader /> should renders without some buttons corr
     className="control-group right"
   >
     <PTButton
+      accessKey="G"
       aria-label="Filter"
       className="btn btn-success btn-inverse btn-filter"
       onClick={[Function]}

@@ -18,6 +18,7 @@ exports[`Component <Footer /> should renders with props correctly 1`] = `
         className="toggle-high-contrast"
       >
         <a
+          accessKey="H"
           onClick={[Function]}
         >
           Enable High Contrast Mode
@@ -65,6 +66,7 @@ exports[`Component <Footer /> should renders with props correctly 2`] = `
         className="toggle-high-contrast"
       >
         <a
+          accessKey="H"
           onClick={[Function]}
         >
           Disable High Contrast Mode
