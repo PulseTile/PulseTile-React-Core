@@ -45,7 +45,7 @@ export default class PatientsListHeader extends PureComponent {
               <i className="btn-icon fa fa-filter" />
             </PTButton>
           </div>
-          <h3 className="panel-title">{panelTitle}</h3>
+          <h1 className="panel-title">{panelTitle}</h1>
           {isFilterInputVisible && <div className="panel-filter">
             <div className="inner-addon addon-left">
               <div className="addon">

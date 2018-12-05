@@ -1098,11 +1098,11 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </button>
               </PTButton>
             </div>
-            <h3
+            <h1
               className="panel-title"
             >
               Patient Info. Age range: 31-60
-            </h3>
+            </h1>
             <div
               className="panel-filter"
             >
@@ -2966,11 +2966,11 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                       </button>
                     </PTButton>
                   </div>
-                  <h3
+                  <h1
                     className="panel-title"
                   >
                     Patient Info (Search Type: allergies, Search Query: contains \\"1\\")
-                  </h3>
+                  </h1>
                 </div>
               </PatientsListHeader>
               <div

@@ -35,7 +35,7 @@ export default class PluginListHeader extends PureComponent {
             <i className="btn-icon fa fa-filter" />
           </PTButton>
         </div>
-        <h3 className="panel-title">{panelTitle}</h3>
+        <h2 className="panel-title">{panelTitle}</h2>
         {isFilterInputVisible && <div className="panel-filter">
           <div className="inner-addon addon-left">
             <div className="addon">

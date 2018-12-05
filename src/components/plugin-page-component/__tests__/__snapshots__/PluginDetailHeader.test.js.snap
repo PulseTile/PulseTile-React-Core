@@ -20,11 +20,11 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
       />
     </PTButton>
   </div>
-  <h3
+  <h2
     className="panel-title"
   >
     Test Title Panel
-  </h3>
+  </h2>
 </div>
 `;
 
@@ -57,10 +57,10 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
       />
     </PTButton>
   </div>
-  <h3
+  <h2
     className="panel-title"
   >
     Test Title Panel
-  </h3>
+  </h2>
 </div>
 `;

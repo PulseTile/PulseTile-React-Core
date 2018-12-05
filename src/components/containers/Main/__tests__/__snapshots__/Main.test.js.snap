@@ -8,7 +8,9 @@ exports[`Component <Main /> should renders correctly 1`] = `
 
 exports[`Component <Main /> should renders correctly when Breadcrumbs is Bad 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"
@@ -34,7 +36,9 @@ exports[`Component <Main /> should renders correctly when Breadcrumbs is Bad 1`]
 
 exports[`Component <Main /> should renders correctly when initialiseData is empty 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"
@@ -71,7 +75,9 @@ exports[`Component <Main /> should renders correctly when initialiseData is empt
 
 exports[`Component <Main /> should renders correctly when initialiseData is not empty 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"

@@ -107,7 +107,7 @@ export default class Sidebar extends PureComponent {
             <div>
               <ul className="sidebar-nav-list">
                 {rangeSidebarConfig.map((item, index) => (item.isVisible ? <li className="sidebar-nav-item" key={index}>
-                  <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility} accessKey={index+1}>{item.name}</Link>
+                  <Link className={classNames('sidebar-nav-link', { active: activeLink === item.key })} to={`/patients/${userId}${item.pathToTransition}`} onClick={this.toggleSidebarVisibility} accessKey={index+1} aria-controls="main">{item.name}</Link>
                 </li> : null))
                 }
               </ul>

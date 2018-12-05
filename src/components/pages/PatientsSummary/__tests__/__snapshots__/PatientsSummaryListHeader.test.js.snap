@@ -22,11 +22,11 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       </PTButton>
     </div>
   </div>
-  <h3
+  <h1
     className="panel-title"
   >
     Patient Summary
-  </h3>
+  </h1>
 </div>
 `;
 
@@ -64,10 +64,10 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       />
     </div>
   </div>
-  <h3
+  <h1
     className="panel-title"
   >
     Patient Summary
-  </h3>
+  </h1>
 </div>
 `;

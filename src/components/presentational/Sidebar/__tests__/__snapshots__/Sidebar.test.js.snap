@@ -21,6 +21,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               accesskey="1"
+              aria-controls="main"
               class="sidebar-nav-link active"
               href="/patients/9999999000/patients-summary"
             >
@@ -32,6 +33,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               accesskey="2"
+              aria-controls="main"
               class="sidebar-nav-link"
               href="/patients/9999999000/diagnoses"
             >
@@ -43,6 +45,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               accesskey="3"
+              aria-controls="main"
               class="sidebar-nav-link"
               href="/patients/9999999000/medications"
             >
@@ -54,6 +57,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               accesskey="4"
+              aria-controls="main"
               class="sidebar-nav-link"
               href="/patients/9999999000/allergies"
             >
@@ -65,6 +69,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
           >
             <a
               accesskey="5"
+              aria-controls="main"
               class="sidebar-nav-link"
               href="/patients/9999999000/contacts"
             >

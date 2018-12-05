@@ -196,11 +196,11 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                   </button>
                 </PTButton>
               </div>
-              <h3
+              <h2
                 className="panel-title"
               >
                 Test Title Panel
-              </h3>
+              </h2>
             </div>
           </PluginDetailHeader>
           <div

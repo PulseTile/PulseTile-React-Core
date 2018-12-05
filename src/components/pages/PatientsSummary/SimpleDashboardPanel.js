@@ -15,7 +15,7 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
         <div className="control-group right">
           <button className="btn btn-success btn-inverse btn-board-more" aria-label="More" onClick={() => goToState(state)}><i className="btn-icon fa fa-caret-right" /></button>
         </div>
-        <h3 className="board-title">{ title }</h3>
+        <h2 className="board-title">{ title }</h2>
       </div>
       <div className="board-body">
         {(isHasPreview && isShowPagesSynopsisImages)

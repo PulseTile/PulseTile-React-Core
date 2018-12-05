@@ -41,7 +41,7 @@ export default class Main extends PureComponent {
       const { isSidebarVisible, userAccount, patientSummeriesParams } = this.props;
       const patientSummeries = _.head(_.values(patientSummeriesParams));
       return (
-        <main className={classNames('main', { showSidebar: isSidebarVisible })}>
+        <main className={classNames('main', { showSidebar: isSidebarVisible })} id="main" aria-live="polite">
           <Breadcrumbs
             userAccount={userAccount}
             patientSummeries={patientSummeries}
