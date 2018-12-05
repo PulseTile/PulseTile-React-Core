@@ -20,6 +20,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
             class="sidebar-nav-item"
           >
             <a
+              accesskey="1"
               class="sidebar-nav-link active"
               href="/patients/9999999000/patients-summary"
             >
@@ -30,6 +31,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
             class="sidebar-nav-item"
           >
             <a
+              accesskey="2"
               class="sidebar-nav-link"
               href="/patients/9999999000/diagnoses"
             >
@@ -40,6 +42,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
             class="sidebar-nav-item"
           >
             <a
+              accesskey="3"
               class="sidebar-nav-link"
               href="/patients/9999999000/medications"
             >
@@ -50,6 +53,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
             class="sidebar-nav-item"
           >
             <a
+              accesskey="4"
               class="sidebar-nav-link"
               href="/patients/9999999000/allergies"
             >
@@ -60,6 +64,7 @@ exports[`Component <Sidebar /> should renders when it is visible 1`] = `
             class="sidebar-nav-item"
           >
             <a
+              accesskey="5"
               class="sidebar-nav-link"
               href="/patients/9999999000/contacts"
             >

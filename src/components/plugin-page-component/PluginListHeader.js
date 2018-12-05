@@ -31,7 +31,7 @@ export default class PluginListHeader extends PureComponent {
           { isBtnTableVisible ? <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle btn-table" aria-label="Table">
             <i className="btn-icon fa fa-table" />
           </PTButton> : null }
-          <PTButton className="btn btn-success btn-inverse btn-filter" aria-label="Filter" onClick={this.toggleFilterInputVisibility}>
+          <PTButton className="btn btn-success btn-inverse btn-filter" aria-label="Filter" onClick={this.toggleFilterInputVisibility} accessKey="G">
             <i className="btn-icon fa fa-filter" />
           </PTButton>
         </div>

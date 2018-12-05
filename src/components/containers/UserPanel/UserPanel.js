@@ -94,7 +94,7 @@ export default class UserPanel extends PureComponent {
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
 
     return (
-      <ul className="user-panel" role="tablist" ref={node => this.node = node}>
+      <ul className="user-panel" role="tablist" ref={node => this.node = node} id="top-header-buttons">
         { additionalUserPanels }
 
         <TopHeaderButtons pageUrl={pageUrl} homepageLink={homepageLink} />
@@ -111,7 +111,7 @@ export default class UserPanel extends PureComponent {
 
         {isHighContrast ? <UserPanelItem role="tab" className="user-panel-item">
           <PTButton className="btn-header btn-high-contrast" aria-label="High Contrast Mode" title="High Contrast Mode"
-            onClick={ this.toggleHighContrast }>
+            onClick={ this.toggleHighContrast } accessKey="H">
             <i className="fa fa-adjust" />
           </PTButton>
         </UserPanelItem> : null}
