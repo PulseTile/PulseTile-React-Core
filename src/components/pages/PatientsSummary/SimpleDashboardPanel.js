@@ -30,7 +30,13 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
           ? <ul className="board-list">
             {filterItemsArray.map(item =>
               <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
-                {item.text ? <span className="board-list-link" onClick={() => goToState(`${state}/${item.sourceId}`, item.link)} title={item.text}>{item.text}</span> : null}
+                {item.text ? <a className="board-list-link"
+                  onClick={() => goToState(`${state}/${item.sourceId}`, item.link)}
+                  onKeyPress={(event) => {if( event.key == 'Enter' ){ goToState(`${state}/${item.sourceId}`, item.link) }} }
+                  title={item.text}
+                  tabIndex="0">
+                    {item.text}
+                  </a> : null}
               </li>)}
           </ul>
           : null}

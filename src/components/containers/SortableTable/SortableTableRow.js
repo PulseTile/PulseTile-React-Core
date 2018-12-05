@@ -23,7 +23,7 @@ export default class SortableTableRow extends PureComponent {
     const rowDataItem = rowData.map((rowItem, index) => {
       if (rowItem.highlighter) {
         return (
-          <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy })}>
+          <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames('highlighter-wrapper', { 'sorted': rowItem.name === columnNameSortBy })} tabIndex={( index == 0 ? 0 : -1 )}>
             <span>
               <span className={`highlighter-${rowItem.highlighter}`} />
               <span>{ rowItem.value }</span>
@@ -31,7 +31,13 @@ export default class SortableTableRow extends PureComponent {
           </td>
         )
       }
-      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name} onClick={() => onCellClick(sourceId)} className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}>{rowItem.value}</td>
+      return <td data-table-hover data-th={headers[index].title} key={_.uniqueId('__SortableTableRow__')} name={rowItem.name}
+        onClick={() => onCellClick(sourceId)}
+        onKeyPress={(event) => {if( event.key == 'Enter' ){ onCellClick(sourceId) }} }
+        className={classNames({ 'sorted': rowItem.name === columnNameSortBy })}
+        tabIndex={( index == 0 ? 0 : -1 )}>
+        {rowItem.value}
+      </td>
     });
 
     return (<tr className={classNames({ 'info': id === sourceId })}>
