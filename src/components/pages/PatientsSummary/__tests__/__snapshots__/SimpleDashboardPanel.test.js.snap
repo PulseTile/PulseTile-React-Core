@@ -24,11 +24,11 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
           />
         </button>
       </div>
-      <h3
+      <h2
         className="board-title"
       >
         Contacts
-      </h3>
+      </h2>
     </div>
     <div
       className="board-body"

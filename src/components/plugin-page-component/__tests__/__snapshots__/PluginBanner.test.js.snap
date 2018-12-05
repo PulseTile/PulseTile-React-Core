@@ -4,11 +4,11 @@ exports[`Component <PluginBanner /> should renders with all props correctly 1`] 
 <div
   className="page-banner"
 >
-  <div
+  <h1
     className="page-banner__title "
   >
     test title
-  </div>
+  </h1>
   <div
     className="page-banner__subtitle "
   >
@@ -26,11 +26,11 @@ exports[`Component <PluginBanner /> should renders with all props correctly 2`] 
 <div
   className="page-banner"
 >
-  <div
+  <h1
     className="page-banner__title page-banner__title--right"
   >
     test title
-  </div>
+  </h1>
   <div
     className="page-banner__subtitle page-banner__subtitle--right"
   >

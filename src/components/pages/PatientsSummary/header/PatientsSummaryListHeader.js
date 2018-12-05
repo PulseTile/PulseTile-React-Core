@@ -44,7 +44,7 @@ export default class PatientsSummaryListHeader extends PureComponent {
               />}
             </div>
           </div>
-          <h3 className="panel-title">{ title }</h3>
+          <h1 className="panel-title">{ title }</h1>
         </div>
       )
     }

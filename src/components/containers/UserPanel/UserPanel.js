@@ -111,7 +111,7 @@ export default class UserPanel extends PureComponent {
 
         {isHighContrast ? <UserPanelItem role="tab" className="user-panel-item">
           <PTButton className="btn-header btn-high-contrast" aria-label="High Contrast Mode" title="High Contrast Mode"
-            onClick={ this.toggleHighContrast } accessKey="H">
+            onClick={ this.toggleHighContrast }>
             <i className="fa fa-adjust" />
           </PTButton>
         </UserPanelItem> : null}
