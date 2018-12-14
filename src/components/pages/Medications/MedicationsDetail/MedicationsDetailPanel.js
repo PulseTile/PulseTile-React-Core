@@ -40,25 +40,25 @@ export default class MedicationsDetailPanel extends PureComponent {
             <div className="wrap-control-group hide-indent-bottom">
               <div className="control-group with-indent left hidden-xs">
                 {isButtonVisible(hiddenButtons, 'cancel', true) ?
-                    <PTButton className="btn btn-danger">
+                    <PTButton className="btn btn-danger" aria-label="Cancel">
                       <i className="btn-icon fa fa-close" />
                       <span className="btn-text"> Cancel</span>
                     </PTButton>
                   : null}
                 {isButtonVisible(hiddenButtons, 'suspend', true) ?
-                    <PTButton className="btn btn-success btn-pause">
+                    <PTButton className="btn btn-success btn-pause" aria-label="Suspend">
                       <i className="btn-icon fa fa-pause" />
                       <span className="btn-text"> Suspend</span>
                     </PTButton>                   : null}
                 {isButtonVisible(hiddenButtons, 'order', true) ?
-                    <PTButton className="btn btn-success">
+                    <PTButton className="btn btn-success" aria-label="Order">
                       <i className="btn-icon fa fa-share" />
                       <span className="btn-text"> Order</span>
                     </PTButton>                   : null}
               </div>
               <div className="control-group with-indent right">
                 {isButtonVisible(hiddenButtons, 'edit', true) ?
-                    <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
+                    <PTButton className="btn btn-success btn-inverse btn-edit" aria-label="Edit" onClick={() => onEdit(name)}>
                       <i className="btn-icon fa fa-edit" />
                       <span className="btn-text"> Edit</span>
                     </PTButton>                   : null}
@@ -69,13 +69,13 @@ export default class MedicationsDetailPanel extends PureComponent {
             <div className="wrap-control-group">
               <div className="control-group right">
                   {isButtonVisible(hiddenButtons, 'cancel', true) ?
-                      <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
+                      <PTButton className="btn btn-danger" aria-label="Cancel" onClick={() => onCancel(name)}>
                         <i className="btn-icon fa fa-ban" />
                         <span className="btn-text"> Cancel</span>
                       </PTButton>
                       : null}
                   {isButtonVisible(hiddenButtons, 'cancel', true) ?
-                      <PTButton className="btn btn-success" onClick={() => onSaveSettings(formValues, name)}>
+                      <PTButton className="btn btn-success" aria-label="Complete" onClick={() => onSaveSettings(formValues, name)}>
                         <i className="btn-icon fa fa-check" />
                         <span className="btn-text"> Complete</span>
                       </PTButton>

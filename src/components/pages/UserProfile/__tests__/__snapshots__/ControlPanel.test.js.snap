@@ -11,6 +11,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 1`] 
       className="control-group right"
     >
       <PTButton
+        aria-label="Expand / Collapse"
         className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
         onClick={[Function]}
       >
@@ -22,6 +23,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 1`] 
         />
       </PTButton>
       <PTButton
+        aria-label="Toggle"
         className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
         onClick={[Function]}
       >
@@ -53,6 +55,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 2`] 
       className="control-group right"
     >
       <PTButton
+        aria-label="Expand / Collapse"
         className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
         onClick={[Function]}
       >
@@ -64,6 +67,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 2`] 
         />
       </PTButton>
       <PTButton
+        aria-label="Toggle"
         className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
         onClick={[Function]}
       >
@@ -95,6 +99,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 3`] 
       className="control-group right"
     >
       <PTButton
+        aria-label="Expand / Collapse"
         className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
         onClick={[Function]}
       >
@@ -106,6 +111,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 3`] 
         />
       </PTButton>
       <PTButton
+        aria-label="Toggle"
         className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
         onClick={[Function]}
       >
@@ -133,6 +139,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 3`] 
           className="control-group right"
         >
           <PTButton
+            aria-label="Cancel"
             className="btn btn-danger"
             onClick={[Function]}
           >
@@ -142,6 +149,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 3`] 
              Cancel
           </PTButton>
           <PTButton
+            aria-label="Complete"
             className="btn btn-success"
             onClick={[Function]}
           >
@@ -168,6 +176,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 4`] 
       className="control-group right"
     >
       <PTButton
+        aria-label="Expand / Collapse"
         className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
         onClick={[Function]}
       >
@@ -179,6 +188,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 4`] 
         />
       </PTButton>
       <PTButton
+        aria-label="Toggle"
         className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
         onClick={[Function]}
       >
@@ -206,6 +216,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 4`] 
           className="control-group right"
         >
           <PTButton
+            aria-label="Cancel"
             className="btn btn-danger"
             onClick={[Function]}
           >
@@ -215,6 +226,7 @@ exports[`Component <ControlPanel /> should renders with all props correctly 4`] 
              Cancel
           </PTButton>
           <PTButton
+            aria-label="Complete"
             className="btn btn-success"
             onClick={[Function]}
           >

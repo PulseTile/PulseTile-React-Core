@@ -69,7 +69,7 @@ class TopHeader extends PureComponent {
 const BackButton = ({ className, routeGoBack }) => {
   if (get(themeConfigs, 'topHeader.showBackButton', false)) {
     return (
-      <PTButton id="icon-home" className={className} onClick={routeGoBack}>
+      <PTButton id="icon-home" aria-label="Back" className={className} onClick={routeGoBack}>
         <i className="fa fa-arrow-left" />
       </PTButton>
     );
@@ -89,7 +89,7 @@ const HomeButton = ({ className, homepageLink }) => {
   if (get(themeConfigs, 'topHeader.showHomeButton', false)) {
     return (
       <Link to={homepageLink}>
-        <PTButton id="icon-home" className={className}>
+        <PTButton id="icon-home" aria-label="Home" className={className}>
           <i className="fa fa-home" />
         </PTButton>
       </Link>

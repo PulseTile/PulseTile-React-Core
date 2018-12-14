@@ -120,10 +120,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     onClick={[Function]}
                   >
                     <PTButton
+                      aria-label="Home"
                       className="btn-header btn-header-prev btn-home"
                       id="icon-home"
                     >
                       <button
+                        aria-label="Home"
                         className="btn-header btn-header-prev btn-home"
                         id="icon-home"
                       >
@@ -140,11 +142,13 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                 routeGoBack={[Function]}
               >
                 <PTButton
+                  aria-label="Back"
                   className="btn-header btn-header-prev btn-back"
                   id="icon-home"
                   onClick={[Function]}
                 >
                   <button
+                    aria-label="Back"
                     className="btn-header btn-header-prev btn-back"
                     id="icon-home"
                     onClick={[Function]}
@@ -212,6 +216,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               >
                 <ul
                   className="user-panel"
+                  id="top-header-buttons"
                   role="tablist"
                 >
                   <TopHeaderButtons
@@ -220,9 +225,11 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                   />
                   <UserPanelItem
                     className="user-panel-item dropdown"
+                    role="tab"
                   >
                     <li
                       className="user-panel-item dropdown"
+                      role="tab"
                     >
                       <NotificationContent>
                         <div
@@ -277,10 +284,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         </div>
                       </NotificationContent>
                       <PTButton
+                        aria-label="Notifications"
                         className="btn-header btn-notification"
                         onClick={[Function]}
                       >
                         <button
+                          aria-label="Notifications"
                           className="btn-header btn-notification"
                           onClick={[Function]}
                         >
@@ -299,10 +308,39 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     </li>
                   </UserPanelItem>
                   <UserPanelItem
+                    className="user-panel-item"
+                    role="tab"
+                  >
+                    <li
+                      className="user-panel-item"
+                      role="tab"
+                    >
+                      <PTButton
+                        aria-label="High Contrast Mode"
+                        className="btn-header btn-high-contrast"
+                        onClick={[Function]}
+                        title="High Contrast Mode"
+                      >
+                        <button
+                          aria-label="High Contrast Mode"
+                          className="btn-header btn-high-contrast"
+                          onClick={[Function]}
+                          title="High Contrast Mode"
+                        >
+                          <i
+                            className="fa fa-adjust"
+                          />
+                        </button>
+                      </PTButton>
+                    </li>
+                  </UserPanelItem>
+                  <UserPanelItem
                     className="user-panel-item dropdown"
+                    role="tab"
                   >
                     <li
                       className="user-panel-item dropdown"
+                      role="tab"
                     >
                       <Connect(Connect(lifecycle(UserAccountPanel)))
                         onClick={[Function]}
@@ -366,6 +404,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                             >
                               <div
                                 className="dropdown-user dropdown-menu-right dropdown-menu"
+                                id="userAccountPanelElement"
                               >
                                 <div
                                   className="user-profile-image"
@@ -426,10 +465,14 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     </div>
                                   </div>
                                   <PTButton
+                                    accessKey="S"
+                                    aria-label="Log Out"
                                     className="btn btn-theme btn-block btn-signout"
                                     onClick={[Function]}
                                   >
                                     <button
+                                      accessKey="S"
+                                      aria-label="Log Out"
                                       className="btn btn-theme btn-block btn-signout"
                                       onClick={[Function]}
                                     >
@@ -530,11 +573,15 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                         </Connect(lifecycle(UserAccountPanel))>
                       </Connect(Connect(lifecycle(UserAccountPanel)))>
                       <PTButton
+                        aria-controls="userAccountPanelElement"
+                        aria-label="User Panel"
                         className="btn-header btn-user"
                         id="icon-profile"
                         onClick={[Function]}
                       >
                         <button
+                          aria-controls="userAccountPanelElement"
+                          aria-label="User Panel"
                           className="btn-header btn-user"
                           id="icon-profile"
                           onClick={[Function]}
@@ -562,12 +609,14 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                     runSearch={[Function]}
                   >
                     <PTButton
+                      aria-label="Search"
                       className="btn-header search-btn"
                       id="search"
                       onClick={[Function]}
                       title="Search"
                     >
                       <button
+                        aria-label="Search"
                         className="btn-header search-btn"
                         id="search"
                         onClick={[Function]}
@@ -645,10 +694,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                             </div>
                           </SearchContent>
                           <PTButton
+                            aria-label="Search"
                             className="btn btn-dropdown-toggle btn-search-toggle"
                             onClick={[Function]}
                           >
                             <button
+                              aria-label="Search"
                               className="btn btn-dropdown-toggle btn-search-toggle"
                               onClick={[Function]}
                             >
@@ -662,10 +713,12 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                       <BasicPatientSearch>
                         <div>
                           <PTButton
+                            aria-label="Search"
                             className="btn btn-search"
                             onClick={[Function]}
                           >
                             <button
+                              aria-label="Search"
                               className="btn btn-search"
                               onClick={[Function]}
                             >

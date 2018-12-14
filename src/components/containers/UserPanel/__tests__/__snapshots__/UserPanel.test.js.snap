@@ -55,6 +55,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       >
         <ul
           className="user-panel"
+          id="top-header-buttons"
           role="tablist"
         >
           <TopHeaderButtons
@@ -62,9 +63,11 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
           />
           <UserPanelItem
             className="user-panel-item dropdown"
+            role="tab"
           >
             <li
               className="user-panel-item dropdown"
+              role="tab"
             >
               <NotificationContent>
                 <div
@@ -119,10 +122,12 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                 </div>
               </NotificationContent>
               <PTButton
+                aria-label="Notifications"
                 className="btn-header btn-notification"
                 onClick={[Function]}
               >
                 <button
+                  aria-label="Notifications"
                   className="btn-header btn-notification"
                   onClick={[Function]}
                 >
@@ -141,10 +146,39 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
             </li>
           </UserPanelItem>
           <UserPanelItem
+            className="user-panel-item"
+            role="tab"
+          >
+            <li
+              className="user-panel-item"
+              role="tab"
+            >
+              <PTButton
+                aria-label="High Contrast Mode"
+                className="btn-header btn-high-contrast"
+                onClick={[Function]}
+                title="High Contrast Mode"
+              >
+                <button
+                  aria-label="High Contrast Mode"
+                  className="btn-header btn-high-contrast"
+                  onClick={[Function]}
+                  title="High Contrast Mode"
+                >
+                  <i
+                    className="fa fa-adjust"
+                  />
+                </button>
+              </PTButton>
+            </li>
+          </UserPanelItem>
+          <UserPanelItem
             className="user-panel-item dropdown"
+            role="tab"
           >
             <li
               className="user-panel-item dropdown"
+              role="tab"
             >
               <Connect(Connect(lifecycle(UserAccountPanel)))
                 onClick={[Function]}
@@ -224,6 +258,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                     >
                       <div
                         className="dropdown-user dropdown-menu-right dropdown-menu"
+                        id="userAccountPanelElement"
                       >
                         <div
                           className="user-profile-image"
@@ -288,10 +323,14 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             </div>
                           </div>
                           <PTButton
+                            accessKey="S"
+                            aria-label="Log Out"
                             className="btn btn-theme btn-block btn-signout"
                             onClick={[Function]}
                           >
                             <button
+                              accessKey="S"
+                              aria-label="Log Out"
                               className="btn btn-theme btn-block btn-signout"
                               onClick={[Function]}
                             >
@@ -392,11 +431,15 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                 </Connect(lifecycle(UserAccountPanel))>
               </Connect(Connect(lifecycle(UserAccountPanel)))>
               <PTButton
+                aria-controls="userAccountPanelElement"
+                aria-label="User Panel"
                 className="btn-header btn-user"
                 id="icon-profile"
                 onClick={[Function]}
               >
                 <button
+                  aria-controls="userAccountPanelElement"
+                  aria-label="User Panel"
                   className="btn-header btn-user"
                   id="icon-profile"
                   onClick={[Function]}
@@ -418,6 +461,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 1`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -430,9 +474,11 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   />
   <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <NotificationContent />
     <PTButton
+      aria-label="Notifications"
       className="btn-header btn-notification"
       onClick={[Function]}
     >
@@ -449,13 +495,31 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     </PTButton>
   </UserPanelItem>
   <UserPanelItem
+    className="user-panel-item"
+    role="tab"
+  >
+    <PTButton
+      aria-label="High Contrast Mode"
+      className="btn-header btn-high-contrast"
+      onClick={[Function]}
+      title="High Contrast Mode"
+    >
+      <i
+        className="fa fa-adjust"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <Connect(Connect(lifecycle(UserAccountPanel)))
       onClick={[Function]}
       onClose={[Function]}
     />
     <PTButton
+      aria-controls="userAccountPanelElement"
+      aria-label="User Panel"
       className="btn-header btn-user"
       id="icon-profile"
       onClick={[Function]}
@@ -471,6 +535,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 2`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -483,9 +548,11 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   />
   <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <NotificationContent />
     <PTButton
+      aria-label="Notifications"
       className="btn-header btn-notification"
       onClick={[Function]}
     >
@@ -502,13 +569,31 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     </PTButton>
   </UserPanelItem>
   <UserPanelItem
+    className="user-panel-item"
+    role="tab"
+  >
+    <PTButton
+      aria-label="High Contrast Mode"
+      className="btn-header btn-high-contrast"
+      onClick={[Function]}
+      title="High Contrast Mode"
+    >
+      <i
+        className="fa fa-adjust"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item dropdown open"
+    role="tab"
   >
     <Connect(Connect(lifecycle(UserAccountPanel)))
       onClick={[Function]}
       onClose={[Function]}
     />
     <PTButton
+      aria-controls="userAccountPanelElement"
+      aria-label="User Panel"
       className="btn-header btn-user"
       id="icon-profile"
       onClick={[Function]}
@@ -524,6 +609,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 3`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -536,9 +622,11 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   />
   <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <NotificationContent />
     <PTButton
+      aria-label="Notifications"
       className="btn-header btn-notification"
       onClick={[Function]}
     >
@@ -555,13 +643,31 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     </PTButton>
   </UserPanelItem>
   <UserPanelItem
+    className="user-panel-item"
+    role="tab"
+  >
+    <PTButton
+      aria-label="High Contrast Mode"
+      className="btn-header btn-high-contrast"
+      onClick={[Function]}
+      title="High Contrast Mode"
+    >
+      <i
+        className="fa fa-adjust"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item dropdown open"
+    role="tab"
   >
     <Connect(Connect(lifecycle(UserAccountPanel)))
       onClick={[Function]}
       onClose={[Function]}
     />
     <PTButton
+      aria-controls="userAccountPanelElement"
+      aria-label="User Panel"
       className="btn-header btn-user"
       id="icon-profile"
       onClick={[Function]}
@@ -577,6 +683,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 4`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <TopHeaderButtons
@@ -584,9 +691,11 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
   />
   <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <NotificationContent />
     <PTButton
+      aria-label="Notifications"
       className="btn-header btn-notification"
       onClick={[Function]}
     >
@@ -603,13 +712,31 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
     </PTButton>
   </UserPanelItem>
   <UserPanelItem
+    className="user-panel-item"
+    role="tab"
+  >
+    <PTButton
+      aria-label="High Contrast Mode"
+      className="btn-header btn-high-contrast"
+      onClick={[Function]}
+      title="High Contrast Mode"
+    >
+      <i
+        className="fa fa-adjust"
+      />
+    </PTButton>
+  </UserPanelItem>
+  <UserPanelItem
     className="user-panel-item dropdown"
+    role="tab"
   >
     <Connect(Connect(lifecycle(UserAccountPanel)))
       onClick={[Function]}
       onClose={[Function]}
     />
     <PTButton
+      aria-controls="userAccountPanelElement"
+      aria-label="User Panel"
       className="btn-header btn-user"
       id="icon-profile"
       onClick={[Function]}

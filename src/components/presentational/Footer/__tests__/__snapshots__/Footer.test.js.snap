@@ -10,7 +10,20 @@ exports[`Component <Footer /> should renders with props correctly 1`] = `
     <p
       className="footer-text"
     >
-      Transforming Usability
+      <span>
+        Transforming Usability
+      </span>
+        
+      <span
+        className="toggle-high-contrast"
+      >
+        <a
+          accessKey="H"
+          onClick={[Function]}
+        >
+          Enable High Contrast Mode
+        </a>
+      </span>
     </p>
     <div
       className="footer-povered"
@@ -42,9 +55,32 @@ exports[`Component <Footer /> should renders with props correctly 2`] = `
   <div
     className="container-fluid"
   >
+    <p
+      className="footer-text"
+    >
+      <span>
+        Transforming Usability
+      </span>
+        
+      <span
+        className="toggle-high-contrast"
+      >
+        <a
+          accessKey="H"
+          onClick={[Function]}
+        >
+          Disable High Contrast Mode
+        </a>
+      </span>
+    </p>
     <div
       className="footer-povered"
     >
+      <span
+        className="footer-povered-text"
+      >
+        Supported by
+      </span>
       <a
         className="footer-logo"
         href="/"

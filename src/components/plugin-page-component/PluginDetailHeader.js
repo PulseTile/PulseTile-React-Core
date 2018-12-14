@@ -9,15 +9,15 @@ export default class PluginDetailHeader extends PureComponent {
     return (
       <div className="panel-heading">
         <div className="control-group right">
-          <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name, currentPanel)}>
+          <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" aria-label="Expand / Collapse" onClick={() => onExpand(name, currentPanel)}>
             <i className="btn-icon fa fa-expand" />
             <i className="btn-icon fa fa-compress" />
           </PTButton>
-          {isBtnShowPanel ? <PTButton className="btn btn-success btn-inverse btn-square btn-toggle-rotate" onClick={() => onShow(name)}>
+          {isBtnShowPanel ? <PTButton className="btn btn-success btn-inverse btn-square btn-toggle-rotate" aria-label="Toggle" onClick={() => onShow(name)}>
             <i className="btn-icon fa fa-chevron-up" />
           </PTButton> : null }
         </div>
-        <h3 className="panel-title">{title}</h3>
+        <h2 className="panel-title">{title}</h2>
       </div>
     )
   }

@@ -367,10 +367,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 className="dropdown open"
               >
                 <PTButton
+                  aria-label="Settings"
                   className="btn btn-success btn-inverse btn-dropdown-toggle open"
                   onClick={[Function]}
                 >
                   <button
+                    aria-label="Settings"
                     className="btn btn-success btn-inverse btn-dropdown-toggle open"
                     onClick={[Function]}
                   >
@@ -681,10 +683,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                     className="col-sm-4 col-xs-6"
                                   >
                                     <PTButton
+                                      aria-label="Select All"
                                       className="btn btn-success btn-inverse btn-bold btn-smaller"
                                       onClick={[Function]}
                                     >
                                       <button
+                                        aria-label="Select All"
                                         className="btn btn-success btn-inverse btn-bold btn-smaller"
                                         onClick={[Function]}
                                       >
@@ -865,10 +869,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                     className="col-sm-4 col-xs-6"
                                   >
                                     <PTButton
+                                      aria-label="Select All"
                                       className="btn btn-success btn-inverse btn-bold btn-smaller"
                                       onClick={[Function]}
                                     >
                                       <button
+                                        aria-label="Select All"
                                         className="btn btn-success btn-inverse btn-bold btn-smaller"
                                         onClick={[Function]}
                                       >
@@ -1049,10 +1055,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                                     className="col-sm-4 col-xs-6"
                                   >
                                     <PTButton
+                                      aria-label="Select All"
                                       className="btn btn-success btn-inverse btn-bold btn-smaller"
                                       onClick={[Function]}
                                     >
                                       <button
+                                        aria-label="Select All"
                                         className="btn btn-success btn-inverse btn-bold btn-smaller"
                                         onClick={[Function]}
                                       >
@@ -1075,10 +1083,12 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </lifecycle(PatientsInfoPanel)>
               </div>
               <PTButton
+                aria-label="Filter"
                 className="btn btn-success btn-inverse btn-filter"
                 onClick={[Function]}
               >
                 <button
+                  aria-label="Filter"
                   className="btn btn-success btn-inverse btn-filter"
                   onClick={[Function]}
                 >
@@ -1088,11 +1098,11 @@ exports[`Component <PatientsList /> should renders with props correctly 1`] = `
                 </button>
               </PTButton>
             </div>
-            <h3
+            <h1
               className="panel-title"
             >
               Patient Info. Age range: 31-60
-            </h3>
+            </h1>
             <div
               className="panel-filter"
             >
@@ -2925,10 +2935,12 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                       className="dropdown"
                     >
                       <PTButton
+                        aria-label="Settings"
                         className="btn btn-success btn-inverse btn-dropdown-toggle open"
                         onClick={[Function]}
                       >
                         <button
+                          aria-label="Settings"
                           className="btn btn-success btn-inverse btn-dropdown-toggle open"
                           onClick={[Function]}
                         >
@@ -2939,10 +2951,12 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                       </PTButton>
                     </div>
                     <PTButton
+                      aria-label="Filter"
                       className="btn btn-success btn-inverse btn-filter"
                       onClick={[Function]}
                     >
                       <button
+                        aria-label="Filter"
                         className="btn btn-success btn-inverse btn-filter"
                         onClick={[Function]}
                       >
@@ -2952,11 +2966,11 @@ exports[`Component <PatientsList /> should renders with props correctly shallow 
                       </button>
                     </PTButton>
                   </div>
-                  <h3
+                  <h1
                     className="panel-title"
                   >
                     Patient Info (Search Type: allergies, Search Query: contains \\"1\\")
-                  </h3>
+                  </h1>
                 </div>
               </PatientsListHeader>
               <div

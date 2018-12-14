@@ -79,6 +79,10 @@ export default class Medications extends PureComponent {
     listPerPageAmount: 10,
   };
 
+  componentDidMount() {
+    document.title = themeConfigs.metaTitle + " - " + themeConfigs.patientsSummaryTitles['medications'];
+  }
+
   componentWillReceiveProps({allMedications}) {
     const {listPerPageAmount} = this.state;
     const sourceId = this.context.router.route.match.params.sourceId;

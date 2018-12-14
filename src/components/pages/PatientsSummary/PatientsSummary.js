@@ -68,6 +68,10 @@ export default class PatientsSummary extends PureComponent {
     isCategory: {},
   };
 
+  componentDidMount() {
+    document.title = themeConfigs.metaTitle + " - " + themeConfigs.patientsSummaryPageName;
+  }
+
   componentWillMount() {
     const isShowDisclaimerOfRedirect = localStorage.getItem('isShowDisclaimerOfRedirect');
     localStorage.removeItem('isShowDisclaimerOfRedirect');

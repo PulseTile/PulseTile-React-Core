@@ -26,6 +26,7 @@ exports[`Component <PluginDetailPanel /> should renders correctly when panel edi
           className="control-group right"
         >
           <PTButton
+            aria-label="Cancel"
             className="btn btn-danger"
             onClick={[Function]}
           >
@@ -39,6 +40,7 @@ exports[`Component <PluginDetailPanel /> should renders correctly when panel edi
             </span>
           </PTButton>
           <PTButton
+            aria-label="Complete"
             className="btn btn-success"
             onClick={[Function]}
           >
@@ -84,6 +86,7 @@ exports[`Component <PluginDetailPanel /> should renders correctly when panel not
           className="control-group right"
         >
           <PTButton
+            aria-label="Edit"
             className="btn btn-success btn-inverse btn-edit"
             onClick={[Function]}
           >

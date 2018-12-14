@@ -13,9 +13,9 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
     <div className="board">
       <div className="board-header">
         <div className="control-group right">
-          <button className="btn btn-success btn-inverse btn-board-more" onClick={() => goToState(state)}><i className="btn-icon fa fa-caret-right" /></button>
+          <button className="btn btn-success btn-inverse btn-board-more" aria-label="More" onClick={() => goToState(state)}><i className="btn-icon fa fa-caret-right" /></button>
         </div>
-        <h3 className="board-title">{ title }</h3>
+        <h2 className="board-title">{ title }</h2>
       </div>
       <div className="board-body">
         {(isHasPreview && isShowPagesSynopsisImages)
@@ -30,7 +30,13 @@ const SimpleDashboardPanel = ({ id, title, items, goToState, state, isHasPreview
           ? <ul className="board-list">
             {filterItemsArray.map(item =>
               <li className="board-list-item" key={_.uniqueId('__SimpleDashboardPanel__item__')}>
-                {item.text ? <span className="board-list-link" onClick={() => goToState(`${state}/${item.sourceId}`, item.link)} title={item.text}>{item.text}</span> : null}
+                {item.text ? <a className="board-list-link"
+                  onClick={() => goToState(`${state}/${item.sourceId}`, item.link)}
+                  onKeyPress={(event) => {if( event.key == 'Enter' ){ goToState(`${state}/${item.sourceId}`, item.link) }} }
+                  title={item.text}
+                  tabIndex="0">
+                    {item.text}
+                  </a> : null}
               </li>)}
           </ul>
           : null}

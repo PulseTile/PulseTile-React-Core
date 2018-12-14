@@ -55,7 +55,7 @@ export default class PatientsInfoPanel extends PureComponent {
                 <PTCustomCheckbox title="Gender" name="gender" isChecked={selected.gender} disabled />
                 <PTCustomCheckbox title="NHS No." name="id" isChecked={selected.id} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['address', 'id'])}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" aria-label="Select All" onClick={this.toggleMultipleCheckboxes(['address', 'id'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>
@@ -75,7 +75,7 @@ export default class PatientsInfoPanel extends PureComponent {
                 <PTCustomCheckbox title="Diagnosis" name="diagnosesDate" isChecked={selected.diagnosesDate} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="PROMS" name="promsDate" isChecked={selected.promsDate} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate', 'promsDate'])}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" aria-label="Select All" onClick={this.toggleMultipleCheckboxes(['ordersDate', 'resultsDate', 'vitalsDate', 'diagnosesDate', 'promsDate'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>
@@ -95,7 +95,7 @@ export default class PatientsInfoPanel extends PureComponent {
                 <PTCustomCheckbox title="Diagnosis" name="diagnosesCount" isChecked={selected.diagnosesCount} onChange={this.toggleCheckbox} />
                 <PTCustomCheckbox title="PROMS" name="promsCount" isChecked={selected.promsCount} onChange={this.toggleCheckbox} />
                 <Col xs={6} sm={4}>
-                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" onClick={this.toggleMultipleCheckboxes(['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount', 'promsCount'])}>
+                  <PTButton className="btn btn-success btn-inverse btn-bold btn-smaller" aria-label="Select All" onClick={this.toggleMultipleCheckboxes(['ordersCount', 'resultsCount', 'vitalsCount', 'diagnosesCount', 'promsCount'])}>
                     <span className="btn-text">Select All</span>
                   </PTButton>
                 </Col>

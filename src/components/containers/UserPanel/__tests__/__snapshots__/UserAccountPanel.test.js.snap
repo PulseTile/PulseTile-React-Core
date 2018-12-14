@@ -3,6 +3,7 @@
 exports[`Component <UserAccountPanel /> should renders with props correctly 1`] = `
 <div
   className="dropdown-user dropdown-menu-right dropdown-menu"
+  id="userAccountPanelElement"
 >
   <div
     className="user-profile-image"
@@ -67,6 +68,8 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       </div>
     </div>
     <PTButton
+      accessKey="S"
+      aria-label="Log Out"
       className="btn btn-theme btn-block btn-signout"
       onClick={[Function]}
     >
@@ -90,6 +93,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
 exports[`Component <UserAccountPanel /> should renders with props correctly with isShowUserProfileSettings  1`] = `
 <div
   className="dropdown-user dropdown-menu-right dropdown-menu"
+  id="userAccountPanelElement"
 >
   <div
     className="user-profile-image"
@@ -154,6 +158,8 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
       </div>
     </div>
     <PTButton
+      accessKey="S"
+      aria-label="Log Out"
       className="btn btn-theme btn-block btn-signout"
       onClick={[Function]}
     >

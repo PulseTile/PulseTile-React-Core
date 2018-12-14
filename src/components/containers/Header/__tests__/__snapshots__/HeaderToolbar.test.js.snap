@@ -12,7 +12,9 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
         className="header-toolbar"
       >
         <button
+          accessKey="M"
           aria-expanded="false"
+          aria-label="Show / Hide Menu"
           className="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
           data-target="#sidebar-nav"
           data-toggle="collapse"
