@@ -4,7 +4,7 @@ import _ from 'lodash/fp';
 
 import { pluginsEpicConfig } from './plugins.config';
 import { initialiseEpic } from './ducks/initialise-app.duck';
-import { loginEpic, loginURLEpic } from './ducks/login-status.duck';
+import { loginURLEpic } from './ducks/login-status.duck';
 import { logoutEpic } from './ducks/logout.duck';
 import { fetchLogoutEpic } from './ducks/fetch-logout.duck';
 import { fetchInitialiseEpic } from './ducks/fetch-initialise.duck';
@@ -39,7 +39,6 @@ const wrapEpic = epic => (...args) =>
 
 const rootEpic = combineEpics(...[
   initialiseEpic,
-  loginEpic,
   loginURLEpic,
   logoutEpic,
   fetchLogoutEpic,
