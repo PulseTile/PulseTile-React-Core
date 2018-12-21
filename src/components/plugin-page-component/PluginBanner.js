@@ -19,7 +19,7 @@ export default class PluginBanner extends PureComponent {
     return (
       themeConfigs.isShowPluginsBigBanner || isShowPluginsBigBanner ?
         <div className="page-banner">
-          <div className={`page-banner__title ${toRight ? 'page-banner__title--right' : ''}`}>{title}</div>
+          <h1 className={`page-banner__title ${toRight ? 'page-banner__title--right' : ''}`}>{title}</h1>
           <div className={`page-banner__subtitle ${toRight ? 'page-banner__subtitle--right' : ''}`}>{subTitle}</div>
           <img className="page-banner__img" src={img} alt="" />
         </div>

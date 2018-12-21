@@ -9,7 +9,7 @@ import { fetchPatientsInfoRequest, FETCH_PATIENTS_INFO_SUCCESS } from './fetch-p
 import { setTheme } from './set-theme.duck';
 import { setLogo } from './set-logo.duck';
 import { setTitle } from './set-title.duck';
-import { redirectToLogin, redirectToLoginUrl } from './login-status.duck';
+import { redirectToLoginUrl } from './login-status.duck';
 import { redirectAccordingRole } from '../utils/redirect-helpers.utils';
 
 export const INITIALISE_START = 'INITIALISE_START';
@@ -40,9 +40,7 @@ export const initialiseEpic = (action$, store) => Observable.merge(
   action$
     .ofType(FETCH_INITIALISE_SUCCESS)
     .map((action) => {
-      if (action.payload.redirectURL) return redirectToLoginUrl(action.payload);
-      if (_.flow(_.get('payload.redirectTo'), _.eq('auth0'))(action)) return redirectToLogin(action.payload);
-      return fetchUserAccountRequest(action);
+      return (action.payload.redirectURL) ? redirectToLoginUrl(action.payload) : fetchUserAccountRequest(action);
     }),
   action$
     .ofType(FETCH_USER_ACCOUNT_SUCCESS)

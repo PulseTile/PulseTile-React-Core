@@ -55,6 +55,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
       >
         <ul
           className="user-panel"
+          id="top-header-buttons"
           role="tablist"
         >
           <TopHeaderButtons
@@ -322,11 +323,13 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
                             </div>
                           </div>
                           <PTButton
+                            accessKey="S"
                             aria-label="Log Out"
                             className="btn btn-theme btn-block btn-signout"
                             onClick={[Function]}
                           >
                             <button
+                              accessKey="S"
                               aria-label="Log Out"
                               className="btn btn-theme btn-block btn-signout"
                               onClick={[Function]}
@@ -458,6 +461,7 @@ exports[`Component <UserPanel /> should renders with props correctly 1`] = `
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 1`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -531,6 +535,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 2`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -604,6 +609,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 3`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <UserPanelItem
@@ -677,6 +683,7 @@ exports[`Component <UserPanel /> should renders with props correctly shallow tes
 exports[`Component <UserPanel /> should renders with props correctly shallow testing 4`] = `
 <ul
   className="user-panel"
+  id="top-header-buttons"
   role="tablist"
 >
   <TopHeaderButtons

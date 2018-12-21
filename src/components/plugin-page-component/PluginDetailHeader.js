@@ -17,7 +17,7 @@ export default class PluginDetailHeader extends PureComponent {
             <i className="btn-icon fa fa-chevron-up" />
           </PTButton> : null }
         </div>
-        <h3 className="panel-title">{title}</h3>
+        <h2 className="panel-title">{title}</h2>
       </div>
     )
   }

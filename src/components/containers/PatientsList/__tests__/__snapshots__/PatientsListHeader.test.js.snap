@@ -30,7 +30,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 1`] = `
       />
     </PTButton>
   </div>
-  <h3
+  <h1
     className="panel-title"
   />
 </div>
@@ -69,7 +69,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 2`] = `
       />
     </PTButton>
   </div>
-  <h3
+  <h1
     className="panel-title"
   />
 </div>
@@ -108,7 +108,7 @@ exports[`Component <PatientsListHeader /> should renders correctly 3`] = `
       />
     </PTButton>
   </div>
-  <h3
+  <h1
     className="panel-title"
   />
 </div>

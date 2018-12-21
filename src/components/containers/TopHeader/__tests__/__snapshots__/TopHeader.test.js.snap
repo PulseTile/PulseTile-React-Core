@@ -216,6 +216,7 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
               >
                 <ul
                   className="user-panel"
+                  id="top-header-buttons"
                   role="tablist"
                 >
                   <TopHeaderButtons
@@ -464,11 +465,13 @@ exports[`Component <TopHeader /> should renders with props correctly 1`] = `
                                     </div>
                                   </div>
                                   <PTButton
+                                    accessKey="S"
                                     aria-label="Log Out"
                                     className="btn btn-theme btn-block btn-signout"
                                     onClick={[Function]}
                                   >
                                     <button
+                                      accessKey="S"
                                       aria-label="Log Out"
                                       className="btn btn-theme btn-block btn-signout"
                                       onClick={[Function]}

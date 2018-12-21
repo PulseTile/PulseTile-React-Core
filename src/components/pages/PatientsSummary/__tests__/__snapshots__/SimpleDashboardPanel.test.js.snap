@@ -24,11 +24,11 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
           />
         </button>
       </div>
-      <h3
+      <h2
         className="board-title"
       >
         Contacts
-      </h3>
+      </h2>
     </div>
     <div
       className="board-body"
@@ -40,25 +40,29 @@ exports[`Component <SimpleDashboardPanel /> should renders with all props correc
           className="board-list-item"
           key="__SimpleDashboardPanel__item__1"
         >
-          <span
+          <a
             className="board-list-link"
             onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex="0"
             title="John Smithy"
           >
             John Smithy
-          </span>
+          </a>
         </li>
         <li
           className="board-list-item"
           key="__SimpleDashboardPanel__item__2"
         >
-          <span
+          <a
             className="board-list-link"
             onClick={[Function]}
+            onKeyPress={[Function]}
+            tabIndex="0"
             title="Andrew Finch"
           >
             Andrew Finch
-          </span>
+          </a>
         </li>
       </ul>
     </div>
