@@ -85,6 +85,12 @@ exports[`Component <Contacts /> should renders correctly and testing context and
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -197,6 +203,12 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -299,6 +311,12 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -401,6 +419,12 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -513,6 +537,12 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section full-panel full-panel-details"
   >
@@ -565,6 +595,12 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
+    title="Contacts"
+    toRight={false}
+  />
   <div
     className="section"
   >

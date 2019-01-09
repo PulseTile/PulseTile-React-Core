@@ -87,6 +87,12 @@ exports[`Component <Diagnosis /> should renders correctly and testing context an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -281,6 +287,12 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -386,6 +398,12 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -491,6 +509,12 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -602,6 +626,12 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section full-panel full-panel-details"
   >
@@ -651,6 +681,12 @@ exports[`Component <Diagnosis /> should renders correctly with diagnosisDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The key problems that affect your health, some with clear diagnoses from your doctor"
+    title="Problems / Diagnosis"
+    toRight={false}
+  />
   <div
     className="section full-panel full-panel-details"
   >
