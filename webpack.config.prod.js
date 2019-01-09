@@ -2,9 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ES6Promise = require('es6-promise');
+const WebpackZipPlugin = require('webpack-zip-plugin');
+
+ES6Promise.polyfill();
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
+
+const currentDate = new Date();
+const currentDateLabel = currentDate.getFullYear() + '.' + (currentDate.getMonth() + 1) + '.' + currentDate.getDate();
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: path.resolve(sourcePath, 'index.html'),
@@ -29,6 +36,8 @@ module.exports = {
   plugins: [
     HtmlWebpackPluginConfig,
 
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+
     new webpack.NamedModulesPlugin(),
     // prints more readable module names in the browser console on HMR updates
 
@@ -44,6 +53,7 @@ module.exports = {
     }),
 
     new webpack.ProvidePlugin({
+      Promise: 'es6-promise-promise',
       '_': 'lodash/fp',
       '$': 'jquery',
       'jQuery': 'jquery',
@@ -61,7 +71,11 @@ module.exports = {
       },
     }),
 
-
+    new WebpackZipPlugin({
+      initialFile: './dist',
+      endPath: './build',
+      zipName: 'PulseTile-Core.build-' + currentDateLabel + '.zip',
+    }),
   ],
 
   module: {
@@ -80,7 +94,7 @@ module.exports = {
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           //resolve-url-loader may be chained before sass-loader if necessary
-          use: ['css-loader?sourceMap', 'sass-loader?sourceMap'],
+          use: ['css-loader?sourceMap&minimize', 'sass-loader?sourceMap&minimize'],
         }),
       },
     ],

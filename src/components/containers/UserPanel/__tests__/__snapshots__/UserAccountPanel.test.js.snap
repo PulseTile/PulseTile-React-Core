@@ -3,6 +3,7 @@
 exports[`Component <UserAccountPanel /> should renders with props correctly 1`] = `
 <div
   className="dropdown-user dropdown-menu-right dropdown-menu"
+  id="userAccountPanelElement"
 >
   <div
     className="user-profile-image"
@@ -13,7 +14,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
     >
       <img
         alt=""
-        src="user.jpg"
+        src="/images/user.jpg"
       />
     </div>
   </div>
@@ -34,17 +35,13 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       <div
         className="user-profile-info__item role"
       >
+        User Role:
         IDCR
       </div>
       <div
         className="user-profile-info__item email"
       >
         bob.smith@gmail.com
-      </div>
-      <div
-        className="user-profile-info__item birthday"
-      >
-        10/05/2099
       </div>
     </div>
     <div
@@ -71,11 +68,12 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       </div>
     </div>
     <PTButton
+      accessKey="S"
+      aria-label="Log Out"
       className="btn btn-theme btn-block btn-signout"
+      onClick={[Function]}
     >
-      <div
-        onClick={[Function]}
-      >
+      <div>
         <span
           className="brn-text"
         >
@@ -88,12 +86,14 @@ exports[`Component <UserAccountPanel /> should renders with props correctly 1`] 
       </div>
     </PTButton>
   </div>
+  <Connect(UserAccountPanelSettings) />
 </div>
 `;
 
 exports[`Component <UserAccountPanel /> should renders with props correctly with isShowUserProfileSettings  1`] = `
 <div
   className="dropdown-user dropdown-menu-right dropdown-menu"
+  id="userAccountPanelElement"
 >
   <div
     className="user-profile-image"
@@ -104,7 +104,7 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
     >
       <img
         alt=""
-        src="user.jpg"
+        src="/images/user.jpg"
       />
     </div>
   </div>
@@ -125,17 +125,13 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
       <div
         className="user-profile-info__item role"
       >
+        User Role:
         IDCR
       </div>
       <div
         className="user-profile-info__item email"
       >
         bob.smith@gmail.com
-      </div>
-      <div
-        className="user-profile-info__item birthday"
-      >
-        10/05/2099
       </div>
     </div>
     <div
@@ -162,11 +158,12 @@ exports[`Component <UserAccountPanel /> should renders with props correctly with
       </div>
     </div>
     <PTButton
+      accessKey="S"
+      aria-label="Log Out"
       className="btn btn-theme btn-block btn-signout"
+      onClick={[Function]}
     >
-      <div
-        onClick={[Function]}
-      >
+      <div>
         <span
           className="brn-text"
         >

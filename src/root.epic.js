@@ -4,11 +4,13 @@ import _ from 'lodash/fp';
 
 import { pluginsEpicConfig } from './plugins.config';
 import { initialiseEpic } from './ducks/initialise-app.duck';
-import { loginEpic, loginURLEpic } from './ducks/login-status.duck';
+import { loginURLEpic } from './ducks/login-status.duck';
 import { logoutEpic } from './ducks/logout.duck';
 import { fetchLogoutEpic } from './ducks/fetch-logout.duck';
 import { fetchInitialiseEpic } from './ducks/fetch-initialise.duck';
 import { setCredentialsEpic } from './ducks/set-credentials.duck';
+import { setCurrentPagePatientsEpic } from './ducks/set-current-page-patients.duck';
+import { setCurrentPageOffsetEpic } from './ducks/set-current-page-offset.duck';
 import { fetchPatientsEpic } from './ducks/feth-patients.duck';
 import { fetchPatientCountsEpic } from './ducks/fetch-patient-counts.duck';
 import { fetchUserAccountEpic } from './ducks/fetch-user-account.duck';
@@ -21,7 +23,6 @@ import { fetchPatientsInfoEpic } from './ducks/fetch-patients-info.duck';
 import { setThemeEpic } from './ducks/set-theme.duck';
 import { setLogoEpic } from './ducks/set-logo.duck';
 import { setTitleEpic } from './ducks/set-title.duck';
-import { fetchGetRssFeedsEpic } from './ducks/fetch-get-rss-feeds.duck';
 
 import { handleErrors } from './ducks/handle-errors.duck';
 
@@ -38,12 +39,13 @@ const wrapEpic = epic => (...args) =>
 
 const rootEpic = combineEpics(...[
   initialiseEpic,
-  loginEpic,
   loginURLEpic,
   logoutEpic,
   fetchLogoutEpic,
   fetchInitialiseEpic,
   setCredentialsEpic,
+  setCurrentPagePatientsEpic,
+  setCurrentPageOffsetEpic,
   fetchPatientsEpic,
   fetchPatientCountsEpic,
   fetchUserAccountEpic,
@@ -56,7 +58,6 @@ const rootEpic = combineEpics(...[
   setThemeEpic,
   setLogoEpic,
   setTitleEpic,
-  fetchGetRssFeedsEpic,
   ...pluginsEpicConfig,
 ].map(wrapEpic));
 

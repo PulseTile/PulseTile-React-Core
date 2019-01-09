@@ -11,7 +11,9 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       className="dropdown"
     >
       <PTButton
+        aria-label="List Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        id="icon-settings"
         onClick={[Function]}
       >
         <i
@@ -20,11 +22,11 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       </PTButton>
     </div>
   </div>
-  <h3
+  <h1
     className="panel-title"
   >
     Patient Summary
-  </h3>
+  </h1>
 </div>
 `;
 
@@ -39,7 +41,9 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       className="dropdown open"
     >
       <PTButton
+        aria-label="List Settings"
         className="btn btn-success btn-inverse btn-dropdown-toggle open"
+        id="icon-settings"
         onClick={[Function]}
       >
         <i
@@ -60,10 +64,10 @@ exports[`Component <PatientsSummaryListHeader /> should renders with all props c
       />
     </div>
   </div>
-  <h3
+  <h1
     className="panel-title"
   >
     Patient Summary
-  </h3>
+  </h1>
 </div>
 `;

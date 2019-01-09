@@ -31,23 +31,23 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems"
+            title="Problems / Diagnosis"
             type="checkbox"
           />
         </Col>
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
@@ -70,21 +70,24 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
+    <ExtraPatientsSummarySelectors
+      toggleCheckbox={[Function]}
+    />
   </div>
 </div>
 `;
@@ -120,23 +123,23 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
             isChecked={true}
             name="problems"
             onChange={[Function]}
-            title="Problems"
+            title="Problems / Diagnosis"
             type="checkbox"
           />
         </Col>
         <Col
           bsClass="col"
           componentClass="div"
-          key="contacts"
+          key="medications"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="contacts"
+            id="medications"
             isChecked={true}
-            name="contacts"
+            name="medications"
             onChange={[Function]}
-            title="Contacts"
+            title="Medications"
             type="checkbox"
           />
         </Col>
@@ -159,133 +162,24 @@ exports[`Component <PatientsSummaryPanel /> should renders with all props correc
         <Col
           bsClass="col"
           componentClass="div"
-          key="medications"
+          key="contacts"
           sm={4}
           xs={6}
         >
           <PTCustomInput
-            id="medications"
+            id="contacts"
             isChecked={true}
-            name="medications"
+            name="contacts"
             onChange={[Function]}
-            title="Medications"
+            title="Contacts"
             type="checkbox"
           />
         </Col>
       </Row>
     </div>
-    <div>
-      <div
-        className="heading"
-      >
-        FEEDS
-      </div>
-      <div
-        className="form-group"
-      >
-        <Row
-          bsClass="row"
-          componentClass="div"
-        >
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="nytimes_com"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="nytimes_com"
-              isChecked={false}
-              name="nytimes_com"
-              onChange={[Function]}
-              title="NYTimes.com"
-              type="checkbox"
-            />
-          </Col>
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="bbc_co_uk"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="bbc_co_uk"
-              isChecked={false}
-              name="bbc_co_uk"
-              onChange={[Function]}
-              title="BBC Health"
-              type="checkbox"
-            />
-          </Col>
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="nhs_uk"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="nhs_uk"
-              isChecked={false}
-              name="nhs_uk"
-              onChange={[Function]}
-              title="NHS Choices"
-              type="checkbox"
-            />
-          </Col>
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="gov_uk"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="gov_uk"
-              isChecked={false}
-              name="gov_uk"
-              onChange={[Function]}
-              title="Public Health"
-              type="checkbox"
-            />
-          </Col>
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="leeds-live_co_uk"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="leeds-live_co_uk"
-              isChecked={false}
-              name="leeds-live_co_uk"
-              onChange={[Function]}
-              title="Leeds Live - Whats on"
-              type="checkbox"
-            />
-          </Col>
-          <Col
-            bsClass="col"
-            componentClass="div"
-            key="news_leeds_gov_uk"
-            sm={4}
-            xs={6}
-          >
-            <PTCustomInput
-              id="news_leeds_gov_uk"
-              isChecked={false}
-              name="news_leeds_gov_uk"
-              onChange={[Function]}
-              title="Leeds CC Local News"
-              type="checkbox"
-            />
-          </Col>
-        </Row>
-      </div>
-    </div>
+    <ExtraPatientsSummarySelectors
+      toggleCheckbox={[Function]}
+    />
   </div>
 </div>
 `;

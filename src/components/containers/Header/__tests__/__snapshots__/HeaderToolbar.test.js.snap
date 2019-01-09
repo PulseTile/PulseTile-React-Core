@@ -12,19 +12,21 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
         className="header-toolbar"
       >
         <button
+          accessKey="M"
           aria-expanded="false"
+          aria-label="Show / Hide Menu"
           className="btn-toggle-sidebar wrap-icon btn-toggle-sidebar-open"
           data-target="#sidebar-nav"
           data-toggle="collapse"
           onClick={[Function]}
         >
           <i
-            className="btn-icon fa fa-bars"
+            className="btn-icon fa fa-times"
           />
           <span
             className="btn-text"
           >
-            Menu
+            Close
           </span>
         </button>
         <div
@@ -35,6 +37,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
           >
             <div
               className="patient-info-caption-btn btn-dropdown-toggle"
+              onClick={[Function]}
             />
             <div
               className="patient-info-caption-text text-truncate"
@@ -96,8 +99,8 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
                   >
                     NHS No.
                   </span>
-                   
                   <span>
+                     
                     999 999 9000
                   </span>
                 </div>
@@ -140,7 +143,7 @@ exports[`Component <HeaderToolbar /> should renders correctly 1`] = `
     </div>
   </div>
   <Connect(Connect(Sidebar))
-    activeLink="procedures"
+    activeLink="patients"
     userId="9999999000"
   />
 </div>

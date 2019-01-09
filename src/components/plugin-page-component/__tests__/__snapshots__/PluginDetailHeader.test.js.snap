@@ -8,6 +8,7 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
     className="control-group right"
   >
     <PTButton
+      aria-label="Expand / Collapse"
       className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
       onClick={[Function]}
     >
@@ -19,11 +20,11 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
       />
     </PTButton>
   </div>
-  <h3
+  <h2
     className="panel-title"
   >
     Test Title Panel
-  </h3>
+  </h2>
 </div>
 `;
 
@@ -35,6 +36,7 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
     className="control-group right"
   >
     <PTButton
+      aria-label="Expand / Collapse"
       className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
       onClick={[Function]}
     >
@@ -46,6 +48,7 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
       />
     </PTButton>
     <PTButton
+      aria-label="Toggle"
       className="btn btn-success btn-inverse btn-square btn-toggle-rotate"
       onClick={[Function]}
     >
@@ -54,10 +57,10 @@ exports[`Component <PluginDetailHeader /> should renders with all props correctl
       />
     </PTButton>
   </div>
-  <h3
+  <h2
     className="panel-title"
   >
     Test Title Panel
-  </h3>
+  </h2>
 </div>
 `;

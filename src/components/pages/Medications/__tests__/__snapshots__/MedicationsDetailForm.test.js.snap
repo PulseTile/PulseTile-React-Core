@@ -104,6 +104,7 @@ exports[`Component <MedicationsDetailForm /> should renders correctly when form 
                 className="control-group left"
               >
                 <button
+                  aria-label="Prescription"
                   className="btn btn-primary btn-inverse"
                   onClick={[Function]}
                   type="button"
@@ -120,7 +121,7 @@ exports[`Component <MedicationsDetailForm /> should renders correctly when form 
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -277,6 +278,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
                 className="control-group left"
               >
                 <button
+                  aria-label="Prescription"
                   className="btn btn-primary btn-inverse"
                   onClick={[Function]}
                   type="button"
@@ -293,7 +295,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -450,6 +452,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
                 className="control-group left"
               >
                 <button
+                  aria-label="Prescription"
                   className="btn btn-primary btn-inverse"
                   onClick={[Function]}
                   type="button"
@@ -466,7 +469,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {
@@ -623,6 +626,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
                 className="control-group left"
               >
                 <button
+                  aria-label="Prescription"
                   className="btn btn-primary btn-inverse"
                   onClick={[Function]}
                   type="button"
@@ -639,7 +643,7 @@ exports[`Component <MedicationsDetailForm /> should renders with props correctly
           <Field
             component={[Function]}
             id="doseDirections"
-            label="Dose Directions"
+            label="Dose Description"
             name="doseDirections"
             props={
               Object {

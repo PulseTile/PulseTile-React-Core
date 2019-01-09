@@ -45,7 +45,7 @@ describe('Component <Sidebar />', () => {
   it('should renders when it is visible', () => {
     const sidebarConfig = [
       { key: 'patients-summary', pathToTransition: '/patients-summary', name: 'Patient Summary', isVisible: true },
-      { key: 'diagnoses', name: 'Problems / Diagnosis', isVisible: true },
+      { key: 'diagnoses', name: 'Diagnosis', isVisible: true },
     ];
 
     const tree = render(

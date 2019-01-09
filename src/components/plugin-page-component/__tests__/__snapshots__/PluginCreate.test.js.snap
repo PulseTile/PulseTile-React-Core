@@ -1,5 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Component <PluginCreate /> should renders correctly when creation is denied for user 1`] = `undefined`;
+
 exports[`Component <PluginCreate /> should renders correctly when creation occurs after import 1`] = `
 <div
   className="section-detail"
@@ -20,6 +22,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
     <PluginDetailPanel
       currentPanel="TEST_PANEL"
       editedPanel={Object {}}
+      isEditButton={true}
       isOpen={true}
       isShowControlPanel={true}
       name="TEST_PANEL"
@@ -39,6 +42,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
               className="control-group right"
             >
               <PTButton
+                aria-label="Cancel"
                 className="btn btn-danger"
                 onClick={[Function]}
               >
@@ -48,6 +52,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
                  Cancel
               </PTButton>
               <PTButton
+                aria-label="Complete"
                 className="btn btn-success"
                 onClick={[Function]}
               >
@@ -61,6 +66,7 @@ exports[`Component <PluginCreate /> should renders correctly when creation occur
               className="control-group with-indent left"
             >
               <PTButton
+                aria-label="Back to Documents"
                 className="btn btn-success btn-inverse btn-icon-normal btn-back-doc"
                 onClick={[Function]}
               >
@@ -94,6 +100,8 @@ exports[`Component <PluginCreate /> should renders with all props correctly 1`] 
       "prop_3": "value_3",
     }
   }
+  headingName=""
+  isCreationPermitted={true}
   isImport={false}
   name="TEST_PANEL"
   onCancel={[Function]}
@@ -125,6 +133,8 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
       "prop_3": "value_3",
     }
   }
+  headingName=""
+  isCreationPermitted={true}
   isImport={false}
   name="TEST_PANEL"
   onCancel={[Function]}
@@ -143,6 +153,7 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
       <PluginDetailPanel
         currentPanel="TEST_PANEL"
         editedPanel={Object {}}
+        isEditButton={true}
         isOpen={true}
         isShowControlPanel={true}
         name="TEST_PANEL"
@@ -167,10 +178,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                 className="control-group right"
               >
                 <PTButton
+                  aria-label="Expand / Collapse"
                   className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
                   onClick={[Function]}
                 >
                   <button
+                    aria-label="Expand / Collapse"
                     className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel"
                     onClick={[Function]}
                   >
@@ -183,11 +196,11 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                   </button>
                 </PTButton>
               </div>
-              <h3
+              <h2
                 className="panel-title"
               >
                 Test Title Panel
-              </h3>
+              </h2>
             </div>
           </PluginDetailHeader>
           <div
@@ -205,10 +218,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                     className="control-group right"
                   >
                     <PTButton
+                      aria-label="Cancel"
                       className="btn btn-danger"
                       onClick={[Function]}
                     >
                       <button
+                        aria-label="Cancel"
                         className="btn btn-danger"
                         onClick={[Function]}
                       >
@@ -219,10 +234,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                       </button>
                     </PTButton>
                     <PTButton
+                      aria-label="Complete"
                       className="btn btn-success"
                       onClick={[Function]}
                     >
                       <button
+                        aria-label="Complete"
                         className="btn btn-success"
                         onClick={[Function]}
                       >
@@ -246,10 +263,12 @@ exports[`Component <PluginCreate /> should renders with all props correctly 2`] 
                   className="control-group right"
                 >
                   <PTButton
+                    aria-label="Edit"
                     className="btn btn-success btn-inverse btn-edit"
                     onClick={[Function]}
                   >
                     <button
+                      aria-label="Edit"
                       className="btn btn-success btn-inverse btn-edit"
                       onClick={[Function]}
                     >

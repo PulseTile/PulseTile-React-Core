@@ -20,7 +20,7 @@ export default class ConfirmationModal extends PureComponent {
   render() {
     const { title, onOk, onCancel, onHide, isShow, isShowOkButton, isShowCancelButton, textOkButton, textCancelButton, iconsClasses, children } = this.props;
     return (
-      <Modal show={isShow} onHide={onHide}>
+      <Modal show={isShow} onHide={onHide} backdrop="static" keyboard={false}>
         <div className="panel panel-secondary without-margin">
           <div className="panel-heading">
             <h3 className="panel-title">{ title }</h3>
@@ -34,7 +34,7 @@ export default class ConfirmationModal extends PureComponent {
               <div className="wrap-control-group hide-indent-bottom">
                 <div className="control-group with-indent right">
                   { isShowCancelButton
-                    ? <button className="btn btn-danger btn-icon-normal" onClick={onCancel}>
+                    ? <button className="btn btn-danger btn-icon-normal" aria-label={ textCancelButton } onClick={onCancel}>
                       { iconsClasses && iconsClasses.cancel
                         ? <i className={classNames(`btn-icon fa ${iconsClasses.cancel}`)} />
                         : null }
@@ -42,7 +42,7 @@ export default class ConfirmationModal extends PureComponent {
                     </button>
                     : null }
                   { isShowOkButton
-                    ? <button className="btn btn-success" onClick={onOk}>
+                    ? <button className="btn btn-success" aria-label={ textOkButton } onClick={onOk}>
                       { iconsClasses && iconsClasses.ok
                         ? <i className={classNames(`btn-icon fa ${iconsClasses.ok}`)} />
                         : null }

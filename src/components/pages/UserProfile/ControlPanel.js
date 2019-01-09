@@ -28,11 +28,11 @@ export default class ControlPanel extends PureComponent {
         <div className={classNames('panel panel-secondary', { open: isOpen })}>
           <div className="panel-heading">
             <div className="control-group right">
-              <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" onClick={() => onExpand(name)}>
+              <PTButton className="btn btn-success btn-inverse btn-square hidden-xs hidden-sm btn-expand-panel" aria-label="Expand / Collapse" onClick={() => onExpand(name)}>
                 <i className="btn-icon fa fa-expand" />
                 <i className="btn-icon fa fa-compress" />
               </PTButton>
-              <PTButton className="btn btn-success btn-inverse btn-square btn-toggle-rotate" onClick={() => onShow(name)}>
+              <PTButton className="btn btn-success btn-inverse btn-square btn-toggle-rotate" aria-label="Toggle" onClick={() => onShow(name)}>
                 <i className="btn-icon fa fa-chevron-up" />
               </PTButton>
             </div>
@@ -43,7 +43,7 @@ export default class ControlPanel extends PureComponent {
             {(isShowControlPanel && isOpen && (_.isUndefined(editedPanel[name]) || !editedPanel[name])) ? <div className="panel-control">
               <div className="wrap-control-group">
                 <div className="control-group right">
-                  <PTButton className="btn btn-success btn-inverse btn-edit" onClick={() => onEdit(name)}>
+                  <PTButton className="btn btn-success btn-inverse btn-edit" aria-label="Edit" onClick={() => onEdit(name)}>
                     <i className="fa fa-edit" /> Edit
                   </PTButton>
                 </div>
@@ -52,10 +52,10 @@ export default class ControlPanel extends PureComponent {
             {(isShowControlPanel && isOpen && editedPanel[name]) && <div className="panel-control">
               <div className="wrap-control-group">
                 <div className="control-group right">
-                  <PTButton className="btn btn-danger" onClick={() => onCancel(name)}>
+                  <PTButton className="btn btn-danger" aria-label="Cancel" onClick={() => onCancel(name)}>
                     <i className="fa fa-ban" /> Cancel
                   </PTButton>
-                  <PTButton className="btn btn-success" onClick={() => isSaveButton ? onSaveSettings(formValues, name) : onCancel(name)}>
+                  <PTButton className="btn btn-success" aria-label="Complete" onClick={() => isSaveButton ? onSaveSettings(formValues, name) : onCancel(name)}>
                     <i className="fa fa-check" /> Complete
                   </PTButton>
                 </div>

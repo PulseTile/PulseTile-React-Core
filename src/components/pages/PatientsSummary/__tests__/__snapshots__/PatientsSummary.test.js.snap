@@ -17,21 +17,41 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
           }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
@@ -41,8 +61,6 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -62,6 +80,7 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
           >
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-problems"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -76,12 +95,13 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew={null}
               state="diagnoses"
               title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-medications"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -96,12 +116,13 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
-              state="contacts"
-              title="Contacts"
+              srcPrevirew={null}
+              state="medications"
+              title="Medications"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-allergies"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -116,12 +137,13 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew={null}
               state="allergies"
               title="Allergies"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-contacts"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -136,9 +158,50 @@ exports[`Component <PatientsSummary /> should renders Feeds correctly 1`] = `
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
-              state="medications"
-              title="Medications"
+              srcPrevirew={null}
+              state="contacts"
+              title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={true}
             />
           </div>
         </div>
@@ -165,21 +228,41 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
           }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
@@ -189,8 +272,6 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -210,6 +291,7 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
           >
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-problems"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -224,12 +306,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew={null}
               state="diagnoses"
               title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-medications"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -244,12 +327,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
-              state="contacts"
-              title="Contacts"
+              srcPrevirew={null}
+              state="medications"
+              title="Medications"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-allergies"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -264,12 +348,13 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew={null}
               state="allergies"
               title="Allergies"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-contacts"
               isFeeds={false}
               isHasList={true}
               isHasPreview={true}
@@ -284,9 +369,50 @@ exports[`Component <PatientsSummary /> should renders with Disclaimer Modal corr
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
-              state="medications"
-              title="Medications"
+              srcPrevirew={null}
+              state="contacts"
+              title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={true}
             />
           </div>
         </div>
@@ -327,21 +453,41 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
         className="panel panel-primary panel-dashboard"
       >
         <PatientsSummaryListHeader
-          feeds={
-            Array [
-              Object {
-                "landingPageUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/",
-                "name": "Leeds Live - Whats on",
-                "rssFeedUrl": "https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss",
-                "sourceId": "testSourceID4",
-              },
-              Object {
-                "landingPageUrl": "https://news.leeds.gov.uk",
-                "name": "Leeds CC Local News",
-                "rssFeedUrl": "https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news",
-                "sourceId": "testSourceID5",
-              },
-            ]
+          boards={
+            Object {
+              "allergies": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "contacts": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "medications": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+              "problems": Array [
+                Object {
+                  "text": "Loading ...",
+                },
+                "",
+                "",
+                "",
+              ],
+            }
           }
           onCategorySelected={[Function]}
           onViewOfBoardsSelected={[Function]}
@@ -351,8 +497,6 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
               "contacts": true,
               "medications": true,
               "problems": true,
-              "topThreeThings": true,
-              "vaccinations": true,
             }
           }
           selectedViewOfBoards={
@@ -372,6 +516,7 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
           >
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-problems"
               isFeeds={false}
               isHasList={true}
               isHasPreview={false}
@@ -386,12 +531,13 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="0"
-              srcPrevirew="problems.jpg"
+              srcPrevirew={null}
               state="diagnoses"
               title="Problems / Diagnosis"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-medications"
               isFeeds={false}
               isHasList={true}
               isHasPreview={false}
@@ -406,12 +552,13 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="1"
-              srcPrevirew="contacts.jpg"
-              state="contacts"
-              title="Contacts"
+              srcPrevirew={null}
+              state="medications"
+              title="Medications"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-allergies"
               isFeeds={false}
               isHasList={true}
               isHasPreview={false}
@@ -426,12 +573,13 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="2"
-              srcPrevirew="allergies.jpg"
+              srcPrevirew={null}
               state="allergies"
               title="Allergies"
             />
             <SimpleDashboardPanel
               goToState={[Function]}
+              id="summary-panel-contacts"
               isFeeds={false}
               isHasList={true}
               isHasPreview={false}
@@ -446,9 +594,50 @@ exports[`Component <PatientsSummary /> should renders with all props correctly 1
                 ]
               }
               key="3"
-              srcPrevirew="medications.jpg"
-              state="medications"
-              title="Medications"
+              srcPrevirew={null}
+              state="contacts"
+              title="Contacts"
+            />
+            <ExtraPatientsSummarySelectors
+              boards={
+                Object {
+                  "allergies": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "contacts": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "medications": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                  "problems": Array [
+                    Object {
+                      "text": "Loading ...",
+                    },
+                    "",
+                    "",
+                    "",
+                  ],
+                }
+              }
+              handleGoToState={[Function]}
+              isHasList={true}
+              isHasPreview={false}
             />
           </div>
         </div>

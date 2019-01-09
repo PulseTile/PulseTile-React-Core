@@ -2,6 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ES6Promise = require('es6-promise');
+
+ES6Promise.polyfill();
 
 const sourcePath = path.join(__dirname, 'src');
 const buildPath = path.join(__dirname, 'dist');
@@ -53,6 +56,7 @@ module.exports = {
     new ExtractTextPlugin('styles.css'),
 
     new webpack.ProvidePlugin({
+      Promise: 'es6-promise-promise',
       '_': 'lodash/fp',
       '$': 'jquery',
       'jQuery': 'jquery',

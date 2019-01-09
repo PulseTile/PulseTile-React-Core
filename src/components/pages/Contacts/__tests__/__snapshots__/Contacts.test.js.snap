@@ -5,8 +5,8 @@ exports[`Component <Contacts /> should renders correctly and testing another met
   className="page-wrapper"
 >
   <PluginBanner
-    img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -37,7 +37,7 @@ exports[`Component <Contacts /> should renders correctly and testing another met
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -49,12 +49,6 @@ exports[`Component <Contacts /> should renders correctly and testing another met
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -118,7 +112,7 @@ exports[`Component <Contacts /> should renders correctly and testing context and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -130,12 +124,6 @@ exports[`Component <Contacts /> should renders correctly and testing context and
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -236,7 +224,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -248,12 +236,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -295,7 +277,9 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           }
           currentPanel="contactsCreate"
           expandedPanel="all"
+          headingName=""
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
@@ -342,7 +326,7 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -354,12 +338,6 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -401,7 +379,9 @@ exports[`Component <Contacts /> should renders correctly with contactsDetail and
           }
           currentPanel="contactsCreate"
           expandedPanel="all"
+          headingName=""
           isCreatePanelVisible={true}
+          isCreationPermitted={true}
           isImport={false}
           name="contactsCreate"
           onCancel={[Function]}
@@ -448,7 +428,7 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -460,12 +440,6 @@ exports[`Component <Contacts /> should renders correctly with diagnosisDetail an
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -607,8 +581,8 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
   className="page-wrapper"
 >
   <PluginBanner
-    img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -639,7 +613,7 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -651,12 +625,6 @@ exports[`Component <Contacts /> should renders correctly with empty store 1`] = 
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",
@@ -694,8 +662,8 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
   className="page-wrapper"
 >
   <PluginBanner
-    img="contacts.jpg"
-    subTitle="Short blurb containing a few words to describe this section"
+    img={null}
+    subTitle="The key people in your life, that you keep in contact with on a regular basis"
     title="Contacts"
     toRight={false}
   />
@@ -726,7 +694,7 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
           />
           <PluginMainPanel
             columnNameSortBy="name"
-            emptyDataMessage="No contacts"
+            emptyDataMessage="No information available"
             headers={
               Array [
                 Object {
@@ -738,12 +706,6 @@ exports[`Component <Contacts /> should renders correctly with forms error 1`] = 
                   "key": "relationship",
                   "title": "Relationship",
                   "width": "28%",
-                },
-                Object {
-                  "key": "nextOfKin",
-                  "title": "Next Of Kin",
-                  "transformer": [Function],
-                  "width": "25%",
                 },
                 Object {
                   "key": "source",

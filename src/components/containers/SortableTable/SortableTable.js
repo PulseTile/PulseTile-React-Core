@@ -23,28 +23,53 @@ export default class SortableTable extends PureComponent {
     data: [],
   };
 
+
+  checkSortableTableRows = (rowsData) => {
+
+    const rowsArr = [];
+    const size = 4;
+    const rowsEmptyValues = [];
+    rowsData.map((rows) => {
+      rowsArr.push(rows);
+      return rows;
+    });
+    const emptyRows = rowsArr.slice(0, size);
+    emptyRows.forEach((item) => {
+      if (item[0].value === '') {
+        rowsEmptyValues.push(item[0].value);
+      }
+    });
+
+    return rowsEmptyValues.length > 0;
+  };
+
+
   getSortableTableRows = (rowsData, resourceData, emptyDataMessage) => {
     const { onCellClick, columnNameSortBy, headers, table, id } = this.props;
     const amountCollumns = headers.length - 1;
+
     return (
-      _.isUndefined(resourceData)
+      ( _.isUndefined(resourceData) || this.checkSortableTableRows(rowsData) )
         ? <SortableTableEmptyDataRow isLoading emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
         : !resourceData.length
-          ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
-          : rowsData.map((rowData, index) =>
-            <SortableTableRow
-              key={_.uniqueId('__SortableTableRow__')}
-              rowData={rowData}
-              onCellClick={onCellClick}
-              columnNameSortBy={columnNameSortBy}
-              headers={headers}
-              index={index}
-              table={table}
-              resourceData={resourceData}
-              id={id}
-            />)
+        ? <SortableTableEmptyDataRow isLoading={false} emptyDataMessage={emptyDataMessage} amountCollumns={amountCollumns} />
+        : rowsData.map((rowData, index) =>
+          <SortableTableRow
+            key={_.uniqueId('__SortableTableRow__')}
+            rowData={rowData}
+            onCellClick={onCellClick}
+            columnNameSortBy={columnNameSortBy}
+            headers={headers}
+            index={index}
+            table={table}
+            resourceData={resourceData}
+            id={id}
+          />)
     )
   };
+
+
+
 
   addHighlighters = (data, rowsData) => {
     if (!data) return;
@@ -75,15 +100,15 @@ export default class SortableTable extends PureComponent {
           })}
         </colgroup>
         <thead>
-          <SortableTableHeaderRow
-            headers={headers}
-            onHeaderCellClick={onHeaderCellClick}
-            sortingOrder={sortingOrder}
-            columnNameSortBy={columnNameSortBy}
-          />
+        <SortableTableHeaderRow
+          headers={headers}
+          onHeaderCellClick={onHeaderCellClick}
+          sortingOrder={sortingOrder}
+          columnNameSortBy={columnNameSortBy}
+        />
         </thead>
         <tbody>
-          {this.getSortableTableRows(rowsData, resourceData, emptyDataMessage)}
+        {this.getSortableTableRows(rowsData, resourceData, emptyDataMessage)}
         </tbody>
       </table>
     )

@@ -4,11 +4,11 @@ exports[`Component <ConfirmationModal /> should renders with all props correctly
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],
@@ -60,6 +60,7 @@ exports[`Component <ConfirmationModal /> should renders with all props correctly
             className="control-group with-indent right"
           >
             <button
+              aria-label="Cancel text"
               className="btn btn-danger btn-icon-normal"
               onClick={[Function]}
             >
@@ -74,6 +75,7 @@ exports[`Component <ConfirmationModal /> should renders with all props correctly
               </span>
             </button>
             <button
+              aria-label="Ok text"
               className="btn btn-success"
               onClick={[Function]}
             >
@@ -99,11 +101,11 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],
@@ -155,6 +157,7 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
             className="control-group with-indent right"
           >
             <button
+              aria-label="Cancel text"
               className="btn btn-danger btn-icon-normal"
               onClick={[Function]}
             >
@@ -166,6 +169,7 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
               </span>
             </button>
             <button
+              aria-label="Ok text"
               className="btn btn-success"
               onClick={[Function]}
             >
@@ -188,11 +192,11 @@ exports[`Component <ConfirmationModal /> should renders without icons and button
 <Modal
   animation={true}
   autoFocus={true}
-  backdrop={true}
+  backdrop="static"
   bsClass="modal"
   dialogComponentClass={[Function]}
   enforceFocus={true}
-  keyboard={true}
+  keyboard={false}
   manager={
     ModalManager {
       "add": [Function],

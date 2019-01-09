@@ -222,7 +222,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
             {(prescriptionFormValue[valuesNames.FINISH_CANCELLED] && prescriptionFormValue[valuesNames.ROUTE].length && prescriptionFormValue[valuesNames.ROUTE] !== '-- Route --' && !_.isEmpty(prescriptionFormValue[valuesNames.DOSE_INTERVAL]) && !_.isEmpty(prescriptionFormValue[valuesNames.DOSE_QUANTITY])) ? <div className="form-group">
               <div className="wrap-control-group">
                 <div className="control-group left">
-                  <button type="button" className="btn btn-success btn-icon-normal">
+                  <button type="button" aria-label="Add Dosage" className="btn btn-success btn-icon-normal">
                     <i className="btn-icon fa fa-plus" />
                     <span className="btn-text"> Add Dosage</span>
                   </button>
@@ -235,7 +235,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
             <div className="form-group">
               <label className="control-label">Dose Timing:</label>
               <div className="non-edit-value">
-                <button type="button" className="btn btn-danger btn-sm btn-icon-normal btn-square">
+                <button type="button" aria-label="Remove" className="btn btn-danger btn-sm btn-icon-normal btn-square">
                   <i className="btn-icon fa fa-ban" />
                 </button>
                 <span className="ng-binding"> 2X each morning </span>
@@ -244,7 +244,7 @@ export default class MedicationsPrescriptionForm extends PureComponent {
             <div className="form-group">
               <div className="wrap-control-group">
                 <div className="control-group left">
-                  <button type="button" className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" onClick={() => toggleHourlySchedule()}>
+                  <button type="button" aria-label="Hourly Schedule" className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule" onClick={() => toggleHourlySchedule()}>
                     <i className="btn-icon fa fa-table" />
                     <span className="btn-text"> Hourly Schedule</span>
                   </button>

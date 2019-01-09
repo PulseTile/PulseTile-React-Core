@@ -54,7 +54,7 @@ export default class PluginMainPanel extends PureComponent {
               </div>
               }
               {isBtnCreateVisible && <div className="control-group with-indent right">
-                <PTButton className="btn btn-success btn-inverse btn-create" onClick={() => onCreate()}>
+                <PTButton className="btn btn-success btn-inverse btn-create" aria-label="Create" onClick={() => onCreate()}>
                   <i className="btn-icon fa fa-plus" />
                   <span className="btn-text"> Create</span>
                 </PTButton>

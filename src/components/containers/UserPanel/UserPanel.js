@@ -1,10 +1,14 @@
 import React, { PureComponent } from 'react';
 import classNames from 'classnames';
+import { get } from 'lodash';
 
 import PTButton from '../../ui-elements/PTButton/PTButton';
 import UserPanelItem from './UserPanelItem';
 import NotificationContent from '../../presentational/temprorary/NotificationContent'
 import UserAccountPanel from './UserAccountPanel'
+import { themeConfigs } from '../../../themes.config';
+
+import TopHeaderButtons from '../../theme/components/TopHeaderButtons';
 
 const USER_ACCOUNT_PANEL = 'userAccountPanel';
 const NOTIFICATION_CONTENT = 'notificationContent';
@@ -12,11 +16,9 @@ const NOTIFICATION_CONTENT = 'notificationContent';
 export default class UserPanel extends PureComponent {
 
   static defaultProps = {
-    isSearch: true,
-    isQuestions: false,
-    isNotifications: true,
-    isUserPanel: true,
     addUserPanels: [],
+    pageUrl: '',
+    userId: '',
   };
 
   state = {
@@ -32,6 +34,8 @@ export default class UserPanel extends PureComponent {
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
   }
+
+
 
   handleClick = /* istanbul ignore next */ (e) => {
     if (!this.node.contains(e.target)) {
@@ -49,6 +53,17 @@ export default class UserPanel extends PureComponent {
     })
   };
 
+  toggleHighContrast = () => {
+    let bodyTag = document.getElementsByTagName("body")[0];
+
+    //TODO: Should we remember this in a cookie?
+    if( bodyTag.classList.contains("high-contrast") ){
+      bodyTag.classList.remove("high-contrast")
+    } else {
+      bodyTag.classList.add("high-contrast")
+    }
+  };
+
   closePanel = () => {
     this.setState({ openedPanel: '' });
   };
@@ -63,42 +78,51 @@ export default class UserPanel extends PureComponent {
         );
       });
     }
-
     return null;
   };
 
   render() {
     const { openedPanel } = this.state;
-    const { isSearch, isQuestions, isNotifications, isUserPanel, addUserPanels } = this.props;
+    const { addUserPanels, pageUrl, homepageLink } = this.props;
+
+
+    const isSearch = get(themeConfigs, 'topHeader.showSearch', true);
+    const isNotifications = get(themeConfigs, 'topHeader.showNotifications', true);
+    const isUserPanel = get(themeConfigs, 'topHeader.showUserPanel', true);
+    const isHighContrast = get(themeConfigs, 'topHeader.showHighContrast', true);
+
     const additionalUserPanels = this.getUserPanelsItems(addUserPanels);
+
     return (
-      <ul className="user-panel" role="tablist" ref={node => this.node = node}>
-        {isSearch ? <UserPanelItem className="user-panel-item visible-xs">
-          <PTButton className="btn-header">
-            <i className="fa fa-search" />
-          </PTButton>
-        </UserPanelItem> : null}
+      <ul className="user-panel" role="tablist" ref={node => this.node = node} id="top-header-buttons">
         { additionalUserPanels }
-        {isQuestions ? <UserPanelItem className="user-panel-item">
-          <PTButton className="btn-header">
-            <i className="fa fa-question-circle" />
-          </PTButton>
-        </UserPanelItem> : null}
-        {isNotifications ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
+
+        <TopHeaderButtons pageUrl={pageUrl} homepageLink={homepageLink} />
+
+        {isNotifications ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === NOTIFICATION_CONTENT })}>
           <NotificationContent />
-          <PTButton className="btn-header btn-notification" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
+          <PTButton className="btn-header btn-notification" aria-label="Notifications" onClick={() => this.handleMouseDown(NOTIFICATION_CONTENT)}>
             <div>
               <i className="fa fa-bell-o" />
               <span className="count">2</span>
             </div>
           </PTButton>
         </UserPanelItem> : null}
-        {isUserPanel ? <UserPanelItem className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
+
+        {isHighContrast ? <UserPanelItem role="tab" className="user-panel-item">
+          <PTButton className="btn-header btn-high-contrast" aria-label="High Contrast Mode" title="High Contrast Mode"
+            onClick={ this.toggleHighContrast }>
+            <i className="fa fa-adjust" />
+          </PTButton>
+        </UserPanelItem> : null}
+
+        {isUserPanel ? <UserPanelItem role="tab" className={classNames('user-panel-item dropdown', { 'open': openedPanel === USER_ACCOUNT_PANEL })}>
           <UserAccountPanel onClick={this.handleMouseDown} onClose={this.closePanel} />
-          <PTButton className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
+          <PTButton aria-controls="userAccountPanelElement" aria-label="User Panel" id="icon-profile" className="btn-header btn-user" onClick={() => this.handleMouseDown(USER_ACCOUNT_PANEL)}>
             <i className="fa fa-user" />
           </PTButton>
         </UserPanelItem> : null}
+
       </ul>
     )
   }

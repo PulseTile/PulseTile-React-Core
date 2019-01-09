@@ -2,9 +2,12 @@ import React from 'react';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-15';
 import configureStore from 'redux-mock-store';
+import { get } from 'lodash';
 
+import { testStoreContent } from '../../../theme/config/plugins';
 import PatientsSummary from '../PatientsSummary';
 import { themeConfigs } from '../../../../themes.config';
+import { getPanelsNumber } from '../functions';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -32,26 +35,28 @@ class LocalStorageMock {
 global.localStorage = new LocalStorageMock();
 
 const mockStore = configureStore();
-const store = mockStore({
-  userId: '9999999000',
-  patientsDiagnoses: {},
-  patientsContacts: {},
-  patientsAllergies: {},
-  patientsMedications: {},
-  patientsVaccinations: {},
-  patientsTopThreeThings: {},
-  feeds: [{
-    name: 'Leeds Live - Whats on',
-    landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
-    rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
-    sourceId: 'testSourceID4',
-  }, {
-    name: 'Leeds CC Local News',
-    landingPageUrl: 'https://news.leeds.gov.uk',
-    rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
-    sourceId: 'testSourceID5',
-  }],
-});
+
+const coreStoreContent = {
+    userId: '9999999000',
+    patientsDiagnoses: {},
+    patientsContacts: {},
+    patientsAllergies: {},
+    patientsMedications: {},
+    feeds: [{
+      name: 'Leeds Live - Whats on',
+      landingPageUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/',
+      rssFeedUrl: 'https://www.leeds-live.co.uk/best-in-leeds/whats-on-news/?service=rss',
+      sourceId: 'testSourceID4',
+    }, {
+      name: 'Leeds CC Local News',
+      landingPageUrl: 'https://news.leeds.gov.uk',
+      rssFeedUrl: 'https://news.leeds.gov.uk/tagfeed/en/tags/Leeds-news',
+      sourceId: 'testSourceID5',
+    }],
+};
+const storeContent = Object.assign(coreStoreContent, testStoreContent);
+
+const store = mockStore(storeContent);
 const match = {
   params: {},
 };
@@ -89,14 +94,20 @@ const testProps = {
 
 describe('Component <PatientsSummary />', () => {
   it('should renders with all props correctly', () => {
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive();
 
     expect(component).toMatchSnapshot();
 
@@ -106,9 +117,11 @@ describe('Component <PatientsSummary />', () => {
     expect(component.find('.page-wrapper')).toHaveLength(1);
     expect(component.find('PatientsSummaryListHeader')).toHaveLength(1);
     expect(component.find('.dashboard')).toHaveLength(1);
-    expect(component.find('SimpleDashboardPanel')).toHaveLength(4);
-    expect(component.find('ConfirmationModal')).toHaveLength(0);
 
+    const panelsNumber = getPanelsNumber(testStoreContent);
+
+    expect(component.find('SimpleDashboardPanel')).toHaveLength(panelsNumber);
+    expect(component.find('ConfirmationModal')).toHaveLength(0);
 
     component.instance().handleGoToState('contacts');
 
@@ -141,14 +154,20 @@ describe('Component <PatientsSummary />', () => {
 
   it('should renders with Disclaimer Modal correctly', () => {
     localStorage.setItem('isShowDisclaimerOfRedirect', true);
-    const component = shallow(
+    let component = shallow(
       <PatientsSummary
         store={store}
         match={match}
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive();
 
     expect(component).toMatchSnapshot();
 
@@ -166,7 +185,13 @@ describe('Component <PatientsSummary />', () => {
         location={location}
         onCategorySelected={testProps.onCategorySelected}
         selectedCategory={testProps.selectedCategory}
-      />, { context }).dive().dive().dive().dive().dive().dive().dive().dive().dive();
+      />, { context })
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive()
+        .dive();
 
     expect(component).toMatchSnapshot();
   });

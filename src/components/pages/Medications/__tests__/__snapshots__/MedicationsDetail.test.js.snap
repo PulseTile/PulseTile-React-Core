@@ -47,8 +47,12 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   />
                 </div>
               </div>
+            </div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="col-expand-right"
+                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -92,6 +96,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                       className="control-group left"
                     >
                       <button
+                        aria-label="Prescription"
                         className="btn btn-primary btn-inverse"
                         onClick={[Function]}
                         type="button"
@@ -105,13 +110,21 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
                 <div
                   className="form-group"
                 >
                   <label
                     className="control-label"
                   >
-                    Dose Directions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"
@@ -138,8 +151,12 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   />
                 </div>
               </div>
+            </div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="col-expand-right"
+                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -179,6 +196,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -257,6 +275,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
                   className="control-group left"
                 >
                   <PTButton
+                    aria-label="Hourly Schedule"
                     className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
                     onClick={[Function]}
                   >
@@ -294,6 +313,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="warningsPanel"
@@ -426,6 +446,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="changeHistoryPanel"
@@ -510,6 +531,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="medicationPanel"
@@ -553,6 +575,7 @@ exports[`Component <MedicationsDetail /> should renders correctly with different
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -632,8 +655,12 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="col-expand-right"
+                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -681,6 +708,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                       className="control-group left"
                     >
                       <button
+                        aria-label="Prescription"
                         className="btn btn-primary btn-inverse"
                         onClick={[Function]}
                         type="button"
@@ -694,13 +722,21 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
                 <div
                   className="form-group"
                 >
                   <label
                     className="control-label"
                   >
-                    Dose Directions
+                    Dose Description
                   </label>
                   <div
                     className="form-control-static"
@@ -731,8 +767,12 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              className="row-expand"
+            >
               <div
-                className="col-expand-right"
+                className="col-expand-left"
               >
                 <div
                   className="form-group"
@@ -761,6 +801,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={true}
       name="prescriptionPanel"
@@ -844,6 +885,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                   className="control-group left"
                 >
                   <PTButton
+                    aria-label="Hourly Schedule"
                     className="btn btn-success btn-sm btn-inverse btn-icon-normal btn-dropdown-toggle btn-schedule"
                     onClick={[Function]}
                   >
@@ -985,6 +1027,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="warningsPanel"
@@ -1107,6 +1150,7 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
         }
       }
       isBtnShowPanel={true}
+      isEditButton={true}
       isOpen={false}
       isShowControlPanel={false}
       name="changeHistoryPanel"
@@ -1166,6 +1210,55 @@ exports[`Component <MedicationsDetail /> should renders with props correctly 1`]
                       />
                     </span>
                       40-20mg
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </PluginDetailPanel>
+    <PluginDetailPanel
+      editedPanel={
+        Object {
+          "medicationPanel": false,
+        }
+      }
+      isBtnShowPanel={true}
+      isEditButton={true}
+      isOpen={false}
+      isShowControlPanel={false}
+      name="systemInformationPanel"
+      onShow={[Function]}
+      title="System Information"
+    >
+      <div
+        className="panel-body-inner"
+      >
+        <div
+          className="form"
+        >
+          <div
+            className="form-group-wrapper"
+          >
+            <div
+              className="row-expand"
+            >
+              <div
+                className="col-expand-left"
+              >
+                <div
+                  className="form-group"
+                >
+                  <label
+                    className="control-label"
+                  >
+                    Source
+                  </label>
+                  <div
+                    className="form-control-static"
+                  >
+                    marand
                   </div>
                 </div>
               </div>

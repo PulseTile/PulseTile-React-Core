@@ -25,13 +25,13 @@ export default class PatientsSummaryListHeader extends PureComponent {
 
     render() {
       const { isPatientSummaryPanelVisible } = this.state;
-      const { onCategorySelected, onViewOfBoardsSelected, selectedCategory, selectedViewOfBoards, title, feeds } = this.props;
+      const { onCategorySelected, onViewOfBoardsSelected, selectedCategory, selectedViewOfBoards, title, boards } = this.props;
 
       return (
         <div className="panel-heading">
           <div className="control-group left">
             <div className={classNames('dropdown', { open: isPatientSummaryPanelVisible })}>
-              <PTButton className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientSummaryPanelVisibility}>
+              <PTButton id="icon-settings" aria-label="List Settings" className="btn btn-success btn-inverse btn-dropdown-toggle open" onClick={this.togglePatientSummaryPanelVisibility}>
                 <i className="btn-icon fa fa-cog" />
               </PTButton>
               {isPatientSummaryPanelVisible && <PatientsSummaryPanel
@@ -40,11 +40,11 @@ export default class PatientsSummaryListHeader extends PureComponent {
                 selectedCategory={selectedCategory}
                 selectedViewOfBoards={selectedViewOfBoards}
                 toggleVisibility={this.togglePatientSummaryPanelVisibility}
-                feeds={feeds}
+                boards={boards}
               />}
             </div>
           </div>
-          <h3 className="panel-title">{ title }</h3>
+          <h1 className="panel-title">{ title }</h1>
         </div>
       )
     }

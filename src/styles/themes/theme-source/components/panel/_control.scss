@@ -1,8 +1,0 @@
-@each $label, $panel in $panels {
-  .#{$label} {
-    .panel-control { background: map-get($panel, 'control-bg'); }
-  }
-}
-.panel-primary .panel-control {
-  padding: 2px 0px 0;
-}

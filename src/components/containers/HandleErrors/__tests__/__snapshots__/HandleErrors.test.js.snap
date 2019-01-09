@@ -1,23 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Component <HandleErrors /> RSS feeds error testing 1`] = `
-<div>
-  <ConfirmationModal
-    isShow={true}
-    isShowCancelButton={false}
-    isShowOkButton={true}
-    onHide={[Function]}
-    onOk={[Function]}
-    textCancelButton="Cancel"
-    textOkButton="Ok"
-    title="Connection Error"
-  >
-    <span>
-      Cross-Origin Request Blocked: reading of remote resource is disallowed
-    </span>
-  </ConfirmationModal>
-</div>
-`;
+exports[`Component <HandleErrors /> RSS feeds error testing 1`] = `""`;
 
 exports[`Component <HandleErrors /> Token expired error testing 1`] = `
 <div>
@@ -51,7 +34,7 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
     title="Connection Error"
   >
     <span>
-      Current request is invalid.
+      API request is invalid
     </span>
   </ConfirmationModal>
 </div>
@@ -71,6 +54,25 @@ exports[`Component <HandleErrors /> should renders correctly when requestError c
   >
     <span>
       Your session has expired. Click the button to log in again
+    </span>
+  </ConfirmationModal>
+</div>
+`;
+
+exports[`Component <HandleErrors /> should renders correctly when requestError contains 404 error 1`] = `
+<div>
+  <ConfirmationModal
+    isShow={true}
+    isShowCancelButton={false}
+    isShowOkButton={true}
+    onHide={[Function]}
+    onOk={[Function]}
+    textCancelButton="Cancel"
+    textOkButton="Ok"
+    title="Connection Error"
+  >
+    <span>
+      API is currently unavailable
     </span>
   </ConfirmationModal>
 </div>

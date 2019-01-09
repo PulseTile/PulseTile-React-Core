@@ -8,8 +8,8 @@ cache:
     - node_modules
 
 branches:
-  only:
-    - master
+    - develop
+    - develop-merge
 
 node_js:
   - 8
@@ -32,6 +32,6 @@ after_success:
 
 notifications:
   email:
-    recipients: tony.shannon@ripple.foundation
+    recipients: bsc@piogroup.net
     on_success: always
     on_failure: always

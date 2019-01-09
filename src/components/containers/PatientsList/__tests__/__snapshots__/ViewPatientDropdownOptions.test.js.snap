@@ -27,26 +27,6 @@ exports[`Component <ViewPatientDropdownOptions /> should renders correctly 1`] =
         <span
           className="dropdown-menu-item-text"
         >
-          Results
-        </span>
-      </div>
-      <div
-        className="dropdown-menu-item"
-        onClick={[Function]}
-      >
-        <span
-          className="dropdown-menu-item-text"
-        >
-          Vitals
-        </span>
-      </div>
-      <div
-        className="dropdown-menu-item"
-        onClick={[Function]}
-      >
-        <span
-          className="dropdown-menu-item-text"
-        >
           Diagnosis
         </span>
       </div>

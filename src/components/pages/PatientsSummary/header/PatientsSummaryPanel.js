@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash/fp';
+import { get } from 'lodash';
 import { lifecycle } from 'recompose';
 import { Row } from 'react-bootstrap';
 import { Col } from 'react-bootstrap';
@@ -10,9 +11,11 @@ import { unmountOnBlur } from '../../../../utils/HOCs/unmount-on-blur.utils'
 import { patientsSummaryConfig } from '../patients-summary.config';
 import { themeConfigs } from '../../../../themes.config';
 import { dashboardBeing } from '../../../../plugins.config';
-import { getNameFromUrl } from '../../../../utils/rss-helpers';
+
+import ExtraPatientsSummarySelectors from '../../../theme/components/ExtraPatientsSummarySelectors';
 
 @lifecycle(unmountOnBlur)
+
 export default class PatientsSummaryPanel extends PureComponent {
   static propTypes = {
     onCategorySelected: PropTypes.func.isRequired,
@@ -49,7 +52,7 @@ export default class PatientsSummaryPanel extends PureComponent {
 
   render() {
     const { selected, selectedViewOptions } = this.state;
-    const { patientsSummaryHasPreviewSettings, feeds } = this.props;
+    const { patientsSummaryHasPreviewSettings, boards } = this.props;
 
     return (
       <div className="dropdown-menu dropdown-menu-panel dropdown-menu-summary">
@@ -72,44 +75,21 @@ export default class PatientsSummaryPanel extends PureComponent {
               })}
             </Row>
           </div>
-          {themeConfigs.isLeedsPHRTheme ?
-            <div>
-              <div className="heading">FEEDS</div>
-              <div className="form-group">
-                <Row>
-                  {feeds.map((item) => {
-                    const nameItem = getNameFromUrl(item.landingPageUrl);
-                    const isChecked = ('true' == localStorage.getItem('isShow_'+nameItem));
-                    return (
-                      <Col xs={6} sm={4} key={nameItem}>
-                        <PTCustomInput
-                          type="checkbox"
-                          title={item.name}
-                          id={nameItem}
-                          name={nameItem}
-                          isChecked={isChecked}
-                          onChange={this.toggleCheckbox}
-                        />
-                      </Col>)
-                  })}
-                </Row>
-              </div>
-            </div> : null }
+
+          <ExtraPatientsSummarySelectors boards={boards} toggleCheckbox={this.toggleCheckbox} />
+
           {(themeConfigs.patientsSummaryHasPreviewSettings || patientsSummaryHasPreviewSettings) ?
             <div>
               <div className="heading">VIEW OF BOARDS</div>
               <div className="form-group">
                 <Row>
                   <Col xs={12}>
-                    <PTCustomInput type="radio" title="Full View" id="full" name="view-of-preview" value="full" isChecked={selectedViewOptions.full} onChange={this.toggleRadio} />
+                    <PTCustomInput type="radio" title="Headings + List" id="full" name="view-of-preview" value="full" isChecked={get(selectedViewOptions, 'full', null)} onChange={this.toggleRadio} />
                   </Col>
                 </Row>
                 <Row>
-                  <Col xs={12} sm={6}>
-                    <PTCustomInput type="radio" title="Only Preview" id="preview" name="view-of-preview" value="preview" isChecked={selectedViewOptions.preview} onChange={this.toggleRadio} />
-                  </Col>
-                  <Col xs={12} sm={6}>
-                    <PTCustomInput type="radio" title="Only List" id="list" name="view-of-preview" value="list" isChecked={selectedViewOptions.list} onChange={this.toggleRadio} />
+                  <Col xs={12}>
+                    <PTCustomInput type="radio" title="Headings" id="preview" name="view-of-preview" value="preview" isChecked={get(selectedViewOptions, 'preview', null)} onChange={this.toggleRadio} />
                   </Col>
                 </Row>
               </div>

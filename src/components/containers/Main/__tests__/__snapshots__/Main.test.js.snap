@@ -8,7 +8,9 @@ exports[`Component <Main /> should renders correctly 1`] = `
 
 exports[`Component <Main /> should renders correctly when Breadcrumbs is Bad 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"
@@ -34,7 +36,9 @@ exports[`Component <Main /> should renders correctly when Breadcrumbs is Bad 1`]
 
 exports[`Component <Main /> should renders correctly when initialiseData is empty 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"
@@ -48,20 +52,9 @@ exports[`Component <Main /> should renders correctly when initialiseData is empt
         <span>
           <a
             class="breadcrumb-link"
-            href="/patients"
+            href="/"
           >
-            Patient Listings
-          </a>
-          <span
-            class="breadcrumb-separate"
-          />
-        </span>
-        <span>
-          <a
-            class="breadcrumb-link"
-            href="/patients/9999999024/patients-summary"
-          >
-            Patient Summary
+            Home
           </a>
           <span
             class="breadcrumb-separate"
@@ -71,7 +64,7 @@ exports[`Component <Main /> should renders correctly when initialiseData is empt
           <span
             class="breadcrumb-link active"
           >
-            Procedures
+            Patient Listings
           </span>
         </span>
       </div>
@@ -82,7 +75,9 @@ exports[`Component <Main /> should renders correctly when initialiseData is empt
 
 exports[`Component <Main /> should renders correctly when initialiseData is not empty 1`] = `
 <main
+  aria-live="polite"
   class="main"
+  id="main"
 >
   <div
     class="wrap-breadcrumbs"
@@ -94,21 +89,10 @@ exports[`Component <Main /> should renders correctly when initialiseData is not 
         class="breadcrumbs"
       >
         <span>
-          <a
-            class="breadcrumb-link"
-            href="/patients/9999999024/patients-summary"
-          >
-            Patient Summary
-          </a>
-          <span
-            class="breadcrumb-separate"
-          />
-        </span>
-        <span>
           <span
             class="breadcrumb-link active"
           >
-            Procedures
+            Patient Summary
           </span>
         </span>
       </div>

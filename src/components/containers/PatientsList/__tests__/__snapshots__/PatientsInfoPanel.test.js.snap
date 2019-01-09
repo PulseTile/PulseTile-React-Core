@@ -57,6 +57,7 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             xs={6}
           >
             <PTButton
+              aria-label="Select All"
               className="btn btn-success btn-inverse btn-bold btn-smaller"
               onClick={[Function]}
             >
@@ -91,18 +92,6 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
           />
           <PTCustomCheckbox
             isChecked={true}
-            name="resultsDate"
-            onChange={[Function]}
-            title="Results"
-          />
-          <PTCustomCheckbox
-            isChecked={true}
-            name="vitalsDate"
-            onChange={[Function]}
-            title="Vitals"
-          />
-          <PTCustomCheckbox
-            isChecked={true}
             name="diagnosesDate"
             onChange={[Function]}
             title="Diagnosis"
@@ -120,6 +109,7 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             xs={6}
           >
             <PTButton
+              aria-label="Select All"
               className="btn btn-success btn-inverse btn-bold btn-smaller"
               onClick={[Function]}
             >
@@ -153,18 +143,6 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             title="Orders"
           />
           <PTCustomCheckbox
-            isChecked={true}
-            name="resultsCount"
-            onChange={[Function]}
-            title="Results"
-          />
-          <PTCustomCheckbox
-            isChecked={false}
-            name="vitalsCount"
-            onChange={[Function]}
-            title="Vitals"
-          />
-          <PTCustomCheckbox
             isChecked={false}
             name="diagnosesCount"
             onChange={[Function]}
@@ -182,6 +160,7 @@ exports[`Component <PatientsInfoPanel /> should renders correctly shallow 1`] = 
             xs={6}
           >
             <PTButton
+              aria-label="Select All"
               className="btn btn-success btn-inverse btn-bold btn-smaller"
               onClick={[Function]}
             >
