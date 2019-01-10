@@ -150,6 +150,12 @@ exports[`Component <Medications /> should renders correctly and testing context 
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -850,6 +856,12 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -1018,6 +1030,12 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -1186,6 +1204,12 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -1366,6 +1390,12 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section full-panel full-panel-details"
   >
@@ -1421,6 +1451,12 @@ exports[`Component <Medications /> should renders correctly with medicationsDeta
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="The medical tablets and other medications that you take regularly for your health care"
+    title="Medications"
+    toRight={false}
+  />
   <div
     className="section"
   >

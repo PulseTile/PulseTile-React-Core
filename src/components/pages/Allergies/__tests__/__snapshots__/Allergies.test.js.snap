@@ -86,6 +86,12 @@ exports[`Component <Allergies /> should renders correctly and testing context an
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -280,6 +286,12 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -384,6 +396,12 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -488,6 +506,12 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >
@@ -600,6 +624,12 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section full-panel full-panel-details"
   >
@@ -651,6 +681,12 @@ exports[`Component <Allergies /> should renders correctly with allergiesDetail a
 <section
   className="page-wrapper"
 >
+  <PluginBanner
+    img={null}
+    subTitle="Those things that your body reacts against , that you have an allergy to"
+    title="Allergies"
+    toRight={false}
+  />
   <div
     className="section"
   >

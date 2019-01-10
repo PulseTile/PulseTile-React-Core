@@ -247,14 +247,11 @@ export default class Contacts extends PureComponent {
     }
 
     return (<section className="page-wrapper">
-      {!(isDetailPanelVisible || isCreatePanelVisible) ?
-        <PluginBanner
-          title="Contacts"
-          subTitle="The key people in your life, that you keep in contact with on a regular basis"
-          img={imageSource}
-        />
-        : null
-      }
+      <PluginBanner
+        title="Contacts"
+        subTitle="The key people in your life, that you keep in contact with on a regular basis"
+        img={imageSource}
+      />
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
