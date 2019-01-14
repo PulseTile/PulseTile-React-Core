@@ -58,9 +58,11 @@ export default class UserPanel extends PureComponent {
 
     //TODO: Should we remember this in a cookie?
     if( bodyTag.classList.contains("high-contrast") ){
-      bodyTag.classList.remove("high-contrast")
+      bodyTag.classList.remove("high-contrast");
+      document.cookie = 'enabledHighContrast=false';
     } else {
-      bodyTag.classList.add("high-contrast")
+      bodyTag.classList.add("high-contrast");
+      document.cookie = 'enabledHighContrast=true';
     }
   };
 

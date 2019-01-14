@@ -19,16 +19,31 @@ export default class Footer extends PureComponent {
     //TODO: Should we remember this in a cookie?
     if( bodyTag.classList.contains("high-contrast") ){
       bodyTag.classList.remove("high-contrast");
+      document.cookie = 'enabledHighContrast=false';
       this.setState({
         enabledHighContrast: false
       });
     } else {
-      bodyTag.classList.add("high-contrast")
+      bodyTag.classList.add("high-contrast");
+      document.cookie = 'enabledHighContrast=true';
       this.setState({
         enabledHighContrast: true
       });
     }
   };
+
+  componentDidMount(){
+    // Has High Contrast Mode been enabled?
+    if (document.cookie.split(';').filter((item) => item.includes('enabledHighContrast=true')).length) {
+      this.setState({
+        enabledHighContrast: true
+      });
+    } else {
+      this.setState({
+        enabledHighContrast: false
+      });
+    }
+  }
 
   render() {
     const { copyright, isShowSupportedBy } = this.props;

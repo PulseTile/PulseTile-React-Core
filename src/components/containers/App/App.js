@@ -22,6 +22,15 @@ import { image } from './HeaderImage';
 import '../../../config/styles';
 
 export class App extends Component {
+
+  componentDidMount(){
+    // Has High Contrast Mode been enabled?
+    if (document.cookie.split(';').filter((item) => item.includes('enabledHighContrast=true')).length) {
+      let bodyTag = document.getElementsByTagName("body")[0];
+      bodyTag.classList.add("high-contrast");
+    }
+  }
+
   render() {
     const { requestError, patientsInfo } = this.props;
     const isTouchDevice = (this.props.isTouchDevice) ? 'touch-device' : ('ontouchstart' in window) ? 'touch-device' : 'is-not-touch-device';
