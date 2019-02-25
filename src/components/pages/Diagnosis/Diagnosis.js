@@ -315,14 +315,11 @@ export default class ProblemsDiagnosis extends PureComponent {
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.diagnoses', []);
 
     return (<section className="page-wrapper">
-      {!(isDetailPanelVisible || isCreatePanelVisible) ?
-        <PluginBanner
-          title={problemsTitle}
-          subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
-          img={imageSource}
-        />
-        : null
-      }
+      <PluginBanner
+        title={problemsTitle}
+        subTitle='The key problems that affect your health, some with clear diagnoses from your doctor'
+        img={imageSource}
+      />
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

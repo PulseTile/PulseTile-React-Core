@@ -323,14 +323,11 @@ export default class Allergies extends PureComponent {
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.allergies', []);
 
     return (<section className="page-wrapper">
-      {!(isDetailPanelVisible || isCreatePanelVisible) ?
-        <PluginBanner
-          title='Allergies'
-          subTitle='Those things that your body reacts against , that you have an allergy to'
-          img={imageSource}
-        />
-        : null
-      }
+      <PluginBanner
+        title='Allergies'
+        subTitle='Those things that your body reacts against , that you have an allergy to'
+        img={imageSource}
+      />
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>

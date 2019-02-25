@@ -356,14 +356,11 @@ export default class Medications extends PureComponent {
     const hiddenButtons = get(themeConfigs, 'buttonsToHide.medications', []);
 
     return (<section className="page-wrapper">
-      {!(isDetailPanelVisible || isCreatePanelVisible) ?
-        <PluginBanner
-          title='Medications'
-          subTitle='The medical tablets and other medications that you take regularly for your health care'
-          img={imageSource}
-        />
-        : null
-      }
+      <PluginBanner
+        title='Medications'
+        subTitle='The medical tablets and other medications that you take regularly for your health care'
+        img={imageSource}
+      />
       <div className={classNames('section', { 'full-panel full-panel-main': isPanelMain, 'full-panel full-panel-details': (isPanelDetails || isPanelCreate) })}>
         <Row>
           {(isPanelMain || expandedPanel === 'all') ? <Col xs={12} className={classNames({ 'col-panel-main': isSecondPanel })}>
