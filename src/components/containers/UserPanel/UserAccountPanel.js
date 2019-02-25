@@ -57,9 +57,11 @@ export default class UserAccountPanel extends PureComponent {
         <div className="user-profile-info">
           <div
             className="user-profile-info__item name"
-            onClick={() =>{
-              this.context.router.history.push(clientUrls.USER_PROFILE);
-              onClick('')
+            onClick={() => {
+                if (themeConfigs.isShowUserProfileSettings) {
+                    this.context.router.history.push(clientUrls.USER_PROFILE);
+                    onClick('');
+                }
             }}
           >{user.given_name} {user.family_name}</div>
           <div className="user-profile-info__descr">
